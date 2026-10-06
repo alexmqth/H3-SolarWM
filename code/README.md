@@ -12,3 +12,5 @@
 - diffsynth_causal.patch：causal/cache 相关 DiffSynth 变更。
 
 所有 .py 文件均为源代码；提交时已排除 __pycache__、latent、conditioning 和运行日志。
+- diffsynth_long_video_mask.patch：可选编译原始 H3 directed action mask 构造，避免长视频的 eager 二次方临时张量；不改变 mask 语义。
+- causal/check_long_mask.py：eager/compiled mask 及 action assignment 变更的逐元素等价检查。

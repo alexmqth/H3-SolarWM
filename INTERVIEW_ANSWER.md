@@ -4,7 +4,9 @@
 
 第一次整理会议包时把旧 fixed-mix action grid 当作主视频。那套运行没有 visual tail16 adapter，并使用 latent-only dual anchor；它可以解码，但 generated-history 后段会出现人物分解和车库 tearing。当前主视频改为 `meeting/annotated/h3world_rgb_stable_action_grid_124_timed.mp4`，使用 RGB-consistent dual anchor + tail16 visual QKV adapter。视觉结构明显更稳定，但 A/D flow 仍未通过 gate；这次更换同时改变了多个协议，因此只能报告为组合协议的视觉修复，不能把改善归因于单个 anchor 或 adapter。
 
-当前 RGB-main 的 124-frame A/D flow 为 A=`-0.784`、D=`-1.007`、A-D=`0.223`，原始 H3 为 A=`+1.077`、D=`-1.602`、A-D=`2.679`。因此视觉稳定性恢复不等于 action control 恢复；提交包明确保留这个失败结果。
+当前 RGB-main 的 124-frame A/D flow 为 A=`-0.784`、D=`-1.007`、A-D=`0.223`，原始 H3 为 A=`+1.077`、D=`-1.602`、A-D=`2.679`。因此 124 帧的视觉改善不等于 action control 恢复；提交包明确保留这个失败结果。
+
+最新长度测试见 [10/20 秒报告](meeting/long_horizon/README.md)：同一 RGB checkpoint 在 10 秒后段已出现 blur/ghosting，20 秒约 10 秒开始严重雾化，15 秒后人物和场景难以辨认。**20 秒视觉稳定性失败**；下文 39/124 帧的改善不能外推为长时稳定。旧版动作响应较强但画面漂移的完整对比也保存在 [三列 A/D demo](meeting/action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4)。
 
 ## 1. 项目目的
 
@@ -142,13 +144,13 @@ RGB visual baseline 约为：
 
 本项目回答了两层问题：
 
-1. **能否 causalize？可以。** H3-World 已经能按 chunk 使用 causal attention、persistent raw KV、clean commit 和 generated-history rollout，39/124 帧均可稳定解码。
-2. **能否在当前 prototype 中证明原 action control 完整保留？不能。** RGB anchor 解决了主要视觉分解，但 A/D action geometry 仍未通过严格 gate。
+1. **能否 causalize？可以。** H3-World 已经能按 chunk 使用 causal attention、persistent raw KV、clean commit 和 generated-history rollout，39/124/243/481 帧均完成执行和视频解码。
+2. **能否证明原 action control 完整保留，以及长视频稳定？不能。** RGB 协议改善了 124 帧视觉结构，但 A/D action geometry 未通过严格 gate，481 帧出现严重视觉崩坏。执行完成与视觉质量是不同验收项。
 
 因此更准确的研究结论是：
 
-    Causalization is mechanically feasible and visual stability is recoverable,
-    but generated-history causal rollout introduces an action-conditioned score
-    geometry mismatch. Full action preservation requires multi-state/multi-seed
-    action supervision or a stronger causal action-pathway/topology adaptation,
-    possibly combined with full SolarWM Stage2-style rollout distribution matching.
+    Causalization with persistent KV is mechanically feasible. Visual adaptation
+    improves coherence at 124 frames, but the 20-second rollout collapses and
+    the strict A/D action gate remains unmet. Multi-state/multi-seed action
+    supervision and stronger rollout-distribution training are possible next
+    steps; neither long-video stability nor full action preservation is established.

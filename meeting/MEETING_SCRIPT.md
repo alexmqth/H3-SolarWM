@@ -1,5 +1,16 @@
 # 5 分钟现场讲稿
 
+## 加播：动作与视觉取舍，以及 10/20 秒长视频（约 1 分钟）
+
+先播放 `action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4`。
+
+“这里把两种不足放在同一张图里：左边原始 H3，中间旧 fixed-mix causal，右边 RGB visual causal。中间 A/D 符号是正确的，但后半段明显漂移；右边结构更完整，却几乎都朝同一方向运动。旧版和新版的 adapter、anchor、routing 有多项差异，所以这是实际方案的取舍展示，不是单变量结论。我们保留了两套 checkpoint 和复现配置。”
+
+然后播放 `long_horizon/original_vs_rgb_visual_W_10s_243f.mp4` 和 `long_horizon/original_vs_rgb_visual_W_20s_481f.mp4`。
+
+“这两组固定 W、首帧、prompt、seed；每组左右两边初始 video/audio noise 的字节 hash 一致。右边没有换 checkpoint，只把真实生成长度扩到 243 和 481 帧，没有循环或拉伸。10 秒后段已经模糊、重影；20 秒约在 10 秒开始严重雾化，15 秒后人物和场景难以辨认，视觉稳定性明确失败。所以之前的稳定版只是在 124 帧上相对旧版改善，当前还不能展示为 20 秒稳定模型。它们也不证明 A/D 控制恢复。”
+
+
 ## 0:00–0:35：先解释为什么早期画面会崩
 
 “先说明一个展示问题：会议包第一版播放的是旧的 fixed-mix action grid。它没有 visual tail16 adapter，而且推理使用 latent-only dual anchor；训练和推理的 anchor protocol 不一致，所以后半段会出现人物透明、分裂和车库 tearing。那个 MP4 能解码，只说明容器和编码没坏，不说明视觉质量合格。这里是我选片和标注的问题。现在主视频换成了后续 RGB-consistent anchor 加 visual QKV adapter 的结果。”
@@ -42,4 +53,4 @@
 
 ## 4:20–5:00：收束
 
-“最终结论是：H3-World 的 causalization、persistent KV 和 clean commit 在真实 33B 模型上可行；RGB-consistent anchoring 能显著改善长时视觉稳定性。但 generated-history 改变了 H3 原始 action-conditioned score geometry，当前还没有证明四方向完全保真。下一步应做多 state、多 seed 的 counterfactual action supervision，或者完整的 SolarWM Stage2 rollout-distribution matching，而不是继续堆单一 anchor、gain 或 solver sweep。”
+“最终结论是：H3-World 的 causalization、persistent KV 和 clean commit 在真实 33B 模型上可行；RGB-consistent anchoring 和 visual adapter 在 124 帧上改善了人物和场景结构，但 20 秒生成仍严重崩坏，四方向动作也没有完全保真。下一步应同时面对长时 generated-history 漂移和 action geometry 问题，验证多 state、多 seed 的 counterfactual action supervision 或更完整的 SolarWM Stage2 rollout-distribution matching，不能声称现有原型已经解决长视频质量。”

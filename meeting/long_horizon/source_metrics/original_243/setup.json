@@ -1,0 +1,82 @@
+{
+  "load_models_and_lora_seconds": 3.487150596920401,
+  "conditioning_seconds": 12.838647636119276,
+  "memory": {
+    "allocated_peak_MiB": 16425.802734375,
+    "reserved_peak_MiB": 16782.0
+  },
+  "completed_at": "2026-10-07T00:41:36.043385+08:00",
+  "config": {
+    "modes": [
+      "baseline"
+    ],
+    "steps": 8,
+    "flow_shift": 2.22,
+    "baseline_steps": 30,
+    "num_frames": 243,
+    "chunk_frames": 5,
+    "history_chunks": 5,
+    "action_preset": "W",
+    "action_schedule": null,
+    "cache_device": "cpu",
+    "anchor_mode": "fixed",
+    "boundary_blend": 0.0,
+    "boundary_overlap_frames": 1,
+    "boundary_clamp": false,
+    "device": "cuda:0",
+    "seed": 13,
+    "out_dir": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-07-00/long_rgb_visual/original_243",
+    "save_latents": false,
+    "causal_adapter": null,
+    "causal_adapter_scope": "all",
+    "causal_action_adapter": null,
+    "causal_action_prefix_adapter": null,
+    "h3_lora_adapter": null,
+    "history_source": "generated",
+    "action_prefix_mode": "own",
+    "action_feedback": false,
+    "teacher_latents": null
+  },
+  "gpu": "NVIDIA L40",
+  "visible_devices": "1",
+  "torch_version": "2.10.0+cu128",
+  "conditioning": "same prompt, image, chunk action schedule [forward,forward,forward,forward,forward,forward,forward,forward,forward,forward,forward,forward,forward,forward,forward], initial video/audio noise reused across modes",
+  "action_preset": "W",
+  "action_preset_resolved": "forward",
+  "action_schedule": [
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward",
+    "forward"
+  ],
+  "input_fingerprints": {
+    "initial_image_sha256": "25729ce66bc578c90a6d262bf3879a3e7b16e5c5009362903a7fae6d757a4b00",
+    "prompt": "A man in a yellow floral shirt stands in a dim, multi-level concrete parking garage.",
+    "video_noise_sha256": "8b9305858369ac234d561e090b9cab14bb5ece4e2bf1aba9577e4425afa5e6cf",
+    "audio_noise_sha256": "6788fdd6a81cc728ed885e156f3fc658c30a119db0aca8ea46f9660f5566b148",
+    "video_noise_shape": [
+      1,
+      24,
+      72,
+      30,
+      52
+    ],
+    "audio_noise_shape": [
+      2,
+      32,
+      405
+    ]
+  },
+  "vram_reserve_gib": 20.0
+}

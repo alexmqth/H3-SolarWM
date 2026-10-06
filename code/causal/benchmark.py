@@ -7,6 +7,7 @@ prefix times; it is an untrained causal ablation, NOT a Stage2 checkpoint.
 from __future__ import annotations
 
 import argparse
+import hashlib
 from contextlib import contextmanager
 from datetime import datetime
 import json
@@ -284,6 +285,21 @@ def main():
     setup['action_schedule']=action_schedule
     initial=shared['video_latents'].clone()
     audio_noise=shared['audio_latents'].clone()
+    # Byte-identical inputs can be audited across separately launched runs.
+    # Hashing is read-only and does not consume RNG state or change sampling.
+    setup['input_fingerprints'] = {
+        'initial_image_sha256': hashlib.sha256(
+            (ROOT/'examples/first_frame.png').read_bytes()).hexdigest(),
+        'prompt': pos['prompt'],
+        'video_noise_sha256': hashlib.sha256(
+            initial.detach().cpu().contiguous().view(torch.uint8).numpy().tobytes()).hexdigest(),
+        'audio_noise_sha256': hashlib.sha256(
+            audio_noise.detach().cpu().contiguous().view(torch.uint8).numpy().tobytes()).hexdigest(),
+        'video_noise_shape': list(initial.shape),
+        'audio_noise_shape': list(audio_noise.shape),
+    }
+    setup['vram_reserve_gib'] = float(os.environ.get('ABOT_VRAM_RESERVE_GIB', '5'))
+    setup['compile_action_block_mask'] = os.environ.get('H3_COMPILE_BLOCK_MASK') == '1'
     action_cond_full = torch.from_numpy(keys.astype(np.float32)).to(
         device=initial.device, dtype=initial.dtype)
     teacher_history = None

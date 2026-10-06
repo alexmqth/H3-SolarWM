@@ -23,11 +23,11 @@
 
     git clone https://github.com/modelscope/DiffSynth-Studio.git DiffSynth-Studio-h3-v2
     git -C DiffSynth-Studio-h3-v2 checkout "$(cat code/diffsynth_base_commit.txt)"
-    git -C DiffSynth-Studio-h3-v2 apply code/diffsynth_h3_action.patch
+    git -C DiffSynth-Studio-h3-v2 apply ../code/diffsynth_h3_action.patch
 
 如果需要 causal patch，再应用：
 
-    git -C DiffSynth-Studio-h3-v2 apply code/diffsynth_causal.patch
+    git -C DiffSynth-Studio-h3-v2 apply ../code/diffsynth_causal.patch
 
 准备以下外部文件（不放入提交包）：
 
@@ -83,4 +83,21 @@ Stage2-lite 的实现是 code/causal/stage2_lite_dmd.py。它支持 `--latent-ta
                   'fps=', float(s.average_rate) if s.average_rate else None)
     PY
 
-本包不收录旧的 latent-only cached.mp4，因为它不是当前 RGB-consistent protocol 的证据，且此前反馈过该实验文件无法播放。
+本包同时保留旧 latent-only fixed-mix 的对比视频，供动作响应与画面漂移的诊断；它们不作为 RGB-consistent 视觉稳定性的证据。首帧已附在 `examples/first_frame.png`。
+
+## 6. 动作响应旧版与 10/20 秒展示
+
+旧 fixed-mix action adapter 另存为 `checkpoints/legacy_fixed_mix/action_adapter.pt`。必须按 [`meeting/action_vs_stability/README.md`](meeting/action_vs_stability/README.md) 的 latent-anchor / own-prefix / feedback-off 配置使用。原始 H3、旧 causal、新视觉稳定 causal 的三列视频保留完整 124 帧，包括旧版的后段漂移。
+
+本轮长视频使用 W、seed=13、832×480、shift=2.22；243 帧=10.125 秒、481 帧=20.042 秒。稳定版配置保持不变，仅延长帧数，具体命令与每次 GPU reserve 记录在 `meeting/long_horizon/source_metrics/` 的 launch/setup JSON。
+
+20 秒原始 H3 的 eager mask 构造曾申请一个 25.94 GiB 的临时张量并 OOM。新的可选 patch 仅编译同一 directed action mask 的构造，不改变 attention predicate 或模型：
+
+```bash
+# 从 submission 根目录执行；先按上文应用 H3 action/causal patches。
+git -C DiffSynth-Studio-h3-v2 apply ../code/diffsynth_long_video_mask.patch
+export H3_COMPILE_BLOCK_MASK=1
+python code/causal/check_long_mask.py --out outputs/long_mask_equivalence.json
+```
+
+补丁只在 `H3_COMPILE_BLOCK_MASK=1` 时启用，默认行为不变。测试逐元素比较 dense mask 和 sparse BlockMask metadata，并在同形状下替换 action assignment 后重新比较，排除 stale mask。mask 编译及不同 CPU offload 配置会影响耗时，本轮不同 run 的单次时间不能作严格吞吐排名。

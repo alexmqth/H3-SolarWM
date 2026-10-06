@@ -1,3 +1,25 @@
+## 2026-10-07：保留动作较强旧版，完成 10/20 秒长视频对照
+
+按用户要求同时保留 fixed-mix 旧版与 RGB visual 稳定版，新增三列原始/旧 causal/稳定 causal 的 124 帧视频，路径为 `submission/meeting/action_vs_stability/`。旧版 action adapter 已独立备份到 `submission/checkpoints/legacy_fixed_mix/`；A=+0.1427、D=-0.3105、A-D=0.4532，方向符号较好但后段明显漂移。新稳定版 A=-0.7841、D=-1.0075、A-D=0.2233，结构较稳但动作失真。两套模型都保留，不把任何一套写成四方向完全保真。
+
+长视频使用同一稳定 adapter、RGB dual、generated history、CPU raw KV、5 latent frames/chunk、5-chunk history、8 steps/chunk、W、seed=13、shift=2.22、832×480。实际长度为 243 帧/10.125 秒和 481 帧/20.042 秒，分别有 15/29 chunks、120/232 noisy forwards、15/29 clean commits。原始 H3 同长度 30-step 对照同时运行；同长度两分支的首帧、prompt、初始 video/audio noise SHA256 已验证一致。实验目录 `H3-World/outputs/2026-10-07-00/long_rgb_visual/`。
+
+20 秒原始 H3 的 eager directed mask 构造申请 25.94 GiB 临时张量 OOM；保留失败日志，增加可选 `H3_COMPILE_BLOCK_MASK=1` 编译同一 mask 构造后重启。该优化不改变 attention predicate；2176 rows、padding、3 action rows、改变 action assignment 后的 dense mask 与 sparse BlockMask metadata 均逐元素完全一致。补丁与检查脚本归入 submission，未触碰 causal 模型架构。
+
+长视频全部完成并通过完整 H.264/YUV420P、24 fps 解码检查；每个长度 original/causal 的输入指纹一致。真实单次结果如下：
+
+| 帧数 | 方法 | E2E s | GPU peak MiB | CPU KV MiB | Noisy+commit | RGB MAD | Boundary MAD |
+|---|---|---:|---:|---:|---:|---:|---:|
+| 243 | original | 921.0 | 16425.8 | 0.0 | 30+0 | 3.802 | 3.876 |
+| 243 | causal | 1773.8 | 18300.4 | 13508.6 | 120+15 | 2.713 | 3.642 |
+| 481 | original | 2406.0 | 12394.8 | 0.0 | 30+0 | 3.252 | 3.022 |
+| 481 | causal | 3659.3 | 30896.8 | 13508.6 | 232+29 | 2.759 | 4.666 |
+
+10 秒后段存在模糊、重影和靠墙方向漂移；20 秒：**视觉稳定性明确失败。** 0–5 秒仍能辨认人物和车库；约 10 秒开始严重雾化和重影，15 秒后人物与场景结构难以辨认，20 秒末尾退化成模糊色块。原始 H3 的长时场景几何同样形变，但人物保持得明显更完整。这里没有裁掉失败后段；该视频应作为 generated-history 长时退化的负结果展示，不能作为“20 秒稳定性已解决”的证据。所谓稳定版只指其 124 帧表现相对旧 fixed-mix 较好，不是长时质量保证。
+
+完整材料位于 `submission/meeting/long_horizon/`，三列动作/视觉对照位于 `submission/meeting/action_vs_stability/`；额外备份见 `submission/breakthrough/06_long_rollout_and_tradeoff/`。两边都保留完整后段，不声称动作控制已恢复或长视频质量 PASS。原始 H3 20 秒可通过编译 mask 与 CPU offload 运行，旧 OOM 不能用作原始模型的固有长度限制。单次并发时间和不同 reserve 不能作严格 speedup/memory 排名。
+
+
 ## 2026-10-07：会议视频主结果纠错与视觉协议更换
 
 发现会议包第一版把 `outputs/2026-10-03-02/final_fixed_mix124_8step/` 作为主展示。该旧 fixed-mix 实验只有 action adapter，没有 visual tail16 QKV adapter，推理使用 `dynamic_last_frame_dual` / `global_retimed_latent_dual_v1` latent-only anchor，且 `action_prefix_mode=own`、`action_feedback=false`。它的 MP4 可解码，但 generated-history 后段出现人物透明、车库 tearing 和 temporal-VAE ghosting；“能播放”被错误地当成了“视觉合格”。这是选片/标注错误，不是播放器或编码器故障。旧视频、旧指标和审计已归档到 `submission/meeting/diagnostics/legacy_fixed_mix/`。

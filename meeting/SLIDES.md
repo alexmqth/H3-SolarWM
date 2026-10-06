@@ -55,7 +55,7 @@ From `METRICS.md`:
 - original e2e: 441.5–454.2 s;
 - current RGB-main causal e2e: 673.4–767.9 s;
 - causal first chunk: 41.8–57.4 s; mean chunk: 75.1–88.6 s;
-- causal peak GPU: 30.8–39.0 GiB (30,570–39,940 MiB);
+- causal peak GPU: 30.8–39.0 GiB (31,570–39,940 MiB);
 - CPU raw KV: 13.19 GiB (13,509 MiB).
 
 These are single runs without warmup/repeat averaging. The current prototype is slower overall because it performs 64 noisy forwards versus 30 full-horizon forwards and pays RGB anchor decode/re-encode cost. KV reuse establishes the causal interface; it does not by itself guarantee wall-clock speedup.
@@ -82,4 +82,10 @@ The strict gate `flow(A)>0, flow(D)<0, A-D>1.0` fails. Do not present the visual
 
 Final sentence:
 
-> H3-World causalization and persistent KV are mechanically feasible, and RGB-consistent anchoring recovers much of the long-horizon visual stability. The remaining failure is generated-history action-conditioned score geometry; multi-state action supervision or full SolarWM Stage2-style rollout-distribution matching is the next step.
+> H3-World causalization and persistent KV are mechanically feasible. RGB-consistent anchoring with visual adaptation improves coherence at 124 frames, but the same checkpoint collapses visually in the 20-second rollout and fails the A/D action gate. Both action control and long-horizon generated-history drift remain unresolved.
+
+## Optional slide — Action response versus visual stability
+
+Show `action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4`: Original H3 / old fixed-mix / RGB visual adapter. Old causal: A=+0.143, D=-0.311, separation=0.453 with visible drift. RGB causal: A=-0.784, D=-1.007, separation=0.223 with more coherent structure. Neither is full action preservation.
+
+Then show the 10.125 s (243f) and 20.042 s (481f) W pairs from `long_horizon/`. These are independently sampled real long rollouts using the same RGB visual checkpoint. The 10-second tail becomes blurred/ghosted; the 20-second causal sample is a visual failure, with severe fog around 10 s and barely recognizable person/scene after 15 s. Same-length original/causal noise hashes match. KV holds five history chunks, but RGB-prefix decoding still grows with the generated prefix. Complete execution and bounded KV do not imply visual stability.

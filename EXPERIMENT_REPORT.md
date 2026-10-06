@@ -1,5 +1,9 @@
 # 实验报告
 
+## 2026-10-07：动作/视觉取舍与 10/20 秒对照
+
+已保留 fixed-mix 旧 action adapter 和当前 RGB visual adapter，三列原始/旧版/稳定版视频见 [动作/视觉对照](meeting/action_vs_stability/README.md)。同一 RGB checkpoint 完成 243/481 帧 W rollout，并与匹配输入的 30-step 原始 H3 对比，详见 [长视频报告和指标](meeting/long_horizon/README.md)。**20 秒 causal 视觉稳定性明确失败**：约 10 秒严重雾化，15 秒后人物和场景难以辨认，末尾退化成模糊色块。10 秒样本后段也有 blur/ghosting。两组都保留完整后段；“稳定版”仅表示 124 帧相对旧版的改善，也不证明 A/D 控制恢复。单次并发测量不作严格效率排名。
+
 ## 0. 会议主视频的纠错说明（2026-10-07）
 
 第一次整理会议包时把旧 fixed-mix action grid 当作主视频。那套运行没有 visual tail16 adapter，并使用 latent-only dual anchor；它可以解码，但 generated-history 后段会出现人物分解和车库 tearing。当前主视频改为 `meeting/annotated/h3world_rgb_stable_action_grid_124_timed.mp4`，使用 RGB-consistent dual anchor + tail16 visual QKV adapter。视觉结构明显更稳定，但 A/D flow 仍未通过 gate；这次更换同时改变了多个协议，因此只能报告为组合协议的视觉修复，不能把改善归因于单个 anchor 或 adapter。

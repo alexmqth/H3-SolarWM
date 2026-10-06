@@ -2,6 +2,14 @@
 
 这个目录是会议时直接打开的材料。当前主视频使用 **RGB-consistent visual-stability protocol**，不是早期的 fixed-mix action grid。早期 fixed-mix 视频仍保留在 [`diagnostics/legacy_fixed_mix/`](diagnostics/legacy_fixed_mix/) 作为失败诊断，不能继续当作主视觉结果。
 
+## 新增：保留动作较强旧版与长视频对照
+
+- [动作响应与视觉稳定性的三列 A/D 对比](action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4)：原始 H3／旧 fixed-mix／RGB visual，完整保留漂移后段。
+- [W/S/A/D 三列总览](action_vs_stability/original_action_stronger_visual_stable_grid_124.mp4)：同一首帧、prompt、seed 的四动作对照。
+- [两套 checkpoint 的配置和限制](action_vs_stability/README.md)：旧版 A/D 符号较好，但分离仍远弱于原始 H3；视觉稳定版的 A 符号错误。
+- [10 秒和 20 秒真实生成对照](long_horizon/README.md)：10 秒后段出现模糊和重影；20 秒 causal 严重退化，**长时视觉稳定性未通过**。两条都保留完整后段，也不作为 action preservation 的证明。
+
+
 ## 先说结论
 
 H3-World 的 chunk-wise causal attention、persistent raw KV、clean commit 和 generated-history rollout 已经在真实 H3 checkpoint 上跑通，124 帧可以完整生成。早期主视频画面崩坏，主要是我在整理会议包时选用了没有 visual tail16 adapter、latent-only anchor protocol 的旧 fixed-mix action 实验；它能解码，不代表视觉质量合格。
@@ -56,4 +64,4 @@ H3-World 的 chunk-wise causal attention、persistent raw KV、clean commit 和 
 - [`source_metrics/rgb_visual/`](source_metrics/rgb_visual/)：主视频原始 JSON、flow 和 continuity 指标。
 - [`diagnostics/legacy_fixed_mix/`](diagnostics/legacy_fixed_mix/)：旧主视频、旧指标和选片审计。
 - [`annotated/`](annotated/)：带时间/步数标注的主 MP4。
-- [`final/`](final/)：同一主结果的未二次合成版本。
+- [`final/`](final/)：与 annotated 中当前主视频相同的备份。

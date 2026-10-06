@@ -1,0 +1,11 @@
+--- a/diffsynth/models/minimax_h3_dit.py
++++ b/diffsynth/models/minimax_h3_dit.py
+@@ -252,2 +252,7 @@
+-        masks[start] = create_block_mask(mask_mod, None, None, length, length, device=device)
++        # Compiling the same mask construction avoids the eager int64
++        # length-by-length reduction temporary for full-horizon long video.
++        # The directed action predicate and attention graph stay unchanged.
++        masks[start] = create_block_mask(
++            mask_mod, None, None, length, length, device=device,
++            _compile=os.environ.get("H3_COMPILE_BLOCK_MASK") == "1")
+     return masks

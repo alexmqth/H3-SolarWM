@@ -9,3 +9,4 @@
 - action_diagnostic/student_action_adapter.pt：corrected own-history endpoint + paired-QKV 诊断 adapter；它没有通过 action gate，只用于复现实验负结果。
 
 adapter 必须和同一版本的 H3-World LoRA、DiffSynth patch、anchor protocol 一起使用。不要把这些 adapter 单独解释为完整 causal checkpoint。
+- legacy_fixed_mix/action_adapter.pt：保留较强 A/D 符号响应、但后段视觉漂移的旧 checkpoint；搭配 latent dual、own prefix、feedback off。具体复现见该目录 README。
