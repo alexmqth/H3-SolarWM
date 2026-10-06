@@ -31,6 +31,8 @@
 ## 文档和目录
 
 - `INTERVIEW_ANSWER.md`：面试题逐项回答。
+- `REPORT.md`：**简短实验报告**（方法说明、最小原型与可行性、Demo 与指标、长视频结果、结论）。
+- `EXPERIMENT_LOG.md`：精简的实验时间线。
 - `EXPERIMENT_REPORT.md`：39/124 帧协议、视觉修复、Stage2-lite、action geometry 和 243/481 帧长度测试。
 - `REPRODUCE.md`：环境、patch、外部权重和运行命令。
 - `LIMITATIONS.md`：不应过度声称的结论和后续实验。
@@ -54,7 +56,7 @@
 | [`meeting/visual_stability/stage2_rgb_anchor_endpoint_visual_stability_comparison_39.mp4`](meeting/visual_stability/stage2_rgb_anchor_endpoint_visual_stability_comparison_39.mp4) | RGB anchor 视觉修复诊断 |
 | [`meeting/stage2_lite/stage2_lite_rgb_endpoint_integrated_AD_39.mp4`](meeting/stage2_lite/stage2_lite_rgb_endpoint_integrated_AD_39.mp4) | Stage2-lite 链路诊断 |
 
-`videos/final/` 中旧的 `h3world_final_*` 文件仍作为历史 fixed-mix 证据保留；它们不再是会议主入口。所有主视频均已用 PyAV 检查为 H.264/YUV420P、24 fps、完整帧数。
+`meeting/diagnostics/legacy_fixed_mix/` 中旧的 `h3world_final_*` 文件仍作为历史 fixed-mix 证据保留；它们不再是会议主入口。所有主视频均已用 PyAV 检查为 H.264/YUV420P、24 fps、完整帧数。
 
 ## 重要限制
 

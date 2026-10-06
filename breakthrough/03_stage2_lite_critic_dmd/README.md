@@ -14,7 +14,7 @@ per-sigma teacher replay 或简单 two-pass replay 只能把 student 拉向 teac
 
 ## 证据
 
-`evidence_stage2_lite_AD_39.mp4` 是早期链路视频；`evidence_integrated_stage2_lite_AD_39.mp4` 是 RGB-consistent visual adapter 接入真实 critic/DMD chain 后的结果。训练完成且 finite，无 NaN/OOM，单张 L40 可运行。
+[早期链路视频](../../meeting/stage2_lite/stage2_lite_39_8step_4updates_AD.mp4) 是早期链路视频；[RGB 接入后视频](../../meeting/stage2_lite/stage2_lite_rgb_endpoint_integrated_AD_39.mp4) 是 RGB-consistent visual adapter 接入真实 critic/DMD chain 后的结果。训练完成且 finite，无 NaN/OOM，单张 L40 可运行。
 
 ## 结果
 

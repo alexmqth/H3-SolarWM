@@ -56,7 +56,7 @@ flow 是 signed horizontal optical-flow proxy，不是完整视频质量指标�
 - W 长片一次运行约 709 s sampling、31,570 MiB allocated GPU peak、约 13.19 GiB CPU raw-KV history；
 - 所有视频为 H.264/YUV420P，完整解码。
 
-对应视频在 videos/visual_stability/，详细报告在 reports/visual_drift_repair/。
+对应视频在 meeting/visual_stability/，详细报告在 reports/visual_drift_repair/。
 
 ## Causal/KV 正确性
 

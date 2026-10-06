@@ -13,7 +13,7 @@ RGB anchor 修复视觉后，A/D 仍然产生同向负 horizontal flow。需要�
 
 ## 证据
 
-`evidence_routing_all_AD_39.mp4`、`evidence_latent_endpoint_AD_39.mp4` 和 `FINAL_ACTION_DIAGNOSTIC.md` 保存了 routing upper bound、endpoint smoke 和最终短片 gate 的证据。
+[routing 上界](../../meeting/action_geometry/stage2_routing_all_rgb_AD_39.mp4)、[端点监督（含 state mismatch 的第一版）](../../meeting/action_geometry/stage2_action_qkv_latent_endpoint_AD_39.mp4) 和 [FINAL_ACTION_DIAGNOSTIC.md](../../reports/action_alignment/FINAL_ACTION_DIAGNOSTIC.md) 保存了 routing upper bound、endpoint smoke 和最终短片 gate 的证据。
 
 ## 结论
 

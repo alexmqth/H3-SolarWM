@@ -64,4 +64,3 @@ H3-World 的 chunk-wise causal attention、persistent raw KV、clean commit 和 
 - [`source_metrics/rgb_visual/`](source_metrics/rgb_visual/)：主视频原始 JSON、flow 和 continuity 指标。
 - [`diagnostics/legacy_fixed_mix/`](diagnostics/legacy_fixed_mix/)：旧主视频、旧指标和选片审计。
 - [`annotated/`](annotated/)：带时间/步数标注的主 MP4。
-- [`final/`](final/)：与 annotated 中当前主视频相同的备份。

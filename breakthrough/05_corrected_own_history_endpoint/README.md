@@ -17,7 +17,7 @@
     A-D     = -0.1194
     latent delta cosine = 0.0655
 
-人物和停车场结构保持，但 `flow(A)>0, flow(D)<0, A-D>1.0` 仍全部未满足。对应视频为 `evidence_own_endpoint_AD_39.mp4`，报告为 `ACTION_QKV_OWN_ENDPOINT_REPORT.md`。
+人物和停车场结构保持，但 `flow(A)>0, flow(D)<0, A-D>1.0` 仍全部未满足。对应视频为 [own-history 端点视频](../../meeting/action_geometry/stage2_action_qkv_own_endpoint_AD_39.mp4)，报告为 [ACTION_QKV_OWN_ENDPOINT_REPORT.md](../../reports/endpoint_target/ACTION_QKV_OWN_ENDPOINT_REPORT.md)。
 
 ## 结论
 

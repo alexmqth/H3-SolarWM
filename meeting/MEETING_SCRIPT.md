@@ -25,7 +25,7 @@
 
 “H3-World 的关键是 action rows 和 directed action routing。改造保留这些条件，只把视频 token 按 5 个 latent frames 分 chunk；每个 chunk 完成后用 clean latent 做一次 commit，把每层 raw K/V 写入 CPU history。下一个 chunk 读取历史 K/V，只计算新 token。右侧视频是 8 steps/chunk，8 个 chunks，因此是 64 次 noisy forwards 加 8 次 clean commits，并不是整段视频只调用 8 次网络。”
 
-“这对应 SolarWM Stage0.5/Stage1 的 causal interface 和 teacher replay。Stage2 是另外的问题：student 在自己的 generated history 上训练 fake score，再和 frozen teacher 做 distribution matching。KV cache 解决历史复用，不会自动把 30 steps 变成 8 steps。”
+“SolarWM 的 Stage0.5 是双向相机适配，Stage1 才是块因果 + teacher forcing 的 AnyFlow 初始化；我这里的因果接口和 teacher replay 只是 Stage1 风格（没有 AnyFlow）。Stage2 是另外的问题：student 在自己的 generated history 上训练 fake score，再和 frozen teacher 做 distribution matching。KV cache 解决历史复用，不会自动把 30 steps 变成 8 steps。”
 
 ## 1:50–2:35：说效率和连续性
 

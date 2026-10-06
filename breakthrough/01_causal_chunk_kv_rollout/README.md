@@ -16,7 +16,7 @@
 
 ## 证据
 
-`evidence_W_original_vs_causal.mp4` 是原始 30-step 与 causal W 的并排对比；`evidence_action_grid_124.mp4` 是 124-frame W/S/A/D 总览。124-frame rollout 完成 8 chunks、64 noisy forwards、8 clean commits，replay error 为 0，视频可以完整解码。
+[旧 fixed-mix W 对比](../../meeting/diagnostics/legacy_fixed_mix/h3world_final_W_original_vs_causal.mp4) 是原始 30-step 与 causal W 的并排对比；[旧 fixed-mix 四动作网格](../../meeting/diagnostics/legacy_fixed_mix/h3world_final_fixed_mix_action_grid_124.mp4) 是 124-frame W/S/A/D 总览。124-frame rollout 完成 8 chunks、64 noisy forwards、8 clean commits，replay error 为 0，视频可以完整解码。
 
 ## 结论
 

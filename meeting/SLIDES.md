@@ -33,7 +33,7 @@ H3 action rows + causal chunk attention
              + RGB-consistent anchor
 ```
 
-Stage0.5/Stage1 make causal execution and teacher replay executable. Stage2 is separate rollout-distribution matching: student self-rollout, frozen teacher and trainable fake-score critic.
+Stage0.5 is bidirectional camera adaptation (later the frozen teacher); Stage1 (TF-AnyFlow) is block-causal teacher forcing giving a few-step autoregressive initializer; Stage2 is separate rollout-distribution matching: student self-rollout, frozen teacher and trainable fake-score critic. This prototype is Stage1-style (no AnyFlow) plus a Stage2-lite chain (no SGF).
 
 Implementation locations: `code/causal/h3_cached.py`, `benchmark.py`, `train_online_selfrollout.py`, `stage2_lite_dmd.py`, `evaluate_action_control.py`, and `code/diffsynth_h3_action.patch`.
 

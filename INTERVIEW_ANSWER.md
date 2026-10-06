@@ -21,33 +21,21 @@ SolarWM 的核心启发是把长视频拆成 causal chunks，历史 chunk 通过
 
 ## 2. SolarWM 三个阶段
 
-### Stage0.5
+仓库命名（Stage0.5 / 1 / 2）与论文编号（Stage 1 / 2 / 3）不同，指的是同样三件事：
 
-Stage0.5 是从全序列/非因果模型到因果分块模型的结构准备阶段。模型仍然可以使用较完整的训练监督，但 attention、chunk 边界、历史 KV 和 action/condition 的时间路由需要变成 causal-safe 形式。它让模型具备按 chunk 生成和提交历史状态的接口，并不等于少步蒸馏。
+| 仓库命名 | 论文命名 | 注意力 | 做什么 |
+|---|---|---|---|
+| Stage0.5（Bid-Cam） | Stage 1：Bidirectional Adaptation | 整段**双向** | 双向 flow matching，注入 fused-PRoPE 相机条件，把预训练视频模型适配到相机条件的世界数据。产物是后两阶段的初始化，也是 Stage2 里**冻结的双向 teacher** |
+| Stage1（TF-AnyFlow） | Stage 2：Teacher-Forced AnyFlow | **块因果** | latent 切成有序块，当前块只看“自身噪声状态 + 干净 GT 历史”（teacher forcing），用 AnyFlow loss 监督任意两个噪声水平之间的 flow map，直接得到少步自回归初始化器 |
+| Stage2（SGF/DMD） | Stage 3：DMD-based Causal Training | 块因果 + KV Cache | 学生在**自己的 rollout** 上训练：冻结双向 teacher 给 `s_real`，可训练 critic 跟踪学生分布给 `s_fake`，更新方向 ∝ `s_fake − s_real`；SGF 通过 rollout-and-replay 让未来块的梯度也能监督历史 K/V 的“写入” |
 
-本项目对应的是 H3-World 的 block/chunk causal attention、action row causal routing、raw K/V 分块提交和 clean KV commit。
+**本项目与它们的对应关系（诚实边界）：** 没有做 Stage0.5（直接把已发布的 H3-World LoRA 当作双向 teacher）；Stage1 只是 Stage1-**style**（块因果 + clean-history teacher forcing + per-sigma teacher replay，**没有 AnyFlow**）；Stage2 只是 Stage2-**lite**：student self-rollout → detached generated history → trainable fake-score critic → frozen teacher → DMD surrogate，共享一个 H3 33B backbone 轮换 student/critic/teacher 三个小 adapter，**没有 SGF**，也不是官方 recipe。
 
-### Stage1
-
-Stage1 是在 causal 架构上做 teacher-forced 或 per-sigma teacher replay 的适配。原始 H3 teacher 对当前 chunk 的 noisy latent/velocity 提供监督，student 学到 causal score field。它能验证 causal pipeline 和训练接口，但如果训练历史主要来自 teacher 或 clean history，student rollout 看到的 generated history 仍然不同。
-
-本项目的 Stage1-style 原型包括 5 latent frames/chunk、5-chunk sliding history、每 chunk 8 solver steps、persistent raw KV、generated-history self-rollout、RGB dual anchor、per-sigma teacher replay，以及 paired A/D delta 诊断。
-
-### Stage2
-
-Stage2 让 causal student 在自己的 generated trajectory 上训练。SolarWM 的 SGF/DMD 类方法通常保留 frozen bidirectional teacher，同时训练 fake-score/fake-distribution model 去描述 student 当前生成分布，再用 teacher score 与 fake score 的差异形成 distribution-matching gradient。它解决的是 exposure bias、generated-history drift 和少步 student 分布偏移，而不是 KV cache 本身。
-
-本项目实现的是 Stage2-lite feasibility chain：
-
-    student self-rollout
-        -> detached generated history
-        -> trainable fake-score critic
-        -> frozen teacher score
-        -> DMD surrogate update
-
-它共享一个 H3 33B backbone，轮换 student/critic/teacher adapter，不是官方 SolarWM Stage2 recipe，也没有声称完成 SGF/DMD 的完整复现。
+另外，SolarWM 的 H3 控制信号是几何相机（`camera_viewmats`/`camera_K`），没有 H3-World 的键盘动作行，所以它的成功不能直接证明 H3-World 的 W/S/A/D 方向保真。
 
 ## 3. Stage2 为什么能减少采样步数
+
+> 先区分：**因果 mask + KV Cache = 可流式、复用历史计算；Stage2 = 少步。** 本项目没有做少步蒸馏，所以没有端到端加速（RGB 版 124 帧慢约 1.5–1.7 倍，见 meeting/METRICS.md）。
 
 KV cache 只减少历史 token 的重复计算，不会改变每个 chunk 需要多少次 denoiser evaluation。Stage2 的少步收益来自训练 student，使它在少量 solver steps 中近似原始多步 teacher 在目标生成分布上的更新方向。teacher/fake-score distribution matching 让 student 学会自己的 generated-history 状态下的有效 score，而不是只在 teacher-forced clean history 上拟合。
 
