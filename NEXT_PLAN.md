@@ -70,8 +70,8 @@ loss should not be expanded again. The short-video gate remains:
 flow(A)>0, flow(D)<0, A-D>1.0, and intact person/garage through frame 38.
 ```
 
-Until that gate passes, do not create a new formal 124-frame W/S/A/D grid. The visual-stable 124-frame
-clips remain diagnostic evidence only; the older fixed-mix grid remains the formal action deliverable.
+The strict action gate still fails, so do not treat any 124-frame visual-stable clip as proof of action preservation. The current RGB visual-stable grid is the meeting
+visual-main for assessing structural stability; the older fixed-mix grid is archived as a historical action diagnostic.
 
 
 # Current status update (2026-10-06): visual drift repair is now a fixed baseline
@@ -228,7 +228,7 @@ multi-chunk/multi-sigma Stage2，增加 update 数或 schedule/counterfactual st
 ### A5：最终交付约束
 
 在 A2/A3 通过前，不生成新的正式 124-frame W/S/A/D grid。正式主视频仍是旧的
-`h3world_final_fixed_mix_action_grid_124.mp4`；新 RGB Stage2-lite 只作为短片诊断，文件和数据在
+`meeting/annotated/h3world_rgb_stable_action_grid_124_timed.mp4` 作为当前会议视觉主入口；旧 fixed-mix grid 已归档，文件和数据在
 上述 2026-10-06-07 目录中。
 
 ## 当前执行结论：gain learning curve 已完成，先审计目标，再决定训练路线

@@ -1,62 +1,59 @@
 # 面试现场 Demo 包
 
-这个目录只保留开会时需要展示的材料。推荐先播放带时间标注的 124-frame W/S/A/D 总览，再播放一条 W 或 A/D 并排视频，最后用指标表解释为什么这是一个 causal feasibility prototype，而不是已经完成的 action-preserving Stage2 模型。
+这个目录是会议时直接打开的材料。当前主视频使用 **RGB-consistent visual-stability protocol**，不是早期的 fixed-mix action grid。早期 fixed-mix 视频仍保留在 [`diagnostics/legacy_fixed_mix/`](diagnostics/legacy_fixed_mix/) 作为失败诊断，不能继续当作主视觉结果。
 
-## 30 秒结论
+## 先说结论
 
-> 我把 H3-World 改成了 SolarWM 风格的 chunk-wise causal rollout：5 latent frames/chunk、persistent raw KV、clean commit、generated history 和 8 steps/chunk。124 帧视频可以完整生成，RGB-consistent anchor 也修复了后段人物分解。当前瓶颈不是能不能 causalize，而是 generated-history 改变了 H3 原始 action-conditioned score geometry：A/D 仍有响应，但方向幅度明显变弱，严格 action gate 尚未通过。
+H3-World 的 chunk-wise causal attention、persistent raw KV、clean commit 和 generated-history rollout 已经在真实 H3 checkpoint 上跑通，124 帧可以完整生成。早期主视频画面崩坏，主要是我在整理会议包时选用了没有 visual tail16 adapter、latent-only anchor protocol 的旧 fixed-mix action 实验；它能解码，不代表视觉质量合格。
+
+换用后续的 RGB-consistent dual anchor（生成的 latent tail 先解码到 RGB，再经过 H3 image branch）和 tail16 visual QKV adapter 后，人物和车库结构在 124 帧末尾明显更完整。不过这次修复同时改变了 adapter、anchor、action routing 和 feedback 配置，不能把改善归因到单个组件；画面仍有模糊/ghosting，A/D action geometry 也没有恢复。
 
 ## 推荐播放顺序
 
-1. [h3world_final_action_grid_124_timed.mp4](annotated/h3world_final_action_grid_124_timed.mp4)：四个动作、左侧原始 H3 30 steps、右侧 causal Stage1 8 steps/chunk；每个 panel 已标注 recorded end-to-end 时间。
-2. [h3world_final_W_original_vs_causal_timed.mp4](annotated/h3world_final_W_original_vs_causal_timed.mp4)：展示一条完整 5.17 秒并排视频，说明人物和车库结构仍可保持。
-3. [stage2_rgb_anchor_endpoint_visual_stability_comparison_39.mp4](visual_stability/stage2_rgb_anchor_endpoint_visual_stability_comparison_39.mp4)：说明旧 latent-only anchor 的人物分解如何被 RGB-consistent anchor 修复。
-4. [stage2_rgb_endpoint_visual_stable_AD_124.mp4](visual_stability/stage2_rgb_endpoint_visual_stable_AD_124.mp4)：说明视觉稳定性已经改善，但不要把它说成 A/D 方向恢复。
-5. [stage2_lite_rgb_endpoint_integrated_AD_39.mp4](stage2_lite/stage2_lite_rgb_endpoint_integrated_AD_39.mp4)：说明 Stage2-lite 的 student/critic/teacher 链路可以运行。
+1. [h3world_rgb_stable_action_grid_124_timed.mp4](annotated/h3world_rgb_stable_action_grid_124_timed.mp4)：四个动作的 4×2 并排总览；左侧原始 H3 30 steps，右侧 RGB-anchor causal prototype 8 steps/chunk，含单次 recorded end-to-end 时间。
+2. [h3world_rgb_stable_W_original_vs_causal_timed.mp4](annotated/h3world_rgb_stable_W_original_vs_causal_timed.mp4)：一条完整 124-frame / 5.17 s 的单动作对比。
+3. [h3world_rgb_stable_A_original_vs_causal_timed.mp4](annotated/h3world_rgb_stable_A_original_vs_causal_timed.mp4) 或 [h3world_rgb_stable_D_original_vs_causal_timed.mp4](annotated/h3world_rgb_stable_D_original_vs_causal_timed.mp4)：直接展示 A/D 的视觉稳定性和动作方向仍未完全恢复。
+4. [stage2_rgb_anchor_endpoint_visual_stability_comparison_39.mp4](visual_stability/stage2_rgb_anchor_endpoint_visual_stability_comparison_39.mp4)：旧 latent-only anchor 与 RGB-consistent anchor 的修复证据。
+5. [stage2_lite_rgb_endpoint_integrated_AD_39.mp4](stage2_lite/stage2_lite_rgb_endpoint_integrated_AD_39.mp4)：Stage2-lite student/critic/teacher 链路的可运行性证据。
 
-如果只有 3 分钟，播放第 1 项，然后直接打开 [METRICS.md](METRICS.md) 和 [SLIDES.md](SLIDES.md)。
+如果只有 3 分钟，播放第 1 项，然后打开 [`METRICS.md`](METRICS.md) 和 [`FAIRNESS.md`](FAIRNESS.md)。
 
-## 主 demo 的公平性
+## 当前主方案配置
 
-正式 124-frame grid 使用 fixed-mix action adapter 和 dynamic latent dual-anchor protocol；它使用同一张 initial RGB image、同一 scene prompt、同一 action sequence、同一 seed=13、同一 initial video/audio noise、同一分辨率和同一帧数。四个动作 W/S/A/D 分别固定到 8 个 causal chunks。左侧是原始 H3 30-step full-horizon inference；右侧是 causal prototype 的 8 steps/chunk。
+- 124 RGB frames / 5.17 s / 24 fps，5 latent frames/chunk，8 chunks；
+- history window 5 chunks，persistent raw KV 放 CPU；
+- 8 noisy denoiser steps/chunk，64 noisy forwards + 8 clean KV commits；
+- `dynamic_last_frame_rgb_dual`，`global_retimed_rgb_prefix_last_image_dual_v2`；
+- generated history，`action_prefix_mode=causal`，`action_feedback=true`，flow shift 2.22，seed 13；
+- tail16 visual QKV adapter + action adapter；不包含官方 SolarWM Stage2 的完整 SGF/DMD 训练。
 
-步数口径必须说清楚：
+## 为什么早期视频会崩
 
-- 原始 H3：30 次完整 horizon denoiser forwards；
-- causal：8 steps/chunk x 8 chunks = 64 次 noisy denoiser forwards，外加 8 次 clean KV commit；
-- 因此 causal 的“8 steps”不是整个 124 帧只调用 8 次网络。
+会议包第一版把以下旧结果当成了正式主视频：
 
-视频上的耗时是各自实验日志中的单次 recorded end-to-end wall time，包含 shared setup、conditioning、sampling 和 VAE/编码流程。它还不是 warmup 后多次均值；表格已明确标记这一点。正式报告不能把当前 causal prototype 宣称成端到端加速版，因为当前主 demo 的 forward 数量实际上高于 30-step baseline。
+- `outputs/2026-10-03-02/final_fixed_mix124_8step/`；
+- `causal_adapter=null`，没有 visual tail16 QKV adapter；
+- `dynamic_last_frame_dual` + `global_retimed_latent_dual_v1` latent-only anchor；
+- `action_prefix_mode=own`，`action_feedback=false`；
+- 只有 fixed-mix action adapter。
 
-## 结果怎么解释
+这套协议在 generated-history 长 rollout 中会累积 temporal-VAE ghosting 和人物/车库 tearing。它的 MP4 可以播放，是编码/容器检查通过；但不应被当作视觉稳定性证明。后续 RGB visual run 使用了不同的视觉 adapter、anchor 和 action routing，因此它是“修复后的主视觉 demo”，不是对旧视频的单变量 ablation。
 
-| 要展示的事实 | 证据 |
-|---|---|
-| causal chunk/KV 链路真实运行 | 124 帧、8 chunks、64 noisy forwards、8 clean commits、replay error=0 |
-| 视觉稳定性改善 | RGB anchor 对比、124 帧 W/A/D 人物和停车场结构保持 |
-| action 仍有差异但没有完整保真 | 原始 A-D flow=2.679，formal causal fixed-mix A-D=0.453 |
-| generated-history action geometry 仍是问题 | 39 帧严格 gate `flow(A)>0, flow(D)<0, A-D>1.0` 未通过；frozen causal/teacher delta cosine 约 -0.015 |
-| Stage2-lite 不是官方 Stage2 | shared backbone + small critic adapter 可运行，但 integrated A/D gate 仍失败 |
+## 结果如何解释
+
+当前 RGB-main 的单次记录为：原始 H3 30-step 约 441.5–454.2 s；causal RGB-anchor 约 673.4–767.9 s。causal 仍有 64 次 noisy forwards，所以不能宣称端到端加速。首块约 41.8–57.4 s，后续平均 chunk 约 75.1–88.6 s；GPU 峰值约 30.8–39.0 GiB，CPU raw KV 约 13.19 GiB。没有做 warmup 后重复均值，也没有把权重、KV 和 activation 峰值分别 instrument。
+
+主视频的 A/D Farneback 水平光流为 A=`-0.784`、D=`-1.007`，A-D=`0.223`；原始 H3 的 A-D=`2.679`。A 的符号没有恢复，因此不能说四个方向完全保真。RGB anchor 解决的是视觉分解，generated-history 下的 action-conditioned score geometry 仍是未解决问题。
+
+`RGB MAD` 和 chunk-boundary MAD 仅是相邻帧变化的描述性 proxy，较低值也可能来自模糊，不能直接当视频质量分数。没有 frame-aligned GT，所以本包不把 LPIPS/PSNR 当监督结果；FVD 需要足够多的真实/生成分布样本，VBench 也没有在本轮运行。
 
 ## 文件
 
-- [SLIDES.md](SLIDES.md)：8 页展示提纲。
-- [MEETING_SCRIPT.md](MEETING_SCRIPT.md)：可以直接照着讲的 5 分钟讲稿。
-- [METRICS.md](METRICS.md)：人类可读指标表。
-- [METRICS.csv](METRICS.csv)：逐动作、逐方法的机器可读指标。
-- [FAIRNESS.md](FAIRNESS.md)：公平性和步数口径。
-- [annotated/](annotated/)：增加 recorded end-to-end 时间标注的 MP4。
-- [final/](final/)：原始未二次标注的正式对比视频。
-- [source_metrics/](source_metrics/)：生成指标所依据的 JSON/报告原件。
-
-## 现场回答“是否更快”
-
-建议回答：
-
-> 当前 prototype 的重点是 causal execution 和历史计算复用，不是已经得到端到端 wall-clock speedup。正式 grid 中原始 30-step 是约 441–454 秒，causal 8-step/chunk 是约 383–452 秒，而且 causal 需要 64 noisy forwards。KV cache 的价值在于后续 chunk 不重复计算全部历史，首块可以独立提交并支持流式接口；若要让总 wall time 真正下降，还需要减少每 chunk 的 solver evaluations，并完成 Stage2 的少步蒸馏。
-
-## 现场回答“动作保留了吗”
-
-建议回答：
-
-> formal fixed-mix 124-frame grid 仍能看到 action-dependent difference，A 的 flow 为正、D 的 flow 为负，但 A-D 从 teacher 的 2.679 降到 0.453。更严格的 RGB generated-history gate 没有通过，所以我把结论写成 causal feasibility + visual stability recovery，而不是 full action preservation。剩余问题是 action-conditioned score geometry 和 rollout distribution shift。
+- [`SLIDES.md`](SLIDES.md)：8 页展示提纲。
+- [`MEETING_SCRIPT.md`](MEETING_SCRIPT.md)：约 5 分钟讲稿。
+- [`METRICS.md`](METRICS.md) / [`METRICS.csv`](METRICS.csv)：当前 RGB-main 指标。
+- [`FAIRNESS.md`](FAIRNESS.md)：输入公平性、步数和计时口径。
+- [`source_metrics/rgb_visual/`](source_metrics/rgb_visual/)：主视频原始 JSON、flow 和 continuity 指标。
+- [`diagnostics/legacy_fixed_mix/`](diagnostics/legacy_fixed_mix/)：旧主视频、旧指标和选片审计。
+- [`annotated/`](annotated/)：带时间/步数标注的主 MP4。
+- [`final/`](final/)：同一主结果的未二次合成版本。

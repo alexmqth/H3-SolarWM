@@ -1,47 +1,45 @@
 # 5 分钟现场讲稿
 
-## 0:00–0:30：先说结论
+## 0:00–0:35：先解释为什么早期画面会崩
 
-“我的问题是：SolarWM 的 causal chunk、KV cache 和少步训练思路能不能迁移到 H3-World，同时保留它原来的 action control？结论分两层。工程上已经跑通了：H3-World 可以按 chunk causal rollout，历史可以用 persistent raw KV 复用，124 帧视频能完整生成。视觉稳定性也已经通过 RGB-consistent anchor 修复。可是 generated-history 会改变 H3 的 action-conditioned score geometry，A/D 方向还没有达到原始 H3 的保真 gate，所以我不会把这个 prototype 说成完整 action-preserving Stage2。”
+“先说明一个展示问题：会议包第一版播放的是旧的 fixed-mix action grid。它没有 visual tail16 adapter，而且推理使用 latent-only dual anchor；训练和推理的 anchor protocol 不一致，所以后半段会出现人物透明、分裂和车库 tearing。那个 MP4 能解码，只说明容器和编码没坏，不说明视觉质量合格。这里是我选片和标注的问题。现在主视频换成了后续 RGB-consistent anchor 加 visual QKV adapter 的结果。”
 
-## 0:30–1:10：播放主视频
+## 0:35–1:05：结论与主视频
 
-打开 `annotated/h3world_final_action_grid_124_timed.mp4`。
+打开 `annotated/h3world_rgb_stable_action_grid_124_timed.mp4`。
 
-“这里左边是原始 H3-World 的 30-step full-horizon inference，右边是 causal prototype。四个动作都固定了同一首帧、prompt、seed、初始 noise 和 124 帧长度。右侧的 8 steps/chunk 是每个 chunk 的步数，不是全片只调用 8 次；这里总共是 8 chunks、64 次 noisy forwards，另外有 8 次 clean KV commit。标题下面的时间是日志中的 recorded end-to-end wall time。”
+“我的问题是：SolarWM 的 causal chunk、KV cache 和少步训练思路能不能迁移到 H3-World，同时保留 action control？结论分两层。工程链路已经跑通：H3-World 可以按 chunk causal rollout，persistent raw KV 可以复用历史，124 帧视频能完整生成。RGB-consistent anchor 明显减少了人物和场景分解。但 generated-history 下 A/D 的 image-space action geometry 还没有恢复，所以我不会把它说成完整 action-preserving Stage2。”
 
-## 1:10–1:50：解释 H3 和 SolarWM 的连接
+## 1:05–1:50：H3 和 SolarWM 的连接
 
-“H3-World 本身的关键是 action rows 和 directed action routing。我的改造保留了这些 action rows，只把视频 token 按 5 个 latent frames 分 chunk；前一个 chunk denoise 完后，用 clean latent 做一次 commit，把每层 raw K/V 写入 CPU history cache。下一个 chunk 只计算新 token，并读取历史 K/V。这样 causal mask、KV reuse、action prefix 和 H3 image condition 在一条真实 33B 模型上同时工作。”
+“H3-World 的关键是 action rows 和 directed action routing。改造保留这些条件，只把视频 token 按 5 个 latent frames 分 chunk；每个 chunk 完成后用 clean latent 做一次 commit，把每层 raw K/V 写入 CPU history。下一个 chunk 读取历史 K/V，只计算新 token。右侧视频是 8 steps/chunk，8 个 chunks，因此是 64 次 noisy forwards 加 8 次 clean commits，并不是整段视频只调用 8 次网络。”
 
-“这对应 SolarWM Stage0.5/Stage1 的 causal interface 和 teacher replay。Stage2 是另外一个问题：student 要在自己的 generated history 上训练 fake score，再和 frozen teacher 做 distribution matching；KV cache 本身不会自动减少采样步数。”
+“这对应 SolarWM Stage0.5/Stage1 的 causal interface 和 teacher replay。Stage2 是另外的问题：student 在自己的 generated history 上训练 fake score，再和 frozen teacher 做 distribution matching。KV cache 解决历史复用，不会自动把 30 steps 变成 8 steps。”
 
-## 1:50–2:40：说效率和连续性
+## 1:50–2:35：说效率和连续性
 
 打开 `METRICS.md`。
 
-“正式 fixed-mix grid 中，原始 30-step 端到端约 441–454 秒，causal 8-step/chunk 约 383–452 秒。causal 首块大约 37–42 秒，之后每块大约 39–48 秒；GPU peak 约 39.9 GiB，5-chunk history 的 CPU raw KV 约 13.5 GiB。这里要诚实说明，这些是每个 action 的单次 recorded run，不是 warmup 后多次均值。”
+“原始 H3 30-step 的单次端到端记录是 441.5–454.2 秒；当前 RGB-main causal 是 673.4–767.9 秒。首块 41.8–57.4 秒，平均 chunk 75.1–88.6 秒；GPU 峰值约 30.8–39.0 GiB，CPU raw KV 约 13.19 GiB。这里是单次 recorded run，没有 warmup 后多次均值，权重、KV 和 activation 也没有单独拆分。”
 
-“当前 causal prototype 不是总 wall-clock 的加速结果，因为 30 次 full-horizon forwards 对比的是 64 次 chunk forwards。它的价值先是因果执行、历史复用和可交互接口。要进一步降总耗时，需要让每个 chunk 真正只用少量 student steps，这就是 Stage2 的作用。”
+“因此当前 prototype 不是总 wall-clock 加速结果。它的价值是 causal execution、历史复用和可增量提交；要真正减少总耗时，需要训练少步 student，并降低每个 chunk 的 solver evaluations。”
 
-“连续性方面，表中的 mean RGB MAD 和 boundary MAD 显示 causal 的 A/D 边界尖峰更大，说明生成历史漂移还存在。”
-
-## 2:40–3:30：播放视觉修复和 Stage2-lite
+## 2:35–3:20：播放视觉修复和 Stage2-lite
 
 打开 `visual_stability/stage2_rgb_anchor_endpoint_visual_stability_comparison_39.mp4`。
 
-“早期人物分解不是编码问题，而是 anchor protocol mismatch。训练 visual adapter 时是 generated prefix 解码成 RGB，再过 H3 image branch；旧推理却直接把 latent tail patchify 成第二 anchor。统一成 RGB decode/re-encode 的 dual anchor 后，39 帧和 124 帧的人物、车库结构都可以保持到末尾。”
+“旧协议把生成的 latent tail 直接 patchify 成第二 anchor，和训练时的 RGB decode/re-encode 语义不一致。统一为 RGB decode、再经过 H3 image branch encode 的 dual anchor 后，39 帧和 124 帧的末尾人物、车库结构明显更完整。这里的改善同时伴随 visual adapter、anchor 和 routing 配置变化，所以我把它报告为修复后的 protocol，而不是声称一个单变量因果证明。”
 
 打开 `stage2_lite/stage2_lite_rgb_endpoint_integrated_AD_39.mp4`。
 
-“我又把这个 visual adapter 接入了 Stage2-lite 的 student self-rollout、fake-score critic 和 frozen teacher 链路。训练 finite、没有 NaN/OOM，说明 Stage2 核心角色在当前硬件上可以做最小原型。但是一轮 DMD surrogate 没有恢复动作，所以我把它当 feasibility evidence，不把它写成官方 Stage2 复现。”
+“Stage2-lite 的 student self-rollout、fake-score critic 和 frozen teacher 链路也能运行，没有 NaN/OOM；但短片 action gate 仍然失败，因此这只是 SolarWM Stage2 核心角色的 feasibility evidence，不是官方 Stage2 复现。”
 
-## 3:30–4:20：解释 action control 结果
+## 3:20–4:20：动作结果
 
-“原始 teacher 的 A-D 水平光流分离约 2.679；formal causal fixed-mix grid 约 0.453。A 的 flow 从 +1.077 降到 +0.143，D 从 -1.602 降到 -0.311。也就是说 causal 输出不是完全与 action 无关，但 action geometry 明显变弱，边界连续性也变差。”
+“当前主视频的 Farneback 水平光流是：原始 H3 的 A=`+1.077`、D=`-1.602`，A-D=`2.679`；RGB-main causal 的 A=`-0.784`、D=`-1.007`，A-D=`0.223`。所以 causal 视频不是简单静止，也不是完全相同的四条片，但 A 的方向符号错了，严格 gate `A>0、D<0、A-D>1.0` 没通过。视觉稳定性恢复和 action preservation 是两个独立问题。”
 
-“在更严格的 RGB generated-history 39-frame gate 中，我要求 A>0、D<0、A-D>1.0，同时人物和车库完整。这个 gate 目前没有通过。routing all、STILL counterfactual、teacher/causal delta probe 和多种小 action adapter 都没有解决；frozen causal 与 teacher 的 delta cosine 约为 -0.015，说明不是 action signal 简单消失，而是方向改变了。”
+“早期 fixed-mix 表里 A-D=`0.453`，那是旧协议的历史诊断，不是当前主视频的结果；我已经把它移到 diagnostics，避免把两个实验混在一张表里。”
 
-## 4:20–5:00：收束和后续
+## 4:20–5:00：收束
 
-“所以我的最终结论是：H3-World 的 causalization 工程上可行，persistent KV 和 clean commit 真实工作，RGB anchor 解决了长时视觉分解；但 generated-history 下的 action-conditioned score geometry 还没有恢复。下一步不会继续做单 state 的 gain 或 anchor sweep，而是做 multi-state/multi-seed counterfactual action supervision，或者完成更完整的 SolarWM Stage2 rollout-distribution matching。这个实验已经把问题从‘能不能 causalize’收敛到了‘怎样恢复 action geometry’。”
+“最终结论是：H3-World 的 causalization、persistent KV 和 clean commit 在真实 33B 模型上可行；RGB-consistent anchoring 能显著改善长时视觉稳定性。但 generated-history 改变了 H3 原始 action-conditioned score geometry，当前还没有证明四方向完全保真。下一步应做多 state、多 seed 的 counterfactual action supervision，或者完整的 SolarWM Stage2 rollout-distribution matching，而不是继续堆单一 anchor、gain 或 solver sweep。”

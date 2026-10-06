@@ -1,0 +1,598 @@
+{
+  "protocol": "RGB-consistent visual-stability causal main",
+  "original_video_root": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-01-20",
+  "causal_video_root": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124",
+  "actions": [
+    {
+      "action": "W",
+      "method": "original",
+      "path": "H3-World/outputs/2026-10-01-20/action_W_baseline30_124/baseline.mp4",
+      "frames": 124,
+      "fps": 24.0,
+      "duration_seconds": 5.166666666666667,
+      "mean_rgb_mad": 4.319840925697919,
+      "p95_rgb_mad": 8.425602463942306,
+      "boundary_score_mean": 4.969151594932845,
+      "horizontal_flow_mean": -1.1113472674647724,
+      "recorded_e2e_s": 441.51850209897384,
+      "sampling_s": 359.23387104901485,
+      "peak_gpu_allocated_MiB": 39925.138671875,
+      "cpu_raw_kv_MiB": 0.0,
+      "denoiser_forwards": 30,
+      "clean_kv_commits": 0,
+      "first_chunk_s": null,
+      "mean_chunk_s": null
+    },
+    {
+      "action": "W",
+      "method": "causal",
+      "path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/W/cached.mp4",
+      "frames": 124,
+      "fps": 24.0,
+      "duration_seconds": 5.166666666666667,
+      "mean_rgb_mad": 3.1877826134280975,
+      "p95_rgb_mad": 4.6499636919070495,
+      "boundary_score_mean": 4.115381872901405,
+      "horizontal_flow_mean": -0.9390615170321813,
+      "recorded_e2e_s": 767.8514531427063,
+      "sampling_s": 709.0110228019767,
+      "peak_gpu_allocated_MiB": 31569.55615234375,
+      "cpu_raw_kv_MiB": 13508.60595703125,
+      "denoiser_forwards": 64,
+      "clean_kv_commits": 8,
+      "first_chunk_s": 57.40011353325099,
+      "mean_chunk_s": 88.62350911594694
+    },
+    {
+      "action": "S",
+      "method": "original",
+      "path": "H3-World/outputs/2026-10-01-20/action_S_baseline30_124/baseline.mp4",
+      "frames": 124,
+      "fps": 24.0,
+      "duration_seconds": 5.166666666666667,
+      "mean_rgb_mad": 4.13374399717054,
+      "p95_rgb_mad": 8.311124632745724,
+      "boundary_score_mean": 4.702822134462759,
+      "horizontal_flow_mean": -1.0837205234727263,
+      "recorded_e2e_s": 444.8291433400009,
+      "sampling_s": 362.31384619907476,
+      "peak_gpu_allocated_MiB": 39925.138671875,
+      "cpu_raw_kv_MiB": 0.0,
+      "denoiser_forwards": 30,
+      "clean_kv_commits": 0,
+      "first_chunk_s": null,
+      "mean_chunk_s": null
+    },
+    {
+      "action": "S",
+      "method": "causal",
+      "path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/S/cached.mp4",
+      "frames": 124,
+      "fps": 24.0,
+      "duration_seconds": 5.166666666666667,
+      "mean_rgb_mad": 4.424113988886283,
+      "p95_rgb_mad": 6.821314519898504,
+      "boundary_score_mean": 5.435179501488095,
+      "horizontal_flow_mean": -0.8831852200796934,
+      "recorded_e2e_s": 673.4305290170014,
+      "sampling_s": 600.5078530986793,
+      "peak_gpu_allocated_MiB": 39939.74072265625,
+      "cpu_raw_kv_MiB": 13508.60595703125,
+      "denoiser_forwards": 64,
+      "clean_kv_commits": 8,
+      "first_chunk_s": 41.82542912801728,
+      "mean_chunk_s": 75.06227521819528
+    },
+    {
+      "action": "A",
+      "method": "original",
+      "path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+      "frames": 124,
+      "fps": 24.0,
+      "duration_seconds": 5.166666666666667,
+      "mean_rgb_mad": 4.519931911383417,
+      "p95_rgb_mad": 8.592666766826921,
+      "boundary_score_mean": 5.142302922771672,
+      "horizontal_flow_mean": 1.0767251417737425,
+      "recorded_e2e_s": 454.18074704892933,
+      "sampling_s": 373.28113305196166,
+      "peak_gpu_allocated_MiB": 39925.138671875,
+      "cpu_raw_kv_MiB": 0.0,
+      "denoiser_forwards": 30,
+      "clean_kv_commits": 0,
+      "first_chunk_s": null,
+      "mean_chunk_s": null
+    },
+    {
+      "action": "A",
+      "method": "causal",
+      "path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/A/cached.mp4",
+      "frames": 124,
+      "fps": 24.0,
+      "duration_seconds": 5.166666666666667,
+      "mean_rgb_mad": 3.185461501274668,
+      "p95_rgb_mad": 4.627381643963675,
+      "boundary_score_mean": 3.787149677579365,
+      "horizontal_flow_mean": -0.7841442187990599,
+      "recorded_e2e_s": 699.4667501961812,
+      "sampling_s": 631.5590824247338,
+      "peak_gpu_allocated_MiB": 39939.74072265625,
+      "cpu_raw_kv_MiB": 13508.60595703125,
+      "denoiser_forwards": 64,
+      "clean_kv_commits": 8,
+      "first_chunk_s": 43.142445482779294,
+      "mean_chunk_s": 78.93941392173292
+    },
+    {
+      "action": "D",
+      "method": "original",
+      "path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+      "frames": 124,
+      "fps": 24.0,
+      "duration_seconds": 5.166666666666667,
+      "mean_rgb_mad": 4.458338300630603,
+      "p95_rgb_mad": 8.106058944310892,
+      "boundary_score_mean": 5.389400898580585,
+      "horizontal_flow_mean": -1.601923440893491,
+      "recorded_e2e_s": 450.35874258284457,
+      "sampling_s": 371.22929321206175,
+      "peak_gpu_allocated_MiB": 39925.138671875,
+      "cpu_raw_kv_MiB": 0.0,
+      "denoiser_forwards": 30,
+      "clean_kv_commits": 0,
+      "first_chunk_s": null,
+      "mean_chunk_s": null
+    },
+    {
+      "action": "D",
+      "method": "causal",
+      "path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+      "frames": 124,
+      "fps": 24.0,
+      "duration_seconds": 5.166666666666667,
+      "mean_rgb_mad": 3.035635410966489,
+      "p95_rgb_mad": 4.563165982238246,
+      "boundary_score_mean": 3.887383384844322,
+      "horizontal_flow_mean": -1.0074924298418246,
+      "recorded_e2e_s": 715.8927088826895,
+      "sampling_s": 646.7143031610176,
+      "peak_gpu_allocated_MiB": 39939.74072265625,
+      "cpu_raw_kv_MiB": 13508.60595703125,
+      "denoiser_forwards": 64,
+      "clean_kv_commits": 8,
+      "first_chunk_s": 43.156086588744074,
+      "mean_chunk_s": 80.83813602908049
+    }
+  ],
+  "flow": {
+    "W": {
+      "original": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-01-20/action_W_baseline30_124/baseline.mp4",
+        "frames": 124,
+        "horizontal_flow_px": {
+          "mean": -1.1113472674647724,
+          "median": -0.7804520130157471,
+          "p05": -4.210597944259644,
+          "p95": 0.06561749950051281,
+          "mean_abs": 1.276889113194453
+        },
+        "vertical_flow_px": {
+          "mean": 0.23546606071512935,
+          "median": 0.291011244058609,
+          "p05": -0.3953613936901092,
+          "p95": 0.6620267927646636,
+          "mean_abs": 0.35490990995914046
+        },
+        "flow_magnitude_px": {
+          "mean": 1.6797293184733972,
+          "median": 1.182663083076477,
+          "p05": 0.35795692503452303,
+          "p95": 4.468876838684082,
+          "mean_abs": 1.6797293184733972
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score.",
+        "action": "W"
+      },
+      "causal": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/W/cached.mp4",
+        "frames": 124,
+        "horizontal_flow_px": {
+          "mean": -0.9390615170321813,
+          "median": -0.8680991530418396,
+          "p05": -1.7581800818443298,
+          "p95": -0.32572545111179363,
+          "mean_abs": 0.9390615170321813
+        },
+        "vertical_flow_px": {
+          "mean": 0.21812891872311996,
+          "median": 0.2038910835981369,
+          "p05": 0.08919465988874435,
+          "p95": 0.42141452133655527,
+          "mean_abs": 0.21954186124409117
+        },
+        "flow_magnitude_px": {
+          "mean": 1.1883175627487461,
+          "median": 1.0850143432617188,
+          "p05": 0.5350174725055694,
+          "p95": 2.1036532521247855,
+          "mean_abs": 1.1883175627487461
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score.",
+        "action": "W"
+      }
+    },
+    "S": {
+      "original": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-01-20/action_S_baseline30_124/baseline.mp4",
+        "frames": 124,
+        "horizontal_flow_px": {
+          "mean": -1.0837205234727263,
+          "median": -0.7571921944618225,
+          "p05": -4.018046236038208,
+          "p95": 0.0025878140404529165,
+          "mean_abs": 1.1384256637774808
+        },
+        "vertical_flow_px": {
+          "mean": 0.16398606173033028,
+          "median": 0.16232648491859436,
+          "p05": -0.2162628173828125,
+          "p95": 0.5780776679515838,
+          "mean_abs": 0.2544722942245236
+        },
+        "flow_magnitude_px": {
+          "mean": 1.4819832555949688,
+          "median": 1.1055707931518555,
+          "p05": 0.17742048203945163,
+          "p95": 4.3507885932922346,
+          "mean_abs": 1.4819832555949688
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score.",
+        "action": "S"
+      },
+      "causal": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/S/cached.mp4",
+        "frames": 124,
+        "horizontal_flow_px": {
+          "mean": -0.8831852200796934,
+          "median": -0.8066433072090149,
+          "p05": -1.7426723957061767,
+          "p95": -0.3390242338180543,
+          "mean_abs": 0.8831852200796934
+        },
+        "vertical_flow_px": {
+          "mean": 0.3663622908846937,
+          "median": 0.34037381410598755,
+          "p05": 0.17540052384138108,
+          "p95": 0.6237893939018248,
+          "mean_abs": 0.3663830804502273
+        },
+        "flow_magnitude_px": {
+          "mean": 1.245665936087205,
+          "median": 1.12164306640625,
+          "p05": 0.6681657075881958,
+          "p95": 2.1726269483566285,
+          "mean_abs": 1.245665936087205
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score.",
+        "action": "S"
+      }
+    },
+    "A": {
+      "original": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+        "frames": 124,
+        "horizontal_flow_px": {
+          "mean": 1.0767251417737425,
+          "median": 0.8830211162567139,
+          "p05": -0.42901954650878904,
+          "p95": 3.1168193817138667,
+          "mean_abs": 1.2187065292392079
+        },
+        "vertical_flow_px": {
+          "mean": -0.08547279218091569,
+          "median": -0.020016787573695183,
+          "p05": -1.0251398801803588,
+          "p95": 0.5118203222751607,
+          "mean_abs": 0.3397408175730332
+        },
+        "flow_magnitude_px": {
+          "mean": 1.6759821589036685,
+          "median": 1.4089248180389404,
+          "p05": 0.20799579769372942,
+          "p95": 4.305298900604247,
+          "mean_abs": 1.6759821589036685
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score.",
+        "action": "A"
+      },
+      "causal": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/A/cached.mp4",
+        "frames": 124,
+        "horizontal_flow_px": {
+          "mean": -0.7841442187990599,
+          "median": -0.7270535230636597,
+          "p05": -1.480065381526947,
+          "p95": -0.2797152966260912,
+          "mean_abs": 0.7841442187990599
+        },
+        "vertical_flow_px": {
+          "mean": 0.2550270762085125,
+          "median": 0.24685584008693695,
+          "p05": 0.08249788954854012,
+          "p95": 0.49061569869518273,
+          "mean_abs": 0.25522465177996717
+        },
+        "flow_magnitude_px": {
+          "mean": 1.0658718389951116,
+          "median": 0.961112916469574,
+          "p05": 0.5675738871097564,
+          "p95": 1.8951252460479733,
+          "mean_abs": 1.0658718389951116
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score.",
+        "action": "A"
+      }
+    },
+    "D": {
+      "original": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+        "frames": 124,
+        "horizontal_flow_px": {
+          "mean": -1.601923440893491,
+          "median": -1.274345874786377,
+          "p05": -4.151037812232971,
+          "p95": -0.3709019929170614,
+          "mean_abs": 1.6173676604904779
+        },
+        "vertical_flow_px": {
+          "mean": 0.10907486647677918,
+          "median": 0.07719139754772186,
+          "p05": -0.20865238308906553,
+          "p95": 0.5244032382965088,
+          "mean_abs": 0.2063545685931586
+        },
+        "flow_magnitude_px": {
+          "mean": 1.9000713966968583,
+          "median": 1.5738599300384521,
+          "p05": 0.5329425096511842,
+          "p95": 4.557652091979977,
+          "mean_abs": 1.9000713966968583
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score.",
+        "action": "D"
+      },
+      "causal": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+        "frames": 124,
+        "horizontal_flow_px": {
+          "mean": -1.0074924298418246,
+          "median": -0.9761109948158264,
+          "p05": -1.8904793620109557,
+          "p95": -0.2965816527605059,
+          "mean_abs": 1.0074924298418246
+        },
+        "vertical_flow_px": {
+          "mean": 0.1546175449602003,
+          "median": 0.15530307590961456,
+          "p05": -0.019105373695492745,
+          "p95": 0.3500290572643279,
+          "mean_abs": 0.1674710135392057
+        },
+        "flow_magnitude_px": {
+          "mean": 1.219583775212125,
+          "median": 1.1751567125320435,
+          "p05": 0.4739097416400909,
+          "p95": 2.124545359611511,
+          "mean_abs": 1.219583775212125
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score.",
+        "action": "D"
+      }
+    }
+  },
+  "continuity": {
+    "original": {
+      "W": {
+        "frames": 124,
+        "mean_rgb_mad": 4.319840925697919,
+        "p95_rgb_mad": 8.425602463942306,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.7343416132478633,
+          "34": 3.799106904380342,
+          "51": 1.9001260349893163,
+          "68": 5.751019965277778,
+          "85": 8.435169604700855,
+          "102": 8.549594350961538,
+          "119": 2.6147026909722224
+        },
+        "boundary_score_mean": 4.969151594932845
+      },
+      "S": {
+        "frames": 124,
+        "mean_rgb_mad": 4.13374399717054,
+        "p95_rgb_mad": 8.311124632745724,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.698465878739316,
+          "34": 4.112540064102564,
+          "51": 1.7951839610042735,
+          "68": 3.517865251068376,
+          "85": 8.32768095619658,
+          "102": 8.115064102564103,
+          "119": 3.3529547275641027
+        },
+        "boundary_score_mean": 4.702822134462759
+      },
+      "A": {
+        "frames": 124,
+        "mean_rgb_mad": 4.519931911383417,
+        "p95_rgb_mad": 8.592666766826921,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.153339509882479,
+          "34": 3.143582231570513,
+          "51": 3.559556123130342,
+          "68": 15.3899172008547,
+          "85": 5.967042267628205,
+          "102": 3.5846429286858976,
+          "119": 1.1980401976495727
+        },
+        "boundary_score_mean": 5.142302922771672
+      },
+      "D": {
+        "frames": 124,
+        "mean_rgb_mad": 4.458338300630603,
+        "p95_rgb_mad": 8.106058944310892,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.5983548677884616,
+          "34": 6.508550347222222,
+          "51": 3.6959351629273502,
+          "68": 5.415397135416667,
+          "85": 9.265553218482905,
+          "102": 3.585148737980769,
+          "119": 5.656866820245726
+        },
+        "boundary_score_mean": 5.389400898580585
+      }
+    },
+    "causal": {
+      "W": {
+        "frames": 124,
+        "mean_rgb_mad": 3.1877826134280975,
+        "p95_rgb_mad": 4.6499636919070495,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 4.363742821848291,
+          "34": 4.823132845886752,
+          "51": 3.946139656784188,
+          "68": 5.140181790865385,
+          "85": 4.742284321581197,
+          "102": 3.1467005542200854,
+          "119": 2.6454911191239314
+        },
+        "boundary_score_mean": 4.115381872901405
+      },
+      "S": {
+        "frames": 124,
+        "mean_rgb_mad": 4.424113988886283,
+        "p95_rgb_mad": 6.821314519898504,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 4.951474859775641,
+          "34": 4.907922676282051,
+          "51": 4.117894464476496,
+          "68": 5.969564636752136,
+          "85": 6.027965578258547,
+          "102": 6.778094117254273,
+          "119": 5.293340177617521
+        },
+        "boundary_score_mean": 5.435179501488095
+      },
+      "A": {
+        "frames": 124,
+        "mean_rgb_mad": 3.185461501274668,
+        "p95_rgb_mad": 4.627381643963675,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 4.404636585202992,
+          "34": 3.603639155982906,
+          "51": 2.274171173878205,
+          "68": 5.001979834401709,
+          "85": 4.112142761752136,
+          "102": 4.352450587606838,
+          "119": 2.761027644230769
+        },
+        "boundary_score_mean": 3.787149677579365
+      },
+      "D": {
+        "frames": 124,
+        "mean_rgb_mad": 3.035635410966489,
+        "p95_rgb_mad": 4.563165982238246,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.7572123731303417,
+          "34": 4.829542267628205,
+          "51": 4.430630675747863,
+          "68": 4.577892127403846,
+          "85": 4.156275874732906,
+          "102": 2.8740626669337606,
+          "119": 2.586067708333333
+        },
+        "boundary_score_mean": 3.887383384844322
+      }
+    }
+  },
+  "caveats": [
+    "Single run per action; no warmup/repeat average.",
+    "RGB MAD is motion/continuity proxy, not perceptual quality.",
+    "Farneback flow is a signed image-space motion proxy, not action accuracy.",
+    "Peak GPU combines model and activations; weights/KV/activation breakdown was not separately instrumented.",
+    "Causal timing includes RGB anchor decode/re-encode and is not an isolated speedup claim."
+  ]
+}

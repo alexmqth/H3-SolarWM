@@ -4,84 +4,82 @@
 
 **Question:** Can SolarWM-style causalization be added to H3-World without losing H3 action control?
 
-**Answer:** causal chunk rollout and persistent KV are feasible; RGB anchor recovers long-horizon visual stability; generated-history A/D action geometry is not yet fully preserved.
+**Answer:** causal chunk/KV execution is feasible. The later RGB-consistent anchor and visual adapter remove the most severe person/garage decomposition. The current generated-history model still fails the strict A/D direction gate, so it is a causal feasibility prototype rather than a fully action-preserving Stage2 model.
 
-Show: `annotated/h3world_final_action_grid_124_timed.mp4`.
+Show: `annotated/h3world_rgb_stable_action_grid_124_timed.mp4`.
 
-## Slide 2 — What H3-World already provides
+## Slide 2 — Why the first meeting video looked broken
+
+The first package selected `final_fixed_mix124_8step` as the main grid. That run had no visual tail16 adapter, used latent-only dual anchoring, used `action_prefix_mode=own`, and disabled action feedback. It was decodable but accumulated temporal-VAE ghosting. The selection was my packaging mistake; the old result is now under `diagnostics/legacy_fixed_mix/`.
+
+The current main uses RGB decode/re-encode dual anchoring plus tail16 visual QKV adaptation. It is visibly more coherent, but residual blur/ghosting and action-direction errors remain.
+
+## Slide 3 — What H3-World already provides
 
 - initial frame + scene prompt;
 - per-latent W/S/A/D language action rows;
-- directed action-to-video attention routing;
+- directed H3 action-to-video routing;
 - original 30-step full-horizon generation.
 
-Key point: the migration must preserve the action rows and routing, not replace H3 with an unconditional video model.
+The migration preserves the action rows and H3 condition path.
 
-## Slide 3 — SolarWM idea mapped to H3
+## Slide 4 — SolarWM idea mapped to H3
 
 ```text
 H3 action rows + causal chunk attention
              + persistent raw KV
              + clean history commit
              + generated-history rollout
+             + RGB-consistent anchor
 ```
 
-Stage0.5/Stage1 make the causal interface executable. Stage2 is the separate generated-distribution matching problem for a robust few-step student.
+Stage0.5/Stage1 make causal execution and teacher replay executable. Stage2 is separate rollout-distribution matching: student self-rollout, frozen teacher and trainable fake-score critic.
 
-## Slide 4 — Implementation locations
+Implementation locations: `code/causal/h3_cached.py`, `benchmark.py`, `train_online_selfrollout.py`, `stage2_lite_dmd.py`, `evaluate_action_control.py`, and `code/diffsynth_h3_action.patch`.
 
-| Component | File |
-|---|---|
-| raw KV and clean commit | `code/causal/h3_cached.py` |
-| original/cached benchmark | `code/causal/benchmark.py` |
-| online teacher replay | `code/causal/train_online_selfrollout.py` |
-| Stage2-lite critic/DMD | `code/causal/stage2_lite_dmd.py` |
-| action flow metric | `code/causal/evaluate_action_control.py` |
-| H3 directed attention | `code/diffsynth_h3_action.patch` |
+## Slide 5 — Current 124-frame demo
 
-## Slide 5 — Main 124-frame demo
+Show: `annotated/h3world_rgb_stable_W_original_vs_causal_timed.mp4` or the four-action grid.
 
-Left: original H3, 30 full-horizon steps.
+- left: original H3, 30 full-horizon steps;
+- right: RGB visual-main causal, 8 steps/chunk × 8 chunks = 64 noisy forwards + 8 clean commits;
+- same initial image, prompt, action, seed 13, initial noise, resolution and 124 frames;
+- both are 24 fps / 5.17 s.
 
-Right: causal, 8 steps/chunk x 8 chunks = 64 noisy forwards + 8 clean commits.
-
-Both sides: same initial image, prompt, action, seed 13, initial noise, resolution and 124 frames.
-
-Show: `annotated/h3world_final_W_original_vs_causal_timed.mp4` or the timed four-action grid.
+The video is the repaired visual-main result, not the old fixed-mix grid.
 
 ## Slide 6 — Efficiency and continuity
 
-Use the first table in `METRICS.md`:
+From `METRICS.md`:
 
-- original e2e: approximately 441.5–454.2 s;
-- causal e2e: approximately 383.4–451.9 s in the formal fixed-mix runs;
-- causal peak GPU: approximately 39.9 GiB;
-- causal CPU raw KV: 13.51 GiB for the 5-chunk history window;
-- first causal chunk: approximately 36.7–41.5 s;
-- current timing is one recorded run, not a warmup mean.
+- original e2e: 441.5–454.2 s;
+- current RGB-main causal e2e: 673.4–767.9 s;
+- causal first chunk: 41.8–57.4 s; mean chunk: 75.1–88.6 s;
+- causal peak GPU: 30.8–39.0 GiB (30,570–39,940 MiB);
+- CPU raw KV: 13.19 GiB (13,509 MiB).
 
-Explain that KV reuse gives the causal interface and incremental chunk execution; the present prototype is not yet a total wall-clock speedup because it uses more denoiser forwards than the 30-step baseline.
+These are single runs without warmup/repeat averaging. The current prototype is slower overall because it performs 64 noisy forwards versus 30 full-horizon forwards and pays RGB anchor decode/re-encode cost. KV reuse establishes the causal interface; it does not by itself guarantee wall-clock speedup.
 
-## Slide 7 — Visual stability and Stage2-lite
+## Slide 7 — Visual repair and Stage2-lite
 
-Show the RGB anchor old-versus-new comparison and the integrated Stage2-lite A/D clip.
+Show `visual_stability/stage2_rgb_anchor_endpoint_visual_stability_comparison_39.mp4` and, if time permits, `stage2_lite/stage2_lite_rgb_endpoint_integrated_AD_39.mp4`.
 
-- latent-only anchor caused person fragmentation;
-- RGB decode/re-encode dual anchor fixes the protocol mismatch;
-- 39/124-frame person and garage structure remain coherent;
+- old latent-only anchor caused person fragmentation;
+- RGB decode/re-encode makes training and inference anchor semantics consistent;
+- 124-frame RGB-main clips keep person/garage recognizable to the end;
 - Stage2-lite student/critic/teacher chain runs without NaN/OOM;
-- neither visual repair nor one-update DMD restores A/D geometry.
+- visual repair is not action-geometry recovery.
 
 ## Slide 8 — Action result and next step
 
-| Quantity | Original H3 | Formal causal fixed-mix |
+| Quantity | Original H3 | Current RGB-main causal |
 |---|---:|---:|
-| A-D horizontal-flow separation | 2.679 | 0.453 |
-| A sign | +1.077 | +0.143 |
-| D sign | -1.602 | -0.311 |
+| A horizontal flow | +1.077 | -0.784 |
+| D horizontal flow | -1.602 | -1.007 |
+| A-D separation | 2.679 | 0.223 |
 
-The causal branch is action-dependent but weaker and less continuous at chunk boundaries. The stricter RGB generated-history gate `flow(A)>0, flow(D)<0, A-D>1.0` remains failed.
+The strict gate `flow(A)>0, flow(D)<0, A-D>1.0` fails. Do not present the visual repair as preserved four-direction control.
 
 Final sentence:
 
-> Stage1 causalization is feasible and visual stability is recoverable. The remaining problem is generated-history action-conditioned score geometry; a full Stage2-style multi-state rollout-distribution objective or a stronger causal action pathway is the next step.
+> H3-World causalization and persistent KV are mechanically feasible, and RGB-consistent anchoring recovers much of the long-horizon visual stability. The remaining failure is generated-history action-conditioned score geometry; multi-state action supervision or full SolarWM Stage2-style rollout-distribution matching is the next step.

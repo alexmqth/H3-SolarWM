@@ -1,0 +1,37 @@
+{
+  "load_models_and_lora_seconds": 6.209785552928224,
+  "conditioning_seconds": 9.14218507707119,
+  "memory": {
+    "allocated_peak_MiB": 39925.138671875,
+    "reserved_peak_MiB": 40084.0
+  },
+  "completed_at": "2026-10-01T21:00:53.014269+08:00",
+  "config": {
+    "modes": [
+      "baseline"
+    ],
+    "steps": 4,
+    "flow_shift": 2.22,
+    "baseline_steps": 30,
+    "num_frames": 124,
+    "chunk_frames": 5,
+    "history_chunks": 5,
+    "action_preset": "A",
+    "cache_device": "cpu",
+    "anchor_mode": "fixed",
+    "boundary_blend": 0.0,
+    "boundary_overlap_frames": 1,
+    "boundary_clamp": false,
+    "device": "cuda:0",
+    "seed": 13,
+    "out_dir": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124",
+    "save_latents": false,
+    "causal_adapter": null
+  },
+  "gpu": "NVIDIA L40",
+  "visible_devices": "3",
+  "torch_version": "2.10.0+cu128",
+  "conditioning": "same prompt, image, A (strafe-left) action, initial video/audio noise reused across modes",
+  "action_preset": "A",
+  "action_preset_resolved": "strafe-left"
+}

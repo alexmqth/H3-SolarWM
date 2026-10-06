@@ -1,3 +1,13 @@
+## 2026-10-07：会议视频主结果纠错与视觉协议更换
+
+发现会议包第一版把 `outputs/2026-10-03-02/final_fixed_mix124_8step/` 作为主展示。该旧 fixed-mix 实验只有 action adapter，没有 visual tail16 QKV adapter，推理使用 `dynamic_last_frame_dual` / `global_retimed_latent_dual_v1` latent-only anchor，且 `action_prefix_mode=own`、`action_feedback=false`。它的 MP4 可解码，但 generated-history 后段出现人物透明、车库 tearing 和 temporal-VAE ghosting；“能播放”被错误地当成了“视觉合格”。这是选片/标注错误，不是播放器或编码器故障。旧视频、旧指标和审计已归档到 `submission/meeting/diagnostics/legacy_fixed_mix/`。
+
+会议主入口已改为 `submission/meeting/annotated/h3world_rgb_stable_action_grid_124_timed.mp4` 及同目录 W/S/A/D 单动作视频。它们来自 `outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/`，配置为 tail16 visual QKV + RGB-consistent dual anchor（generated tail 解码 RGB 后经过 H3 image branch）+ generated history + causal action prefix + action feedback + CPU raw KV。W/S/A/D 均为 124 帧、8 chunks、8 steps/chunk、64 noisy forwards + 8 clean commits，已完整解码为 H.264/YUV420P/24 fps。视觉结构比旧主视频稳定，但仍有 blur/ghosting，且 A/D action geometry 没有恢复。
+
+当前 RGB visual-main 单次记录：原始 H3 30-step 为 441.5–454.2 s；causal 为 673.4–767.9 s；首块 41.8–57.4 s；CPU raw KV 13,508.6 MiB（约 13.19 GiB）；causal GPU 峰值 31,569.6–39,939.7 MiB（约 30.8–39.0 GiB）。由于 causal 使用 64 noisy forwards 且带 RGB anchor decode/re-encode，不宣称端到端加速。Farneback flow：原始 A=`+1.077`、D=`-1.602`、A-D=`2.679`；RGB-main A=`-0.784`、D=`-1.007`、A-D=`0.223`，严格 `A>0,D<0,A-D>1.0` gate 失败。
+
+会议文档 `meeting/README.md`、`METRICS.md/csv`、`FAIRNESS.md`、`SLIDES.md`、`MEETING_SCRIPT.md` 已统一到 RGB visual-main；`meeting/source_metrics/rgb_visual/` 保存原始 JSON/flow/continuity。最终结论仍是：causal/KV 工程可行，RGB anchor 能修复主要视觉分解，但 generated-history 下 action-conditioned score geometry 尚未恢复，Stage2-lite 也不等于官方 SGF/DMD。
+
 # GWM 项目进展
 
 更新时间：2026-10-06

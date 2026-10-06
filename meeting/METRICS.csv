@@ -1,9 +1,9 @@
 method,action,frames,video_duration_s,solver_steps,step_scope,denoiser_forwards,clean_kv_commits,recorded_e2e_s,sampling_s,first_chunk_s,mean_chunk_s,peak_gpu_allocated_MiB,cpu_raw_kv_MiB,mean_rgb_mad,boundary_score_mean,horizontal_flow_mean,notes
-H3-World original,W,124,5.1667,30,full horizon,30,0,441.5,359.2,,,39925,0,4.32,4.969,-1.1113,single recorded run; same initial image/prompt/noise/seed=13; no warmup average
-Causal prototype,W,124,5.1667,8,per chunk,64,8,450.2,379.3,41.5,47.4,39927,13509,4.598,6.29,-0.6236,single recorded run; same initial image/prompt/noise/seed=13; no warmup average
-H3-World original,S,124,5.1667,30,full horizon,30,0,444.8,362.3,,,39925,0,4.134,4.703,-1.0837,single recorded run; same initial image/prompt/noise/seed=13; no warmup average
-Causal prototype,S,124,5.1667,8,per chunk,64,8,451.9,380.1,41.1,47.5,39927,13509,4.623,7.764,-0.0955,single recorded run; same initial image/prompt/noise/seed=13; no warmup average
-H3-World original,A,124,5.1667,30,full horizon,30,0,454.2,373.3,,,39925,0,4.52,5.142,1.0767,single recorded run; same initial image/prompt/noise/seed=13; no warmup average
-Causal prototype,A,124,5.1667,8,per chunk,64,8,438.8,364.8,41.3,45.6,39948,13509,7.095,13.684,0.1427,single recorded run; same initial image/prompt/noise/seed=13; no warmup average
-H3-World original,D,124,5.1667,30,full horizon,30,0,450.4,371.2,,,39925,0,4.458,5.389,-1.6019,single recorded run; same initial image/prompt/noise/seed=13; no warmup average
-Causal prototype,D,124,5.1667,8,per chunk,64,8,383.4,312.3,36.7,39.0,39948,13509,5.386,9.466,-0.3105,single recorded run; same initial image/prompt/noise/seed=13; no warmup average
+H3-World original,W,124,5.1667,30,full horizon,30,0,441.5185,359.2339,,,39925.14,0,4.3198,4.9692,-1.1113,"single recorded run; same initial image/prompt/noise/seed=13"
+Causal RGB visual-main,W,124,5.1667,8,per chunk,64,8,767.8515,709.0110,57.4001,88.6235,31569.56,13508.61,3.1878,4.1154,-0.9391,"RGB dual + tail16 visual adapter; generated history; no warmup average"
+H3-World original,S,124,5.1667,30,full horizon,30,0,444.8291,362.3138,,,39925.14,0,4.1337,4.7028,-1.0837,"single recorded run; same initial image/prompt/noise/seed=13"
+Causal RGB visual-main,S,124,5.1667,8,per chunk,64,8,673.4305,600.5079,41.8254,75.0623,39939.74,13508.61,4.4241,5.4352,-0.8832,"RGB dual + tail16 visual adapter; generated history; no warmup average"
+H3-World original,A,124,5.1667,30,full horizon,30,0,454.1807,373.2811,,,39925.14,0,4.5199,5.1423,1.0767,"single recorded run; same initial image/prompt/noise/seed=13"
+Causal RGB visual-main,A,124,5.1667,8,per chunk,64,8,699.4668,631.5591,43.1424,78.9394,39939.74,13508.61,3.1855,3.7871,-0.7841,"RGB dual + tail16 visual adapter; generated history; no warmup average"
+H3-World original,D,124,5.1667,30,full horizon,30,0,450.3587,371.2293,,,39925.14,0,4.4583,5.3894,-1.6019,"single recorded run; same initial image/prompt/noise/seed=13"
+Causal RGB visual-main,D,124,5.1667,8,per chunk,64,8,715.8927,646.7143,43.1561,80.8381,39939.74,13508.61,3.0356,3.8874,-1.0075,"RGB dual + tail16 visual adapter; generated history; no warmup average"

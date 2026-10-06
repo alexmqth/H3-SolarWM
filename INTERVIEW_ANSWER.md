@@ -1,5 +1,11 @@
 # 面试题回答：在 H3-World 中验证 SolarWM 的因果少步生成
 
+## 0. 会议主视频的纠错说明（2026-10-07）
+
+第一次整理会议包时把旧 fixed-mix action grid 当作主视频。那套运行没有 visual tail16 adapter，并使用 latent-only dual anchor；它可以解码，但 generated-history 后段会出现人物分解和车库 tearing。当前主视频改为 `meeting/annotated/h3world_rgb_stable_action_grid_124_timed.mp4`，使用 RGB-consistent dual anchor + tail16 visual QKV adapter。视觉结构明显更稳定，但 A/D flow 仍未通过 gate；这次更换同时改变了多个协议，因此只能报告为组合协议的视觉修复，不能把改善归因于单个 anchor 或 adapter。
+
+当前 RGB-main 的 124-frame A/D flow 为 A=`-0.784`、D=`-1.007`、A-D=`0.223`，原始 H3 为 A=`+1.077`、D=`-1.602`、A-D=`2.679`。因此视觉稳定性恢复不等于 action control 恢复；提交包明确保留这个失败结果。
+
 ## 1. 项目目的
 
 H3-World 把初始图像、场景 prompt 和每个 latent 时间位置的键盘 action 转成 action-conditioned 视频。原始 H3-World 推理使用双向/完整视频上下文的 30-step 生成；它有 action control，但不能直接把已经生成的 chunk 当作历史流式复用。
