@@ -1,0 +1,936 @@
+diff --git a/diffsynth/core/attention/attention.py b/diffsynth/core/attention/attention.py
+index c64bb54..8e2cdc2 100644
+--- a/diffsynth/core/attention/attention.py
++++ b/diffsynth/core/attention/attention.py
+@@ -33,7 +33,20 @@ except ModuleNotFoundError:
+ 
+ try:
+     from torch.nn.attention.flex_attention import flex_attention as flex_attention_func
+-    flex_attention_func = torch.compile(flex_attention_func, dynamic=False, mode="max-autotune-no-cudagraphs", fullgraph=True, backend="inductor")
++    # Not using mode="max-autotune-no-cudagraphs": at the first step it
++    # benchmarks 6 forward + 13 backward candidates, and one of them can't
++    # run at all -- on H200, the BLOCK_M=BLOCK_N=128 candidate needs 233472 B
++    # of shared memory against a hardware limit of 232448 B. A single failed
++    # candidate is harmless on its own (it gets skipped), but hitting an
++    # illegal memory access during the benchmarking phase poisons the whole
++    # CUDA context, which shows up in 8-GPU training as a random rank dying
++    # at step 0 -- and the failed result gets written into a disk cache
++    # keyed by device, so it reproduces on the same rank every time after
++    # that. Measured: this autotune buys nothing at all. At
++    # 1x56x16448x128, the winner is always the default heuristic
++    # configuration: steady state 75.6 ms/iter (default) vs. 76.1 ms/iter
++    # (autotune).
++    flex_attention_func = torch.compile(flex_attention_func, dynamic=False, fullgraph=True, backend="inductor")
+     FLEX_ATTN_AVAILABLE = True
+ except (ModuleNotFoundError, ImportError):
+     FLEX_ATTN_AVAILABLE = False
+diff --git a/diffsynth/diffusion/parsers.py b/diffsynth/diffusion/parsers.py
+index cc19051..5550247 100644
+--- a/diffsynth/diffusion/parsers.py
++++ b/diffsynth/diffusion/parsers.py
+@@ -6,6 +6,7 @@ def add_dataset_base_config(parser: argparse.ArgumentParser):
+     parser.add_argument("--dataset_metadata_path", type=str, default=None, help="Path to the metadata file of the dataset.")
+     parser.add_argument("--dataset_repeat", type=int, default=1, help="Number of times to repeat the dataset per epoch.")
+     parser.add_argument("--dataset_num_workers", type=int, default=0, help="Number of workers for data loading.")
++    parser.add_argument("--max_data_items", type=int, default=None, help="Limit dataset items for smoke tests.")
+     parser.add_argument("--data_file_keys", type=str, default="image,video", help="Data file keys in the metadata. Comma-separated.")
+     return parser
+ 
+diff --git a/diffsynth/diffusion/runner.py b/diffsynth/diffusion/runner.py
+index 0e2c921..ab3be58 100644
+--- a/diffsynth/diffusion/runner.py
++++ b/diffsynth/diffusion/runner.py
+@@ -124,9 +124,22 @@ def launch_data_process_task(
+             with torch.no_grad():
+                 folder = os.path.join(model_logger.output_path, str(accelerator.process_index))
+                 os.makedirs(folder, exist_ok=True)
+-                save_path = os.path.join(model_logger.output_path, str(accelerator.process_index), f"{data_id}.pth")
++                # Under distributed data loading, data_id is local to each rank and does
++                # not identify the source metadata row. MiniMax-H3's training entrypoint
++                # attaches the original row id so post-processing can align sidecars.
++                source_data_id = int(data.pop("_diffsynth_data_id", data_id))
++                save_path = os.path.join(folder, f"{source_data_id}.pth")
++                # Resumable: the full 20699-row run takes ~36h, and a crash
++                # partway through shouldn't mean starting over. Write to
++                # .tmp first, then rename (same-directory rename is
++                # atomic), so if the final file exists it's guaranteed
++                # complete and safe to skip.
++                if os.path.exists(save_path):
++                    continue
+                 data = model(data)
+-                torch.save(data, save_path)
++                tmp_path = save_path + ".tmp"
++                torch.save(data, tmp_path)
++                os.replace(tmp_path, save_path)
+                 if enable_model_cpu_offload:
+                     offload_manager.after_backward()
+ 
+diff --git a/diffsynth/models/minimax_h3_dit.py b/diffsynth/models/minimax_h3_dit.py
+index 2a4684e..573d181 100644
+--- a/diffsynth/models/minimax_h3_dit.py
++++ b/diffsynth/models/minimax_h3_dit.py
+@@ -63,11 +63,38 @@ def _modulate_scale_shift(x, shift, scale, indices):
+     return (x * (1.0 + scale.index_select(0, indices)) + shift.index_select(0, indices)).to(x.dtype)
+ 
+ 
++def _apply_action_film(h, a_scale, a_shift, v0, n_video, latent_t, frame_rows):
++    """Apply the action modulation to the video segment: h_v <- h_v * (1 + scale) + shift.
++
++    Only one thing differs from the old additive bias, but it's the
++    important one: scale is **multiplicative**, so the modulation changes
++    with h itself. An additive bias gives each key a fixed vector
++    independent of the picture, but the visual effect of "press D" depends
++    on the current heading and scene -- different samples need the bias to
++    point in different directions, and the gradients cancel each other out
++    (measured cosine between delta-W and W's own direction: only +0.064).
++
++    Broadcasts [latent_t, 1, C] to [latent_t, frame_rows, C] without
++    materializing the expanded tensor: at real sizes,
++    repeat_interleave would be 14430x5376 bf16 ~= 155 MB/layer x 50 layers.
++    """
++    video = h.narrow(0, v0, n_video).view(latent_t, frame_rows, -1)
++    video = video * (1.0 + a_scale.unsqueeze(1)) + a_shift.unsqueeze(1)
++    return torch.cat([
++        h.narrow(0, 0, v0),
++        video.reshape(n_video, -1),
++        h.narrow(0, v0 + n_video, h.shape[0] - v0 - n_video),
++    ], dim=0)
++
++
+ def _modulate_gate(x, gate, other, indices):
+     return (x + gate.index_select(0, indices) * other).to(x.dtype)
+ 
+ 
+-def _sdpa_varlen_attention(q, k, v, cu_seqlens, softmax_scale):
++def _sdpa_varlen_attention(q, k, v, cu_seqlens, softmax_scale, block_masks=None):
++    """block_masks: {segment start: BlockMask}. FlexAttention indices are
++    **local to each segment**, so a mask has to be built per segment; a
++    single mask for the whole sequence can't be reused across segments."""
+     out = torch.empty_like(q)
+     bounds = cu_seqlens.tolist()
+     for start, stop in zip(bounds[:-1], bounds[1:]):
+@@ -76,11 +103,145 @@ def _sdpa_varlen_attention(q, k, v, cu_seqlens, softmax_scale):
+         seg_q = q[start:stop].transpose(0, 1).unsqueeze(0)
+         seg_k = k[start:stop].transpose(0, 1).unsqueeze(0)
+         seg_v = v[start:stop].transpose(0, 1).unsqueeze(0)
+-        seg_out = attention_forward(seg_q, seg_k, seg_v, scale=softmax_scale)
++        bm = None if block_masks is None else block_masks.get(start)
++        if bm is None:
++            seg_out = attention_forward(seg_q, seg_k, seg_v, scale=softmax_scale)
++        else:
++            seg_out = attention_forward(seg_q, seg_k, seg_v, scale=softmax_scale,
++                                        attn_mask=bm, use_flex=True)
+         out[start:stop] = seg_out.squeeze(0).transpose(0, 1)
+     return out
+ 
+ 
++# Persistent buffers for the mask, reused by (device, segment start,
++# segment length). **The same tensor objects must be reused**: flex_attention
++# is torch.compile'd, and the mask_mod closure gets inlined into the kernel.
++# Allocating a new closure/tensor per sample causes two failures, neither of
++# which raises an error:
++#   1. Dynamo treats every call as a new graph -> hits the recompile limit
++#      within a few steps (FailOnRecompileLimitHit).
++#   2. Worse: in practice, once the first sample's mask_mod is baked into
++#      the kernel, it gets reused -- **every later sample silently runs
++#      against the first sample's mask** (confirmed by swapping the order
++#      of two probe masks: whichever ran first was correct, the second was
++#      wrong, with a score of 3.02).
++# Closing over a fixed buffer and overwriting its contents in place for
++# each sample fixes both problems at once.
++_MASK_BUFFERS: dict = {}
++
++
++def _mask_buffers(device, start: int, length: int):
++    key = (str(device), int(start), int(length))
++    buf = _MASK_BUFFERS.get(key)
++    if buf is None:
++        buf = {
++            "ann": torch.full((length,), -1, dtype=torch.int32, device=device),
++            "frm": torch.full((length,), -1, dtype=torch.int32, device=device),
++            "lim": torch.zeros((), dtype=torch.int32, device=device),
++        }
++        _MASK_BUFFERS[key] = buf
++    return buf
++
++
++def _build_action_block_masks(ann_rows, v0, fr, latent_t, cu_seqlens, seq_len, device,
++                              n_real=None):
++    """The hard binding mask for per-latent text conditioning.
++
++    Does exactly one thing: **makes annotation row k and every video row
++    outside frame k mutually invisible**. Everything else is untouched --
++    video x video, subject anchor x all video, annotation x annotation, and
++    annotation x first-frame cond all stay exactly as in the base model, so
++    removing the annotation rows recovers the original model precisely,
++    which is what makes the equivalence check in the mask probe valid.
++
++    Self-attention is permutation-equivariant, so simply adding 37
++    annotation rows to the sequence gives the model no way to know which
++    one belongs to which frame; position (the mirrored offset) is only a
++    soft bias, and this mask is what actually guarantees it architecturally.
++
++    The second thing this does is padding: `packed` pads the valid length
++    to a value shared across the whole dataset (otherwise flex_attention
++    recompiles every time the sequence length changes), so the pad rows
++    have to be masked out here -- they're zero vectors, and leaving them
++    unmasked would let them participate in the softmax and change its
++    denominator. A pad row is only allowed to see itself; otherwise it has
++    no visible key at all and softmax produces NaN.
++
++    ann_rows: [latent_t, 2], the (start, end) absolute row indices of each
++              annotation in the sequence.
++    n_real:   the real length before padding; None means no padding.
++    """
++    from torch.nn.attention.flex_attention import create_block_mask
++
++    masks = {}
++    bounds = cu_seqlens.tolist()
++    for start, stop in zip(bounds[:-1], bounds[1:]):
++        length = stop - start
++        if length <= 0:
++            continue
++        local_real = length if n_real is None else max(0, min(int(n_real) - start, length))
++        has_pad = local_real < length
++        buf = _mask_buffers(device, start, length)
++        ann, frm, lim = buf["ann"], buf["frm"], buf["lim"]
++        ann.fill_(-1)
++        frm.fill_(-1)
++        lim.fill_(local_real)
++
++        any_ann = False
++        for k in range(latent_t):
++            lo, hi = int(ann_rows[k, 0]) - start, int(ann_rows[k, 1]) - start
++            lo, hi = max(lo, 0), min(hi, length)
++            if hi > lo:
++                ann[lo:hi] = k
++                any_ann = True
++        vlo, vhi = v0 - start, v0 + latent_t * fr - start
++        if vhi > 0 and vlo < length:
++            lo, hi = max(vlo, 0), min(vhi, length)
++            idx = torch.arange(lo, hi, device=device)
++            frm[lo:hi] = ((idx + start - v0) // fr).to(torch.int32)
++        any_frm = bool(vhi > 0 and vlo < length)
++
++        if not (any_ann and any_frm) and not has_pad:
++            continue                      # this segment has nothing to bind and nothing to pad-mask
++
++        def mask_mod(b, h, q, kv, ann=ann, frm=frm, lim=lim):
++            aq, akv, fq, fkv = ann[q], ann[kv], frm[q], frm[kv]
++            # When an annotation row is the **key**, only two kinds of query
++            # can read it:
++            #   1) the same annotation's own rows (a sentence needs to
++            #      attend to itself internally)
++            #   2) the one video latent it's bound to
++            # Static text, the first-frame cond, audio, and **every other
++            # annotation row** can never read it.
++            #
++            # This is what makes it "directed": only the outgoing edges are
++            # blocked, not the incoming ones. An annotation row reading
++            # static text / cond / its own video is left alone -- that's
++            # information **flowing into** the annotation row, not a
++            # bypass A_j -> V_k, and it gives the action sentence scene
++            # grounding.
++            #
++            # With the outgoing edges blocked, it follows that any path
++            # from A_k to V_j (j != k) must pass through V_k first, i.e.
++            # V_k is a cut vertex between A_k and the rest of the sequence.
++            # "A_k never reads another A_j" is required for this to hold --
++            # otherwise A_j's content would flow into A_k first, and V_k
++            # reading A_k would be reading A_j too, and the cut-vertex
++            # property would break immediately.
++            same_ann = (aq >= 0) & (akv >= 0) & (aq == akv)
++            v_reads_own = (fq >= 0) & (akv >= 0) & (fq == akv)
++            leak_out = (akv >= 0) & ~same_ann & ~v_reads_own
++            # Incoming edges are unchanged: an annotation row only reads
++            # the one latent it's bound to, not any other latent.
++            leak_in = (aq >= 0) & (fkv >= 0) & (aq != fkv)
++            blocked = leak_out | leak_in
++            real = (q < lim) & (kv < lim)
++            return (q == kv) | (real & ~blocked)
++
++        masks[start] = create_block_mask(mask_mod, None, None, length, length, device=device)
++    return masks
++
++
+ class MiniMaxH3Rope(nn.Module):
+     def __init__(self, inv_freq_len: int) -> None:
+         super().__init__()
+@@ -133,7 +294,7 @@ class MiniMaxH3Attention(nn.Module):
+         self.k_norm = _norm(attention_head_dim, eps=qk_norm_eps)
+         self.out_proj = nn.Linear(inner_dim, hidden_size, bias=False)
+ 
+-    def forward(self, x, *, rope_freqs, cu_seqlens, max_seqlen=None):
++    def forward(self, x, *, rope_freqs, cu_seqlens, max_seqlen=None, block_masks=None):
+         total = x.shape[0]
+         qkv = self.qkv_proj(x)
+         qkv = qkv.view(total, self.num_heads, 3, self.head_dim)
+@@ -145,7 +306,8 @@ class MiniMaxH3Attention(nn.Module):
+         if rope_freqs is not None:
+             q = _apply_rope(q, rope_freqs)
+             k = _apply_rope(k, rope_freqs)
+-        out = _sdpa_varlen_attention(q, k, v, cu_seqlens=cu_seqlens, softmax_scale=self.softmax_scale)
++        out = _sdpa_varlen_attention(q, k, v, cu_seqlens=cu_seqlens,
++                                     softmax_scale=self.softmax_scale, block_masks=block_masks)
+         out = out.reshape(total, self.num_heads * self.head_dim)
+         return self.out_proj(out)
+ 
+@@ -220,12 +382,21 @@ class MiniMaxH3DiTBlock(nn.Module):
+         self.mlp = MiniMaxH3MLP(hidden_size, ffn_hidden_size)
+         self.adaln_proj = MiniMaxH3AdalnProj(hidden_size, time_embed_dim, adaln_out_features, expand_ratio=6, modality_num=MINIMAX_H3_ADALN_MODALITY_NUM)
+ 
+-    def forward(self, x, *, t_emb, combined_indices, rope_freqs, cu_seqlens, max_seqlen):
++    def forward(self, x, *, t_emb, combined_indices, rope_freqs, cu_seqlens, max_seqlen,
++                block_masks=None,
++                action_film=None):
+         shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = self.adaln_proj(t_emb)
+         residual = x
+         h = self.norm1(x)
+         h = _modulate_scale_shift(h, shift_msa, scale_msa, combined_indices)
+-        h = self.attn(h, rope_freqs=rope_freqs, cu_seqlens=cu_seqlens, max_seqlen=max_seqlen)
++        # The action modulation goes right after AdaLN: h has just been
++        # through RMSNorm here, so its scale is fixed (rms~=1), and
++        # scale=0.05 means exactly a 5% modulation -- and this is also the
++        # position the model is already used to being modulated at from pretraining.
++        if action_film is not None:
++            h = _apply_action_film(h, *action_film)
++        h = self.attn(h, rope_freqs=rope_freqs, cu_seqlens=cu_seqlens,
++                      max_seqlen=max_seqlen, block_masks=block_masks)
+         x = _modulate_gate(residual, gate_msa, h, combined_indices)
+         residual = x
+         h = self.norm2(x)
+@@ -282,6 +453,9 @@ class MiniMaxH3DiT(nn.Module):
+         self.hidden_size = hidden_size
+         self.num_attention_heads = num_attention_heads
+         self.num_channels_latents = latents_dim
++        self.num_layers = num_layers
++        self.num_action_buttons = 0          # see enable_action_conditioning
++        self.action_mode = "film"
+         video_patch_dim = latents_dim * patch_size[0] * patch_size[1] * patch_size[2]
+ 
+         self.video_patch_proj = nn.Linear(video_patch_dim, hidden_size, bias=True)
+@@ -298,6 +472,59 @@ class MiniMaxH3DiT(nn.Module):
+         )
+         self.final_layer = MiniMaxH3FinalLayer(hidden_size, time_embed_dim, final_adaln_out_features, latents_dim, audio_latents_dim, patch_size, final_norm_eps)
+ 
++    def enable_action_conditioning(self, num_buttons: int, mode: str = "film"):
++        """Build the action injection layers. mode="film" (default) or
++        "bias" (the old additive path, kept only for comparison).
++
++        Why not in __init__: core/loader/model.py:89 loads the pretrained
++        DiT with load_state_dict(assign=True), strict=True by default.
++        Having these parameters appear out of nowhere in __init__ would
++        raise Missing key(s) immediately. So this has to run after the
++        pretrained weights are loaded.
++
++        Both modes are zero-initialized, so the moment the injection path
++        is wired up, the model's output is **exactly equivalent to the
++        base model** ((1+0)*h+0 = h in film mode), and the equivalence
++        check in the mask probe continues to hold.
++
++        But the two modes learn very differently:
++          bias  -- delta_h = b(a), independent of h. Measured on 7872
++                   clips at step 2952: a single layer's bias L2 norm is
++                   only 0.24 (0.107% relative to hidden's 224.55), and its
++                   growth rate keeps decaying (x1.607 -> x1.111), because
++                   different samples need b to point in different
++                   directions and the gradients cancel out.
++          film  -- delta_h = scale(a) (x) h + shift(a); the modulation
++                   varies with content, so this conflict doesn't happen.
++        """
++        if mode not in ("film", "bias"):
++            raise ValueError(f"unknown action mode: {mode}")
++        ref = next(self.parameters())
++        self.num_action_buttons = num_buttons
++        self.action_mode = mode
++
++        if mode == "bias":
++            self.action_embedders = nn.ModuleList(
++                [nn.Linear(num_buttons, self.hidden_size, bias=False) for _ in range(self.num_layers)]
++            )
++            for m in self.action_embedders:
++                nn.init.zeros_(m.weight)
++            self.action_embedders.to(device=ref.device, dtype=ref.dtype)
++        else:
++            # One zero-initialized projection pair per layer: scale is multiplicative, shift is additive.
++            # Parameter count 2 x 50 x num_buttons x hidden, the same order as the old bias version.
++            self.action_scale = nn.ModuleList(
++                [nn.Linear(num_buttons, self.hidden_size, bias=False) for _ in range(self.num_layers)]
++            )
++            self.action_shift = nn.ModuleList(
++                [nn.Linear(num_buttons, self.hidden_size, bias=False) for _ in range(self.num_layers)]
++            )
++            for m in list(self.action_scale) + list(self.action_shift):
++                nn.init.zeros_(m.weight)
++            self.action_scale.to(device=ref.device, dtype=ref.dtype)
++            self.action_shift.to(device=ref.device, dtype=ref.dtype)
++        return self
++
+     def _embed(self, *, x, audio_x, text_embeddings_selected, unique_timesteps, img_pos, audio_pos, text_pos, refiner_cu_seqlens, refiner_max_seqlen, seq_len, device):
+         dtype = text_embeddings_selected.dtype
+         x_rows = x.view(-1, x.shape[-1]).index_select(0, img_pos).to(dtype)
+@@ -336,6 +563,11 @@ class MiniMaxH3DiT(nn.Module):
+         use_gradient_checkpointing_offload=False,
+         update_audio_mask=None,
+         skip_mask_out_condition=False,
++        action_cond=None,
++        action_video_start=None,
++        action_frame_rows=None,
++        action_text_rows=None,
++        action_real_used=None,
+     ) -> tuple[torch.Tensor, torch.Tensor]:
+         inverse_indices = inverse_indices.view(-1).to(torch.long)
+         token_tags = token_tags.view(-1).to(torch.long)
+@@ -371,7 +603,51 @@ class MiniMaxH3DiT(nn.Module):
+ 
+         hidden = decoder_input
+         cu_seqlens = cu_seqlens.to(device)
+-        for block in self.blocks:
++
++        # Where the action injection lands. The sequence layout is
++        # [text | cond | audio | video | pad], the video segment is
++        # contiguous, and its start is computed by model_fn from
++        # img_pos[cond_rows_count:][0] and passed in here. Important: the
++        # first cond_rows_count rows of img_pos are the first/last-frame
++        # keyframe anchors, not video frames -- adding the whole block
++        # would smear the bias onto the anchors and corrupt the
++        # first/last-frame condition, so those rows must be skipped.
++        inject_action = action_cond is not None and self.num_action_buttons > 0
++        if inject_action:
++            v0 = int(action_video_start)
++            fr = int(action_frame_rows)
++            latent_t = action_cond.shape[0]
++            n_video = latent_t * fr
++            if v0 + n_video > hidden.shape[0]:
++                raise ValueError(f"action video span [{v0}, {v0 + n_video}) is out of range, seq_len={hidden.shape[0]}")
++            action_cond = action_cond.to(device=hidden.device, dtype=hidden.dtype)
++
++        # The hard binding mask for per-latent text conditioning. Built once per forward pass, shared by all 50 layers.
++        block_masks = None
++        if action_text_rows is not None:
++            block_masks = _build_action_block_masks(
++                action_text_rows, int(action_video_start), int(action_frame_rows),
++                int(action_text_rows.shape[0]), cu_seqlens, hidden.shape[0], hidden.device,
++                n_real=action_real_used,
++            )
++
++        for i, block in enumerate(self.blocks):
++            film = None
++            if inject_action:
++                if self.action_mode == "film":
++                    # Modulation parameters are computed once per layer; the injection happens inside the block (after norm+AdaLN).
++                    film = (self.action_scale[i](action_cond), self.action_shift[i](action_cond),
++                            v0, n_video, latent_t, fr)
++                else:
++                    # The old additive path: injected at the block entrance, i.e. before RMSNorm.
++                    # Kept only for comparison; measured at only 0.107% relative magnitude after step 2952.
++                    emb = self.action_embedders[i](action_cond)
++                    video = hidden.narrow(0, v0, n_video).view(latent_t, fr, -1) + emb.unsqueeze(1)
++                    hidden = torch.cat([
++                        hidden.narrow(0, 0, v0),
++                        video.reshape(n_video, -1),
++                        hidden.narrow(0, v0 + n_video, hidden.shape[0] - v0 - n_video),
++                    ], dim=0)
+             hidden = gradient_checkpoint_forward(
+                 block,
+                 use_gradient_checkpointing,
+@@ -382,6 +658,8 @@ class MiniMaxH3DiT(nn.Module):
+                 rope_freqs=rope_freqs,
+                 cu_seqlens=cu_seqlens,
+                 max_seqlen=max_seqlen,
++                block_masks=block_masks,
++                action_film=film,
+             )
+ 
+         video_logits, audio_logits = self.final_layer(hidden, t_emb=t_emb, inverse_indices=inverse_indices)
+diff --git a/diffsynth/pipelines/minimax_h3_audio_video.py b/diffsynth/pipelines/minimax_h3_audio_video.py
+index 7f845ef..0aa22d9 100644
+--- a/diffsynth/pipelines/minimax_h3_audio_video.py
++++ b/diffsynth/pipelines/minimax_h3_audio_video.py
+@@ -103,6 +103,19 @@ class MiniMaxH3Pipeline(BasePipeline):
+         retake_audio: torch.Tensor = None,
+         retake_audio_sample_rate: int = 32000,
+         seconds_regions_to_retake: list[tuple[float, float]] = None,
++        action_cond: torch.Tensor = None,
++        # Per-latent action-text condition. action_script is latent_t
++        # annotation sentences; negative_action_script should be the
++        # "zero action reference" (everything stationary), so cfg_scale
++        # amplifies just the action-induced difference, not generic
++        # prompt adherence.
++        action_script: list = None,
++        negative_action_script: list = None,
++        # Pad the valid length to a fixed value, to avoid repeated
++        # flex_attention recompilation. On the training side this is
++        # computed over the whole dataset and written into the cache by
++        # inject_abot_text.py; inference should pass the same value.
++        action_pad_used_to: int = None,
+         progress_bar_cmd=tqdm,
+     ):
+         """Generate a joint video + audio sample.
+@@ -127,8 +140,9 @@ class MiniMaxH3Pipeline(BasePipeline):
+         self.scheduler.set_timesteps(num_inference_steps, shift=flow_shift)
+         self.scheduler_audio.set_timesteps(num_inference_steps, shift=audio_flow_shift)
+ 
+-        inputs_posi = {"prompt": prompt}
+-        inputs_nega = {"negative_prompt": negative_prompt}
++        inputs_posi = {"prompt": prompt, "action_script": action_script}
++        inputs_nega = {"negative_prompt": negative_prompt,
++                       "negative_action_script": negative_action_script or action_script}
+         inputs_shared = {
+             "cfg_scale": cfg_scale,
+             "height": height, "width": width, "num_frames": num_frames,
+@@ -141,6 +155,8 @@ class MiniMaxH3Pipeline(BasePipeline):
+             "retake_video": retake_video, "frame_regions_to_retake": frame_regions_to_retake,
+             "retake_audio": (retake_audio, retake_audio_sample_rate) if retake_audio is not None else None, "seconds_regions_to_retake": seconds_regions_to_retake,
+             "imgvid_cond_noise_aug": self.imgvid_cond_noise_aug, "audio_cond_noise_aug": self.audio_cond_noise_aug,
++            "action_cond": action_cond,
++            "action_pad_used_to": action_pad_used_to,
+         }
+ 
+         # 3. Unit chain
+@@ -208,10 +224,10 @@ class MiniMaxH3Unit_PromptEmbedder(PipelineUnit):
+     def __init__(self):
+         super().__init__(
+             seperate_cfg=True,
+-            input_params_posi={"prompt": "prompt"},
+-            input_params_nega={"prompt": "negative_prompt"},
++            input_params_posi={"prompt": "prompt", "action_script": "action_script"},
++            input_params_nega={"prompt": "negative_prompt", "action_script": "negative_action_script"},
+             input_params=("keyframes", "ref_blocks", "height", "width"),
+-            output_params=("prompt_embeds", "text_token_tags"),
++            output_params=("prompt_embeds", "text_token_tags", "action_text_spans"),
+             onload_model_names=("text_encoder",),
+         )
+ 
+@@ -248,7 +264,32 @@ class MiniMaxH3Unit_PromptEmbedder(PipelineUnit):
+         input_ids, text_token_tags = presentation_ref2va(pipe.tokenizer, prompt, condition_labels, image_counts, video_counts, video_timestamps)
+         return input_ids, text_token_tags, pixel_values, image_grid_thw, pixel_values_videos, video_grid_thw
+ 
+-    def process(self, pipe: MiniMaxH3Pipeline, prompt, keyframes=None, ref_blocks=None, height=None, width=None):
++    def _encode_action_script(self, pipe, script, head_len, dtype):
++        """Per-latent action-text condition: each sentence is **encoded
++        independently**, then appended after the head.
++
++        Encoding independently rather than as one block is a hard
++        requirement for streaming (future actions are unknown at
++        inference time, so the whole sequence can't be encoded at once),
++        and it gets consistency for free -- the same sentence always
++        produces the same embedding. A sentence repeated within one clip
++        is only encoded once.
++        """
++        cache, rows, spans, cursor = {}, [], [], head_len
++        for line in script:
++            if line not in cache:
++                ids, _ = presentation_t2va(pipe.tokenizer, line)
++                ids = ids.unsqueeze(0).to(pipe.device)
++                cache[line] = pipe.text_encoder(
++                    input_ids=ids, attention_mask=torch.ones_like(ids)).to(pipe.device, dtype)
++            e = cache[line]
++            spans.append((cursor, cursor + int(e.shape[0])))
++            cursor += int(e.shape[0])
++            rows.append(e)
++        return rows, spans
++
++    def process(self, pipe: MiniMaxH3Pipeline, prompt, keyframes=None, ref_blocks=None,
++                height=None, width=None, action_script=None):
+         pipe.load_models_to_device(self.onload_model_names)
+         pixel_values = image_grid_thw = pixel_values_videos = video_grid_thw = None
+         if ref_blocks:
+@@ -269,8 +310,18 @@ class MiniMaxH3Unit_PromptEmbedder(PipelineUnit):
+             kwargs["pixel_values_videos"] = pixel_values_videos.to(pipe.device, pipe.torch_dtype)
+             kwargs["video_grid_thw"] = video_grid_thw.to(pipe.device, torch.long)
+         hidden = pipe.text_encoder(**kwargs)
++        hidden = hidden.to(pipe.device, pipe.torch_dtype)
++        tags = text_token_tags.view(-1).to(pipe.device, torch.long)
++
++        spans = None
++        if action_script:
++            rows, spans = self._encode_action_script(
++                pipe, action_script, int(hidden.shape[0]), pipe.torch_dtype)
++            hidden = torch.cat([hidden] + rows, dim=0)
++            extra = sum(int(r.shape[0]) for r in rows)
++            tags = torch.cat([tags, torch.ones(extra, dtype=torch.long, device=tags.device)])
+ 
+-        return {"prompt_embeds": hidden.to(pipe.device, pipe.torch_dtype), "text_token_tags": text_token_tags.view(-1).to(pipe.device, torch.long)}
++        return {"prompt_embeds": hidden, "text_token_tags": tags, "action_text_spans": spans}
+ 
+ 
+ class MiniMaxH3Unit_InputVideoEmbedder(PipelineUnit):
+@@ -546,9 +597,11 @@ class MiniMaxH3Unit_PackedSequenceBuilder(PipelineUnit):
+     def __init__(self):
+         super().__init__(
+             seperate_cfg=True,
+-            input_params_posi={"prompt_embeds": "prompt_embeds", "text_token_tags": "text_token_tags"},
+-            input_params_nega={"prompt_embeds": "prompt_embeds", "text_token_tags": "text_token_tags"},
+-            input_params=("video_latents", "audio_latents", "keyframe_cond_anchor", "keyframe_indices", "ref_blocks"),
++            input_params_posi={"prompt_embeds": "prompt_embeds", "text_token_tags": "text_token_tags",
++                               "action_text_spans": "action_text_spans"},
++            input_params_nega={"prompt_embeds": "prompt_embeds", "text_token_tags": "text_token_tags",
++                               "action_text_spans": "action_text_spans"},
++            input_params=("video_latents", "audio_latents", "keyframe_cond_anchor", "keyframe_indices", "ref_blocks", "action_pad_used_to"),
+             output_params=("packed",)
+         )
+ 
+@@ -595,14 +648,41 @@ class MiniMaxH3Unit_PackedSequenceBuilder(PipelineUnit):
+         return torch.cat([torch.full((audio_t,), float(w_grid[0]), dtype=torch.float64),
+                           torch.full((audio_rows - audio_t,), float(w_grid[-1]), dtype=torch.float64)])
+ 
+-    def _build_packed_fl2va(self, text_len, latent_t, latent_h, latent_w, audio_t, keyframe_indices, audio_channel=2):
+-        """fl2va layout: [text | cond | audio | video | pad]."""
++    def _build_packed_fl2va(self, text_len, latent_t, latent_h, latent_w, audio_t,
++                            keyframe_indices, audio_channel=2, action_text_spans=None,
++                            pad_used_to=None):
++        """fl2va layout: [text | cond | audio | video | pad].
++
++        pad_used_to: pad the valid length to this fixed value.
++        flex_attention is torch.compile'd, and every distinct sequence
++        length triggers a recompile; with a different text_len per sample,
++        this hits Dynamo's recompile limit within a few steps. Padding to a
++        value shared across the whole dataset means it only compiles once.
++        The extra rows are zero vectors, masked out by the DiT's attention
++        mask (see n_real in _build_action_block_masks).
++
++        action_text_spans: row spans [(start, stop), ...] of the per-latent
++        text condition (offsets within the text segment). When given, these
++        rows are laid out with a **mirrored offset**: row k is placed at
++        t = (text_len - video span) + s_k, so its t-offset from frame k's t
++        is a constant negative number. This makes the binding signal a
++        single uniform rule ("look back a fixed distance"), without
++        breaking the pretraining invariant that text always comes before
++        video in t -- placing it directly at the frame's own t would make
++        the text<->video t-offset both zero and positive, a configuration
++        pretraining never saw.
++        """
+         frame_rows = (latent_h // 2) * (latent_w // 2)
+         video_rows = latent_t * frame_rows
+         audio_rows = audio_t * audio_channel
+         num_keyframes = len(keyframe_indices)
+         cond_rows = num_keyframes * frame_rows
+         used = text_len + cond_rows + audio_rows + video_rows
++        real_used = used
++        if pad_used_to is not None:
++            if pad_used_to < used:
++                raise ValueError(f"pad_used_to {pad_used_to} is smaller than the actual length {used}")
++            used = int(pad_used_to)
+         seq_len = self._aligned_seq_len(used)
+ 
+         text_sl = slice(0, text_len)
+@@ -617,6 +697,31 @@ class MiniMaxH3Unit_PackedSequenceBuilder(PipelineUnit):
+         g = torch.zeros(seq_len, 3, dtype=torch.float64)
+         g[text_sl, 0] = torch.arange(text_len, dtype=torch.float64)
+ 
++        action_text_rows = None
++        if action_text_spans is not None:
++            if len(action_text_spans) != latent_t:
++                raise ValueError(f"action_text_spans should have {latent_t} entries, got {len(action_text_spans)}")
++            prev = 0
++            for k, (lo, hi) in enumerate(action_text_spans):
++                if not (0 <= lo < hi <= text_len):
++                    raise ValueError(f"span {k} ({lo},{hi}) is outside the text segment [0,{text_len})")
++                if lo < prev:
++                    raise ValueError(f"span {k} ({lo},{hi}) overlaps or is out of order with the previous one")
++                prev = hi
++            s_k = self._video_t_grid(latent_t, 0.0)
++            origin = float(text_len) - float(s_k[-1]) - 1.0     # back off by one step so the last row doesn't land on the same t as the first-frame cond
++            head_end = int(action_text_spans[0][0])
++            if origin < head_end:
++                raise ValueError(
++                    f"the annotation block would need t in [{origin:.0f}, {origin + float(s_k[-1]):.0f}], "
++                    f"which overlaps the preceding image/anchor segment [0,{head_end}); "
++                    f"lengthen the text segment or shorten the annotations")
++            rows = []
++            for k, (lo, hi) in enumerate(action_text_spans):
++                g[lo:hi, 0] = origin + float(s_k[k])
++                rows.append((lo, hi))
++            action_text_rows = torch.tensor(rows, dtype=torch.long)
++
+         sqrt_area = np.sqrt(latent_h * latent_w)
+         frame, w_grid = self._frame_grid(latent_h, latent_w, sqrt_area)
+ 
+@@ -642,11 +747,19 @@ class MiniMaxH3Unit_PackedSequenceBuilder(PipelineUnit):
+         token_tags[audio_sl] = 2
+         token_tags[img_pos] = 0  # both cond and video rows are tagged as video (0)
+ 
+-        return {
++        out = {
+             "img_pos": img_pos, "audio_pos": audio_pos, "text_pos": torch.arange(0, text_len),
+             "img_position_ids": g[None], "token_tags": token_tags,
+             "cu_seqlens": torch.tensor([0, used, seq_len], dtype=torch.int32), "seq_len": seq_len,
+         }
++        if action_text_rows is not None:
++            out["action_text_rows"] = action_text_rows
++            # Local spans within the text segment, used to split the Token Refiner's segments (see the refiner_cu note below).
++            out["action_text_spans_local"] = [(int(lo), int(hi)) for lo, hi in action_text_spans]
++            out["action_video_start"] = video_sl.start
++            out["action_frame_rows"] = frame_rows
++            out["action_real_used"] = real_used
++        return out
+ 
+     def _build_packed_ref2va(self, text_len, latent_t, latent_h, latent_w, audio_t, ref_blocks, audio_channel=2):
+         """ref2va layout: [text | ref_0 | ref_1 | ... | target_audio | target_video | pad]"""
+@@ -775,14 +888,17 @@ class MiniMaxH3Unit_PackedSequenceBuilder(PipelineUnit):
+             "seq_len": seq_len,
+         }
+ 
+-    def process(self, pipe: MiniMaxH3Pipeline, prompt_embeds, video_latents, audio_latents, text_token_tags=None, keyframe_cond_anchor=None, keyframe_indices=None, ref_blocks=None):
++    def process(self, pipe: MiniMaxH3Pipeline, prompt_embeds, video_latents, audio_latents, text_token_tags=None, keyframe_cond_anchor=None, keyframe_indices=None, ref_blocks=None, action_text_spans=None, action_pad_used_to=None):
+         text_len = prompt_embeds.shape[0]
+         video_latent_t, latent_h, latent_w = video_latents.shape[2:]
+         audio_latent_t = audio_latents.shape[-1]
+         if ref_blocks is not None:
+             packed = self._build_packed_ref2va(text_len, video_latent_t, latent_h, latent_w, audio_latent_t, ref_blocks)
+         else:
+-            packed = self._build_packed_fl2va(text_len, video_latent_t, latent_h, latent_w, audio_latent_t, keyframe_indices if keyframe_cond_anchor is not None else [])
++            packed = self._build_packed_fl2va(
++                text_len, video_latent_t, latent_h, latent_w, audio_latent_t,
++                keyframe_indices if keyframe_cond_anchor is not None else [],
++                action_text_spans=action_text_spans, pad_used_to=action_pad_used_to)
+ 
+         packed["token_tags"][packed["text_pos"]] = text_token_tags.cpu()
+         if pipe.device == "mps":
+@@ -809,8 +925,16 @@ def model_fn_minimax_h3(
+     audio_cond_noise_aug=1.0,
+     use_gradient_checkpointing=False,
+     use_gradient_checkpointing_offload=False,
++    action_cond=None,
+     **kwargs,
+ ):
++    # action_cond is the binned, pooled key tensor, [latent_t, num_buttons].
++    # This parameter must exist even if it's only ever passed through:
++    # GeneralUnit_RemoveCache at the end of stage 1 of two-stage training
++    # builds its keep-list from inspect.signature(pipe.model_fn).parameters,
++    # and any key not on that list gets dropped from the cache, so stage 2
++    # would never see the action. **kwargs doesn't count -- it has to be a
++    # named parameter.
+     t_video = 1.0 - float(timestep_video) / 1000
+     t_audio = 1.0 - float(timestep_audio) / 1000
+ 
+@@ -855,7 +979,48 @@ def model_fn_minimax_h3(
+     timesteps[audio_pos[:ref_audio_rows_count]] = max(t_audio, audio_cond_noise_aug)
+     unique_timesteps, inverse_indices = torch.unique(timesteps, sorted=True, return_inverse=True)
+ 
+-    refiner_cu = torch.tensor([0, text_len, text_len], dtype=torch.int32, device=device)
++    # Token Refiner segmentation.
++    #
++    # Used to be [0, text_len, text_len] -- the whole text segment as one
++    # document, and 2 layers of full attention would mix "the head prompt +
++    # all 37 action sentences" together. The consequence: by the time A_k
++    # reaches the DiT backbone, its representation already contains
++    # information from other action sentences, **and no mask on the DiT
++    # side can close that upstream leak**, so the cut-vertex property
++    # (A_k can only reach other latents through V_k) breaks immediately.
++    #
++    # Fixed by splitting on span instead: the head is one segment, then
++    # each action sentence is its own segment. Every sentence only sees
++    # itself inside the refiner. Three things were verified:
++    #   1. head[0, head_end) and the 37 spans exactly tile [0, text_len)
++    #      with no gaps and no overlap (in _encode_action_script, cursor
++    #      accumulates from head_len one sentence at a time, and hidden is
++    #      concatenated in the same order).
++    #   2. The old duplicated text_len at the end is an **empty segment**;
++    #      _sdpa_varlen_attention hits stop == start and just continues, it
++    #      isn't a padding document -- the text segment itself has no
++    #      padding, so the new segmentation doesn't need a trailing pad either.
++    #   3. The refiner's attention uses rope_freqs=None, i.e. **it doesn't
++    #      use RoPE at all**; the DiT's positions come from img_position_ids
++    #      and are unrelated to refiner_cu. So this segmentation only
++    #      changes visibility, and doesn't touch positional encoding.
++    # Prefers the local spans written at packing time; **older caches don't
++    # have this key** (it's new in this change), so it falls back to
++    # deriving them from action_text_rows -- in the fl2va layout the text
++    # segment starts at 0, so absolute row numbers are the same as local
++    # offsets. This means the 7872 clips already cached don't need to be rebuilt.
++    spans_for_refiner = packed.get("action_text_spans_local")
++    if spans_for_refiner is None and packed.get("action_text_rows") is not None:
++        spans_for_refiner = [(int(lo), int(hi)) for lo, hi in packed["action_text_rows"]]
++    if spans_for_refiner:
++        bounds = [0, int(spans_for_refiner[0][0])]            # one segment for the head prompt
++        bounds += [int(hi) for (_, hi) in spans_for_refiner]  # one segment per action sentence
++        assert bounds[-1] == text_len, (
++            f"refiner segmentation doesn't reach the end of the text segment: {bounds[-1]} != {text_len}")
++        assert all(b < a for b, a in zip(bounds, bounds[1:])), f"refiner segmentation is not strictly increasing: {bounds}"
++        refiner_cu = torch.tensor(bounds, dtype=torch.int32, device=device)
++    else:
++        refiner_cu = torch.tensor([0, text_len, text_len], dtype=torch.int32, device=device)
+     v_video_rows, v_audio_rows = dit(
+         x=x,
+         audio_x=audio_x,
+@@ -874,6 +1039,20 @@ def model_fn_minimax_h3(
+         skip_mask_out_condition=True,
+         use_gradient_checkpointing=use_gradient_checkpointing,
+         use_gradient_checkpointing_offload=use_gradient_checkpointing_offload,
++        action_cond=action_cond,
++        # Start of the video segment and rows per frame. Not passed
++        # through from packed: cond_rows_count is already computed above,
++        # and frame_rows follows directly from the latent shape, matching
++        # the definition in _build_packed_fl2va.
++        action_video_start=(int(img_pos[cond_rows_count])
++                            if (action_cond is not None or "action_text_rows" in packed) else None),
++        action_frame_rows=(h // 2) * (w // 2),
++        # Row spans of the per-latent text condition. Computed by
++        # _build_packed_fl2va at packing time and stored in packed; the
++        # DiT uses it to build the hard binding mask (annotation k is
++        # mutually visible only with frame k's video rows).
++        action_text_rows=packed.get("action_text_rows"),
++        action_real_used=packed.get("action_real_used"),
+     )
+ 
+     v_video_rows = v_video_rows[cond_rows_count:]
+diff --git a/examples/minimax_h3/model_training/train.py b/examples/minimax_h3/model_training/train.py
+index 9047ba7..7891c87 100644
+--- a/examples/minimax_h3/model_training/train.py
++++ b/examples/minimax_h3/model_training/train.py
+@@ -27,6 +27,9 @@ class MiniMaxH3TrainingModule(DiffusionTrainingModule):
+         template_model_id_or_path=None,
+         resume_from_checkpoint=None, remove_prefix_in_ckpt=None,
+         silent_on_missing_audio=False,
++        action_num_buttons=0,
++        action_train_only=False,
++        action_mode="film",
+         device="cpu",
+         task="sft",
+     ):
+@@ -60,6 +63,40 @@ class MiniMaxH3TrainingModule(DiffusionTrainingModule):
+         )
+         self.pipe.scheduler_audio.set_timesteps(1000, training=True)
+ 
++        # Legacy additive/FiLM action-conditioning layers, kept for A/B
++        # comparison against the current per-latent text-injection scheme
++        # (which trains a plain LoRA and needs action_num_buttons=0, the
++        # default). Built here because of two constraints:
++        #   - after from_pretrained: core/loader/model.py loads the
++        #     pretrained DiT with strict=True, so action_embedders.* showing
++        #     up out of nowhere in __init__ would raise Missing key(s).
++        #   - after switch_pipe_to_training_mode: it calls freeze_except
++        #     first, which freezes everything; parameters created afterward
++        #     default to requires_grad=True, which is exactly what we want
++        #     for these.
++        # Stage 1 (sft:data_process) never loads the DiT, so this is skipped there.
++        if action_num_buttons > 0 and getattr(self.pipe, "dit", None) is not None:
++            self.pipe.dit.enable_action_conditioning(action_num_buttons, mode=action_mode)
++            if action_mode == "film":
++                action_params = (list(self.pipe.dit.action_scale.parameters())
++                                 + list(self.pipe.dit.action_shift.parameters()))
++            else:
++                action_params = list(self.pipe.dit.action_embedders.parameters())
++            if action_train_only:
++                # Train only the action layers, freeze everything else
++                # (including LoRA). Combined with zero-initialization, this
++                # is the cleanest check that the injection path works --
++                # the loss should start out matching a plain-LoRA baseline.
++                for p in self.parameters():
++                    p.requires_grad_(False)
++            for p in action_params:
++                p.requires_grad_(True)
++            n_trainable = sum(p.numel() for p in self.parameters() if p.requires_grad)
++            print(f"[action] {action_num_buttons}-button injection enabled, mode={action_mode}, "
++                  f"action layers have {sum(p.numel() for p in action_params):,} parameters"
++                  f"{' (action_train_only: everything else frozen)' if action_train_only else ''}, "
++                  f"currently trainable in total: {n_trainable:,}")
++
+         # Store other configs
+         self.silent_on_missing_audio = silent_on_missing_audio
+         self.use_gradient_checkpointing = use_gradient_checkpointing
+@@ -140,6 +177,9 @@ def minimax_h3_parser():
+     parser.add_argument("--processor_path", type=str, default=None, help="Path or `model_id:pattern` of the Qwen3-VL processor.")
+     parser.add_argument("--initialize_model_on_cpu", default=False, action="store_true", help="Whether to initialize models on CPU.")
+     parser.add_argument("--silent_on_missing_audio", default=False, action="store_true", help="Whether to use silent audio as a fallback when no audio track is present in the video data.")
++    parser.add_argument("--action_num_buttons", type=int, default=0, help="Number of player-action buttons for action-conditioned training. 0 disables action conditioning. The action tensor itself comes from the `action_cond` key in the stage-1 latent cache.")
++    parser.add_argument("--action_train_only", default=False, action="store_true", help="Freeze everything except the action embedders. Used to verify the action injection path against a plain-LoRA baseline before opening up training.")
++    parser.add_argument("--action_mode", type=str, default="film", choices=["film", "bias"], help="How the action signal enters the DiT. 'film' (default) modulates the post-AdaLN hidden state as h*(1+scale)+shift inside each block; 'bias' is the legacy additive path injected at the block entrance, kept only for A/B comparison.")
+     return parser
+ 
+ 
+@@ -190,8 +230,15 @@ if __name__ == "__main__":
+                 num_frames=args.num_frames,
+                 frame_rate=MINIMAX_H3_FRAME_RATE,
+             ),
+-        }
++        },
++        max_data_items=args.max_data_items,
+     )
++    if args.task == "sft:data_process":
++        # accelerate shards the dataloader across ranks. Preserve the global metadata
++        # row id in every sample so cached sidecars can be injected without guessing
++        # rank-local index mappings.
++        for data_id, row in enumerate(dataset.data):
++            row["_diffsynth_data_id"] = data_id
+     model = MiniMaxH3TrainingModule(
+         model_paths=args.model_paths,
+         model_id_with_origin_paths=args.model_id_with_origin_paths,
+@@ -205,6 +252,9 @@ if __name__ == "__main__":
+         preset_lora_model=args.preset_lora_model,
+         use_gradient_checkpointing=args.use_gradient_checkpointing,
+         use_gradient_checkpointing_offload=args.use_gradient_checkpointing_offload,
++        action_num_buttons=args.action_num_buttons,
++        action_train_only=args.action_train_only,
++        action_mode=args.action_mode,
+         extra_inputs=args.extra_inputs,
+         fp8_models=args.fp8_models,
+         offload_models=args.offload_models,
+diff --git a/examples/minimax_h3/model_training/train_v2.py b/examples/minimax_h3/model_training/train_v2.py
+new file mode 100644
+index 0000000..127418e
+--- /dev/null
++++ b/examples/minimax_h3/model_training/train_v2.py
+@@ -0,0 +1,60 @@
++#!/usr/bin/env python3
++"""Force training to actually load the v2 diffsynth, then hand control to
++the original train.py.
++
++Why this wrapper exists:
++
++  diffsynth is installed editable in this environment, which registers a
++  **MetaPathFinder** (_EditableFinder) at interpreter startup through a
++  .pth file in site-packages. Its MAPPING is hardcoded to the unmodified
++  checkout:
++
++      MAPPING = {'diffsynth': '.../DiffSynth-Studio-h3/diffsynth'}
++
++  sys.meta_path takes priority over sys.path, so **setting PYTHONPATH does
++  nothing** -- no matter what the cwd is or where PYTHONPATH points,
++  `import diffsynth` resolves to the unmodified package. And this fails
++  silently: training runs normally, just against the old code.
++
++  We hit this once already: the first attempt at training 7872_directed ran
++  for 5.2 hours (1997 steps) entirely against the old symmetric mask. The
++  logs, loss, and throughput all looked completely normal -- nothing
++  signaled the problem.
++
++Fix: before importing diffsynth, remove the editable finder and its path
++hook, insert the v2 repo root at the front of sys.path, then run the
++original train.py as __main__.
++"""
++from __future__ import annotations
++
++import runpy
++import sys
++from pathlib import Path
++
++V2_ROOT = Path(__file__).resolve().parents[3]          # .../DiffSynth-Studio-h3-v2
++
++sys.meta_path = [f for f in sys.meta_path if "Editable" not in type(f).__name__]
++sys.path_hooks = [h for h in sys.path_hooks
++                  if "Editable" not in getattr(h, "__name__", str(h))]
++sys.path_importer_cache.clear()
++sys.path.insert(0, str(V2_ROOT))
++
++# Hard verification: better to fail to start than to silently train the wrong code.
++import inspect  # noqa: E402
++
++import diffsynth.models.minimax_h3_dit as _dit  # noqa: E402
++import diffsynth.pipelines.minimax_h3_audio_video as _pipe  # noqa: E402
++
++_checks = [
++    ("diffsynth resolved from v2", "-v2/" in _dit.__file__, _dit.__file__),
++    ("directed attention mask present", "leak_out" in inspect.getsource(_dit._build_action_block_masks), ""),
++    ("packed-sequence builder is the per-latent version", "action_text_spans_local" in inspect.getsource(_pipe), ""),
++]
++for name, ok, extra in _checks:
++    print(f"[preflight] {name}: {'ok' if ok else 'FAILED'} {extra}", flush=True)
++if not all(ok for _, ok, _ in _checks):
++    sys.exit("[preflight] the loaded diffsynth is not the v2 code; refusing to start training")
++
++_real = Path(__file__).with_name("train.py")
++sys.argv[0] = str(_real)
++runpy.run_path(str(_real), run_name="__main__")

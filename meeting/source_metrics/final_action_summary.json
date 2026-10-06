@@ -1,0 +1,309 @@
+{
+  "experiment": {
+    "name": "fixed_mix_0.5 scheduled-history causal action grid",
+    "checkpoint": "H3-World/outputs/2026-10-02-scheduled-sampling/fixed_mix_0.5/action_adapter.pt",
+    "same_seed": 13,
+    "num_frames": 124,
+    "fps": 24,
+    "seconds": 5.166666666666667,
+    "steps_per_chunk": 8,
+    "chunk_frames": 5,
+    "latent_chunks": 8,
+    "history_source": "generated",
+    "anchor_mode": "dynamic_last_frame_dual",
+    "action_prefix_mode": "own",
+    "action_feedback": false,
+    "flow_shift": 2.22,
+    "cache_device": "cpu",
+    "causal_grid": "H3-World/outputs/h3world_final_fixed_mix_action_grid_124.mp4"
+  },
+  "actions": {
+    "W": {
+      "causal": {
+        "video": "H3-World/outputs/2026-10-03-02/final_fixed_mix124_8step/W/cached.mp4",
+        "steps": 8,
+        "denoiser_forwards": 64,
+        "commit_forwards": 8,
+        "sampling_seconds": 379.34580162516795,
+        "wall_including_shared_setup_seconds": 450.1769459210336,
+        "gpu_peak_allocated_MiB": 39926.615234375,
+        "cpu_kv_peak_MiB": 13508.60595703125,
+        "per_layer_commits": 400,
+        "horizontal_flow_mean": -0.6235629042565096,
+        "vertical_flow_mean": 0.11839460630568002,
+        "frames": 124,
+        "mean_rgb_mad": 4.597697963082395,
+        "p95_rgb_mad": 8.835121277377132,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.5606553819444446,
+          "34": 6.0549111912393165,
+          "51": 4.2311331463675215,
+          "68": 6.06689202724359,
+          "85": 8.895541199252136,
+          "102": 9.714955595619658,
+          "119": 5.503339509882479
+        },
+        "boundary_score_mean": 6.289632578792735
+      },
+      "original": {
+        "video": "H3-World/outputs/2026-10-01-20/action_W_baseline30_124/baseline.mp4",
+        "steps": 30,
+        "denoiser_forwards": 30,
+        "sampling_seconds": 359.23387104901485,
+        "wall_including_shared_setup_seconds": 441.51850209897384,
+        "gpu_peak_allocated_MiB": 39925.138671875,
+        "cpu_kv_peak_MiB": 0.0,
+        "horizontal_flow_mean": -1.1113472674647724,
+        "vertical_flow_mean": 0.23546606071512935,
+        "frames": 124,
+        "mean_rgb_mad": 4.319840925697919,
+        "p95_rgb_mad": 8.425602463942306,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.7343416132478633,
+          "34": 3.799106904380342,
+          "51": 1.9001260349893163,
+          "68": 5.751019965277778,
+          "85": 8.435169604700855,
+          "102": 8.549594350961538,
+          "119": 2.6147026909722224
+        },
+        "boundary_score_mean": 4.969151594932845
+      }
+    },
+    "S": {
+      "causal": {
+        "video": "H3-World/outputs/2026-10-03-02/final_fixed_mix124_8step/S/cached.mp4",
+        "steps": 8,
+        "denoiser_forwards": 64,
+        "commit_forwards": 8,
+        "sampling_seconds": 380.1406962601468,
+        "wall_including_shared_setup_seconds": 451.90018084598705,
+        "gpu_peak_allocated_MiB": 39926.615234375,
+        "cpu_kv_peak_MiB": 13508.60595703125,
+        "per_layer_commits": 400,
+        "horizontal_flow_mean": -0.09551233953805319,
+        "vertical_flow_mean": 0.023453037292844186,
+        "frames": 124,
+        "mean_rgb_mad": 4.623132940889706,
+        "p95_rgb_mad": 11.369095135550209,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 2.9016593215811968,
+          "34": 6.974821380876068,
+          "51": 4.716502236912393,
+          "68": 5.122601996527778,
+          "85": 13.342102363782052,
+          "102": 11.660225527510685,
+          "119": 9.62744641426282
+        },
+        "boundary_score_mean": 7.763622748778999
+      },
+      "original": {
+        "video": "H3-World/outputs/2026-10-01-20/action_S_baseline30_124/baseline.mp4",
+        "steps": 30,
+        "denoiser_forwards": 30,
+        "sampling_seconds": 362.31384619907476,
+        "wall_including_shared_setup_seconds": 444.8291433400009,
+        "gpu_peak_allocated_MiB": 39925.138671875,
+        "cpu_kv_peak_MiB": 0.0,
+        "horizontal_flow_mean": -1.0837205234727263,
+        "vertical_flow_mean": 0.16398606173033028,
+        "frames": 124,
+        "mean_rgb_mad": 4.13374399717054,
+        "p95_rgb_mad": 8.311124632745724,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.698465878739316,
+          "34": 4.112540064102564,
+          "51": 1.7951839610042735,
+          "68": 3.517865251068376,
+          "85": 8.32768095619658,
+          "102": 8.115064102564103,
+          "119": 3.3529547275641027
+        },
+        "boundary_score_mean": 4.702822134462759
+      }
+    },
+    "A": {
+      "causal": {
+        "video": "H3-World/outputs/2026-10-03-02/final_fixed_mix124_8step/A/cached.mp4",
+        "steps": 8,
+        "denoiser_forwards": 64,
+        "commit_forwards": 8,
+        "sampling_seconds": 364.80697238398716,
+        "wall_including_shared_setup_seconds": 438.7944638610352,
+        "gpu_peak_allocated_MiB": 39948.36376953125,
+        "cpu_kv_peak_MiB": 13508.60595703125,
+        "per_layer_commits": 400,
+        "horizontal_flow_mean": 0.14270704351289848,
+        "vertical_flow_mean": 0.17583285378125624,
+        "frames": 124,
+        "mean_rgb_mad": 7.095254867137012,
+        "p95_rgb_mad": 17.125948350694422,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 2.7708875868055554,
+          "34": 12.059109575320512,
+          "51": 11.921390057425214,
+          "68": 20.878397102029915,
+          "85": 21.22942875267094,
+          "102": 23.165032385149573,
+          "119": 3.761588541666667
+        },
+        "boundary_score_mean": 13.683690571581197
+      },
+      "original": {
+        "video": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+        "steps": 30,
+        "denoiser_forwards": 30,
+        "sampling_seconds": 373.28113305196166,
+        "wall_including_shared_setup_seconds": 454.18074704892933,
+        "gpu_peak_allocated_MiB": 39925.138671875,
+        "cpu_kv_peak_MiB": 0.0,
+        "horizontal_flow_mean": 1.0767251417737425,
+        "vertical_flow_mean": -0.08547279218091569,
+        "frames": 124,
+        "mean_rgb_mad": 4.519931911383417,
+        "p95_rgb_mad": 8.592666766826921,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.153339509882479,
+          "34": 3.143582231570513,
+          "51": 3.559556123130342,
+          "68": 15.3899172008547,
+          "85": 5.967042267628205,
+          "102": 3.5846429286858976,
+          "119": 1.1980401976495727
+        },
+        "boundary_score_mean": 5.142302922771672
+      }
+    },
+    "D": {
+      "causal": {
+        "video": "H3-World/outputs/2026-10-03-02/final_fixed_mix124_8step/D/cached.mp4",
+        "steps": 8,
+        "denoiser_forwards": 64,
+        "commit_forwards": 8,
+        "sampling_seconds": 312.3458580148872,
+        "wall_including_shared_setup_seconds": 383.4235135491472,
+        "gpu_peak_allocated_MiB": 39948.36376953125,
+        "cpu_kv_peak_MiB": 13508.60595703125,
+        "per_layer_commits": 400,
+        "horizontal_flow_mean": -0.31050672024446807,
+        "vertical_flow_mean": 0.16090228535969386,
+        "frames": 124,
+        "mean_rgb_mad": 5.386464963182283,
+        "p95_rgb_mad": 12.34395290798611,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.4959819043803417,
+          "34": 10.034532752403846,
+          "51": 4.7718357705662395,
+          "68": 10.156976996527778,
+          "85": 15.002700988247863,
+          "102": 19.61895532852564,
+          "119": 3.1844259147970084
+        },
+        "boundary_score_mean": 9.46648709363553
+      },
+      "original": {
+        "video": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+        "steps": 30,
+        "denoiser_forwards": 30,
+        "sampling_seconds": 371.22929321206175,
+        "wall_including_shared_setup_seconds": 450.35874258284457,
+        "gpu_peak_allocated_MiB": 39925.138671875,
+        "cpu_kv_peak_MiB": 0.0,
+        "horizontal_flow_mean": -1.601923440893491,
+        "vertical_flow_mean": 0.10907486647677918,
+        "frames": 124,
+        "mean_rgb_mad": 4.458338300630603,
+        "p95_rgb_mad": 8.106058944310892,
+        "boundary_frames": [
+          17,
+          34,
+          51,
+          68,
+          85,
+          102,
+          119
+        ],
+        "boundary_rgb_mad": {
+          "17": 3.5983548677884616,
+          "34": 6.508550347222222,
+          "51": 3.6959351629273502,
+          "68": 5.415397135416667,
+          "85": 9.265553218482905,
+          "102": 3.585148737980769,
+          "119": 5.656866820245726
+        },
+        "boundary_score_mean": 5.389400898580585
+      }
+    }
+  },
+  "action_response": {
+    "causal_A_minus_D_horizontal_mean": 0.45321376375736655,
+    "original_A_minus_D_horizontal_mean": 2.6786485826672335,
+    "causal_W_minus_S_horizontal_mean": -0.5280505647184565,
+    "original_W_minus_S_horizontal_mean": -0.02762674399204612,
+    "interpretation": "A/D horizontal flow is the useful directional proxy; W/S horizontal sign is not a reliable forward/backward metric for this scene."
+  }
+}

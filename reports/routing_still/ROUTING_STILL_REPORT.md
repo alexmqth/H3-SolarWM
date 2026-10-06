@@ -1,0 +1,46 @@
+# Routing upper bound and still counterfactual
+
+{
+  "experiment": "routing_all_rgb_39_8step",
+  "protocol": {
+    "frames": 39,
+    "latent_frames": 12,
+    "chunks": 3,
+    "chunk_frames": 5,
+    "steps_per_chunk": 8,
+    "flow_shift": 2.22,
+    "seed": 13,
+    "anchor": "dynamic_last_frame_rgb_dual",
+    "visual_adapter": "visual_online_rgb_tail16_endpoint_ad2",
+    "action_adapter": "visual_online_rgb_tail16_endpoint_ad2/action_adapter.pt",
+    "history": "generated",
+    "cache": "CPU raw KV",
+    "action_feedback": true,
+    "prefix_mode": "all"
+  },
+  "metrics": [
+    {
+      "action": "STILL",
+      "horizontal_flow": -0.7128565946691915,
+      "vertical_flow": 0.3079820773319194,
+      "flow_magnitude": 1.0637174593774896,
+      "relative_to_still_horizontal": null
+    },
+    {
+      "action": "A",
+      "horizontal_flow": -1.1534976504350964,
+      "vertical_flow": 0.2689629611804297,
+      "flow_magnitude": 1.3559170914323706,
+      "relative_to_still_horizontal": -0.44064105576590495
+    },
+    {
+      "action": "D",
+      "horizontal_flow": -1.4732849472447445,
+      "vertical_flow": 0.21338475789678724,
+      "flow_magnitude": 1.655784707320364,
+      "relative_to_still_horizontal": -0.760428352575553
+    }
+  ],
+  "A_minus_D_horizontal": 0.319787296809648,
+  "conclusion": "Future action-row visibility is not the main failure. Prefix all gives A-D=0.3198, essentially the same as causal prefix. Both actions remain negative, and relative-to-still A=-0.4406, D=-0.7604, so subtracting common scene drift does not recover left/right direction."
+}

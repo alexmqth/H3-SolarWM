@@ -1,0 +1,305 @@
+diff --git a/diffsynth/models/minimax_h3_dit.py b/diffsynth/models/minimax_h3_dit.py
+index 573d181..dbd03bc 100644
+--- a/diffsynth/models/minimax_h3_dit.py
++++ b/diffsynth/models/minimax_h3_dit.py
+@@ -1,6 +1,7 @@
+ from __future__ import annotations
+ 
+ import math
++import os
+ 
+ import torch
+ import torch.nn as nn
+@@ -106,6 +107,15 @@ def _sdpa_varlen_attention(q, k, v, cu_seqlens, softmax_scale, block_masks=None)
+         bm = None if block_masks is None else block_masks.get(start)
+         if bm is None:
+             seg_out = attention_forward(seg_q, seg_k, seg_v, scale=softmax_scale)
++        elif q.device.type == "cpu" or os.environ.get("H3_CAUSAL_EAGER_SDPA") == "1":
++            # Small-model training and visibility tests can use eager SDPA
++            # without triggering a long CPU FlexAttention compilation. The
++            # opt-in CUDA path isolates cached-vs-recompute differences with
++            # the same SDPA backend; production keeps FlexAttention by default.
++            from torch.nn.attention.flex_attention import create_mask
++            dense_mask = create_mask(bm.mask_mod, 1, 1, stop-start, stop-start, device=q.device)
++            seg_out = torch.nn.functional.scaled_dot_product_attention(
++                seg_q, seg_k, seg_v, attn_mask=dense_mask, scale=softmax_scale)
+         else:
+             seg_out = attention_forward(seg_q, seg_k, seg_v, scale=softmax_scale,
+                                         attn_mask=bm, use_flex=True)
+@@ -128,6 +138,7 @@ def _sdpa_varlen_attention(q, k, v, cu_seqlens, softmax_scale, block_masks=None)
+ # Closing over a fixed buffer and overwriting its contents in place for
+ # each sample fixes both problems at once.
+ _MASK_BUFFERS: dict = {}
++_CAUSAL_MASK_BUFFERS: dict = {}
+ 
+ 
+ def _mask_buffers(device, start: int, length: int):
+@@ -242,6 +253,116 @@ def _build_action_block_masks(ann_rows, v0, fr, latent_t, cu_seqlens, seq_len, d
+     return masks
+ 
+ 
++def _build_causal_block_masks(
++    v0,
++    fr,
++    latent_t,
++    chunk_frames,
++    window_chunks,
++    cu_seqlens,
++    seq_len,
++    device,
++    n_real=None,
++    ann_rows=None,
++):
++    """Build a chunk-causal FlexAttention mask for H3's packed sequence.
++
++    H3 packs ``[text | first-frame condition | audio | video | pad]`` into
++    one sequence.  This mask leaves the non-video prefix as static context,
++    lets a video query read only its current chunk and a bounded history of
++    earlier chunks, and hides video rows from prefix queries.  ``ann_rows``
++    optionally adds the existing directed per-latent action binding in the
++    same mask, because FlexAttention accepts one block mask per segment.
++
++    This is a mask-only prototype.  It enforces the causal boundary while
++    retaining H3's full-sequence QKV projection; it does not claim the raw-KV
++    reuse or SGF/DMD distillation implemented by SolarWM.
++    """
++    from torch.nn.attention.flex_attention import create_block_mask
++
++    if int(fr) <= 0 or int(latent_t) <= 0:
++        raise ValueError("causal video layout must have positive frame rows and latent frames")
++    if int(chunk_frames) <= 0 or int(window_chunks) <= 0:
++        raise ValueError("chunk_frames and window_chunks must be positive")
++    # Fixed buffers are reused so torch.compile does not bake a sample-specific
++    # closure into the FlexAttention kernel (see _build_action_block_masks).
++    masks = {}
++    bounds = cu_seqlens.tolist()
++    video_end = int(v0) + int(fr) * int(latent_t)
++    for start, stop in zip(bounds[:-1], bounds[1:]):
++        length = int(stop - start)
++        if length <= 0:
++            continue
++        local_real = length if n_real is None else max(0, min(int(n_real) - int(start), length))
++        key = (str(device), int(start), length)
++        buf = _CAUSAL_MASK_BUFFERS.get(key)
++        if buf is None:
++            buf = {
++                "chunk": torch.full((length,), -1, dtype=torch.int32, device=device),
++                "ann": torch.full((length,), -1, dtype=torch.int32, device=device),
++                "frm": torch.full((length,), -1, dtype=torch.int32, device=device),
++                "lim": torch.zeros((), dtype=torch.int32, device=device),
++            }
++            _CAUSAL_MASK_BUFFERS[key] = buf
++        chunk, ann, frm, lim = buf["chunk"], buf["ann"], buf["frm"], buf["lim"]
++        chunk.fill_(-1)
++        ann.fill_(-1)
++        frm.fill_(-1)
++        lim.fill_(local_real)
++
++        vlo, vhi = int(v0) - int(start), video_end - int(start)
++        if vhi > 0 and vlo < length:
++            lo, hi = max(vlo, 0), min(vhi, length)
++            rows = torch.arange(lo, hi, device=device)
++            absolute = rows + int(start)
++            frame = (absolute - int(v0)) // int(fr)
++            chunk[lo:hi] = (frame // int(chunk_frames)).to(torch.int32)
++        any_video = bool(vhi > 0 and vlo < length)
++
++        any_ann = False
++        if ann_rows is not None:
++            for k in range(int(ann_rows.shape[0])):
++                lo, hi = int(ann_rows[k, 0]) - int(start), int(ann_rows[k, 1]) - int(start)
++                lo, hi = max(lo, 0), min(hi, length)
++                if hi > lo:
++                    ann[lo:hi] = k
++                    any_ann = True
++            if any_video:
++                lo, hi = max(vlo, 0), min(vhi, length)
++                rows = torch.arange(lo, hi, device=device)
++                frm[lo:hi] = ((rows + int(start) - int(v0)) // int(fr)).to(torch.int32)
++        has_pad = local_real < length
++        if not any_video and not any_ann and not has_pad:
++            # Prefix-only segment has no causal restriction and no padding.
++            continue
++
++        def mask_mod(b, h, q, kv, chunk=chunk, ann=ann, frm=frm, lim=lim,
++                     window=int(window_chunks)):
++            q_chunk, k_chunk = chunk[q], chunk[kv]
++            q_video, k_video = q_chunk >= 0, k_chunk >= 0
++            static_to_static = (~q_video) & (~k_video)
++            video_to_static = q_video & (~k_video)
++            video_to_video = q_video & k_video & (k_chunk <= q_chunk)
++            video_to_video = video_to_video & (k_chunk >= q_chunk - window + 1)
++            allowed = static_to_static | video_to_static | video_to_video
++
++            # Preserve the directed action-text binding when this sample also
++            # has per-latent action rows.  These are the same edge rules as the
++            # standalone H3 action mask, combined here with causal visibility.
++            aq, akv, fq, fkv = ann[q], ann[kv], frm[q], frm[kv]
++            has_ann = (aq >= 0) | (akv >= 0)
++            same_ann = (aq >= 0) & (akv >= 0) & (aq == akv)
++            v_reads_own = (fq >= 0) & (akv >= 0) & (fq == akv)
++            leak_out = (akv >= 0) & ~same_ann & ~v_reads_own
++            leak_in = (aq >= 0) & (fkv >= 0) & (aq != fkv)
++            allowed = allowed & (~has_ann | ~(leak_out | leak_in))
++            real = (q < lim) & (kv < lim)
++            return (q == kv) | (real & allowed)
++
++        masks[start] = create_block_mask(mask_mod, None, None, length, length, device=device)
++    return masks
++
++
+ class MiniMaxH3Rope(nn.Module):
+     def __init__(self, inv_freq_len: int) -> None:
+         super().__init__()
+@@ -294,7 +415,8 @@ class MiniMaxH3Attention(nn.Module):
+         self.k_norm = _norm(attention_head_dim, eps=qk_norm_eps)
+         self.out_proj = nn.Linear(inner_dim, hidden_size, bias=False)
+ 
+-    def forward(self, x, *, rope_freqs, cu_seqlens, max_seqlen=None, block_masks=None):
++    def forward(self, x, *, rope_freqs, cu_seqlens, max_seqlen=None, block_masks=None,
++                causal_control=None, layer_index=None):
+         total = x.shape[0]
+         qkv = self.qkv_proj(x)
+         qkv = qkv.view(total, self.num_heads, 3, self.head_dim)
+@@ -303,6 +425,11 @@ class MiniMaxH3Attention(nn.Module):
+         v = qkv[:, :, 2, :]
+         q = self.q_norm(q)
+         k = self.k_norm(k)
++        if causal_control is not None:
++            out = causal_control.attend(q, k, v, rope_freqs=rope_freqs,
++                                        layer=layer_index, apply_rope=_apply_rope,
++                                        scale=self.softmax_scale)
++            return self.out_proj(out.reshape(total, self.num_heads * self.head_dim))
+         if rope_freqs is not None:
+             q = _apply_rope(q, rope_freqs)
+             k = _apply_rope(k, rope_freqs)
+@@ -384,7 +511,7 @@ class MiniMaxH3DiTBlock(nn.Module):
+ 
+     def forward(self, x, *, t_emb, combined_indices, rope_freqs, cu_seqlens, max_seqlen,
+                 block_masks=None,
+-                action_film=None):
++                action_film=None, causal_control=None, layer_index=None):
+         shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = self.adaln_proj(t_emb)
+         residual = x
+         h = self.norm1(x)
+@@ -396,7 +523,8 @@ class MiniMaxH3DiTBlock(nn.Module):
+         if action_film is not None:
+             h = _apply_action_film(h, *action_film)
+         h = self.attn(h, rope_freqs=rope_freqs, cu_seqlens=cu_seqlens,
+-                      max_seqlen=max_seqlen, block_masks=block_masks)
++                      max_seqlen=max_seqlen, block_masks=block_masks,
++                      causal_control=causal_control, layer_index=layer_index)
+         x = _modulate_gate(residual, gate_msa, h, combined_indices)
+         residual = x
+         h = self.norm2(x)
+@@ -568,6 +696,12 @@ class MiniMaxH3DiT(nn.Module):
+         action_frame_rows=None,
+         action_text_rows=None,
+         action_real_used=None,
++        causal_chunk_size=None,
++        causal_window_chunks=5,
++        causal_video_start=None,
++        causal_frame_rows=None,
++        causal_latent_frames=None,
++        causal_control=None,
+     ) -> tuple[torch.Tensor, torch.Tensor]:
+         inverse_indices = inverse_indices.view(-1).to(torch.long)
+         token_tags = token_tags.view(-1).to(torch.long)
+@@ -622,9 +756,26 @@ class MiniMaxH3DiT(nn.Module):
+                 raise ValueError(f"action video span [{v0}, {v0 + n_video}) is out of range, seq_len={hidden.shape[0]}")
+             action_cond = action_cond.to(device=hidden.device, dtype=hidden.dtype)
+ 
+-        # The hard binding mask for per-latent text conditioning. Built once per forward pass, shared by all 50 layers.
++        # The optional causal chunk mask and the hard per-latent action mask
++        # are built once per forward pass and shared by all transformer layers.
++        # When both are requested they must be composed into one FlexMask;
++        # attention_forward accepts only one block mask per segment.
+         block_masks = None
+-        if action_text_rows is not None:
++        if causal_control is not None:
++            if inject_action or use_gradient_checkpointing or use_gradient_checkpointing_offload:
++                raise ValueError("cached attention supports action text and no-grad inference only")
++        elif causal_chunk_size is not None:
++            if causal_video_start is None or causal_frame_rows is None or causal_latent_frames is None:
++                raise ValueError("causal video start, frame rows and latent frames are required")
++            block_masks = _build_causal_block_masks(
++                int(causal_video_start), int(causal_frame_rows),
++                int(causal_latent_frames),
++                int(causal_chunk_size), int(causal_window_chunks),
++                cu_seqlens, hidden.shape[0], hidden.device,
++                n_real=action_real_used,
++                ann_rows=action_text_rows,
++            )
++        elif action_text_rows is not None:
+             block_masks = _build_action_block_masks(
+                 action_text_rows, int(action_video_start), int(action_frame_rows),
+                 int(action_text_rows.shape[0]), cu_seqlens, hidden.shape[0], hidden.device,
+@@ -660,6 +811,7 @@ class MiniMaxH3DiT(nn.Module):
+                 max_seqlen=max_seqlen,
+                 block_masks=block_masks,
+                 action_film=film,
++                causal_control=causal_control, layer_index=i,
+             )
+ 
+         video_logits, audio_logits = self.final_layer(hidden, t_emb=t_emb, inverse_indices=inverse_indices)
+diff --git a/diffsynth/pipelines/minimax_h3_audio_video.py b/diffsynth/pipelines/minimax_h3_audio_video.py
+index 0aa22d9..7a1ca75 100644
+--- a/diffsynth/pipelines/minimax_h3_audio_video.py
++++ b/diffsynth/pipelines/minimax_h3_audio_video.py
+@@ -116,6 +116,11 @@ class MiniMaxH3Pipeline(BasePipeline):
+         # computed over the whole dataset and written into the cache by
+         # inject_abot_text.py; inference should pass the same value.
+         action_pad_used_to: int = None,
++        # Optional chunk-causal visibility prototype. This keeps H3's
++        # full-sequence projections but masks future video chunks; it is a
++        # mechanism validation switch, not a Stage2 SGF/DMD checkpoint.
++        causal_chunk_size: int = None,
++        causal_window_chunks: int = 5,
+         progress_bar_cmd=tqdm,
+     ):
+         """Generate a joint video + audio sample.
+@@ -157,6 +162,8 @@ class MiniMaxH3Pipeline(BasePipeline):
+             "imgvid_cond_noise_aug": self.imgvid_cond_noise_aug, "audio_cond_noise_aug": self.audio_cond_noise_aug,
+             "action_cond": action_cond,
+             "action_pad_used_to": action_pad_used_to,
++            "causal_chunk_size": causal_chunk_size,
++            "causal_window_chunks": causal_window_chunks,
+         }
+ 
+         # 3. Unit chain
+@@ -926,6 +933,10 @@ def model_fn_minimax_h3(
+     use_gradient_checkpointing=False,
+     use_gradient_checkpointing_offload=False,
+     action_cond=None,
++    causal_chunk_size=None,
++    causal_window_chunks=5,
++    causal_control=None,
++    fixed_prefix_timesteps=False,
+     **kwargs,
+ ):
+     # action_cond is the binned, pooled key tensor, [latent_t, num_buttons].
+@@ -977,6 +988,11 @@ def model_fn_minimax_h3(
+ 
+     timesteps[img_pos[:cond_rows_count]] = max(t_video, imgvid_cond_noise_aug)
+     timesteps[audio_pos[:ref_audio_rows_count]] = max(t_audio, audio_cond_noise_aug)
++    if fixed_prefix_timesteps:
++        # A cache is reusable only if prefix hidden states do not change with
++        # the current chunk's noise level. Audio data/time must also be fixed.
++        timesteps[text_pos] = 1.0
++        timesteps[img_pos[:cond_rows_count]] = imgvid_cond_noise_aug
+     unique_timesteps, inverse_indices = torch.unique(timesteps, sorted=True, return_inverse=True)
+ 
+     # Token Refiner segmentation.
+@@ -1053,6 +1069,12 @@ def model_fn_minimax_h3(
+         # mutually visible only with frame k's video rows).
+         action_text_rows=packed.get("action_text_rows"),
+         action_real_used=packed.get("action_real_used"),
++        causal_chunk_size=causal_chunk_size,
++        causal_window_chunks=causal_window_chunks,
++        causal_video_start=int(img_pos[cond_rows_count]),
++        causal_frame_rows=(h // 2) * (w // 2),
++        causal_latent_frames=int(f),
++        causal_control=causal_control,
+     )
+ 
+     v_video_rows = v_video_rows[cond_rows_count:]

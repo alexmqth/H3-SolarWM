@@ -1,0 +1,199 @@
+{
+  "causal_action_adapter": {
+    "path": "H3-World/outputs/2026-10-02-scheduled-sampling/fixed_mix_0.5/action_adapter.pt",
+    "block_indices": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "metadata": {
+      "kind": "pretrained multi-chunk QKV LoRA",
+      "objective": "Stage1-style clean-history flow matching, no AnyFlow or DMD",
+      "data": "multiple action-conditioned H3 teacher clips; clean-history teacher forcing, held-out noise",
+      "teacher_dirs": [
+        "H3-World/outputs/2026-10-02-03/action_W_teacher_39",
+        "H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+        "H3-World/outputs/2026-10-02-03/action_D_teacher_39"
+      ],
+      "steps": 160,
+      "rank": 8,
+      "lr": 0.001,
+      "action_specs": [
+        "W",
+        "A",
+        "D"
+      ],
+      "history_latents": null,
+      "history_latent_dirs": [
+        "H3-World/outputs/2026-10-02-10/generated_history39/action_W_generated39",
+        "H3-World/outputs/2026-10-02-10/generated_history39/action_A_generated39",
+        "H3-World/outputs/2026-10-02-10/generated_history39/action_D_generated39"
+      ],
+      "history_mix_schedule": null,
+      "history_mix_start": 0.5,
+      "history_mix_end": 0.5,
+      "boundary_weight": 1.0,
+      "action_pair_weight": 0.0,
+      "action_base_pair_weight": 0.0,
+      "base_output_reg_weight": 0.0,
+      "action_residual": true,
+      "action_residual_mode": "hidden",
+      "qkv_adapter": false,
+      "target_chunks": [
+        0,
+        1
+      ],
+      "visible_devices": "3",
+      "anchor_mode": "dynamic_last_frame_dual",
+      "scheduler_steps": 8,
+      "scheduler_shift": 2.22,
+      "train_noise_seeds": [
+        101,
+        102
+      ],
+      "validation_noise_seeds": [
+        1001,
+        1002
+      ],
+      "history_noise_std": 0.0,
+      "tail_blocks": 8,
+      "history_chunks": 5,
+      "requested_history_protocol": "cached",
+      "action_feedback": false,
+      "history_protocol_detail": "mixed_clean_and_generated_history_per_action_clip",
+      "history_mix": 0.5,
+      "action_teacher_dirs": [
+        "H3-World/outputs/2026-10-02-03/action_W_teacher_39",
+        "H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+        "H3-World/outputs/2026-10-02-03/action_D_teacher_39"
+      ],
+      "action_labels": [
+        "w",
+        "a",
+        "d"
+      ],
+      "action_clip_count": 3,
+      "dual_anchor_protocol": {
+        "slots": [
+          "original_h3_first_frame",
+          "previous_chunk_last_latent_frame"
+        ],
+        "chunk0_second_slot": "duplicate_original_anchor",
+        "frame_rows": 390
+      },
+      "action_residual_blocks": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "action_residual_parameters": 774144,
+      "train_sigmas": [
+        1.0,
+        0.8694517016410828,
+        0.5711835026741028,
+        0.24078090488910675
+      ],
+      "history_protocol": "sequential_clean_commit_original_anchor_frozen_base_history",
+      "feature_extraction_seconds": 227.81206297804601,
+      "action_pair_samples": 40,
+      "replay_max_error": 0.0,
+      "replay_exact": true,
+      "block_indices": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "block_index": 49,
+      "trainable_parameters": 774144,
+      "train_before": 0.13820566539652646,
+      "validation_before": 0.15563681162893772,
+      "train_samples": 48,
+      "validation_samples": 12,
+      "extracted_chunks": [
+        0,
+        1
+      ],
+      "train_seconds": 122.1360583291389,
+      "train_after": 0.12017183192074299,
+      "validation_after": 0.15184927793840566,
+      "allocated_peak_MiB": 17796.79931640625,
+      "parameters_changed": true
+    }
+  },
+  "load_models_and_lora_seconds": 4.91193923400715,
+  "conditioning_seconds": 10.168462370987982,
+  "memory": {
+    "allocated_peak_MiB": 39926.615234375,
+    "reserved_peak_MiB": 40084.0
+  },
+  "completed_at": "2026-10-03T02:47:40.195120+08:00",
+  "config": {
+    "modes": [
+      "cached"
+    ],
+    "steps": 8,
+    "flow_shift": 2.22,
+    "baseline_steps": 30,
+    "num_frames": 124,
+    "chunk_frames": 5,
+    "history_chunks": 5,
+    "action_preset": "S",
+    "action_schedule": null,
+    "cache_device": "cpu",
+    "anchor_mode": "dynamic_last_frame_dual",
+    "boundary_blend": 0.0,
+    "boundary_overlap_frames": 1,
+    "boundary_clamp": false,
+    "device": "cuda:0",
+    "seed": 13,
+    "out_dir": "H3-World/outputs/2026-10-03-02/final_fixed_mix124_8step/S",
+    "save_latents": false,
+    "causal_adapter": null,
+    "causal_action_adapter": "H3-World/outputs/2026-10-02-scheduled-sampling/fixed_mix_0.5/action_adapter.pt",
+    "history_source": "generated",
+    "action_prefix_mode": "own",
+    "action_feedback": false,
+    "teacher_latents": null
+  },
+  "gpu": "NVIDIA L40",
+  "visible_devices": "2",
+  "torch_version": "2.10.0+cu128",
+  "conditioning": "same prompt, image, chunk action schedule [back,back,back,back,back,back,back,back], initial video/audio noise reused across modes",
+  "action_preset": "S",
+  "action_preset_resolved": "back",
+  "action_schedule": [
+    "back",
+    "back",
+    "back",
+    "back",
+    "back",
+    "back",
+    "back",
+    "back"
+  ],
+  "dual_anchor_protocol": {
+    "slots": [
+      "original_h3_first_frame",
+      "previous_chunk_last_latent_frame"
+    ],
+    "chunk0_second_slot": "duplicate_original_anchor",
+    "frame_rows": 390,
+    "packed_seq_len": 16390,
+    "slot1_encoding": "normalized_temporal_latent_patchify"
+  }
+}

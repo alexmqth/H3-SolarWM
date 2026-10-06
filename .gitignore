@@ -1,0 +1,18 @@
+# Reproducible local caches and generated intermediates
+__pycache__/
+*.py[cod]
+.cache/
+*.safetensors
+*.ckpt
+*.pth
+*.pt
+!checkpoints/**/*.pt
+!meeting/source_metrics/*.json
+cached_latents.pt
+conditioning.pt
+*.jsonl
+outputs/
+DiffSynth-Studio-h3-v2/
+# Temporary video outputs
+*.tmp.mp4
+*.tmp.json
