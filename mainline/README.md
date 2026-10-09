@@ -8,7 +8,7 @@ V0 → V1 → {V2a, V2b} → V3 Planned → AnyFlow → On-policy DMD。这是�
 | V1 Native causal | 显著下降 | 本代表停滞、过亮/背景退化；其他早期协议有重影 | 124f工程rollout | 是，CPU raw video KV | 8/chunk | 本代表无 | 工程可行，联合质量失败 |
 | V2a RGB-Anchor | A/D方向失败 | **124f人物结构相对稳定**；20s失败 | 124f视觉证据；243/481f负结果 | 是，clean commit的历史hidden KV | 8/chunk | visual adapter +已训action residual | Longer-horizon Visual Stability Demonstrated（仅124f scope） |
 | V2b Same-σ local bidir | 持续A/D在124f有可辨响应；切换仍有限制 | 124f人物/场景基本可用；边界与节奏有缺陷 | 单停车场、seed13、六块124f | **否**，每步重算全部可见历史 | 30/chunk | **无**，Original + released LoRA | Sustained A/D feasibility accepted；非V3 |
-| V3 Efficient causal | 目标：保留 | 目标：保留并扩大范围 | **尚未实现** | 目标：strict causal + KV | 先可信30步，后AnyFlow | 待定 | Planned Unification，无模型/视频 |
+| V3 Efficient causal | 候选同history A/D响应可辨 | 候选73f基本可用，AA边界跳变 | EXP-002 AA/AD73f已验收；正式124f待验证 | 是，strict chunk causal + raw KV | 30/chunk | 无，Original + released LoRA | 73f feasibility candidate；完整V3 pending |
 
 - [V0 Original Bidirectional](V0_original_bidirectional/README.md)
 - [V1 Native Chunk-Causal](V1_native_chunk_causal/README.md)

@@ -2,7 +2,7 @@
 
 **研究目标：** 将SolarWM的causal chunk、KV cache与少步方法迁入H3-World，检查长视频效率、画面连续性和action control能否同时保留。
 
-**当前判断：V2b持续A/D的124帧可行性已验收；完整V3尚未完成。** EXP-001 / v3已验收：单停车场、seed13，持续A/D六窗口124帧（5.17秒）具备可辨响应与基本人物/场景结构。保留AA RGB72→73姿态跳变、动作节奏不均和局部细节软化；DD后段靠近画面下边缘。AD/DA仅到73帧，DA第三块flow轻微反号；切换和泛化未通过。无persistent KV、无公平加速结论，V3仍计划中。
+**当前判断：EXP-002的73帧严格缓存候选可行性已验收；正式V3待同配置124帧。** 同history A/D响应、真实KV复用和基本人物/场景结构同时得到有限证据；AA跨块跳变及单scene/seed限制保留。0训练、124新增forward、0.22923GPU-hours；未测完整E2E或公平加速。[最新候选](report/V3_native_cached_candidate/README.md)。V2b持续A/D124帧与Original对比保留为已验收参考。
 
 ## 一分钟入口
 
@@ -25,7 +25,7 @@
 | V1 Native causal | 显著下降 | 本代表停滞、过亮/背景退化；其他早期协议有重影 | 124f工程rollout | 是，CPU raw video KV | 8/chunk | 本代表无 | 工程可行，联合质量失败 |
 | V2a RGB-Anchor | A/D方向失败 | **124f人物结构相对稳定**；20s失败 | 124f视觉证据；243/481f负结果 | 是，clean commit的历史hidden KV | 8/chunk | visual adapter +已训action residual | Longer-horizon Visual Stability Demonstrated（仅124f scope） |
 | V2b Same-σ local bidir | 持续A/D在124f有可辨响应；切换仍有限制 | 124f人物/场景基本可用；边界与节奏有缺陷 | 单停车场、seed13、六块124f | **否**，每步重算全部可见历史 | 30/chunk | **无**，Original + released LoRA | Sustained A/D feasibility accepted；非V3 |
-| V3 Efficient causal | 目标：保留 | 目标：保留并扩大范围 | **尚未实现** | 目标：strict causal + KV | 先可信30步，后AnyFlow | 待定 | Planned Unification，无模型/视频 |
+| V3 Efficient causal | 候选同history A/D响应可辨 | 候选73f基本可用，AA边界跳变 | EXP-002 AA/AD73f已验收；正式124f待验证 | 是，strict chunk causal + raw KV | 30/chunk | 无，Original + released LoRA | 73f feasibility candidate；完整V3 pending |
 
 V2a与V2b共同研究生成历史/条件不匹配的修复，没有顺承关系。V2a为RGB联合视觉适配；V2b从Original恢复Single I0/native条件，Same-σ与局部双向重算，已扩展至持续A/D的124帧，切换仅有局部证据。未来V3才是严格因果、KV、视觉和动作的统一目标。
 

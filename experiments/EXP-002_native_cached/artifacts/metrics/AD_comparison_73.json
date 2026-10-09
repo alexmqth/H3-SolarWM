@@ -1,0 +1,15 @@
+{
+  "left": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-001_v2b_124/artifacts/videos/AD_rollout_73.mp4",
+  "left_sha256": "61635f90f4f1b29e7195bf544b1a11648780847b5807a6bbde3b37dd34581e0f",
+  "right": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-002_native_cached/AD/rollout_73.mp4",
+  "right_sha256": "30520f1124dc68a36dac38f26bae64eb09b2b028c0a36405954c4c5d308fd516",
+  "output": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-002_native_cached/AD/V2b_vs_cached_AD_73.mp4",
+  "output_sha256": "5a5cf1b941b8f56a4ca0d2019958e649ef946e057941d82eb0d0104e4dc65df6",
+  "frames": 73,
+  "fps": 24,
+  "labels": [
+    "V2b Same-sigma | local bidir | no KV | 30-step",
+    "EXP-002 | strict chunk causal | raw KV | 30-step"
+  ],
+  "note": "Cross-protocol comparison: same first12 latent, I0, seed/noise; V2b same-sigma recompute vs candidate sigma0 persistent KV, different attention topology. After RGB39 generated histories differ; not a single-factor ablation."
+}
