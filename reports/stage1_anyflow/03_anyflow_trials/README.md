@@ -4,7 +4,7 @@
 
 早期pilot、参数/训练预算变体、不同checkpoint的采样与视频评测。包含普通FM control，不是全部使用AnyFlow。
 
-[返回总导航](../README.md) · [当前最终实验报告](../../../EXPERIMENT_REPORT.md)
+[返回总导航](../README.md) · [当前最终实验报告](../../../docs/EXPERIMENT_REPORT.md)
 
 | 实验目录 | 阅读入口 |
 |---|---|

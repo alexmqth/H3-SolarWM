@@ -28,7 +28,7 @@
 
 ## 展示与复现入口
 
-[会议主Demo与5分钟讲稿](../../meeting/README.md) · [昨晚真实视频训练展示](../../meeting/OVERNIGHT_PROGRESS.md) · [最终实验报告](../../EXPERIMENT_REPORT.md) · [独立环境验收](../final_acceptance/README.md)
+[会议主Demo与5分钟讲稿](../../meeting/README.md) · [昨晚真实视频训练展示](../../meeting/OVERNIGHT_PROGRESS.md) · [最终实验报告](../../docs/EXPERIMENT_REPORT.md) · [独立环境验收](../final_acceptance/README.md)
 
 会议主片仍来自旧RGB checkpoint；最新E2与AnyFlow各有自己的结果，不能混用。各实验内部保留原有`report/`、视频、帧图、指标及源码快照结构。
 
@@ -46,4 +46,4 @@ ABCD_STATUS.md          → 07_protocols/overviews/ABCD_STATUS.md
 
 报告导航和当前展示脚本已更新。**原始JSON/CSV/log、视频、图片和冻结源码按原字节移动**；历史收据中的旧路径仍描述当时的实验位置，用映射表查找新归档位置，不把旧收据改写成新的实验记录。原工作区`H3-World/outputs/`没有移动。
 
-旧报告里的“正在运行”仅对应其日期。当前状态以[最终报告](../../EXPERIMENT_REPORT.md)和[E2冻结收据](01_real_video/real_transition_windows/FREEZE.json)为准。[整理验收](07_protocols/reorganization_20261009/README.md)记录文件和链接检查。
+旧报告里的“正在运行”仅对应其日期。当前状态以[最终报告](../../docs/EXPERIMENT_REPORT.md)和[E2冻结收据](01_real_video/real_transition_windows/FREEZE.json)为准。[整理验收](07_protocols/reorganization_20261009/README.md)记录文件和链接检查。

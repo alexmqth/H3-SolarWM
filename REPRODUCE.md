@@ -2,7 +2,7 @@
 
 本包不包含33B底座、发布的H3-World基础LoRA或原始数据。**最小验收不启动E2、AnyFlow或DMD训练**：重建环境/源码，检查KV，运行随机小H3类的训练smoke，使用真实底座与包内旧RGB adapters生成39帧并输出指标。
 
-主片来源见[DEMO_PROVENANCE](meeting/DEMO_PROVENANCE.md)，当前质量结论见[实验报告](EXPERIMENT_REPORT.md)。复现通过仅证明工程可执行，不代表动作/画质通过。
+主片来源见[DEMO_PROVENANCE](meeting/DEMO_PROVENANCE.md)，当前质量结论见[实验报告](docs/EXPERIMENT_REPORT.md)。复现通过仅证明工程可执行，不代表动作/画质通过。
 
 ## 1. 干净Python环境
 
@@ -111,6 +111,6 @@ baseline不加载额外causal/action residual，不启用dual anchor。左右保
 
 ## 6. 高级研究分支只作档案
 
-[AnyFlow文档](STAGE1_ANYFLOW.md)及[完整进度](PROJECT_PROGRESS.md)保留历史命令与结果，历史“运行中”段落是时间记录，以当前首页与最终报告为准。E2已冻结在4更新，不运行`train_stage1_anyflow.py`、在线replay、`stage2_lite_dmd.py`或E2队列来完成本次验收。E2的局部N没有persistent hidden KV，不能拿本节旧KV benchmark替代E2协议。
+[AnyFlow文档](docs/stage1/STAGE1_ANYFLOW.md)及[完整进度](docs/archive/PROJECT_PROGRESS.md)保留历史命令与结果，历史“运行中”段落是时间记录，以当前首页与最终报告为准。E2已冻结在4更新，不运行`train_stage1_anyflow.py`、在线replay、`stage2_lite_dmd.py`或E2队列来完成本次验收。E2的局部N没有persistent hidden KV，不能拿本节旧KV benchmark替代E2协议。
 
 最终验收结果与环境收据见[reports/final_acceptance/README.md](reports/final_acceptance/README.md)。

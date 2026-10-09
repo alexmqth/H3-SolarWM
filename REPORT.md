@@ -1,6 +1,6 @@
 # 简短实验报告：在 H3-World 中验证 SolarWM 的因果少步生成思路
 
-> 对应面试题的四项交付：方法说明、最小 causal 训练原型与可行性、并排对比 Demo、耗时/显存/质量/连续性指标。更细的协议与诊断见 [EXPERIMENT_REPORT.md](EXPERIMENT_REPORT.md)，完整问答见 [INTERVIEW_ANSWER.md](INTERVIEW_ANSWER.md)。
+> 对应面试题的四项交付：方法说明、最小 causal 训练原型与可行性、并排对比 Demo、耗时/显存/质量/连续性指标。更细的协议与诊断见 [EXPERIMENT_REPORT.md](docs/EXPERIMENT_REPORT.md)，完整问答见 [INTERVIEW_ANSWER.md](INTERVIEW_ANSWER.md)。
 
 ## 一句话结论
 
@@ -38,7 +38,7 @@
 - **数据与流程：** 单场景 124 帧教师（原始 H3 30 步生成），8 块 × 4 个 sigma。① Stage1-style 干净历史 teacher forcing；② 在线自生成历史，每个 sigma teacher replay + 0.5×端点 MSE，RGB anchor；③ Stage2-lite：student / critic / teacher 共享一个骨干轮换。
 - **KV 实现：** 每块 5 个 latent 帧、历史窗口 5 块；去噪期间只读缓存，去噪完成后用 `sigma=0` 的干净 latent 再跑一次，把每层 K/V 写入 CPU 缓存（不能写带噪步）。124 帧 = 8 块 × 8 步 = 64 次带噪前向 + 8 次 commit，replay 误差为 0。
 - **可行性证据：** 单张 48 GiB L40 可训，在线更新峰值 32.5 GiB、每次约 9 分钟；训练 loss 0.098→0.062，验证 0.103→0.082；39/124 帧自由 rollout 结构较完整（20 秒失败，见第 3 节）。
-- **局限：** 单场景小数据；没做 Stage0.5，Stage1 无 AnyFlow，Stage2 只是 lite（无 SGF）；泛化未验证。
+- **局限：** 单场景小数据；没做 Stage0.5；展示 checkpoint 没有 AnyFlow——后来另做了 AnyFlow（Original H3 生成的伪标签）和真实 ABot 视频上的普通 FM，均未通过验收（见 README 实验地图 7、10）；Stage2 只是 lite（无 SGF）；泛化未验证。
 
 
 ## 3. 并排对比 Demo 与指标
@@ -79,4 +79,4 @@
 
 1. **能因果化：** 工程上可行（块因果 + 持久 KV + clean commit，replay 误差 0）；RGB anchor 让 124 帧结构更完整，但 20 秒严重崩坏，长时稳定性**未通过**。
 2. **借鉴是否有效：** 当前展示未证明"长视频效率"收益——展示 checkpoint 没有经过 AnyFlow 少步训练，且 CPU KV 搬运与 RGB anchor 额外开销较大；对"动作控制"不成立——自生成历史下方向被旋转，且稳定版比旧版动作更弱。
-3. **下一步：** 先完成 TF-AnyFlow 的真实 33B 训练与 39 帧 A/D、4/8 steps/chunk 对照，验收少步画质和动作控制，再决定多状态动作监督或 Stage2 SGF/DMD。具体 gate 见 [Stage1 计划](STAGE1_ANYFLOW.md)。
+3. **下一步：** 先完成 TF-AnyFlow 的真实 33B 训练与 39 帧 A/D、4/8 steps/chunk 对照，验收少步画质和动作控制，再决定多状态动作监督或 Stage2 SGF/DMD。具体 gate 见 [Stage1 计划](docs/stage1/STAGE1_ANYFLOW.md)。

@@ -2,7 +2,7 @@
 
 1. 本项目不是 SolarWM 官方 Stage2 的完整复现。没有训练官方规模的 SGF/DMD、LoRA384、158-frame recipe，也没有声称达到 SolarWM 的质量或速度。
 2. Stage2-lite 只是在共享 H3 backbone 上轮换 student、critic、teacher adapter 的 feasibility diagnostic。它证明训练链路可以运行，不证明 distribution matching 已经足够恢复动作。
-3. 124 帧的视频展示 causal execution 和相对旧版的视觉改善，不能单独证明 W/S/A/D 的 image-space direction 正确，也不能外推为长时稳定。同一 RGB checkpoint 在 10 秒后段出现 blur/ghosting，在 20 秒出现严重视觉崩坏，完整结果见 [长视频报告](meeting/long_horizon/README.md)。
+3. 124 帧的视频展示 causal execution 和相对旧版的视觉改善，不能单独证明 W/S/A/D 的 image-space direction 正确，也不能外推为长时稳定。同一 RGB checkpoint 在 10 秒后段出现 blur/ghosting，在 20 秒出现严重视觉崩坏，完整结果见 [长视频报告](../meeting/long_horizon/README.md)。
 4. Frame-to-frame MAD 和 signed optical flow 是运动/方向代理，不是 FVD、LPIPS 或用户研究意义上的完整视频质量评分。
 5. action gate 目前没有通过：generated-history causal rollout 下 A/D score geometry 与原始 H3 teacher 不对齐。不能把 fixed-mix 旧 grid、RGB visual stable grid 或 Stage2-lite video 描述为“动作保真”。
 6. 主要视觉 adapter 是在固定初始图像、prompt、seed/noise 和有限 action protocol 上得到的实验 adapter；它不是泛化训练后的完整 checkpoint。

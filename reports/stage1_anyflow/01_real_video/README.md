@@ -4,7 +4,7 @@
 
 真实ABot普通FM48、噪声采样分布FM48对照、最新E2两臂各4更新。
 
-[返回总导航](../README.md) · [当前最终实验报告](../../../EXPERIMENT_REPORT.md)
+[返回总导航](../README.md) · [当前最终实验报告](../../../docs/EXPERIMENT_REPORT.md)
 
 | 实验目录 | 阅读入口 |
 |---|---|

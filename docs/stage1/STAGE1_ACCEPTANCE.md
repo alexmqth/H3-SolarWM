@@ -1,16 +1,16 @@
 # Stage1 验收：AnyFlow 与 causal H3 的实际效果
 
-2026-10-09 07:14：E2真实后果数据与前置审计已完成（6train+2validation；24个真实前缀检查差0；17项CPU检查）。33B梯度预检峰值27.81GiB。两条真实GT-history24的30step局部基线人物大体完整，仍有边界跳变和运动偏离；GPU1/4现运行同初始化FM-only与FM+action，各固定4更新。动作+结构完整gate未过，不进入AnyFlow/Stage2。 [当前实验与视频](reports/stage1_anyflow/01_real_video/real_transition_windows/README.md)。
+2026-10-09 07:14：E2真实后果数据与前置审计已完成（6train+2validation；24个真实前缀检查差0；17项CPU检查）。33B梯度预检峰值27.81GiB。两条真实GT-history24的30step局部基线人物大体完整，仍有边界跳变和运动偏离；GPU1/4现运行同初始化FM-only与FM+action，各固定4更新。动作+结构完整gate未过，不进入AnyFlow/Stage2。 [当前实验与视频](../../reports/stage1_anyflow/01_real_video/real_transition_windows/README.md)。
 
-2026-10-09 05:59：E1粗窗口两历史/三窗口与VAE审计已全部结束。首窗A/D恢复，但A历史第二窗同正、D历史第三窗同负；第二窗有明显肢体重影，局部门槛仍No-Go。未来RGB干预8项past latent差均0，不支持VAE泄漏根因。停止窗口扩宽，下一项只审查历史噪声/时间条件，尚未启动新GPU/训练。 G1未通过。[完整证据](reports/stage1_anyflow/02_causal_diagnostics/coarse_window12/FINAL_RESULTS.md)。
+2026-10-09 05:59：E1粗窗口两历史/三窗口与VAE审计已全部结束。首窗A/D恢复，但A历史第二窗同正、D历史第三窗同负；第二窗有明显肢体重影，局部门槛仍No-Go。未来RGB干预8项past latent差均0，不支持VAE泄漏根因。停止窗口扩宽，下一项只审查历史噪声/时间条件，尚未启动新GPU/训练。 G1未通过。[完整证据](../../reports/stage1_anyflow/02_causal_diagnostics/coarse_window12/FINAL_RESULTS.md)。
 
-2026-10-09 05:32：新full37匹配对照的12latent首窗恢复方向（全39RGB A=+0.863/D=−1.174；共同前17RGB A=+0.285/D=−1.198），5latent仍近同向。G1后续窗口、geometry、GT画面未齐；GPU1/5仍在运行。不能把本首窗结果升级为Stage1通过。[证据](reports/stage1_anyflow/02_causal_diagnostics/coarse_window12/FIRST_WINDOW_RESULTS.md)。
+2026-10-09 05:32：新full37匹配对照的12latent首窗恢复方向（全39RGB A=+0.863/D=−1.174；共同前17RGB A=+0.285/D=−1.198），5latent仍近同向。G1后续窗口、geometry、GT画面未齐；GPU1/5仍在运行。不能把本首窗结果升级为Stage1通过。[证据](../../reports/stage1_anyflow/02_causal_diagnostics/coarse_window12/FIRST_WINDOW_RESULTS.md)。
 
-2026-10-09 05:09 E1终态：native＋单I0的5+5+2两history评审完整，动作仍No-Go，G1未通过。当前无本轮GPU任务。12latent更粗窗口协议已登记待执行，E2/E3继续不启动；[完整终态](reports/stage1_anyflow/02_causal_diagnostics/local_topology/CONDITIONING_RESULTS.md)。
+2026-10-09 05:09 E1终态：native＋单I0的5+5+2两history评审完整，动作仍No-Go，G1未通过。当前无本轮GPU任务。12latent更粗窗口协议已登记待执行，E2/E3继续不启动；[完整终态](../../reports/stage1_anyflow/02_causal_diagnostics/local_topology/CONDITIONING_RESULTS.md)。
 
-2026-10-09 04:57 E1更新：完整39f已知动作窗口在恢复原生text/action时间和单首帧后，A=+1.250421、D=−0.977313，外观静态逐帧检查正常。**仅窗口正控成立，G1多chunk动作/GT画面仍未通过。** native时间但保留dual的两历史局部对照失败；native＋单I0的5+5+2对照正在GPU1/5运行。G0已通过的CPU/真实VAE/首块identity证据与其布局范围限制见[报告](reports/stage1_anyflow/02_causal_diagnostics/local_topology/CONDITIONING_RESULTS.md)。当前不启动E2/E3。
+2026-10-09 04:57 E1更新：完整39f已知动作窗口在恢复原生text/action时间和单首帧后，A=+1.250421、D=−0.977313，外观静态逐帧检查正常。**仅窗口正控成立，G1多chunk动作/GT画面仍未通过。** native时间但保留dual的两历史局部对照失败；native＋单I0的5+5+2对照正在GPU1/5运行。G0已通过的CPU/真实VAE/首块identity证据与其布局范围限制见[报告](../../reports/stage1_anyflow/02_causal_diagnostics/local_topology/CONDITIONING_RESULTS.md)。当前不启动E2/E3。
 
-2026-10-09 02:57：**当前验收以[Next Plan v4](NEXT_PLAN.md)及[完整协议](reports/stage1_anyflow/07_protocols/three_experiments/PROTOCOL.md)为准。** 旧A–D不再自动推进。新E1先验证Original初始化下的局部动作/画面，30steps、同状态反事实、GT/teacher-history分列；当前第一门槛未过。T1/T2已经隔离实现并经过CPU/首块GPU检查，参见下方最新执行状态。
+2026-10-09 02:57：**当前验收以[Next Plan v4](../archive/NEXT_PLAN.md)及[完整协议](../../reports/stage1_anyflow/07_protocols/three_experiments/PROTOCOL.md)为准。** 旧A–D不再自动推进。新E1先验证Original初始化下的局部动作/画面，30steps、同状态反事实、GT/teacher-history分列；当前第一门槛未过。T1/T2已经隔离实现并经过CPU/首块GPU检查，参见下方最新执行状态。
 
 | 当前门槛 | 通过条件 | 未通过时的动作 |
 |---|---|---|
@@ -20,23 +20,23 @@
 | G3 Generated history | 自由rollout明显优于自身基线，无GT重置 | 在G1/G2可信时研究on-policy Stage2 |
 | G4 效率与最终交付 | 整视频/首块/每块延迟、重复测量、完整质量/动作及124f验收 | 不以step比或低MAD宣布成功 |
 
-旧density全部收尾且FAIL，见[终态](reports/stage1_anyflow/01_real_video/fm_density_control/FINAL_RESULTS.md)。允许窗口内双向、窗口间causal作为候选；若采用它，显式报告重算成本，不能标成persistent-KV等价。下方是保留的历史验收记录，冲突时本段优先；旧39f全片A−D>1不能直接挪到新局部正控，不能要求Stage1先完成20秒稳定才允许Stage2。
+旧density全部收尾且FAIL，见[终态](../../reports/stage1_anyflow/01_real_video/fm_density_control/FINAL_RESULTS.md)。允许窗口内双向、窗口间causal作为候选；若采用它，显式报告重算成本，不能标成persistent-KV等价。下方是保留的历史验收记录，冲突时本段优先；旧39f全片A−D>1不能直接挪到新局部正控，不能要求Stage1先完成20秒稳定才允许Stage2。
 
-2026-10-09 02:32：FM密度对照六条自然39帧视频已全部评审，generated30/8仍出现人物分解或背景重影，未通过。固定generated历史12点delta cos仍仅0.035019。停车场A30 flow−0.190239，D及8步原队列继续；完整A–D未完成。 旧FM48全部失败结果与新密度分支局部动作/自然视频负结果均保留；[六视频评审](reports/stage1_anyflow/01_real_video/fm_density_control/NATURAL_VIDEO_RESULTS.md)、[完整阶段状态](reports/stage1_anyflow/07_protocols/overviews/ABCD_STATUS.md)。下文日期较早的运行描述为历史记录。
+2026-10-09 02:32：FM密度对照六条自然39帧视频已全部评审，generated30/8仍出现人物分解或背景重影，未通过。固定generated历史12点delta cos仍仅0.035019。停车场A30 flow−0.190239，D及8步原队列继续；完整A–D未完成。 旧FM48全部失败结果与新密度分支局部动作/自然视频负结果均保留；[六视频评审](../../reports/stage1_anyflow/01_real_video/fm_density_control/NATURAL_VIDEO_RESULTS.md)、[完整阶段状态](../../reports/stage1_anyflow/07_protocols/overviews/ABCD_STATUS.md)。下文日期较早的运行描述为历史记录。
 
-2026-10-08 20:15补记：真实数据FM仍在20/48；零更新完整视频已发现第二场景30步generated-history人物分解，GT18同状态动作差分cos=0.017516，无历史首块也低。新图Original纯A/D是弱正控，停车场回归另列。见[完整基线评审](reports/stage1_anyflow/01_real_video/real_abot_fm/BASELINE_COMPLETE_REVIEW.md)。以下无新训练/视频等旧措辞仅指当时诊断快照，不能代表当前状态。
+2026-10-08 20:15补记：真实数据FM仍在20/48；零更新完整视频已发现第二场景30步generated-history人物分解，GT18同状态动作差分cos=0.017516，无历史首块也低。新图Original纯A/D是弱正控，停车场回归另列。见[完整基线评审](../../reports/stage1_anyflow/01_real_video/real_abot_fm/BASELINE_COMPLETE_REVIEW.md)。以下无新训练/视频等旧措辞仅指当时诊断快照，不能代表当前状态。
 
-2026-10-08最新：受控field对照定位到AnyFlow更新之前的动作几何失配；真实ABot普通causal FM桥接已启动，尚未验收。完整目标A–D的当前状态与前置门槛见[ABCD_STATUS](reports/stage1_anyflow/07_protocols/overviews/ABCD_STATUS.md)，不能将数据准备或只读诊断当作Stage1完成。
+2026-10-08最新：受控field对照定位到AnyFlow更新之前的动作几何失配；真实ABot普通causal FM桥接已启动，尚未验收。完整目标A–D的当前状态与前置门槛见[ABCD_STATUS](../../reports/stage1_anyflow/07_protocols/overviews/ABCD_STATUS.md)，不能将数据准备或只读诊断当作Stage1完成。
 
 当前目标：完成 Stage1 的 AnyFlow 与因果改造，效果验证后才进入 Stage2。代码能运行、单次 loss 下降、生成文件可解码，都不能单独证明目标完成。
 
-当前Stage1尚未通过。136训练/4与8步视频及54个双局部指标case已收尾，后段重影未修复。最新同generated-state当前chunk A/D机制诊断12点全部完成：匹配条件下student r=t与Original teacher动作速度差分cosine均值0.0382（范围−0.1023–0.2050），动作幅度为teacher的0.79–3.56倍。时间索引/实际attention路由、KV只读与未来内容负对照检查通过，支持优先调查动作条件函数迁移不足；双向teacher重算历史与student固定KV的结构差异仍需拆分。见[机制结论与归因边界](reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128/INTERPRETATION.md)、[136完整结果](reports/stage1_anyflow/03_anyflow_trials/interval_consistency_candidate/FINAL_RESULTS.md)。该18:09机制诊断当时已结束且没有训练；随后已开展真实ABot的普通FM48桥接和完整零更新视频/36点机制评测，当前结果见页首链接。新的Stage2仍未启动；最多3张项目GPU。
+当前Stage1尚未通过。136训练/4与8步视频及54个双局部指标case已收尾，后段重影未修复。最新同generated-state当前chunk A/D机制诊断12点全部完成：匹配条件下student r=t与Original teacher动作速度差分cosine均值0.0382（范围−0.1023–0.2050），动作幅度为teacher的0.79–3.56倍。时间索引/实际attention路由、KV只读与未来内容负对照检查通过，支持优先调查动作条件函数迁移不足；双向teacher重算历史与student固定KV的结构差异仍需拆分。见[机制结论与归因边界](../../reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128/INTERPRETATION.md)、[136完整结果](../../reports/stage1_anyflow/03_anyflow_trials/interval_consistency_candidate/FINAL_RESULTS.md)。该18:09机制诊断当时已结束且没有训练；随后已开展真实ABot的普通FM48桥接和完整零更新视频/36点机制评测，当前结果见页首链接。新的Stage2仍未启动；最多3张项目GPU。
 
 ## 阶段边界更正：长时稳定性不是进入Stage2的全部前提
 
 Stage1应先在首块和受控干净历史下表现出合理的少步画质与动作响应；Stage2再针对自身rollout的分布偏移。**不要求Stage1先消除全部长时漂移，才允许Stage2。** 同一history下的当前action反事实对照仍有必要，避免oracle历史本身携带的动作结果造成误判。
 
-下表同时包括局部Stage1能力和项目最终交付证据。39f自生成的`A>0,D<0,A−D>1`、切换与124f门槛保持为最终效果验收，不能全当作Stage2启动前必须完成的条件。已有step16的teacher-history改善仍不充分，且首块已偏离；不能因此声称当前只缺Stage2。完整证据和决策分支见[Stage1/Stage2边界说明](reports/stage1_anyflow/07_protocols/overviews/STAGE_BOUNDARY.md)。
+下表同时包括局部Stage1能力和项目最终交付证据。39f自生成的`A>0,D<0,A−D>1`、切换与124f门槛保持为最终效果验收，不能全当作Stage2启动前必须完成的条件。已有step16的teacher-history改善仍不充分，且首块已偏离；不能因此声称当前只缺Stage2。完整证据和决策分支见[Stage1/Stage2边界说明](../../reports/stage1_anyflow/07_protocols/overviews/STAGE_BOUNDARY.md)。
 
 ## 必须提供的证据
 

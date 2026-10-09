@@ -1,14 +1,14 @@
 # Stage1 TF-AnyFlow：实现、验证与验收
 
-[数据集视频与 AnyFlow 训练结果导览](meeting/DATASET_AND_ANYFLOW.md)：训练脚本名不代表目标；真实 ABot 两轮48更新为 FM，已找到的 AnyFlow 训练为 Original H3 伪标签。
+[数据集视频与 AnyFlow 训练结果导览](../../meeting/DATASET_AND_ANYFLOW.md)：训练脚本名不代表目标；真实 ABot 两轮48更新为 FM，已找到的 AnyFlow 训练为 Original H3 伪标签。
 
-> 本页是AnyFlow实现与历史实验时间线，下面的“正在运行”仅指当时记录。当前研究已冻结，画质/action gate未过；最新结论见[实验报告](EXPERIMENT_REPORT.md)，所有历史目录的用途见[档案导航](reports/stage1_anyflow/README.md)。
+> 本页是AnyFlow实现与历史实验时间线，下面的“正在运行”仅指当时记录。当前研究已冻结，画质/action gate未过；最新结论见[实验报告](../EXPERIMENT_REPORT.md)，所有历史目录的用途见[档案导航](../../reports/stage1_anyflow/README.md)。
 
-2026-10-08 20:15补记：真实数据FM仍在20/48；零更新完整视频已发现第二场景30步generated-history人物分解，GT18同状态动作差分cos=0.017516，无历史首块也低。新图Original纯A/D是弱正控，停车场回归另列。见[完整基线评审](reports/stage1_anyflow/01_real_video/real_abot_fm/BASELINE_COMPLETE_REVIEW.md)。以下无新训练/视频等旧措辞仅指当时诊断快照，不能代表当前状态。
+2026-10-08 20:15补记：真实数据FM仍在20/48；零更新完整视频已发现第二场景30步generated-history人物分解，GT18同状态动作差分cos=0.017516，无历史首块也低。新图Original纯A/D是弱正控，停车场回归另列。见[完整基线评审](../../reports/stage1_anyflow/01_real_video/real_abot_fm/BASELINE_COMPLETE_REVIEW.md)。以下无新训练/视频等旧措辞仅指当时诊断快照，不能代表当前状态。
 
-2026-10-08最新：受控field对照定位到AnyFlow更新之前的动作几何失配；真实ABot普通causal FM桥接已启动，尚未验收。完整目标A–D的当前状态与前置门槛见[ABCD_STATUS](reports/stage1_anyflow/07_protocols/overviews/ABCD_STATUS.md)，不能将数据准备或只读诊断当作Stage1完成。
+2026-10-08最新：受控field对照定位到AnyFlow更新之前的动作几何失配；真实ABot普通causal FM桥接已启动，尚未验收。完整目标A–D的当前状态与前置门槛见[ABCD_STATUS](../../reports/stage1_anyflow/07_protocols/overviews/ABCD_STATUS.md)，不能将数据准备或只读诊断当作Stage1完成。
 
-当前Stage1尚未通过。136训练/4与8步视频及54个双局部指标case已收尾，后段重影未修复。最新同generated-state当前chunk A/D机制诊断12点全部完成：匹配条件下student r=t与Original teacher动作速度差分cosine均值0.0382（范围−0.1023–0.2050），动作幅度为teacher的0.79–3.56倍。时间索引/实际attention路由、KV只读与未来内容负对照检查通过，支持优先调查动作条件函数迁移不足；双向teacher重算历史与student固定KV的结构差异仍需拆分。见[机制结论与归因边界](reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128/INTERPRETATION.md)、[136完整结果](reports/stage1_anyflow/03_anyflow_trials/interval_consistency_candidate/FINAL_RESULTS.md)。该18:09机制诊断当时已结束且没有训练；随后已开展真实ABot的普通FM48桥接和完整零更新视频/36点机制评测，当前结果见页首链接。新的Stage2仍未启动；最多3张项目GPU。
+当前Stage1尚未通过。136训练/4与8步视频及54个双局部指标case已收尾，后段重影未修复。最新同generated-state当前chunk A/D机制诊断12点全部完成：匹配条件下student r=t与Original teacher动作速度差分cosine均值0.0382（范围−0.1023–0.2050），动作幅度为teacher的0.79–3.56倍。时间索引/实际attention路由、KV只读与未来内容负对照检查通过，支持优先调查动作条件函数迁移不足；双向teacher重算历史与student固定KV的结构差异仍需拆分。见[机制结论与归因边界](../../reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128/INTERPRETATION.md)、[136完整结果](../../reports/stage1_anyflow/03_anyflow_trials/interval_consistency_candidate/FINAL_RESULTS.md)。该18:09机制诊断当时已结束且没有训练；随后已开展真实ABot的普通FM48桥接和完整零更新视频/36点机制评测，当前结果见页首链接。新的Stage2仍未启动；最多3张项目GPU。
 
 ## 参数策略更正（04时段）
 
@@ -27,7 +27,7 @@
 7. **独立 checkpoint**：保存 `causal_adapter.pt`、`anyflow_adapter.pt`，以及原有冻结 action adapter；保留 step_00 和中途 checkpoints。FM 老路径仍可独立使用。
 8. **协议检查与可复现补丁**：评测拒绝混用不同步数的 time/QKV checkpoint，以及不一致的 anchor、shift、chunk、history、action routing/feedback 配置。导出补丁同时补齐 cached attention 的梯度读取支持；按 action → causal → AnyFlow 顺序可重建，兼容可选 long-video mask patch。
 
-实现位于 [anyflow.py](code/causal/anyflow.py)、[训练入口](code/causal/train_stage1_anyflow.py)、[benchmark](code/causal/benchmark.py)、[DiffSynth patch](code/diffsynth_anyflow.patch)。公式来源和与官方配置的差异见 [provenance](code/causal/ANYFLOW_PROVENANCE.md)。
+实现位于 [anyflow.py](../../code/causal/anyflow.py)、[训练入口](../../code/causal/train_stage1_anyflow.py)、[benchmark](../../code/causal/benchmark.py)、[DiffSynth patch](../../code/diffsynth_anyflow.patch)。公式来源和与官方配置的差异见 [provenance](../../code/causal/ANYFLOW_PROVENANCE.md)。
 
 ## 已完成验证
 
@@ -53,13 +53,13 @@ A/chunk2 held-out 加权验证 loss：0.117473 → 0.118669；高噪声 endpoint
 
 ## 16-update 实测（4/8-step A/D已完成）
 
-训练完成不等于Stage1验收：训练总计3043.0秒，allocated peak 17,439.4 MiB，time MLP和QKV均实际更新。固定验证noise的A/D total loss略降，但高噪声endpoint raw loss均上升（A 133.788→144.185；D 18.083→19.440）。完整数据在[训练日志](reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_gpu2_anyflow16_training.json)。
+训练完成不等于Stage1验收：训练总计3043.0秒，allocated peak 17,439.4 MiB，time MLP和QKV均实际更新。固定验证noise的A/D total loss略降，但高噪声endpoint raw loss均上升（A 133.788→144.185；D 18.083→19.440）。完整数据在[训练日志](../../reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_gpu2_anyflow16_training.json)。
 
-4-step/chunk generated-history：A=-1.3153、D=-1.2244、A-D=-0.0909；两条视频后段重影/雾化，动作与视觉gate失败。每条均完整39帧，12 noisy forwards+3 clean commits。输入逐张量与对应原始H3一致。8-step A=-1.1709、D=-1.4752、A-D=0.3043，画面比4-step完整但动作gate仍失败。FM16的4/8-step分离度为0.2338/0.3149；AnyFlow4 step00/04/08/12/16没有持续改善。clean-history A-D=0.5135仍失败；[动态报告快照](reports/stage1_anyflow/03_anyflow_trials/pilot_snapshot/REPORT.md)只列已生成结果。旧原始H3的offload reserve未知，时间和GPU peak仅作本机运行记录，不能据此计算公平加速比。
+4-step/chunk generated-history：A=-1.3153、D=-1.2244、A-D=-0.0909；两条视频后段重影/雾化，动作与视觉gate失败。每条均完整39帧，12 noisy forwards+3 clean commits。输入逐张量与对应原始H3一致。8-step A=-1.1709、D=-1.4752、A-D=0.3043，画面比4-step完整但动作gate仍失败。FM16的4/8-step分离度为0.2338/0.3149；AnyFlow4 step00/04/08/12/16没有持续改善。clean-history A-D=0.5135仍失败；[动态报告快照](../../reports/stage1_anyflow/03_anyflow_trials/pilot_snapshot/REPORT.md)只列已生成结果。旧原始H3的offload reserve未知，时间和GPU peak仅作本机运行记录，不能据此计算公平加速比。
 
-可选[位置契约helper](code/causal/position_contract.py)解决未来action句长通过RoPE原点影响过去的结构性问题，小型H3的FM/AnyFlow测试2 passed；固定A/D输入是数值no-op。**尚未接入当前benchmark/trainer，也不是已证实的视觉失败原因。**
+可选[位置契约helper](../../code/causal/position_contract.py)解决未来action句长通过RoPE原点影响过去的结构性问题，小型H3的FM/AnyFlow测试2 passed；固定A/D输入是数值no-op。**尚未接入当前benchmark/trainer，也不是已证实的视觉失败原因。**
 
-[三列诊断视频](reports/stage1_anyflow/03_anyflow_trials/pilot_snapshot/anyflow16_AD_original_4step_8step_diagnostic.mp4)与[人工观察记录](reports/stage1_anyflow/03_anyflow_trials/pilot_snapshot/VISUAL_REVIEW.md)保留全部39帧，明确标记未通过，不替换旧会议demo。
+[三列诊断视频](../../reports/stage1_anyflow/03_anyflow_trials/pilot_snapshot/anyflow16_AD_original_4step_8step_diagnostic.mp4)与[人工观察记录](../../reports/stage1_anyflow/03_anyflow_trials/pilot_snapshot/VISUAL_REVIEW.md)保留全部39帧，明确标记未通过，不替换旧会议demo。
 
 ## 已完成pilot的33B实验协议（trainable-time变体）
 
@@ -127,4 +127,4 @@ python code/causal/train_stage1_anyflow.py --smoke --steps 8 --lr 0.001 \
 
 与官方公式的 oracle 测试需要本项目根目录旁的 `SolarWM/src` checkout，参考版本为 `ce1da4e7705391eda8eeda6016c0fd3f614b975e`；运行训练与采样无需导入 SolarWM，所需数学 primitives 已附并保留 Apache-2.0 归属。
 
-全覆盖rank8候选已完成CPU预检查并条件等待：保留相同初始函数和数值/数据协议，按官方312个投影范围训练LoRA；详见[候选范围、参数化差异与限制](reports/stage1_anyflow/03_anyflow_trials/fullscope_candidate/README.md)。真实GPU fit与画质尚待验证，不能把这个候选称为已完成的完整官方Stage1。
+全覆盖rank8候选已完成CPU预检查并条件等待：保留相同初始函数和数值/数据协议，按官方312个投影范围训练LoRA；详见[候选范围、参数化差异与限制](../../reports/stage1_anyflow/03_anyflow_trials/fullscope_candidate/README.md)。真实GPU fit与画质尚待验证，不能把这个候选称为已完成的完整官方Stage1。

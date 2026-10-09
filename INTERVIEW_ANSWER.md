@@ -73,4 +73,4 @@ KV测试核查cached/recompute等价、滑窗淘汰、非整chunk尾部、重复
 
 > We demonstrated executable causal chunk rollout and persistent KV caching on H3-World. We have not established simultaneous action preservation, stable long-horizon video quality, or end-to-end speedup. Local history-conditioning improves action signs, but visual artifacts remain and the controlled four-update action-loss trial adds no consistent benefit. Reliable local causal generation should precede renewed AnyFlow and on-policy Stage2 experiments.
 
-[实验报告](EXPERIMENT_REPORT.md) · [复现步骤](REPRODUCE.md) · [5分钟答辩](meeting/MEETING_SCRIPT.md) · [E2完整证据](reports/stage1_anyflow/01_real_video/real_transition_windows/FINAL_RESULTS.md)
+[实验报告](docs/EXPERIMENT_REPORT.md) · [复现步骤](REPRODUCE.md) · [5分钟答辩](meeting/MEETING_SCRIPT.md) · [E2完整证据](reports/stage1_anyflow/01_real_video/real_transition_windows/FINAL_RESULTS.md)

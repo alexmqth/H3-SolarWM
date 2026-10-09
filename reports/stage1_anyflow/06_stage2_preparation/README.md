@@ -2,7 +2,7 @@
 
 DMD方向、共享H3角色、FMBS生成梯度等原语。主要是小H3/CPU验证，不是完整33B Stage2效果。
 
-[返回总导航](../README.md) · [当前最终实验报告](../../../EXPERIMENT_REPORT.md)
+[返回总导航](../README.md) · [当前最终实验报告](../../../docs/EXPERIMENT_REPORT.md)
 
 | 实验目录 | 阅读入口 |
 |---|---|

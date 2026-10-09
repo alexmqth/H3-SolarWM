@@ -4,7 +4,7 @@
 
 设备迁移、样本并行、checkpoint续训和历史执行收据。不是当前待执行队列。
 
-[返回总导航](../README.md) · [当前最终实验报告](../../../EXPERIMENT_REPORT.md)
+[返回总导航](../README.md) · [当前最终实验报告](../../../docs/EXPERIMENT_REPORT.md)
 
 | 实验目录 | 阅读入口 |
 |---|---|

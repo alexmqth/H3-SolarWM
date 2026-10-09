@@ -1,6 +1,6 @@
 # 实验报告：工程可行，动作与质量联合验收尚未通过
 
-[后续训练视频与数据来源总览](meeting/DATASET_AND_ANYFLOW.md)：补齐真实数据/FM 与 AnyFlow 历史单条输出；实验结论不变。
+[后续训练视频与数据来源总览](../meeting/DATASET_AND_ANYFLOW.md)：补齐真实数据/FM 与 AnyFlow 历史单条输出；实验结论不变。
 
 **最终结论（2026-10-09）：** 真实H3上的causal chunk、persistent KV与长rollout执行已跑通；未证明四向动作完整保真、20秒稳定生成或端到端加速。最后一轮局部E2两臂各4更新已全部评完，新增动作排序损失没有一致优于FM-only，按负结果冻结。
 
@@ -15,11 +15,11 @@
 | 新DMD/FMBS工程准备 | tiny真实H3类的梯度、符号与角色隔离测试 | 支撑后续正确实现 | 没有新的33B完整DMD效果结论 |
 | 最新E1/E2 | T2/N局部窗口30step，reference/GT history，无persistent hidden KV | 检查动作信息流与观察后果监督 | 非124f自由rollout，不能继承主片性能或缓存结论 |
 
-主片checkpoint、哈希与指标来源见[DEMO_PROVENANCE](meeting/DEMO_PROVENANCE.md)。历史实验原始报告不重写；本页是最终状态入口。
+主片checkpoint、哈希与指标来源见[DEMO_PROVENANCE](../meeting/DEMO_PROVENANCE.md)。历史实验原始报告不重写；本页是最终状态入口。
 
 ## 2. 124帧主Demo及历史测量
 
-[W并排主片](meeting/annotated/h3world_rgb_stable_W_original_vs_causal_timed.mp4) · [W/S/A/D grid](meeting/annotated/h3world_rgb_stable_action_grid_124_timed.mp4) · [完整指标](meeting/METRICS.md)
+[W并排主片](../meeting/annotated/h3world_rgb_stable_W_original_vs_causal_timed.mp4) · [W/S/A/D grid](../meeting/annotated/h3world_rgb_stable_action_grid_124_timed.mp4) · [完整指标](../meeting/METRICS.md)
 
 左右同首帧、prompt、action序列、seed13、初始video/audio noise、832×480、124RGB、24fps。原始30整段steps；causal为8steps/chunk×8chunks=64noisy forwards＋8clean commits。当前仅有历史单次记录，**没有统一独占硬件下warmup重复均值**。
 
@@ -30,17 +30,17 @@
 
 GPU峰值未拆分权重/激活/临时KV，不能相减推算。首chunk是内部生成/提交计时，不是端到端首帧可播放延迟。RGB anchor和CPU传输有开销，forward总数及active sequence都不同，不按30/8推导速度。
 
-Frame MAD和boundary MAD是描述性活动/连续性指标；低MAD可能来自模糊或冻结。Farneback为图像水平运动代理，不是严格动作准确率。没有为此主片跑FVD、LPIPS/PSNR或VBench，不补造质量分数。历史原始JSON和公平性说明见[FAIRNESS](meeting/FAIRNESS.md)。
+Frame MAD和boundary MAD是描述性活动/连续性指标；低MAD可能来自模糊或冻结。Farneback为图像水平运动代理，不是严格动作准确率。没有为此主片跑FVD、LPIPS/PSNR或VBench，不补造质量分数。历史原始JSON和公平性说明见[FAIRNESS](../meeting/FAIRNESS.md)。
 
 ## 3. 必须保留的失败证据
 
-- [动作较强旧版 vs 视觉较完整新版](meeting/action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4)：旧fixed-mix A−D约0.453且符号正确，但明显漂移；RGB-main A−D约0.223且A符号错误。多项配置同时改变，不是单变量ablation。
-- [20秒完整Original vs causal](meeting/long_horizon/original_vs_rgb_visual_W_20s_481f.mp4)：同一RGB checkpoint，约10秒严重雾化，15秒后人物/场景难辨。完整481帧保留，不能把执行完成解释为稳定。
-- [最新E2 D-history/current A](reports/stage1_anyflow/01_real_video/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)：局部A方向保留，但手臂/躯干残影仍在。此处左列是Original权重的局部N，不是Original完整双向生成。
+- [动作较强旧版 vs 视觉较完整新版](../meeting/action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4)：旧fixed-mix A−D约0.453且符号正确，但明显漂移；RGB-main A−D约0.223且A符号错误。多项配置同时改变，不是单变量ablation。
+- [20秒完整Original vs causal](../meeting/long_horizon/original_vs_rgb_visual_W_20s_481f.mp4)：同一RGB checkpoint，约10秒严重雾化，15秒后人物/场景难辨。完整481帧保留，不能把执行完成解释为稳定。
+- [最新E2 D-history/current A](../reports/stage1_anyflow/01_real_video/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)：局部A方向保留，但手臂/躯干残影仍在。此处左列是Original权重的局部N，不是Original完整双向生成。
 
 ## 4. 最终E2受控结果：冻结在4更新
 
-[完整结果与全部六条三列视频](reports/stage1_anyflow/01_real_video/real_transition_windows/FINAL_RESULTS.md)。两臂都从Original H3＋released action LoRA出发，只训练tail8 QKV/out的10,092,544参数，LR2e-5、logical batch2，初始化一致；唯一实验变量为普通FM或FM＋观察动作后果排序。排序错误动作没有对应反事实GT，不能解释成完整反事实监督。
+[完整结果与全部六条三列视频](../reports/stage1_anyflow/01_real_video/real_transition_windows/FINAL_RESULTS.md)。两臂都从Original H3＋released action LoRA出发，只训练tail8 QKV/out的10,092,544参数，LR2e-5、logical batch2，初始化一致；唯一实验变量为普通FM或FM＋观察动作后果排序。排序错误动作没有对应反事实GT，不能解释成完整反事实监督。
 
 T2/N每sigma重新计算可见hidden；12latent当前窗、single I0、30steps、shift2.22。停车场历史来自Original生成；两条真实GT-history保留联合动作，当前速度派生camera F属于oracle后果条件，不证明实时输入可用。
 
@@ -63,7 +63,7 @@ Held-out正确动作FM：0.25976668→0.25969061/0.25969900，改善不足0.03%�
 
 ## 5. 最终可复现性验收
 
-步骤和依赖入口见[REPRODUCE.md](REPRODUCE.md)，本次独立环境验收记录见[final_acceptance](reports/final_acceptance/README.md)。验收分开记录干净源码/依赖、真实权重推理、KV测试与小H3训练smoke；通过这些工程检查不改变上述画质No-Go结论。
+步骤和依赖入口见[REPRODUCE.md](../REPRODUCE.md)，本次独立环境验收记录见[final_acceptance](../reports/final_acceptance/README.md)。验收分开记录干净源码/依赖、真实权重推理、KV测试与小H3训练smoke；通过这些工程检查不改变上述画质No-Go结论。
 
 ## 6. 技术判断
 
