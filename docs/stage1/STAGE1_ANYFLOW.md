@@ -1,5 +1,7 @@
 # Stage1 TF-AnyFlow：实现、验证与验收
 
+[类型III AnyFlow与类型II普通FM的匹配视频](../../meeting/model_types/README.md)：同初始化/容量/两条伪标签/16新增更新，分别评4与8步；不是等计算量，也不是从真实ABot FM48顺序续训。
+
 [数据集视频与 AnyFlow 训练结果导览](../../meeting/DATASET_AND_ANYFLOW.md)：训练脚本名不代表目标；真实 ABot 两轮48更新为 FM，已找到的 AnyFlow 训练为 Original H3 伪标签。
 
 > 本页是AnyFlow实现与历史实验时间线，下面的“正在运行”仅指当时记录。当前研究已冻结，画质/action gate未过；最新结论见[实验报告](../EXPERIMENT_REPORT.md)，所有历史目录的用途见[档案导航](../../reports/stage1_anyflow/README.md)。

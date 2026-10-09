@@ -1,0 +1,361 @@
+{
+  "at": "2026-10-09T21:21:46.719102+08:00",
+  "base_commit": "0a0e60caea835b429c1623487d2d105c8f5f1404",
+  "model_types": [
+    {
+      "id": "I",
+      "name": "Original H3 + causal routing",
+      "new_optimizer_updates": 0,
+      "purpose": "Direct causal inference-protocol intervention; no newly trained adaptation",
+      "primary_video": "01_routing_only_39f.mp4",
+      "panel_types": [
+        "Original reference",
+        "I routing30",
+        "I routing8"
+      ],
+      "history": "self-generated",
+      "latent_chunks": [
+        5,
+        5,
+        2
+      ],
+      "CPU_raw_KV": true,
+      "weights": "Original H3 + released H3-World action LoRA with zero-output new banks",
+      "actual_training_step": 0,
+      "warning": "Historical trained_for_causal=true means adapter container loaded, not optimizer updates. Classify using zero-step initialization audit. Original vs causal also differs in precision/anchor/prefix; not a mask-only ablation."
+    },
+    {
+      "id": "II",
+      "name": "Original H3 + causal adaptation",
+      "new_optimizer_updates": 48,
+      "purpose": "Restore causal action/visual behavior through ordinary FM adaptation",
+      "primary_video": "02_adaptation_fm0_vs_fm48_39f.mp4",
+      "panel_types": [
+        "Original reference",
+        "I FM0",
+        "II FM48"
+      ],
+      "objective": "fm",
+      "training_data": "recorded ABot game video; 16 train / 8 validation by episode",
+      "training_history": "GT clean, full history gradient",
+      "evaluation_history": "self-generated",
+      "latent_chunks": [
+        5,
+        5,
+        2
+      ],
+      "steps_per_chunk": 30,
+      "CPU_raw_KV": true,
+      "training_receipt": "reports/stage1_anyflow/01_real_video/real_abot_fm/training_snapshot.json",
+      "additional_variants": [
+        "fixed_mix_0.5",
+        "visual_rgb_tail16",
+        "E2 fm_only/fm_action",
+        "matched fullscope FM16"
+      ],
+      "no_anyflow": true,
+      "no_DMD": true
+    },
+    {
+      "id": "III",
+      "name": "Causal H3 + AnyFlow",
+      "new_optimizer_updates": 16,
+      "purpose": "Finite-map learning for fewer steps per chunk",
+      "primary_videos": [
+        "03_anyflow_vs_fm_4step_39f.mp4",
+        "03_anyflow_vs_fm_8step_39f.mp4"
+      ],
+      "panel_types": [
+        "Original reference",
+        "II FM16",
+        "III AnyFlow16"
+      ],
+      "objective": "anyflow",
+      "initialization": "previously adapted RGB causal visual/action adapters; not ABot FM48",
+      "training_data": "two Original-H3-generated A/D pseudo-GT videos",
+      "evaluation_history": "self-generated",
+      "training_history_gradient": "detached KV in this matched16 comparison",
+      "latent_chunks": [
+        5,
+        5,
+        2
+      ],
+      "steps_per_chunk": [
+        4,
+        8
+      ],
+      "CPU_raw_KV": true,
+      "frozen_target_time_conditioning": true,
+      "training_receipt": "reports/stage1_anyflow/03_anyflow_trials/fullscope_candidate/training_16.json",
+      "matched_FM_config_keys": {
+        "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/causal_adapter.pt",
+        "action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/action_adapter.pt",
+        "adapter_scope": "all_qkvo_ffn",
+        "bank_rank": 8,
+        "bank_alpha": 8.0,
+        "precision_profile": "h3_fp32",
+        "teacher_dir": [
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39"
+        ],
+        "steps": 16,
+        "logical_batch": 4,
+        "lr": 3e-05,
+        "seed": 13,
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "anchor_mode": "rgb",
+        "action_prefix_mode": "causal",
+        "action_feedback": true,
+        "flow_shift": 2.22
+      },
+      "equal_compute_claim": false,
+      "causal_initialization_quality_already_passed": false
+    }
+  ],
+  "evaluation_axis_independent_of_model_type": [
+    "single current window without prior history",
+    "fixed GT/reference history local continuation",
+    "self-generated-history free rollout"
+  ],
+  "copy_provenance": [
+    {
+      "video": "01_routing_only_39f.mp4",
+      "source": "reports/stage1_anyflow/01_real_video/real_abot_fm/report/parking_baseline_complete/original_causal0_30_8_AD.mp4",
+      "sha256": "9359c63eaec1b5d6c597d4bf3598ca764dd7ea3aa50eeff3051a9a41fd6adbf8",
+      "treatment": "byte-identical copy; no retiming/cropping/encoding"
+    },
+    {
+      "video": "03_anyflow_vs_fm_4step_39f.mp4",
+      "source": "reports/stage1_anyflow/03_anyflow_trials/fullscope_fm_control/matched_FM_AnyFlow_4step_AD_diagnostic.mp4",
+      "sha256": "f51863e834a37ddf06e99167e01db3b4807e28e6fa5bf03b96c466f20b4aaba1",
+      "treatment": "byte-identical copy; no retiming/cropping/encoding"
+    },
+    {
+      "video": "03_anyflow_vs_fm_8step_39f.mp4",
+      "source": "reports/stage1_anyflow/03_anyflow_trials/fullscope_fm_control/matched_FM_AnyFlow_8step_AD_diagnostic.mp4",
+      "sha256": "4e576767a769fd023ec8acbf0d543fe12747d80d36f230b0332da00d62273d00",
+      "treatment": "byte-identical copy; no retiming/cropping/encoding"
+    },
+    {
+      "source": "H3-World/outputs/2026-10-02-03/action_A_teacher_39/baseline.mp4",
+      "archive": "meeting/model_types/sources/original_A.mp4",
+      "sha256": "0fd5b9198edb9564657b0b5db235ca72f8f95ce4d88dd4307c460fd5b9efb8f6",
+      "treatment": "byte-identical original reference"
+    },
+    {
+      "source": "H3-World/outputs/2026-10-02-03/action_A_teacher_39/baseline.json",
+      "archive": "meeting/model_types/sources/original_A.json",
+      "sha256": "83d6914969d54df0c01d55ccc3d8470b01bbeb73160c4926af9c5693ab2ee704",
+      "treatment": "byte-identical original reference"
+    },
+    {
+      "source": "H3-World/outputs/2026-10-02-03/action_D_teacher_39/baseline.mp4",
+      "archive": "meeting/model_types/sources/original_D.mp4",
+      "sha256": "1c420bcc68b98e471b70f1611cdfb6fca14c81e1618b3a5f0d5397e5c02491b5",
+      "treatment": "byte-identical original reference"
+    },
+    {
+      "source": "H3-World/outputs/2026-10-02-03/action_D_teacher_39/baseline.json",
+      "archive": "meeting/model_types/sources/original_D.json",
+      "sha256": "79303e1fc3ecae84c9e4bfd6e60087d6f4d0849053175ce3184da23e0b5c94c5",
+      "treatment": "byte-identical original reference"
+    }
+  ],
+  "new_render": {
+    "output": "02_adaptation_fm0_vs_fm48_39f.mp4",
+    "spec": "02_adaptation_30step_spec.json",
+    "renderer": "meeting/render_comparison.py",
+    "renderer_sha256": "1acd07bec5679a0e9fca425a3240cd3983df8bcc7d482485c8ce96197d2cca27",
+    "source_panels": [
+      [
+        {
+          "video": "meeting/model_types/sources/original_A.mp4",
+          "run_json": "meeting/model_types/sources/original_A.json",
+          "title": "A | Reference: Original H3-World",
+          "note": "Original pipeline / legacy precision; seed 13"
+        },
+        {
+          "video": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_00/30step/A/cached.mp4",
+          "run_json": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_00/30step/A/cached.json",
+          "title": "A | Type I: routing only (0 updates)",
+          "note": "FM0 / FM48 matched causal protocol; seed 13"
+        },
+        {
+          "video": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_48/30step/A/cached.mp4",
+          "run_json": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_48/30step/A/cached.json",
+          "title": "A | Type II: ordinary FM (48 updates)",
+          "note": "FM0 / FM48 matched causal protocol; seed 13"
+        }
+      ],
+      [
+        {
+          "video": "meeting/model_types/sources/original_D.mp4",
+          "run_json": "meeting/model_types/sources/original_D.json",
+          "title": "D | Reference: Original H3-World",
+          "note": "Original pipeline / legacy precision; seed 13"
+        },
+        {
+          "video": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_00/30step/D/cached.mp4",
+          "run_json": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_00/30step/D/cached.json",
+          "title": "D | Type I: routing only (0 updates)",
+          "note": "FM0 / FM48 matched causal protocol; seed 13"
+        },
+        {
+          "video": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_48/30step/D/cached.mp4",
+          "run_json": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_48/30step/D/cached.json",
+          "title": "D | Type II: ordinary FM (48 updates)",
+          "note": "FM0 / FM48 matched causal protocol; seed 13"
+        }
+      ]
+    ],
+    "transformation": "full-frame side-by-side with labels; no interpolation, temporal truncation, loops or retiming"
+  },
+  "receipts": [
+    {
+      "path": "reports/stage1_anyflow/01_real_video/real_abot_fm/initialization_audit.json",
+      "sha256": "f08fc97fc583084db10d2a62b8da465830ce6f71faa7ed13d28656bced4d1f28"
+    },
+    {
+      "path": "reports/stage1_anyflow/01_real_video/real_abot_fm/training_snapshot.json",
+      "sha256": "dfa96df2b8aca4c25892358b224010564c236fd18993001f2a31e9fc179b8b30"
+    },
+    {
+      "path": "reports/stage1_anyflow/01_real_video/real_abot_fm/FM48_COMPLETE_REVIEW.md",
+      "sha256": "e524e5a685d9b6711a431d18275c8083d5a6d3f99309929ec1371ea5fb3f1b2d"
+    },
+    {
+      "path": "reports/stage1_anyflow/01_real_video/real_abot_fm/report/parking_baseline_complete/README.md",
+      "sha256": "59fdde07d2a10562094e298b01a3350a181d46e47b313262ce788e82a11b21d4"
+    },
+    {
+      "path": "reports/stage1_anyflow/03_anyflow_trials/fullscope_fm_control/training_16.json",
+      "sha256": "0dd45b784d8eafbec872794a76b94f105d542d97ced119d0d78359a62d7aa4a7"
+    },
+    {
+      "path": "reports/stage1_anyflow/03_anyflow_trials/fullscope_candidate/training_16.json",
+      "sha256": "134bdf03a61a83e544482ae3d6332e3849b5c1492ee5b3734a5d6b512782773f"
+    },
+    {
+      "path": "reports/stage1_anyflow/03_anyflow_trials/fullscope_fm_control/FINAL_RESULTS.md",
+      "sha256": "a6be5f8e597f2647bf0cf1f84e736a00fcfb0348743a4d3231aebfdf5726d8ce"
+    },
+    {
+      "path": "meeting/model_types/sources/original_A.json",
+      "sha256": "83d6914969d54df0c01d55ccc3d8470b01bbeb73160c4926af9c5693ab2ee704"
+    },
+    {
+      "path": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_00/30step/A/cached.json",
+      "sha256": "ace087ce535b6c30b85fc3449edc39241c0bcf876fdfc9a026055fda055e2acc"
+    },
+    {
+      "path": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_48/30step/A/cached.json",
+      "sha256": "27be869ae05f99fa2deb8bc1636fe4aea274ba121b54969bd9778f0558a2a581"
+    },
+    {
+      "path": "meeting/model_types/sources/original_D.json",
+      "sha256": "79303e1fc3ecae84c9e4bfd6e60087d6f4d0849053175ce3184da23e0b5c94c5"
+    },
+    {
+      "path": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_00/30step/D/cached.json",
+      "sha256": "1824b0d61d5f9f7dc00992ab89308dc1315e60be6252c5905508aceea6279657"
+    },
+    {
+      "path": "reports/stage1_anyflow/01_real_video/real_abot_fm/parking/step_48/30step/D/cached.json",
+      "sha256": "f99f0a4305e0559a9ebd1f9d43b2f83cefe174a05413a16e446799ff6385828e"
+    }
+  ],
+  "videos": [
+    {
+      "path": "meeting/model_types/01_routing_only_39f.mp4",
+      "sha256": "9359c63eaec1b5d6c597d4bf3598ca764dd7ea3aa50eeff3051a9a41fd6adbf8",
+      "bytes": 708021,
+      "frames": 39,
+      "fps": 24,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 1248,
+      "height": 604,
+      "full_decode": true
+    },
+    {
+      "path": "meeting/model_types/02_adaptation_fm0_vs_fm48_39f.mp4",
+      "sha256": "df4ec4a35d53882ada71ee24486c763b9a93150b8405d80fd7b56800cb8ab352",
+      "bytes": 2495502,
+      "frames": 39,
+      "fps": 24,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 2496,
+      "height": 1120,
+      "full_decode": true
+    },
+    {
+      "path": "meeting/model_types/03_anyflow_vs_fm_4step_39f.mp4",
+      "sha256": "f51863e834a37ddf06e99167e01db3b4807e28e6fa5bf03b96c466f20b4aaba1",
+      "bytes": 1700741,
+      "frames": 39,
+      "fps": 24,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 1872,
+      "height": 880,
+      "full_decode": true
+    },
+    {
+      "path": "meeting/model_types/03_anyflow_vs_fm_8step_39f.mp4",
+      "sha256": "4e576767a769fd023ec8acbf0d543fe12747d80d36f230b0332da00d62273d00",
+      "bytes": 1394308,
+      "frames": 39,
+      "fps": 24,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 1872,
+      "height": 880,
+      "full_decode": true
+    },
+    {
+      "path": "meeting/model_types/sources/original_A.mp4",
+      "sha256": "0fd5b9198edb9564657b0b5db235ca72f8f95ce4d88dd4307c460fd5b9efb8f6",
+      "bytes": 433276,
+      "frames": 39,
+      "fps": 24,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 832,
+      "height": 480,
+      "full_decode": true
+    },
+    {
+      "path": "meeting/model_types/sources/original_D.mp4",
+      "sha256": "1c420bcc68b98e471b70f1611cdfb6fca14c81e1618b3a5f0d5397e5c02491b5",
+      "bytes": 403575,
+      "frames": 39,
+      "fps": 24,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 832,
+      "height": 480,
+      "full_decode": true
+    }
+  ],
+  "new_training": false,
+  "new_model_inference": false,
+  "quality_gate_changed": false,
+  "notes": [
+    "Observed source videos retained unchanged; copied comparisons preserve hashes.",
+    "Historical recorded times, not standardized repeated hardware benchmarks.",
+    "Finite-map target and target-time conditioning differ from FM; matching updates is not matching compute.",
+    "Model taxonomy is not a claim that the three primary examples form one sequential checkpoint lineage."
+  ],
+  "validation": {
+    "at": "2026-10-09T21:23:04.452579+08:00",
+    "new_broken_links": [],
+    "preexisting_unresolved_links_in_edited_docs": [],
+    "link_occurrences_checked_including_before": 327,
+    "all_video_and_receipt_hashes_match": true,
+    "previous_causal_baseline_assets_unchanged": 28,
+    "E2_frozen_evidence_unchanged": 16,
+    "preview_review": "New 02 grid frame30 visually inspected: labels legible, Original/FM0/FM48 columns and A/D rows correct; frame counts and existing negative conclusions unchanged."
+  }
+}

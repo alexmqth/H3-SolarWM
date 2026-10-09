@@ -15,6 +15,7 @@
 | 面试交付（简短报告） | [REPORT.md](REPORT.md) |
 | 面试题逐项回答 | [INTERVIEW_ANSWER.md](INTERVIEW_ANSWER.md) |
 | 现场展示（主视频、讲稿、指标） | [meeting/README.md](meeting/README.md) |
+| 三类模型：直接因果化／普通适配／AnyFlow | [分类定义与四条对比视频](meeting/model_types/README.md) |
 | 每个实验做了什么、结果如何 | 下面的**实验地图** |
 | 因果化单独做到哪一步、哪些版本已保存 | [因果基线与视频](docs/CAUSAL_BASELINE.md) |
 | 怎么复现 | [REPRODUCE.md](REPRODUCE.md) |

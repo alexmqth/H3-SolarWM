@@ -1,5 +1,7 @@
 # 实验报告：工程可行，动作与质量联合验收尚未通过
 
+[按模型／配置分三类的展示](../meeting/model_types/README.md)：零更新routing、普通causal adaptation与AnyFlow分别提供对比视频；history来源和KV协议另列，不把类型等同于验收通过。
+
 [后续训练视频与数据来源总览](../meeting/DATASET_AND_ANYFLOW.md)：补齐真实数据/FM 与 AnyFlow 历史单条输出；实验结论不变。
 
 **最终结论（2026-10-09）：** 真实H3上的causal chunk、persistent KV与长rollout执行已跑通；未证明四向动作完整保真、20秒稳定生成或端到端加速。最后一轮局部E2两臂各4更新已全部评完，新增动作排序损失没有一致优于FM-only，按负结果冻结。

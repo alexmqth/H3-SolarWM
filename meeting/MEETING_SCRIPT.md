@@ -1,5 +1,7 @@
 # 5分钟答辩：用结果说明技术判断
 
+模型分类备查：[三类模型与四条短片](model_types/README.md)。开场RGB主片属于类型II（普通适配）；类型I是零更新因果推理，类型III才使用AnyFlow。固定history或自由rollout是评测条件。
+
 计时包含两段视频：开场约5秒主片，后半段约20秒失败片；不另加开场历史回顾。预先打开[主片](annotated/h3world_rgb_stable_W_original_vs_causal_timed.mp4)、[失败片](long_horizon/original_vs_rgb_visual_W_20s_481f.mp4)、[指标表](METRICS.md)。完整checkpoint对应见[DEMO_PROVENANCE](DEMO_PROVENANCE.md)。
 
 ## 0:00–0:35｜先看Original vs causal

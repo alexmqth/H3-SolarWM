@@ -40,6 +40,8 @@ Original H3在完整目标序列上迭代去噪，action rows通过特定有向�
 
 T2/N的CPU hidden KV为0不表示没有raw history、CPU权重或其它内存。它的重算成本必须纳入未来性能比较。
 
+模型／配置还应按训练目标分为三类：**Original＋causal routing（零新增训练）**、**Original＋causal adaptation（普通FM/visual/action适配）**、**Causal H3＋AnyFlow（finite-map训练）**。上述两条执行路线与这三类不是一一对应：例如零训练T2/N属类型I，E2训练后属类型II；旧RGB主片也属类型II，并没有AnyFlow。[三类对应的完整对比视频](meeting/model_types/README.md)。
+
 ## 4. 最小causal训练原型与实现位置
 
 复用33B底座与released action LoRA，只训练小adapter。早期以clean历史teacher forcing做普通FM；后续严格控制同状态动作干预，区分action路由、history条件与训练目标。算力有限时用LoRA、CPU offload、detach/replay和小规模数据，不训练33B全参数。
