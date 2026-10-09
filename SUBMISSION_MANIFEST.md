@@ -1,10 +1,10 @@
 # Submission manifest
 
-Generated from the reviewable package on 2026-10-09 17:31 +0800.
+Generated from the reviewable package on 2026-10-09 18:23 +0800.
 The manifest excludes `.git/`, ignored caches/environments, symlinks, and itself.
 
-File count: 2307
-Total bytes: 588,092,473
+File count: 2308
+Total bytes: 588,101,520
 
 Each line below is `sha256  relative-path`.
 
@@ -18,11 +18,11 @@ b2a8e6e7438414ccb4cad8241056b7b00fa2671a8f79cf3900926f168416dd67  LIMITATIONS.md
 046953de50dd4277b0cc963b98803f3cb13d3e23496d3b53eaa73b45ad1c0168  NEXT_PLAN.md
 d44e54f73b2f674169128dc1631d3c2bcf077879edaa4ccd396da7f01c1ab963  NOTICE
 78985f4cd60b76994cd343b458f7d80fb053b16d2907713119b104d09bb0c24e  PROJECT_PROGRESS.md
-8e852ab1b5be46d16042256056b6f9eb49f2c3d335660eea64b923d3d2d71dd4  README.md
+6cc90d070b490817cbe36dae5c766dbc49b46f31d7aeabebf517442af7146c1b  README.md
 f90dd6d4fefb4ade64e2246736d90d73764d82236077fc917a5c4d5f50810631  REPORT.md
 69b7c64396df29d979c17984e289a17de1bf1a427db0aaf7097e146e1b637fe6  REPRODUCE.md
 9f2188725b9ace4d3fbe1f763be69ca6cb4c41bc26917d5c0c18bb6c9da7918f  STAGE1_ACCEPTANCE.md
-28f39d03e5d0ce3de3872ab20927ec5ee4b53ca92c30011121cad04dd157d0f6  STAGE1_ANYFLOW.md
+75cedfee678cfc878ee21b7702b5d75066407e09dae0ad647d637bac8a08d25e  STAGE1_ANYFLOW.md
 65734b95d64172a12e932817ec603fcb0ad4adc1d409aa8b6a3d63fd77ead4aa  STAGE1_PARAMETER_POLICY.md
 a0fc6a8b5d6104c9c250480fb23aa0121077028f358c94313f1df3bfb6cfbdf6  breakthrough/01_causal_chunk_kv_rollout/README.md
 2b279a45e7094505d28ca02d233c32e8e0bc4fa55afe1a04eed3927346abb30d  breakthrough/02_rgb_anchor_visual_drift_repair/README.md
@@ -274,6 +274,7 @@ df0430e283dc999f9edd646365078548418b93fdf0ba61df51433ad8f5267f77  reports/final_
 f0b4ebf35c123b1cd45b931b826fc05e56780a5c1e78ba5a7fabe5327ff1df42  reports/routing_still/ROUTING_STILL_REPORT.md
 084730e2ce5dc7e99ecc2dc4c0249c51b02fc50d141d64965285fb3c9a3052b3  reports/stage1_anyflow/ABCD_STATUS.md
 4f0a0c04ab2b87ddc2fc21d90326a5f69d6fc73093267d9b08f053f0ddfb11a2  reports/stage1_anyflow/ACTION_MECHANISM_SUMMARY.md
+1ad2e5f5622b71a459ad4c1a18db94e593f48a20f4930a24001a1f8bb5336654  reports/stage1_anyflow/README.md
 788566ca63a31ffb45051f57e432cc38de4cfc03cf18a12e293a590396ba1c5e  reports/stage1_anyflow/STAGE_BOUNDARY.md
 62bf9b381791e6e2c7b6e3cc106cb0e92326536e218544e63feda8b944030396  reports/stage1_anyflow/adaptive_weight_audit/README.md
 059a949f1857325f9762933e08838a14be706faca0119bd037d91421dda33667  reports/stage1_anyflow/adaptive_weight_audit/archive_replay.json

@@ -39,6 +39,8 @@
 
 ## 文档和目录
 
+[实验档案分类导航](reports/stage1_anyflow/README.md)：说明51个历史目录的用途，并列出主要结果入口；无需逐个查看。
+
 - `INTERVIEW_ANSWER.md`：面试题逐项回答。
 - `REPORT.md`：**简短实验报告**（方法说明、最小原型与可行性、Demo 与指标、长视频结果、结论）。
 - `EXPERIMENT_LOG.md`：精简的实验时间线。

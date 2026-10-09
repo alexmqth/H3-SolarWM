@@ -1,5 +1,7 @@
 # Stage1 TF-AnyFlow：实现、验证与验收
 
+> 本页是AnyFlow实现与历史实验时间线，下面的“正在运行”仅指当时记录。当前研究已冻结，画质/action gate未过；最新结论见[实验报告](EXPERIMENT_REPORT.md)，所有历史目录的用途见[档案导航](reports/stage1_anyflow/README.md)。
+
 2026-10-08 20:15补记：真实数据FM仍在20/48；零更新完整视频已发现第二场景30步generated-history人物分解，GT18同状态动作差分cos=0.017516，无历史首块也低。新图Original纯A/D是弱正控，停车场回归另列。见[完整基线评审](reports/stage1_anyflow/real_abot_fm/BASELINE_COMPLETE_REVIEW.md)。以下无新训练/视频等旧措辞仅指当时诊断快照，不能代表当前状态。
 
 2026-10-08最新：受控field对照定位到AnyFlow更新之前的动作几何失配；真实ABot普通causal FM桥接已启动，尚未验收。完整目标A–D的当前状态与前置门槛见[ABCD_STATUS](reports/stage1_anyflow/ABCD_STATUS.md)，不能将数据准备或只读诊断当作Stage1完成。
