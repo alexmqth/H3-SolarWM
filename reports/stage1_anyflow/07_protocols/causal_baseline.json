@@ -1,0 +1,377 @@
+{
+  "created_at": "2026-10-09T20:12:42.100788+08:00",
+  "base_commit": "91e64c02fbe08fbfbccc90eacaf04b37797ea879",
+  "purpose": "Pin pre-AnyFlow/pre-DMD causalization evidence, configurations and existing adapters without relabelling partial quality as success.",
+  "new_training_updates": 0,
+  "new_model_inference_runs": 0,
+  "full_free_rollout_action_and_quality_accepted": false,
+  "variants": [
+    {
+      "id": "original_single_window_positive_control",
+      "weights": "Original MiniMax-H3 + released H3-World action LoRA",
+      "new_adapter": null,
+      "training_updates": 0,
+      "anyflow": false,
+      "dmd": false,
+      "frames": 39,
+      "latent_frames": 12,
+      "steps": 30,
+      "seed": 13,
+      "history": "none; current-window action known",
+      "persistent_hidden_KV": false,
+      "native_prefix_time": true,
+      "anchor": "original single I0",
+      "action_flow": {
+        "A": 1.250421,
+        "D": -0.977313
+      },
+      "status": "positive_control_only_not_multichunk_causal_acceptance",
+      "video": "reports/stage1_anyflow/02_causal_diagnostics/local_topology/native_single_anchor12_calibration/AD_window12.mp4"
+    },
+    {
+      "id": "original_local_N_30step_reference_history",
+      "weights": "Original MiniMax-H3 + released H3-World action LoRA",
+      "new_adapter": null,
+      "training_updates": 0,
+      "anyflow": false,
+      "dmd": false,
+      "current_frames": 42,
+      "display_context_frames": 8,
+      "current_latent_frames": 12,
+      "steps": 30,
+      "flow_shift": 2.22,
+      "seed": 13,
+      "anchor": "original single I0 at fixed coordinates",
+      "native_prefix_time": true,
+      "history": "fixed Original-generated A or D reference, temporarily noised at current sigma; stored past remains read-only",
+      "topology": "T2 recomputes all visible hidden at every sigma; future-window action/video physically removed before refiner",
+      "persistent_hidden_KV": false,
+      "CPU_hidden_KV_MiB": 0,
+      "free_generated_history_rollout": false,
+      "status": "partial_action_signs_correct_local_visual_gate_failed",
+      "measurements": [
+        {
+          "history": "A",
+          "action": "A",
+          "C_flow": 1.2756236813417294,
+          "N_flow": 1.6454949282654903,
+          "C_frame_MAD": 6.290255546569824,
+          "N_frame_MAD": 5.32309627532959,
+          "C_boundary_MAD": 5.250150203704834,
+          "N_boundary_MAD": 9.677289009094238,
+          "N_sampling_seconds": 269.90323442500085,
+          "review": "方向与D分支分开；人物持续可辨，但末段腿部/下躯干有半透明残影，首边界地面/背景变化比C大。未见整个场景或人物姿态重置。"
+        },
+        {
+          "history": "A",
+          "action": "D",
+          "C_flow": 1.17601593184035,
+          "N_flow": -1.5467326848245249,
+          "C_frame_MAD": 6.858668327331543,
+          "N_frame_MAD": 4.59966516494751,
+          "C_boundary_MAD": 5.32616662979126,
+          "N_boundary_MAD": 3.0970828533172607,
+          "N_sampling_seconds": 263.9651716980152,
+          "review": "方向从C的同正恢复为负；人物/停车场保持，原C明显手臂重影大幅减少，历史首边界也更接近参考。"
+        },
+        {
+          "history": "D",
+          "action": "A",
+          "C_flow": 0.3096446338586691,
+          "N_flow": 0.6141035389609453,
+          "C_frame_MAD": 5.510103225708008,
+          "N_frame_MAD": 4.394495964050293,
+          "C_boundary_MAD": 4.50492525100708,
+          "N_boundary_MAD": 2.7534279823303223,
+          "N_sampling_seconds": 270.1004013158381,
+          "review": "方向为正且与D分支不同，但RGB59–68明显多重手臂、重复躯干轮廓，不能按人物仍存在就判结构通过。后段重影有所减轻。"
+        },
+        {
+          "history": "D",
+          "action": "D",
+          "C_flow": -1.4826017894395969,
+          "N_flow": -0.6738224066793919,
+          "C_frame_MAD": 5.230236053466797,
+          "N_frame_MAD": 3.6941025257110596,
+          "C_boundary_MAD": 4.250680923461914,
+          "N_boundary_MAD": 3.2072014808654785,
+          "N_sampling_seconds": 265.25178391393274,
+          "review": "方向为负，人物持续可辨；原C多重手臂明显减少，当前片段及历史首边界较完整。"
+        }
+      ],
+      "local_outputs": [
+        "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_A/A.mp4",
+        "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_A/D.mp4",
+        "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_D/A.mp4",
+        "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_D/D.mp4"
+      ],
+      "reproduction_workspace": "H3-World/outputs/2026-10-09-06/stage1_history_conditioning",
+      "external_input_note": "Requires original source_coarse states and frozen runtime, retained locally and referenced by protocol hashes; not a new standalone trained checkpoint."
+    },
+    {
+      "id": "legacy_fixed_mix_cached124",
+      "adapters": [
+        "checkpoints/legacy_fixed_mix/action_adapter.pt"
+      ],
+      "config_record": "checkpoints/legacy_fixed_mix/README.md",
+      "anyflow": false,
+      "dmd": false,
+      "frames": 124,
+      "steps_per_chunk": 8,
+      "chunks": 8,
+      "latent_chunk_size": 5,
+      "history": "self-generated",
+      "persistent_raw_KV": "CPU",
+      "action_prefix": "own",
+      "action_feedback": false,
+      "anchor": "dynamic_last_frame_dual",
+      "status": "relative_action_response_with_late_drift_not_joint_pass",
+      "action_flow": {
+        "A": 0.1427,
+        "D": -0.3105
+      }
+    },
+    {
+      "id": "visual_rgb_tail16_cached124",
+      "adapters": [
+        "checkpoints/visual_rgb_tail16/causal_adapter.pt",
+        "checkpoints/visual_rgb_tail16/action_adapter.pt"
+      ],
+      "config_record": "meeting/DEMO_PROVENANCE.json",
+      "anyflow": false,
+      "dmd_student_update": false,
+      "frames": 124,
+      "steps_per_chunk": 8,
+      "chunks": 8,
+      "latent_chunk_size": 5,
+      "history": "self-generated",
+      "persistent_raw_KV": "CPU",
+      "action_prefix": "causal",
+      "action_feedback": true,
+      "anchor": "dynamic_last_frame_rgb_dual",
+      "status": "relative_visual_coherence_with_wrong_A_sign_not_joint_pass",
+      "action_flow": {
+        "A": -0.7841,
+        "D": -1.0075
+      }
+    }
+  ],
+  "released_h3_action_lora_sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+  "assets": [
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/local_topology/native_single_anchor12_calibration/AD_window12.mp4",
+      "sha256": "4f1863f2cd1906feed8aafcdc1785d814ba329e052e7651bf548c6dd5625b045",
+      "bytes": 806566
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/local_topology/native_single_anchor12_calibration/evaluation.json",
+      "sha256": "50eb1e248d4bb30984978a84013d6c7ffd9f0261e3fc5f30403d97c81ee312bb",
+      "bytes": 13952
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/local_topology/native_single_anchor12_review.json",
+      "sha256": "32f729655edf8d9d24c3e32b077e0718e89b4028bfa44a42a0650d3b0fb51ff5",
+      "bytes": 933
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/local_topology/CONDITIONING_RESULTS.md",
+      "sha256": "88e607cbf5e3fae7dd8a7e906c21993a843f0f7c7fa40c3de1772cee3c2005e7",
+      "bytes": 6983
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/local_topology/calibrate_native_single_anchor.py",
+      "sha256": "837a561c88feaecc553e457b32b9ca5eefd0bcfe3b2c42f2abafcf38c879e573",
+      "bytes": 9326
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_A/CN_AD_context.mp4",
+      "sha256": "2899638347031efe35afe2c5ec8fe39be7c53fd2f301a5a05ea00869ab28bb00",
+      "bytes": 2554898
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_A/A.mp4",
+      "sha256": "41e030c137be38f63aa5b8f2e76a18fbc9221bc1c8fd7245879146e9fe1a43e3",
+      "bytes": 575177
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_A/D.mp4",
+      "sha256": "c4a30f6fb8a4550f75a4f40aac02d227d360fd86f06acf1a11658e279d358e05",
+      "bytes": 497243
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_D/CN_AD_context.mp4",
+      "sha256": "6a29188e2616ecbcd5f2de37b24779b439be6872cdc8cf9900d9d0f2f1672ff8",
+      "bytes": 2405347
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_D/A.mp4",
+      "sha256": "0faaa7b717da53d61dd15c8be4041e87c11315143fc7b23be883ec953580f235",
+      "bytes": 520684
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_D/D.mp4",
+      "sha256": "b0ca0404cf198ea1f505fddeec0c04b13ec4edbb22323ffedd447ce3733ea25f",
+      "bytes": 463291
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/protocol.json",
+      "sha256": "bd3028f1a447a93b440d5f9bb2c92025d9b690a773fc63a755c4b0c6af63b248",
+      "bytes": 2911
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/video_summary.json",
+      "sha256": "8d51b74bc9e1ac85245b7dd6067b29473a184b97d67ba7a0c5ebea6b5bc4dd2f",
+      "bytes": 5338
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_review.json",
+      "sha256": "452e0e42aeca230bc10c61c1ce682997977c207d9b11922a8a0c4d5265827310",
+      "bytes": 3011
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/cpu_receipt.json",
+      "sha256": "ad9154881a79437f43346ff8767e736e2cc9e5e0d4b64edddd8a9bc356c64cc3",
+      "bytes": 530
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/runtime_manifest.json",
+      "sha256": "a06d0dcc5cfa49ed6d745dea2d49128464fd1465e08ff3b3ed3df2937b82ff19",
+      "bytes": 39792
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/history_conditioning.py",
+      "sha256": "25181ea14bb960cb9834aaf590b33b55721de7bdb9fe31151164c386e26fe9e2",
+      "bytes": 3394
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/single_anchor.py",
+      "sha256": "531e3ebc4ca2218666dfa970e56c508e8c06ab2096b523f6cdfee8bcf93eb4d7",
+      "bytes": 1920
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/run_probe.py",
+      "sha256": "de750e7fa5d3d421de51befc1c31d2aa0e23ca8daaa4519fdce596a079bd2cd9",
+      "bytes": 10503
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/run_video.py",
+      "sha256": "af1afe96599b00ea70c30ea5d1a5641065e3acfa38b660e574a350d7c7022255",
+      "bytes": 12067
+    },
+    {
+      "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/VIDEO_RESULTS.md",
+      "sha256": "a0d3524d177926368013abb761381c21c53b5ebfeb34055af534522b1ab81c58",
+      "bytes": 3567
+    },
+    {
+      "path": "meeting/action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4",
+      "sha256": "57079c17dffe5a6ef6b13ad4975d976b6c960328fbd71956dba8c951e540ecde",
+      "bytes": 10761329
+    },
+    {
+      "path": "meeting/action_vs_stability/README.md",
+      "sha256": "7067c7d268685364841a28666b39e139c3ddda13fd2f6afe1f9fc88049e12a27",
+      "bytes": 3088
+    },
+    {
+      "path": "meeting/DEMO_PROVENANCE.json",
+      "sha256": "043e608f4688a29262ad285a3c7462ec5c16f26624c3bf0bd56cfbd35b69bfdd",
+      "bytes": 2077
+    },
+    {
+      "path": "checkpoints/legacy_fixed_mix/action_adapter.pt",
+      "sha256": "66e3590acb8a190e1a2640fe8314ce13515a8ccc7e39599043b31e593ee4816e",
+      "bytes": 1554671
+    },
+    {
+      "path": "checkpoints/legacy_fixed_mix/README.md",
+      "sha256": "53b2b2d084ee6074b470cb1cb43985afcaca9da01fa0c09041eea16a45e265d5",
+      "bytes": 999
+    },
+    {
+      "path": "checkpoints/visual_rgb_tail16/causal_adapter.pt",
+      "sha256": "a374bfcafe414322b52aa6f18fba7f28996041aae6c11c5eaebaab553f2abe10",
+      "bytes": 13774669
+    },
+    {
+      "path": "checkpoints/visual_rgb_tail16/action_adapter.pt",
+      "sha256": "ef41475b6fc5601ee9a17485a027af69f03217fb34ccbc1891d3fef4f11c6b7a",
+      "bytes": 1554546
+    }
+  ],
+  "review": "Existing full-frame assessments retained. This turn also inspected original single-window A all39, local reference A/current D all42 and reference D/current A RGB59-80 detail images. Static image review is not real-time playback.",
+  "decision": "Keep research frozen. No accepted causal checkpoint is declared. Local structure and multi-window action/history-adherence must be established before evaluating AnyFlow speed/quality tradeoff.",
+  "validation": {
+    "at": "2026-10-09T20:13:14.826814+08:00",
+    "asset_hashes_checked": 28,
+    "navigation_links_checked": 68,
+    "broken_links": [],
+    "videos": [
+      {
+        "path": "reports/stage1_anyflow/02_causal_diagnostics/local_topology/native_single_anchor12_calibration/AD_window12.mp4",
+        "frames": 39,
+        "fps": "24",
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": true
+      },
+      {
+        "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_A/CN_AD_context.mp4",
+        "frames": 50,
+        "fps": "24",
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": true
+      },
+      {
+        "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_A/A.mp4",
+        "frames": 42,
+        "fps": "24",
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": true
+      },
+      {
+        "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_A/D.mp4",
+        "frames": 42,
+        "fps": "24",
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": true
+      },
+      {
+        "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_D/CN_AD_context.mp4",
+        "frames": 50,
+        "fps": "24",
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": true
+      },
+      {
+        "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_D/A.mp4",
+        "frames": 42,
+        "fps": "24",
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": true
+      },
+      {
+        "path": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/window1_D/D.mp4",
+        "frames": 42,
+        "fps": "24",
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": true
+      },
+      {
+        "path": "meeting/action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4",
+        "frames": 124,
+        "fps": "24",
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": true
+      }
+    ],
+    "model_or_GPU_execution": false
+  }
+}

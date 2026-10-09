@@ -1,5 +1,7 @@
 # 会议展示包：主片、失败证据与5分钟技术判断
 
+[只看AnyFlow/DMD之前：因果化版本、完整视频及联合验收状态](../docs/CAUSAL_BASELINE.md)。单窗口正控、局部参考history候选和124帧缓存版本分别固定，不能互相替代。
+
 **后续训练展示：** [数据集视频 / AnyFlow 结果与全视频索引](DATASET_AND_ANYFLOW.md)。按实际数据来源、objective 和 history 条件区分；包含本次补齐的单条 MP4。
 
 新增：[昨晚真实视频训练与机制进展展示](OVERNIGHT_PROGRESS.md)，集中列出两轮48更新、GT/generated-history完整对照与最新E2，明确报告/视频已同步、新训练权重仍在本机。

@@ -1,5 +1,7 @@
 # Checkpoints
 
+[因果基线配置与视频](../docs/CAUSAL_BASELINE.md)及[逐文件固定清单](../reports/stage1_anyflow/07_protocols/causal_baseline.json)区分已有adapter与零训练局部协议。没有新增或宣称合格的causal权重。
+
 这里仅放小型实验 adapter，不放 MiniMax-H3 33B backbone、不放 H3-World 发布的基础 LoRA，也不放数据集或 cache。
 
 - visual_rgb_tail16/causal_adapter.pt：RGB-consistent visual tail16 causal adapter。
