@@ -4,9 +4,9 @@
 
 ## 一句话结论
 
-**因果分块 + 持久 KV 在真实 33B H3 上工程可行；但到目前为止，没有一个版本同时做到"动作对、画面稳、更快"。** 动作失配在因果化本身就出现（早于 AnyFlow 和 Stage2），后续在伪标签和真实录制视频上的训练都没有修复它。研究已冻结。
+**因果分块 + 持久 KV 在真实 33B H3 上工程可行；但到目前为止，没有一个完整rollout版本同时做到"动作对、画面稳、更快"。** 动作失配在因果化本身就出现（早于 AnyFlow 和 Stage2），后续在伪标签和真实录制视频上的训练都没有修复它。训练保持冻结；按用户新指示完成的[C12→5只读验证](experiments/11_causal_12_then5_selfhistory/README.md)在自身生成history下取得第二块局部动作＋结构正控，尚未验证完整124帧或persistent KV。
 
-> We causalized H3-World with chunk-wise attention and persistent KV caching. RGB-consistent anchoring improves visual coherence at 124 frames, but the same checkpoint collapses in a 20-second rollout, and the strict A/D action gate is never reached. The prototype shows causal execution with bounded history KV; it does not establish speedup, long-video stability, or preserved action control.
+> We causalized H3-World with chunk-wise attention and persistent KV caching. RGB-consistent anchoring improves visual coherence at 124 frames, but the same checkpoint collapses in a 20-second rollout and does not pass the strict A/D gate. A separate zero-training, recomputed-window C12→5 prototype now shows coherent action responses in its first self-generated continuation. This local result does not establish full-horizon control, long-video stability, or speedup.
 
 ## 从这里开始看
 
@@ -18,6 +18,7 @@
 | 三类模型：直接因果化／普通适配／AnyFlow | [分类定义与四条对比视频](meeting/model_types/README.md) |
 | 每个实验做了什么、结果如何 | 下面的**实验地图** |
 | 因果化单独做到哪一步、哪些版本已保存 | [因果基线与视频](docs/CAUSAL_BASELINE.md) |
+| 最新C/B分块验证及56帧自身history视频 | [C12→5局部正控](experiments/11_causal_12_then5_selfhistory/README.md) |
 | 怎么复现 | [REPRODUCE.md](REPRODUCE.md) |
 
 ## 实验地图
@@ -49,8 +50,9 @@
 | 14 | E2 动作后果监督 | 加动作监督是否比普通 FM 好 | 真实 ABot 过渡窗口；FM-only 与 FM+action 各 4 更新，同初始化同数据 | 动作项无一致收益，A 分支重影仍在 → 冻结，不扩训 | 未通过 | [结果与 6 条视频](reports/stage1_anyflow/01_real_video/real_transition_windows/FINAL_RESULTS.md) |
 | 15 | Stage2 工程准备 | 为完整 Stage2 备好原语 | 小模型上验证 DMD 方向、FMBS、共享角色隔离 | 工程检查通过；不是 33B 效果 | 通过（工程） | [说明](reports/stage1_anyflow/06_stage2_preparation/README.md) |
 | 16 | 干净环境验收 | 提交包能否独立复现 | 新 venv + 新源码；15 项 KV/因果测试、训练 smoke、33B 39 帧推理 | 全部通过；画质与动作结论不变 | 通过（工程） | [验收](reports/final_acceptance/README.md) |
+| 17 | C12→5 / B7分块 | 较长首窗后短块能否响应动作 | Original30步、自身首12 history；clean/N对照；B只验首7 | C＋N两份history当前A/D方向正确、人物完整；clean D→A及B首窗A失败 | 通过（仅第二块局部）；未验124f/KV | [11及56帧视频](experiments/11_causal_12_then5_selfhistory/README.md) |
 
-**实验之间的关系：** 1→3 解决"能跑"和"画面稳"，但 2↔3 暴露动作与画面的取舍（[三列对比视频](meeting/action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4)）；5、8、9 把动作失配定位到"因果化本身"；7、10、11、14 说明在伪标签或真实视频上继续训练都没修好；12、13 是目前仅有的正向线索。
+**实验之间的关系：** 1→3 解决"能跑"和"画面稳"，但 2↔3 暴露动作与画面的取舍（[三列对比视频](meeting/action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4)）；5、8、9 把动作失配定位到"因果化本身"；7、10、11、14 说明在伪标签或真实视频上继续训练都没修好；12、13、17提供条件/分块的正向线索，17进一步验证了一个自身生成history上的短续写。
 
 ## 目录结构
 
@@ -59,7 +61,7 @@ README.md            本页：结论与实验地图
 REPORT.md            简短实验报告（面试交付）
 INTERVIEW_ANSWER.md  面试题逐项回答
 REPRODUCE.md         环境、补丁、外部权重与运行命令
-experiments/         每个关键实验一页：问题、做法、证据、结论（编号 01–10 对应上表）
+experiments/         每个关键实验一页：问题、做法、证据、结论（编号 01–11 对应上表）
 meeting/             现场展示：主视频、讲稿、指标、公平性说明、长视频和取舍对比
 reports/             详细报告与原始证据（指标 JSON、视频、帧图）
   stage1_anyflow/      阶段二的全部实验，按 7 类归档，见其 README

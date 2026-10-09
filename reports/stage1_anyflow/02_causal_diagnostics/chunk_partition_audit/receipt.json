@@ -1,0 +1,684 @@
+{
+  "timestamp": "2026-10-09T21:51:29.545577+08:00",
+  "scope": "CPU structural audit. No pretrained weights, sampling, or optimizer.\n\nVAE temporal orchestration is real; its expensive neural decoder is replaced\nby a shape-only stub. This establishes frame counts/control flow, NOT pixels,\nquality, or numerical prefix equivalence. Existing real-VAE evidence is linked\nseparately. Production partitioning is neither patched nor executed here.\n",
+  "gpu_used": false,
+  "weights_loaded": false,
+  "production_code_modified": false,
+  "spatial_tokens_per_latent": 390,
+  "supported_length_formula": [
+    {
+      "rgb": 5,
+      "latent": 2
+    },
+    {
+      "rgb": 22,
+      "latent": 7
+    },
+    {
+      "rgb": 39,
+      "latent": 12
+    },
+    {
+      "rgb": 56,
+      "latent": 17
+    },
+    {
+      "rgb": 73,
+      "latent": 22
+    },
+    {
+      "rgb": 124,
+      "latent": 37
+    }
+  ],
+  "partitions": {
+    "old_uniform5": [
+      {
+        "latent_interval": [
+          0,
+          5
+        ],
+        "rgb_interval": [
+          0,
+          17
+        ],
+        "end_phase_mod5": 0,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          5,
+          10
+        ],
+        "rgb_interval": [
+          17,
+          34
+        ],
+        "end_phase_mod5": 0,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          10,
+          15
+        ],
+        "rgb_interval": [
+          34,
+          51
+        ],
+        "end_phase_mod5": 0,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          15,
+          20
+        ],
+        "rgb_interval": [
+          51,
+          68
+        ],
+        "end_phase_mod5": 0,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          20,
+          25
+        ],
+        "rgb_interval": [
+          68,
+          85
+        ],
+        "end_phase_mod5": 0,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          25,
+          30
+        ],
+        "rgb_interval": [
+          85,
+          102
+        ],
+        "end_phase_mod5": 0,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          30,
+          35
+        ],
+        "rgb_interval": [
+          102,
+          119
+        ],
+        "end_phase_mod5": 0,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          35,
+          37
+        ],
+        "rgb_interval": [
+          119,
+          124
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      }
+    ],
+    "old_uniform12": [
+      {
+        "latent_interval": [
+          0,
+          12
+        ],
+        "rgb_interval": [
+          0,
+          39
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          12,
+          24
+        ],
+        "rgb_interval": [
+          39,
+          81
+        ],
+        "end_phase_mod5": 4,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          24,
+          36
+        ],
+        "rgb_interval": [
+          81,
+          120
+        ],
+        "end_phase_mod5": 1,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          36,
+          37
+        ],
+        "rgb_interval": [
+          120,
+          124
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      }
+    ],
+    "proposed_A": [
+      {
+        "latent_interval": [
+          0,
+          2
+        ],
+        "rgb_interval": [
+          0,
+          5
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          2,
+          7
+        ],
+        "rgb_interval": [
+          5,
+          22
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          7,
+          12
+        ],
+        "rgb_interval": [
+          22,
+          39
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          12,
+          17
+        ],
+        "rgb_interval": [
+          39,
+          56
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          17,
+          22
+        ],
+        "rgb_interval": [
+          56,
+          73
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          22,
+          27
+        ],
+        "rgb_interval": [
+          73,
+          90
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          27,
+          32
+        ],
+        "rgb_interval": [
+          90,
+          107
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          32,
+          37
+        ],
+        "rgb_interval": [
+          107,
+          124
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      }
+    ],
+    "proposed_B": [
+      {
+        "latent_interval": [
+          0,
+          7
+        ],
+        "rgb_interval": [
+          0,
+          22
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          7,
+          12
+        ],
+        "rgb_interval": [
+          22,
+          39
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          12,
+          17
+        ],
+        "rgb_interval": [
+          39,
+          56
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          17,
+          22
+        ],
+        "rgb_interval": [
+          56,
+          73
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          22,
+          27
+        ],
+        "rgb_interval": [
+          73,
+          90
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          27,
+          32
+        ],
+        "rgb_interval": [
+          90,
+          107
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          32,
+          37
+        ],
+        "rgb_interval": [
+          107,
+          124
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      }
+    ],
+    "proposed_C": [
+      {
+        "latent_interval": [
+          0,
+          12
+        ],
+        "rgb_interval": [
+          0,
+          39
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          12,
+          17
+        ],
+        "rgb_interval": [
+          39,
+          56
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          17,
+          22
+        ],
+        "rgb_interval": [
+          56,
+          73
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          22,
+          27
+        ],
+        "rgb_interval": [
+          73,
+          90
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          27,
+          32
+        ],
+        "rgb_interval": [
+          90,
+          107
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      },
+      {
+        "latent_interval": [
+          32,
+          37
+        ],
+        "rgb_interval": [
+          107,
+          124
+        ],
+        "end_phase_mod5": 2,
+        "complete_action_spans": true,
+        "complete_spatial_rows": true,
+        "future_actions_physically_removed": true,
+        "absolute_positions_preserved": true
+      }
+    ]
+  },
+  "source_sha256": {
+    "reports/stage1_anyflow/02_causal_diagnostics/chunk_partition_audit/audit.py": "22abc7f9333e05797f6cd60c55424bbac154377691a532afdbff543c3bddfe85",
+    "DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_video_vae.py": "ff1eea77a85b76a98bbb87c622e7c313996c4348ca14c8e8aa433f27c22ee1d7",
+    "DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b",
+    "DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py": "68e9cb9336590fae7c53f2fac83c09aaf8d03fba1776777383a2b924eee40e38",
+    "code/abot/abot_action.py": "fadcdfdcc5b59deac00ea1f7b77547a63975cbc9122242879a99acabee1c315c",
+    "code/causal/h3_cached.py": "629f8f26d912c188d7d7122c6106ff742f5b2a633dab5881acbb1eb5f77c806e",
+    "code/causal/local_topology.py": "ab09f33c4e847adc3d67f14c6de26cd3bd963402b79114875104816abd4a2f93"
+  },
+  "direct_action_visibility": {
+    "own": {
+      "video_latent_index": 5,
+      "visible_action_indices": [
+        5
+      ],
+      "preserves_original_direct_single_egress": true
+    },
+    "causal": {
+      "video_latent_index": 5,
+      "visible_action_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "preserves_original_direct_single_egress": false
+    }
+  },
+  "vae_schedule_shape_only": [
+    {
+      "latents": 1,
+      "decoder_call_latent_lengths": [],
+      "error": "decode_temporal frame plan mismatch: logical=0 total=0 dropped=0 pad=4 pos=0 out=-4"
+    },
+    {
+      "latents": 2,
+      "decoder_call_latent_lengths": [],
+      "rgb_frames": null,
+      "returns_none": true
+    },
+    {
+      "latents": 3,
+      "decoder_call_latent_lengths": [
+        7
+      ],
+      "rgb_frames": 9,
+      "returns_none": false
+    },
+    {
+      "latents": 5,
+      "decoder_call_latent_lengths": [
+        7
+      ],
+      "rgb_frames": 17,
+      "returns_none": false
+    },
+    {
+      "latents": 7,
+      "decoder_call_latent_lengths": [
+        7
+      ],
+      "rgb_frames": 22,
+      "returns_none": false
+    },
+    {
+      "latents": 10,
+      "decoder_call_latent_lengths": [
+        7,
+        7
+      ],
+      "rgb_frames": 34,
+      "returns_none": false
+    },
+    {
+      "latents": 12,
+      "decoder_call_latent_lengths": [
+        7,
+        7
+      ],
+      "rgb_frames": 39,
+      "returns_none": false
+    },
+    {
+      "latents": 17,
+      "decoder_call_latent_lengths": [
+        7,
+        7,
+        7
+      ],
+      "rgb_frames": 56,
+      "returns_none": false
+    },
+    {
+      "latents": 24,
+      "decoder_call_latent_lengths": [
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "rgb_frames": 81,
+      "returns_none": false
+    },
+    {
+      "latents": 36,
+      "decoder_call_latent_lengths": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "rgb_frames": 120,
+      "returns_none": false
+    },
+    {
+      "latents": 37,
+      "decoder_call_latent_lengths": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "rgb_frames": 124,
+      "returns_none": false
+    }
+  ],
+  "two_latent_initial_chunk": "Current decode_temporal returns None: num_chunks=0; decode_video then calls recon.float(). The 5 RGB / 2 latent length formula alone is not a supported streaming decode guarantee.",
+  "scope_limits": [
+    "No new pretrained VAE pixel/quality comparisons; shape stub cannot measure receptive fields.",
+    "Explicit interval slicing works, but variable-size production rollout/cache APIs are not implemented.",
+    "Global positions are inherited from a fixed full37 layout; no dynamically rebuilt prefix origin.",
+    "Audio rows stay in prefix as fixed noise; audio/video synchronized streaming is not established.",
+    "No evidence that a partition change repairs action velocity geometry or generated-history drift."
+  ]
+}

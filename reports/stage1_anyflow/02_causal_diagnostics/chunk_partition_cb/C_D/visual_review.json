@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-09T23:13:59.868488+08:00",
+  "evaluation_sha256": "bdcb6d9e4cda2de110f3b7151c98ca24a641b4af3758341ea9df40e2c94f0ccd",
+  "scope": "Static full-frame review, 39-frame reused startup plus all17 current frames per branch; original-resolution N character detail frames39/43/47/51/55 and boundary frames36-41. Not realtime playback review.",
+  "current_frames_reviewed": 68,
+  "shared_startup_frames_reviewed": 39,
+  "branches": {
+    "clean_A": "Character remains intact but motion mostly continues forward/away; current A fails desired direction (negative mean flow).",
+    "clean_D": "Coherent rightward turn/locomotion, negative flow, background retained.",
+    "sigma_noised_A": "Clear change relative to D branch: character turns left/around from prior right-going state; positive background flow. Body remains a single coherent figure.",
+    "sigma_noised_D": "Right-going response continues with intact character/parking structure; negative flow."
+  },
+  "same_sigma_local_gate": "PASS for this one seed/scene and first continuation only",
+  "clean_local_gate": "FAIL: current A direction",
+  "scene_switch_observed": false,
+  "severe_character_decomposition_observed": false,
+  "limitations": [
+    "Only 17 new RGB frames / 0.708 s after startup.",
+    "No full124 rollout, third chunk, W/S, extra seeds/scenes or persistent KV evaluated.",
+    "Optical flow and visible turning/locomotion are qualitative action-response evidence, not full 3D strafe accuracy.",
+    "C first39 was reused from earlier own-generation endpoints; raw history remained immutable."
+  ]
+}

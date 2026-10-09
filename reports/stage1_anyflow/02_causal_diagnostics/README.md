@@ -6,6 +6,8 @@
 
 | 实验目录 | 阅读入口 |
 |---|---|
+| `chunk_partition_cb/` | [C12→5自身history局部正控；B7方向未过](chunk_partition_cb/README.md) |
+| `chunk_partition_audit/` | [Action–Video配对、VAE分组与prefix解码审计](chunk_partition_audit/README.md) |
 | `coarse_window12/` | [结果与记录](coarse_window12/FINAL_RESULTS.md) |
 | `counterfactual128/` | [结果与记录](counterfactual128/FINAL_RESULTS.md) |
 | `current_prefix_candidate/` | [结果与记录](current_prefix_candidate/README.md) |

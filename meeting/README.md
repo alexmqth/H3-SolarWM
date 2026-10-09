@@ -1,5 +1,7 @@
 # 会议展示包：主片、失败证据与5分钟技术判断
 
+**最新局部进展：** [C12→5，自身history的56帧四分支视频](../experiments/11_causal_12_then5_selfhistory/README.md)。Original权重零新增训练、30步、T2重算＋同sigma历史；第二块动作＋结构成立，B7首窗A方向未过。只验证两块，不替换下方124帧主片，也不归到AnyFlow或persistent-KV成果上。
+
 **按模型类型展示：** [Original＋causal routing／causal adaptation／AnyFlow](model_types/README.md)。四条完整短片按实际训练目标分类；单窗口、固定history、自由rollout另作评测条件。
 
 [只看AnyFlow/DMD之前：因果化版本、完整视频及联合验收状态](../docs/CAUSAL_BASELINE.md)。单窗口正控、局部参考history候选和124帧缓存版本分别固定，不能互相替代。

@@ -1,0 +1,32 @@
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+No minimax_h3_text_encoder models available. This is not an error.
+No minimax_h3_dit models available. This is not an error.
+Using minimax_h3_video_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+No minimax_h3_audio_vae models available. This is not an error.
+[VAE] A prefix5 RGB17 stable0
+[VAE] A prefix7 RGB22 stable17
+[VAE] A prefix10 RGB34 stable17
+[VAE] A prefix12 RGB39 stable34
+[VAE] A prefix17 RGB56 stable51
+[VAE] D prefix5 RGB17 stable0
+[VAE] D prefix7 RGB22 stable17
+[VAE] D prefix10 RGB34 stable17
+[VAE] D prefix12 RGB39 stable34
+[VAE] D prefix17 RGB56 stable51

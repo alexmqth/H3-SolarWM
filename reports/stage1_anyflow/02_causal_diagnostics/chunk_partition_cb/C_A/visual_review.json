@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-09T23:13:59.868022+08:00",
+  "evaluation_sha256": "ad75ff0021bc62d22d264b34a60de25a42d21abb9c06f24f63376aa095bf92f0",
+  "scope": "Static full-frame review, 39-frame reused startup plus all17 current frames per branch; original-resolution N character detail frames39/43/47/51/55 and boundary frames36-41. Not realtime playback review.",
+  "current_frames_reviewed": 68,
+  "shared_startup_frames_reviewed": 39,
+  "branches": {
+    "clean_A": "Single coherent character, leftward turn/locomotion and corresponding positive background flow; no severe disintegration in current17.",
+    "clean_D": "Single coherent character; motion/camera response differs from A, negative horizontal flow; no severe disintegration.",
+    "sigma_noised_A": "Coherent leftward response, parking scene retained. Mild ordinary foot/leg blur; no multi-body or translucent torso collapse.",
+    "sigma_noised_D": "Distinct opposite motion response with coherent torso/limbs; scene retained; boundary is somewhat stronger but no scene switch."
+  },
+  "same_sigma_local_gate": "PASS for this one seed/scene and first continuation only",
+  "clean_local_gate": "PASS for this history only",
+  "scene_switch_observed": false,
+  "severe_character_decomposition_observed": false,
+  "limitations": [
+    "Only 17 new RGB frames / 0.708 s after startup.",
+    "No full124 rollout, third chunk, W/S, extra seeds/scenes or persistent KV evaluated.",
+    "Optical flow and visible turning/locomotion are qualitative action-response evidence, not full 3D strafe accuracy.",
+    "C first39 was reused from earlier own-generation endpoints; raw history remained immutable."
+  ]
+}

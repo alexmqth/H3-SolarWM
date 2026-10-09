@@ -1,4 +1,6 @@
-# 实验报告：工程可行，动作与质量联合验收尚未通过
+# 实验报告：工程可行，完整rollout联合验收尚未通过
+
+**2026-10-09晚间补充：** 用户授权的[C12→5 / B7只读分块验证](../reports/stage1_anyflow/02_causal_diagnostics/chunk_partition_cb/README.md)已完成。C使用Original权重、30步、T2重算和已有同sigma历史协议，接自己生成的首12latent后，第二5latent在A/D两份历史中具有正确方向且人物结构保持；完整视频56RGB。clean在D→A失败，B首7的A方向未过。这是单场景/seed的第二块局部正控，不是完整124f、persistent-KV、few-step或Stage1完成；训练仍冻结。[四条56帧路径](../experiments/11_causal_12_then5_selfhistory/C_selfhistory_N_56.mp4)。
 
 [按模型／配置分三类的展示](../meeting/model_types/README.md)：零更新routing、普通causal adaptation与AnyFlow分别提供对比视频；history来源和KV协议另列，不把类型等同于验收通过。
 
@@ -10,6 +12,7 @@
 
 | 证据 | 协议 | 能说明什么 | 不能说明什么 |
 |---|---|---|---|
+| 新C12→5局部正控 | Original30步；自身首段history；T2/N；两块56RGB | 一个后续短chunk的动作响应和人物结构可以同时成立 | 未验证第三块/124f/W/S或KV；不能把收益只归因于相位 |
 | 会议124f主片 | 2026-10-06 RGB visual checkpoint；persistent CPU KV；generated history；8steps/chunk | 真实因果执行；124f相对旧版的结构改善 | 不是AnyFlow/E2；A/D gate失败；没有速度提升 |
 | 同checkpoint243/481f | W、同首帧/prompt/seed/noise，真实长rollout | 长时漂移诊断；20秒明确失败 | 不能叫长视频稳定性成功 |
 | Stage1/AnyFlow系列 | 显式目标时间与有限区间映射，含真实33B训练/136对照 | AnyFlow实现及诊断链路可运行 | 内部一致性不能替代动作/画质验收 |

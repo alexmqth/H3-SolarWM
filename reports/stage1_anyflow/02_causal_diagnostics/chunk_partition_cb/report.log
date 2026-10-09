@@ -1,0 +1,49 @@
+[preflight] diffsynth resolved from the v2 checkout: ok /home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-04/stage1_local_topology/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+[preflight] directed attention mask present: ok 
+[preflight] packed-sequence builder is the per-latent version: ok 
+{
+  "pairs": [
+    {
+      "case": "C_A",
+      "mode": "clean",
+      "A": 1.506963675841689,
+      "D": -1.026711955666542,
+      "separation": 2.533675631508231,
+      "direction_proxy_pass": true
+    },
+    {
+      "case": "C_A",
+      "mode": "sigma_noised",
+      "A": 2.146440289914608,
+      "D": -1.7518551526591182,
+      "separation": 3.898295442573726,
+      "direction_proxy_pass": true
+    },
+    {
+      "case": "C_D",
+      "mode": "clean",
+      "A": -0.17669607198331505,
+      "D": -1.312233220320195,
+      "separation": 1.13553714833688,
+      "direction_proxy_pass": false
+    },
+    {
+      "case": "C_D",
+      "mode": "sigma_noised",
+      "A": 2.607593845576048,
+      "D": -1.4143006117083132,
+      "separation": 4.021894457284361,
+      "direction_proxy_pass": true
+    },
+    {
+      "case": "B_first",
+      "mode": "clean",
+      "A": -0.152627703334604,
+      "D": -1.1788479600633894,
+      "separation": 1.0262202567287855,
+      "direction_proxy_pass": false
+    }
+  ],
+  "videos": 31,
+  "noisy_forwards": 300
+}

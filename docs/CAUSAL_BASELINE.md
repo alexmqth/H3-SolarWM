@@ -67,7 +67,11 @@
 
 ## 下一步应通过什么，才进入AnyFlow
 
-当前保持研究冻结。本次只整理和固定已有证据，没有新增GPU实验。
+训练保持冻结。用户随后授权的C/B有限只读推理已经完成：[C12→5自身history正控及56帧视频](../experiments/11_causal_12_then5_selfhistory/README.md)。C＋已有N历史协议在两份自身首12history后的第二5latent上通过局部动作＋人物结构检查；clean在D→A失败，B首7的A也未过。该候选为Original权重、30步、T2逐sigma重算，无persistent hiddenKV；未执行第三块或完整124帧，不等于Stage1/AnyFlow已经通过。
+
+优先保留`C12_then5_N_30step_selfhistory`配置、两份首段与四份续段latent状态。若继续，先在相同协议下接第三/第四块自己的history，验证响应和结构能否持续；不因此自动启动训练或DMD。
+
+2026-10-09补充[chunk partition结构审计](../reports/stage1_anyflow/02_causal_diagnostics/chunk_partition_audit/README.md)：旧5-latent划分保留完整Action–Video pair，也对齐VAE encoder的17RGB主体；整视频`2+5m`长度约定不等于必须先生成2latent。当前decoder对首2latent返回None，7/12前缀的末5RGB也仍涉及后续overlap融合。不同分块值得受控对照，但未证明是动作/重影失败根因；没有新模型训练或生成。
 
 若恢复研究，优先解决步骤2：在同一可信 GT/reference history、同一当前noise和充分采样步数下，多个chunk上的A/D反事实既有正确方向，也不出现严重人物分解，并保持历史衔接。通过后再比较因果30步与AnyFlow4/8步，最后测generated-history差距和on-policy DMD。进入AnyFlow不要求先解决20秒自由生成的全部漂移，但目前局部结构这一项还欠缺。
 

@@ -1,0 +1,210 @@
+{
+  "status": "complete",
+  "scope": "Real pretrained VAE prefix audit; no DiT or optimizer.",
+  "gpu": 7,
+  "at": "2026-10-09T22:54:28.820060+08:00",
+  "source_sha256": "83de616a6fc4e15de81a9534dbf26038e1504bb833ab66b80bc70ff3031b3dfc",
+  "protocol_sha256": "b1be944a35eefcb21fce006a21a2f0daba144db22ad50e2a84073c36a37a8cd3",
+  "checks": [
+    {
+      "reference": "A",
+      "latent_stop": 5,
+      "RGB_frames": 17,
+      "prefix_vs_full": {
+        "max_abs": 0.28857421875,
+        "mean_abs": 0.004205811303108931
+      },
+      "stable_frames": 0,
+      "provisional_tail": {
+        "max_abs": 0.28857421875,
+        "mean_abs": 0.004205811303108931
+      }
+    },
+    {
+      "reference": "A",
+      "latent_stop": 7,
+      "RGB_frames": 22,
+      "prefix_vs_full": {
+        "max_abs": 0.2890625,
+        "mean_abs": 0.0005776356556452811
+      },
+      "stable_frames": 17,
+      "provisional_tail": {
+        "max_abs": 0.2890625,
+        "mean_abs": 0.0025415970012545586
+      },
+      "stable_prefix": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      }
+    },
+    {
+      "reference": "A",
+      "latent_stop": 10,
+      "RGB_frames": 34,
+      "prefix_vs_full": {
+        "max_abs": 0.3701171875,
+        "mean_abs": 0.0016491294372826815
+      },
+      "stable_frames": 17,
+      "provisional_tail": {
+        "max_abs": 0.3701171875,
+        "mean_abs": 0.003298258874565363
+      },
+      "stable_prefix": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      }
+    },
+    {
+      "reference": "A",
+      "latent_stop": 12,
+      "RGB_frames": 39,
+      "prefix_vs_full": {
+        "max_abs": 0.25390625,
+        "mean_abs": 0.00039368728175759315
+      },
+      "stable_frames": 34,
+      "provisional_tail": {
+        "max_abs": 0.25390625,
+        "mean_abs": 0.0030707609839737415
+      },
+      "stable_prefix": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      }
+    },
+    {
+      "reference": "A",
+      "latent_stop": 17,
+      "RGB_frames": 56,
+      "prefix_vs_full": {
+        "max_abs": 0.24609375,
+        "mean_abs": 0.00026280272868461907
+      },
+      "stable_frames": 51,
+      "provisional_tail": {
+        "max_abs": 0.24609375,
+        "mean_abs": 0.002943390514701605
+      },
+      "stable_prefix": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      }
+    },
+    {
+      "reference": "A",
+      "intervention": "latent12_plus",
+      "stable_RGB0_34": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      },
+      "overlapping_RGB34_39": {
+        "max_abs": 0.3896484375,
+        "mean_abs": 0.00650096544995904
+      }
+    },
+    {
+      "reference": "D",
+      "latent_stop": 5,
+      "RGB_frames": 17,
+      "prefix_vs_full": {
+        "max_abs": 0.30859375,
+        "mean_abs": 0.004128569737076759
+      },
+      "stable_frames": 0,
+      "provisional_tail": {
+        "max_abs": 0.30859375,
+        "mean_abs": 0.004128569737076759
+      }
+    },
+    {
+      "reference": "D",
+      "latent_stop": 7,
+      "RGB_frames": 22,
+      "prefix_vs_full": {
+        "max_abs": 0.20703125,
+        "mean_abs": 0.0005731431301683187
+      },
+      "stable_frames": 17,
+      "provisional_tail": {
+        "max_abs": 0.20703125,
+        "mean_abs": 0.0025218299124389887
+      },
+      "stable_prefix": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      }
+    },
+    {
+      "reference": "D",
+      "latent_stop": 10,
+      "RGB_frames": 34,
+      "prefix_vs_full": {
+        "max_abs": 0.28515625,
+        "mean_abs": 0.0016024145297706127
+      },
+      "stable_frames": 17,
+      "provisional_tail": {
+        "max_abs": 0.28515625,
+        "mean_abs": 0.003204829292371869
+      },
+      "stable_prefix": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      }
+    },
+    {
+      "reference": "D",
+      "latent_stop": 12,
+      "RGB_frames": 39,
+      "prefix_vs_full": {
+        "max_abs": 0.234375,
+        "mean_abs": 0.0003581077035050839
+      },
+      "stable_frames": 34,
+      "provisional_tail": {
+        "max_abs": 0.234375,
+        "mean_abs": 0.002793240360915661
+      },
+      "stable_prefix": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      }
+    },
+    {
+      "reference": "D",
+      "latent_stop": 17,
+      "RGB_frames": 56,
+      "prefix_vs_full": {
+        "max_abs": 0.263671875,
+        "mean_abs": 0.00024596735602244735
+      },
+      "stable_frames": 51,
+      "provisional_tail": {
+        "max_abs": 0.263671875,
+        "mean_abs": 0.0027548347134143114
+      },
+      "stable_prefix": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      }
+    },
+    {
+      "reference": "D",
+      "intervention": "latent12_plus",
+      "stable_RGB0_34": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      },
+      "overlapping_RGB34_39": {
+        "max_abs": 0.361328125,
+        "mean_abs": 0.006400058977305889
+      }
+    }
+  ],
+  "wall_seconds": 70.64290849631652,
+  "passed": true,
+  "GPU_peak_MiB": 6620.4462890625,
+  "note": "Real VAE, Original reference latents. No new generation. C freezes prior39 RGB; last5-prefix revision is measured, not silently retroactively applied."
+}
