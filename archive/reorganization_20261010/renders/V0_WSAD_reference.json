@@ -1,0 +1,85 @@
+{
+  "filename": "V0_WSAD_reference.mp4",
+  "rows": [
+    [
+      "V0_W",
+      "V0_S"
+    ],
+    [
+      "V0_A",
+      "V0_D"
+    ]
+  ],
+  "frames": 124,
+  "title": "V0 Original H3-World: W / S / A / D",
+  "caveat": "30 full-horizon steps | 124 RGB frames | released action LoRA | reference only",
+  "video": {
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "fps": 24.0,
+    "width": 1248,
+    "height": 1068,
+    "frames": 124,
+    "duration_s": 5.166666666666667,
+    "full_decode": true,
+    "constant_pts": true,
+    "sha256": "68073b3516d05f1ad22d439d9996b6005b8e9a4a175d1fbe617c176acc552b2f",
+    "bytes": 3516524
+  },
+  "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+  "sources": [
+    {
+      "id": "V0_W",
+      "path": "report/V0_original/videos/V0_W_full.mp4",
+      "sha256": "ea7a1c82665c87fe2d8add115ba80c4637a578f2a3eecbcd47e0c8d7167b72b6",
+      "original_path": "H3-World/outputs/2026-10-01-20/action_W_baseline30_124/baseline.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V0_S",
+      "path": "report/V0_original/videos/V0_S_full.mp4",
+      "sha256": "0377af93460549698606f82bc7dbb2c83b30e2e7c7a98dc07f1f79c7b011cc72",
+      "original_path": "H3-World/outputs/2026-10-01-20/action_S_baseline30_124/baseline.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V0_A",
+      "path": "report/V0_original/videos/V0_A_full.mp4",
+      "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+      "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V0_D",
+      "path": "report/V0_original/videos/V0_D_full.mp4",
+      "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+      "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    }
+  ],
+  "transforms": [
+    "RGB frame-exact [0,N) selection",
+    "aspect-preserving Lanczos display resize + padding",
+    "labels + side-by-side",
+    "libx264 CRF18/yuv420p/24fps/faststart"
+  ],
+  "no_interpolation": true,
+  "no_loops": true,
+  "no_model_inference": true
+}

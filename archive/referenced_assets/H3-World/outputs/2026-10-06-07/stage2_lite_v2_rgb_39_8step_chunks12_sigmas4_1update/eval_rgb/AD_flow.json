@@ -1,0 +1,60 @@
+{
+  "videos": [
+    {
+      "path": "H3-World/outputs/2026-10-06-07/stage2_lite_v2_rgb_39_8step_chunks12_sigmas4_1update/eval_rgb/A/cached.mp4",
+      "frames": 39,
+      "horizontal_flow_px": {
+        "mean": -1.1369264196408422,
+        "median": -1.1010059118270874,
+        "p05": -1.6922502577304839,
+        "p95": -0.5493138462305069,
+        "mean_abs": 1.1369264196408422
+      },
+      "vertical_flow_px": {
+        "mean": 0.32366615749503436,
+        "median": 0.2966023236513138,
+        "p05": 0.13510281816124917,
+        "p95": 0.6014295279979706,
+        "mean_abs": 0.32366615749503436
+      },
+      "flow_magnitude_px": {
+        "mean": 1.4148985037678166,
+        "median": 1.3865323066711426,
+        "p05": 0.7057113260030746,
+        "p95": 2.1096818327903746,
+        "mean_abs": 1.4148985037678166
+      },
+      "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score.",
+      "action": "A"
+    },
+    {
+      "path": "H3-World/outputs/2026-10-06-07/stage2_lite_v2_rgb_39_8step_chunks12_sigmas4_1update/eval_rgb/D/cached.mp4",
+      "frames": 39,
+      "horizontal_flow_px": {
+        "mean": -1.4556094000214024,
+        "median": -1.2995291948318481,
+        "p05": -2.3704267859458925,
+        "p95": -0.8524332433938981,
+        "mean_abs": 1.4556094000214024
+      },
+      "vertical_flow_px": {
+        "mean": 0.25952546474964994,
+        "median": 0.2360128089785576,
+        "p05": 0.08155605010688305,
+        "p95": 0.47092640697956084,
+        "mean_abs": 0.25952546474964994
+      },
+      "flow_magnitude_px": {
+        "mean": 1.655122425995375,
+        "median": 1.50077623128891,
+        "p05": 0.9824600130319595,
+        "p95": 2.585479390621185,
+        "mean_abs": 1.655122425995375
+      },
+      "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score.",
+      "action": "D"
+    }
+  ],
+  "A_minus_D_horizontal_mean": 0.3186829803805602,
+  "A_minus_D_vertical_mean": 0.06414069274538442
+}

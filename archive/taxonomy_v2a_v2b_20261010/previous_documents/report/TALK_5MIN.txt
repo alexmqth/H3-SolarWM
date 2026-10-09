@@ -1,0 +1,17 @@
+# 5分钟答辩：以技术判断为主
+
+**0:00–0:45：目标与最直接的证据。** 播放[Original vs V1](00_comparison_gallery/V1_vs_original.mp4)。我们把因果分块和KV接入33B H3，但这里A/D运动几乎消失；工程跑通和动作保真是两项结论。
+
+**0:45–1:40：因果与KV怎么实现。** 当前chunk只读取允许的历史video K/V，按层保存raw pre-RoPE K/V及位置；去噪结束clean commit，历史放CPU并按窗口淘汰。Original单出口action路由与causal-prefix不是同一信息流：后者增加past-action直接访问。缓存只存video，额外动作直读来自fresh prefix。
+
+**1:40–2:20：为什么少步不等于更快。** 124帧8chunks×8steps=64 noisy forwards，另有8commits；Original是30次长序列forward。序列长度、重算、CPU offload、RGB反复encode/decode都影响E2E。没有统一硬件重复均值，不能按30/8声称加速。
+
+**2:20–3:10：失败推动了什么改进。** 播放[V1→V2](00_comparison_gallery/V2_vs_V1.mp4)，解释RGB条件、visual QKV与endpoint的联合修复；A方向仍错。再展示[20秒失败片](V2_rgb_anchor/videos/V2_long20s_failure.mp4)后半段，明确不是长视频稳定成功。fixed-mix动作较强却视觉漂移；AnyFlow和DMD-lite也没有解决整体问题。
+
+**3:10–4:20：当前最有价值的局部结果。** 播放[V3四路径](00_comparison_gallery/V3_four_paths_56.mp4)，在RGB39处暂停说明：前39帧是自己生成，第二块只换当前A/D，无GT reset。Original权重、Single I0/native时间、Same-σ、T2联合重算，得到第二块动作方向和人物结构正结果。但没有persistent KV，只有两块，不宣称124帧成功。
+
+**4:20–5:00：研究判断。** 受控数值下cache/recompute逐层完全等价，但无persistent KV的strict图已与Original动作差分失配，说明多层传播/公共prefix/历史时间值得逐项研究。下一步应保留V3局部能力做V4高效因果化；其后AnyFlow减少采样，再on-policy DMD处理生成历史分布。当前成果是明确可行性、失败边界与受控正线索，不是完整复现SolarWM。
+
+可追问：本次所有对比是旧MP4的CPU拼接；不同协议明确标注，不把velocity cosine当视频质量，也不把smoke test当正式成功。
+
+[导航](README.md)

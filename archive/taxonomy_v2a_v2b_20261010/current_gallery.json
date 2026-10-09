@@ -1,0 +1,1482 @@
+[
+  {
+    "filename": "V0_AD_reference.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V0_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "V0 action reference: A vs D",
+    "caveat": "Different actions intentionally; Original is a generated reference, not ground truth.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "5908ff492b1625fef6d27bc17c644297e0138ecd9a36046ae0a7b84ae45dd2b6",
+      "bytes": 1757356
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_A",
+        "path": "report/V0_original/videos/V0_A_full.mp4",
+        "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V0_D",
+        "path": "report/V0_original/videos/V0_D_full.mp4",
+        "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true
+  },
+  {
+    "filename": "V0_WSAD_reference.mp4",
+    "rows": [
+      [
+        "V0_W",
+        "V0_S"
+      ],
+      [
+        "V0_A",
+        "V0_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "V0 Original H3-World: W / S / A / D",
+    "caveat": "30 full-horizon steps | 124 RGB frames | released action LoRA | reference only",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 1068,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "68073b3516d05f1ad22d439d9996b6005b8e9a4a175d1fbe617c176acc552b2f",
+      "bytes": 3516524
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_W",
+        "path": "report/V0_original/videos/V0_W_full.mp4",
+        "sha256": "ea7a1c82665c87fe2d8add115ba80c4637a578f2a3eecbcd47e0c8d7167b72b6",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_W_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V0_S",
+        "path": "report/V0_original/videos/V0_S_full.mp4",
+        "sha256": "0377af93460549698606f82bc7dbb2c83b30e2e7c7a98dc07f1f79c7b011cc72",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_S_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V0_A",
+        "path": "report/V0_original/videos/V0_A_full.mp4",
+        "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V0_D",
+        "path": "report/V0_original/videos/V0_D_full.mp4",
+        "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true
+  },
+  {
+    "filename": "V1_A_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V1_A"
+      ]
+    ],
+    "frames": 124,
+    "title": "Original H3-World vs V1 | action A",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters).",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "7b91d9e877cdbe9b20f125ebb9844fc1871c1ab401a5aac1b72aa8af26d0cf8e",
+      "bytes": 1888925
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_A",
+        "path": "report/V0_original/videos/V0_A_full.mp4",
+        "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V1_A",
+        "path": "report/V1_native_causal/videos/V1_A_full.mp4",
+        "sha256": "afe755cd8922b256b2f0ecf33a037ad6807411557f9066a11153ba83f3be1be2",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true
+  },
+  {
+    "filename": "V1_D_vs_original.mp4",
+    "rows": [
+      [
+        "V0_D",
+        "V1_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "Original H3-World vs V1 | action D",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters).",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "76418bc41ecfcba936fd83ac194c3fe1a75a92159505658e2a06d4f32bbf8c85",
+      "bytes": 1870730
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_D",
+        "path": "report/V0_original/videos/V0_D_full.mp4",
+        "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V1_D",
+        "path": "report/V1_native_causal/videos/V1_D_full.mp4",
+        "sha256": "ac992d3f1e4b74c14d6bc3be6a1fd68aabd053b7dcce5b19b8070d45039845b5",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true
+  },
+  {
+    "filename": "V1_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V1_A"
+      ],
+      [
+        "V0_D",
+        "V1_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "Original H3-World vs V1 | A / D",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters).",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 1068,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "ca5f45601a06dd2ad05f9bf571f111e6fa6bdabbe1beb9705d3bc347bb0a1d9c",
+      "bytes": 3760616
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_A",
+        "path": "report/V0_original/videos/V0_A_full.mp4",
+        "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V1_A",
+        "path": "report/V1_native_causal/videos/V1_A_full.mp4",
+        "sha256": "afe755cd8922b256b2f0ecf33a037ad6807411557f9066a11153ba83f3be1be2",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V0_D",
+        "path": "report/V0_original/videos/V0_D_full.mp4",
+        "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V1_D",
+        "path": "report/V1_native_causal/videos/V1_D_full.mp4",
+        "sha256": "ac992d3f1e4b74c14d6bc3be6a1fd68aabd053b7dcce5b19b8070d45039845b5",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true
+  },
+  {
+    "filename": "V1_vs_V0.mp4",
+    "alias_of": "V1_vs_original.mp4",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 1068,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "ca5f45601a06dd2ad05f9bf571f111e6fa6bdabbe1beb9705d3bc347bb0a1d9c",
+      "bytes": 3760616
+    }
+  },
+  {
+    "filename": "V2a_A_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V2_A"
+      ]
+    ],
+    "frames": 124,
+    "title": "V0 vs V2a | action A",
+    "caveat": "Same scene/seed/actions; RGB + adapters + routing are a JOINT protocol, NOT an anchor-only ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "165af501c2485466a64791aba0948adf7127e402e08fb1f5b9f6202c3303982f",
+      "bytes": 1656779
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_A",
+        "path": "report/V0_original/videos/V0_A_full.mp4",
+        "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V2_A",
+        "path": "report/V2a_rgb_anchor/videos/V2a_A_full.mp4",
+        "sha256": "614e7491b0dd028e3eaf0cd269e5d041e2619ebadb77467add299e4d56e70689",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/A/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2a_D_vs_original.mp4",
+    "rows": [
+      [
+        "V0_D",
+        "V2_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "V0 vs V2a | action D",
+    "caveat": "Same scene/seed/actions; RGB + adapters + routing are a JOINT protocol, NOT an anchor-only ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "cb892d2fc8eadf276d627f5c2d1649b76682339e2ab69f1adb012a80a72bb31e",
+      "bytes": 1557252
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_D",
+        "path": "report/V0_original/videos/V0_D_full.mp4",
+        "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V2_D",
+        "path": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4",
+        "sha256": "d6633cf10e7741a08261ca18718ab474e66f65189cbb39a3c457d8193435ae23",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2a_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V2_A"
+      ],
+      [
+        "V0_D",
+        "V2_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "V0 vs V2a | A / D",
+    "caveat": "Same scene/seed/actions; RGB + adapters + routing are a JOINT protocol, NOT an anchor-only ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 1068,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "4ba2073198f4677f022c0f94053f08fdce37a169d964730ad5904b8f1911ad32",
+      "bytes": 3211396
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_A",
+        "path": "report/V0_original/videos/V0_A_full.mp4",
+        "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V2_A",
+        "path": "report/V2a_rgb_anchor/videos/V2a_A_full.mp4",
+        "sha256": "614e7491b0dd028e3eaf0cd269e5d041e2619ebadb77467add299e4d56e70689",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/A/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V0_D",
+        "path": "report/V0_original/videos/V0_D_full.mp4",
+        "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V2_D",
+        "path": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4",
+        "sha256": "d6633cf10e7741a08261ca18718ab474e66f65189cbb39a3c457d8193435ae23",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2a_A_vs_V1.mp4",
+    "rows": [
+      [
+        "V1_A",
+        "V2_A"
+      ]
+    ],
+    "frames": 124,
+    "title": "V1 vs V2a | action A",
+    "caveat": "Same scene/seed/actions; RGB + adapters + routing are a JOINT protocol, NOT an anchor-only ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "53dfa63a23ac86d372fe91e5498c56e5cc1be7412ccbf70aa34e0c304e8aec41",
+      "bytes": 1703861
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V1_A",
+        "path": "report/V1_native_causal/videos/V1_A_full.mp4",
+        "sha256": "afe755cd8922b256b2f0ecf33a037ad6807411557f9066a11153ba83f3be1be2",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V2_A",
+        "path": "report/V2a_rgb_anchor/videos/V2a_A_full.mp4",
+        "sha256": "614e7491b0dd028e3eaf0cd269e5d041e2619ebadb77467add299e4d56e70689",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/A/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2a_D_vs_V1.mp4",
+    "rows": [
+      [
+        "V1_D",
+        "V2_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "V1 vs V2a | action D",
+    "caveat": "Same scene/seed/actions; RGB + adapters + routing are a JOINT protocol, NOT an anchor-only ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "353a4ad04e55516cce46e438f8ad34d300899939aa716e458167ad555f2f617e",
+      "bytes": 1741566
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V1_D",
+        "path": "report/V1_native_causal/videos/V1_D_full.mp4",
+        "sha256": "ac992d3f1e4b74c14d6bc3be6a1fd68aabd053b7dcce5b19b8070d45039845b5",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V2_D",
+        "path": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4",
+        "sha256": "d6633cf10e7741a08261ca18718ab474e66f65189cbb39a3c457d8193435ae23",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2a_vs_V1.mp4",
+    "rows": [
+      [
+        "V1_A",
+        "V2_A"
+      ],
+      [
+        "V1_D",
+        "V2_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "V1 vs V2a | A / D",
+    "caveat": "Same scene/seed/actions; RGB + adapters + routing are a JOINT protocol, NOT an anchor-only ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 1068,
+      "frames": 124,
+      "duration_s": 5.166666666666667,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "a7936775a769f98e9e44033b6c9b3b81a3f6e2861728eac05d0376e2c02fb3e8",
+      "bytes": 3455628
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V1_A",
+        "path": "report/V1_native_causal/videos/V1_A_full.mp4",
+        "sha256": "afe755cd8922b256b2f0ecf33a037ad6807411557f9066a11153ba83f3be1be2",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V2_A",
+        "path": "report/V2a_rgb_anchor/videos/V2a_A_full.mp4",
+        "sha256": "614e7491b0dd028e3eaf0cd269e5d041e2619ebadb77467add299e4d56e70689",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/A/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V1_D",
+        "path": "report/V1_native_causal/videos/V1_D_full.mp4",
+        "sha256": "ac992d3f1e4b74c14d6bc3be6a1fd68aabd053b7dcce5b19b8070d45039845b5",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V2_D",
+        "path": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4",
+        "sha256": "d6633cf10e7741a08261ca18718ab474e66f65189cbb39a3c457d8193435ae23",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+        "frames_used": [
+          0,
+          124
+        ],
+        "source_frames": 124
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2b_A_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V3_AA"
+      ]
+    ],
+    "frames": 56,
+    "title": "V0 vs V2b | action A",
+    "caveat": "CROSS-PROTOCOL: horizon, steps, conditioning, history and attention differ; NOT a single-variable ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 56,
+      "duration_s": 2.3333333333333335,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "7246b157ad410a7dee5f21128898ab47e9479d9fc6af8b86e7c5ff63672fe3d6",
+      "bytes": 709015
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_A",
+        "path": "report/V0_original/videos/V0_A_full.mp4",
+        "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_AA",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4",
+        "sha256": "933d723c4a7db8cc74e1efdab1164ba11601110e357d202c3b68e874e9809372",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2b_D_vs_original.mp4",
+    "rows": [
+      [
+        "V0_D",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "V0 vs V2b | action D",
+    "caveat": "CROSS-PROTOCOL: horizon, steps, conditioning, history and attention differ; NOT a single-variable ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 56,
+      "duration_s": 2.3333333333333335,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "c4c88d4c904ef7d91014c6fe9eec4884fe3f0495d7beb27e267006c4507518c2",
+      "bytes": 708722
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_D",
+        "path": "report/V0_original/videos/V0_D_full.mp4",
+        "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_DD",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4",
+        "sha256": "4dd807a52772339dfe7ba12dff3fdd8cd771edccdee61ea15842f3320cfa8bb1",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2b_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V3_AA"
+      ],
+      [
+        "V0_D",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "V0 vs V2b | A / D",
+    "caveat": "CROSS-PROTOCOL: horizon, steps, conditioning, history and attention differ; NOT a single-variable ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 1068,
+      "frames": 56,
+      "duration_s": 2.3333333333333335,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "b71bada77068f678e29a90e1c07f995ae1691af639f44221531fb5d2575690b6",
+      "bytes": 1415871
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V0_A",
+        "path": "report/V0_original/videos/V0_A_full.mp4",
+        "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_AA",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4",
+        "sha256": "933d723c4a7db8cc74e1efdab1164ba11601110e357d202c3b68e874e9809372",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      },
+      {
+        "id": "V0_D",
+        "path": "report/V0_original/videos/V0_D_full.mp4",
+        "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+        "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_DD",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4",
+        "sha256": "4dd807a52772339dfe7ba12dff3fdd8cd771edccdee61ea15842f3320cfa8bb1",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2b_A_vs_V1.mp4",
+    "rows": [
+      [
+        "V1_A",
+        "V3_AA"
+      ]
+    ],
+    "frames": 56,
+    "title": "V1 vs V2b | action A",
+    "caveat": "CROSS-PROTOCOL: horizon, steps, conditioning, history and attention differ; NOT a single-variable ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 56,
+      "duration_s": 2.3333333333333335,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "4782c17724927f48b7ed13f59a86ccee0352a446b2b9808a758aba7537c38583",
+      "bytes": 716467
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V1_A",
+        "path": "report/V1_native_causal/videos/V1_A_full.mp4",
+        "sha256": "afe755cd8922b256b2f0ecf33a037ad6807411557f9066a11153ba83f3be1be2",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_AA",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4",
+        "sha256": "933d723c4a7db8cc74e1efdab1164ba11601110e357d202c3b68e874e9809372",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2b_D_vs_V1.mp4",
+    "rows": [
+      [
+        "V1_D",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "V1 vs V2b | action D",
+    "caveat": "CROSS-PROTOCOL: horizon, steps, conditioning, history and attention differ; NOT a single-variable ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 56,
+      "duration_s": 2.3333333333333335,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "ae6f3101c0395c6c85a9b2df0fe2ce3ec8bdb70cc19045c28f7e68e0f30f77df",
+      "bytes": 714562
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V1_D",
+        "path": "report/V1_native_causal/videos/V1_D_full.mp4",
+        "sha256": "ac992d3f1e4b74c14d6bc3be6a1fd68aabd053b7dcce5b19b8070d45039845b5",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_DD",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4",
+        "sha256": "4dd807a52772339dfe7ba12dff3fdd8cd771edccdee61ea15842f3320cfa8bb1",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2b_vs_V1.mp4",
+    "rows": [
+      [
+        "V1_A",
+        "V3_AA"
+      ],
+      [
+        "V1_D",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "V1 vs V2b | A / D",
+    "caveat": "CROSS-PROTOCOL: horizon, steps, conditioning, history and attention differ; NOT a single-variable ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 1068,
+      "frames": 56,
+      "duration_s": 2.3333333333333335,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "983f7e697ccf277b67be9516b8ca5b6aefa7df863eb7a958f2dc21cbe0578897",
+      "bytes": 1428154
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V1_A",
+        "path": "report/V1_native_causal/videos/V1_A_full.mp4",
+        "sha256": "afe755cd8922b256b2f0ecf33a037ad6807411557f9066a11153ba83f3be1be2",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_AA",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4",
+        "sha256": "933d723c4a7db8cc74e1efdab1164ba11601110e357d202c3b68e874e9809372",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      },
+      {
+        "id": "V1_D",
+        "path": "report/V1_native_causal/videos/V1_D_full.mp4",
+        "sha256": "ac992d3f1e4b74c14d6bc3be6a1fd68aabd053b7dcce5b19b8070d45039845b5",
+        "original_path": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/cached.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_DD",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4",
+        "sha256": "4dd807a52772339dfe7ba12dff3fdd8cd771edccdee61ea15842f3320cfa8bb1",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2a_vs_V2b_A.mp4",
+    "rows": [
+      [
+        "V2_A",
+        "V3_AA"
+      ]
+    ],
+    "frames": 56,
+    "title": "V2a vs V2b | PARALLEL research approaches | action A",
+    "caveat": "CAPABILITY COMPARISON: 8 vs 30 steps/chunk; clean KV vs same-sigma recompute; NOT a single-variable ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 56,
+      "duration_s": 2.3333333333333335,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "5ba9ab48be13890c563c5ee738572f00de250d0a7979d1a6fdde642ad4eafa8a",
+      "bytes": 682413
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V2_A",
+        "path": "report/V2a_rgb_anchor/videos/V2a_A_full.mp4",
+        "sha256": "614e7491b0dd028e3eaf0cd269e5d041e2619ebadb77467add299e4d56e70689",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/A/cached.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_AA",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4",
+        "sha256": "933d723c4a7db8cc74e1efdab1164ba11601110e357d202c3b68e874e9809372",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2a_vs_V2b_D.mp4",
+    "rows": [
+      [
+        "V2_D",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "V2a vs V2b | PARALLEL research approaches | action D",
+    "caveat": "CAPABILITY COMPARISON: 8 vs 30 steps/chunk; clean KV vs same-sigma recompute; NOT a single-variable ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 564,
+      "frames": 56,
+      "duration_s": 2.3333333333333335,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "f27238357711bbb9c6fa5fd511faad80c89b2eca148af44f7f1acfdaf43d315e",
+      "bytes": 694687
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V2_D",
+        "path": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4",
+        "sha256": "d6633cf10e7741a08261ca18718ab474e66f65189cbb39a3c457d8193435ae23",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_DD",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4",
+        "sha256": "4dd807a52772339dfe7ba12dff3fdd8cd771edccdee61ea15842f3320cfa8bb1",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2a_vs_V2b.mp4",
+    "rows": [
+      [
+        "V2_A",
+        "V3_AA"
+      ],
+      [
+        "V2_D",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "V2a vs V2b | PARALLEL research approaches | A / D",
+    "caveat": "CAPABILITY COMPARISON: 8 vs 30 steps/chunk; clean KV vs same-sigma recompute; NOT a single-variable ablation.",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 1068,
+      "frames": 56,
+      "duration_s": 2.3333333333333335,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "b682a6d98aa154378790bf960ee7cab477c9fd579a11e067527c2834abf919e4",
+      "bytes": 1372814
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V2_A",
+        "path": "report/V2a_rgb_anchor/videos/V2a_A_full.mp4",
+        "sha256": "614e7491b0dd028e3eaf0cd269e5d041e2619ebadb77467add299e4d56e70689",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/A/cached.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_AA",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4",
+        "sha256": "933d723c4a7db8cc74e1efdab1164ba11601110e357d202c3b68e874e9809372",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      },
+      {
+        "id": "V2_D",
+        "path": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4",
+        "sha256": "d6633cf10e7741a08261ca18718ab474e66f65189cbb39a3c457d8193435ae23",
+        "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 124
+      },
+      {
+        "id": "V3_DD",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4",
+        "sha256": "4dd807a52772339dfe7ba12dff3fdd8cd771edccdee61ea15842f3320cfa8bb1",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  },
+  {
+    "filename": "V2b_four_paths_56.mp4",
+    "rows": [
+      [
+        "V3_AA",
+        "V3_AD"
+      ],
+      [
+        "V3_DA",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "V2b local C12->5: A->A / A->D / D->A / D->D",
+    "caveat": "Boundary RGB39 | own history | only SECOND chunk validated | NO GT reset / NO persistent hidden KV",
+    "video": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24.0,
+      "width": 1248,
+      "height": 1068,
+      "frames": 56,
+      "duration_s": 2.3333333333333335,
+      "full_decode": true,
+      "constant_pts": true,
+      "sha256": "df99916aa87023539d1fc43419eec3299862df5b8b056edcdae5a5319c18fad6",
+      "bytes": 1389385
+    },
+    "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+    "sources": [
+      {
+        "id": "V3_AA",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4",
+        "sha256": "933d723c4a7db8cc74e1efdab1164ba11601110e357d202c3b68e874e9809372",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      },
+      {
+        "id": "V3_AD",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_AD_full.mp4",
+        "sha256": "80859f820e9ee514e427ffa29202721419b833cb691ea660c293212b2988951a",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_D_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      },
+      {
+        "id": "V3_DA",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_DA_full.mp4",
+        "sha256": "601c1c01704ea8462446d71a1720f6964095e6a0e971b2cd8f8bc5b1237168be",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_A_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      },
+      {
+        "id": "V3_DD",
+        "path": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4",
+        "sha256": "4dd807a52772339dfe7ba12dff3fdd8cd771edccdee61ea15842f3320cfa8bb1",
+        "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_rollout.mp4",
+        "frames_used": [
+          0,
+          56
+        ],
+        "source_frames": 56
+      }
+    ],
+    "transforms": [
+      "RGB frame-exact [0,N) selection",
+      "aspect-preserving Lanczos display resize + padding",
+      "labels + side-by-side",
+      "libx264 CRF18/yuv420p/24fps/faststart"
+    ],
+    "no_interpolation": true,
+    "no_loops": true,
+    "no_model_inference": true,
+    "taxonomy_renderer_sha256": "3e328be1a6a437820a247e5e1e074e05713a1606831d24a366e85498bacd91d6"
+  }
+]

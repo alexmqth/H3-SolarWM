@@ -1,0 +1,11 @@
+{
+  "branch": "A_causal_diagnostics",
+  "experiment": "04_kv_and_topology",
+  "title": "Recompute / Persistent KV / Strict video causalization",
+  "status": "implementation verified under controlled numerics",
+  "conclusion": "统一SDPA可见组与GEMM形状后，6状态×A/D的50层K/V、RoPE和velocity误差0。无persistent KV的R2对Original动作差分cos已0.057；生产默认不声称bitwise等价。",
+  "evidence": [
+    "reports/stage1_anyflow/02_causal_diagnostics/action_routing_kv_audit/execution_20261010/README.md",
+    "reports/stage1_anyflow/02_causal_diagnostics/local_topology/README.md"
+  ]
+}

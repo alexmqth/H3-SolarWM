@@ -1,0 +1,90 @@
+{
+  "status": "pre_registered_before_new_inference",
+  "date": "2026-10-09",
+  "scope": "User-authorized C second-chunk and B first-window feasibility; zero training",
+  "partition_C": [
+    12,
+    5,
+    5,
+    5,
+    5,
+    5
+  ],
+  "partition_B": [
+    7,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+  ],
+  "executed_ranges": {
+    "C": [
+      [
+        12,
+        17
+      ]
+    ],
+    "B": [
+      [
+        0,
+        7
+      ]
+    ]
+  },
+  "C_history": "Reuse own first12 generated endpoints from coarse_A/window0_A.pt and window0_D.pt; no Original full37/GT reset",
+  "C_conditions": [
+    "clean",
+    "sigma_noised"
+  ],
+  "C_actions": [
+    "A",
+    "D"
+  ],
+  "C_histories": [
+    "A",
+    "D"
+  ],
+  "B_actions": [
+    "A",
+    "D"
+  ],
+  "B_history": "none",
+  "fixed": {
+    "steps": 30,
+    "shift": 2.22,
+    "seed": 13,
+    "layout": "full37 fixed equal-length A/D global positions",
+    "weights": "Original H3 + released action LoRA",
+    "anchor": "single initial image, no retiming",
+    "precision": "h3_fp32",
+    "audio": "fixed full37 noise at native0",
+    "topology": "T2 recompute all visible tokens, Original directed action mask, future actions/video physically absent",
+    "cpu_hidden_KV_MiB": 0
+  },
+  "budget": {
+    "optimizer_updates": 0,
+    "sampling_forwards": 300,
+    "project_gpu_max": 3,
+    "C_per_process_sampling_forwards": 120,
+    "B_sampling_forwards": 60
+  },
+  "display": "Decode prefix only; freeze first39 RGB; append RGB39:56 for C. Prefix re-decoding changes recorded separately, never replace already emitted frames.",
+  "gates": [
+    "Source hashes and actual tiny-H3 interval equivalence/leakage tests before loading DiT",
+    "Real VAE prefix7/12/17 validity plus prefix overlap audit before new sampling",
+    "C signs A>0,D<0 in both generated histories plus no severe decomposition; flow alone insufficient",
+    "B full22 RGB direction and structure review; no automatic full124 or training"
+  ],
+  "timing": "Single runs on shared host; sampling measured separately; reused C startup time provenance separate; no speedup claims",
+  "inputs_sha256": {
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/inputs/parking_A.pt": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/inputs/parking_D.pt": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/coarse_A/window0_A.pt": "242a1db06bc3423fe21207af5d2ccf59c9f27f07c9d88f22ce9f77921f6b0eea",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/coarse_A/window0_D.pt": "7a6a2ca7f3966d00e01792ef822b12f4e268f911908d1ff7b97249619759ec7f",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/coarse_A/window0_solver_states.pt": "17225f4ee8ee6976e0d6d618bea69e2c1eb7176015b636d7b1cbf657292cff5c",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/coarse_A/evaluation.json": "3bd41500efda13f5f6863b5e128623733e6410014e80f91156f25fb03801355e",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/runtime_manifest.json": "a06d0dcc5cfa49ed6d745dea2d49128464fd1465e08ff3b3ed3df2937b82ff19"
+  }
+}

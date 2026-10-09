@@ -1,0 +1,59 @@
+{
+  "filename": "V2a_vs_V2b_D.mp4",
+  "rows": [
+    [
+      "V2_D",
+      "V3_DD"
+    ]
+  ],
+  "frames": 56,
+  "title": "V2a vs V2b | PARALLEL research approaches | action D",
+  "caveat": "CAPABILITY COMPARISON: 8 vs 30 steps/chunk; clean KV vs same-sigma recompute; NOT a single-variable ablation.",
+  "video": {
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "fps": 24.0,
+    "width": 1248,
+    "height": 564,
+    "frames": 56,
+    "duration_s": 2.3333333333333335,
+    "full_decode": true,
+    "constant_pts": true,
+    "sha256": "f27238357711bbb9c6fa5fd511faad80c89b2eca148af44f7f1acfdaf43d315e",
+    "bytes": 694687
+  },
+  "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+  "sources": [
+    {
+      "id": "V2_D",
+      "path": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4",
+      "sha256": "d6633cf10e7741a08261ca18718ab474e66f65189cbb39a3c457d8193435ae23",
+      "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+      "frames_used": [
+        0,
+        56
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V3_DD",
+      "path": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4",
+      "sha256": "4dd807a52772339dfe7ba12dff3fdd8cd771edccdee61ea15842f3320cfa8bb1",
+      "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_rollout.mp4",
+      "frames_used": [
+        0,
+        56
+      ],
+      "source_frames": 56
+    }
+  ],
+  "transforms": [
+    "RGB frame-exact [0,N) selection",
+    "aspect-preserving Lanczos display resize + padding",
+    "labels + side-by-side",
+    "libx264 CRF18/yuv420p/24fps/faststart"
+  ],
+  "no_interpolation": true,
+  "no_loops": true,
+  "no_model_inference": true
+}

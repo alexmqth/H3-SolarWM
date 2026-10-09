@@ -1,0 +1,50 @@
+{
+  "mode": "cached",
+  "status": "complete",
+  "started_at": "2026-09-30T13:48:50.262509+08:00",
+  "steps": 4,
+  "num_frames": 124,
+  "seed": 2,
+  "gpu": "NVIDIA L40",
+  "visible_devices": "2",
+  "cache_device": "cpu",
+  "chunk_frames": 5,
+  "history_chunks": 5,
+  "trained_for_causal": false,
+  "cfg_scale": 1.0,
+  "audio_output": "silent",
+  "attention_backend": "PyTorch SDPA",
+  "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+  "dit_prepare_seconds": 20.231190594146028,
+  "denoiser_forwards": 32,
+  "commit_forwards": 8,
+  "chunk_seconds": [
+    40.112299025058746,
+    18.913011076161638,
+    22.08298226702027,
+    32.570888719987124,
+    32.4798514470458,
+    32.98505607503466,
+    28.89430722896941,
+    23.643636798020452
+  ],
+  "sampling_seconds": 231.69089121790603,
+  "sampling_memory": {
+    "allocated_peak_MiB": 37748.4306640625,
+    "reserved_peak_MiB": 38782.0
+  },
+  "kv_cache_peak_MiB": 13508.60595703125,
+  "per_layer_commits": 400,
+  "vae_prepare_seconds": 19.315959027037024,
+  "vae_decode_seconds": 11.898646521149203,
+  "frames_to_cpu_seconds": 0.21854253206402063,
+  "encode_mp4_seconds": 1.5207049909513444,
+  "wall_after_conditioning_seconds": 284.89116193098016,
+  "wall_including_shared_setup_seconds": 298.5082296610344,
+  "memory_after_setup": {
+    "allocated_peak_MiB": 37748.4306640625,
+    "reserved_peak_MiB": 38782.0
+  },
+  "memory_entire_run_peak_MiB": 38065.09765625,
+  "completed_at": "2026-09-30T13:53:35.154820+08:00"
+}

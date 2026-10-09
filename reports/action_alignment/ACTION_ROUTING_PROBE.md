@@ -14,7 +14,7 @@ only the action prefix visibility and the explicit action-row feedback edge chan
 
 The probe uses the generated A rollout from
 `eval_update01/A`, a clean A history commit for chunk 0, and a chunk 1 A/D counterfactual. The
-exact values are in [`action_routing_probe.json`](action_routing_probe.json).
+exact values are in [`action_routing_probe.json`](../../archive/referenced_assets/H3-World/outputs/2026-10-06-08/action_align_qkv_tail4_rgb_39_8step_pair4_final/action_routing_probe.json).
 
 `causal_fb1` is measurably different from `causal_fb0`, so the explicit action-row-to-current-video
 feedback edge is active. Exposing all known action rows increases the delta further. This rules out

@@ -1,3 +1,5 @@
+> **版本与演示已统一（2026-10-10）：** [mainline](../mainline/README.md)区分V1零adapter、V2a联合修复、V2b无persistent KV的局部正控；新视频和讲稿在[report](../report/README.md)。下面详细历史结果仍保留原实验scope。
+
 # 实验报告：工程可行，完整rollout联合验收尚未通过
 
 **2026-10-09晚间补充：** 用户授权的[C12→5 / B7只读分块验证](../reports/stage1_anyflow/02_causal_diagnostics/chunk_partition_cb/README.md)已完成。C使用Original权重、30步、T2重算和已有同sigma历史协议，接自己生成的首12latent后，第二5latent在A/D两份历史中具有正确方向且人物结构保持；完整视频56RGB。clean在D→A失败，B首7的A方向未过。这是单场景/seed的第二块局部正控，不是完整124f、persistent-KV、few-step或Stage1完成；训练仍冻结。[四条56帧路径](../experiments/11_causal_12_then5_selfhistory/C_selfhistory_N_56.mp4)。

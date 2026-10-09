@@ -1,0 +1,59 @@
+{
+  "filename": "V2_D_vs_V1.mp4",
+  "rows": [
+    [
+      "V1_D",
+      "V2_D"
+    ]
+  ],
+  "frames": 124,
+  "title": "V1 vs V2 | action D",
+  "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters).",
+  "video": {
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "fps": 24.0,
+    "width": 1248,
+    "height": 564,
+    "frames": 124,
+    "duration_s": 5.166666666666667,
+    "full_decode": true,
+    "constant_pts": true,
+    "sha256": "2d98e883ec5686bafd5480b8c05b579189eb325fbb3708bac9767fc8fe4cca0e",
+    "bytes": 1739003
+  },
+  "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+  "sources": [
+    {
+      "id": "V1_D",
+      "path": "report/V1_native_causal/videos/V1_D_full.mp4",
+      "sha256": "ac992d3f1e4b74c14d6bc3be6a1fd68aabd053b7dcce5b19b8070d45039845b5",
+      "original_path": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/cached.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V2_D",
+      "path": "report/V2_rgb_anchor/videos/V2_D_full.mp4",
+      "sha256": "d6633cf10e7741a08261ca18718ab474e66f65189cbb39a3c457d8193435ae23",
+      "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    }
+  ],
+  "transforms": [
+    "RGB frame-exact [0,N) selection",
+    "aspect-preserving Lanczos display resize + padding",
+    "labels + side-by-side",
+    "libx264 CRF18/yuv420p/24fps/faststart"
+  ],
+  "no_interpolation": true,
+  "no_loops": true,
+  "no_model_inference": true
+}

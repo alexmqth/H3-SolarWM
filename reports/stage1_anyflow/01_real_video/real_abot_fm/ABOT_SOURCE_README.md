@@ -43,7 +43,7 @@ configs:
 [![Dataset](https://img.shields.io/badge/Dataset_500H-ModelScope-7061FF?logo=modelscope)](https://modelscope.cn/datasets/amap_cvlab/ABot-World-Explorer-500h)
 [![Dataset](https://img.shields.io/badge/Dataset_4D-ModelScope-7061FF?logo=modelscope)](https://modelscope.cn/datasets/amap_cvlab/ABot-World-Explorer-4D)
 
-![ABot World Explorer data infrastructure](meta/abot-world-explorer-poster.png)
+ABot World Explorer data infrastructure：上游展示海报未在当前工作区找到（原引用 `meta/abot-world-explorer-poster.png`）；不影响实验数据和视频。
 
 ABot World Explorer 500h contains 30,969 action-conditioned video episodes
 associated with the data infrastructure described in

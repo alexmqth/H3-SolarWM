@@ -1,3 +1,5 @@
+> **2026-10-10更新：** [V0–V3路线](mainline/README.md)与[新汇报视频](report/README.md)已整理。V2b是Original权重、Single I0/native时间、Same-σ、T2重算、C12→5自身history两块56f的局部正控；不是V2a续训，也不是strict causal/KV或完整AnyFlow/Stage2成功。下文旧“会议主片”始终指V2a，E1/E2指对应历史实验。
+
 # 面试题回答：在 H3-World 中验证 SolarWM 的因果少步生成
 
 **结论：因果分块与持久KV的工程迁移可行，但尚未证明在保留动作控制和画质的前提下提高长视频端到端效率。** 已在真实H3权重上完成124帧及更长rollout；会议主片在124帧上比旧版更完整，但A/D方向验收失败，同checkpoint的20秒视频明显崩坏。后来实现并训练了TF-AnyFlow，也准备了更严格DMD所需的生成梯度与角色隔离；这些不等于完整SolarWM Stage1/Stage2效果复现。

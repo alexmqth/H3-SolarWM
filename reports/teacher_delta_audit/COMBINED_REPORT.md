@@ -7,4 +7,4 @@
 
 The frozen bidirectional H3 teacher produces finite, nonzero A/D counterfactual deltas on both generated states, but the deltas remain small relative to the full velocity field. This supports the interpretation that the paired target is weak, while leaving its image-space direction and student alignment unresolved.
 
-Raw reports: [A state](REPORT.md) and [D state](../../2026-10-06-11/teacher_delta_audit_Dstate/REPORT.md).
+Raw reports: [A state](REPORT.md) and [D state](../../archive/referenced_assets/H3-World/outputs/2026-10-06-11/teacher_delta_audit_Dstate/REPORT.md).

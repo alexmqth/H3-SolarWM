@@ -1,0 +1,59 @@
+{
+  "filename": "V1_D_vs_original.mp4",
+  "rows": [
+    [
+      "V0_D",
+      "V1_D"
+    ]
+  ],
+  "frames": 124,
+  "title": "Original H3-World vs V1 | action D",
+  "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters).",
+  "video": {
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "fps": 24.0,
+    "width": 1248,
+    "height": 564,
+    "frames": 124,
+    "duration_s": 5.166666666666667,
+    "full_decode": true,
+    "constant_pts": true,
+    "sha256": "76418bc41ecfcba936fd83ac194c3fe1a75a92159505658e2a06d4f32bbf8c85",
+    "bytes": 1870730
+  },
+  "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+  "sources": [
+    {
+      "id": "V0_D",
+      "path": "report/V0_original/videos/V0_D_full.mp4",
+      "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+      "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V1_D",
+      "path": "report/V1_native_causal/videos/V1_D_full.mp4",
+      "sha256": "ac992d3f1e4b74c14d6bc3be6a1fd68aabd053b7dcce5b19b8070d45039845b5",
+      "original_path": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/cached.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    }
+  ],
+  "transforms": [
+    "RGB frame-exact [0,N) selection",
+    "aspect-preserving Lanczos display resize + padding",
+    "labels + side-by-side",
+    "libx264 CRF18/yuv420p/24fps/faststart"
+  ],
+  "no_interpolation": true,
+  "no_loops": true,
+  "no_model_inference": true
+}

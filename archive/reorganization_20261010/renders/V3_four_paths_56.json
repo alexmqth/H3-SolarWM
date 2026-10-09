@@ -1,0 +1,85 @@
+{
+  "filename": "V3_four_paths_56.mp4",
+  "rows": [
+    [
+      "V3_AA",
+      "V3_AD"
+    ],
+    [
+      "V3_DA",
+      "V3_DD"
+    ]
+  ],
+  "frames": 56,
+  "title": "V3 C12->5: A->A / A->D / D->A / D->D",
+  "caveat": "Boundary RGB39 | own generated history | only TWO chunks validated | NO GT reset / NO persistent KV",
+  "video": {
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "fps": 24.0,
+    "width": 1248,
+    "height": 1068,
+    "frames": 56,
+    "duration_s": 2.3333333333333335,
+    "full_decode": true,
+    "constant_pts": true,
+    "sha256": "b540f0bbbe9a911ae0548235b06abff086855bac7df182655b5fcb7fcc6f90ff",
+    "bytes": 1383292
+  },
+  "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+  "sources": [
+    {
+      "id": "V3_AA",
+      "path": "report/V3_same_sigma/videos/V3_AA_full.mp4",
+      "sha256": "933d723c4a7db8cc74e1efdab1164ba11601110e357d202c3b68e874e9809372",
+      "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_rollout.mp4",
+      "frames_used": [
+        0,
+        56
+      ],
+      "source_frames": 56
+    },
+    {
+      "id": "V3_AD",
+      "path": "report/V3_same_sigma/videos/V3_AD_full.mp4",
+      "sha256": "80859f820e9ee514e427ffa29202721419b833cb691ea660c293212b2988951a",
+      "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_D_rollout.mp4",
+      "frames_used": [
+        0,
+        56
+      ],
+      "source_frames": 56
+    },
+    {
+      "id": "V3_DA",
+      "path": "report/V3_same_sigma/videos/V3_DA_full.mp4",
+      "sha256": "601c1c01704ea8462446d71a1720f6964095e6a0e971b2cd8f8bc5b1237168be",
+      "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_A_rollout.mp4",
+      "frames_used": [
+        0,
+        56
+      ],
+      "source_frames": 56
+    },
+    {
+      "id": "V3_DD",
+      "path": "report/V3_same_sigma/videos/V3_DD_full.mp4",
+      "sha256": "4dd807a52772339dfe7ba12dff3fdd8cd771edccdee61ea15842f3320cfa8bb1",
+      "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_rollout.mp4",
+      "frames_used": [
+        0,
+        56
+      ],
+      "source_frames": 56
+    }
+  ],
+  "transforms": [
+    "RGB frame-exact [0,N) selection",
+    "aspect-preserving Lanczos display resize + padding",
+    "labels + side-by-side",
+    "libx264 CRF18/yuv420p/24fps/faststart"
+  ],
+  "no_interpolation": true,
+  "no_loops": true,
+  "no_model_inference": true
+}

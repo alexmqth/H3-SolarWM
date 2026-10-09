@@ -1,0 +1,60 @@
+{
+  "load_models_and_lora_seconds": 4.751553734065965,
+  "conditioning_seconds": 9.740135341184214,
+  "memory": {
+    "allocated_peak_MiB": 39925.138671875,
+    "reserved_peak_MiB": 40084.0
+  },
+  "completed_at": "2026-10-02T04:16:21.141715+08:00",
+  "config": {
+    "modes": [
+      "cached"
+    ],
+    "steps": 8,
+    "flow_shift": 2.22,
+    "baseline_steps": 30,
+    "num_frames": 124,
+    "chunk_frames": 5,
+    "history_chunks": 5,
+    "action_preset": "A",
+    "action_schedule": null,
+    "cache_device": "cpu",
+    "anchor_mode": "dynamic_last_frame_dual",
+    "boundary_blend": 0.0,
+    "boundary_overlap_frames": 1,
+    "boundary_clamp": false,
+    "device": "cuda:0",
+    "seed": 13,
+    "out_dir": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2",
+    "save_latents": false,
+    "causal_adapter": null,
+    "history_source": "generated",
+    "teacher_latents": null
+  },
+  "gpu": "NVIDIA L40",
+  "visible_devices": "2",
+  "torch_version": "2.10.0+cu128",
+  "conditioning": "same prompt, image, chunk action schedule [strafe-left,strafe-left,strafe-left,strafe-left,strafe-left,strafe-left,strafe-left,strafe-left], initial video/audio noise reused across modes",
+  "action_preset": "A",
+  "action_preset_resolved": "strafe-left",
+  "action_schedule": [
+    "strafe-left",
+    "strafe-left",
+    "strafe-left",
+    "strafe-left",
+    "strafe-left",
+    "strafe-left",
+    "strafe-left",
+    "strafe-left"
+  ],
+  "dual_anchor_protocol": {
+    "slots": [
+      "original_h3_first_frame",
+      "previous_chunk_last_latent_frame"
+    ],
+    "chunk0_second_slot": "duplicate_original_anchor",
+    "frame_rows": 390,
+    "packed_seq_len": 16454,
+    "slot1_encoding": "normalized_temporal_latent_patchify"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "branch": "B_causal_adaptation",
+  "experiment": "03_online_replay",
+  "title": "Online per-sigma teacher replay",
+  "status": "preliminary trained; quality failed",
+  "conclusion": "逐sigma replay及paired训练链路存在；内部loss/cosine改善没有可靠转化为自由rollout方向与视觉联合PASS。",
+  "evidence": [
+    "reports/action_alignment/ACTION_ALIGNMENT_REPORT.md",
+    "reports/action_alignment/ACTION_ALIGNMENT_LEARNING_CURVE.md",
+    "code/causal/train_online_selfrollout.py"
+  ]
+}

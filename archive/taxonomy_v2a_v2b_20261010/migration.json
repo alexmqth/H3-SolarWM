@@ -1,0 +1,348 @@
+{
+  "directory_moves": {
+    "mainline/V2_rgb_anchor_causal": "mainline/V2a_rgb_anchor_causal",
+    "mainline/V3_same_sigma_history": "mainline/V2b_same_sigma_local_bidir",
+    "mainline/V4_efficient_causal_planned": "mainline/V3_efficient_causal_planned",
+    "report/V2_rgb_anchor": "report/V2a_rgb_anchor",
+    "report/V3_same_sigma": "report/V2b_same_sigma_local_bidir"
+  },
+  "file_path_map": {
+    "mainline/V2_rgb_anchor_causal/README.md": "mainline/V2a_rgb_anchor_causal/README.md",
+    "mainline/V2_rgb_anchor_causal/manifest.json": "mainline/V2a_rgb_anchor_causal/manifest.json",
+    "mainline/V2_rgb_anchor_causal/receipts/V2_D_setup.json": "mainline/V2a_rgb_anchor_causal/receipts/V2_D_setup.json",
+    "mainline/V2_rgb_anchor_causal/receipts/V2_D_run.json": "mainline/V2a_rgb_anchor_causal/receipts/V2_D_run.json",
+    "mainline/V2_rgb_anchor_causal/receipts/VISUAL_DRIFT_REPAIR_REPORT.md": "mainline/V2a_rgb_anchor_causal/receipts/VISUAL_DRIFT_REPAIR_REPORT.md",
+    "mainline/V2_rgb_anchor_causal/receipts/V2_A_run.json": "mainline/V2a_rgb_anchor_causal/receipts/V2_A_run.json",
+    "mainline/V2_rgb_anchor_causal/receipts/recorded_metrics.json": "mainline/V2a_rgb_anchor_causal/receipts/recorded_metrics.json",
+    "mainline/V2_rgb_anchor_causal/receipts/DEMO_PROVENANCE.json": "mainline/V2a_rgb_anchor_causal/receipts/DEMO_PROVENANCE.json",
+    "mainline/V2_rgb_anchor_causal/receipts/V2_A_setup.json": "mainline/V2a_rgb_anchor_causal/receipts/V2_A_setup.json",
+    "mainline/V3_same_sigma_history/README.md": "mainline/V2b_same_sigma_local_bidir/README.md",
+    "mainline/V3_same_sigma_history/manifest.json": "mainline/V2b_same_sigma_local_bidir/manifest.json",
+    "mainline/V3_same_sigma_history/receipts/V3_DD_setup.json": "mainline/V2b_same_sigma_local_bidir/receipts/V3_DD_setup.json",
+    "mainline/V3_same_sigma_history/receipts/V3_AD_setup.json": "mainline/V2b_same_sigma_local_bidir/receipts/V3_AD_setup.json",
+    "mainline/V3_same_sigma_history/receipts/manifest.json": "mainline/V2b_same_sigma_local_bidir/receipts/manifest.json",
+    "mainline/V3_same_sigma_history/receipts/V3_AA_setup.json": "mainline/V2b_same_sigma_local_bidir/receipts/V3_AA_setup.json",
+    "mainline/V3_same_sigma_history/receipts/summary.json": "mainline/V2b_same_sigma_local_bidir/receipts/summary.json",
+    "mainline/V3_same_sigma_history/receipts/V3_DD_run.json": "mainline/V2b_same_sigma_local_bidir/receipts/V3_DD_run.json",
+    "mainline/V3_same_sigma_history/receipts/protocol.json": "mainline/V2b_same_sigma_local_bidir/receipts/protocol.json",
+    "mainline/V3_same_sigma_history/receipts/V3_AA_run.json": "mainline/V2b_same_sigma_local_bidir/receipts/V3_AA_run.json",
+    "mainline/V3_same_sigma_history/receipts/V3_DA_run.json": "mainline/V2b_same_sigma_local_bidir/receipts/V3_DA_run.json",
+    "mainline/V3_same_sigma_history/receipts/source_runtime_manifest.json": "mainline/V2b_same_sigma_local_bidir/receipts/source_runtime_manifest.json",
+    "mainline/V3_same_sigma_history/receipts/V3_DA_setup.json": "mainline/V2b_same_sigma_local_bidir/receipts/V3_DA_setup.json",
+    "mainline/V3_same_sigma_history/receipts/V3_AD_run.json": "mainline/V2b_same_sigma_local_bidir/receipts/V3_AD_run.json",
+    "mainline/V4_efficient_causal_planned/README.md": "mainline/V3_efficient_causal_planned/README.md",
+    "report/V2_rgb_anchor/README.md": "report/V2a_rgb_anchor/README.md",
+    "report/V2_rgb_anchor/PROVENANCE.json": "report/V2a_rgb_anchor/PROVENANCE.json",
+    "report/V2_rgb_anchor/code/benchmark.py": "report/V2a_rgb_anchor/code/benchmark.py",
+    "report/V2_rgb_anchor/code/SOURCE_MANIFEST.json": "report/V2a_rgb_anchor/code/SOURCE_MANIFEST.json",
+    "report/V2_rgb_anchor/code/README.md": "report/V2a_rgb_anchor/code/README.md",
+    "report/V2_rgb_anchor/code/train_online_selfrollout.py": "report/V2a_rgb_anchor/code/train_online_selfrollout.py",
+    "report/V2_rgb_anchor/code/h3_cached.py": "report/V2a_rgb_anchor/code/h3_cached.py",
+    "report/V2_rgb_anchor/videos/V2_vs_V1.mp4": "archive/obsolete_presentation_v2_v3/report/V2a_rgb_anchor/videos/V2_vs_V1.mp4",
+    "report/V2_rgb_anchor/videos/V2_A_full.mp4": "report/V2a_rgb_anchor/videos/V2a_A_full.mp4",
+    "report/V2_rgb_anchor/videos/V2_vs_original.mp4": "archive/obsolete_presentation_v2_v3/report/V2a_rgb_anchor/videos/V2_vs_original.mp4",
+    "report/V2_rgb_anchor/videos/V2_D_full.mp4": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4",
+    "report/V2_rgb_anchor/videos/V2_long20s_failure.mp4": "report/V2a_rgb_anchor/videos/V2a_long20s_failure.mp4",
+    "report/V3_same_sigma/README.md": "report/V2b_same_sigma_local_bidir/README.md",
+    "report/V3_same_sigma/PROVENANCE.json": "report/V2b_same_sigma_local_bidir/PROVENANCE.json",
+    "report/V3_same_sigma/code/interval_forward.py": "report/V2b_same_sigma_local_bidir/code/interval_forward.py",
+    "report/V3_same_sigma/code/SOURCE_MANIFEST.json": "report/V2b_same_sigma_local_bidir/code/SOURCE_MANIFEST.json",
+    "report/V3_same_sigma/code/README.md": "report/V2b_same_sigma_local_bidir/code/README.md",
+    "report/V3_same_sigma/code/h3_cached.py": "report/V2b_same_sigma_local_bidir/code/h3_cached.py",
+    "report/V3_same_sigma/code/run.py": "report/V2b_same_sigma_local_bidir/code/run.py",
+    "report/V3_same_sigma/code/local_topology.py": "report/V2b_same_sigma_local_bidir/code/local_topology.py",
+    "report/V3_same_sigma/videos/V3_AD_full.mp4": "report/V2b_same_sigma_local_bidir/videos/V2b_AD_full.mp4",
+    "report/V3_same_sigma/videos/V3_DA_full.mp4": "report/V2b_same_sigma_local_bidir/videos/V2b_DA_full.mp4",
+    "report/V3_same_sigma/videos/V3_DD_full.mp4": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4",
+    "report/V3_same_sigma/videos/V3_four_paths_56.mp4": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_four_paths_56.mp4",
+    "report/V3_same_sigma/videos/V3_vs_original.mp4": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_vs_original.mp4",
+    "report/V3_same_sigma/videos/V3_AA_full.mp4": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4",
+    "report/V3_same_sigma/videos/V3_vs_V2.mp4": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_vs_V2.mp4",
+    "report/00_comparison_gallery/V2_A_vs_V1.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_A_vs_V1.mp4",
+    "report/00_comparison_gallery/V2_A_vs_original.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_A_vs_original.mp4",
+    "report/00_comparison_gallery/V2_D_vs_V1.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_D_vs_V1.mp4",
+    "report/00_comparison_gallery/V2_D_vs_original.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_D_vs_original.mp4",
+    "report/00_comparison_gallery/V2_vs_V1.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_vs_V1.mp4",
+    "report/00_comparison_gallery/V2_vs_original.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_vs_original.mp4",
+    "report/00_comparison_gallery/V3_A_vs_V2.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_A_vs_V2.mp4",
+    "report/00_comparison_gallery/V3_A_vs_original.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_A_vs_original.mp4",
+    "report/00_comparison_gallery/V3_D_vs_V2.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_D_vs_V2.mp4",
+    "report/00_comparison_gallery/V3_D_vs_original.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_D_vs_original.mp4",
+    "report/00_comparison_gallery/V3_four_paths_56.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_four_paths_56.mp4",
+    "report/00_comparison_gallery/V3_vs_V2.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_vs_V2.mp4",
+    "report/00_comparison_gallery/V3_vs_original.mp4": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_vs_original.mp4",
+    "report/V2a_rgb_anchor/videos/V2_vs_V1.mp4": "archive/obsolete_presentation_v2_v3/report/V2a_rgb_anchor/videos/V2_vs_V1.mp4",
+    "report/V2a_rgb_anchor/videos/V2_vs_original.mp4": "archive/obsolete_presentation_v2_v3/report/V2a_rgb_anchor/videos/V2_vs_original.mp4",
+    "report/V2b_same_sigma_local_bidir/videos/V3_four_paths_56.mp4": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_four_paths_56.mp4",
+    "report/V2b_same_sigma_local_bidir/videos/V3_vs_V2.mp4": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_vs_V2.mp4",
+    "report/V2b_same_sigma_local_bidir/videos/V3_vs_original.mp4": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_vs_original.mp4",
+    "report/V2a_rgb_anchor/videos/V2_A_full.mp4": "report/V2a_rgb_anchor/videos/V2a_A_full.mp4",
+    "report/V2a_rgb_anchor/videos/V2_D_full.mp4": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4",
+    "report/V2a_rgb_anchor/videos/V2_long20s_failure.mp4": "report/V2a_rgb_anchor/videos/V2a_long20s_failure.mp4",
+    "report/V2b_same_sigma_local_bidir/videos/V3_AA_full.mp4": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4",
+    "report/V2b_same_sigma_local_bidir/videos/V3_AD_full.mp4": "report/V2b_same_sigma_local_bidir/videos/V2b_AD_full.mp4",
+    "report/V2b_same_sigma_local_bidir/videos/V3_DA_full.mp4": "report/V2b_same_sigma_local_bidir/videos/V2b_DA_full.mp4",
+    "report/V2b_same_sigma_local_bidir/videos/V3_DD_full.mp4": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4"
+  },
+  "moves": [
+    {
+      "source": "mainline/V2_rgb_anchor_causal",
+      "target": "mainline/V2a_rgb_anchor_causal"
+    },
+    {
+      "source": "mainline/V3_same_sigma_history",
+      "target": "mainline/V2b_same_sigma_local_bidir"
+    },
+    {
+      "source": "mainline/V4_efficient_causal_planned",
+      "target": "mainline/V3_efficient_causal_planned"
+    },
+    {
+      "source": "report/V2_rgb_anchor",
+      "target": "report/V2a_rgb_anchor"
+    },
+    {
+      "source": "report/V3_same_sigma",
+      "target": "report/V2b_same_sigma_local_bidir"
+    },
+    {
+      "source": "report/00_comparison_gallery/V2_A_vs_V1.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_A_vs_V1.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V2_A_vs_original.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_A_vs_original.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V2_D_vs_V1.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_D_vs_V1.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V2_D_vs_original.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_D_vs_original.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V2_vs_V1.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_vs_V1.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V2_vs_original.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_vs_original.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V3_A_vs_V2.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_A_vs_V2.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V3_A_vs_original.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_A_vs_original.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V3_D_vs_V2.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_D_vs_V2.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V3_D_vs_original.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_D_vs_original.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V3_four_paths_56.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_four_paths_56.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V3_vs_V2.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_vs_V2.mp4"
+    },
+    {
+      "source": "report/00_comparison_gallery/V3_vs_original.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_vs_original.mp4"
+    },
+    {
+      "source": "report/V2a_rgb_anchor/videos/V2_vs_V1.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/V2a_rgb_anchor/videos/V2_vs_V1.mp4"
+    },
+    {
+      "source": "report/V2a_rgb_anchor/videos/V2_vs_original.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/V2a_rgb_anchor/videos/V2_vs_original.mp4"
+    },
+    {
+      "source": "report/V2b_same_sigma_local_bidir/videos/V3_four_paths_56.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_four_paths_56.mp4"
+    },
+    {
+      "source": "report/V2b_same_sigma_local_bidir/videos/V3_vs_V2.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_vs_V2.mp4"
+    },
+    {
+      "source": "report/V2b_same_sigma_local_bidir/videos/V3_vs_original.mp4",
+      "target": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_vs_original.mp4"
+    },
+    {
+      "source": "report/V2a_rgb_anchor/videos/V2_A_full.mp4",
+      "target": "report/V2a_rgb_anchor/videos/V2a_A_full.mp4"
+    },
+    {
+      "source": "report/V2a_rgb_anchor/videos/V2_D_full.mp4",
+      "target": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4"
+    },
+    {
+      "source": "report/V2a_rgb_anchor/videos/V2_long20s_failure.mp4",
+      "target": "report/V2a_rgb_anchor/videos/V2a_long20s_failure.mp4"
+    },
+    {
+      "source": "report/V2b_same_sigma_local_bidir/videos/V3_AA_full.mp4",
+      "target": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4"
+    },
+    {
+      "source": "report/V2b_same_sigma_local_bidir/videos/V3_AD_full.mp4",
+      "target": "report/V2b_same_sigma_local_bidir/videos/V2b_AD_full.mp4"
+    },
+    {
+      "source": "report/V2b_same_sigma_local_bidir/videos/V3_DA_full.mp4",
+      "target": "report/V2b_same_sigma_local_bidir/videos/V2b_DA_full.mp4"
+    },
+    {
+      "source": "report/V2b_same_sigma_local_bidir/videos/V3_DD_full.mp4",
+      "target": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4"
+    }
+  ],
+  "archived_overlays": [
+    {
+      "old": "report/00_comparison_gallery/V2_A_vs_V1.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_A_vs_V1.mp4",
+      "sha256": "3893897f4863b9484dd5f97b27eeab99e87908ff4e3b0e2b9d03f84e3cc28851"
+    },
+    {
+      "old": "report/00_comparison_gallery/V2_A_vs_original.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_A_vs_original.mp4",
+      "sha256": "e58dc06c7de5d8ca99e04460872a2cf909e44d56c79afcf4746f06e6e47698c3"
+    },
+    {
+      "old": "report/00_comparison_gallery/V2_D_vs_V1.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_D_vs_V1.mp4",
+      "sha256": "2d98e883ec5686bafd5480b8c05b579189eb325fbb3708bac9767fc8fe4cca0e"
+    },
+    {
+      "old": "report/00_comparison_gallery/V2_D_vs_original.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_D_vs_original.mp4",
+      "sha256": "1c0e7d2c0b4531f09253d091f8ac55104525b69fb1d4bc2facb58b2fc935a6ba"
+    },
+    {
+      "old": "report/00_comparison_gallery/V2_vs_V1.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_vs_V1.mp4",
+      "sha256": "57d0bf64294014fe13b4831f7a826b1b7a1f0b3eb50a093330f0f3cf7314df87"
+    },
+    {
+      "old": "report/00_comparison_gallery/V2_vs_original.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V2_vs_original.mp4",
+      "sha256": "e901492dab66cbeb84d17d78fbd5c24a09af05891ae2a80681195671688fed92"
+    },
+    {
+      "old": "report/00_comparison_gallery/V3_A_vs_V2.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_A_vs_V2.mp4",
+      "sha256": "5f03a36907bcefb836a6e19c943cdc189d23893c4c49406a68325411119c939f"
+    },
+    {
+      "old": "report/00_comparison_gallery/V3_A_vs_original.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_A_vs_original.mp4",
+      "sha256": "6fc465968b988c96e4f9e59c76e820cf4fa4d0b7183244ae135c7d7b3d15ca75"
+    },
+    {
+      "old": "report/00_comparison_gallery/V3_D_vs_V2.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_D_vs_V2.mp4",
+      "sha256": "d19160d1e8acee1e655b745554b0029c688d4982da7b0d624bd14000009583d6"
+    },
+    {
+      "old": "report/00_comparison_gallery/V3_D_vs_original.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_D_vs_original.mp4",
+      "sha256": "c412fbebf7c2b92123237c2dc593b727bbbf3214cbf29df3d79fb48da097ef5b"
+    },
+    {
+      "old": "report/00_comparison_gallery/V3_four_paths_56.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_four_paths_56.mp4",
+      "sha256": "b540f0bbbe9a911ae0548235b06abff086855bac7df182655b5fcb7fcc6f90ff"
+    },
+    {
+      "old": "report/00_comparison_gallery/V3_vs_V2.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_vs_V2.mp4",
+      "sha256": "17c416acbd91ba9d06f8975a726199720dc99cda12b758f3d7b9e1e890f58f05"
+    },
+    {
+      "old": "report/00_comparison_gallery/V3_vs_original.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/00_comparison_gallery/V3_vs_original.mp4",
+      "sha256": "d95731ce7fc01ebe989065658c995690076142531b60b8e876f9788e727bd279"
+    },
+    {
+      "old": "report/V2a_rgb_anchor/videos/V2_vs_V1.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/V2a_rgb_anchor/videos/V2_vs_V1.mp4",
+      "sha256": "57d0bf64294014fe13b4831f7a826b1b7a1f0b3eb50a093330f0f3cf7314df87"
+    },
+    {
+      "old": "report/V2a_rgb_anchor/videos/V2_vs_original.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/V2a_rgb_anchor/videos/V2_vs_original.mp4",
+      "sha256": "e901492dab66cbeb84d17d78fbd5c24a09af05891ae2a80681195671688fed92"
+    },
+    {
+      "old": "report/V2b_same_sigma_local_bidir/videos/V3_four_paths_56.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_four_paths_56.mp4",
+      "sha256": "b540f0bbbe9a911ae0548235b06abff086855bac7df182655b5fcb7fcc6f90ff"
+    },
+    {
+      "old": "report/V2b_same_sigma_local_bidir/videos/V3_vs_V2.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_vs_V2.mp4",
+      "sha256": "17c416acbd91ba9d06f8975a726199720dc99cda12b758f3d7b9e1e890f58f05"
+    },
+    {
+      "old": "report/V2b_same_sigma_local_bidir/videos/V3_vs_original.mp4",
+      "new": "archive/obsolete_presentation_v2_v3/report/V2b_same_sigma_local_bidir/videos/V3_vs_original.mp4",
+      "sha256": "d95731ce7fc01ebe989065658c995690076142531b60b8e876f9788e727bd279"
+    }
+  ],
+  "modified_current_documents": [
+    "mainline/README.md",
+    "mainline/V3_efficient_causal_planned/README.md",
+    "mainline/V2b_same_sigma_local_bidir/README.md",
+    "mainline/V2a_rgb_anchor_causal/README.md",
+    "branches/C_anyflow_dmd/README.md",
+    "branches/A_causal_diagnostics/README.md",
+    "branches/B_causal_adaptation/README.md",
+    "branches/C_anyflow_dmd/02_anyflow16/README.md",
+    "branches/C_anyflow_dmd/07_dmd_preparation/README.md",
+    "branches/A_causal_diagnostics/01_chunk_partition/README.md",
+    "branches/A_causal_diagnostics/05_vae_time_rope/README.md",
+    "branches/B_causal_adaptation/05_rgb_visual/README.md",
+    "branches/B_causal_adaptation/02_history_mixing/README.md",
+    "report/TALK_5MIN.md",
+    "report/index.html",
+    "report/roadmap.md",
+    "report/README.md",
+    "report/COMPARISON_PROTOCOL.md",
+    "report/METRICS.md",
+    "report/00_comparison_gallery/README.md",
+    "report/02_next_steps/README.md",
+    "report/V2b_same_sigma_local_bidir/README.md",
+    "report/V2a_rgb_anchor/README.md",
+    "report/01_research_branches_summary/README.md",
+    "report/V0_original/code/README.md",
+    "report/V1_native_causal/code/README.md",
+    "report/V2b_same_sigma_local_bidir/code/README.md",
+    "report/V2a_rgb_anchor/code/README.md",
+    "README.md",
+    "REPORT.md",
+    "REORGANIZATION_SUMMARY.md",
+    "INTERVIEW_ANSWER.md",
+    "docs/EXPERIMENT_REPORT.md",
+    "meeting/README.md",
+    "experiments/02_rgb_anchor_visual_drift_repair/README.md",
+    "reports/stage1_anyflow/README.md",
+    "report/V2a_rgb_anchor/PROVENANCE.json",
+    "report/V2b_same_sigma_local_bidir/PROVENANCE.json"
+  ],
+  "version_ids": {
+    "old_V2": "V2a",
+    "old_V3": "V2b",
+    "old_V4": "V3 planned"
+  },
+  "relationship": "V1 problem branches into V2a/V2b; V2b restores Original protocol. Future V3 is planned unification.",
+  "no_training_or_model_inference": true
+}

@@ -1,0 +1,12 @@
+{
+  "branch": "C_anyflow_dmd",
+  "experiment": "06_stage2_lite",
+  "title": "Trainable fake score / self-rollout / DMD surrogate",
+  "status": "implementation verified; preliminary trained; quality failed",
+  "conclusion": "共享H3的student/teacher/critic及实际小预算DMD链路存在，旧latent版人物分解，RGB集成A/D仍未恢复。不称完整SolarWM Stage2成功。",
+  "evidence": [
+    "experiments/03_stage2_lite_critic_dmd/README.md",
+    "code/causal/stage2_lite_dmd.py",
+    "meeting/stage2_lite/"
+  ]
+}

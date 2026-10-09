@@ -1,0 +1,114 @@
+# REORGANIZATION SUMMARY · 2026-10-10
+
+本次实际完成文件审计、版本映射、目录组织、CPU视频制作、源码摘取和汇报文档。没有模型训练、33B GPU推理、AnyFlow或DMD运行。原始MP4没有覆盖，原始测量结果没有重算或改写。
+
+## 1. 新仓库结构
+
+```text
+submission/
+  mainline/
+    V0_original_bidirectional/
+    V1_native_chunk_causal/
+    V2_rgb_anchor_causal/
+    V3_same_sigma_history/
+    V4_efficient_causal_planned/
+  branches/
+    A_causal_diagnostics/     5个机制主题
+    B_causal_adaptation/     7个训练/动作恢复主题
+    C_anyflow_dmd/           7个少步/DMD主题
+  report/                    独立复制的简洁展示包，约107MiB
+    README.md / index.html / roadmap.md / TALK_5MIN.md
+    METRICS.md / COMPARISON_PROTOCOL.md
+    V0_original/ V1_native_causal/ V2_rgb_anchor/ V3_same_sigma/
+    00_comparison_gallery/  19个H.264比较/参考MP4
+    01_research_branches_summary/
+    02_next_steps/
+  archive/
+    historical_docs/ legacy_reports/ reorganization_20261010/
+  code/ checkpoints/ experiments/ reports/ meeting/  原运行/证据路径保留
+```
+
+[一分钟汇报导航](report/README.md) · [本地浏览器演示](report/index.html) · [完整版本索引](mainline/README.md) · [研究分支](branches/README.md)。
+
+## 2. 移动、复制、归档策略
+
+先检查Git：工作区干净，基准commit `1a93713e218b8fd48d3fa5c47f25638068c012e0`；fetch后远端与本地一致，没有需要合并的新提交。
+
+- `git mv`归档4份历史文档：旧`REPORT.md`及`docs/archive`下的Next Plan、Project Progress、Submission Manifest；旧路径保留新报告/兼容入口。只重定位Markdown链接；原始字节另存。
+- 根README改为Mainline + Research Branches + Report导航。原README也归档；旧meeting与stage1_anyflow入口加当前版本说明，不修改视频和测量。
+- 现有`experiments/`、`reports/`、`meeting/`保留为原始证据层，通过19个研究子主题manifest、主线版本manifest及归档registry组织。没有把冻结runtime、相对路径敏感脚本、大checkpoint搬乱。
+- 将12条主线原片、早期native/50-step参考、关键代码、配置收据、少量分支/长片证据作实际文件复制。核心71项来源复制有逐文件SHA；gallery另有9项版本目录副本；断链修复另补入27个旧引用资源，见[修复清单](archive/reorganization_20261010/link_repairs.json)。report不依赖视频软链接，不含模型权重或临时tensor。
+- 所有旧checkpoint、重要log/CSV/JSON、原始MP4和生产code保持字节不变；重复视频只登记，不删除。大权重和外部outputs通过来源路径和manifest关联。
+
+[复制清单](archive/reorganization_20261010/copy_manifest.json) · [移动清单](archive/reorganization_20261010/layout_actions.json) · [旧集合归档registry](archive/legacy_collections.json) · [审计前文件索引](archive/reorganization_20261010/file_index.json)。
+
+## 3. 实际生成的视频
+
+全部用PyAV/FFmpeg libx264在CPU输出：24fps、H.264/YUV420P、faststart、等比例缩放留边、左旧右新、统一帧号。无插值、慢放、循环或新模型采样。共18条新编码内容和1个同义命名副本，组成19条画廊；分版videos中有少量真实副本。
+
+| 文件 | 帧数 | 范围 / 说明 |
+|---|---:|---|
+| [V0_AD_reference.mp4](report/00_comparison_gallery/V0_AD_reference.mp4) | 124 | V0 action reference: A vs D |
+| [V0_WSAD_reference.mp4](report/00_comparison_gallery/V0_WSAD_reference.mp4) | 124 | V0 Original H3-World: W / S / A / D |
+| [V1_A_vs_original.mp4](report/00_comparison_gallery/V1_A_vs_original.mp4) | 124 | Original H3-World vs V1 | action A |
+| [V1_D_vs_original.mp4](report/00_comparison_gallery/V1_D_vs_original.mp4) | 124 | Original H3-World vs V1 | action D |
+| [V1_vs_original.mp4](report/00_comparison_gallery/V1_vs_original.mp4) | 124 | Original H3-World vs V1 | A / D |
+| [V2_A_vs_original.mp4](report/00_comparison_gallery/V2_A_vs_original.mp4) | 124 | Original H3-World vs V2 | action A |
+| [V2_D_vs_original.mp4](report/00_comparison_gallery/V2_D_vs_original.mp4) | 124 | Original H3-World vs V2 | action D |
+| [V2_vs_original.mp4](report/00_comparison_gallery/V2_vs_original.mp4) | 124 | Original H3-World vs V2 | A / D |
+| [V2_A_vs_V1.mp4](report/00_comparison_gallery/V2_A_vs_V1.mp4) | 124 | V1 vs V2 | action A |
+| [V2_D_vs_V1.mp4](report/00_comparison_gallery/V2_D_vs_V1.mp4) | 124 | V1 vs V2 | action D |
+| [V2_vs_V1.mp4](report/00_comparison_gallery/V2_vs_V1.mp4) | 124 | V1 vs V2 | A / D |
+| [V3_A_vs_original.mp4](report/00_comparison_gallery/V3_A_vs_original.mp4) | 56 | Original H3-World vs V3 | action A |
+| [V3_D_vs_original.mp4](report/00_comparison_gallery/V3_D_vs_original.mp4) | 56 | Original H3-World vs V3 | action D |
+| [V3_vs_original.mp4](report/00_comparison_gallery/V3_vs_original.mp4) | 56 | Original H3-World vs V3 | A / D |
+| [V3_A_vs_V2.mp4](report/00_comparison_gallery/V3_A_vs_V2.mp4) | 56 | V2 vs V3 | action A |
+| [V3_D_vs_V2.mp4](report/00_comparison_gallery/V3_D_vs_V2.mp4) | 56 | V2 vs V3 | action D |
+| [V3_vs_V2.mp4](report/00_comparison_gallery/V3_vs_V2.mp4) | 56 | V2 vs V3 | A / D |
+| [V3_four_paths_56.mp4](report/00_comparison_gallery/V3_four_paths_56.mp4) | 56 | V3 C12->5: A->A / A->D / D->A / D->D |
+| [V1_vs_V0.mp4](report/00_comparison_gallery/V1_vs_V0.mp4) | 124 | V1_vs_original的字节一致副本 |
+
+V3四路径展示A→A、A→D、D→A、D→D，RGB39进入第二块后加黄色边框。V3与Original/V2的AA/DD主比较仅用共同RGB[0,56)；原124f与20秒失败片完整保留。视频标签区分全124f E2E与V3第二块sampling，不能将裁剪范围计时当实际latency。
+
+[制作配方](archive/reorganization_20261010/render_specs.json) · [逐视频解码收据](archive/reorganization_20261010/render_results.json) · [source与hash](archive/reorganization_20261010/selected_sources.json)。
+
+## 4. 每个版本的最终结论
+
+| 版本 | 本次确认的边界 |
+|---|---|
+| V0 | released H3-World、Single-Egress、Single I0、完整双向30-step是动作正控；Original不是GT，也非无限时长稳定 |
+| V1 | 选择零新增adapter、latent dual、seed13、8/chunk的native124f；工程跑通，A/D几乎停滞，后段过亮/背景退化。最早seed2/4-step和fixed-mix训练版分别保存，不能混写 |
+| V2 | RGB image branch + visual QKV + endpoint/boundary等联合协议，124f结构相对改善；A仍方向错，20s失败。不能独归因anchor |
+| V3 | 从Original重新出发，非V2 checkpoint后续。Single I0/native time、Same-σ、T2可见窗口重算、C12→5，自身history第二块动作/结构局部正结果；无persistent hidden KV，无124f验收 |
+| V4 | Planned。只保留roadmap与Go/No-Go，完全没有编造视频或权重 |
+
+AnyFlow16/64/128/136与DMD-lite是旧协议上的先行探索；有实现/训练证据，但没有正式质量成功，不代表V3完成Stage1或Stage2。真实ABot的FM48/E2与伪标签AnyFlow分开索引。
+
+## 5. 仍然缺失的材料
+
+- **MISSING_MATCHED_VIDEO**：V3 A→D / D→A在RGB39切换的Original/V2匹配56f视频。全工作区现有MP4及setup已搜索；发现的Original多段schedule是WAD/DSA，切块协议不同，不能冒充。[搜索记录](archive/reorganization_20261010/matched_video_search.json)。
+- V3第三/第四块、跨场景、完整124f以及persistent KV版本的联合验收。
+- V4实现/模型/视频；基于可信V3/V4的AnyFlow及完整on-policy DMD质量结果。
+- V0/V1早期每次运行的完整冻结源码manifest。本包提供实际保存的配置和可追溯代码快照，明确不冒充当时逐字节runtime；V3则核验冻结源码哈希。
+- V1所选124f同口径MAD/boundary原测量、统一硬件warmup多次性能均值、GPU权重/激活/KV分项测量；缺项不填0。
+- 没找到真实ABot AnyFlow训练结果；已找到的真实数据训练为普通FM/E2，AnyFlow为Original生成伪标签。
+
+## 6. 不能严格单因素比较的历史实验
+
+- 最早seed2/4-step native vs 后期seed13/8-step latent-dual：seed、采样/条件和历史代码不同。
+- V1零adapter vs fixed-mix：后者有新增action adaptation，不能借用其动作指标给V1。
+- V1→V2：adapter、anchor、action routing/feedback等一起变化。
+- V2→V3：checkpoint来源、精度、时间、anchor、history、chunk partition、video attention、cache和采样步数不同；是跨协议研究比较。
+- Original124裁前56 vs V3真实两块56：可见future上下文及生成horizon不同；相同显示帧不等于相同计算图。
+- 39f、124f与仅17新RGB的flow不能直接算“恢复百分比”；不同MAD/边界定义不可混为同一指标。
+- cache/recompute受控数值误差0不等于默认生产路径bitwise一致，也不等于Original双向等价或视频质量通过。
+
+## 7. 最终检查
+
+验收结果 **PASS**：原2844个跟踪文件中2823个字节不变，21个文档有明确导航/链接/报告更新；没有意外变动或丢失。417个主要导航链接与全仓库Markdown链接有效；56个此次新增打包MP4（含副本、共46种内容）全部通过完整解码、24fps/逐帧PTS、H.264/YUV420P检查。18个新/摘取Python文件通过语法检查；report实际隔离复制后105项目录/文件均可用，无软链接。精简包111,856,878字节（约106.7MiB）。
+
+`git diff --check`已经复核：新编写内容通过；原始patch上下文和历史原文中的58处空白提示按原字节保留，未为消除格式提示破坏patch/原记录，详见[Git复核](archive/reorganization_20261010/git_review.json)。
+
+[完整验收收据](archive/reorganization_20261010/validation.json)记录原文件哈希、复制一致性、冻结V3代码、链接、Python语法、新MP4完整解码及report真实隔离复制检查；[所有打包MP4](archive/reorganization_20261010/all_packaged_video_validation.json)逐项记录FPS、帧数、codec与SHA。全仓库原有102处断链已处理，并修复补入文档的1处链接；共103处。补齐27个旧引用资源（约8.5MiB），原Markdown字节另存。唯一未找到的是上游ABot展示海报，已改为诚实缺失说明，不影响实验视频；当前不存在可点击的坏路径。
+
+代码和测量的范围没有扩展：本次只做整理、复核与CPU媒体制作。GitHub远端已检查；本次变更保留在本地供审阅，未自动推送。

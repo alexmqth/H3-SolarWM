@@ -1,0 +1,12 @@
+{
+  "branch": "A_causal_diagnostics",
+  "experiment": "03_action_routing",
+  "title": "Single-Egress / feedback / public prefix",
+  "status": "implementation verified; action mismatch diagnosed",
+  "conclusion": "causal action prefix允许当前V直接读past A；raw cache仅存video K/V，额外action直读来自fresh prefix。own仍允许通过历史video间接传播。",
+  "evidence": [
+    "reports/stage1_anyflow/02_causal_diagnostics/first_chunk_routes/README.md",
+    "reports/stage1_anyflow/02_causal_diagnostics/action_routing_kv_audit/execution_20261010/README.md",
+    "reports/action_alignment/ACTION_ROUTING_PROBE.md"
+  ]
+}

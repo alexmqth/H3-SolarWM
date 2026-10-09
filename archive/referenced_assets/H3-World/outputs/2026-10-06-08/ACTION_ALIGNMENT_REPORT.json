@@ -1,0 +1,117 @@
+{
+  "protocol": {
+    "frames": 39,
+    "latent_frames": 12,
+    "chunks": 3,
+    "chunk_frames": 5,
+    "steps_per_chunk": 8,
+    "anchor_mode": "RGB dual",
+    "history": "generated",
+    "target_chunks": [
+      1,
+      2
+    ],
+    "sigmas": [
+      0.94,
+      0.79,
+      0.57,
+      0.24
+    ],
+    "seed": 13,
+    "loss": "full-teacher paired A/D delta only",
+    "visual_adapter": "frozen tail16 RGB dual"
+  },
+  "variants": [
+    {
+      "variant": "hidden",
+      "student_mode": "hidden",
+      "student_blocks": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "wall_seconds": 512.1438902630471,
+      "peak_allocated_GiB": 39.45071315765381,
+      "student_trainable_parameters": 774153,
+      "paired_direction_loss_mean": 0.8607530817389488,
+      "paired_delta_cosine_mean": 0.13924691826105118,
+      "paired_delta_norm_ratio_mean": 1.97388736675001,
+      "A": {
+        "frames": 39,
+        "fps": 24.0,
+        "duration_seconds": 1.625,
+        "profile": "Constrained Baseline",
+        "pix_fmt": "yuv420p",
+        "frame_rgb_mad": 3.5877115726470947,
+        "boundary_rgb_mad_mean": 5.242143630981445,
+        "horizontal_flow": -1.249903367930337
+      },
+      "D": {
+        "frames": 39,
+        "fps": 24.0,
+        "duration_seconds": 1.625,
+        "profile": "Constrained Baseline",
+        "pix_fmt": "yuv420p",
+        "frame_rgb_mad": 3.707502603530884,
+        "boundary_rgb_mad_mean": 4.527572154998779,
+        "horizontal_flow": -1.429307123548106
+      },
+      "A_minus_D_horizontal": 0.179403755617769,
+      "gate": false
+    },
+    {
+      "variant": "qkv_tail4",
+      "student_mode": "qkv",
+      "student_blocks": [
+        46,
+        47,
+        48,
+        49
+      ],
+      "wall_seconds": 560.8281869958155,
+      "peak_allocated_GiB": 39.398510456085205,
+      "student_trainable_parameters": 774153,
+      "paired_direction_loss_mean": 0.6101373136043549,
+      "paired_delta_cosine_mean": 0.38986268639564514,
+      "paired_delta_norm_ratio_mean": 1.0182291170355358,
+      "A": {
+        "frames": 39,
+        "fps": 24.0,
+        "duration_seconds": 1.625,
+        "profile": "Constrained Baseline",
+        "pix_fmt": "yuv420p",
+        "frame_rgb_mad": 3.826228380203247,
+        "boundary_rgb_mad_mean": 5.272412300109863,
+        "horizontal_flow": -0.8359384223034507
+      },
+      "D": {
+        "frames": 39,
+        "fps": 24.0,
+        "duration_seconds": 1.625,
+        "profile": "Constrained Baseline",
+        "pix_fmt": "yuv420p",
+        "frame_rgb_mad": 3.679164171218872,
+        "boundary_rgb_mad_mean": 4.243817329406738,
+        "horizontal_flow": -0.7684604564166971
+      },
+      "A_minus_D_horizontal": -0.06747796588675359,
+      "gate": false
+    }
+  ],
+  "reference": {
+    "original_h3_teacher_A_minus_D": 2.023,
+    "gate": "flow(A)>0, flow(D)<0, A-D>1.0"
+  },
+  "files": {
+    "flow": "action_alignment_flow.json",
+    "contact_sheet": "action_alignment_contact_sheet.jpg",
+    "hidden_video": "action_align_hidden_rgb_39_8step_pair1_final/AD.mp4",
+    "qkv_video": "action_align_qkv_tail4_rgb_39_8step_pair1_final/AD.mp4"
+  },
+  "decision": "Tail4 QKV alignment improves score-field delta cosine and norm ratio relative to hidden residual, but one update does not recover rollout A/D optical-flow geometry. Both variants fail the 39-frame gate; no 124-frame promotion."
+}

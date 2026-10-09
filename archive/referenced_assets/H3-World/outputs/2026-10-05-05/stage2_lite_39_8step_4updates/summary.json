@@ -1,0 +1,37 @@
+{
+  "protocol": {
+    "rgb_frames": 39,
+    "latent_frames": 12,
+    "chunks": 3,
+    "chunk_frames": 5,
+    "solver_steps_per_chunk": 8,
+    "history_chunks": 5,
+    "flow_shift": 2.22,
+    "anchor": "dynamic_last_frame_dual",
+    "history": "generated",
+    "seed": 13
+  },
+  "methods": {
+    "fixed_mix_stage1": {
+      "A": -0.01324594602920115,
+      "D": -0.7689098156988621,
+      "A_minus_D": 0.7556638696696609,
+      "source": "../../2026-10-03-21/fixedmix_feedback_eval39_8step/AD_flow.json"
+    },
+    "stage2_lite_1_round": {
+      "A": -0.013795041111542991,
+      "D": -0.7727901100328094,
+      "A_minus_D": 0.7589950689212664,
+      "source": "../../2026-10-04/stage2_lite_39_8step_1update/eval/AD_flow.json"
+    },
+    "stage2_lite_4_rounds": {
+      "A": 0.004768448226202868,
+      "D": -0.7683894801639805,
+      "A_minus_D": 0.7731579283901833,
+      "source": "eval/AD_flow.json"
+    }
+  },
+  "peak_allocated_gpu_gib": 39.3893681640625,
+  "per_cache_bytes": 5665920000,
+  "status": "feasible_chain_but_action_separation_gate_failed"
+}

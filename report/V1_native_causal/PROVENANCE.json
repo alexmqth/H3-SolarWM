@@ -1,0 +1,273 @@
+{
+  "version": "V1",
+  "package_commit": "1a93713e218b8fd48d3fa5c47f25638068c012e0",
+  "experiment_sources": [
+    {
+      "id": "V1_A",
+      "version": 1,
+      "action": "A",
+      "source": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2/cached.mp4",
+      "run": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2/cached.json",
+      "setup": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2/setup.json",
+      "config": {
+        "modes": [
+          "cached"
+        ],
+        "steps": 8,
+        "flow_shift": 2.22,
+        "baseline_steps": 30,
+        "num_frames": 124,
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "action_preset": "A",
+        "action_schedule": null,
+        "cache_device": "cpu",
+        "anchor_mode": "dynamic_last_frame_dual",
+        "boundary_blend": 0.0,
+        "boundary_overlap_frames": 1,
+        "boundary_clamp": false,
+        "device": "cuda:0",
+        "seed": 13,
+        "out_dir": "H3-World/outputs/2026-10-02-04/action_A_base_causal124_retry2",
+        "save_latents": false,
+        "causal_adapter": null,
+        "history_source": "generated",
+        "teacher_latents": null
+      },
+      "metrics": {
+        "mode": "cached",
+        "status": "complete",
+        "started_at": "2026-10-02T04:16:21.146285+08:00",
+        "steps": 8,
+        "num_frames": 124,
+        "seed": 13,
+        "gpu": "NVIDIA L40",
+        "visible_devices": "2",
+        "cache_device": "cpu",
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "trained_for_causal": false,
+        "history_source": "generated",
+        "anchor_mode": "dynamic_last_frame_dual",
+        "boundary_blend": 0.0,
+        "boundary_overlap_frames": 1,
+        "boundary_clamp": false,
+        "action_preset": "A",
+        "action_preset_resolved": "strafe-left",
+        "action_schedule": [
+          "strafe-left",
+          "strafe-left",
+          "strafe-left",
+          "strafe-left",
+          "strafe-left",
+          "strafe-left",
+          "strafe-left",
+          "strafe-left"
+        ],
+        "flow_shift": 2.22,
+        "anchor_protocol": "global_retimed_latent_dual_v1",
+        "causal_adapter": null,
+        "cfg_scale": 1.0,
+        "audio_output": "silent",
+        "attention_backend": "PyTorch SDPA",
+        "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+        "dit_prepare_seconds": 20.71818783786148,
+        "denoiser_forwards": 64,
+        "commit_forwards": 8,
+        "chunk_seconds": [
+          42.19028043397702,
+          52.40922932000831,
+          52.22211403795518,
+          44.059619235107675,
+          54.79546644887887,
+          61.68550116708502,
+          51.403247573180124,
+          42.19858420221135
+        ],
+        "sampling_seconds": 400.97203440312296,
+        "sampling_memory": {
+          "allocated_peak_MiB": 39946.88623046875,
+          "reserved_peak_MiB": 41226.0
+        },
+        "kv_cache_peak_MiB": 13508.60595703125,
+        "per_layer_commits": 400,
+        "vae_prepare_seconds": 16.97958372090943,
+        "vae_decode_seconds": 11.597022843081504,
+        "frames_to_cpu_seconds": 0.24937966116704047,
+        "encode_mp4_seconds": 0.8867600890807807,
+        "wall_after_conditioning_seconds": 451.4217336741276,
+        "wall_including_shared_setup_seconds": 465.9134227493778,
+        "memory_after_setup": {
+          "allocated_peak_MiB": 39946.88623046875,
+          "reserved_peak_MiB": 41226.0
+        },
+        "memory_entire_run_peak_MiB": 39946.88623046875,
+        "completed_at": "2026-10-02T04:23:52.569217+08:00"
+      },
+      "video": {
+        "width": 832,
+        "height": 480,
+        "fps": 24.0,
+        "frames": 124,
+        "codec": "h264"
+      },
+      "sha256": "afe755cd8922b256b2f0ecf33a037ad6807411557f9066a11153ba83f3be1be2",
+      "packaged_video": "report/V1_native_causal/videos/V1_A_full.mp4"
+    },
+    {
+      "id": "V1_D",
+      "version": 1,
+      "action": "D",
+      "source": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/cached.mp4",
+      "run": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/cached.json",
+      "setup": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2/setup.json",
+      "config": {
+        "modes": [
+          "cached"
+        ],
+        "steps": 8,
+        "flow_shift": 2.22,
+        "baseline_steps": 30,
+        "num_frames": 124,
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "action_preset": "D",
+        "action_schedule": null,
+        "cache_device": "cpu",
+        "anchor_mode": "dynamic_last_frame_dual",
+        "boundary_blend": 0.0,
+        "boundary_overlap_frames": 1,
+        "boundary_clamp": false,
+        "device": "cuda:0",
+        "seed": 13,
+        "out_dir": "H3-World/outputs/2026-10-02-04/action_D_base_causal124_retry2",
+        "save_latents": false,
+        "causal_adapter": null,
+        "history_source": "generated",
+        "teacher_latents": null
+      },
+      "metrics": {
+        "mode": "cached",
+        "status": "complete",
+        "started_at": "2026-10-02T04:16:22.413262+08:00",
+        "steps": 8,
+        "num_frames": 124,
+        "seed": 13,
+        "gpu": "NVIDIA L40",
+        "visible_devices": "3",
+        "cache_device": "cpu",
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "trained_for_causal": false,
+        "history_source": "generated",
+        "anchor_mode": "dynamic_last_frame_dual",
+        "boundary_blend": 0.0,
+        "boundary_overlap_frames": 1,
+        "boundary_clamp": false,
+        "action_preset": "D",
+        "action_preset_resolved": "strafe-right",
+        "action_schedule": [
+          "strafe-right",
+          "strafe-right",
+          "strafe-right",
+          "strafe-right",
+          "strafe-right",
+          "strafe-right",
+          "strafe-right",
+          "strafe-right"
+        ],
+        "flow_shift": 2.22,
+        "anchor_protocol": "global_retimed_latent_dual_v1",
+        "causal_adapter": null,
+        "cfg_scale": 1.0,
+        "audio_output": "silent",
+        "attention_backend": "PyTorch SDPA",
+        "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+        "dit_prepare_seconds": 21.319100003922358,
+        "denoiser_forwards": 64,
+        "commit_forwards": 8,
+        "chunk_seconds": [
+          39.575924397911876,
+          51.948588395956904,
+          49.03090463601984,
+          35.04929400794208,
+          37.14268436282873,
+          53.88941574818455,
+          38.195565519854426,
+          30.70504266791977
+        ],
+        "sampling_seconds": 335.57263737590984,
+        "sampling_memory": {
+          "allocated_peak_MiB": 39946.88623046875,
+          "reserved_peak_MiB": 41226.0
+        },
+        "kv_cache_peak_MiB": 13508.60595703125,
+        "per_layer_commits": 400,
+        "vae_prepare_seconds": 16.56691126083024,
+        "vae_decode_seconds": 10.918903153855354,
+        "frames_to_cpu_seconds": 0.1800701068714261,
+        "encode_mp4_seconds": 0.8695197210181504,
+        "wall_after_conditioning_seconds": 385.4570139280986,
+        "wall_including_shared_setup_seconds": 400.9098812530283,
+        "memory_after_setup": {
+          "allocated_peak_MiB": 39946.88623046875,
+          "reserved_peak_MiB": 41226.0
+        },
+        "memory_entire_run_peak_MiB": 39946.88623046875,
+        "completed_at": "2026-10-02T04:22:47.871043+08:00"
+      },
+      "video": {
+        "width": 832,
+        "height": 480,
+        "fps": 24.0,
+        "frames": 124,
+        "codec": "h264"
+      },
+      "sha256": "ac992d3f1e4b74c14d6bc3be6a1fd68aabd053b7dcce5b19b8070d45039845b5",
+      "packaged_video": "report/V1_native_causal/videos/V1_D_full.mp4"
+    }
+  ],
+  "code_snapshot": [
+    {
+      "source": "code/causal/h3_cached.py",
+      "sha256": "629f8f26d912c188d7d7122c6106ff742f5b2a633dab5881acbb1eb5f77c806e",
+      "package_commit": "1a93713e218b8fd48d3fa5c47f25638068c012e0",
+      "exact_frozen_runtime": false,
+      "filename": "h3_cached.py"
+    },
+    {
+      "source": "code/causal/prototype.py",
+      "sha256": "bf42719a9cf03d914c77c609bb805e5017f168ec3eb352aa21d3b0633a8b3468",
+      "package_commit": "1a93713e218b8fd48d3fa5c47f25638068c012e0",
+      "exact_frozen_runtime": false,
+      "filename": "prototype.py"
+    },
+    {
+      "source": "code/causal/benchmark.py",
+      "sha256": "57967adc86b181dd699d3e02d74aa2b41b2ebfc4237dc141c1d0228a7db39f9c",
+      "package_commit": "1a93713e218b8fd48d3fa5c47f25638068c012e0",
+      "exact_frozen_runtime": false,
+      "filename": "benchmark.py"
+    },
+    {
+      "source": "code/diffsynth_causal.patch",
+      "sha256": "e9960f097c1089401db7a5789de1eff885ed7bb09c4156206760998b56f9ed1a",
+      "package_commit": "1a93713e218b8fd48d3fa5c47f25638068c012e0",
+      "exact_frozen_runtime": false,
+      "filename": "diffsynth_causal.patch"
+    }
+  ],
+  "checkpoints": "H3-World/outputs/2026-10-02-04/action_{A,D}_base_causal124_retry2/。无新增训练checkpoint；历史原始底座与released LoRA仍为外部依赖。",
+  "portable_report_contains_model_weights": false,
+  "base_model_dependencies": {
+    "workspace": "/home/lpeng/code/mq_PubDataset/GWM",
+    "workspace_alias": "/home/qma/work/GWM",
+    "upstream_H3_World_base_git_commit": "f0c7be2acbbde8256b2473f6e7b088f58272acae",
+    "upstream_commit_is_unmodified_worktree_proof": false,
+    "model": "MiniMax-H3 FL2VA 33B, external weights; patched DiffSynth runtime",
+    "released_action_LoRA_sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+    "first_image_source": "examples/first_frame.png",
+    "first_image_sha256": "25729ce66bc578c90a6d262bf3879a3e7b16e5c5009362903a7fae6d757a4b00"
+  },
+  "trained_adapters": "No additional trained adapter; released H3-World action LoRA only"
+}

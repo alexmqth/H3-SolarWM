@@ -1,0 +1,59 @@
+{
+  "filename": "V2a_D_vs_original.mp4",
+  "rows": [
+    [
+      "V0_D",
+      "V2_D"
+    ]
+  ],
+  "frames": 124,
+  "title": "V0 vs V2a | action D",
+  "caveat": "Same scene/seed/actions; RGB + adapters + routing are a JOINT protocol, NOT an anchor-only ablation.",
+  "video": {
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "fps": 24.0,
+    "width": 1248,
+    "height": 564,
+    "frames": 124,
+    "duration_s": 5.166666666666667,
+    "full_decode": true,
+    "constant_pts": true,
+    "sha256": "cb892d2fc8eadf276d627f5c2d1649b76682339e2ab69f1adb012a80a72bb31e",
+    "bytes": 1557252
+  },
+  "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+  "sources": [
+    {
+      "id": "V0_D",
+      "path": "report/V0_original/videos/V0_D_full.mp4",
+      "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+      "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V2_D",
+      "path": "report/V2a_rgb_anchor/videos/V2a_D_full.mp4",
+      "sha256": "d6633cf10e7741a08261ca18718ab474e66f65189cbb39a3c457d8193435ae23",
+      "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    }
+  ],
+  "transforms": [
+    "RGB frame-exact [0,N) selection",
+    "aspect-preserving Lanczos display resize + padding",
+    "labels + side-by-side",
+    "libx264 CRF18/yuv420p/24fps/faststart"
+  ],
+  "no_interpolation": true,
+  "no_loops": true,
+  "no_model_inference": true
+}

@@ -1,0 +1,34 @@
+# 研究路线与版本关系
+
+V0 Original H3-World → V1 Native Causalization → V2 Visual Conditioning Repair → V3 Same-σ Action Recovery（仅局部） → V4 Efficient Causalization（Future） → AnyFlow Few-step Distillation → On-policy DMD。
+
+上面是问题演进顺序，**不是同一checkpoint连续训练链**。
+
+```mermaid
+flowchart TD
+    V0["V0 Original H3 + released action LoRA"] --> V1["V1 Strict chunk-causal + persistent KV"]
+    V1 --> V2["V2 RGB conditioning + visual adaptation"]
+    V0 --> V3["V3 Single I0 / native time / Same-sigma / C12→5"]
+    V2 -. "视觉与动作的取舍促成重新审视协议；不继承权重" .-> V3
+    V3 --> V4["V4 Planned: preserve capability under strict causal + KV"]
+    V4 --> AF["Future: AnyFlow few-step"]
+    AF --> DMD["Future: on-policy DMD"]
+    A["Branch A: causal mechanism diagnostics"] -.-> V4
+    B["Branch B: causal adaptation and action recovery"] -.-> V2
+    C["Branch C: preliminary AnyFlow / DMD explorations"] -. "已有探索，非V3完成Stage1/2" .-> AF
+```
+
+| 迭代 | 上一阶段的主要失败 | 新阶段改变了什么 | 已解决与未解决 |
+|---|---|---|---|
+| V0→V1 | 完整horizon联合去噪，不能直接按块复用历史 | causal分块、raw KV、clean commit、generated history、后期latent dual | 工程rollout可执行；动作及局部结构丢失 |
+| V1→V2 | V1家族人物透明、重影、分裂，动态条件与视觉训练不一致 | RGB decode/re-encode + visual QKV + endpoint/boundary + routing联合协议 | 124f视觉改善；动作失败，20s崩坏；不能归因anchor单项 |
+| V2→V3 | 视觉/动作取舍，strict causal依赖图与原动作传播不匹配 | 回到Original，无visual adapter；Single I0/native time；T2每sigma重算，Same-σ，C12→5 | 自身history第二块动作及人物结构局部通过；无persistent KV/长期验证；跨协议比较 |
+| V3→V4 | 只有慢速局部候选；严格图/KV未保留该能力 | **计划**隔离public prefix、action routing、历史时间、strict图和cache | 尚无V4结果 |
+
+## 三个旁路与正确的后续顺序
+
+Branch A厘清Action–Video配对、公共prefix反馈、video图和KV冻结；Branch B测试ordinary FM、mix、teacher replay、动作监督和真实ABot，得到正负结果；Branch C提前探索AnyFlow和DMD，实现/数值可行但质量未过。它们均没有证明V3已经完成AnyFlow/Stage2。
+
+AnyFlow学习有限区间flow map，目的为减少每chunk采样次数；DMD让student在自己生成的分布上得到teacher与trainable fake score之差的训练方向。DMD不能被当作任何causal topology或action表示错误的万能修复。
+
+[下一步验收](02_next_steps/README.md) · [回到首页](README.md)

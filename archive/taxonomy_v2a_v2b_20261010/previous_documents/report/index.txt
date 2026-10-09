@@ -1,0 +1,13 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H3-World × SolarWM | Research Demo</title><style>
+body{font:17px/1.65 system-ui,sans-serif;background:#101723;color:#e7edf5;margin:auto;max-width:1180px;padding:24px}
+h1{font-size:28px}a{color:#90cfff}select{font:inherit;background:#26374e;color:white;padding:8px;width:100%}
+video{display:block;width:100%;max-height:70vh;background:black;margin-top:16px}.note{color:#ffd48c}details{margin:18px 0}
+</style><h1>H3-World × SolarWM：因果化与动作信息流</h1>
+<p>工程可行；完整动作、长期稳定与加速尚未同时达成。当前最好：<strong>V3 C12→5的第二块局部正控</strong>，没有persistent hidden KV。</p>
+<label>选择对比视频 <select id="pick"><option value="00_comparison_gallery/V1_vs_original.mp4">Original→V1</option><option value="00_comparison_gallery/V2_vs_V1.mp4">V1→V2</option><option value="00_comparison_gallery/V3_four_paths_56.mp4">V3 四路径 / RGB39切块</option><option value="00_comparison_gallery/V3_vs_V2.mp4">V2→V3 跨协议</option><option value="00_comparison_gallery/V3_vs_original.mp4">Original→V3 前56帧</option><option value="V2_rgb_anchor/videos/V2_long20s_failure.mp4">20秒完整失败证据</option></select></label>
+<video id="player" controls preload="metadata" playsinline src="00_comparison_gallery/V1_vs_original.mp4"></video>
+<p class="note">原速24fps；未补帧或循环。V3跨版只比较前56帧，不是单因素消融。20秒失败片保留完整后段。</p>
+<details><summary>建议讲述顺序与版本边界</summary><p>V0动作正控 → V1工程跑通但动作减弱 → V2联合视觉修复、动作未恢复 → V3回到Original恢复原生条件并重算历史，只有第二块局部通过 → V4高效化仍待研究。AnyFlow/DMD是此前独立探索，不是V3已完成Stage1/2。</p></details>
+<p><a href="README.md">汇报导航</a> · <a href="roadmap.md">路线</a> · <a href="TALK_5MIN.md">5分钟讲稿</a> · <a href="00_comparison_gallery/README.md">全部画廊</a> · <a href="COMPARISON_PROTOCOL.md">公平性</a></p>
+<script>const p=document.getElementById('player');document.getElementById('pick').addEventListener('change',e=>{p.pause();p.src=e.target.value;p.load();});</script></html>

@@ -1,0 +1,83 @@
+{
+  "experiment": "Stage2-lite v2 RGB dual, multi-chunk/multi-sigma",
+  "protocol": {
+    "frames_rgb": 39,
+    "latent_frames": 12,
+    "chunks": 3,
+    "chunk_latents": 5,
+    "solver_steps_per_chunk": 8,
+    "history_chunks": 5,
+    "sigmas": [
+      0.94,
+      0.79,
+      0.57,
+      0.24
+    ],
+    "target_chunks": [
+      1,
+      2
+    ],
+    "anchor_mode": "rgb",
+    "history": "generated",
+    "cache": "persistent raw KV on CPU",
+    "seed": 13
+  },
+  "training": {
+    "status": "complete",
+    "wall_seconds": 872.8971660151146,
+    "peak_allocated_GiB": 39.374882221221924,
+    "student_cpu_kv_GiB": 5.276799201965332,
+    "critic_trainable_parameters": 387081,
+    "student_trainable_parameters": 774153
+  },
+  "action_rows": [
+    {
+      "action": "A",
+      "flow_horizontal_mean": -1.1369264196408422,
+      "flow_vertical_mean": 0.32366615749503436,
+      "path": "H3-World/outputs/2026-10-06-07/stage2_lite_v2_rgb_39_8step_chunks12_sigmas4_1update/eval_rgb/A/cached.mp4",
+      "frames": 39,
+      "fps": 24.0,
+      "duration_seconds": 1.625,
+      "codec": "h264",
+      "profile": "Constrained Baseline",
+      "pix_fmt": "yuv420p",
+      "frame_rgb_mad": 3.6429483890533447,
+      "boundary_rgb_mad_frames_17_34": [
+        4.22559928894043,
+        4.037460803985596
+      ],
+      "boundary_rgb_mad_mean": 4.131529808044434
+    },
+    {
+      "action": "D",
+      "flow_horizontal_mean": -1.4556094000214024,
+      "flow_vertical_mean": 0.25952546474964994,
+      "path": "H3-World/outputs/2026-10-06-07/stage2_lite_v2_rgb_39_8step_chunks12_sigmas4_1update/eval_rgb/D/cached.mp4",
+      "frames": 39,
+      "fps": 24.0,
+      "duration_seconds": 1.625,
+      "codec": "h264",
+      "profile": "Constrained Baseline",
+      "pix_fmt": "yuv420p",
+      "frame_rgb_mad": 3.7211103439331055,
+      "boundary_rgb_mad_frames_17_34": [
+        4.810279846191406,
+        4.076626777648926
+      ],
+      "boundary_rgb_mad_mean": 4.443453311920166
+    }
+  ],
+  "A_minus_D_horizontal_mean": 0.3186829803805602,
+  "gates": {
+    "A_positive": false,
+    "D_negative": true,
+    "separation_gt_1": false
+  },
+  "caveats": [
+    "Horizontal optical flow is a motion proxy, not a strict action-accuracy score.",
+    "This experiment changes both the previous-chunk anchor protocol and Stage2 training coverage relative to latent-only Stage2-lite; it is not an isolated loss-only ablation.",
+    "One scene, one seed, one update; no 124-frame promotion follows from this result.",
+    "RGB anchor improves visual identity continuity but adds VAE decode/re-encode cost at every generated chunk boundary."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "filename": "V2_vs_original.mp4",
+  "rows": [
+    [
+      "V0_A",
+      "V2_A"
+    ],
+    [
+      "V0_D",
+      "V2_D"
+    ]
+  ],
+  "frames": 124,
+  "title": "Original H3-World vs V2 | A / D",
+  "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters).",
+  "video": {
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "fps": 24.0,
+    "width": 1248,
+    "height": 1068,
+    "frames": 124,
+    "duration_s": 5.166666666666667,
+    "full_decode": true,
+    "constant_pts": true,
+    "sha256": "e901492dab66cbeb84d17d78fbd5c24a09af05891ae2a80681195671688fed92",
+    "bytes": 3212554
+  },
+  "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+  "sources": [
+    {
+      "id": "V0_A",
+      "path": "report/V0_original/videos/V0_A_full.mp4",
+      "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+      "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V2_A",
+      "path": "report/V2_rgb_anchor/videos/V2_A_full.mp4",
+      "sha256": "614e7491b0dd028e3eaf0cd269e5d041e2619ebadb77467add299e4d56e70689",
+      "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/A/cached.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V0_D",
+      "path": "report/V0_original/videos/V0_D_full.mp4",
+      "sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+      "original_path": "H3-World/outputs/2026-10-01-20/action_D_baseline30_124/baseline.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V2_D",
+      "path": "report/V2_rgb_anchor/videos/V2_D_full.mp4",
+      "sha256": "d6633cf10e7741a08261ca18718ab474e66f65189cbb39a3c457d8193435ae23",
+      "original_path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/eval124/D/cached.mp4",
+      "frames_used": [
+        0,
+        124
+      ],
+      "source_frames": 124
+    }
+  ],
+  "transforms": [
+    "RGB frame-exact [0,N) selection",
+    "aspect-preserving Lanczos display resize + padding",
+    "labels + side-by-side",
+    "libx264 CRF18/yuv420p/24fps/faststart"
+  ],
+  "no_interpolation": true,
+  "no_loops": true,
+  "no_model_inference": true
+}

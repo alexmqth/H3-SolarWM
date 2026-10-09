@@ -1,3 +1,5 @@
+> **新版导航：** [A机制诊断](../../branches/A_causal_diagnostics/README.md) / [B因果适配](../../branches/B_causal_adaptation/README.md) / [C AnyFlow与DMD](../../branches/C_anyflow_dmd/README.md)。本目录保留原证据路径。下文冻结/no-go指当时E2；后来的V2b仅在第二块局部通过，不代表训练恢复。
+
 # 实验档案导航
 
 **后续训练与视频总入口：** [数据集视频 / AnyFlow 训练结果](../../meeting/DATASET_AND_ANYFLOW.md)，说明实际 objective，并列出本次补齐的 114 个 MP4 和完整视频索引。

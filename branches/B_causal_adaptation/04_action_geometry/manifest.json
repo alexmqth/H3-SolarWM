@@ -1,0 +1,13 @@
+{
+  "branch": "B_causal_adaptation",
+  "experiment": "04_action_geometry",
+  "title": "Action velocity / score-delta / endpoint",
+  "status": "diagnosed; recovery failed",
+  "conclusion": "区分同一history/noisy state的反事实差分与不同轨迹相减。多种action路径适配未过，不能用差分cosine独自认定视频好。",
+  "evidence": [
+    "reports/teacher_delta_audit/COMBINED_REPORT.md",
+    "reports/action_alignment/FINAL_ACTION_DIAGNOSTIC.md",
+    "reports/endpoint_target/ACTION_QKV_OWN_ENDPOINT_REPORT.md",
+    "experiments/05_corrected_own_history_endpoint/README.md"
+  ]
+}

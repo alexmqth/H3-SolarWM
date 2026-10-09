@@ -1,0 +1,45 @@
+{
+  "candidate": "C12_then5_N_30step_selfhistory",
+  "model_type": "Original H3 + causal routing, zero new training",
+  "full124_accepted": false,
+  "persistent_hidden_KV": false,
+  "state_files": [
+    {
+      "path": "states/first12_A.pt",
+      "source": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/coarse_A/window0_A.pt",
+      "sha256": "242a1db06bc3423fe21207af5d2ccf59c9f27f07c9d88f22ce9f77921f6b0eea",
+      "kind": "Generated latent endpoint, NOT trained adapter"
+    },
+    {
+      "path": "states/historyA_currentA_next5.pt",
+      "source": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_endpoint.pt",
+      "sha256": "79d02605939353ebf442d5ba506744521e378937e03f41f2e0d62241c4322e28",
+      "kind": "Generated latent endpoint, NOT trained adapter"
+    },
+    {
+      "path": "states/historyA_currentD_next5.pt",
+      "source": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_D_endpoint.pt",
+      "sha256": "71b01ad720f0b216f6e41038f602df26a707757dc55824390eadffc4f1a2bac1",
+      "kind": "Generated latent endpoint, NOT trained adapter"
+    },
+    {
+      "path": "states/first12_D.pt",
+      "source": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/coarse_A/window0_D.pt",
+      "sha256": "7a6a2ca7f3966d00e01792ef822b12f4e268f911908d1ff7b97249619759ec7f",
+      "kind": "Generated latent endpoint, NOT trained adapter"
+    },
+    {
+      "path": "states/historyD_currentA_next5.pt",
+      "source": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_A_endpoint.pt",
+      "sha256": "a73189ac9c331a131c51b61e4faa6eafbbb402bff8265a62629c5c661b6015f4",
+      "kind": "Generated latent endpoint, NOT trained adapter"
+    },
+    {
+      "path": "states/historyD_currentD_next5.pt",
+      "source": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_endpoint.pt",
+      "sha256": "bcf02506c63d5b3d1f2b29f38e597a21898060c25ee9ccf2a7b534c715954cc0",
+      "kind": "Generated latent endpoint, NOT trained adapter"
+    }
+  ],
+  "note": "Original H3/released LoRA and input embeddings/runtime remain external dependencies; protocol and source hashes archived."
+}

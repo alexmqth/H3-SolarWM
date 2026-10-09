@@ -1,0 +1,230 @@
+[
+  {
+    "branch": "A_causal_diagnostics",
+    "experiment": "01_chunk_partition",
+    "title": "Chunk 5/7/12 与原生时间网格",
+    "status": "implementation verified; V2b local PASS only",
+    "conclusion": "B7首窗A方向失败；C12→5 + N在第二块局部通过。均不能推广到124f。",
+    "evidence": [
+      "reports/stage1_anyflow/02_causal_diagnostics/chunk_partition_audit/README.md",
+      "reports/stage1_anyflow/02_causal_diagnostics/coarse_window12/FINAL_RESULTS.md",
+      "reports/stage1_anyflow/02_causal_diagnostics/chunk_partition_cb/README.md"
+    ]
+  },
+  {
+    "branch": "A_causal_diagnostics",
+    "experiment": "02_history_anchor",
+    "title": "Clean/Same-σ 与 Single I0 / latent / RGB",
+    "status": "mixed; protocol-dependent",
+    "conclusion": "恢复原生条件取得首窗正控；Same-σ对历史续写有效，但更早12→12仍有ghosting。RGB联合修复不能当anchor单因素结论。",
+    "evidence": [
+      "experiments/09_original_conditioning_calibration/README.md",
+      "experiments/10_history_conditioning_action_response/README.md",
+      "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/VIDEO_RESULTS.md"
+    ]
+  },
+  {
+    "branch": "A_causal_diagnostics",
+    "experiment": "03_action_routing",
+    "title": "Single-Egress / feedback / public prefix",
+    "status": "implementation verified; action mismatch diagnosed",
+    "conclusion": "causal action prefix允许当前V直接读past A；raw cache仅存video K/V，额外action直读来自fresh prefix。own仍允许通过历史video间接传播。",
+    "evidence": [
+      "reports/stage1_anyflow/02_causal_diagnostics/first_chunk_routes/README.md",
+      "reports/stage1_anyflow/02_causal_diagnostics/action_routing_kv_audit/execution_20261010/README.md",
+      "reports/action_alignment/ACTION_ROUTING_PROBE.md"
+    ]
+  },
+  {
+    "branch": "A_causal_diagnostics",
+    "experiment": "04_kv_and_topology",
+    "title": "Recompute / Persistent KV / Strict video causalization",
+    "status": "implementation verified under controlled numerics",
+    "conclusion": "统一SDPA可见组与GEMM形状后，6状态×A/D的50层K/V、RoPE和velocity误差0。无persistent KV的R2对Original动作差分cos已0.057；生产默认不声称bitwise等价。",
+    "evidence": [
+      "reports/stage1_anyflow/02_causal_diagnostics/action_routing_kv_audit/execution_20261010/README.md",
+      "reports/stage1_anyflow/02_causal_diagnostics/local_topology/README.md"
+    ]
+  },
+  {
+    "branch": "A_causal_diagnostics",
+    "experiment": "05_vae_time_rope",
+    "title": "VAE边界 / native time / global RoPE / future leakage",
+    "status": "implementation verified; visual attribution limited",
+    "conclusion": "12latent prefix前34RGB与完整decode一致，末5RGB可能回改。V2b冻结已输出39帧再追加；action-video索引未发现切错，不以此排除所有表示问题。",
+    "evidence": [
+      "reports/stage1_anyflow/02_causal_diagnostics/chunk_partition_cb/vae_audit.json",
+      "reports/stage1_anyflow/02_causal_diagnostics/chunk_partition_audit/README.md",
+      "reports/stage1_anyflow/04_numerical_checks/README.md"
+    ]
+  },
+  {
+    "branch": "B_causal_adaptation",
+    "experiment": "01_tail_qkv",
+    "title": "Tail-QKV ordinary causal adaptation",
+    "status": "preliminary trained; joint quality failed",
+    "conclusion": "普通FM causal adaptation已训练，并不等于AnyFlow；加载训练容器也不代表optimizer已经更新。",
+    "evidence": [
+      "docs/CAUSAL_BASELINE.md",
+      "meeting/model_types/README.md",
+      "code/causal/train_pretrained_multichunk.py"
+    ]
+  },
+  {
+    "branch": "B_causal_adaptation",
+    "experiment": "02_history_mixing",
+    "title": "Fixed-mix / scheduled sampling",
+    "status": "preliminary trained; visual/action trade-off",
+    "conclusion": "旧fixed-mix124f A/D=+0.1427/−0.3105，比V2a符号好但尾段撕裂；不是Original级控制，也不是零训练native V1。",
+    "evidence": [
+      "checkpoints/legacy_fixed_mix/README.md",
+      "meeting/action_vs_stability/README.md",
+      "meeting/diagnostics/legacy_fixed_mix/README.md"
+    ]
+  },
+  {
+    "branch": "B_causal_adaptation",
+    "experiment": "03_online_replay",
+    "title": "Online per-sigma teacher replay",
+    "status": "preliminary trained; quality failed",
+    "conclusion": "逐sigma replay及paired训练链路存在；内部loss/cosine改善没有可靠转化为自由rollout方向与视觉联合PASS。",
+    "evidence": [
+      "reports/action_alignment/ACTION_ALIGNMENT_REPORT.md",
+      "reports/action_alignment/ACTION_ALIGNMENT_LEARNING_CURVE.md",
+      "code/causal/train_online_selfrollout.py"
+    ]
+  },
+  {
+    "branch": "B_causal_adaptation",
+    "experiment": "04_action_geometry",
+    "title": "Action velocity / score-delta / endpoint",
+    "status": "diagnosed; recovery failed",
+    "conclusion": "区分同一history/noisy state的反事实差分与不同轨迹相减。多种action路径适配未过，不能用差分cosine独自认定视频好。",
+    "evidence": [
+      "reports/teacher_delta_audit/COMBINED_REPORT.md",
+      "reports/action_alignment/FINAL_ACTION_DIAGNOSTIC.md",
+      "reports/endpoint_target/ACTION_QKV_OWN_ENDPOINT_REPORT.md",
+      "experiments/05_corrected_own_history_endpoint/README.md"
+    ]
+  },
+  {
+    "branch": "B_causal_adaptation",
+    "experiment": "05_rgb_visual",
+    "title": "RGB visual + Original endpoint supervision",
+    "status": "preliminary trained; 124f visual improved, action failed",
+    "conclusion": "对应V2a联合协议；普通replay/endpoint两更新，不是Stage2。Stage2-lite后来集成是另一个实验。",
+    "evidence": [
+      "reports/visual_drift_repair/VISUAL_DRIFT_REPAIR_REPORT.md",
+      "meeting/DEMO_PROVENANCE.md"
+    ]
+  },
+  {
+    "branch": "B_causal_adaptation",
+    "experiment": "06_real_abot_fm",
+    "title": "Real ABot FM48 / noise-density FM48",
+    "status": "preliminary trained; quality failed",
+    "conclusion": "真实录制ABot：16训练/8验证，按episode拆分，48更新；objective为ordinary FM。GT history与generated history分别验收，后者仍分解。",
+    "evidence": [
+      "reports/stage1_anyflow/01_real_video/real_abot_fm/FM48_COMPLETE_REVIEW.md",
+      "reports/stage1_anyflow/01_real_video/fm_density_control/FINAL_RESULTS.md",
+      "meeting/DATASET_AND_ANYFLOW.md"
+    ]
+  },
+  {
+    "branch": "B_causal_adaptation",
+    "experiment": "07_e2_action_ranking",
+    "title": "FM-only vs FM+Action consequence ranking",
+    "status": "preliminary trained; no consistent gain; frozen",
+    "conclusion": "A-history、D-history和两条真实GT-history全收齐；两臂各4更新，无一致额外收益。没有自动扩到16。",
+    "evidence": [
+      "reports/stage1_anyflow/01_real_video/real_transition_windows/FINAL_RESULTS.md",
+      "reports/stage1_anyflow/01_real_video/real_transition_windows/FREEZE.json",
+      "reports/stage1_anyflow/01_real_video/real_transition_windows/SUPERVISION_COVERAGE.md"
+    ]
+  },
+  {
+    "branch": "C_anyflow_dmd",
+    "experiment": "01_tf_anyflow",
+    "title": "TF-AnyFlow实现与数值验证",
+    "status": "implementation verified; full Stage1 not accepted",
+    "conclusion": "有限区间finite-map、目标时间条件和r=t/符号/梯度等检查存在；ordinary FM与AnyFlow目标明确区分。",
+    "evidence": [
+      "code/causal/ANYFLOW_PROVENANCE.md",
+      "reports/stage1_anyflow/04_numerical_checks/README.md",
+      "code/causal/anyflow.py",
+      "code/causal/anyflow_sampling.py"
+    ]
+  },
+  {
+    "branch": "C_anyflow_dmd",
+    "experiment": "02_anyflow16",
+    "title": "AnyFlow16 vs matched FM16",
+    "status": "preliminary trained; quality failed",
+    "conclusion": "两条Original A/D伪标签；16更新；4/8steps/chunk。训练初始化来自旧RGB causal协议，不是V2b。等更新不等算力。",
+    "evidence": [
+      "reports/stage1_anyflow/03_anyflow_trials/fullscope_candidate/FINAL_RESULTS.md",
+      "reports/stage1_anyflow/03_anyflow_trials/fullscope_fm_control/FINAL_RESULTS.md",
+      "meeting/model_types/README.md"
+    ]
+  },
+  {
+    "branch": "C_anyflow_dmd",
+    "experiment": "03_anyflow64_128_136",
+    "title": "AnyFlow64/128/136 budgets",
+    "status": "preliminary trained; quality failed",
+    "conclusion": "这些预算实际存在。128的8步A−D0.7597，136两臂0.5810/0.6352；4步后段雾化，内部一致性下降不构成成功。",
+    "evidence": [
+      "reports/stage1_anyflow/03_anyflow_trials/full_history_duration64/FINAL_RESULTS.md",
+      "reports/stage1_anyflow/05_runtime/parallel_resume68_to128/STEP128_RESULTS.md",
+      "reports/stage1_anyflow/03_anyflow_trials/interval_consistency_candidate/FINAL_RESULTS.md"
+    ]
+  },
+  {
+    "branch": "C_anyflow_dmd",
+    "experiment": "04_finite_numerics",
+    "title": "Finite-interval / diagonal / teacher endpoint",
+    "status": "implementation verified; ability not established",
+    "conclusion": "同时保留finite-vs-diagonal自一致性和对Original teacher endpoint的误差；两者都不单独等于视觉质量。",
+    "evidence": [
+      "reports/stage1_anyflow/03_anyflow_trials/dual_metric136/README.md",
+      "reports/stage1_anyflow/03_anyflow_trials/finite_interval_probe128/README.md",
+      "reports/stage1_anyflow/03_anyflow_trials/diagonal_inference128/FINAL_RESULTS.md"
+    ]
+  },
+  {
+    "branch": "C_anyflow_dmd",
+    "experiment": "05_real_data_objectives",
+    "title": "Real ABot与AnyFlow/FM数据划分",
+    "status": "objective audited; real ABot AnyFlow run not found",
+    "conclusion": "目录名stage1_anyflow不代表全是AnyFlow。已查训练：AnyFlow用Original伪标签，真实ABot主要FM48/E2；未找到真实ABot AnyFlow训练结果，不能编造。",
+    "evidence": [
+      "meeting/DATASET_AND_ANYFLOW.md",
+      "reports/stage1_anyflow/01_real_video/README.md",
+      "reports/stage1_anyflow/03_anyflow_trials/VIDEO_INDEX.md"
+    ]
+  },
+  {
+    "branch": "C_anyflow_dmd",
+    "experiment": "06_stage2_lite",
+    "title": "Trainable fake score / self-rollout / DMD surrogate",
+    "status": "implementation verified; preliminary trained; quality failed",
+    "conclusion": "共享H3的student/teacher/critic及实际小预算DMD链路存在，旧latent版人物分解，RGB集成A/D仍未恢复。不称完整SolarWM Stage2成功。",
+    "evidence": [
+      "experiments/03_stage2_lite_critic_dmd/README.md",
+      "code/causal/stage2_lite_dmd.py",
+      "meeting/stage2_lite/"
+    ]
+  },
+  {
+    "branch": "C_anyflow_dmd",
+    "experiment": "07_dmd_preparation",
+    "title": "Shared roles / FMBS / DMD gradients",
+    "status": "implementation verified on small tests; 33B quality not validated",
+    "conclusion": "CPU/小H3梯度、角色隔离和FMBS工程测试不升级为完整33B Stage2。V2b还未接AnyFlow或DMD。",
+    "evidence": [
+      "reports/stage1_anyflow/06_stage2_preparation/README.md",
+      "reports/stage1_anyflow/06_stage2_preparation/dmd_gradient/README.md",
+      "reports/stage1_anyflow/06_stage2_preparation/h3_fmbs_integration/README.md"
+    ]
+  }
+]

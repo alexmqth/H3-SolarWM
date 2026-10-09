@@ -1,0 +1,122 @@
+{
+  "base_commit": "1a93713e218b8fd48d3fa5c47f25638068c012e0",
+  "assets": [
+    {
+      "id": "V3_AA",
+      "version": 3,
+      "action": "A->A",
+      "source": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_rollout.mp4",
+      "run": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/evaluation.json",
+      "setup": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/protocol.json",
+      "config": {
+        "steps": 30,
+        "shift": 2.22,
+        "seed": 13,
+        "layout": "full37 fixed equal-length A/D global positions",
+        "weights": "Original H3 + released action LoRA",
+        "anchor": "single initial image, no retiming",
+        "precision": "h3_fp32",
+        "audio": "fixed full37 noise at native0",
+        "topology": "T2 recompute all visible tokens, Original directed action mask, future actions/video physically absent",
+        "cpu_hidden_KV_MiB": 0
+      },
+      "video": {
+        "width": 832,
+        "height": 480,
+        "fps": 24.0,
+        "frames": 56,
+        "codec": "h264"
+      },
+      "sha256": "933d723c4a7db8cc74e1efdab1164ba11601110e357d202c3b68e874e9809372",
+      "packaged_video": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4"
+    },
+    {
+      "id": "V3_AD",
+      "version": 3,
+      "action": "A->D",
+      "source": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_D_rollout.mp4",
+      "run": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/evaluation.json",
+      "setup": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/protocol.json",
+      "config": {
+        "steps": 30,
+        "shift": 2.22,
+        "seed": 13,
+        "layout": "full37 fixed equal-length A/D global positions",
+        "weights": "Original H3 + released action LoRA",
+        "anchor": "single initial image, no retiming",
+        "precision": "h3_fp32",
+        "audio": "fixed full37 noise at native0",
+        "topology": "T2 recompute all visible tokens, Original directed action mask, future actions/video physically absent",
+        "cpu_hidden_KV_MiB": 0
+      },
+      "video": {
+        "width": 832,
+        "height": 480,
+        "fps": 24.0,
+        "frames": 56,
+        "codec": "h264"
+      },
+      "sha256": "80859f820e9ee514e427ffa29202721419b833cb691ea660c293212b2988951a",
+      "packaged_video": "report/V2b_same_sigma_local_bidir/videos/V2b_AD_full.mp4"
+    },
+    {
+      "id": "V3_DA",
+      "version": 3,
+      "action": "D->A",
+      "source": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_A_rollout.mp4",
+      "run": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/evaluation.json",
+      "setup": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/protocol.json",
+      "config": {
+        "steps": 30,
+        "shift": 2.22,
+        "seed": 13,
+        "layout": "full37 fixed equal-length A/D global positions",
+        "weights": "Original H3 + released action LoRA",
+        "anchor": "single initial image, no retiming",
+        "precision": "h3_fp32",
+        "audio": "fixed full37 noise at native0",
+        "topology": "T2 recompute all visible tokens, Original directed action mask, future actions/video physically absent",
+        "cpu_hidden_KV_MiB": 0
+      },
+      "video": {
+        "width": 832,
+        "height": 480,
+        "fps": 24.0,
+        "frames": 56,
+        "codec": "h264"
+      },
+      "sha256": "601c1c01704ea8462446d71a1720f6964095e6a0e971b2cd8f8bc5b1237168be",
+      "packaged_video": "report/V2b_same_sigma_local_bidir/videos/V2b_DA_full.mp4"
+    },
+    {
+      "id": "V3_DD",
+      "version": 3,
+      "action": "D->D",
+      "source": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/sigma_noised_D_rollout.mp4",
+      "run": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_D/evaluation.json",
+      "setup": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/protocol.json",
+      "config": {
+        "steps": 30,
+        "shift": 2.22,
+        "seed": 13,
+        "layout": "full37 fixed equal-length A/D global positions",
+        "weights": "Original H3 + released action LoRA",
+        "anchor": "single initial image, no retiming",
+        "precision": "h3_fp32",
+        "audio": "fixed full37 noise at native0",
+        "topology": "T2 recompute all visible tokens, Original directed action mask, future actions/video physically absent",
+        "cpu_hidden_KV_MiB": 0
+      },
+      "video": {
+        "width": 832,
+        "height": 480,
+        "fps": 24.0,
+        "frames": 56,
+        "codec": "h264"
+      },
+      "sha256": "4dd807a52772339dfe7ba12dff3fdd8cd771edccdee61ea15842f3320cfa8bb1",
+      "packaged_video": "report/V2b_same_sigma_local_bidir/videos/V2b_DD_full.mp4"
+    }
+  ],
+  "display_version": "V2b"
+}

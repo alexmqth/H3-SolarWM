@@ -1,0 +1,59 @@
+{
+  "filename": "V2b_A_vs_original.mp4",
+  "rows": [
+    [
+      "V0_A",
+      "V3_AA"
+    ]
+  ],
+  "frames": 56,
+  "title": "V0 vs V2b | action A",
+  "caveat": "CROSS-PROTOCOL: horizon, steps, conditioning, history and attention differ; NOT a single-variable ablation.",
+  "video": {
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "fps": 24.0,
+    "width": 1248,
+    "height": 564,
+    "frames": 56,
+    "duration_s": 2.3333333333333335,
+    "full_decode": true,
+    "constant_pts": true,
+    "sha256": "7246b157ad410a7dee5f21128898ab47e9479d9fc6af8b86e7c5ff63672fe3d6",
+    "bytes": 709015
+  },
+  "renderer_sha256": "3a5968aac91bfd87da48d45eacd772aee3c1d03a4cdcb18fc9a86c919ae7affa",
+  "sources": [
+    {
+      "id": "V0_A",
+      "path": "report/V0_original/videos/V0_A_full.mp4",
+      "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+      "original_path": "H3-World/outputs/2026-10-01-20/action_A_baseline30_124/baseline.mp4",
+      "frames_used": [
+        0,
+        56
+      ],
+      "source_frames": 124
+    },
+    {
+      "id": "V3_AA",
+      "path": "report/V2b_same_sigma_local_bidir/videos/V2b_AA_full.mp4",
+      "sha256": "933d723c4a7db8cc74e1efdab1164ba11601110e357d202c3b68e874e9809372",
+      "original_path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/C_A/sigma_noised_A_rollout.mp4",
+      "frames_used": [
+        0,
+        56
+      ],
+      "source_frames": 56
+    }
+  ],
+  "transforms": [
+    "RGB frame-exact [0,N) selection",
+    "aspect-preserving Lanczos display resize + padding",
+    "labels + side-by-side",
+    "libx264 CRF18/yuv420p/24fps/faststart"
+  ],
+  "no_interpolation": true,
+  "no_loops": true,
+  "no_model_inference": true
+}

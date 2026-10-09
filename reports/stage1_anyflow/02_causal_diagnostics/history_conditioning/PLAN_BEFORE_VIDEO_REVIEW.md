@@ -1,12 +1,12 @@
 # Next Plan v4：先恢复局部动作信息流
 
-2026-10-09 06:14：E1历史条件C/N的56次真实H3同状态探针全部完成；首窗identity、旧C重放、重复误差均0，CPU独立重算一致。干预改变了动作差分，尚不能判方向改善。GPU1/5正在窗口1两history×A/D的30步视频，预算120采样前向、零训练；窗口2仍受人工门槛约束。[当前执行](submission/reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/PROBE_RESULTS.md)。
+2026-10-09 06:14：E1历史条件C/N的56次真实H3同状态探针全部完成；首窗identity、旧C重放、重复误差均0，CPU独立重算一致。干预改变了动作差分，尚不能判方向改善。GPU1/5正在窗口1两history×A/D的30步视频，预算120采样前向、零训练；窗口2仍受人工门槛约束。[当前执行](PROBE_RESULTS.md)。
 
 2026-10-09 05:59更新。执行顺序按用户要求保持：**可信causal H3 → AnyFlow少步 → on-policy Stage2**。不继续旧FM48/AnyFlow136扩训，不要求Stage1先解决20秒漂移；但局部动作和人物结构必须先成立。
 
 ## 当前决策
 
-E1的12latent窗口对照已完整结束，仍No-Go：首窗方向恢复，接入历史后部分窗口动作近同、部分分支肢体重影。不能继续增加窗口宽度，也不能拿首窗通过替代多个chunk验证。[全部结果](submission/reports/stage1_anyflow/02_causal_diagnostics/coarse_window12/FINAL_RESULTS.md)。
+E1的12latent窗口对照已完整结束，仍No-Go：首窗方向恢复，接入历史后部分窗口动作近同、部分分支肢体重影。不能继续增加窗口宽度，也不能拿首窗通过替代多个chunk验证。[全部结果](../coarse_window12/FINAL_RESULTS.md)。
 
 | 实验 | 研究问题 | 通过条件 | 当前状态 |
 |---|---|---|---|
@@ -16,7 +16,7 @@ E1的12latent窗口对照已完整结束，仍No-Go：首窗方向恢复，接�
 
 ## E1 下一项：只改变历史条件协议
 
-[完整有限协议](submission/reports/stage1_anyflow/02_causal_diagnostics/coarse_window12/NEXT_HISTORY_CONTROL.md)，原计划登记时尚未实现；当前已完成实现、CPU与真实探针，视频运行中。保留本轮No-Go的冻结源码、视频与收据，建立新实验目录。
+[完整有限协议](../coarse_window12/NEXT_HISTORY_CONTROL.md)，原计划登记时尚未实现；当前已完成实现、CPU与真实探针，视频运行中。保留本轮No-Go的冻结源码、视频与收据，建立新实验目录。
 
 1. 现有C：clean历史H，历史video模型时间1，全部action/text时间1−sigma。
 2. 对照N：临时历史输入`(1−sigma)H + sigma*epsilon_H`，历史video与action均用1−sigma。epsilon_H来自同fixture已知前缀的固定noise；A/D共用，不每步重抽。只更新当前chunk，保存历史与已发出的RGB不变。
@@ -25,11 +25,11 @@ E1的12latent窗口对照已完整结束，仍No-Go：首窗方向恢复，接�
 5. 探针变化不等于正确性。执行语义通过后，先窗口1两history共120次采样前向；方向和人物结构都改善才追加窗口2最多120。没有改善即停止这一因素，不扫噪声强度、不扩网络/窗口。高sigma下忽略历史、从I0重置，即使A/D符号恢复也FAIL。
 6. 两后续窗口成立后，才做真实GT-history、held-out seed29与动作切换的局部验收；不能直接跳E3。
 
-[CPU实际历史条件审计](submission/reports/stage1_anyflow/02_causal_diagnostics/coarse_window12/history_contract_audit.json)确认了现有time处理，但它沿用pipeline原生retake语义，不是已证实bug。VAE两样本四边界共8项future-RGB检查差均0，当前不支持历史编码泄漏解释失败。两者都不是新视频改善证据。
+[CPU实际历史条件审计](../coarse_window12/history_contract_audit.json)确认了现有time处理，但它沿用pipeline原生retake语义，不是已证实bug。VAE两样本四边界共8项future-RGB检查差均0，当前不支持历史编码泄漏解释失败。两者都不是新视频改善证据。
 
 ## E2 不用错误teacher强行监督
 
-配对必须来自同一起始状态、同history/noise/prompt，只换当前动作，且后果方向/画面已可靠。双向全长Original能看到未来，不能当无条件逐点差分真值；ABot不同轨迹不能直接相减。保留FM-only与FM+action-swapped transition ranking的有限对照设计，正确动作绝对误差、错误动作loss与实际生成共同检查，防止只恶化负例骗margin。[完整三实验协议](submission/reports/stage1_anyflow/07_protocols/three_experiments/PROTOCOL.md)。
+配对必须来自同一起始状态、同history/noise/prompt，只换当前动作，且后果方向/画面已可靠。双向全长Original能看到未来，不能当无条件逐点差分真值；ABot不同轨迹不能直接相减。保留FM-only与FM+action-swapped transition ranking的有限对照设计，正确动作绝对误差、错误动作loss与实际生成共同检查，防止只恶化负例骗margin。[完整三实验协议](../../07_protocols/three_experiments/PROTOCOL.md)。
 
 ## Go / No-Go与资源
 

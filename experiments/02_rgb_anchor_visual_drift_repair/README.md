@@ -1,3 +1,5 @@
+> **归因边界（2026-10-10）：** 代表性视觉改善来自RGB-consistent anchor、visual QKV与endpoint/boundary等联合协议；下文“根因/修复”是当时局部诊断，不能解释所有崩坏或把全部收益归于anchor。当前[V2a版本说明](../../mainline/V2a_rgb_anchor_causal/README.md)同时保留20秒失败。
+
 # Breakthrough 02：RGB-consistent anchor 修复人物分解
 
 ## 问题

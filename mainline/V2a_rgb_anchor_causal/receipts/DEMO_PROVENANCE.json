@@ -1,0 +1,56 @@
+{
+  "checkpoint_id": "visual_online_rgb_tail16_endpoint_ad2",
+  "checkpoint_source": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2",
+  "checkpoint_training": "2 visual-adapter online teacher-replay updates; frozen fixed-mix action residual; ordinary FM, no AnyFlow, no DMD student update",
+  "main_video_date": "2026-10-06",
+  "main_is_latest_E2": false,
+  "config": {
+    "num_frames": 124,
+    "steps_per_chunk": 8,
+    "chunks": 8,
+    "noisy_forwards": 64,
+    "clean_commits": 8,
+    "chunk_latents": 5,
+    "history_chunks": 5,
+    "anchor": "dynamic_last_frame_rgb_dual",
+    "action_prefix_mode": "causal",
+    "action_feedback": true,
+    "history_source": "generated",
+    "cache_device": "cpu",
+    "seed": 13,
+    "flow_shift": 2.22,
+    "precision": "legacy"
+  },
+  "assets": {
+    "checkpoints/visual_rgb_tail16/causal_adapter.pt": {
+      "sha256": "a374bfcafe414322b52aa6f18fba7f28996041aae6c11c5eaebaab553f2abe10",
+      "bytes": 13774669,
+      "matches_original_source": true
+    },
+    "checkpoints/visual_rgb_tail16/action_adapter.pt": {
+      "sha256": "ef41475b6fc5601ee9a17485a027af69f03217fb34ccbc1891d3fef4f11c6b7a",
+      "bytes": 1554546,
+      "matches_original_source": true
+    },
+    "examples/first_frame.png": {
+      "sha256": "25729ce66bc578c90a6d262bf3879a3e7b16e5c5009362903a7fae6d757a4b00",
+      "bytes": 459872
+    },
+    "meeting/annotated/h3world_rgb_stable_action_grid_124_timed.mp4": {
+      "sha256": "98602d059d78c4ea81fb49418298036b7c8f68220a8c43e778b495df830f9e23",
+      "bytes": 10659903
+    },
+    "meeting/annotated/h3world_rgb_stable_W_original_vs_causal_timed.mp4": {
+      "sha256": "c3120d59d217ce29d25d33f9a39a2d44e25bede49c8bcae5926bf3966976db77",
+      "bytes": 2627832
+    },
+    "meeting/long_horizon/original_vs_rgb_visual_W_20s_481f.mp4": {
+      "sha256": "5e3a2ec940e81136bf7329569c7aa3548841b6534ac027fa58d1e5b054954f46",
+      "bytes": 11313054
+    }
+  },
+  "released_h3": {
+    "sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+    "lora_pairs": 104
+  }
+}

@@ -1,3 +1,5 @@
+> **2026-10-10：新的精简汇报入口为[report](../report/README.md)，版本比较见[画廊](../report/00_comparison_gallery/README.md)。** 本目录保留原会议包及指标；旧主片属于V2a RGB checkpoint，不是最新V2b/E2/AnyFlow。
+
 # 会议展示包：主片、失败证据与5分钟技术判断
 
 **最新局部进展：** [C12→5，自身history的56帧四分支视频](../experiments/11_causal_12_then5_selfhistory/README.md)。Original权重零新增训练、30步、T2重算＋同sigma历史；第二块动作＋结构成立，B7首窗A方向未过。只验证两块，不替换下方124帧主片，也不归到AnyFlow或persistent-KV成果上。

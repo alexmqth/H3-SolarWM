@@ -1,0 +1,12 @@
+{
+  "branch": "B_causal_adaptation",
+  "experiment": "01_tail_qkv",
+  "title": "Tail-QKV ordinary causal adaptation",
+  "status": "preliminary trained; joint quality failed",
+  "conclusion": "普通FM causal adaptation已训练，并不等于AnyFlow；加载训练容器也不代表optimizer已经更新。",
+  "evidence": [
+    "docs/CAUSAL_BASELINE.md",
+    "meeting/model_types/README.md",
+    "code/causal/train_pretrained_multichunk.py"
+  ]
+}

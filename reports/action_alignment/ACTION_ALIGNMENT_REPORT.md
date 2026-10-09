@@ -21,8 +21,8 @@ Do not promote either checkpoint to the 124-frame demo. The QKV direction signal
 
 ## Files
 
-- [Hidden A/D video](action_align_hidden_rgb_39_8step_pair1_final/AD.mp4)
-- [Tail4 QKV A/D video](action_align_qkv_tail4_rgb_39_8step_pair1_final/AD.mp4)
-- [Contact sheet](action_alignment_contact_sheet.jpg)
-- [Machine-readable report](ACTION_ALIGNMENT_REPORT.json)
-- [Flow metrics](action_alignment_flow.json)
+- [Hidden A/D video](../../archive/referenced_assets/H3-World/outputs/2026-10-06-08/action_align_hidden_rgb_39_8step_pair1_final/AD.mp4)
+- [Tail4 QKV A/D video](../../archive/referenced_assets/H3-World/outputs/2026-10-06-08/action_align_qkv_tail4_rgb_39_8step_pair1_final/AD.mp4)
+- [Contact sheet](../../archive/referenced_assets/H3-World/outputs/2026-10-06-08/action_alignment_contact_sheet.jpg)
+- [Machine-readable report](../../archive/referenced_assets/H3-World/outputs/2026-10-06-08/ACTION_ALIGNMENT_REPORT.json)
+- [Flow metrics](../../archive/referenced_assets/H3-World/outputs/2026-10-06-08/action_alignment_flow.json)

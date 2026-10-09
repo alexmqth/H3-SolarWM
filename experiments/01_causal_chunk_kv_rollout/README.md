@@ -1,3 +1,5 @@
+> **版本复核（2026-10-10）：** 本页旧视频实际含fixed-mix adapter，作为工程突破/训练分支证据保留；不能当零训练native V1。新选中的零adapter124f片与最早seed2片已分别收入[V1](../../mainline/V1_native_chunk_causal/README.md)。
+
 # Breakthrough 01：causal chunk rollout 和 persistent KV 跑通
 
 ## 问题

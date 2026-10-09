@@ -1,0 +1,50 @@
+{
+  "status": "complete",
+  "generated_dir": "outputs/2026-10-06-08/action_align_qkv_tail4_rgb_39_8step_pair4_final/eval_update01/A",
+  "sigma": 0.6,
+  "chunk_frames": 5,
+  "state_source": "generated A rollout",
+  "variants": [
+    {
+      "variant": "own_fb0",
+      "action_prefix_mode": "own",
+      "action_feedback": false,
+      "chunk": 1,
+      "A_velocity_norm": 619.663330078125,
+      "D_velocity_norm": 619.31103515625,
+      "AD_delta_norm": 5.501728534698486,
+      "delta_norm_ratio_to_causal_fb0": 0.7483003630162096
+    },
+    {
+      "variant": "causal_fb0",
+      "action_prefix_mode": "causal",
+      "action_feedback": false,
+      "chunk": 1,
+      "A_velocity_norm": 642.3548583984375,
+      "D_velocity_norm": 642.7468872070312,
+      "AD_delta_norm": 7.352299690246582,
+      "delta_norm_ratio_to_causal_fb0": 0.9999999986398813
+    },
+    {
+      "variant": "causal_fb1",
+      "action_prefix_mode": "causal",
+      "action_feedback": true,
+      "chunk": 1,
+      "A_velocity_norm": 642.8571166992188,
+      "D_velocity_norm": 643.6151123046875,
+      "AD_delta_norm": 7.64176082611084,
+      "delta_norm_ratio_to_causal_fb0": 1.0393701477994088
+    },
+    {
+      "variant": "all_fb1",
+      "action_prefix_mode": "all",
+      "action_feedback": true,
+      "chunk": 1,
+      "A_velocity_norm": 650.367919921875,
+      "D_velocity_norm": 649.671875,
+      "AD_delta_norm": 8.338292121887207,
+      "delta_norm_ratio_to_causal_fb0": 1.134106668911709
+    }
+  ],
+  "interpretation": "A/D delta is measured on the same generated A history and current noisy latent. A change when feedback is enabled indicates that the explicit action-row-to-current-video edge is active; it does not prove correct image-space strafe direction."
+}

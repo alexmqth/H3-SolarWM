@@ -5,7 +5,7 @@
 3. C已补旧128的512样本adaptive/输出梯度只读核查，未证明真实参数梯度或画质；不要把范数之和当合并梯度，不直接移除adaptive。B局部action未恢复，C/D效果训练前置仍有效。
 4. 当前仅GPU1，最多3卡；不重启48/136训练、不改冻结源、不新增架构或anchor sweep。完整A–D未完成，meeting不换、未推送。
 
-[六自然视频结论](submission/reports/stage1_anyflow/01_real_video/fm_density_control/NATURAL_VIDEO_RESULTS.md) · [C准备](submission/reports/stage1_anyflow/04_numerical_checks/adaptive_weight_audit/README.md)。以下为历史计划。
+[六自然视频结论](../../../01_real_video/fm_density_control/NATURAL_VIDEO_RESULTS.md) · [C准备](../../../04_numerical_checks/adaptive_weight_audit/README.md)。以下为历史计划。
 
 ## 当前执行（2026-10-09 02:15，同状态机制完成，剩余自由生成/动作视频评测继续）
 
@@ -14,7 +14,7 @@
 3. 保持GPU队列1615283/start_ticks255366821和CPU报告1898518/start_ticks255496357；当前只用GPU1，GPU0几何正常退出。worker PID会变，先读post48_queue.json并核对/proc/start ticks，不重启已运行工作、不更改冻结报告源码。
 4. 收齐剩余视频与动作正负方向后结束本密度因素结论；不要由局部loss下降再加预算。C/D仍需可信局部action/field，CPU时间嵌入/FMBS/DMD通过不能替代真实33B效果。完整A–D未完成，meeting不换、未推送。
 
-[机制与结果](submission/reports/stage1_anyflow/01_real_video/fm_density_control/GEOMETRY_RESULTS.md)。以下为历史计划。
+[机制与结果](../../../01_real_video/fm_density_control/GEOMETRY_RESULTS.md)。以下为历史计划。
 
 ## 当前执行（2026-10-09 01:45，B训练48完成，两路正式评测运行）
 
@@ -49,7 +49,7 @@
 3. 等完整48和现存队列结果；结果要检查完整39帧/动作方向、分noise及同状态A/D，不能把checkpoint审计通过或208模块更新当效果通过。报告源码仍冻结。
 4. 完整A–D未完成，C/D局部能力前置有效。当前仅GPU1训练、后评测最多GPU1/0，最多3GPU总约束保持，不干扰他人、meeting不换、未推送。
 
-[实际step16证据](submission/reports/stage1_anyflow/01_real_video/fm_density_control/checkpoint16_audit.json)。以下为历史计划。
+[实际step16证据](../../../01_real_video/fm_density_control/checkpoint16_audit.json)。以下为历史计划。
 
 ## 当前执行（2026-10-09 00:20，受控训练与两级评测队列保持运行）
 
@@ -59,7 +59,7 @@
 4. 报告输出后人工检查完整39帧与A/D方向，再决定B是否给C/D可信局部基线。DMD/FMBS CPU集成通过不代替真实Stage2、critic收敛或视频效果。
 5. 最多3GPU约束持续有效，当前仅1张；不动他人进程。完整A–D未完成，meeting不换，未推送。先通过/proc和start ticks验证现存任务，不能因超时重新启动。
 
-[本轮状态](submission/reports/stage1_anyflow/01_real_video/fm_density_control/README.md)。以下为历史计划。
+[本轮状态](../../../01_real_video/fm_density_control/README.md)。以下为历史计划。
 
 ## 当前执行（2026-10-09 00:03，B受控密度实验已启动）
 
@@ -69,17 +69,17 @@
 4. DMD核心loss与完整FMBS的CPU图已接通，7项包括官方符号/mean reduction/gradient对照通过；这不是新的33B DMD训练。C/D仍需B局部field/action及有限映射前置，不要求Stage1先消灭全部长时漂移。
 5. 完整A–D未完成。保持最多3GPU、保留他人任务、meeting不换、未推送。检查submission收据时注意它是归档快照，实时状态在outputs。
 
-[本轮协议](submission/reports/stage1_anyflow/01_real_video/fm_density_control/README.md) · [DMD与FMBS接通](submission/reports/stage1_anyflow/06_stage2_preparation/dmd_gradient/README.md)。以下为历史计划。
+[本轮协议](../../../01_real_video/fm_density_control/README.md) · [DMD与FMBS接通](../../../06_stage2_preparation/dmd_gradient/README.md)。以下为历史计划。
 
 ## 当前执行（2026-10-08 23:35，机制与噪声审计已收尾）
 
-1. 固定generated history/current noisy state的当前A/D机制已完成，不重复跑同一诊断。部署AnyFlow128 delta cos0.03822；Original同权重causal化的独立受控对照0.060153。对齐/直接路由/KV机械检查通过与action geometry保持是不同验收项。见[统一解释](submission/reports/stage1_anyflow/07_protocols/overviews/ACTION_MECHANISM_SUMMARY.md)。
+1. 固定generated history/current noisy state的当前A/D机制已完成，不重复跑同一诊断。部署AnyFlow128 delta cos0.03822；Original同权重causal化的独立受控对照0.060153。对齐/直接路由/KV机械检查通过与action geometry保持是不同验收项。见[统一解释](../../overviews/ACTION_MECHANISM_SUMMARY.md)。
 2. FM0/48各54点noise audit全部完成，原进程已退出：均值MSE只改善1.47%；sigma=1均值变差，低sigma Original自身误差也升高。不能将4/192低noise样本直接等同于失败根因，不大幅upweight、不同步换architecture。
 3. 下一B对照若开展，单独改变sampling density（shift12 vs2.22），保持Gaussian weight不变；同初始化、数据、action/chunk/noise顺序、LoRA范围、LR/batch和预注册有限预算。保留sigma=1/low/mid/high分组、同状态A/D及30/8步完整39帧验收。此对照尚未启动，不是已验证有效的修复；无效果则结束该因素，不盲延48/136。
 4. C仍需可信clean-history局部生成、当前action反事实及finite-map行为。D的共享Original/critic角色和FMBS图安全已通过tiny-H3 CPU6项验证，但实际33B critic/DMD/FMBS训练与质量没有完成。不要求Stage1先消除全部长时漂移，但当前局部动作前置尚未通过。
 5. 本轮无新增训练/视频，noise两GPU工作已退出。最多同时3张GPU约束继续有效；不干扰其他用户。meeting不换，未推送，完整A–D目标保持未完成。
 
-[噪声结论](submission/reports/stage1_anyflow/02_causal_diagnostics/fm_noise_audit/INTERPRETATION.md) · [共享角色准备](submission/reports/stage1_anyflow/06_stage2_preparation/shared_h3_roles/README.md)。以下为历史计划。
+[噪声结论](../../../02_causal_diagnostics/fm_noise_audit/INTERPRETATION.md) · [共享角色准备](../../../06_stage2_preparation/shared_h3_roles/README.md)。以下为历史计划。
 
 ## 当前执行（2026-10-08 22:50，本轮全部完成）
 
@@ -105,7 +105,7 @@
 4. 主代码FMBS生成端与实际H3 callback接通，6项FP32/BF16 CPU梯度/缓存测试通过；仍缺真实33B前向成本、teacher/critic角色管理与DMD训练。C需可靠causal局部能力、时间/权重/网格/composition；D仍有前置验证门槛。
 5. 最多3张项目GPU，当前0/4/1；GPU2迁移未实施（原GPU1任务在交接前已经启动）。不改meeting，不推送未验收结果。
 
-[FM48训练报告](submission/reports/stage1_anyflow/01_real_video/real_abot_fm/FM48_TRAINING_RESULTS.md) · [FMBS生成端准备](submission/reports/stage1_anyflow/06_stage2_preparation/h3_fmbs_integration/README.md)。以下为历史计划。
+[FM48训练报告](../../../01_real_video/real_abot_fm/FM48_TRAINING_RESULTS.md) · [FMBS生成端准备](../../../06_stage2_preparation/h3_fmbs_integration/README.md)。以下为历史计划。
 
 ## 当前执行（2026-10-08 21:28，首块机制消融完成，真实FM 40/48）
 
@@ -115,7 +115,7 @@
 4. 若普通FM仍失败，再根据受控证据设计单条依赖边对照，包含未来内容负对照、后续chunk和缓存语义；不把首块恢复Original身份正控宣称为完整causal修复。可靠局部生成/动作与有限映射成立后继续C/D。
 5. GPU1只读探针已退出，GPU0 FM训练继续；后续队列2136435最多使用0/4/1。完整A–D未完成，C/D方法准备不等于真实训练，meeting保持不变。
 
-[首块消融解释](submission/reports/stage1_anyflow/02_causal_diagnostics/first_chunk_routes/INTERPRETATION.md)。以下保留历史计划。
+[首块消融解释](../../../02_causal_diagnostics/first_chunk_routes/INTERPRETATION.md)。以下保留历史计划。
 
 ## 当前执行（2026-10-08 21:00，停车场基线完整，真实FM 32/48）
 
@@ -125,7 +125,7 @@
 4. C/D源方法已核查，FMBS最多三段映射的完整参数梯度CPU验证通过45个官方case，真实H3未接入。C仍要测对角保持、时间embedding、adaptive/time weights、4/8覆盖、composition及目标距离；D仍需双向Original teacher、独立critic与真实生成Jacobian。
 5. 旧Stage2-lite主入口仅更正因果teacher/单次endpoint replay的说明与metadata，计算不变；不新增AnyFlow/Stage2训练、不改meeting。
 
-[停车场完整基线](submission/reports/stage1_anyflow/01_real_video/real_abot_fm/report/parking_baseline_complete/README.md) · [C/D方法准备](submission/reports/stage1_anyflow/06_stage2_preparation/cd_method_audit/README.md)。以下为历史计划。
+[停车场完整基线](../../../01_real_video/real_abot_fm/report/parking_baseline_complete/README.md) · [C/D方法准备](../../../06_stage2_preparation/cd_method_audit/README.md)。以下为历史计划。
 
 ## 当前执行（2026-10-08 20:15，B基线已完成，真实FM训练中）
 
@@ -135,7 +135,7 @@
 4. step48的geometry复用GT和固定step00 generated states；若另外看自己的rollout states，另列且不称相同输入。检查clean-history局部画面/动作后再决定C/D。
 5. C/D未完成、不自动扩大训练。最多3张项目GPU，目前0/4/1；GPU5探针显存guard失败记录保留。提交包新增证据与代码，会议主视频不替换。
 
-[完整基线评审](submission/reports/stage1_anyflow/01_real_video/real_abot_fm/BASELINE_COMPLETE_REVIEW.md)。以下为历史计划，当前条目优先。
+[完整基线评审](../../../01_real_video/real_abot_fm/BASELINE_COMPLETE_REVIEW.md)。以下为历史计划，当前条目优先。
 
 ## 当前执行（2026-10-08 19:04，按完整A–D目标）
 
@@ -145,7 +145,7 @@
 4. C在可靠causal checkpoint上检查diagonal保持、时间范围、off-diagonal权重、scheduler覆盖和composition。D再评估真正on-policy teacher/critic与Flow Map Backward Simulation。C/D未完成；不要求Stage1先解决全部长时漂移。
 5. 最多3张项目GPU，不干扰他人进程，不改会议主视频，不继续136之外盲目AnyFlow扩训。
 
-[完整A–D执行与门槛](submission/reports/stage1_anyflow/07_protocols/overviews/ABCD_STATUS.md) · [A结果](submission/reports/stage1_anyflow/02_causal_diagnostics/field_factorization/RESULTS.md) · [B来源/配置](submission/reports/stage1_anyflow/01_real_video/real_abot_fm/README.md)。下文为历史计划，冲突时以本段为准。
+[完整A–D执行与门槛](../../overviews/ABCD_STATUS.md) · [A结果](../../../02_causal_diagnostics/field_factorization/RESULTS.md) · [B来源/配置](../../../01_real_video/real_abot_fm/README.md)。下文为历史计划，冲突时以本段为准。
 
 ## 当前执行（2026-10-08 18:09，同状态动作机制诊断已完成）
 
@@ -155,7 +155,7 @@
 4. **下一项建议（尚未运行）**：只读三路消融Original双向、Original权重+当前causal/KV、AnyFlow128 r=t。固定raw generated history/current noisy state/动作/anchor，各模型重建自己的KV，避免混合模型缓存；分离因果依赖图改变和训练适配的影响。先不扩大LoRA/anchor/noise-training预算，不启动Stage2。
 5. **Stage2与资源**：Stage1需具备可信局部生成/动作/有限区间行为，不要求先消除全部长时漂移。本轮只用GPU6串行且已结束；最多同时3张项目GPU持续有效。视频验收仍未通过。
 
-[当前机制结论](submission/reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128/INTERPRETATION.md) · [136完整结果](submission/reports/stage1_anyflow/03_anyflow_trials/interval_consistency_candidate/FINAL_RESULTS.md) · [双局部指标](submission/reports/stage1_anyflow/03_anyflow_trials/dual_metric136/RESULTS.md)。下文为历史计划。
+[当前机制结论](../../../02_causal_diagnostics/generated_action_geometry128/INTERPRETATION.md) · [136完整结果](../../../03_anyflow_trials/interval_consistency_candidate/FINAL_RESULTS.md) · [双局部指标](../../../03_anyflow_trials/dual_metric136/RESULTS.md)。下文为历史计划。
 
 # Next Plan v3：在 generated history 下恢复 H3-World 的 action geometry
 
@@ -395,8 +395,8 @@ multi-chunk/multi-sigma Stage2，增加 update 数或 schedule/counterfactual st
 RGB dual + full-attention paired teacher + FP32 action projection 的 4-step 训练和全部 A/D
 39 帧评估已完成。A−D 为 **0.8272 / 0.8075 / 0.8213 / 0.8002**，未超过手工 A64/D8
 初始化的 0.8286，也未通过 1.0 gate。详见
-[报告](H3-World/outputs/2026-10-06-09/GAIN_CURVE_REPORT.md) 与
-[可播放诊断对照](H3-World/outputs/h3world_rgb_gain_diagnostic_AD_39.mp4)。
+[报告](../../../../../archive/referenced_assets/H3-World/outputs/2026-10-06-09/GAIN_CURVE_REPORT.md) 与
+[可播放诊断对照](../../../../../archive/referenced_assets/H3-World/outputs/h3world_rgb_gain_diagnostic_AD_39.mp4)。
 
 下方“先训练 per-action gain”的计划已执行；Stage2-lite v2 的历史优先级不自动恢复。
 下一轮只应先做这些可归因诊断：
@@ -463,7 +463,7 @@ RGB-dual 稳定视频作为 Stage1 feasibility 主证据；不把 inference-only
 ## 2026-10-05 Stage2-lite 状态更新
 
 已完成第一版真正的 critic/DMD prototype，代码为
-[`H3-World/code/causal/stage2_lite_dmd.py`](H3-World/code/causal/stage2_lite_dmd.py)。它在单个共享
+[`H3-World/code/causal/stage2_lite_dmd.py`](../../../../../code/causal/stage2_lite_dmd.py)。它在单个共享
 33B backbone 上轮换 student、critic、teacher，39 帧 / 3 chunks / 8 steps/chunk 的 4 轮实验
 已完成，峰值约 39.4 GiB GPU，未发生 OOM。结果是 A=`+0.00477`、D=`-0.76839`、A-D=`0.77316`：
 A/D 符号 gate 通过，但 separation 没有达到 1.0，因此不能宣称 Stage2 已解决 action geometry。
@@ -472,7 +472,7 @@ A/D 符号 gate 通过，但 separation 没有达到 1.0，因此不能宣称 St
 每轮只做一次 critic update 和一次 DMD student update。critic loss 约 0.09–0.11，DMD 梯度有限且
 稳定，说明实现链路有效；但 signal coverage 不足以替代 SolarWM 的多 sigma、长 rollout 分布匹配。
 正式结果和视频在
-[`H3-World/outputs/2026-10-05-05/stage2_lite_39_8step_4updates/RESULTS.md`](H3-World/outputs/2026-10-05-05/stage2_lite_39_8step_4updates/RESULTS.md)。
+[`H3-World/outputs/2026-10-05-05/stage2_lite_39_8step_4updates/RESULTS.md`](../../../../../archive/referenced_assets/H3-World/outputs/2026-10-05-05/stage2_lite_39_8step_4updates/RESULTS.md)。
 
 ## 下一步优先级（Stage2-lite v2）
 

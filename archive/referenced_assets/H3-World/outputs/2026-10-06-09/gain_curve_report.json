@@ -1,0 +1,723 @@
+{
+  "training": {
+    "status": "complete",
+    "kind": "action-aware online self-rollout teacher-replay diagnostic",
+    "objective": "student generated-history replay against frozen H3 teacher; no SGF/DMD",
+    "teacher_dirs": [
+      "H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+      "H3-World/outputs/2026-10-02-03/action_D_teacher_39"
+    ],
+    "actions": [
+      "A",
+      "D"
+    ],
+    "student_action_adapter": "H3-World/outputs/2026-10-06-02/pair_only_from_w2/student_action_adapter.pt",
+    "causal_adapter": "H3-World/outputs/2026-10-01-19/stage1_rgb_dual_tail16/adapter.pt",
+    "causal_adapter_scope": "all",
+    "action_gain_init": {
+      "A": 64.0,
+      "D": 8.0
+    },
+    "action_gain_lr": 0.01,
+    "action_gain_compute_dtype": "float32",
+    "anchor_mode": "rgb",
+    "train_causal_adapter": false,
+    "action_prefix_adapter": null,
+    "train_action_prefix": false,
+    "freeze_action_residual": false,
+    "train_h3_lora": false,
+    "h3_lora_blocks": "tail8",
+    "h3_lora_lr": null,
+    "latent_target_weight": 0.0,
+    "final_replay_weight": 0.0,
+    "final_replay_sigma": 0.6,
+    "optimizer_steps": 4,
+    "solver_steps": 8,
+    "chunk_frames": 5,
+    "history_chunks": 5,
+    "flow_shift": 2.22,
+    "lr": 5e-05,
+    "sigma_replay_weight": 1.0,
+    "teacher_weight": 1.0,
+    "boundary_weight": 0.1,
+    "paired_action_loss": true,
+    "paired_full_teacher": true,
+    "pair_actions": [
+      "A",
+      "D"
+    ],
+    "action_dir_weight": 4.0,
+    "action_mag_weight": 1.0,
+    "pair_eps": 1e-06,
+    "checkpoint_every": 1,
+    "action_prefix_mode": "causal",
+    "action_feedback": true,
+    "seed": 13,
+    "visible_devices": "0",
+    "rollout_trace": [
+      {
+        "chunk": 0,
+        "action": "A",
+        "sigma_teacher_loss_mean": 0.03376001794822514,
+        "clean_teacher_loss": 0.05219820514321327,
+        "boundary_loss": 0.08419059216976166
+      },
+      {
+        "chunk": 1,
+        "action": "A",
+        "sigma_teacher_loss_mean": 0.0354346064850688,
+        "clean_teacher_loss": 0.0453193336725235,
+        "boundary_loss": 0.0548534020781517
+      },
+      {
+        "chunk": 2,
+        "action": "A",
+        "sigma_teacher_loss_mean": 0.024125280557200313,
+        "clean_teacher_loss": 0.05832820013165474,
+        "boundary_loss": 0.05860351771116257
+      },
+      {
+        "chunk": 0,
+        "action": "D",
+        "sigma_teacher_loss_mean": 0.037886598613113165,
+        "clean_teacher_loss": 0.000990004395134747,
+        "boundary_loss": 0.0010486321989446878
+      },
+      {
+        "chunk": 1,
+        "action": "D",
+        "sigma_teacher_loss_mean": 0.03759551257826388,
+        "clean_teacher_loss": 0.0006301788380369544,
+        "boundary_loss": 0.0007198139210231602
+      },
+      {
+        "chunk": 2,
+        "action": "D",
+        "sigma_teacher_loss_mean": 0.031516537303105,
+        "clean_teacher_loss": 0.0007466896786354482,
+        "boundary_loss": 0.0008123855805024505
+      },
+      {
+        "chunk": 0,
+        "action": "A",
+        "sigma_teacher_loss_mean": 0.029842749005183578,
+        "clean_teacher_loss": 0.04494274780154228,
+        "boundary_loss": 0.06984061747789383
+      },
+      {
+        "chunk": 1,
+        "action": "A",
+        "sigma_teacher_loss_mean": 0.030281574348919094,
+        "clean_teacher_loss": 0.04102284461259842,
+        "boundary_loss": 0.04702523350715637
+      },
+      {
+        "chunk": 2,
+        "action": "A",
+        "sigma_teacher_loss_mean": 0.020072114537470043,
+        "clean_teacher_loss": 0.051711391657590866,
+        "boundary_loss": 0.05140560865402222
+      },
+      {
+        "chunk": 0,
+        "action": "D",
+        "sigma_teacher_loss_mean": 0.03399191843345761,
+        "clean_teacher_loss": 0.0010405258508399129,
+        "boundary_loss": 0.0011275301221758127
+      },
+      {
+        "chunk": 1,
+        "action": "D",
+        "sigma_teacher_loss_mean": 0.03292933036573231,
+        "clean_teacher_loss": 0.0006308882148005068,
+        "boundary_loss": 0.0007571902824565768
+      },
+      {
+        "chunk": 2,
+        "action": "D",
+        "sigma_teacher_loss_mean": 0.02688179025426507,
+        "clean_teacher_loss": 0.0008329697884619236,
+        "boundary_loss": 0.0009165176888927817
+      }
+    ],
+    "loss_history": [
+      {
+        "optimizer_step": 1,
+        "action": "A",
+        "mean_loss": 10.977025701353947,
+        "sigma_teacher_loss_mean": 0.031106634996831417,
+        "action_dir_loss_mean": 1.0480354552467663,
+        "action_mag_loss_mean": 8.118588229020437,
+        "boundary_loss_mean": 0.06588250398635864,
+        "latent_target_loss_mean": 0.0,
+        "final_replay_loss_mean": 0.0,
+        "grad_norm": 1565.021240234375,
+        "action_gains": {
+          "W": 0.9998999834060669,
+          "A": 63.98360061645508,
+          "S": 0.9998999834060669,
+          "D": 8.009200096130371,
+          "I": 0.9998999834060669,
+          "J": 0.9998999834060669,
+          "K": 0.9998999834060669,
+          "L": 0.9998999834060669,
+          "F": 0.9998999834060669
+        },
+        "seconds": 587.0844403859228,
+        "student_cache_bytes": 6799104000,
+        "teacher_cache_bytes": 6799104000
+      },
+      {
+        "optimizer_step": 2,
+        "action": "D",
+        "mean_loss": 10.681606468128006,
+        "sigma_teacher_loss_mean": 0.03566621616482735,
+        "action_dir_loss_mean": 0.945139929652214,
+        "action_mag_loss_mean": 8.200471942623457,
+        "boundary_loss_mean": 0.0008602772334900995,
+        "latent_target_loss_mean": 0.0,
+        "final_replay_loss_mean": 0.0,
+        "grad_norm": 1346.07275390625,
+        "action_gains": {
+          "W": 0.9997999668121338,
+          "A": 63.96718978881836,
+          "S": 0.9997999668121338,
+          "D": 8.018411636352539,
+          "I": 0.9997999668121338,
+          "J": 0.9997999668121338,
+          "K": 0.9997999668121338,
+          "L": 0.9997999668121338,
+          "F": 0.9997999668121338
+        },
+        "seconds": 572.3474294077605,
+        "student_cache_bytes": 6799104000,
+        "teacher_cache_bytes": 6799104000
+      },
+      {
+        "optimizer_step": 3,
+        "action": "A",
+        "mean_loss": 9.769062813095472,
+        "sigma_teacher_loss_mean": 0.026732145963857572,
+        "action_dir_loss_mean": 1.0240415434042613,
+        "action_mag_loss_mean": 6.860859627525012,
+        "boundary_loss_mean": 0.056090486546357475,
+        "latent_target_loss_mean": 0.0,
+        "final_replay_loss_mean": 0.0,
+        "grad_norm": 1388.045654296875,
+        "action_gains": {
+          "W": 0.9996999502182007,
+          "A": 63.950801849365234,
+          "S": 0.9996999502182007,
+          "D": 8.02762222290039,
+          "I": 0.9996999502182007,
+          "J": 0.9996999502182007,
+          "K": 0.9996999502182007,
+          "L": 0.9996999502182007,
+          "F": 0.9996999502182007
+        },
+        "seconds": 544.537188321352,
+        "student_cache_bytes": 6799104000,
+        "teacher_cache_bytes": 6799104000
+      },
+      {
+        "optimizer_step": 4,
+        "action": "D",
+        "mean_loss": 9.942721870842096,
+        "sigma_teacher_loss_mean": 0.031267679684484996,
+        "action_dir_loss_mean": 0.9550347775220871,
+        "action_mag_loss_mean": 7.334039270877838,
+        "boundary_loss_mean": 0.0009337460311750571,
+        "latent_target_loss_mean": 0.0,
+        "final_replay_loss_mean": 0.0,
+        "grad_norm": 1281.5992431640625,
+        "action_gains": {
+          "W": 0.9995999932289124,
+          "A": 63.93442916870117,
+          "S": 0.9995999932289124,
+          "D": 8.036869049072266,
+          "I": 0.9995999932289124,
+          "J": 0.9995999932289124,
+          "K": 0.9995999932289124,
+          "L": 0.9995999932289124,
+          "F": 0.9995999932289124
+        },
+        "seconds": 558.0528534129262,
+        "student_cache_bytes": 6799104000,
+        "teacher_cache_bytes": 6799104000
+      }
+    ],
+    "adapter_format": "hidden_or_qkv",
+    "adapter_block_indices": [
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "action_prefix_adapter_block_indices": null,
+    "action_prefix_trainable_parameters": 0,
+    "causal_adapter_block_indices": [
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "qkv_trainable_parameters": 0,
+    "h3_lora_trainable_parameters": 0,
+    "h3_lora_block_indices": [],
+    "h3_lora_module_names": [],
+    "trainable_parameters": 3096585,
+    "scheduler_timesteps": [
+      1000.0,
+      939.5404663085938,
+      869.4517211914062,
+      787.2340698242188,
+      689.4410400390625,
+      571.1835327148438,
+      425.2873229980469,
+      240.78089904785156
+    ],
+    "scheduler_sigmas": [
+      1.0,
+      0.9395404663085938,
+      0.8694517211914062,
+      0.7872340698242187,
+      0.6894410400390625,
+      0.5711835327148438,
+      0.4252873229980469,
+      0.24078089904785155
+    ],
+    "latent_frames": 12,
+    "num_chunks": 3,
+    "pair_conditioning_verified": true,
+    "wall_seconds": 2265.3823077180423,
+    "allocated_peak_MiB": 41024.5830078125,
+    "reserved_peak_MiB": 41580.0,
+    "student_cache_peak_bytes": 6799104000,
+    "teacher_cache_peak_bytes": 6799104000,
+    "completed_at": "2026-10-06T06:42:40.343663+08:00"
+  },
+  "rows": [
+    {
+      "label": "teacher",
+      "actions": {
+        "A": {
+          "video": "H3-World/outputs/2026-10-02-03/action_A_teacher_39/baseline.mp4",
+          "flow": 1.181253006436715,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 5.148715019226074,
+          "boundary_RGB_MAD": 4.125065803527832,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 151.40786833805032,
+          "inference_after_conditioning_seconds": 197.7201527210418,
+          "inference_including_setup_seconds": 212.41900077299215,
+          "peak_allocated_GiB": 38.98733329772949,
+          "CPU_KV_GiB": 0.0,
+          "denoiser_forwards": 30,
+          "clean_commit_forwards": 0,
+          "RGB_anchor_seconds": 0
+        },
+        "D": {
+          "video": "H3-World/outputs/2026-10-02-03/action_D_teacher_39/baseline.mp4",
+          "flow": -0.8421244201691527,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 3.7774264812469482,
+          "boundary_RGB_MAD": 4.398797035217285,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 151.57180214696564,
+          "inference_after_conditioning_seconds": 203.2712403961923,
+          "inference_including_setup_seconds": 218.03564923605882,
+          "peak_allocated_GiB": 38.98733329772949,
+          "CPU_KV_GiB": 0.0,
+          "denoiser_forwards": 30,
+          "clean_commit_forwards": 0,
+          "RGB_anchor_seconds": 0
+        }
+      },
+      "A_minus_D": 2.023377426605868,
+      "numeric_gate": true
+    },
+    {
+      "label": "inference_A64_D8",
+      "actions": {
+        "A": {
+          "video": "H3-World/outputs/2026-10-06-06/action_gain_sweep/rgb_gain_A64_D8/eval/A/cached.mp4",
+          "flow": 0.047442746924628555,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 1.5957194566726685,
+          "boundary_RGB_MAD": 2.546532392501831,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 160.3799748402089,
+          "inference_after_conditioning_seconds": 204.30648788483813,
+          "inference_including_setup_seconds": 216.5914774867706,
+          "peak_allocated_GiB": 39.17431163787842,
+          "CPU_KV_GiB": 6.332159042358398,
+          "denoiser_forwards": 24,
+          "clean_commit_forwards": 3,
+          "RGB_anchor_seconds": 50.65724436240271
+        },
+        "D": {
+          "video": "H3-World/outputs/2026-10-06-06/action_gain_sweep/rgb_gain_A64_D8/eval/D/cached.mp4",
+          "flow": -0.781164222936097,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 3.859868049621582,
+          "boundary_RGB_MAD": 4.373410224914551,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 166.1251753042452,
+          "inference_after_conditioning_seconds": 211.11520491167903,
+          "inference_including_setup_seconds": 223.31492469646037,
+          "peak_allocated_GiB": 39.17431163787842,
+          "CPU_KV_GiB": 6.332159042358398,
+          "denoiser_forwards": 24,
+          "clean_commit_forwards": 3,
+          "RGB_anchor_seconds": 52.46688499674201
+        }
+      },
+      "A_minus_D": 0.8286069698607256,
+      "numeric_gate": false
+    },
+    {
+      "label": "step_01",
+      "actions": {
+        "A": {
+          "video": "H3-World/outputs/2026-10-06-09/eval_step01/A/cached.mp4",
+          "flow": 0.048916047034589086,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 1.8090623617172241,
+          "boundary_RGB_MAD": 2.3790292739868164,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 186.6781062358059,
+          "inference_after_conditioning_seconds": 232.64678821805865,
+          "inference_including_setup_seconds": 245.95736188534647,
+          "peak_allocated_GiB": 39.174312114715576,
+          "CPU_KV_GiB": 6.332159042358398,
+          "denoiser_forwards": 24,
+          "clean_commit_forwards": 3,
+          "RGB_anchor_seconds": 64.54906076332554
+        },
+        "D": {
+          "video": "H3-World/outputs/2026-10-06-09/eval_step01/D/cached.mp4",
+          "flow": -0.7782458272811613,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 3.8716185092926025,
+          "boundary_RGB_MAD": 4.812565803527832,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 164.93328075809404,
+          "inference_after_conditioning_seconds": 211.80208881944418,
+          "inference_including_setup_seconds": 224.73663627542555,
+          "peak_allocated_GiB": 39.174312114715576,
+          "CPU_KV_GiB": 6.332159042358398,
+          "denoiser_forwards": 24,
+          "clean_commit_forwards": 3,
+          "RGB_anchor_seconds": 60.93224730109796
+        }
+      },
+      "A_minus_D": 0.8271618743157504,
+      "numeric_gate": false
+    },
+    {
+      "label": "step_02",
+      "actions": {
+        "A": {
+          "video": "H3-World/outputs/2026-10-06-09/eval_step02/A/cached.mp4",
+          "flow": 0.044542882101316204,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 1.7680476903915405,
+          "boundary_RGB_MAD": 2.139737844467163,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 168.15789614524692,
+          "inference_after_conditioning_seconds": 215.96379811968654,
+          "inference_including_setup_seconds": 230.86110134702176,
+          "peak_allocated_GiB": 39.174312114715576,
+          "CPU_KV_GiB": 6.332159042358398,
+          "denoiser_forwards": 24,
+          "clean_commit_forwards": 3,
+          "RGB_anchor_seconds": 52.947129437699914
+        },
+        "D": {
+          "video": "H3-World/outputs/2026-10-06-09/eval_step02/D/cached.mp4",
+          "flow": -0.7629220528822196,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 3.547423839569092,
+          "boundary_RGB_MAD": 3.9386987686157227,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 147.58994610980153,
+          "inference_after_conditioning_seconds": 190.1491078301333,
+          "inference_including_setup_seconds": 203.2067307708785,
+          "peak_allocated_GiB": 39.174312114715576,
+          "CPU_KV_GiB": 6.332159042358398,
+          "denoiser_forwards": 24,
+          "clean_commit_forwards": 3,
+          "RGB_anchor_seconds": 50.025706744752824
+        }
+      },
+      "A_minus_D": 0.8074649349835358,
+      "numeric_gate": false
+    },
+    {
+      "label": "step_03",
+      "actions": {
+        "A": {
+          "video": "H3-World/outputs/2026-10-06-09/eval_step03/A/cached.mp4",
+          "flow": 0.04310575087775329,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 1.8372873067855835,
+          "boundary_RGB_MAD": 1.9571943283081055,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 169.9921264941804,
+          "inference_after_conditioning_seconds": 215.8971766573377,
+          "inference_including_setup_seconds": 228.79099705582485,
+          "peak_allocated_GiB": 39.174312114715576,
+          "CPU_KV_GiB": 6.332159042358398,
+          "denoiser_forwards": 24,
+          "clean_commit_forwards": 3,
+          "RGB_anchor_seconds": 62.199244025629014
+        },
+        "D": {
+          "video": "H3-World/outputs/2026-10-06-09/eval_step03/D/cached.mp4",
+          "flow": -0.7782441063931114,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 3.7486374378204346,
+          "boundary_RGB_MAD": 4.510107040405273,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 190.44585638307035,
+          "inference_after_conditioning_seconds": 236.8736811997369,
+          "inference_including_setup_seconds": 249.86094517773017,
+          "peak_allocated_GiB": 39.174312114715576,
+          "CPU_KV_GiB": 6.332159042358398,
+          "denoiser_forwards": 24,
+          "clean_commit_forwards": 3,
+          "RGB_anchor_seconds": 64.26862830575556
+        }
+      },
+      "A_minus_D": 0.8213498572708646,
+      "numeric_gate": false
+    },
+    {
+      "label": "step_04",
+      "actions": {
+        "A": {
+          "video": "H3-World/outputs/2026-10-06-09/eval_step04/A/cached.mp4",
+          "flow": 0.035022292745691776,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 1.8269940614700317,
+          "boundary_RGB_MAD": 1.874833106994629,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 156.7633504937403,
+          "inference_after_conditioning_seconds": 202.3684720392339,
+          "inference_including_setup_seconds": 215.2506370069459,
+          "peak_allocated_GiB": 39.174312114715576,
+          "CPU_KV_GiB": 6.332159042358398,
+          "denoiser_forwards": 24,
+          "clean_commit_forwards": 3,
+          "RGB_anchor_seconds": 55.33277389034629
+        },
+        "D": {
+          "video": "H3-World/outputs/2026-10-06-09/eval_step04/D/cached.mp4",
+          "flow": -0.7652243734582475,
+          "frames": 39,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24.0,
+          "frame_RGB_MAD": 3.5130720138549805,
+          "boundary_RGB_MAD": 3.7951669692993164,
+          "boundary_frames": [
+            17,
+            34
+          ],
+          "sampling_seconds": 159.11296621290967,
+          "inference_after_conditioning_seconds": 205.87991810496897,
+          "inference_including_setup_seconds": 218.93814803659916,
+          "peak_allocated_GiB": 39.174312114715576,
+          "CPU_KV_GiB": 6.332159042358398,
+          "denoiser_forwards": 24,
+          "clean_commit_forwards": 3,
+          "RGB_anchor_seconds": 55.90735461656004
+        }
+      },
+      "A_minus_D": 0.8002466662039392,
+      "numeric_gate": false
+    }
+  ],
+  "conditioning_checks": [
+    {
+      "step": 1,
+      "action": "A",
+      "equality_checks": {
+        "initial_noise": true,
+        "audio_noise": true,
+        "anchor": true,
+        "prompt_embeds": true
+      }
+    },
+    {
+      "step": 1,
+      "action": "D",
+      "equality_checks": {
+        "initial_noise": true,
+        "audio_noise": true,
+        "anchor": true,
+        "prompt_embeds": true
+      }
+    },
+    {
+      "step": 2,
+      "action": "A",
+      "equality_checks": {
+        "initial_noise": true,
+        "audio_noise": true,
+        "anchor": true,
+        "prompt_embeds": true
+      }
+    },
+    {
+      "step": 2,
+      "action": "D",
+      "equality_checks": {
+        "initial_noise": true,
+        "audio_noise": true,
+        "anchor": true,
+        "prompt_embeds": true
+      }
+    },
+    {
+      "step": 3,
+      "action": "A",
+      "equality_checks": {
+        "initial_noise": true,
+        "audio_noise": true,
+        "anchor": true,
+        "prompt_embeds": true
+      }
+    },
+    {
+      "step": 3,
+      "action": "D",
+      "equality_checks": {
+        "initial_noise": true,
+        "audio_noise": true,
+        "anchor": true,
+        "prompt_embeds": true
+      }
+    },
+    {
+      "step": 4,
+      "action": "A",
+      "equality_checks": {
+        "initial_noise": true,
+        "audio_noise": true,
+        "anchor": true,
+        "prompt_embeds": true
+      }
+    },
+    {
+      "step": 4,
+      "action": "D",
+      "equality_checks": {
+        "initial_noise": true,
+        "audio_noise": true,
+        "anchor": true,
+        "prompt_embeds": true
+      }
+    }
+  ],
+  "caveats": [
+    "One scene and seed; no significance claim from small differences.",
+    "39 frames at 24 fps is 1.625 seconds, not the final 124-frame demo.",
+    "Both action residual projection weights and nine gains were trained; visual tail16 QKV and released H3 LoRA remained frozen.",
+    "RGB/frame and boundary MAD describe motion and discontinuity, not quality. Boundary frames are 17 and 34.",
+    "Timing is observational: training on GPU0 overlapped evaluation on GPUs1/4; shared CPU/I/O load differs from archived teacher timing.",
+    "New cache replay equality was not rerun; replay error=0 refers to earlier cache correctness tests.",
+    "Original H3 reference here is the archived 30-step benchmark with flow shift 2.22.",
+    "Four updates cannot establish an architectural ceiling or prove Stage2 is necessary/sufficient."
+  ]
+}

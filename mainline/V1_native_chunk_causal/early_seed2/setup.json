@@ -1,0 +1,28 @@
+{
+  "load_models_and_lora_seconds": 2.2377760531380773,
+  "conditioning_seconds": 11.379291676916182,
+  "memory": {
+    "allocated_peak_MiB": 38065.09765625,
+    "reserved_peak_MiB": 38220.0
+  },
+  "completed_at": "2026-09-30T13:48:50.260705+08:00",
+  "config": {
+    "modes": [
+      "cached"
+    ],
+    "steps": 4,
+    "baseline_steps": 30,
+    "num_frames": 124,
+    "chunk_frames": 5,
+    "history_chunks": 5,
+    "cache_device": "cpu",
+    "device": "cuda:0",
+    "seed": 2,
+    "out_dir": "outputs/2026-09-30-13/benchmark_cached_cpu_124",
+    "save_latents": false
+  },
+  "gpu": "NVIDIA L40",
+  "visible_devices": "2",
+  "torch_version": "2.10.0+cu128",
+  "conditioning": "same prompt, image, W action, initial video/audio noise reused across modes"
+}

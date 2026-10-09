@@ -1,0 +1,246 @@
+[
+  {
+    "filename": "V0_AD_reference.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V0_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "V0 action reference: A vs D",
+    "caveat": "Different actions intentionally; Original is a generated reference, not ground truth."
+  },
+  {
+    "filename": "V0_WSAD_reference.mp4",
+    "rows": [
+      [
+        "V0_W",
+        "V0_S"
+      ],
+      [
+        "V0_A",
+        "V0_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "V0 Original H3-World: W / S / A / D",
+    "caveat": "30 full-horizon steps | 124 RGB frames | released action LoRA | reference only"
+  },
+  {
+    "filename": "V1_A_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V1_A"
+      ]
+    ],
+    "frames": 124,
+    "title": "Original H3-World vs V1 | action A",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters)."
+  },
+  {
+    "filename": "V1_D_vs_original.mp4",
+    "rows": [
+      [
+        "V0_D",
+        "V1_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "Original H3-World vs V1 | action D",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters)."
+  },
+  {
+    "filename": "V1_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V1_A"
+      ],
+      [
+        "V0_D",
+        "V1_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "Original H3-World vs V1 | A / D",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters)."
+  },
+  {
+    "filename": "V2_A_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V2_A"
+      ]
+    ],
+    "frames": 124,
+    "title": "Original H3-World vs V2 | action A",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters)."
+  },
+  {
+    "filename": "V2_D_vs_original.mp4",
+    "rows": [
+      [
+        "V0_D",
+        "V2_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "Original H3-World vs V2 | action D",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters)."
+  },
+  {
+    "filename": "V2_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V2_A"
+      ],
+      [
+        "V0_D",
+        "V2_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "Original H3-World vs V2 | A / D",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters)."
+  },
+  {
+    "filename": "V2_A_vs_V1.mp4",
+    "rows": [
+      [
+        "V1_A",
+        "V2_A"
+      ]
+    ],
+    "frames": 124,
+    "title": "V1 vs V2 | action A",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters)."
+  },
+  {
+    "filename": "V2_D_vs_V1.mp4",
+    "rows": [
+      [
+        "V1_D",
+        "V2_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "V1 vs V2 | action D",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters)."
+  },
+  {
+    "filename": "V2_vs_V1.mp4",
+    "rows": [
+      [
+        "V1_A",
+        "V2_A"
+      ],
+      [
+        "V1_D",
+        "V2_D"
+      ]
+    ],
+    "frames": 124,
+    "title": "V1 vs V2 | A / D",
+    "caveat": "Same scene/seed/actions; MULTI-FACTOR protocols (steps, conditioning, routing, adapters)."
+  },
+  {
+    "filename": "V3_A_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V3_AA"
+      ]
+    ],
+    "frames": 56,
+    "title": "Original H3-World vs V3 | action A",
+    "caveat": "CROSS-PROTOCOL: same displayed range, different horizon/conditioning/history/topology; NOT an ablation."
+  },
+  {
+    "filename": "V3_D_vs_original.mp4",
+    "rows": [
+      [
+        "V0_D",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "Original H3-World vs V3 | action D",
+    "caveat": "CROSS-PROTOCOL: same displayed range, different horizon/conditioning/history/topology; NOT an ablation."
+  },
+  {
+    "filename": "V3_vs_original.mp4",
+    "rows": [
+      [
+        "V0_A",
+        "V3_AA"
+      ],
+      [
+        "V0_D",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "Original H3-World vs V3 | A / D",
+    "caveat": "CROSS-PROTOCOL: same displayed range, different horizon/conditioning/history/topology; NOT an ablation."
+  },
+  {
+    "filename": "V3_A_vs_V2.mp4",
+    "rows": [
+      [
+        "V2_A",
+        "V3_AA"
+      ]
+    ],
+    "frames": 56,
+    "title": "V2 vs V3 | action A",
+    "caveat": "CROSS-PROTOCOL: same displayed range, different horizon/conditioning/history/topology; NOT an ablation."
+  },
+  {
+    "filename": "V3_D_vs_V2.mp4",
+    "rows": [
+      [
+        "V2_D",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "V2 vs V3 | action D",
+    "caveat": "CROSS-PROTOCOL: same displayed range, different horizon/conditioning/history/topology; NOT an ablation."
+  },
+  {
+    "filename": "V3_vs_V2.mp4",
+    "rows": [
+      [
+        "V2_A",
+        "V3_AA"
+      ],
+      [
+        "V2_D",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "V2 vs V3 | A / D",
+    "caveat": "CROSS-PROTOCOL: same displayed range, different horizon/conditioning/history/topology; NOT an ablation."
+  },
+  {
+    "filename": "V3_four_paths_56.mp4",
+    "rows": [
+      [
+        "V3_AA",
+        "V3_AD"
+      ],
+      [
+        "V3_DA",
+        "V3_DD"
+      ]
+    ],
+    "frames": 56,
+    "title": "V3 C12->5: A->A / A->D / D->A / D->D",
+    "caveat": "Boundary RGB39 | own generated history | only TWO chunks validated | NO GT reset / NO persistent KV"
+  }
+]
