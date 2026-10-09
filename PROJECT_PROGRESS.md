@@ -1,3 +1,17 @@
+## 2026-10-09 17:14：实验冻结与最终提交复现验收完成
+
+按用户四项优先级完成收尾：E2所有预选评测已齐，FM-only/FM+action各4更新，动作项无一致收益，局部A仍重影。冻结16份关键证据并核对14个历史进程身份已结束；不扩16，不重启AnyFlow/Stage2。
+
+重写INTERVIEW_ANSWER、EXPERIMENT_REPORT、REPRODUCE和会议讲稿/六页提纲；主视频保持2026-10-06 `visual_online_rgb_tail16_endpoint_ad2`，包内visual_rgb_tail16两份adapter与源文件SHA256一致。明确主片没有AnyFlow/E2，不把后续DMD工程原语当完整33B Stage2。保留同checkpoint的20秒完整失败片与E2局部A重影三列视频。
+
+独立Python3.10 venv（无system/user site packages）＋GitHub新克隆DiffSynth固定300e3e4及5份patch完成验收。KV/局部因果15测试通过；实际MiniMaxH3DiT随机小配置普通FM训练smoke8更新，loss2.334223→2.331131，参数改变且梯度有限。真实33B推理完整加载released H3 104对LoRA、正确visual/action adapter，39帧24fps H264完整解码，24noisy＋3clean commits。
+
+物理GPU2共享负载、reserve20，单次端到端374.586s，GPU allocated峰值15176.43MiB，CPU raw KV6484.13MiB；A水平flow−1.14536，说明工程验收通过不代表A动作方向通过。没有追加统一124f性能实验，不把单次共享机器结果当速度比较。主片/grid/失败片及6条E2三列共9视频再次完整解码。
+
+补入遗漏cache测试及pytest/OpenCV依赖；升级pip解决新venv安装问题；benchmark增加显式checkpoint/首帧/prompt及哈希、LoRA加载数量检查。此次只改复现入口与记录，不改架构或训练目标。
+
+[验收证据](reports/final_acceptance/README.md) · [会议材料](meeting/README.md) · [冻结计划](NEXT_PLAN.md)。
+
 ## 2026-10-09 16:16：E2受控评测收尾；动作监督短试没有额外收益
 
 2026-10-09 16:16：E2两臂各4更新、六组局部视频评测及48次held-out诊断全部完成。停车场两份历史的A/D符号均保留，但A分支重影仍在，FM+action没有一致优于FM-only；局部动作＋结构联合gate仍为No-Go。本轮不自动扩训，不进入AnyFlow/Stage2。

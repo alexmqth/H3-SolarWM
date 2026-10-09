@@ -1,5 +1,8 @@
 # Meeting metrics: current RGB visual-main
 
+> 版本锁定：2026-10-06 `visual_online_rgb_tail16_endpoint_ad2`；普通FM/replay、非AnyFlow、非最新E2。checkpoint与视频哈希见[DEMO_PROVENANCE](DEMO_PROVENANCE.md)。本次保留历史单次数据，不冒充新的统一硬件重复测量。
+
+
 本表对应 124 帧 / 5.17 秒。新增 [243/481 帧长视频指标及视觉观察](long_horizon/README.md) 和 [CSV](long_horizon/METRICS.csv) 单独记录；同一 RGB checkpoint 的 20 秒 causal 视频严重崩坏，不能把本表的短片改善外推成长时稳定。
 
 这些数据对应 `h3world_rgb_stable_*` 主视频：tail16 visual QKV adapter、RGB-consistent dual anchor、generated history、persistent CPU raw KV、8 steps/chunk。每个动作只有一次已完成记录，没有 warmup 或多次均值；因此只作协议内的工程测量，不能作严格 speed benchmark。

@@ -122,6 +122,10 @@ def main():
     ap.add_argument('--device', default='cuda:0')
     ap.add_argument('--seed', type=int, default=2)
     ap.add_argument('--out-dir', type=Path, required=True)
+    ap.add_argument('--h3-checkpoint', type=Path,
+                    default=ROOT/'checkpoints/H3-World/step-10000.safetensors')
+    ap.add_argument('--first-frame', type=Path, default=ROOT/'examples/first_frame.png')
+    ap.add_argument('--scene-prompt', default='A man in a yellow floral shirt stands in a dim, multi-level concrete parking garage.')
     ap.add_argument('--save-latents', action='store_true')
     ap.add_argument('--causal-adapter', type=Path, help='additional trained causal tail adapter (cached/recompute only)')
     ap.add_argument('--anyflow-adapter', type=Path,
@@ -157,6 +161,20 @@ def main():
     ap.add_argument('--precision-profile', choices=['legacy', 'h3_fp32'], default='legacy')
     ap.add_argument('--stage1-lora', type=Path, default=None)
     args = ap.parse_args()
+    input_artifacts = {}
+    for name in ('h3_checkpoint', 'first_frame', 'causal_adapter', 'causal_action_adapter',
+                 'anyflow_adapter', 'stage1_lora', 'h3_lora_adapter', 'causal_action_prefix_adapter'):
+        path = getattr(args, name)
+        if path is None:
+            continue
+        if not path.is_file():
+            ap.error(f'{name}: missing file {path}; see REPRODUCE.md for external dependencies')
+        digest = hashlib.sha256()
+        with path.open('rb') as source:
+            for block in iter(lambda: source.read(8 * 1024**2), b''):
+                digest.update(block)
+        input_artifacts[name] = dict(path=str(path.resolve()), sha256=digest.hexdigest(),
+                                     bytes=path.stat().st_size)
     if args.precision_profile != 'legacy' and args.modes != ['cached']:
         ap.error('FP32 prototype currently requires --modes cached')
     if args.stage1_lora and (not args.causal_adapter or args.modes != ['cached']
@@ -216,13 +234,19 @@ def main():
         results[name] = time.perf_counter()-start
         print(f'[timing] {name}: {results[name]:.3f}s', flush=True)
 
-    setup={}
+    setup={'input_artifacts': input_artifacts, 'diffsynth_root': str(abot.DIFFSYNTH_ROOT.resolve())}
     with phase(setup, 'load_models_and_lora_seconds'):
         pipe=abot.load_pipeline(args.device)
-        lora=abot.load_checkpoint_lora(ROOT/'checkpoints/H3-World/step-10000.safetensors')
+        lora=abot.load_checkpoint_lora(args.h3_checkpoint)
+        before = sum(len(m.lora_A_weights) for m in pipe.dit.modules() if hasattr(m, 'lora_A_weights'))
         pipe.load_lora(pipe.dit, state_dict=lora, hotload=True)
+        after = sum(len(m.lora_A_weights) for m in pipe.dit.modules() if hasattr(m, 'lora_A_weights'))
+        expected = sum('.lora_A.' in key for key in lora)
+        if after - before != expected:
+            raise RuntimeError(f'Loaded {after-before}/{expected} released H3 LoRA pairs')
+        setup['released_lora_pairs_loaded'] = after - before
         setup['precision'] = configure_precision(pipe.dit, args.precision_profile,
-            native_transformer_dir=ROOT / 'DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer')
+            native_transformer_dir=abot.DIFFSYNTH_ROOT / 'models/MiniMax/MiniMax-H3/FL2VA/transformer')
         if args.anyflow_adapter:
             from causal.anyflow import load_anyflow
             _, anyflow_metadata = load_anyflow(pipe.dit, args.anyflow_adapter, args.device)
@@ -311,9 +335,9 @@ def main():
                 keys[start:stop, abot.S.KEYS9.index(key)] = 1
         shared=dict(cfg_scale=1., height=abot.HEIGHT, width=abot.WIDTH,
                     num_frames=args.num_frames, seed=args.seed, rand_device='cpu',
-                    keyframes=[abot.load_first_frame(ROOT/'examples/first_frame.png')],
+                    keyframes=[abot.load_first_frame(args.first_frame)],
                     keyframe_indices=[0], imgvid_cond_noise_aug=.999, audio_cond_noise_aug=1.)
-        pos=dict(prompt='A man in a yellow floral shirt stands in a dim, multi-level concrete parking garage.',
+        pos=dict(prompt=args.scene_prompt,
                  action_script=abot.S.annotate_from_keys9(keys))
         neg={}
         for unit in pipe.units:
@@ -336,7 +360,7 @@ def main():
     # Hashing is read-only and does not consume RNG state or change sampling.
     setup['input_fingerprints'] = {
         'initial_image_sha256': hashlib.sha256(
-            (ROOT/'examples/first_frame.png').read_bytes()).hexdigest(),
+            args.first_frame.read_bytes()).hexdigest(),
         'prompt': pos['prompt'],
         'video_noise_sha256': hashlib.sha256(
             initial.detach().cpu().contiguous().view(torch.uint8).numpy().tobytes()).hexdigest(),

@@ -1,56 +1,50 @@
-# 5 分钟现场讲稿
+# 5分钟答辩：用结果说明技术判断
 
-## 加播：动作与视觉取舍，以及 10/20 秒长视频（约 1 分钟）
+计时包含两段视频：开场约5秒主片，后半段约20秒失败片；不另加开场历史回顾。预先打开[主片](annotated/h3world_rgb_stable_W_original_vs_causal_timed.mp4)、[失败片](long_horizon/original_vs_rgb_visual_W_20s_481f.mp4)、[指标表](METRICS.md)。完整checkpoint对应见[DEMO_PROVENANCE](DEMO_PROVENANCE.md)。
 
-先播放 `action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4`。
+## 0:00–0:35｜先看Original vs causal
 
-“这里把两种不足放在同一张图里：左边原始 H3，中间旧 fixed-mix causal，右边 RGB visual causal。中间 A/D 符号是正确的，但后半段明显漂移；右边结构更完整，却几乎都朝同一方向运动。旧版和新版的 adapter、anchor、routing 有多项差异，所以这是实际方案的取舍展示，不是单变量结论。我们保留了两套 checkpoint 和复现配置。”
+播放124帧W并排主片。
 
-然后播放 `long_horizon/original_vs_rgb_visual_W_10s_243f.mp4` 和 `long_horizon/original_vs_rgb_visual_W_20s_481f.mp4`。
+“左边是Original H3，30次整段采样；右边是因果原型，每块8步。两边首帧、动作、prompt、seed和初始噪声一致。我证明了真实H3可以按块生成并复用历史KV，但没有证明动作完整保真、长时稳定或整体加速。这个展示使用10月6日的RGB visual checkpoint，不是最新AnyFlow或E2结果。”
 
-“这两组固定 W、首帧、prompt、seed；每组左右两边初始 video/audio noise 的字节 hash 一致。右边没有换 checkpoint，只把真实生成长度扩到 243 和 481 帧，没有循环或拉伸。10 秒后段已经模糊、重影；20 秒约在 10 秒开始严重雾化，15 秒后人物和场景难以辨认，视觉稳定性明确失败。所以之前的稳定版只是在 124 帧上相对旧版改善，当前还不能展示为 20 秒稳定模型。它们也不证明 A/D 控制恢复。”
+## 0:35–1:35｜我改了什么，为什么难
 
+“H3-World不只是视频模型：它把每个时间位置的动作文本通过有向attention绑定到视频。我的原型把视频分成5个latent一块，当前块读取自己和过去，不能读取未来动作或视频。每块去噪结束后，再做一次clean forward，把每层raw K/V写入CPU缓存，并淘汰滑窗外历史。”
 
-## 0:00–0:35：先解释为什么早期画面会崩
+“测试能证明cache和对应重算路径一致，不能证明它等价于Original双向模型。因果化还会改变动作经多层attention传播的方式。后来的局部窗口实验保留更多Original信息流，每个sigma重算可见状态，A/D方向改善了，但人物重影仍在。这条路线没有persistent hidden KV，不能同时套用缓存加速结论。”
 
-“先说明一个展示问题：会议包第一版播放的是旧的 fixed-mix action grid。它没有 visual tail16 adapter，而且推理使用 latent-only dual anchor；训练和推理的 anchor protocol 不一致，所以后半段会出现人物透明、分裂和车库 tearing。那个 MP4 能解码，只说明容器和编码没坏，不说明视觉质量合格。这里是我选片和标注的问题。现在主视频换成了后续 RGB-consistent anchor 加 visual QKV adapter 的结果。”
+## 1:35–2:15｜少步为什么不等于快
 
-## 0:35–1:05：结论与主视频
+“右侧是8块乘8步，共64次局部noisy forward，再加8次clean commit，不是全片8次调用。单次历史记录中Original约442到454秒，causal约673到768秒，还要支付CPU传输和RGB anchor开销，因此当前没有端到端加速。”
 
-打开 `annotated/h3world_rgb_stable_action_grid_124_timed.mp4`。
+“SolarWM Stage0.5做双向FM适配；Stage1用因果teacher forcing和AnyFlow学习有限区间映射；Stage2用学生自身rollout、冻结teacher与可训练fake-score做DMD。KV负责历史复用，AnyFlow负责少步能力，Stage2负责生成分布适应，这三件事不能互相替代。”
 
-“我的问题是：SolarWM 的 causal chunk、KV cache 和少步训练思路能不能迁移到 H3-World，同时保留 action control？结论分两层。工程链路已经跑通：H3-World 可以按 chunk causal rollout，persistent raw KV 可以复用历史，124 帧视频能完整生成。RGB-consistent anchor 明显减少了人物和场景分解。但 generated-history 下 A/D 的 image-space action geometry 还没有恢复，所以我不会把它说成完整 action-preserving Stage2。”
+## 2:15–3:15｜主动展示失败
 
-## 1:05–1:50：H3 和 SolarWM 的连接
+播放完整20秒Original vs causal失败片，停在末尾。
 
-“H3-World 的关键是 action rows 和 directed action routing。改造保留这些条件，只把视频 token 按 5 个 latent frames 分 chunk；每个 chunk 完成后用 clean latent 做一次 commit，把每层 raw K/V 写入 CPU history。下一个 chunk 读取历史 K/V，只计算新 token。右侧视频是 8 steps/chunk，8 个 chunks，因此是 64 次 noisy forwards 加 8 次 clean commits，并不是整段视频只调用 8 次网络。”
+“这和开场右侧是同一checkpoint。到10秒明显雾化，15秒后结构难辨；124帧相对稳定不代表20秒稳定。动作上也有取舍：RGB主片的A和D水平flow都为负，A方向不对；旧版方向响应更强，却更容易画面漂移。”
 
-“SolarWM 的 Stage0.5 是双向相机适配，Stage1 才是块因果 + teacher forcing 的 AnyFlow 初始化；我这里的因果接口和 teacher replay 只是 Stage1 风格（没有 AnyFlow）。Stage2 是另外的问题：student 在自己的 generated history 上训练 fake score，再和 frozen teacher 做 distribution matching。KV cache 解决历史复用，不会自动把 30 steps 变成 8 steps。”
+“我后来实际训练过AnyFlow，内部finite/diagonal一致性改善仍不足以保证视觉和动作。旧DMD-lite虽然有fake-score和self-rollout，但teacher路径与生成梯度仍是近似；后来补的FMBS、DMD方向和角色隔离只验证了小模型工程正确性，不能叫完整Stage2成功。”
 
-## 1:50–2:35：说效率和连续性
+## 3:15–4:15｜最后一个受控实验如何做决定
 
-打开 `METRICS.md`。
+显示[最新E2局部A失败片](../reports/stage1_anyflow/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)与[最终报告](../reports/stage1_anyflow/real_transition_windows/FINAL_RESULTS.md)。三列是Original权重局部N、FM-only4、FM+action4，**不是**开场两列的模型。
 
-“原始 H3 30-step 的单次端到端记录是 441.5–454.2 秒；当前 RGB-main causal 是 673.4–767.9 秒。首块 41.8–57.4 秒，平均 chunk 75.1–88.6 秒；GPU 峰值约 30.8–39.0 GiB，CPU raw KV 约 13.19 GiB。这里是单次 recorded run，没有 warmup 后多次均值，权重、KV 和 activation 也没有单独拆分。”
+“我把变量收窄到训练目标。同初始化、同数据和噪声、同四次更新，只比较普通FM与加入观察动作后果排序。收齐两份停车场history和两条真实GT-history后，动作项没有一致改善；当前A的人物重影也没有消失。验证误差改善不到0.03%，不能把loss下降当成成功。所以停在四次更新，记录负结果，没有自动加到十六次。”
 
-“因此当前 prototype 不是总 wall-clock 加速结果。它的价值是 causal execution、历史复用和可增量提交；要真正减少总耗时，需要训练少步 student，并降低每个 chunk 的 solver evaluations。”
+## 4:15–5:00｜技术判断与交付
 
-## 2:35–3:20：播放视觉修复和 Stage2-lite
+“失败不能全部归因于缺少Stage2，因为正确reference或GT历史下仍能看到局部结构问题。值得继续研究的是：不泄漏未来的局部动作信息流，action-dependent prefix的重算规则，以及可靠的动作后果和时序监督。”
 
-打开 `visual_stability/stage2_rgb_anchor_endpoint_visual_stability_comparison_39.mp4`。
+“顺序应是可信causal30步，再AnyFlow4/8步，最后研究Stage2能否缩小generated-history差距。交付里保留可播放主片与失败片、代码、checkpoint哈希、原始测量和干净环境验收。我的结论是工程可行，但控制、画质与速度尚未同时成立；清楚区分这些验收项，比继续追加模块更重要。”
 
-“旧协议把生成的 latent tail 直接 patchify 成第二 anchor，和训练时的 RGB decode/re-encode 语义不一致。统一为 RGB decode、再经过 H3 image branch encode 的 dual anchor 后，39 帧和 124 帧的末尾人物、车库结构明显更完整。这里的改善同时伴随 visual adapter、anchor 和 routing 配置变化，所以我把它报告为修复后的 protocol，而不是声称一个单变量因果证明。”
+## 追问备答（不计入5分钟）
 
-打开 `stage2_lite/stage2_lite_rgb_endpoint_integrated_AD_39.mp4`。
-
-“Stage2-lite 的 student self-rollout、fake-score critic 和 frozen teacher 链路也能运行，没有 NaN/OOM；但短片 action gate 仍然失败，因此这只是 SolarWM Stage2 核心角色的 feasibility evidence，不是官方 Stage2 复现。”
-
-## 3:20–4:20：动作结果
-
-“当前主视频的 Farneback 水平光流是：原始 H3 的 A=`+1.077`、D=`-1.602`，A-D=`2.679`；RGB-main causal 的 A=`-0.784`、D=`-1.007`，A-D=`0.223`。所以 causal 视频不是简单静止，也不是完全相同的四条片，但 A 的方向符号错了，严格 gate `A>0、D<0、A-D>1.0` 没通过。视觉稳定性恢复和 action preservation 是两个独立问题。”
-
-“早期 fixed-mix 表里 A-D=`0.453`，那是旧协议的历史诊断，不是当前主视频的结果；我已经把它移到 diagnostics，避免把两个实验混在一张表里。”
-
-## 4:20–5:00：收束
-
-“最终结论是：H3-World 的 causalization、persistent KV 和 clean commit 在真实 33B 模型上可行；RGB-consistent anchoring 和 visual adapter 在 124 帧上改善了人物和场景结构，但 20 秒生成仍严重崩坏，四方向动作也没有完全保真。下一步应同时面对长时 generated-history 漂移和 action geometry 问题，验证多 state、多 seed 的 counterfactual action supervision 或更完整的 SolarWM Stage2 rollout-distribution matching，不能声称现有原型已经解决长视频质量。”
+- **是不是完整Stage1？** 不是效果复现成功；AnyFlow代码和真实训练做过，局部生成联合gate未过。旧展示checkpoint本身没有AnyFlow。
+- **为什么不直接Stage2？** 不要求Stage1先解决所有长时漂移，但至少应有可信的局部动作和结构；当前连reference/GT history也有问题，先隔离这个缺口更有决策价值。
+- **cache replay误差0有什么用？** 排除受控路径的缓存数值/生命周期错误；不证明Original等价或语义质量。
+- **flow符号正确是否证明动作保真？** 不能。它是图像运动proxy，需同时看人物结构、多窗口与真实运动后果；W/S没有被这个水平指标严格验收。
+- **为什么不展示最好的那条就结束？** 好片只能说明一个条件下能运行，完整失败片界定了方法的适用范围。
+- **还能声称长视频效率改善吗？** 只能说实现了增量执行与历史复用；当前主片更慢、未做独占硬件重复均值，不能声称整体加速。

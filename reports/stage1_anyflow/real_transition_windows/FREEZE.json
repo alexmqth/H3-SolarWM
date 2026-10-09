@@ -1,0 +1,118 @@
+{
+  "at": "2026-10-09T17:08:58.732710+08:00",
+  "status": "frozen_negative_result",
+  "updates_per_arm": 4,
+  "suites": [
+    "parking_A",
+    "parking_D",
+    "two_real_GT_history_cases"
+  ],
+  "new_research_training_authorized_by_closure": false,
+  "automatic_extension": false,
+  "AnyFlow_or_Stage2_restart": false,
+  "process_checks": [
+    {
+      "source": "train_fm_only/training.json",
+      "pid": 174575,
+      "start_ticks": "258003891",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_queue_fm_only.json",
+      "pid": 269304,
+      "start_ticks": "258080839",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_queue_fm_only.json",
+      "pid": 337236,
+      "start_ticks": "258127903",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_queue_fm_only.json",
+      "pid": 455234,
+      "start_ticks": "258190658",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_fm_only_parking_A/evaluation.json",
+      "pid": 337236,
+      "start_ticks": "258127903",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_fm_only_parking_D/evaluation.json",
+      "pid": 248861,
+      "start_ticks": "258064548",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_fm_only_gt/evaluation.json",
+      "pid": 455234,
+      "start_ticks": "258190658",
+      "original_process_live": false
+    },
+    {
+      "source": "train_fm_action/training.json",
+      "pid": 174707,
+      "start_ticks": "258004007",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_queue_fm_action.json",
+      "pid": 269482,
+      "start_ticks": "258080955",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_queue_fm_action.json",
+      "pid": 340764,
+      "start_ticks": "258129023",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_queue_fm_action.json",
+      "pid": 459951,
+      "start_ticks": "258192652",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_fm_action_parking_A/evaluation.json",
+      "pid": 340764,
+      "start_ticks": "258129023",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_fm_action_parking_D/evaluation.json",
+      "pid": 249042,
+      "start_ticks": "258064664",
+      "original_process_live": false
+    },
+    {
+      "source": "eval_fm_action_gt/evaluation.json",
+      "pid": 459951,
+      "start_ticks": "258192652",
+      "original_process_live": false
+    }
+  ],
+  "evidence_sha256": {
+    "training_protocol.json": "90e449dbe0f344708820d1353a688dab65df60bb22ce1b8430cdc1d2ca7d26c5",
+    "evaluation_protocol.json": "f6978d1e8291e109d608326e37322dba0295a8fe41053c5726396ea701d12c96",
+    "decision.json": "96c59f622bfac543d0eda9cea9dccde7bd9ce03555a04a81a21e0f624f7825af",
+    "FINAL_RESULTS.md": "24c27919b2939346f458ed840e933a8591a6b226dd94d9cb0b605ff75b61cca3",
+    "review_step4/visual_review.json": "306721c9886bf9125e57158c5afa8a2481192457ae4f0da5b57b401b8678fe77",
+    "heldout_fit/summary.json": "b297d2b7c8ba08a1b6179ae41b3c2cc12c5317b765a17369269401151523d427",
+    "train_fm_only/training.json": "1c08aa59b4e28fc283388cc8dd145ccb1bac241d2c4b732a08efdc539573bd0d",
+    "eval_queue_fm_only.json": "a2bd20bf9e89fdfb646df077ccf64320ec8457aacf0a33d71b19d2e1c2ea10a7",
+    "eval_fm_only_parking_A/evaluation.json": "e8c636bfbd4a2fb9ae9f62fe66d11026cdb54af4b454c4bf01ba268389f9dce9",
+    "eval_fm_only_parking_D/evaluation.json": "b4a1b87bef5156e2bd4f37c67f7a2b3426256146bb98d4195b1a986e9dfe0507",
+    "eval_fm_only_gt/evaluation.json": "9d4446a52de0f25a3f77b3da1d99b4d31fc7a46fe4836f3aca1c790755d7435d",
+    "train_fm_action/training.json": "f00352b8367d90a411df444e4e23251325d1acf56990d836fc15e3696157b42e",
+    "eval_queue_fm_action.json": "5cc75f46e65ea264372048233ab9c6e4edfd82c6b58b7accddaa86969bacc27c",
+    "eval_fm_action_parking_A/evaluation.json": "f0509acfa239825e9596a65a82c17107576ec7e83aae2460a447cb148dbc9f0c",
+    "eval_fm_action_parking_D/evaluation.json": "c82614f063fad0c7111de10220df7bc0be883ce7551e6e9a870fa1c4fc52cad0",
+    "eval_fm_action_gt/evaluation.json": "cd749898fd97b1711f1f3b0698923ffa242e134c0b640c0d1bbe627a78b7b183"
+  },
+  "note": "Archived intermediate status labels are historical; this freeze receipt and FINAL_RESULTS are the terminal state. Reproduction training smoke is random tiny-H3 only."
+}

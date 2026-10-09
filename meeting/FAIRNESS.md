@@ -1,5 +1,8 @@
 # Demo fairness and counting conventions
 
+> 版本锁定：2026-10-06 `visual_online_rgb_tail16_endpoint_ad2`；普通FM/replay、非AnyFlow、非最新E2。checkpoint与视频哈希见[DEMO_PROVENANCE](DEMO_PROVENANCE.md)。本次保留历史单次数据，不冒充新的统一硬件重复测量。
+
+
 ## Current main pair
 
 当前会议主视频是 `annotated/h3world_rgb_stable_*`。每个左/右 pair 使用同一张 initial RGB image、同一 scene prompt、同一 action preset、同一 seed=13、同一初始 video/audio noise、同一分辨率和 124 帧长度。左侧是原始 H3-World 30-step full-horizon inference，右侧是 RGB-consistent causal prototype。

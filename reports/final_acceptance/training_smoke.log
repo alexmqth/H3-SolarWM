@@ -1,0 +1,36 @@
+{
+  "model": "actual MiniMaxH3DiT class, randomly initialized small config",
+  "data": "fixed synthetic latent batch; no evidence of pretrained video quality",
+  "training": "clean-history teacher-forced flow matching; no AnyFlow or Stage2 DMD",
+  "device": "cpu",
+  "layers": 2,
+  "hidden_size": 64,
+  "attention_head_dim": 16,
+  "lora_rank": 4,
+  "seed": 7,
+  "trainable_parameters": 2048,
+  "total_parameters": 227714,
+  "steps": 8,
+  "losses": [
+    2.3342232704162598,
+    2.334150552749634,
+    2.333979606628418,
+    2.3336923122406006,
+    2.33327579498291,
+    2.332716703414917,
+    2.332005023956299,
+    2.3311314582824707
+  ],
+  "grad_norms": [
+    0.0002519877743907273,
+    0.00044146436266601086,
+    0.0008481856202706695,
+    0.0012923593167215586,
+    0.0017612810479477048,
+    0.002249883022159338,
+    0.0027543508913367987,
+    0.0032708337530493736
+  ],
+  "parameters_changed": true,
+  "wall_seconds": 0.4801130169071257
+}

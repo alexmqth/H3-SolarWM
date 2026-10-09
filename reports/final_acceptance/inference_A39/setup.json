@@ -1,0 +1,373 @@
+{
+  "input_artifacts": {
+    "h3_checkpoint": {
+      "path": "/work/lpeng/qma/GWM_models/H3-World/step-10000.safetensors",
+      "sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+      "bytes": 131227832
+    },
+    "first_frame": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-16/submission_acceptance/clean/submission/examples/first_frame.png",
+      "sha256": "25729ce66bc578c90a6d262bf3879a3e7b16e5c5009362903a7fae6d757a4b00",
+      "bytes": 459872
+    },
+    "causal_adapter": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-16/submission_acceptance/clean/submission/checkpoints/visual_rgb_tail16/causal_adapter.pt",
+      "sha256": "a374bfcafe414322b52aa6f18fba7f28996041aae6c11c5eaebaab553f2abe10",
+      "bytes": 13774669
+    },
+    "causal_action_adapter": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-16/submission_acceptance/clean/submission/checkpoints/visual_rgb_tail16/action_adapter.pt",
+      "sha256": "ef41475b6fc5601ee9a17485a027af69f03217fb34ccbc1891d3fef4f11c6b7a",
+      "bytes": 1554546
+    }
+  },
+  "diffsynth_root": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-16/submission_acceptance/clean/submission/DiffSynth-Studio-h3-v2",
+  "released_lora_pairs_loaded": 104,
+  "precision": {
+    "profile": "legacy",
+    "native_fp32_weights_restored": false
+  },
+  "causal_adapter": {
+    "block_indices": [
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "block_index": 49,
+    "rank": 8,
+    "metadata": {
+      "status": "running",
+      "kind": "action-aware online self-rollout teacher-replay diagnostic",
+      "objective": "student generated-history replay against frozen H3 teacher; no SGF/DMD",
+      "teacher_dirs": [
+        "H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+        "H3-World/outputs/2026-10-02-03/action_D_teacher_39"
+      ],
+      "actions": [
+        "A",
+        "D"
+      ],
+      "student_action_adapter": "H3-World/outputs/2026-10-02-scheduled-sampling/fixed_mix_0.5/action_adapter.pt",
+      "causal_adapter": "H3-World/outputs/2026-10-01-19/stage1_rgb_dual_tail16/adapter.pt",
+      "causal_adapter_scope": "all",
+      "action_gain_init": {},
+      "action_gain_lr": null,
+      "action_gain_compute_dtype": "float32",
+      "anchor_mode": "rgb",
+      "train_causal_adapter": true,
+      "action_prefix_adapter": null,
+      "train_action_prefix": false,
+      "freeze_action_residual": true,
+      "train_h3_lora": false,
+      "h3_lora_blocks": "tail8",
+      "h3_lora_lr": null,
+      "latent_target_weight": 0.5,
+      "final_replay_weight": 0.0,
+      "final_replay_sigma": 0.6,
+      "optimizer_steps": 2,
+      "solver_steps": 8,
+      "chunk_frames": 5,
+      "history_chunks": 5,
+      "flow_shift": 2.22,
+      "lr": 5e-05,
+      "sigma_replay_weight": 1.0,
+      "teacher_weight": 1.0,
+      "boundary_weight": 0.25,
+      "paired_action_loss": false,
+      "paired_full_teacher": false,
+      "pair_actions": [
+        "A",
+        "D"
+      ],
+      "action_dir_weight": 0.1,
+      "action_mag_weight": 0.1,
+      "pair_eps": 1e-06,
+      "checkpoint_every": 1,
+      "action_prefix_mode": "causal",
+      "action_feedback": true,
+      "seed": 13,
+      "visible_devices": "0",
+      "adapter_format": "hidden_or_qkv",
+      "adapter_block_indices": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "action_prefix_adapter_block_indices": null,
+      "action_prefix_trainable_parameters": 0,
+      "causal_adapter_block_indices": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "qkv_trainable_parameters": 3440640,
+      "h3_lora_trainable_parameters": 0,
+      "h3_lora_block_indices": [],
+      "h3_lora_module_names": [],
+      "trainable_parameters": 3440640,
+      "scheduler_timesteps": [
+        1000.0,
+        939.5404663085938,
+        869.4517211914062,
+        787.2340698242188,
+        689.4410400390625,
+        571.1835327148438,
+        425.2873229980469,
+        240.78089904785156
+      ],
+      "scheduler_sigmas": [
+        1.0,
+        0.9395404663085938,
+        0.8694517211914062,
+        0.7872340698242187,
+        0.6894410400390625,
+        0.5711835327148438,
+        0.4252873229980469,
+        0.24078089904785155
+      ],
+      "latent_frames": 12,
+      "num_chunks": 3
+    }
+  },
+  "causal_action_adapter": {
+    "path": "checkpoints/visual_rgb_tail16/action_adapter.pt",
+    "block_indices": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "metadata": {
+      "status": "running",
+      "kind": "action-aware online self-rollout teacher-replay diagnostic",
+      "objective": "student generated-history replay against frozen H3 teacher; no SGF/DMD",
+      "teacher_dirs": [
+        "H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+        "H3-World/outputs/2026-10-02-03/action_D_teacher_39"
+      ],
+      "actions": [
+        "A",
+        "D"
+      ],
+      "student_action_adapter": "H3-World/outputs/2026-10-02-scheduled-sampling/fixed_mix_0.5/action_adapter.pt",
+      "causal_adapter": "H3-World/outputs/2026-10-01-19/stage1_rgb_dual_tail16/adapter.pt",
+      "causal_adapter_scope": "all",
+      "action_gain_init": {},
+      "action_gain_lr": null,
+      "action_gain_compute_dtype": "float32",
+      "anchor_mode": "rgb",
+      "train_causal_adapter": true,
+      "action_prefix_adapter": null,
+      "train_action_prefix": false,
+      "freeze_action_residual": true,
+      "train_h3_lora": false,
+      "h3_lora_blocks": "tail8",
+      "h3_lora_lr": null,
+      "latent_target_weight": 0.5,
+      "final_replay_weight": 0.0,
+      "final_replay_sigma": 0.6,
+      "optimizer_steps": 2,
+      "solver_steps": 8,
+      "chunk_frames": 5,
+      "history_chunks": 5,
+      "flow_shift": 2.22,
+      "lr": 5e-05,
+      "sigma_replay_weight": 1.0,
+      "teacher_weight": 1.0,
+      "boundary_weight": 0.25,
+      "paired_action_loss": false,
+      "paired_full_teacher": false,
+      "pair_actions": [
+        "A",
+        "D"
+      ],
+      "action_dir_weight": 0.1,
+      "action_mag_weight": 0.1,
+      "pair_eps": 1e-06,
+      "checkpoint_every": 1,
+      "action_prefix_mode": "causal",
+      "action_feedback": true,
+      "seed": 13,
+      "visible_devices": "0",
+      "adapter_format": "hidden_or_qkv",
+      "adapter_block_indices": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "action_prefix_adapter_block_indices": null,
+      "action_prefix_trainable_parameters": 0,
+      "causal_adapter_block_indices": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "qkv_trainable_parameters": 3440640,
+      "h3_lora_trainable_parameters": 0,
+      "h3_lora_block_indices": [],
+      "h3_lora_module_names": [],
+      "trainable_parameters": 3440640,
+      "scheduler_timesteps": [
+        1000.0,
+        939.5404663085938,
+        869.4517211914062,
+        787.2340698242188,
+        689.4410400390625,
+        571.1835327148438,
+        425.2873229980469,
+        240.78089904785156
+      ],
+      "scheduler_sigmas": [
+        1.0,
+        0.9395404663085938,
+        0.8694517211914062,
+        0.7872340698242187,
+        0.6894410400390625,
+        0.5711835327148438,
+        0.4252873229980469,
+        0.24078089904785155
+      ],
+      "latent_frames": 12,
+      "num_chunks": 3
+    }
+  },
+  "load_models_and_lora_seconds": 7.672867072746158,
+  "conditioning_seconds": 15.075373509898782,
+  "memory": {
+    "allocated_peak_MiB": 13897.05712890625,
+    "reserved_peak_MiB": 14002.0
+  },
+  "completed_at": "2026-10-09T17:04:06.513023+08:00",
+  "config": {
+    "modes": [
+      "cached"
+    ],
+    "steps": 8,
+    "flow_shift": 2.22,
+    "anyflow_sigma_grid": "native",
+    "baseline_steps": 30,
+    "num_frames": 39,
+    "chunk_frames": 5,
+    "history_chunks": 5,
+    "action_preset": "A",
+    "action_schedule": null,
+    "cache_device": "cpu",
+    "anchor_mode": "dynamic_last_frame_rgb_dual",
+    "boundary_blend": 0.0,
+    "boundary_overlap_frames": 1,
+    "boundary_clamp": false,
+    "device": "cuda:0",
+    "seed": 13,
+    "out_dir": "outputs/acceptance_A39",
+    "h3_checkpoint": "/home/lpeng/code/mq_PubDataset/GWM/models/H3-World/step-10000.safetensors",
+    "first_frame": "examples/first_frame.png",
+    "scene_prompt": "A man in a yellow floral shirt stands in a dim, multi-level concrete parking garage.",
+    "save_latents": false,
+    "causal_adapter": "checkpoints/visual_rgb_tail16/causal_adapter.pt",
+    "anyflow_adapter": null,
+    "causal_adapter_scope": "all",
+    "causal_action_adapter": "checkpoints/visual_rgb_tail16/action_adapter.pt",
+    "causal_action_prefix_adapter": null,
+    "h3_lora_adapter": null,
+    "history_source": "generated",
+    "action_prefix_mode": "causal",
+    "action_feedback": true,
+    "teacher_latents": null,
+    "precision_profile": "legacy",
+    "stage1_lora": null
+  },
+  "gpu": "NVIDIA L40",
+  "visible_devices": "2",
+  "torch_version": "2.10.0+cu128",
+  "conditioning": "same prompt, image, chunk action schedule [strafe-left,strafe-left,strafe-left], initial video/audio noise reused across modes",
+  "action_preset": "A",
+  "action_preset_resolved": "strafe-left",
+  "action_schedule": [
+    "strafe-left",
+    "strafe-left",
+    "strafe-left"
+  ],
+  "input_fingerprints": {
+    "initial_image_sha256": "25729ce66bc578c90a6d262bf3879a3e7b16e5c5009362903a7fae6d757a4b00",
+    "prompt": "A man in a yellow floral shirt stands in a dim, multi-level concrete parking garage.",
+    "video_noise_sha256": "c9b083e6213030c27eff9a0e6f9e77b97f12b33a696e706d30ac097380aa97f6",
+    "audio_noise_sha256": "c91ec8319743a5f149b5abd9e4107a699211906f9b68ce751b11e3191c715ddc",
+    "video_noise_shape": [
+      1,
+      24,
+      12,
+      30,
+      52
+    ],
+    "audio_noise_shape": [
+      2,
+      32,
+      65
+    ]
+  },
+  "vram_reserve_gib": 20.0,
+  "compile_action_block_mask": false,
+  "dual_anchor_protocol": {
+    "slots": [
+      "original_h3_first_frame",
+      "previous_chunk_last_latent_frame"
+    ],
+    "chunk0_second_slot": "duplicate_original_anchor",
+    "frame_rows": 390,
+    "packed_seq_len": 6150,
+    "slot1_encoding": "rgb_decode_reencode_image"
+  }
+}

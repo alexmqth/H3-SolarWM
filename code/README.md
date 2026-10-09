@@ -25,10 +25,12 @@
 - causal/stage1_protocol.py：全覆盖FM/AnyFlow评测的checkpoint与训练协议检查，拒绝遗漏bank或混用不同步数、精度、action、anchor配置。
 - causal/shared_h3_roles.py：冻结H3底座上的student / Original teacher / independent critic角色；使用独立LoRA参数与enabled flags，保护保留的FMBS计算图。包含关闭并恢复AnyFlow/旧visual residual及错误角色backward检查；不替caller选择attention、conditions或KV。见[6项tiny-H3图安全验证](../reports/stage1_anyflow/shared_h3_roles/README.md)，尚未用于新的33B DMD效果实验。
 - causal/dmd.py：H3 noise-minus-clean下的DMD方向、detached重加噪及fake-score FM目标；接收保留生成图的endpoint，支持完整FMBS的J^T g。见[7项符号/官方对照/H3梯度检查](../reports/stage1_anyflow/dmd_gradient/README.md)，没有新的33B Stage2画质结论。
-- train_stage1_anyflow.py新增`--training-weight-shift`、`--validation-weight-shift`，与sigma采样density解耦；不指定时精确保留旧耦合行为。新[真实FM密度对照](../reports/stage1_anyflow/fm_density_control/README.md)固定权重shift12，只把采样shift12改成2.22；48更新预算独立封顶，训练仍在运行。
+- train_stage1_anyflow.py新增`--training-weight-shift`、`--validation-weight-shift`，与sigma采样density解耦；不指定时精确保留旧耦合行为。新[真实FM密度对照](../reports/stage1_anyflow/fm_density_control/README.md)固定权重shift12，只把采样shift12改成2.22；48更新预算独立封顶，训练与评测已收尾，质量gate未过；以最终报告为准。
 
 全覆盖checkpoint额外包含`stage1_lora.pt`，推理必须传`--stage1-lora`。AnyFlow仍需要其matching `anyflow_adapter.pt`；FM不传AnyFlow模块。rank=alpha=8共有43,237,376训练参数，实际效果仍待验收，不能视为官方rank384 Stage1复现。
 
 - causal/clean_history_graph.py：可选带梯度的clean-history KV预填充；每块读取不可变快照，checkpoint重算时不重复捕获KV。训练用`--history-gradient-mode full`，默认detached，推理协议不变。真实33B探针通过，画质待验证。
 
 `causal/fmbs.py`提供AnyFlow三段Flow Map Backward Simulation与H3 callback接入。历史KV列表快照固定、当前三段状态保留梯度；这是生成端原语，尚不是teacher/critic/DMD trainer。实际H3随机小模型的CPU检查见[集成报告](../reports/stage1_anyflow/h3_fmbs_integration/README.md)。
+
+最终提交运行入口：`scripts/prepare_runtime.py`重建源码并验证显式外部依赖；`scripts/verify_inference.py`核对主片adapter哈希与39f推理输出。`tests/test_h3_cached.py`已随包提供。见[REPRODUCE](../REPRODUCE.md)。

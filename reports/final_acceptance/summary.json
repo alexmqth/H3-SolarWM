@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-09T17:13:06.397125+08:00",
+  "status": "engineering_acceptance_pass",
+  "quality_gate": "not passed; E2 remains frozen negative result",
+  "isolated_venv": true,
+  "fresh_github_diffsynth": true,
+  "KV_and_causality_tests_passed": 15,
+  "training_smoke": {
+    "model": "random tiny MiniMaxH3DiT, not pretrained 33B training",
+    "updates": 8,
+    "initial_loss": 2.3342232704162598,
+    "final_loss": 2.3311314582824707,
+    "parameters_changed": true
+  },
+  "pretrained_inference": {
+    "end_to_end_seconds": 374.5861011808738,
+    "GPU_peak_allocated_MiB": 15176.4345703125,
+    "CPU_raw_KV_peak_MiB": 6484.130859375,
+    "noisy_forwards": 24,
+    "clean_commits": 3
+  },
+  "selected_presentation_videos_decoded": 9,
+  "new_E2_AnyFlow_or_Stage2_training": false,
+  "new_124frame_timing_benchmark": false,
+  "reason_no_new_124frame_table": "All GPUs had shared workloads; no matched exclusive-hardware/warmup repeated timing protocol was available",
+  "project_GPU_count": 1,
+  "physical_GPU": 2,
+  "vram_reserve_GiB": 20,
+  "os_driver_weights_reused": true
+}

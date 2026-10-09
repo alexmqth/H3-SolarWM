@@ -11,3 +11,5 @@ export HF_HOME="$REPO_ROOT/.cache/hf"
 export TORCHINDUCTOR_CACHE_DIR="$REPO_ROOT/.cache/torchinductor"
 export TRITON_CACHE_DIR="$REPO_ROOT/.cache/triton"
 export XDG_CACHE_HOME="$REPO_ROOT/.cache/xdg"
+mkdir -p "$HF_HOME" "$TORCHINDUCTOR_CACHE_DIR" "$TRITON_CACHE_DIR" \
+  "$XDG_CACHE_HOME/torch/kernels" "$REPO_ROOT/.cache/tmp"

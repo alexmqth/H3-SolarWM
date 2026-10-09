@@ -1,5 +1,7 @@
 # H3-World × SolarWM: causalization interview submission
 
+2026-10-09 17:14：已冻结E2并完成提交收尾。独立venv＋新源码的15项KV/因果测试、小H3训练smoke、真实33B/39f推理均通过。会议主片固定旧RGB checkpoint，质量No-Go不变。[最终验收](reports/final_acceptance/README.md) · [5分钟答辩](meeting/MEETING_SCRIPT.md) · [checkpoint来源](meeting/DEMO_PROVENANCE.md)。
+
 2026-10-09 16:16：E2两臂各4更新、六组局部视频评测及48次held-out诊断全部完成。停车场两份历史的A/D符号均保留，但A分支重影仍在，FM+action没有一致优于FM-only；局部动作＋结构联合gate仍为No-Go。本轮不自动扩训，不进入AnyFlow/Stage2。 [完整结果与视频](reports/stage1_anyflow/real_transition_windows/FINAL_RESULTS.md)。
 
 这是面试题的可审阅提交包：在 H3-World 中验证 SolarWM 风格的 causal chunk、KV cache 和少步生成思路，同时检查 H3-World 原有 action control 是否保留。

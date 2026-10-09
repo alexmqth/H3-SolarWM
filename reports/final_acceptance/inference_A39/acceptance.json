@@ -1,0 +1,101 @@
+{
+  "status": "pass",
+  "meaning": "Execution, correct artifact loading, cache lifecycle and measurement output; not a quality gate",
+  "video": {
+    "path": "outputs/acceptance_A39/cached.mp4",
+    "width": 832,
+    "height": 480,
+    "fps": 24.0,
+    "codec": "h264",
+    "frames": 39,
+    "duration_seconds": 1.625,
+    "gray_pixel_difference_mean": 3.541814073570344,
+    "gray_pixel_difference_p95": 13,
+    "mean_spatial_edge_difference": 1.8922194804860744,
+    "adjacent_frame_mad": [
+      3.9858173076923076,
+      2.90322265625,
+      4.598702924679487,
+      4.208738982371795,
+      2.7982146434294872,
+      2.650731169871795,
+      4.843962840544871,
+      4.153250200320513,
+      3.378703425480769,
+      3.0711939102564103,
+      2.177273637820513,
+      4.890487279647436,
+      2.4190855368589745,
+      3.0864483173076924,
+      3.456745793269231,
+      4.0057016225961535,
+      4.214778645833333,
+      3.756405248397436,
+      3.0034129607371796,
+      4.87206780849359,
+      1.8521609575320512,
+      3.777070813301282,
+      3.1577799479166666,
+      3.9577849559294873,
+      3.82383062900641,
+      3.0038561698717947,
+      2.8675956530448716,
+      4.277606670673077,
+      2.6514698517628204,
+      3.844441105769231,
+      2.7056590544871795,
+      3.859462640224359,
+      2.8277118389423075,
+      4.102691806891026,
+      3.1105418669871794,
+      5.685919971955128,
+      3.428878705929487,
+      3.1795272435897437
+    ],
+    "caveat": "Descriptive pixel statistics; lower MAD may mean blur or little motion, not better quality."
+  },
+  "action_flow": {
+    "path": "outputs/acceptance_A39/cached.mp4",
+    "frames": 39,
+    "horizontal_flow_px": {
+      "mean": -1.145357304497769,
+      "median": -1.100364327430725,
+      "p05": -1.7435156166553496,
+      "p95": -0.5164789482951165,
+      "mean_abs": 1.145357304497769
+    },
+    "vertical_flow_px": {
+      "mean": 0.3308236046056998,
+      "median": 0.2979157269001007,
+      "p05": 0.14658836722373964,
+      "p95": 0.5975120097398757,
+      "mean_abs": 0.3308236046056998
+    },
+    "flow_magnitude_px": {
+      "mean": 1.4262428879737854,
+      "median": 1.4136907458305359,
+      "p05": 0.6637839049100875,
+      "p95": 2.042292612791061,
+      "mean_abs": 1.4262428879737854
+    },
+    "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+  },
+  "boundary_gray_MAD": {
+    "17": 4.214778645833333,
+    "34": 4.102691806891026
+  },
+  "end_to_end_seconds": 374.5861011808738,
+  "first_internal_chunk_seconds": 92.42973765404895,
+  "chunk_seconds": [
+    92.42973765404895,
+    119.06254416098818,
+    115.49407005822286
+  ],
+  "GPU_peak_allocated_MiB": 15176.4345703125,
+  "CPU_raw_KV_peak_MiB": 6484.130859375,
+  "noisy_forwards": 24,
+  "clean_commits": 3,
+  "warmup": false,
+  "repeats": 1,
+  "component_memory_breakdown": "not measured"
+}

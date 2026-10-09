@@ -1,91 +1,73 @@
-# 8-page meeting slide outline
+# 5分钟展示提纲（6页，含播放时间）
 
-## Slide 1 — Question and answer
+## 1｜结论先行与主片，0:00–0:35
 
-**Question:** Can SolarWM-style causalization be added to H3-World without losing H3 action control?
+播放[Original vs causal W124](annotated/h3world_rgb_stable_W_original_vs_causal_timed.mp4)。
 
-**Answer:** causal chunk/KV execution is feasible. The later RGB-consistent anchor and visual adapter remove the most severe person/garage decomposition. The current generated-history model still fails the strict A/D direction gate, so it is a causal feasibility prototype rather than a fully action-preserving Stage2 model.
+- 真实H3因果分块和KV执行可行。
+- 动作保真、长期画质、端到端加速尚未同时成立。
+- 右侧：**2026-10-06 `visual_online_rgb_tail16_endpoint_ad2`**，普通FM/replay；不是最新AnyFlow/E2。
 
-Show: `annotated/h3world_rgb_stable_action_grid_124_timed.mp4`.
+页脚：[checkpoint哈希与来源](DEMO_PROVENANCE.md)。
 
-## Slide 2 — Why the first meeting video looked broken
+## 2｜信息流比加一个mask更重要，0:35–1:35
 
-The first package selected `final_fixed_mix124_8step` as the main grid. That run had no visual tail16 adapter, used latent-only dual anchoring, used `action_prefix_mode=own`, and disabled action feedback. It was decodable but accumulated temporal-VAE ghosting. The selection was my packaging mistake; the old result is now under `diagnostics/legacy_fixed_mix/`.
-
-The current main uses RGB decode/re-encode dual anchoring plus tail16 visual QKV adaptation. It is visibly more coherent, but residual blur/ghosting and action-direction errors remain.
-
-## Slide 3 — What H3-World already provides
-
-- initial frame + scene prompt;
-- per-latent W/S/A/D language action rows;
-- directed H3 action-to-video routing;
-- original 30-step full-horizon generation.
-
-The migration preserves the action rows and H3 condition path.
-
-## Slide 4 — SolarWM idea mapped to H3
-
-```text
-H3 action rows + causal chunk attention
-             + persistent raw KV
-             + clean history commit
-             + generated-history rollout
-             + RGB-consistent anchor
+```mermaid
+flowchart LR
+    P[已生成历史的raw KV] --> C[当前chunk去噪]
+    A[过去与当前action] --> C
+    I[首帧与当前anchor] --> C
+    C --> K[clean forward提交KV]
+    K --> W[CPU缓存与滑窗淘汰]
+    W --> N[下一个chunk]
 ```
 
-Stage0.5 is bidirectional camera adaptation (later the frozen teacher); Stage1 (TF-AnyFlow) is block-causal teacher forcing giving a few-step autoregressive initializer; Stage2 is separate rollout-distribution matching: student self-rollout, frozen teacher and trainable fake-score critic. This prototype is Stage1-style (no AnyFlow) plus a Stage2-lite chain (no SGF).
+- 当前块内部交互，跨块只读过去；future action/video不可见。
+- Cached/recompute一致性≠Original双向模型等价。
+- 最新T2/N保留局部Original信息流，每sigma重算：A/D方向改善，人物仍重影；**不复用persistent hidden KV**。
+- 定位：[h3_cached.py](../code/causal/h3_cached.py)、[local_topology.py](../code/causal/local_topology.py)。
 
-Implementation locations: `code/causal/h3_cached.py`, `benchmark.py`, `train_online_selfrollout.py`, `stage2_lite_dmd.py`, `evaluate_action_control.py`, and `code/diffsynth_h3_action.patch`.
+## 3｜少步、KV和速度分别验收，1:35–2:15
 
-## Slide 5 — Current 124-frame demo
-
-Show: `annotated/h3world_rgb_stable_W_original_vs_causal_timed.mp4` or the four-action grid.
-
-- left: original H3, 30 full-horizon steps;
-- right: RGB visual-main causal, 8 steps/chunk × 8 chunks = 64 noisy forwards + 8 clean commits;
-- same initial image, prompt, action, seed 13, initial noise, resolution and 124 frames;
-- both are 24 fps / 5.17 s.
-
-The video is the repaired visual-main result, not the old fixed-mix grid.
-
-## Slide 6 — Efficiency and continuity
-
-From `METRICS.md`:
-
-- original e2e: 441.5–454.2 s;
-- current RGB-main causal e2e: 673.4–767.9 s;
-- causal first chunk: 41.8–57.4 s; mean chunk: 75.1–88.6 s;
-- causal peak GPU: 30.8–39.0 GiB (31,570–39,940 MiB);
-- CPU raw KV: 13.19 GiB (13,509 MiB).
-
-These are single runs without warmup/repeat averaging. The current prototype is slower overall because it performs 64 noisy forwards versus 30 full-horizon forwards and pays RGB anchor decode/re-encode cost. KV reuse establishes the causal interface; it does not by itself guarantee wall-clock speedup.
-
-## Slide 7 — Visual repair and Stage2-lite
-
-Show `visual_stability/stage2_rgb_anchor_endpoint_visual_stability_comparison_39.mp4` and, if time permits, `stage2_lite/stage2_lite_rgb_endpoint_integrated_AD_39.mp4`.
-
-- old latent-only anchor caused person fragmentation;
-- RGB decode/re-encode makes training and inference anchor semantics consistent;
-- 124-frame RGB-main clips keep person/garage recognizable to the end;
-- Stage2-lite student/critic/teacher chain runs without NaN/OOM;
-- visual repair is not action-geometry recovery.
-
-## Slide 8 — Action result and next step
-
-| Quantity | Original H3 | Current RGB-main causal |
+| 项目 | Original主片 | causal主片 |
 |---|---:|---:|
-| A horizontal flow | +1.077 | -0.784 |
-| D horizontal flow | -1.602 | -1.007 |
-| A-D separation | 2.679 | 0.223 |
+| RGB帧数 | 124 | 124 |
+| noisy forwards | 30整段 | 8×8=64局部 |
+| clean commit | 无跨chunk提交 | 8 |
+| 历史单次端到端 s | 442–454 | 673–768 |
+| CPU raw KV | 无跨chunk持久KV | 13.19GiB |
 
-The strict gate `flow(A)>0, flow(D)<0, A-D>1.0` fails. Do not present the visual repair as preserved four-direction control.
+没有warmup重复均值；没有weight/KV/activation峰值分解；内部首块计时不是首帧播放延迟。当前没有整体加速。
 
-Final sentence:
+Stage0.5：双向FM适配 → Stage1：因果TF-AnyFlow少步初始化 → Stage2：on-policy DMD/SGF。**主片没有AnyFlow。**
 
-> H3-World causalization and persistent KV are mechanically feasible. RGB-consistent anchoring with visual adaptation improves coherence at 124 frames, but the same checkpoint collapses visually in the 20-second rollout and fails the A/D action gate. Both action control and long-horizon generated-history drift remain unresolved.
+## 4｜完整失败片界定结论，2:15–3:15
 
-## Optional slide — Action response versus visual stability
+播放[同checkpoint的20秒对照](long_horizon/original_vs_rgb_visual_W_20s_481f.mp4)，包含崩坏后段。
 
-Show `action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4`: Original H3 / old fixed-mix / RGB visual adapter. Old causal: A=+0.143, D=-0.311, separation=0.453 with visible drift. RGB causal: A=-0.784, D=-1.007, separation=0.223 with more coherent structure. Neither is full action preservation.
+- 约10秒雾化，15秒后人物/场景难辨。
+- 主片A/D：Original `+1.077/−1.602`，causal `−0.784/−1.007`，A方向未恢复。
+- AnyFlow做过真实训练但质量gate未过；DMD-lite近似与后续DMD工程原语不是完整Stage2结果。
 
-Then show the 10.125 s (243f) and 20.042 s (481f) W pairs from `long_horizon/`. These are independently sampled real long rollouts using the same RGB visual checkpoint. The 10-second tail becomes blurred/ghosted; the 20-second causal sample is a visual failure, with severe fog around 10 s and barely recognizable person/scene after 15 s. Same-length original/causal noise hashes match. KV holds five history chunks, but RGB-prefix decoding still grows with the generated prefix. Complete execution and bounded KV do not imply visual stability.
+## 5｜E2：受控负结果，所以停止扩训，3:15–4:15
+
+[局部三列A片](../reports/stage1_anyflow/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)。同初始化、同4更新，仅loss不同；完整评测两份reference history＋两条GT-history。
+
+| 固定history的A−D | Original local N | FM-only4 | FM+action4 |
+|---|---:|---:|---:|
+| A-history | 3.192 | 3.053 | 3.055 |
+| D-history | 1.288 | 1.367 | 1.274 |
+
+动作项没有一致收益；当前A仍有重影；held-out正确FM改善<0.03%。左列是局部N，**不是**Original全长双向推理。GT含联合相机/观测F，不能当纯A/D实时控制。
+
+**冻结4更新，不扩16，不重启AnyFlow/Stage2。** [完整证据](../reports/stage1_anyflow/real_transition_windows/FINAL_RESULTS.md)
+
+## 6｜下一步研究选择与交付，4:15–5:00
+
+可信局部causal30 → AnyFlow4/8 → on-policy Stage2。
+
+- 优先可靠action后果/时序、局部信息流与prefix重算。
+- 不要求先解决全部20秒漂移，但不能忽略GT/reference历史下局部崩坏。
+- 交付包含主片＋失败片、可定位代码、依赖与checkpoint哈希、测量收据、干净环境验收。
+
+[复现说明](../REPRODUCE.md) · [最终验收](../reports/final_acceptance/README.md)
