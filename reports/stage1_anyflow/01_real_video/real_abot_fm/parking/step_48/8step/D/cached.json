@@ -1,0 +1,83 @@
+{
+  "mode": "cached",
+  "status": "complete",
+  "started_at": "2026-10-08T22:26:58.754923+08:00",
+  "steps": 8,
+  "num_frames": 39,
+  "seed": 13,
+  "gpu": "NVIDIA L40",
+  "visible_devices": "4",
+  "cache_device": "cpu",
+  "chunk_frames": 5,
+  "history_chunks": 5,
+  "trained_for_causal": true,
+  "causal_adapter_scope": "all",
+  "history_source": "generated",
+  "anchor_mode": "dynamic_last_frame_rgb_dual",
+  "action_prefix_mode": "causal",
+  "boundary_blend": 0.0,
+  "boundary_overlap_frames": 1,
+  "boundary_clamp": false,
+  "action_preset": "D",
+  "action_preset_resolved": "strafe-right",
+  "action_schedule": [
+    "strafe-right",
+    "strafe-right",
+    "strafe-right"
+  ],
+  "action_feedback": true,
+  "flow_shift": 2.22,
+  "anyflow_adapter": null,
+  "sampler": "flow_matching_euler",
+  "anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2",
+  "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/train_48/step_48/causal_adapter.pt",
+  "causal_action_adapter": null,
+  "cfg_scale": 1.0,
+  "audio_output": "silent",
+  "attention_backend": "PyTorch SDPA",
+  "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+  "dit_prepare_seconds": 9.160762588027865,
+  "video_sigmas": [
+    1.0,
+    0.9395404663085938,
+    0.8694517211914062,
+    0.7872340698242187,
+    0.6894410400390625,
+    0.5711835327148438,
+    0.4252873229980469,
+    0.24078089904785155,
+    0.0
+  ],
+  "video_sigma_grid": "native",
+  "effective_video_sampling_shift": 2.22,
+  "denoiser_forwards": 24,
+  "commit_forwards": 3,
+  "chunk_seconds": [
+    77.83411609381437,
+    94.95882691303268,
+    71.82445255387574
+  ],
+  "rgb_anchor_seconds": [
+    15.567089107818902,
+    16.81873925589025
+  ],
+  "sampling_seconds": 244.6213927208446,
+  "sampling_memory": {
+    "allocated_peak_MiB": 16084.44580078125,
+    "reserved_peak_MiB": 16794.0
+  },
+  "kv_cache_peak_MiB": 6484.130859375,
+  "per_layer_commits": 150,
+  "vae_prepare_seconds": 7.4850712502375245,
+  "vae_decode_seconds": 5.371487686876208,
+  "frames_to_cpu_seconds": 0.10079486668109894,
+  "encode_mp4_seconds": 0.36198635399341583,
+  "wall_after_conditioning_seconds": 267.166893472895,
+  "wall_including_shared_setup_seconds": 284.4910067259334,
+  "memory_after_setup": {
+    "allocated_peak_MiB": 16084.44580078125,
+    "reserved_peak_MiB": 16794.0
+  },
+  "memory_entire_run_peak_MiB": 16234.509765625,
+  "completed_at": "2026-10-08T22:31:25.922725+08:00"
+}

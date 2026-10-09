@@ -6,6 +6,6 @@
 
 Original权重仅换causal后，整体velocity cosine0.9963，动作差分cosine0.0602；旧FM32/AnyFlow32未修复。由此把下一步从盲增AnyFlow updates转为真实ABot causal FM桥接。完整历史重算诊断不等于部署persistent-KV；BF16后端误差对动作小差分敏感，两点均保留。
 
-本次没有产生新的生成视频；已有会议对比不替换。[图与完整结果](RESULTS.md)、[当前A–D门槛](../../reports/stage1_anyflow/ABCD_STATUS.md)。
+本次没有产生新的生成视频；已有会议对比不替换。[图与完整结果](RESULTS.md)、[当前A–D门槛](../../reports/stage1_anyflow/07_protocols/overviews/ABCD_STATUS.md)。
 
 ![整体速度与动作差分](field_geometry.png)

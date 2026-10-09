@@ -12,7 +12,7 @@
 
 冻结时间编码不妨碍AnyFlow学习。固定的 `(t,r)` 编码向模型提供起点和终点，LoRA学习在这些时间条件下的有限步映射。模块有独立参数不代表这些参数必须进入优化器。
 
-机器可读证据和源码哈希见 [official_parameter_policy_audit.json](reports/stage1_anyflow/official_parameter_policy_audit.json)。未为这次核查下载官方4.15GB权重；源码已足以确认参数策略。
+机器可读证据和源码哈希见 [official_parameter_policy_audit.json](reports/stage1_anyflow/03_anyflow_trials/early_pilot/official_parameter_policy_audit.json)。未为这次核查下载官方4.15GB权重；源码已足以确认参数策略。
 
 ## 本地影响与实验边界
 
@@ -25,9 +25,9 @@
 | 默认冻结 | 是 | 否，严格不变 | 两分支完全相同 |
 | 显式 `--train-target-time` | 是 | 是 | 两分支完全相同 |
 
-证据：[parameter_policy_cpu_validation.json](reports/stage1_anyflow/parameter_policy_cpu_validation.json)。该CPU检查仅验证参数策略；随后真实33B冻结分支16次更新与6条39帧视频均已完成，三组采样动作gate全部失败，见[冻结分支结果](reports/stage1_anyflow/frozen_time_snapshot/README.md)。
+证据：[parameter_policy_cpu_validation.json](reports/stage1_anyflow/03_anyflow_trials/early_pilot/parameter_policy_cpu_validation.json)。该CPU检查仅验证参数策略；随后真实33B冻结分支16次更新与6条39帧视频均已完成，三组采样动作gate全部失败，见[冻结分支结果](reports/stage1_anyflow/03_anyflow_trials/frozen_time_snapshot/README.md)。
 
-真实33B GPU2分支现已完成前4次更新：逐张量核对step00/04，16个QKV块全部变化，目标时间MLP权重严格不变；32个Adam参数状态与adapter SHA256校验通过。见[parameter_policy_gpu_step04.json](reports/stage1_anyflow/parameter_policy_gpu_step04.json)。这确认冻结策略在真实训练中生效，后续16-update评测已完成，质量未通过。
+真实33B GPU2分支现已完成前4次更新：逐张量核对step00/04，16个QKV块全部变化，目标时间MLP权重严格不变；32个Adam参数状态与adapter SHA256校验通过。见[parameter_policy_gpu_step04.json](reports/stage1_anyflow/03_anyflow_trials/early_pilot/parameter_policy_gpu_step04.json)。这确认冻结策略在真实训练中生效，后续16-update评测已完成，质量未通过。
 
 ## GPU 2对照进度
 
@@ -45,10 +45,10 @@ H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/
 H3-World/outputs/2026-10-08-04/stage1_anyflow39_frozen_time/
 ```
 
-两项新实验使用各自 `runtime/` 的代码副本，记录源码哈希和共享依赖哈希。原pilot已完成并退出后，冻结策略、明确的采样网格选项及恢复CLI已合入主源码/提交包；36项源测试通过。原trainer/benchmark保存在pilot的`original_source/`。变更前后的补丁仍以 [freeze_target_time.patch](reports/stage1_anyflow/freeze_target_time.patch)、[benchmark_uniform.patch](reports/stage1_anyflow/benchmark_uniform.patch)保存，供审计；旧结果保持原参数策略标签。两个排队实验的隔离副本未随主源码合入而改变。
+两项新实验使用各自 `runtime/` 的代码副本，记录源码哈希和共享依赖哈希。原pilot已完成并退出后，冻结策略、明确的采样网格选项及恢复CLI已合入主源码/提交包；36项源测试通过。原trainer/benchmark保存在pilot的`original_source/`。变更前后的补丁仍以 [freeze_target_time.patch](reports/stage1_anyflow/03_anyflow_trials/early_pilot/freeze_target_time.patch)、[benchmark_uniform.patch](reports/stage1_anyflow/03_anyflow_trials/early_pilot/benchmark_uniform.patch)保存，供审计；旧结果保持原参数策略标签。两个排队实验的隔离副本未随主源码合入而改变。
 
-冻结分支保存 `trainer_state.pt`（Adam、logical/global RNG、更新数及adapter SHA256），并支持 `--resume-from <checkpoint目录>`；`--steps` 是目标**总更新数**。小型实际H3的CPU验证中，冻结时间AnyFlow、可训练时间AnyFlow、FM三种分支的连续4步与2步后恢复到4步，adapter/Adam/RNG及loss/gradient记录逐项完全相等；错误LR、错配权重和缺失optimizer状态会被拒绝。见 [resume_validation.json](reports/stage1_anyflow/resume_validation.json)。此外，真实33B从GPU2的step08迁到GPU0时已逐项核验adapter、Adam与logical/CPU/CUDA RNG一致，并实际完成后8次更新，见[迁移审计](reports/stage1_anyflow/gpu0_migration/gpu0_restore_audit.json)。这证明状态恢复一致，不是与未中断CUDA整条训练轨迹的对照。旧pilot没有保存optimizer/RNG，不能把旧权重热启动称为精确续训。安装文档中的DiffSynth依赖后，可从submission运行 `python reports/stage1_anyflow/verify_resume.py --work-dir /tmp/h3_resume_check_<新目录>` 复核CPU续训；工具拒绝覆盖既有目录。
+冻结分支保存 `trainer_state.pt`（Adam、logical/global RNG、更新数及adapter SHA256），并支持 `--resume-from <checkpoint目录>`；`--steps` 是目标**总更新数**。小型实际H3的CPU验证中，冻结时间AnyFlow、可训练时间AnyFlow、FM三种分支的连续4步与2步后恢复到4步，adapter/Adam/RNG及loss/gradient记录逐项完全相等；错误LR、错配权重和缺失optimizer状态会被拒绝。见 [resume_validation.json](reports/stage1_anyflow/03_anyflow_trials/early_pilot/resume_validation.json)。此外，真实33B从GPU2的step08迁到GPU0时已逐项核验adapter、Adam与logical/CPU/CUDA RNG一致，并实际完成后8次更新，见[迁移审计](reports/stage1_anyflow/05_runtime/gpu0_migration/gpu0_restore_audit.json)。这证明状态恢复一致，不是与未中断CUDA整条训练轨迹的对照。旧pilot没有保存optimizer/RNG，不能把旧权重热启动称为精确续训。安装文档中的DiffSynth依赖后，可从submission运行 `python reports/stage1_anyflow/03_anyflow_trials/early_pilot/verify_resume.py --work-dir /tmp/h3_resume_check_<新目录>` 复核CPU续训；工具拒绝覆盖既有目录。
 
 参数策略差异是已确认事实，但上述对照已表明单独冻结目标时间MLP没有修复本轮短片。冻结时间MLP后仍只训练tail16 QKV rank8，和官方全块QKVO/FFN rank384有很大容量差异；其他已列出的数据、音频、两流/缓存训练差异也仍存在。Stage1质量验收标准不降低，Stage2保持暂缓。
 
-后续[同协议训练量对照](reports/stage1_anyflow/duration32_snapshot/README.md)已完成32次更新，A-D从16次的0.2293降为0.1424，方向和画面未修复。64次分支在第33次更新前暂缓，完整checkpoint/Adam/RNG保留。独立FP32数值诊断完成后，当前优先进行[原生FP32训练候选](reports/stage1_anyflow/native_fp32_candidate/README.md)：仍冻结time-MLP、只训练tail16 QKV，但保留官方FP32输入/输出/时间边界及有限差分输入。精度策略改变不是legacy checkpoint的精确续训；质量未通过前不会扩展Stage2。
+后续[同协议训练量对照](reports/stage1_anyflow/03_anyflow_trials/duration32_snapshot/README.md)已完成32次更新，A-D从16次的0.2293降为0.1424，方向和画面未修复。64次分支在第33次更新前暂缓，完整checkpoint/Adam/RNG保留。独立FP32数值诊断完成后，当前优先进行[原生FP32训练候选](reports/stage1_anyflow/04_numerical_checks/native_fp32_candidate/README.md)：仍冻结time-MLP、只训练tail16 QKV，但保留官方FP32输入/输出/时间边界及有限差分输入。精度策略改变不是legacy checkpoint的精确续训；质量未通过前不会扩展Stage2。

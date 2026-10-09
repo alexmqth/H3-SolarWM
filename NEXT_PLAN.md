@@ -4,7 +4,7 @@
 
 | 优先级 | 任务 | 当前结果 |
 |---|---|---|
-| 1 | 收齐E2并冻结 | FM-only/FM+action各4更新，A-history、D-history和两条真实GT-history全部收齐；无一致改善，记录负结果。16份关键证据哈希及14个历史进程身份已核查，见[冻结收据](reports/stage1_anyflow/real_transition_windows/FREEZE.json) |
+| 1 | 收齐E2并冻结 | FM-only/FM+action各4更新，A-history、D-history和两条真实GT-history全部收齐；无一致改善，记录负结果。16份关键证据哈希及14个历史进程身份已核查，见[冻结收据](reports/stage1_anyflow/01_real_video/real_transition_windows/FREEZE.json) |
 | 2 | 更新提交包和会议材料 | INTERVIEW_ANSWER、EXPERIMENT_REPORT、REPRODUCE及meeting已统一；明确旧主片checkpoint与AnyFlow/E2/DMD准备的界限 |
 | 3 | 最终可复现性验收 | 新venv＋GitHub新DiffSynth源码；15项KV/局部因果测试通过；随机小H3训练smoke通过；真实33B旧adapter生成39f并完整解码，测量和哈希齐全 |
 | 4 | 5分钟技术答辩 | 六页提纲和含播放时间讲稿完成；Original vs causal开场，完整20秒失败片和E2负结果作诊断证据 |

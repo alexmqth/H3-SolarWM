@@ -21,7 +21,7 @@
 
 ![方向与幅度对照](action_geometry.png)
 
-[完整12点、逐路径和资源表](../../reports/stage1_anyflow/generated_action_geometry128/RESULTS.md) · [原始CSV](../../reports/stage1_anyflow/generated_action_geometry128/metrics.csv) · [分析JSON](../../reports/stage1_anyflow/generated_action_geometry128/analysis.json)
+[完整12点、逐路径和资源表](../../reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128/RESULTS.md) · [原始CSV](../../reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128/metrics.csv) · [分析JSON](../../reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128/analysis.json)
 
 ## 对齐、路由和缓存检查
 
@@ -58,4 +58,4 @@
 
 复现脚本与冻结输入哈希见本目录；原始执行目录为`H3-World/outputs/2026-10-08-17/stage1_generated_action_geometry/`。CPU小H3的teacher/student精确恢复检查、真实layout审计均通过。没有优化器更新，没有新视频生成。
 
-完整脚本、原始收据和索引审计位于[诊断归档](../../reports/stage1_anyflow/generated_action_geometry128/README.md)。本里程碑没有新视频，保留此前已归档的失败视频作为背景。
+完整脚本、原始收据和索引审计位于[诊断归档](../../reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128/README.md)。本里程碑没有新视频，保留此前已归档的失败视频作为背景。

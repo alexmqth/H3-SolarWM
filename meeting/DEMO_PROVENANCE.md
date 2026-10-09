@@ -23,6 +23,6 @@
 必留失败证据：
 
 - [同一checkpoint的20秒完整失败片](long_horizon/original_vs_rgb_visual_W_20s_481f.mp4)：约10秒开始明显雾化，15秒后人物/场景难以辨认；完整后段未裁掉。不能宣称20秒稳定。
-- [最新E2：固定D-history，当前A](../reports/stage1_anyflow/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)：左Original权重局部N，中FM-only4，右FM+action4。A方向响应仍在，人物重影没有一致修复。左列**不是**Original整段双向推理。
+- [最新E2：固定D-history，当前A](../reports/stage1_anyflow/01_real_video/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)：左Original权重局部N，中FM-only4，右FM+action4。A方向响应仍在，人物重影没有一致修复。左列**不是**Original整段双向推理。
 
-[最新E2完整报告](../reports/stage1_anyflow/real_transition_windows/FINAL_RESULTS.md)与[主片历史指标](METRICS.md)分别保留，不交叉归因。
+[最新E2完整报告](../reports/stage1_anyflow/01_real_video/real_transition_windows/FINAL_RESULTS.md)与[主片历史指标](METRICS.md)分别保留，不交叉归因。

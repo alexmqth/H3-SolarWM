@@ -14,7 +14,7 @@
 | 真实33B causal inference | 39帧、832×480、24fps、H264/yuv420p完整解码，3chunks、24noisy forwards＋3clean commits | [新生成视频](inference_A39/cached.mp4)、[运行记录](inference_A39/cached.json) |
 | 测量输出 | 耗时、GPU allocated、CPU raw KV、灰度MAD、boundary MAD、Farneback均有输出 | [acceptance.json](inference_A39/acceptance.json) |
 | 展示视频 | 主片、四方向grid、20秒失败片与6条E2局部对照共9条完整解码 | [播放格式检查](presentation_video_validation.json) |
-| 源码独立性 | 最终提交包code/tests/scripts与独立验收副本哈希一致 | [源码一致性清单](source_consistency.json) |
+| 源码独立性 | 验收时的提交包code/tests/scripts与独立验收副本哈希一致 | [源码一致性清单](source_consistency.json) |
 
 ## 39帧单次执行测量
 
@@ -44,3 +44,7 @@
 - 缓存目录由env.sh预建，避免新环境的Torch kernel-cache目录缺失警告。该目录修复不改变模型数值或训练协议。
 
 小模型训练smoke不证明33B训练效果；本次真实权重测试是推理。没有运行新的E2 optimizer、AnyFlow或Stage2。完整汇总见[summary.json](summary.json)。
+
+## 归档路径调整
+
+本次验收先于实验目录重排；JSON/日志保留当时的路径与哈希。实验报告的新位置见[目录映射](../stage1_anyflow/LAYOUT.json)。模型、训练和测试Python源未改变；文档链接和会议帧图生成器的报告路径已随归档移动更新。

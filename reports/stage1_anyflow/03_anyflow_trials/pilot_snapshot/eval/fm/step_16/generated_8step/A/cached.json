@@ -1,0 +1,70 @@
+{
+  "mode": "cached",
+  "status": "complete",
+  "started_at": "2026-10-08T04:03:15.051003+08:00",
+  "steps": 8,
+  "num_frames": 39,
+  "seed": 13,
+  "gpu": "NVIDIA L40",
+  "visible_devices": "2",
+  "cache_device": "cpu",
+  "chunk_frames": 5,
+  "history_chunks": 5,
+  "trained_for_causal": true,
+  "causal_adapter_scope": "all",
+  "history_source": "generated",
+  "anchor_mode": "dynamic_last_frame_rgb_dual",
+  "action_prefix_mode": "causal",
+  "boundary_blend": 0.0,
+  "boundary_overlap_frames": 1,
+  "boundary_clamp": false,
+  "action_preset": "A",
+  "action_preset_resolved": "strafe-left",
+  "action_schedule": [
+    "strafe-left",
+    "strafe-left",
+    "strafe-left"
+  ],
+  "action_feedback": true,
+  "flow_shift": 2.22,
+  "anyflow_adapter": null,
+  "sampler": "flow_matching_euler",
+  "anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2",
+  "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_fm/step_16/causal_adapter.pt",
+  "causal_action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_fm/step_16/action_adapter.pt",
+  "cfg_scale": 1.0,
+  "audio_output": "silent",
+  "attention_backend": "PyTorch SDPA",
+  "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+  "dit_prepare_seconds": 8.70050961105153,
+  "denoiser_forwards": 24,
+  "commit_forwards": 3,
+  "chunk_seconds": [
+    54.4162569520995,
+    61.86854785820469,
+    68.5162357147783
+  ],
+  "rgb_anchor_seconds": [
+    13.392723775934428,
+    14.80640975618735
+  ],
+  "sampling_seconds": 184.80375539697707,
+  "sampling_memory": {
+    "allocated_peak_MiB": 16189.96630859375,
+    "reserved_peak_MiB": 17034.0
+  },
+  "kv_cache_peak_MiB": 6484.130859375,
+  "per_layer_commits": 150,
+  "vae_prepare_seconds": 7.03025055071339,
+  "vae_decode_seconds": 4.125077825039625,
+  "frames_to_cpu_seconds": 0.5859652757644653,
+  "encode_mp4_seconds": 0.49947531521320343,
+  "wall_after_conditioning_seconds": 205.814106260892,
+  "wall_including_shared_setup_seconds": 223.43346255179495,
+  "memory_after_setup": {
+    "allocated_peak_MiB": 16189.96630859375,
+    "reserved_peak_MiB": 17034.0
+  },
+  "memory_entire_run_peak_MiB": 16437.11865234375,
+  "completed_at": "2026-10-08T04:06:40.865749+08:00"
+}

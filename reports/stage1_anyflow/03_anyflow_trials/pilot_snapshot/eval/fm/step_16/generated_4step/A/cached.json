@@ -1,0 +1,70 @@
+{
+  "mode": "cached",
+  "status": "complete",
+  "started_at": "2026-10-08T03:57:44.043848+08:00",
+  "steps": 4,
+  "num_frames": 39,
+  "seed": 13,
+  "gpu": "NVIDIA L40",
+  "visible_devices": "2",
+  "cache_device": "cpu",
+  "chunk_frames": 5,
+  "history_chunks": 5,
+  "trained_for_causal": true,
+  "causal_adapter_scope": "all",
+  "history_source": "generated",
+  "anchor_mode": "dynamic_last_frame_rgb_dual",
+  "action_prefix_mode": "causal",
+  "boundary_blend": 0.0,
+  "boundary_overlap_frames": 1,
+  "boundary_clamp": false,
+  "action_preset": "A",
+  "action_preset_resolved": "strafe-left",
+  "action_schedule": [
+    "strafe-left",
+    "strafe-left",
+    "strafe-left"
+  ],
+  "action_feedback": true,
+  "flow_shift": 2.22,
+  "anyflow_adapter": null,
+  "sampler": "flow_matching_euler",
+  "anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2",
+  "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_fm/step_16/causal_adapter.pt",
+  "causal_action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_fm/step_16/action_adapter.pt",
+  "cfg_scale": 1.0,
+  "audio_output": "silent",
+  "attention_backend": "PyTorch SDPA",
+  "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+  "dit_prepare_seconds": 8.697325822897255,
+  "denoiser_forwards": 12,
+  "commit_forwards": 3,
+  "chunk_seconds": [
+    31.214669982902706,
+    41.162027690093964,
+    43.45339108631015
+  ],
+  "rgb_anchor_seconds": [
+    13.908041934948415,
+    16.12056148191914
+  ],
+  "sampling_seconds": 115.83335787104443,
+  "sampling_memory": {
+    "allocated_peak_MiB": 16189.96630859375,
+    "reserved_peak_MiB": 17034.0
+  },
+  "kv_cache_peak_MiB": 6484.130859375,
+  "per_layer_commits": 150,
+  "vae_prepare_seconds": 6.901209319010377,
+  "vae_decode_seconds": 4.906894923653454,
+  "frames_to_cpu_seconds": 0.5306018581613898,
+  "encode_mp4_seconds": 0.4915439998731017,
+  "wall_after_conditioning_seconds": 137.43351472215727,
+  "wall_including_shared_setup_seconds": 154.6604259754531,
+  "memory_after_setup": {
+    "allocated_peak_MiB": 16189.96630859375,
+    "reserved_peak_MiB": 17034.0
+  },
+  "memory_entire_run_peak_MiB": 16437.11865234375,
+  "completed_at": "2026-10-08T04:00:01.478066+08:00"
+}

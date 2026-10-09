@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "reorganized_at": "2026-10-09T18:31:37.618381+08:00",
+  "source_commit": "62feab757eb30663c3007f9eae6bc496499f7280",
+  "original_experiment_directories": 51,
+  "loose_files_relocated": 30,
+  "categories": {
+    "01_real_video": {
+      "title": "真实视频训练与最终结果",
+      "experiments": [
+        "fm_density_control",
+        "real_abot_fm",
+        "real_transition_windows"
+      ]
+    },
+    "02_causal_diagnostics": {
+      "title": "因果拓扑与动作诊断",
+      "experiments": [
+        "coarse_window12",
+        "counterfactual128",
+        "current_prefix_candidate",
+        "field_factorization",
+        "first_chunk_routes",
+        "fm_noise_audit",
+        "generated_action_geometry128",
+        "history_conditioning",
+        "local_topology"
+      ]
+    },
+    "03_anyflow_trials": {
+      "title": "AnyFlow与普通FM历史对照",
+      "experiments": [
+        "diagonal_inference128",
+        "dual_metric136",
+        "duration32_snapshot",
+        "duration_response",
+        "finite_interval_probe128",
+        "finite_interval_refinement128",
+        "fm_full_history_shift12_32",
+        "frozen_time_snapshot",
+        "full_history_candidate",
+        "full_history_duration64",
+        "full_history_step04",
+        "fullscope_candidate",
+        "fullscope_fm_control",
+        "history128",
+        "interval_consistency_candidate",
+        "pilot_snapshot",
+        "shift12_duration64",
+        "shift12_history_diagnostic",
+        "shift12_step32_4step",
+        "training_shift12",
+        "uniform_snapshot"
+      ]
+    },
+    "04_numerical_checks": {
+      "title": "数值、精度与梯度检查",
+      "experiments": [
+        "adaptive_weight_audit",
+        "clean_history_gradient",
+        "diagonal_compute_probe",
+        "fp32_inputs",
+        "gradient_repeatability",
+        "native_fp32_candidate",
+        "precision_probe",
+        "time_contract"
+      ]
+    },
+    "05_runtime": {
+      "title": "历史运行与并行管理",
+      "experiments": [
+        "gpu0_migration",
+        "parallel_duration128",
+        "parallel_resume68_to128",
+        "sample_parallel_probe"
+      ]
+    },
+    "06_stage2_preparation": {
+      "title": "Stage2工程准备",
+      "experiments": [
+        "cd_method_audit",
+        "dmd_gradient",
+        "h3_fmbs_integration",
+        "shared_h3_roles"
+      ]
+    },
+    "07_protocols": {
+      "title": "历史协议与归档记录",
+      "experiments": [
+        "continuation_plan",
+        "three_experiments"
+      ]
+    }
+  },
+  "path_prefix_mapping": {
+    "reports/stage1_anyflow/ABCD_STATUS.md": "reports/stage1_anyflow/07_protocols/overviews/ABCD_STATUS.md",
+    "reports/stage1_anyflow/ACTION_MECHANISM_SUMMARY.md": "reports/stage1_anyflow/07_protocols/overviews/ACTION_MECHANISM_SUMMARY.md",
+    "reports/stage1_anyflow/STAGE_BOUNDARY.md": "reports/stage1_anyflow/07_protocols/overviews/STAGE_BOUNDARY.md",
+    "reports/stage1_anyflow/adaptive_weight_audit": "reports/stage1_anyflow/04_numerical_checks/adaptive_weight_audit",
+    "reports/stage1_anyflow/benchmark_uniform.patch": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/benchmark_uniform.patch",
+    "reports/stage1_anyflow/cd_method_audit": "reports/stage1_anyflow/06_stage2_preparation/cd_method_audit",
+    "reports/stage1_anyflow/clean_history_gradient": "reports/stage1_anyflow/04_numerical_checks/clean_history_gradient",
+    "reports/stage1_anyflow/coarse_window12": "reports/stage1_anyflow/02_causal_diagnostics/coarse_window12",
+    "reports/stage1_anyflow/continuation_plan": "reports/stage1_anyflow/07_protocols/continuation_plan",
+    "reports/stage1_anyflow/counterfactual128": "reports/stage1_anyflow/02_causal_diagnostics/counterfactual128",
+    "reports/stage1_anyflow/cpu_anyflow_training.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/cpu_anyflow_training.json",
+    "reports/stage1_anyflow/cpu_fm_training.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/cpu_fm_training.json",
+    "reports/stage1_anyflow/current_prefix_candidate": "reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate",
+    "reports/stage1_anyflow/diagonal_compute_probe": "reports/stage1_anyflow/04_numerical_checks/diagonal_compute_probe",
+    "reports/stage1_anyflow/diagonal_inference128": "reports/stage1_anyflow/03_anyflow_trials/diagonal_inference128",
+    "reports/stage1_anyflow/dmd_gradient": "reports/stage1_anyflow/06_stage2_preparation/dmd_gradient",
+    "reports/stage1_anyflow/dual_metric136": "reports/stage1_anyflow/03_anyflow_trials/dual_metric136",
+    "reports/stage1_anyflow/duration32_snapshot": "reports/stage1_anyflow/03_anyflow_trials/duration32_snapshot",
+    "reports/stage1_anyflow/duration_response": "reports/stage1_anyflow/03_anyflow_trials/duration_response",
+    "reports/stage1_anyflow/export_reproduction.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/export_reproduction.json",
+    "reports/stage1_anyflow/field_factorization": "reports/stage1_anyflow/02_causal_diagnostics/field_factorization",
+    "reports/stage1_anyflow/finite_interval_probe128": "reports/stage1_anyflow/03_anyflow_trials/finite_interval_probe128",
+    "reports/stage1_anyflow/finite_interval_refinement128": "reports/stage1_anyflow/03_anyflow_trials/finite_interval_refinement128",
+    "reports/stage1_anyflow/first_chunk_routes": "reports/stage1_anyflow/02_causal_diagnostics/first_chunk_routes",
+    "reports/stage1_anyflow/fm_density_control": "reports/stage1_anyflow/01_real_video/fm_density_control",
+    "reports/stage1_anyflow/fm_full_history_shift12_32": "reports/stage1_anyflow/03_anyflow_trials/fm_full_history_shift12_32",
+    "reports/stage1_anyflow/fm_noise_audit": "reports/stage1_anyflow/02_causal_diagnostics/fm_noise_audit",
+    "reports/stage1_anyflow/fp32_inputs": "reports/stage1_anyflow/04_numerical_checks/fp32_inputs",
+    "reports/stage1_anyflow/freeze_target_time.patch": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/freeze_target_time.patch",
+    "reports/stage1_anyflow/frozen_time_snapshot": "reports/stage1_anyflow/03_anyflow_trials/frozen_time_snapshot",
+    "reports/stage1_anyflow/full_history_candidate": "reports/stage1_anyflow/03_anyflow_trials/full_history_candidate",
+    "reports/stage1_anyflow/full_history_duration64": "reports/stage1_anyflow/03_anyflow_trials/full_history_duration64",
+    "reports/stage1_anyflow/full_history_step04": "reports/stage1_anyflow/03_anyflow_trials/full_history_step04",
+    "reports/stage1_anyflow/fullscope_candidate": "reports/stage1_anyflow/03_anyflow_trials/fullscope_candidate",
+    "reports/stage1_anyflow/fullscope_fm_control": "reports/stage1_anyflow/03_anyflow_trials/fullscope_fm_control",
+    "reports/stage1_anyflow/future_action_layout_probe.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/future_action_layout_probe.json",
+    "reports/stage1_anyflow/generated_action_geometry128": "reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128",
+    "reports/stage1_anyflow/gpu0_migration": "reports/stage1_anyflow/05_runtime/gpu0_migration",
+    "reports/stage1_anyflow/gpu2_pilot_plan.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/gpu2_pilot_plan.json",
+    "reports/stage1_anyflow/gradient_repeatability": "reports/stage1_anyflow/04_numerical_checks/gradient_repeatability",
+    "reports/stage1_anyflow/h3_fmbs_integration": "reports/stage1_anyflow/06_stage2_preparation/h3_fmbs_integration",
+    "reports/stage1_anyflow/history128": "reports/stage1_anyflow/03_anyflow_trials/history128",
+    "reports/stage1_anyflow/history_conditioning": "reports/stage1_anyflow/02_causal_diagnostics/history_conditioning",
+    "reports/stage1_anyflow/implementation_status.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/implementation_status.json",
+    "reports/stage1_anyflow/input_fairness_smoke.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/input_fairness_smoke.json",
+    "reports/stage1_anyflow/interval_consistency_candidate": "reports/stage1_anyflow/03_anyflow_trials/interval_consistency_candidate",
+    "reports/stage1_anyflow/live_experiments_snapshot.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/live_experiments_snapshot.json",
+    "reports/stage1_anyflow/local_topology": "reports/stage1_anyflow/02_causal_diagnostics/local_topology",
+    "reports/stage1_anyflow/metadata_shift_correction.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/metadata_shift_correction.json",
+    "reports/stage1_anyflow/native_fp32_candidate": "reports/stage1_anyflow/04_numerical_checks/native_fp32_candidate",
+    "reports/stage1_anyflow/official_parameter_policy_audit.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/official_parameter_policy_audit.json",
+    "reports/stage1_anyflow/parallel_duration128": "reports/stage1_anyflow/05_runtime/parallel_duration128",
+    "reports/stage1_anyflow/parallel_resume68_to128": "reports/stage1_anyflow/05_runtime/parallel_resume68_to128",
+    "reports/stage1_anyflow/parameter_policy_cpu_validation.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/parameter_policy_cpu_validation.json",
+    "reports/stage1_anyflow/parameter_policy_gpu_step04.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/parameter_policy_gpu_step04.json",
+    "reports/stage1_anyflow/pilot_snapshot": "reports/stage1_anyflow/03_anyflow_trials/pilot_snapshot",
+    "reports/stage1_anyflow/position_contract_AD_noop.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/position_contract_AD_noop.json",
+    "reports/stage1_anyflow/precision_probe": "reports/stage1_anyflow/04_numerical_checks/precision_probe",
+    "reports/stage1_anyflow/pretrained_gpu0_frozen16_training.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_gpu0_frozen16_training.json",
+    "reports/stage1_anyflow/pretrained_gpu2_anyflow16_training.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_gpu2_anyflow16_training.json",
+    "reports/stage1_anyflow/pretrained_gpu2_fm16_training.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_gpu2_fm16_training.json",
+    "reports/stage1_anyflow/pretrained_gpu2_runtime.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_gpu2_runtime.json",
+    "reports/stage1_anyflow/pretrained_gpu2_smoke_training.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_gpu2_smoke_training.json",
+    "reports/stage1_anyflow/pretrained_smoke_A4_action.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_smoke_A4_action.json",
+    "reports/stage1_anyflow/pretrained_smoke_A4_contact.jpg": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_smoke_A4_contact.jpg",
+    "reports/stage1_anyflow/pretrained_smoke_A4_runtime.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_smoke_A4_runtime.json",
+    "reports/stage1_anyflow/real_abot_fm": "reports/stage1_anyflow/01_real_video/real_abot_fm",
+    "reports/stage1_anyflow/real_transition_windows": "reports/stage1_anyflow/01_real_video/real_transition_windows",
+    "reports/stage1_anyflow/resume_validation.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/resume_validation.json",
+    "reports/stage1_anyflow/sample_parallel_probe": "reports/stage1_anyflow/05_runtime/sample_parallel_probe",
+    "reports/stage1_anyflow/sampling_grid_audit.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/sampling_grid_audit.json",
+    "reports/stage1_anyflow/shared_h3_roles": "reports/stage1_anyflow/06_stage2_preparation/shared_h3_roles",
+    "reports/stage1_anyflow/shift12_duration64": "reports/stage1_anyflow/03_anyflow_trials/shift12_duration64",
+    "reports/stage1_anyflow/shift12_history_diagnostic": "reports/stage1_anyflow/03_anyflow_trials/shift12_history_diagnostic",
+    "reports/stage1_anyflow/shift12_step32_4step": "reports/stage1_anyflow/03_anyflow_trials/shift12_step32_4step",
+    "reports/stage1_anyflow/three_experiments": "reports/stage1_anyflow/07_protocols/three_experiments",
+    "reports/stage1_anyflow/time_contract": "reports/stage1_anyflow/04_numerical_checks/time_contract",
+    "reports/stage1_anyflow/training_shift12": "reports/stage1_anyflow/03_anyflow_trials/training_shift12",
+    "reports/stage1_anyflow/training_state_save_validation.json": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/training_state_save_validation.json",
+    "reports/stage1_anyflow/uniform_snapshot": "reports/stage1_anyflow/03_anyflow_trials/uniform_snapshot",
+    "reports/stage1_anyflow/verify_resume.py": "reports/stage1_anyflow/03_anyflow_trials/early_pilot/verify_resume.py"
+  },
+  "path_basis": "Repository-relative paths. Replace the longest matching old prefix with its new prefix; filenames below that prefix do not change.",
+  "immutable_evidence": "JSON/CSV/log/media and frozen runtime/source retain original bytes and historical references. Markdown navigation and current presentation helper references are relocated.",
+  "source_outputs_moved": false
+}

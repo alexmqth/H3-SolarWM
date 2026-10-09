@@ -1,0 +1,238 @@
+{
+  "anyflow": {
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_04/anyflow_adapter.pt",
+    "metadata": {
+      "objective": "TF-AnyFlow v1.5",
+      "scope": "pretrained-H3 clean teacher history",
+      "config": {
+        "out_dir": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow",
+        "teacher_dir": [
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39"
+        ],
+        "actions": [
+          "A",
+          "D"
+        ],
+        "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/causal_adapter.pt",
+        "action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/action_adapter.pt",
+        "objective": "anyflow",
+        "device": "cuda:0",
+        "smoke": false,
+        "steps": 16,
+        "checkpoint_every": 4,
+        "logical_batch": 4,
+        "lr": 3e-05,
+        "rank": 8,
+        "tail_blocks": 16,
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "anchor_mode": "rgb",
+        "action_prefix_mode": "causal",
+        "action_feedback": true,
+        "flow_shift": 2.22,
+        "finite_difference_epsilon": 5.0,
+        "seed": 13,
+        "validation_seed": 1001,
+        "validation_cases": 2
+      },
+      "history_protocol": "clean pseudo-GT from original H3; detached CPU cache rebuilt per optimizer step",
+      "velocity_convention": "noise-clean; native H3 time=1-sigma",
+      "optimizer_step": 4
+    },
+    "objective": "anyflow_forward_map_v1_5"
+  },
+  "causal_adapter": {
+    "block_indices": [
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "block_index": 49,
+    "rank": 8,
+    "metadata": {
+      "objective": "TF-AnyFlow v1.5",
+      "scope": "pretrained-H3 clean teacher history",
+      "config": {
+        "out_dir": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow",
+        "teacher_dir": [
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39"
+        ],
+        "actions": [
+          "A",
+          "D"
+        ],
+        "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/causal_adapter.pt",
+        "action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/action_adapter.pt",
+        "objective": "anyflow",
+        "device": "cuda:0",
+        "smoke": false,
+        "steps": 16,
+        "checkpoint_every": 4,
+        "logical_batch": 4,
+        "lr": 3e-05,
+        "rank": 8,
+        "tail_blocks": 16,
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "anchor_mode": "rgb",
+        "action_prefix_mode": "causal",
+        "action_feedback": true,
+        "flow_shift": 2.22,
+        "finite_difference_epsilon": 5.0,
+        "seed": 13,
+        "validation_seed": 1001,
+        "validation_cases": 2
+      },
+      "history_protocol": "clean pseudo-GT from original H3; detached CPU cache rebuilt per optimizer step",
+      "velocity_convention": "noise-clean; native H3 time=1-sigma",
+      "optimizer_step": 4
+    }
+  },
+  "causal_action_adapter": {
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_04/action_adapter.pt",
+    "block_indices": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "metadata": {
+      "objective": "TF-AnyFlow v1.5",
+      "scope": "pretrained-H3 clean teacher history",
+      "config": {
+        "out_dir": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow",
+        "teacher_dir": [
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39"
+        ],
+        "actions": [
+          "A",
+          "D"
+        ],
+        "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/causal_adapter.pt",
+        "action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/action_adapter.pt",
+        "objective": "anyflow",
+        "device": "cuda:0",
+        "smoke": false,
+        "steps": 16,
+        "checkpoint_every": 4,
+        "logical_batch": 4,
+        "lr": 3e-05,
+        "rank": 8,
+        "tail_blocks": 16,
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "anchor_mode": "rgb",
+        "action_prefix_mode": "causal",
+        "action_feedback": true,
+        "flow_shift": 2.22,
+        "finite_difference_epsilon": 5.0,
+        "seed": 13,
+        "validation_seed": 1001,
+        "validation_cases": 2
+      },
+      "history_protocol": "clean pseudo-GT from original H3; detached CPU cache rebuilt per optimizer step",
+      "velocity_convention": "noise-clean; native H3 time=1-sigma",
+      "optimizer_step": 4
+    }
+  },
+  "load_models_and_lora_seconds": 7.2363005159422755,
+  "conditioning_seconds": 11.765646315179765,
+  "memory": {
+    "allocated_peak_MiB": 16247.2412109375,
+    "reserved_peak_MiB": 16604.0
+  },
+  "completed_at": "2026-10-08T04:16:27.576408+08:00",
+  "config": {
+    "modes": [
+      "cached"
+    ],
+    "steps": 4,
+    "flow_shift": 2.22,
+    "baseline_steps": 30,
+    "num_frames": 39,
+    "chunk_frames": 5,
+    "history_chunks": 5,
+    "action_preset": "A",
+    "action_schedule": null,
+    "cache_device": "cpu",
+    "anchor_mode": "dynamic_last_frame_rgb_dual",
+    "boundary_blend": 0.0,
+    "boundary_overlap_frames": 1,
+    "boundary_clamp": false,
+    "device": "cuda:0",
+    "seed": 13,
+    "out_dir": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/eval/anyflow/step_04/generated_4step/A",
+    "save_latents": true,
+    "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_04/causal_adapter.pt",
+    "anyflow_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_04/anyflow_adapter.pt",
+    "causal_adapter_scope": "all",
+    "causal_action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_04/action_adapter.pt",
+    "causal_action_prefix_adapter": null,
+    "h3_lora_adapter": null,
+    "history_source": "generated",
+    "action_prefix_mode": "causal",
+    "action_feedback": true,
+    "teacher_latents": null
+  },
+  "gpu": "NVIDIA L40",
+  "visible_devices": "2",
+  "torch_version": "2.10.0+cu128",
+  "conditioning": "same prompt, image, chunk action schedule [strafe-left,strafe-left,strafe-left], initial video/audio noise reused across modes",
+  "action_preset": "A",
+  "action_preset_resolved": "strafe-left",
+  "action_schedule": [
+    "strafe-left",
+    "strafe-left",
+    "strafe-left"
+  ],
+  "input_fingerprints": {
+    "initial_image_sha256": "25729ce66bc578c90a6d262bf3879a3e7b16e5c5009362903a7fae6d757a4b00",
+    "prompt": "A man in a yellow floral shirt stands in a dim, multi-level concrete parking garage.",
+    "video_noise_sha256": "c9b083e6213030c27eff9a0e6f9e77b97f12b33a696e706d30ac097380aa97f6",
+    "audio_noise_sha256": "c91ec8319743a5f149b5abd9e4107a699211906f9b68ce751b11e3191c715ddc",
+    "video_noise_shape": [
+      1,
+      24,
+      12,
+      30,
+      52
+    ],
+    "audio_noise_shape": [
+      2,
+      32,
+      65
+    ]
+  },
+  "vram_reserve_gib": 20.0,
+  "compile_action_block_mask": false,
+  "dual_anchor_protocol": {
+    "slots": [
+      "original_h3_first_frame",
+      "previous_chunk_last_latent_frame"
+    ],
+    "chunk0_second_slot": "duplicate_original_anchor",
+    "frame_rows": 390,
+    "packed_seq_len": 6150,
+    "slot1_encoding": "rgb_decode_reencode_image"
+  }
+}

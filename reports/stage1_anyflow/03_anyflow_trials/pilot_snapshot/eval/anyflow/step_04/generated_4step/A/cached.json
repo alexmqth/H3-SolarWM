@@ -1,0 +1,70 @@
+{
+  "mode": "cached",
+  "status": "complete",
+  "started_at": "2026-10-08T04:16:27.597300+08:00",
+  "steps": 4,
+  "num_frames": 39,
+  "seed": 13,
+  "gpu": "NVIDIA L40",
+  "visible_devices": "2",
+  "cache_device": "cpu",
+  "chunk_frames": 5,
+  "history_chunks": 5,
+  "trained_for_causal": true,
+  "causal_adapter_scope": "all",
+  "history_source": "generated",
+  "anchor_mode": "dynamic_last_frame_rgb_dual",
+  "action_prefix_mode": "causal",
+  "boundary_blend": 0.0,
+  "boundary_overlap_frames": 1,
+  "boundary_clamp": false,
+  "action_preset": "A",
+  "action_preset_resolved": "strafe-left",
+  "action_schedule": [
+    "strafe-left",
+    "strafe-left",
+    "strafe-left"
+  ],
+  "action_feedback": true,
+  "flow_shift": 2.22,
+  "anyflow_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_04/anyflow_adapter.pt",
+  "sampler": "anyflow_finite_map",
+  "anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2",
+  "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_04/causal_adapter.pt",
+  "causal_action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_04/action_adapter.pt",
+  "cfg_scale": 1.0,
+  "audio_output": "silent",
+  "attention_backend": "PyTorch SDPA",
+  "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+  "dit_prepare_seconds": 8.682662314735353,
+  "denoiser_forwards": 12,
+  "commit_forwards": 3,
+  "chunk_seconds": [
+    30.774545839987695,
+    40.97357660671696,
+    39.04855886101723
+  ],
+  "rgb_anchor_seconds": [
+    13.873408388346434,
+    15.306483822874725
+  ],
+  "sampling_seconds": 110.79982554307207,
+  "sampling_memory": {
+    "allocated_peak_MiB": 16104.3193359375,
+    "reserved_peak_MiB": 17110.0
+  },
+  "kv_cache_peak_MiB": 6484.130859375,
+  "per_layer_commits": 150,
+  "vae_prepare_seconds": 7.131113743875176,
+  "vae_decode_seconds": 4.621897490229458,
+  "frames_to_cpu_seconds": 0.615849144756794,
+  "encode_mp4_seconds": 0.407687412109226,
+  "wall_after_conditioning_seconds": 132.3367931577377,
+  "wall_including_shared_setup_seconds": 151.33873998885974,
+  "memory_after_setup": {
+    "allocated_peak_MiB": 16104.3193359375,
+    "reserved_peak_MiB": 17110.0
+  },
+  "memory_entire_run_peak_MiB": 16247.2412109375,
+  "completed_at": "2026-10-08T04:18:39.935111+08:00"
+}

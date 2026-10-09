@@ -3,7 +3,7 @@ from pathlib import Path
 import av
 from PIL import Image, ImageDraw
 ROOT = Path(__file__).resolve().parents[2]
-base = ROOT/'reports/stage1_anyflow/real_abot_fm/report'
+base = ROOT/'reports/stage1_anyflow/01_real_video/real_abot_fm/report'
 rows = []
 for title, suite in [('GT history, 30 steps/chunk — frame 30/38', 'trained_complete_gt30'),
                      ('Generated history, 30 steps/chunk — frame 30/38', 'trained_complete_generated30')]:

@@ -13,6 +13,6 @@
 
 每个网格前8RGB为相同已知历史末段，之后42RGB是当前窗口；总50帧、24fps。不是自由rollout，不是124f或GT条件。历史来源为Original生成参考。完整静态逐帧与原尺寸细节检查记录保留，不冒称实时播放评审。
 
-[完整报告](../../reports/stage1_anyflow/history_conditioning/VIDEO_RESULTS.md) · [56次同状态探针](../../reports/stage1_anyflow/history_conditioning/PROBE_RESULTS.md)。原控制重放、首窗identity、repeat均0，field指标独立CPU重算一致；N/C delta cosine衡量协议差别，不是相对正确teacher的保真度。
+[完整报告](../../reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/VIDEO_RESULTS.md) · [56次同状态探针](../../reports/stage1_anyflow/02_causal_diagnostics/history_conditioning/PROBE_RESULTS.md)。原控制重放、首窗identity、repeat均0，field指标独立CPU重算一致；N/C delta cosine衡量协议差别，不是相对正确teacher的保真度。
 
 说明：这支持“历史条件协议是影响动作信息流的因素”，不支持“唯一问题就是time bug”。噪声和对应时间一起改变，且只有两个固定历史、一个后续窗口的视频。画面门槛未过，不能投入AnyFlow/Stage2或替换会议最终demo。

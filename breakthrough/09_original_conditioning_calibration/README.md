@@ -12,4 +12,4 @@
 
 解决方案：先回到H3的原生text/action时间`1−sigma`，再恢复单一I0条件，用连续单变量对照校准参照。全部静态帧中人物和停车场结构保留，A/D运动可区分。SolarWM Stage1采用clean text time是其训练策略，不能说是官方bug；未经适配直接切换该条件则不能默认保留H3动作能力。
 
-尚未解决：5latent分块的局部动作能力、后续历史下的可靠控制、GT局部画面、少步与自由rollout。该视频不是persistent-KV、5latent causal或Stage1通过。audio仍固定noise，与原H3联合去噪有区别；seed13单场景的光流也不能泛化成控制准确率。完整原始指标、源码/输入hash与后续局部状态见[主报告](../../reports/stage1_anyflow/local_topology/CONDITIONING_RESULTS.md)。旧失败结果全部保留，会议主demo不替换。
+尚未解决：5latent分块的局部动作能力、后续历史下的可靠控制、GT局部画面、少步与自由rollout。该视频不是persistent-KV、5latent causal或Stage1通过。audio仍固定noise，与原H3联合去噪有区别；seed13单场景的光流也不能泛化成控制准确率。完整原始指标、源码/输入hash与后续局部状态见[主报告](../../reports/stage1_anyflow/02_causal_diagnostics/local_topology/CONDITIONING_RESULTS.md)。旧失败结果全部保留，会议主demo不替换。

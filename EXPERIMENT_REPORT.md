@@ -1,5 +1,7 @@
 # 实验报告：工程可行，动作与质量联合验收尚未通过
 
+[后续训练视频与数据来源总览](meeting/DATASET_AND_ANYFLOW.md)：补齐真实数据/FM 与 AnyFlow 历史单条输出；实验结论不变。
+
 **最终结论（2026-10-09）：** 真实H3上的causal chunk、persistent KV与长rollout执行已跑通；未证明四向动作完整保真、20秒稳定生成或端到端加速。最后一轮局部E2两臂各4更新已全部评完，新增动作排序损失没有一致优于FM-only，按负结果冻结。
 
 ## 1. 实验与演示版本分开
@@ -34,11 +36,11 @@ Frame MAD和boundary MAD是描述性活动/连续性指标；低MAD可能来自�
 
 - [动作较强旧版 vs 视觉较完整新版](meeting/action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4)：旧fixed-mix A−D约0.453且符号正确，但明显漂移；RGB-main A−D约0.223且A符号错误。多项配置同时改变，不是单变量ablation。
 - [20秒完整Original vs causal](meeting/long_horizon/original_vs_rgb_visual_W_20s_481f.mp4)：同一RGB checkpoint，约10秒严重雾化，15秒后人物/场景难辨。完整481帧保留，不能把执行完成解释为稳定。
-- [最新E2 D-history/current A](reports/stage1_anyflow/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)：局部A方向保留，但手臂/躯干残影仍在。此处左列是Original权重的局部N，不是Original完整双向生成。
+- [最新E2 D-history/current A](reports/stage1_anyflow/01_real_video/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)：局部A方向保留，但手臂/躯干残影仍在。此处左列是Original权重的局部N，不是Original完整双向生成。
 
 ## 4. 最终E2受控结果：冻结在4更新
 
-[完整结果与全部六条三列视频](reports/stage1_anyflow/real_transition_windows/FINAL_RESULTS.md)。两臂都从Original H3＋released action LoRA出发，只训练tail8 QKV/out的10,092,544参数，LR2e-5、logical batch2，初始化一致；唯一实验变量为普通FM或FM＋观察动作后果排序。排序错误动作没有对应反事实GT，不能解释成完整反事实监督。
+[完整结果与全部六条三列视频](reports/stage1_anyflow/01_real_video/real_transition_windows/FINAL_RESULTS.md)。两臂都从Original H3＋released action LoRA出发，只训练tail8 QKV/out的10,092,544参数，LR2e-5、logical batch2，初始化一致；唯一实验变量为普通FM或FM＋观察动作后果排序。排序错误动作没有对应反事实GT，不能解释成完整反事实监督。
 
 T2/N每sigma重新计算可见hidden；12latent当前窗、single I0、30steps、shift2.22。停车场历史来自Original生成；两条真实GT-history保留联合动作，当前速度派生camera F属于oracle后果条件，不证明实时输入可用。
 

@@ -6,7 +6,7 @@
 
 块因果 + 持久 KV Cache + clean commit 在 33B 的 H3-World 上跑通，加上 RGB 一致的 anchor 后 124 帧画面稳定；但当前展示**没有取得端到端加速**，**动作方向没有恢复**（A−D 0.31～0.45，门槛 1.0）。这是一次可行性验证，不是已经保住动作的少步模型。
 
-新增实现状态：TF-AnyFlow128完整4/8步评测已完成，8步A/D分离度0.760但视觉仍漂移，4步严重雾化；同权重teacher history改善到1.334，但有oracle重置。固定同历史动作干预显示动作仍有独立响应，保真尚未证明。见[128完整结果](reports/stage1_anyflow/parallel_resume68_to128/STEP128_RESULTS.md)、[历史对照](reports/stage1_anyflow/history128/FINAL_RESULTS.md)及[动作干预](reports/stage1_anyflow/counterfactual128/FINAL_RESULTS.md)。同权重有限步/对角条件消融已完成：r=t后段画质明显更完整，但分离度0.662仍未过；有限步映射不足不能全推给Stage2。无新训练、无Stage2。下列表格和会议展示仍是此前的非AnyFlow结果。
+新增实现状态：TF-AnyFlow128完整4/8步评测已完成，8步A/D分离度0.760但视觉仍漂移，4步严重雾化；同权重teacher history改善到1.334，但有oracle重置。固定同历史动作干预显示动作仍有独立响应，保真尚未证明。见[128完整结果](reports/stage1_anyflow/05_runtime/parallel_resume68_to128/STEP128_RESULTS.md)、[历史对照](reports/stage1_anyflow/03_anyflow_trials/history128/FINAL_RESULTS.md)及[动作干预](reports/stage1_anyflow/02_causal_diagnostics/counterfactual128/FINAL_RESULTS.md)。同权重有限步/对角条件消融已完成：r=t后段画质明显更完整，但分离度0.662仍未过；有限步映射不足不能全推给Stage2。无新训练、无Stage2。下列表格和会议展示仍是此前的非AnyFlow结果。
 
 ## 1. 方法说明
 

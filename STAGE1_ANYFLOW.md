@@ -1,12 +1,14 @@
 # Stage1 TF-AnyFlow：实现、验证与验收
 
+[数据集视频与 AnyFlow 训练结果导览](meeting/DATASET_AND_ANYFLOW.md)：训练脚本名不代表目标；真实 ABot 两轮48更新为 FM，已找到的 AnyFlow 训练为 Original H3 伪标签。
+
 > 本页是AnyFlow实现与历史实验时间线，下面的“正在运行”仅指当时记录。当前研究已冻结，画质/action gate未过；最新结论见[实验报告](EXPERIMENT_REPORT.md)，所有历史目录的用途见[档案导航](reports/stage1_anyflow/README.md)。
 
-2026-10-08 20:15补记：真实数据FM仍在20/48；零更新完整视频已发现第二场景30步generated-history人物分解，GT18同状态动作差分cos=0.017516，无历史首块也低。新图Original纯A/D是弱正控，停车场回归另列。见[完整基线评审](reports/stage1_anyflow/real_abot_fm/BASELINE_COMPLETE_REVIEW.md)。以下无新训练/视频等旧措辞仅指当时诊断快照，不能代表当前状态。
+2026-10-08 20:15补记：真实数据FM仍在20/48；零更新完整视频已发现第二场景30步generated-history人物分解，GT18同状态动作差分cos=0.017516，无历史首块也低。新图Original纯A/D是弱正控，停车场回归另列。见[完整基线评审](reports/stage1_anyflow/01_real_video/real_abot_fm/BASELINE_COMPLETE_REVIEW.md)。以下无新训练/视频等旧措辞仅指当时诊断快照，不能代表当前状态。
 
-2026-10-08最新：受控field对照定位到AnyFlow更新之前的动作几何失配；真实ABot普通causal FM桥接已启动，尚未验收。完整目标A–D的当前状态与前置门槛见[ABCD_STATUS](reports/stage1_anyflow/ABCD_STATUS.md)，不能将数据准备或只读诊断当作Stage1完成。
+2026-10-08最新：受控field对照定位到AnyFlow更新之前的动作几何失配；真实ABot普通causal FM桥接已启动，尚未验收。完整目标A–D的当前状态与前置门槛见[ABCD_STATUS](reports/stage1_anyflow/07_protocols/overviews/ABCD_STATUS.md)，不能将数据准备或只读诊断当作Stage1完成。
 
-当前Stage1尚未通过。136训练/4与8步视频及54个双局部指标case已收尾，后段重影未修复。最新同generated-state当前chunk A/D机制诊断12点全部完成：匹配条件下student r=t与Original teacher动作速度差分cosine均值0.0382（范围−0.1023–0.2050），动作幅度为teacher的0.79–3.56倍。时间索引/实际attention路由、KV只读与未来内容负对照检查通过，支持优先调查动作条件函数迁移不足；双向teacher重算历史与student固定KV的结构差异仍需拆分。见[机制结论与归因边界](reports/stage1_anyflow/generated_action_geometry128/INTERPRETATION.md)、[136完整结果](reports/stage1_anyflow/interval_consistency_candidate/FINAL_RESULTS.md)。该18:09机制诊断当时已结束且没有训练；随后已开展真实ABot的普通FM48桥接和完整零更新视频/36点机制评测，当前结果见页首链接。新的Stage2仍未启动；最多3张项目GPU。
+当前Stage1尚未通过。136训练/4与8步视频及54个双局部指标case已收尾，后段重影未修复。最新同generated-state当前chunk A/D机制诊断12点全部完成：匹配条件下student r=t与Original teacher动作速度差分cosine均值0.0382（范围−0.1023–0.2050），动作幅度为teacher的0.79–3.56倍。时间索引/实际attention路由、KV只读与未来内容负对照检查通过，支持优先调查动作条件函数迁移不足；双向teacher重算历史与student固定KV的结构差异仍需拆分。见[机制结论与归因边界](reports/stage1_anyflow/02_causal_diagnostics/generated_action_geometry128/INTERPRETATION.md)、[136完整结果](reports/stage1_anyflow/03_anyflow_trials/interval_consistency_candidate/FINAL_RESULTS.md)。该18:09机制诊断当时已结束且没有训练；随后已开展真实ABot的普通FM48桥接和完整零更新视频/36点机制评测，当前结果见页首链接。新的Stage2仍未启动；最多3张项目GPU。
 
 ## 参数策略更正（04时段）
 
@@ -29,8 +31,8 @@
 
 ## 已完成验证
 
-- 源项目当前完整测试集：`python -m pytest -q tests`，**84 passed / 7.84秒**（独立训练/验证shift合入后，包含full-history与全覆盖LoRA检查）。早期冻结策略、网格与恢复入口合入时为36项；历史收据保留。CPU检查不等同于CUDA画质验证，日志见 `reports/stage1_anyflow/training_shift12/main_integration_tests.log`。
-- 独立复现：从记录的 DiffSynth base 重建临时目录，仅应用提交包的 action、causal、AnyFlow patches，再运行导出的专项测试，**10 passed**；结果保存在 `reports/stage1_anyflow/export_reproduction.json`。
+- 源项目当前完整测试集：`python -m pytest -q tests`，**84 passed / 7.84秒**（独立训练/验证shift合入后，包含full-history与全覆盖LoRA检查）。早期冻结策略、网格与恢复入口合入时为36项；历史收据保留。CPU检查不等同于CUDA画质验证，日志见 `reports/stage1_anyflow/03_anyflow_trials/training_shift12/main_integration_tests.log`。
+- 独立复现：从记录的 DiffSynth base 重建临时目录，仅应用提交包的 action、causal、AnyFlow patches，再运行导出的专项测试，**10 passed**；结果保存在 `reports/stage1_anyflow/03_anyflow_trials/early_pilot/export_reproduction.json`。
 - AnyFlow loss 和参数梯度逐项对照 SolarWM 官方 H3 实现：普通去噪、终点、一般区间、接近时间边界、非整时间的 diagonal。
 - `r=t` 退化到 FM；noise→clean 的有限步更新符号正确；FP32 更新避免 BF16 逐步舍入。
 - 真实 H3 小配置验证：目标时间只改变对应行；修改 `r` 确实影响输出；time MLP 和 QKV 都能反传；梯度 checkpoint 可用；读取历史不修改 KV；保存回载输出一致。
@@ -41,23 +43,23 @@
 
 ## GPU 2 真实单次更新（2026-10-08）
 
-使用 reserve=20 GiB 的 CPU offload 配置，在已有其他进程的 GPU 2 上完成单次真实更新。总可训练参数 19,275,648，QKV 和 target-time MLP 均确认实际变化；单更新 161.8 秒，含准备和前后验证共 499.7 秒，allocated peak=17,221.8 MiB。日志见 `reports/stage1_anyflow/pretrained_gpu2_smoke_training.json`，运行环境见同目录 `pretrained_gpu2_runtime.json`。
+使用 reserve=20 GiB 的 CPU offload 配置，在已有其他进程的 GPU 2 上完成单次真实更新。总可训练参数 19,275,648，QKV 和 target-time MLP 均确认实际变化；单更新 161.8 秒，含准备和前后验证共 499.7 秒，allocated peak=17,221.8 MiB。日志见 `reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_gpu2_smoke_training.json`，运行环境见同目录 `pretrained_gpu2_runtime.json`。
 
 A/chunk2 held-out 加权验证 loss：0.117473 → 0.118669；高噪声 endpoint raw loss：133.788 → 42.081。整体没有单调改善，不能用其中一项下降宣称视频质量提高。
 
 回载推理发现并修复 FP32 轨迹与 BF16 条件的类型冲突；只在模型调用处转换计算输入，轨迹累积继续使用 FP32。新增混合精度多步/clean commit 与 RGB anchor dtype 测试，AnyFlow 专项共 12 passed。修复后的回载已完成：39 帧、12 noisy forwards + 3 commits、E2E 194.1 秒、GPU allocated peak=16,247.2 MiB、CPU KV=6,484.1 MiB。A 水平光流为 -1.296，contact sheet 后半段明显重影与雾化；这是 1-update smoke，未通过质量 gate。
 
-正式队列已在 GPU 2 启动，计划见 `reports/stage1_anyflow/gpu2_pilot_plan.json`。源运行目录为 `H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/`，`run.json` 记录当前阶段。依次完成 16-update AnyFlow、4/8-step A/D、FM 对照、中途 checkpoint 学习曲线、clean-history 诊断；任何失败自动停止。
+正式队列已在 GPU 2 启动，计划见 `reports/stage1_anyflow/03_anyflow_trials/early_pilot/gpu2_pilot_plan.json`。源运行目录为 `H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/`，`run.json` 记录当前阶段。依次完成 16-update AnyFlow、4/8-step A/D、FM 对照、中途 checkpoint 学习曲线、clean-history 诊断；任何失败自动停止。
 
 ## 16-update 实测（4/8-step A/D已完成）
 
-训练完成不等于Stage1验收：训练总计3043.0秒，allocated peak 17,439.4 MiB，time MLP和QKV均实际更新。固定验证noise的A/D total loss略降，但高噪声endpoint raw loss均上升（A 133.788→144.185；D 18.083→19.440）。完整数据在[训练日志](reports/stage1_anyflow/pretrained_gpu2_anyflow16_training.json)。
+训练完成不等于Stage1验收：训练总计3043.0秒，allocated peak 17,439.4 MiB，time MLP和QKV均实际更新。固定验证noise的A/D total loss略降，但高噪声endpoint raw loss均上升（A 133.788→144.185；D 18.083→19.440）。完整数据在[训练日志](reports/stage1_anyflow/03_anyflow_trials/early_pilot/pretrained_gpu2_anyflow16_training.json)。
 
-4-step/chunk generated-history：A=-1.3153、D=-1.2244、A-D=-0.0909；两条视频后段重影/雾化，动作与视觉gate失败。每条均完整39帧，12 noisy forwards+3 clean commits。输入逐张量与对应原始H3一致。8-step A=-1.1709、D=-1.4752、A-D=0.3043，画面比4-step完整但动作gate仍失败。FM16的4/8-step分离度为0.2338/0.3149；AnyFlow4 step00/04/08/12/16没有持续改善。clean-history A-D=0.5135仍失败；[动态报告快照](reports/stage1_anyflow/pilot_snapshot/REPORT.md)只列已生成结果。旧原始H3的offload reserve未知，时间和GPU peak仅作本机运行记录，不能据此计算公平加速比。
+4-step/chunk generated-history：A=-1.3153、D=-1.2244、A-D=-0.0909；两条视频后段重影/雾化，动作与视觉gate失败。每条均完整39帧，12 noisy forwards+3 clean commits。输入逐张量与对应原始H3一致。8-step A=-1.1709、D=-1.4752、A-D=0.3043，画面比4-step完整但动作gate仍失败。FM16的4/8-step分离度为0.2338/0.3149；AnyFlow4 step00/04/08/12/16没有持续改善。clean-history A-D=0.5135仍失败；[动态报告快照](reports/stage1_anyflow/03_anyflow_trials/pilot_snapshot/REPORT.md)只列已生成结果。旧原始H3的offload reserve未知，时间和GPU peak仅作本机运行记录，不能据此计算公平加速比。
 
 可选[位置契约helper](code/causal/position_contract.py)解决未来action句长通过RoPE原点影响过去的结构性问题，小型H3的FM/AnyFlow测试2 passed；固定A/D输入是数值no-op。**尚未接入当前benchmark/trainer，也不是已证实的视觉失败原因。**
 
-[三列诊断视频](reports/stage1_anyflow/pilot_snapshot/anyflow16_AD_original_4step_8step_diagnostic.mp4)与[人工观察记录](reports/stage1_anyflow/pilot_snapshot/VISUAL_REVIEW.md)保留全部39帧，明确标记未通过，不替换旧会议demo。
+[三列诊断视频](reports/stage1_anyflow/03_anyflow_trials/pilot_snapshot/anyflow16_AD_original_4step_8step_diagnostic.mp4)与[人工观察记录](reports/stage1_anyflow/03_anyflow_trials/pilot_snapshot/VISUAL_REVIEW.md)保留全部39帧，明确标记未通过，不替换旧会议demo。
 
 ## 已完成pilot的33B实验协议（trainable-time变体）
 
@@ -125,4 +127,4 @@ python code/causal/train_stage1_anyflow.py --smoke --steps 8 --lr 0.001 \
 
 与官方公式的 oracle 测试需要本项目根目录旁的 `SolarWM/src` checkout，参考版本为 `ce1da4e7705391eda8eeda6016c0fd3f614b975e`；运行训练与采样无需导入 SolarWM，所需数学 primitives 已附并保留 Apache-2.0 归属。
 
-全覆盖rank8候选已完成CPU预检查并条件等待：保留相同初始函数和数值/数据协议，按官方312个投影范围训练LoRA；详见[候选范围、参数化差异与限制](reports/stage1_anyflow/fullscope_candidate/README.md)。真实GPU fit与画质尚待验证，不能把这个候选称为已完成的完整官方Stage1。
+全覆盖rank8候选已完成CPU预检查并条件等待：保留相同初始函数和数值/数据协议，按官方312个投影范围训练LoRA；详见[候选范围、参数化差异与限制](reports/stage1_anyflow/03_anyflow_trials/fullscope_candidate/README.md)。真实GPU fit与画质尚待验证，不能把这个候选称为已完成的完整官方Stage1。

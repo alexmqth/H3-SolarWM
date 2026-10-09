@@ -51,7 +51,7 @@ Stage0.5：双向FM适配 → Stage1：因果TF-AnyFlow少步初始化 → Stage
 
 ## 5｜E2：受控负结果，所以停止扩训，3:15–4:15
 
-[局部三列A片](../reports/stage1_anyflow/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)。同初始化、同4更新，仅loss不同；完整评测两份reference history＋两条GT-history。
+[局部三列A片](../reports/stage1_anyflow/01_real_video/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)。同初始化、同4更新，仅loss不同；完整评测两份reference history＋两条GT-history。
 
 | 固定history的A−D | Original local N | FM-only4 | FM+action4 |
 |---|---:|---:|---:|
@@ -60,7 +60,7 @@ Stage0.5：双向FM适配 → Stage1：因果TF-AnyFlow少步初始化 → Stage
 
 动作项没有一致收益；当前A仍有重影；held-out正确FM改善<0.03%。左列是局部N，**不是**Original全长双向推理。GT含联合相机/观测F，不能当纯A/D实时控制。
 
-**冻结4更新，不扩16，不重启AnyFlow/Stage2。** [完整证据](../reports/stage1_anyflow/real_transition_windows/FINAL_RESULTS.md)
+**冻结4更新，不扩16，不重启AnyFlow/Stage2。** [完整证据](../reports/stage1_anyflow/01_real_video/real_transition_windows/FINAL_RESULTS.md)
 
 ## 6｜下一步研究选择与交付，4:15–5:00
 

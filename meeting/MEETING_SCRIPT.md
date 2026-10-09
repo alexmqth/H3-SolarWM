@@ -30,7 +30,7 @@
 
 ## 3:15–4:15｜最后一个受控实验如何做决定
 
-显示[最新E2局部A失败片](../reports/stage1_anyflow/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)与[最终报告](../reports/stage1_anyflow/real_transition_windows/FINAL_RESULTS.md)。三列是Original权重局部N、FM-only4、FM+action4，**不是**开场两列的模型。
+显示[最新E2局部A失败片](../reports/stage1_anyflow/01_real_video/real_transition_windows/review_step4/parking_historyD_currentA_comparison.mp4)与[最终报告](../reports/stage1_anyflow/01_real_video/real_transition_windows/FINAL_RESULTS.md)。三列是Original权重局部N、FM-only4、FM+action4，**不是**开场两列的模型。
 
 “我把变量收窄到训练目标。同初始化、同数据和噪声、同四次更新，只比较普通FM与加入观察动作后果排序。收齐两份停车场history和两条真实GT-history后，动作项没有一致改善；当前A的人物重影也没有消失。验证误差改善不到0.03%，不能把loss下降当成成功。所以停在四次更新，记录负结果，没有自动加到十六次。”
 
