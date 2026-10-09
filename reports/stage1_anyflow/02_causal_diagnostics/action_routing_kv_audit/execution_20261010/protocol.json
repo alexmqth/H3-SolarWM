@@ -1,0 +1,52 @@
+{
+  "status": "pre_registered_before_model_load",
+  "at": "2026-10-10T00:05:23.788383+08:00",
+  "scope": "P0 strict matching-context first, then P1 factorization and middle-sigma P2; no video or training",
+  "sigmas": [
+    0.93954,
+    0.689441,
+    0.240781
+  ],
+  "P0_relative_tolerance": 2e-05,
+  "weights": "Original H3 + released action LoRA; h3_fp32 boundary, loaded transformer dtype unchanged",
+  "intervals": [
+    [
+      0,
+      12
+    ],
+    [
+      12,
+      17
+    ]
+  ],
+  "states": "Same selected own-trajectory endpoint/noise interpolant for every role and A/D; not online solver states",
+  "conditioning": "single I0/native text time; clean history video time1; fixed audio noise/time0; immutable full37 positions; future physically removed",
+  "P0": "per-sigma native-prefix clean-history prefill vs strict full recomputation; persistent sigma0 cache is separately P1 R3",
+  "routing": "own, within(current chunk j<=i), cross(own or j<current_start), full(j<=i); P1 route swaps share same clean cache",
+  "budget": {
+    "main_current_forwards": 72,
+    "extra_P0_matched_current_forwards": 12,
+    "P2_cross_mid_forwards": 4,
+    "P2_noised_history_mid_forwards": 8,
+    "prefill_forwards": 8,
+    "first12_identity_forwards": 1,
+    "total_planned_model_forwards": 105,
+    "optimizer_updates": 0,
+    "new_videos": 0
+  },
+  "source_sha256": {
+    "audit_core.py": "d29d1751555e41d08aaa5cf951e19c6ef51478bea2ececa29c517017f6f2ada7",
+    "test_audit.py": "389b035013fbeb1b4276c6120d091bff009c2a12e4cd9436abae9aba27396aec",
+    "run.py": "43c69d2df56f6eca9d2f5c2ba986cc7613dcf23b2d9b297ef8b1e385ec21cbf9",
+    "cpu_tests.xml": "0371279832179aad9719db3c653c4ba7f1ad7efd178c236de0dfc7c985cfddaf"
+  },
+  "inputs_sha256": {
+    "source_coarse/inputs/parking_A.pt": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572",
+    "source_coarse/inputs/parking_D.pt": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e",
+    "source_coarse/coarse_A/window0_A.pt": "242a1db06bc3423fe21207af5d2ccf59c9f27f07c9d88f22ce9f77921f6b0eea",
+    "source_coarse/coarse_A/window0_D.pt": "7a6a2ca7f3966d00e01792ef822b12f4e268f911908d1ff7b97249619759ec7f",
+    "source_coarse/coarse_A/window0_solver_states.pt": "17225f4ee8ee6976e0d6d618bea69e2c1eb7176015b636d7b1cbf657292cff5c",
+    "C_A/sigma_noised_A_endpoint.pt": "79d02605939353ebf442d5ba506744521e378937e03f41f2e0d62241c4322e28",
+    "C_D/sigma_noised_D_endpoint.pt": "bcf02506c63d5b3d1f2b29f38e597a21898060c25ee9ccf2a7b534c715954cc0"
+  }
+}

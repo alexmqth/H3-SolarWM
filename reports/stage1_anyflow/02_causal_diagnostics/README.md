@@ -6,6 +6,7 @@
 
 | 实验目录 | 阅读入口 |
 |---|---|
+| `action_routing_kv_audit/` | [P0严格等价通过；Action Routing / KV固定状态归因](action_routing_kv_audit/execution_20261010/README.md) · [最初审计](action_routing_kv_audit/README.md) |
 | `chunk_partition_cb/` | [C12→5自身history局部正控；B7方向未过](chunk_partition_cb/README.md) |
 | `chunk_partition_audit/` | [Action–Video配对、VAE分组与prefix解码审计](chunk_partition_audit/README.md) |
 | `coarse_window12/` | [结果与记录](coarse_window12/FINAL_RESULTS.md) |

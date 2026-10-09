@@ -1,0 +1,16 @@
+{
+  "python": "3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]",
+  "torch": "2.10.0+cu128",
+  "cuda_runtime": "12.8",
+  "numerical_policy": {
+    "attention": "canonical visible-key/query groups",
+    "gemm": "fixed rows: 8 or 256, original weights/dtypes",
+    "bf16_reduced_precision_reduction": false,
+    "tf32": false,
+    "float32_matmul_precision": "highest"
+  },
+  "GPU": "NVIDIA L40",
+  "main_gpu": 2,
+  "bridge_gpu": 4,
+  "max_concurrent_project_GPUs": 2
+}

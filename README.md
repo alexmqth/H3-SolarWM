@@ -6,6 +6,8 @@
 
 **因果分块 + 持久 KV 在真实 33B H3 上工程可行；但到目前为止，没有一个完整rollout版本同时做到"动作对、画面稳、更快"。** 动作失配在因果化本身就出现（早于 AnyFlow 和 Stage2），后续在伪标签和真实录制视频上的训练都没有修复它。训练保持冻结；按用户新指示完成的[C12→5只读验证](experiments/11_causal_12_then5_selfhistory/README.md)在自身生成history下取得第二块局部动作＋结构正控，尚未验证完整124帧或persistent KV。
 
+2026-10-10新增[固定状态Action Routing / KV审计](reports/stage1_anyflow/02_causal_diagnostics/action_routing_kv_audit/execution_20261010/README.md)：统一数值执行后，6状态×A/D的50层历史KV、RoPE及velocity与严格因果重算逐元素相同；但去掉公共prefix反馈、切断video双向回路、冻结历史提交条件和增加past-action直读分别改变动作差分。无persistent KV的R2与Original差分cosine已仅0.057，不能把失配全部归因缓存实现。没有新增训练或视频，默认数值路径的非零误差和排查过程完整保留。
+
 > We causalized H3-World with chunk-wise attention and persistent KV caching. RGB-consistent anchoring improves visual coherence at 124 frames, but the same checkpoint collapses in a 20-second rollout and does not pass the strict A/D gate. A separate zero-training, recomputed-window C12→5 prototype now shows coherent action responses in its first self-generated continuation. This local result does not establish full-horizon control, long-video stability, or speedup.
 
 ## 从这里开始看
@@ -19,6 +21,7 @@
 | 每个实验做了什么、结果如何 | 下面的**实验地图** |
 | 因果化单独做到哪一步、哪些版本已保存 | [因果基线与视频](docs/CAUSAL_BASELINE.md) |
 | 最新C/B分块验证及56帧自身history视频 | [C12→5局部正控](experiments/11_causal_12_then5_selfhistory/README.md) |
+| 动作信息流与KV是否等价、哪个因素先造成失配 | [P0/P1/P2受控审计与逐状态结果](reports/stage1_anyflow/02_causal_diagnostics/action_routing_kv_audit/execution_20261010/README.md) |
 | 怎么复现 | [REPRODUCE.md](REPRODUCE.md) |
 
 ## 实验地图
@@ -51,6 +54,7 @@
 | 15 | Stage2 工程准备 | 为完整 Stage2 备好原语 | 小模型上验证 DMD 方向、FMBS、共享角色隔离 | 工程检查通过；不是 33B 效果 | 通过（工程） | [说明](reports/stage1_anyflow/06_stage2_preparation/README.md) |
 | 16 | 干净环境验收 | 提交包能否独立复现 | 新 venv + 新源码；15 项 KV/因果测试、训练 smoke、33B 39 帧推理 | 全部通过；画质与动作结论不变 | 通过（工程） | [验收](reports/final_acceptance/README.md) |
 | 17 | C12→5 / B7分块 | 较长首窗后短块能否响应动作 | Original30步、自身首12 history；clean/N对照；B只验首7 | C＋N两份history当前A/D方向正确、人物完整；clean D→A及B首窗A失败 | 通过（仅第二块局部）；未验124f/KV | [11及56帧视频](experiments/11_causal_12_then5_selfhistory/README.md) |
+| 18 | Action Routing / KV分解 | 区分缓存实现、公共prefix、video图、时间及动作直读 | Original固定权重与状态；先逐层等价，再分离within/cross；N历史桥接 | 受控数值P0全部误差0；R2无缓存时已失配；其他因素另有影响 | 通过（等价诊断）；不授予画质PASS | [完整审计](reports/stage1_anyflow/02_causal_diagnostics/action_routing_kv_audit/execution_20261010/README.md) |
 
 **实验之间的关系：** 1→3 解决"能跑"和"画面稳"，但 2↔3 暴露动作与画面的取舍（[三列对比视频](meeting/action_vs_stability/original_action_stronger_visual_stable_AD_124.mp4)）；5、8、9 把动作失配定位到"因果化本身"；7、10、11、14 说明在伪标签或真实视频上继续训练都没修好；12、13、17提供条件/分块的正向线索，17进一步验证了一个自身生成history上的短续写。
 
