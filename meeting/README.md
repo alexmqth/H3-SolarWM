@@ -1,5 +1,7 @@
 # 会议展示包：主片、失败证据与5分钟技术判断
 
+新增：[昨晚真实视频训练与机制进展展示](OVERNIGHT_PROGRESS.md)，集中列出两轮48更新、GT/generated-history完整对照与最新E2，明确报告/视频已同步、新训练权重仍在本机。
+
 **当前结论：causal/KV工程可运行；没有证明动作完整保真、20秒视觉稳定或整体加速。** 最新E2已全部评完，普通FM与新增动作损失各4更新，动作项无一致收益，按负结果冻结。
 
 会议主视频保持10月6日的`visual_online_rgb_tail16_endpoint_ad2`，**没有**替换成最新E2或AnyFlow。包内对应`checkpoints/visual_rgb_tail16/`的两份adapter；[DEMO_PROVENANCE.md](DEMO_PROVENANCE.md)和[JSON哈希清单](DEMO_PROVENANCE.json)给出来源、完整配置与验证。

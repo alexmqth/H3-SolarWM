@@ -1,0 +1,85 @@
+{
+  "at": "2026-10-09T17:30:40.958632+08:00",
+  "remote_commit_verified": "4460166eee0a4a42fa7a3f6863ab32adfec720a9",
+  "remote_archive": {
+    "real_abot_fm": {
+      "files": 271,
+      "mp4_files": 19,
+      "tensor_checkpoint_files": 0
+    },
+    "fm_density_control": {
+      "files": 212,
+      "mp4_files": 12,
+      "tensor_checkpoint_files": 0
+    },
+    "real_transition_windows": {
+      "files": 183,
+      "mp4_files": 34,
+      "tensor_checkpoint_files": 0
+    }
+  },
+  "local_new_training_checkpoints": [
+    {
+      "workspace_relative_path": "H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/train_48/step_48/stage1_lora.pt",
+      "exists": true,
+      "bytes": 173138511,
+      "sha256": "9a0447b75be922e8a33c5de27e147526a2be4165a875a261f60de47b8e03ebf2",
+      "uploaded_to_github": false
+    },
+    {
+      "workspace_relative_path": "H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48/stage1_lora.pt",
+      "exists": true,
+      "bytes": 173138575,
+      "sha256": "c8e2b2ad26381e2090a87845dc603c19646a95931517b4211ab08778e606df43",
+      "uploaded_to_github": false
+    },
+    {
+      "workspace_relative_path": "H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/train_fm_only/step_04/action_lora.pt",
+      "exists": true,
+      "bytes": 40387035,
+      "sha256": "096e0cd7716468bc0a4ddf84f82dcf44110c4834f105f9dcb0f2c93abe6e01e6",
+      "uploaded_to_github": false
+    },
+    {
+      "workspace_relative_path": "H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/train_fm_action/step_04/action_lora.pt",
+      "exists": true,
+      "bytes": 40387035,
+      "sha256": "9da95802c5779b166585b7d435b62bdc102c06e1e3547fa4c9517c2caafe181f",
+      "uploaded_to_github": false
+    }
+  ],
+  "selected_video_checks": [
+    {
+      "path": "reports/stage1_anyflow/real_abot_fm/report/trained_complete_gt30/dfec8ed3237860eba14d67c089ecd041_D_1750_comparison.mp4",
+      "frames": 39,
+      "fps": 24,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "complete_decode": true
+    },
+    {
+      "path": "reports/stage1_anyflow/real_abot_fm/report/trained_complete_generated30/dfec8ed3237860eba14d67c089ecd041_D_1750_comparison.mp4",
+      "frames": 39,
+      "fps": 24,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "complete_decode": true
+    },
+    {
+      "path": "reports/stage1_anyflow/real_abot_fm/report/trained_complete_generated30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140_comparison.mp4",
+      "frames": 39,
+      "fps": 24,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "complete_decode": true
+    },
+    {
+      "path": "reports/stage1_anyflow/history_conditioning/window1_A/CN_AD_context.mp4",
+      "frames": 50,
+      "fps": 24,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "complete_decode": true
+    }
+  ]
+}
