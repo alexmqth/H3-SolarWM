@@ -1,0 +1,31 @@
+--- a/diffsynth/models/minimax_h3_dit.py
++++ b/diffsynth/models/minimax_h3_dit.py
+@@ -662,9 +662,10 @@
+ 
+     def _embed(self, *, x, audio_x, text_embeddings_selected, unique_timesteps, img_pos, audio_pos, text_pos, refiner_cu_seqlens, refiner_max_seqlen, seq_len, device, unique_target_timesteps=None):
+         dtype = text_embeddings_selected.dtype
+-        x_rows = x.view(-1, x.shape[-1]).index_select(0, img_pos).to(dtype)
++        input_dtype = getattr(self, "_h3_input_dtype", dtype)
++        x_rows = x.view(-1, x.shape[-1]).index_select(0, img_pos).to(input_dtype)
+         video_embed = self.video_patch_proj(x_rows)
+-        audio_rows = audio_x.view(-1, audio_x.shape[-1]).index_select(0, audio_pos).to(dtype)
++        audio_rows = audio_x.view(-1, audio_x.shape[-1]).index_select(0, audio_pos).to(input_dtype)
+         audio_embed = self.audio_patch_proj(audio_rows)
+         text_rows = text_embeddings_selected.to(device=device)
+         text_embed = self.condition_proj(text_rows)
+@@ -675,12 +676,13 @@
+         embeddings.index_add_(0, img_pos, video_embed.to(dtype)[: img_pos.shape[0]])
+         embeddings.index_add_(0, audio_pos, audio_embed.to(dtype)[: audio_pos.shape[0]])
+ 
+-        t_emb = self.time_embedder(unique_timesteps, dtype=dtype)
++        time_dtype = getattr(self, "_h3_time_dtype", dtype)
++        t_emb = self.time_embedder(unique_timesteps, dtype=time_dtype)
+         anyflow = getattr(self, "anyflow_conditioner", None)
+         if anyflow is not None:
+             if unique_target_timesteps is None:
+                 raise ValueError("AnyFlow requires explicit target timesteps")
+-            t_emb = anyflow(t_emb, unique_target_timesteps.to(device), dtype=dtype)
++            t_emb = anyflow(t_emb, unique_target_timesteps.to(device), dtype=time_dtype)
+         elif unique_target_timesteps is not None:
+             raise ValueError("Target timesteps require an AnyFlow conditioner")
+         return embeddings, t_emb

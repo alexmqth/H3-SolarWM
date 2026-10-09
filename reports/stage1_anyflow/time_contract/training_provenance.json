@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-09T01:00:27.020329+08:00",
+  "training": "FM density control; read-only initialization/protocol receipts",
+  "time_weights_match_training_receipt": {
+    "proj_in.weight": true,
+    "proj_in.bias": true,
+    "proj_out.weight": true,
+    "proj_out.bias": true
+  },
+  "source_comparison": {
+    "code/causal/anyflow.py": {
+      "current_sha256": "27b6eb22d16b6047642269604f1ddf249d8ab602fa5c8593b240144c48abc805",
+      "frozen_sha256": "27b6eb22d16b6047642269604f1ddf249d8ab602fa5c8593b240144c48abc805",
+      "byte_identical": true,
+      "AST_equal_ignoring_docstrings": true
+    },
+    "code/causal/anyflow_sampling.py": {
+      "current_sha256": "9e4202bb00e528115901bc07975d0ef78f3fc1cc91190aa58bfd19ade4ecfd46",
+      "frozen_sha256": "9e4202bb00e528115901bc07975d0ef78f3fc1cc91190aa58bfd19ade4ecfd46",
+      "byte_identical": true,
+      "AST_equal_ignoring_docstrings": true
+    },
+    "code/causal/h3_cached.py": {
+      "current_sha256": "629f8f26d912c188d7d7122c6106ff742f5b2a633dab5881acbb1eb5f77c806e",
+      "frozen_sha256": "91a0ea05f3effdaee502fd7377df760ef6ee1f97cbc6057cf232edbd791cc83e",
+      "byte_identical": false,
+      "AST_equal_ignoring_docstrings": true
+    },
+    "DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py": {
+      "current_sha256": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b",
+      "frozen_sha256": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b",
+      "byte_identical": true,
+      "AST_equal_ignoring_docstrings": true
+    },
+    "DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py": {
+      "current_sha256": "68e9cb9336590fae7c53f2fac83c09aaf8d03fba1776777383a2b924eee40e38",
+      "frozen_sha256": "68e9cb9336590fae7c53f2fac83c09aaf8d03fba1776777383a2b924eee40e38",
+      "byte_identical": true,
+      "AST_equal_ignoring_docstrings": true
+    }
+  },
+  "target_time_trainable": false,
+  "training_bank_targets_time_embedder": false,
+  "scope": "not live GPU model-memory inspection; h3_cached comments/docstrings differ but computation AST identical"
+}

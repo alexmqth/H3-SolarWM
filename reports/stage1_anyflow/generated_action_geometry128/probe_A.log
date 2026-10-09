@@ -1,0 +1,233 @@
+[preflight] diffsynth resolved from the v2 checkout: ok /home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+[preflight] directed attention mask present: ok 
+[preflight] packed-sequence builder is the per-latent version: ok 
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_text_encoder",
+    "model_class": "diffsynth.models.minimax_h3_text_encoder.MiniMaxH3TextEncoder",
+    "extra_kwargs": null
+}
+Loading models from: [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_dit",
+    "model_class": "diffsynth.models.minimax_h3_dit.MiniMaxH3DiT",
+    "extra_kwargs": null
+}
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_audio_vae",
+    "model_class": "diffsynth.models.minimax_h3_audio_vae.MiniMaxH3AudioVAE",
+    "extra_kwargs": null
+}
+Using minimax_h3_text_encoder from [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors"
+].
+Using minimax_h3_dit from [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors"
+].
+Using minimax_h3_video_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+Using minimax_h3_audio_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors".
+104 tensors are patched by LoRA. You can use `pipe.clear_lora()` to clear all LoRA layers.
+W1008 17:53:51.381000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.381000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.381000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.381000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.381000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.409000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.409000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.409000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.409000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.409000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.413000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.413000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.413000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.413000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.413000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.421000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.421000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.421000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.421000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.421000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.438000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.438000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.438000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.438000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.438000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.469000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.469000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.469000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.469000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.469000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.520000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.520000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.520000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.520000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.520000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.535000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.535000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.535000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.535000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.535000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.631000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.631000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.631000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.631000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.631000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.789000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.789000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.789000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.789000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.789000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.806000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.806000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.806000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.806000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.806000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:53:51.812000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 17:53:51.812000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 17:53:51.812000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:53:51.812000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 17:53:51.812000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+{"chunk": 1, "sigma": 0.9395404663085938, "matched": 0.03247326444021501, "native": 0.05732211128424189, "norm_ratio": 2.2428822789755944}
+{"chunk": 1, "sigma": 0.6894410400390625, "matched": 0.0035610255163559786, "native": 0.027673831757232134, "norm_ratio": 1.0541244144277429}
+{"chunk": 1, "sigma": 0.24078089904785155, "matched": 0.01904720726328903, "native": 0.013619108405206672, "norm_ratio": 1.2085448563353636}
+W1008 17:57:26.680000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.680000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.680000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.680000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.680000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:26.699000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.699000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.699000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.699000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.699000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:26.717000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.717000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.717000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.717000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.717000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:26.747000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.747000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.747000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.747000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.747000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:26.765000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.765000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.765000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.765000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.765000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:26.770000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.770000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.770000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.770000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.770000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:26.773000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.773000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.773000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.773000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.773000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:26.817000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.817000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.817000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.817000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.817000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:26.876000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.876000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.876000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.876000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.876000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:26.885000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.885000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.885000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.885000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.885000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:26.993000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:26.993000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:26.993000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:26.993000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:26.993000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:27.008000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:27.008000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:27.008000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:27.008000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:27.008000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+W1008 17:57:27.066000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] fx graph cache unable to load compiled graph
+W1008 17:57:27.066000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] Traceback (most recent call last):
+W1008 17:57:27.066000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 17:57:27.066000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3]     yield pickle.loads(content), content
+W1008 17:57:27.066000 3944211 site-packages/torch/_inductor/codecache.py:1040] [0/3] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+{"chunk": 2, "sigma": 0.9395404663085938, "matched": 0.08359907587861043, "native": -0.3500635099289329, "norm_ratio": 1.5554693654546017}
+{"chunk": 2, "sigma": 0.6894410400390625, "matched": 0.1188104856355806, "native": 0.07259924936887208, "norm_ratio": 0.7934946422923298}
+{"chunk": 2, "sigma": 0.24078089904785155, "matched": -0.005467081723045405, "native": -0.0002885571628118978, "norm_ratio": 1.0264909515337968}

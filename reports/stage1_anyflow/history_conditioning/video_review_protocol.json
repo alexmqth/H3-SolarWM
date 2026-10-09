@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-09T06:10:34.679249+08:00",
+  "status": "planned_before_video_launch",
+  "target_window": 1,
+  "history_reference": [
+    "A",
+    "D"
+  ],
+  "manual_review_required_before_window2": true,
+  "checks": [
+    "Both A/D trajectories from same reference history, noise, prompt and only current-action substitution",
+    "All42 current RGB frames reviewed in both histories; original-size limbs and first-frame transition inspected",
+    "A>0 and D<0 in parking strong-control context plus qualitatively different direction; Farneback alone insufficient",
+    "No severe body/limb decomposition, ghosting or instant scene/pose reset",
+    "Compare8 known visible-prefix context frames and current frames in C/N grid; do not silently restart from I0",
+    "Boundary MAD uses same decoded-MP4 first-frame versus shared lossless last-visible history image for both C/N",
+    "Both histories must satisfy action, structure and adherence before extra window2 sampling"
+  ],
+  "flow_is_quality_metric": false,
+  "original_generated_history_is_GT": false,
+  "free_rollout_claim": false,
+  "window2_budget_if_pass": 120
+}

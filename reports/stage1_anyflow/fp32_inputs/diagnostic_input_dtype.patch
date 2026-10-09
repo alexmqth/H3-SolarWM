@@ -1,0 +1,31 @@
+--- a/code/causal/h3_cached.py
++++ b/code/causal/h3_cached.py
+@@ -392,9 +392,10 @@
+         # backbone inputs must share the conditioning/weight compute dtype.
+         # Cast only the evaluation inputs, preserving the caller's FP32 state
+         # and differentiability through this cast during training/replay.
+-        current = current.to(dtype=prompt.dtype)
+-        anchor = anchor.to(dtype=prompt.dtype)
+-        audio = audio.to(dtype=prompt.dtype)
++        input_dtype = getattr(dit, "_diagnostic_input_dtype", prompt.dtype)
++        current = current.to(dtype=input_dtype)
++        anchor = anchor.to(dtype=input_dtype)
++        audio = audio.to(dtype=input_dtype)
+     elif target_sigma is not None:
+         raise ValueError('target_sigma requires an AnyFlow conditioner')
+     rows = (current.shape[-2]//2)*(current.shape[-1]//2)
+--- a/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
++++ b/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+@@ -662,9 +662,10 @@
+ 
+     def _embed(self, *, x, audio_x, text_embeddings_selected, unique_timesteps, img_pos, audio_pos, text_pos, refiner_cu_seqlens, refiner_max_seqlen, seq_len, device, unique_target_timesteps=None):
+         dtype = text_embeddings_selected.dtype
+-        x_rows = x.view(-1, x.shape[-1]).index_select(0, img_pos).to(dtype)
++        input_dtype = getattr(self, "_diagnostic_input_dtype", dtype)
++        x_rows = x.view(-1, x.shape[-1]).index_select(0, img_pos).to(input_dtype)
+         video_embed = self.video_patch_proj(x_rows)
+-        audio_rows = audio_x.view(-1, audio_x.shape[-1]).index_select(0, audio_pos).to(dtype)
++        audio_rows = audio_x.view(-1, audio_x.shape[-1]).index_select(0, audio_pos).to(input_dtype)
+         audio_embed = self.audio_patch_proj(audio_rows)
+         text_rows = text_embeddings_selected.to(device=device)
+         text_embed = self.condition_proj(text_rows)

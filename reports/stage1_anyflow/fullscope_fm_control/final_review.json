@@ -1,0 +1,132 @@
+{
+  "at": "2026-10-08T09:03:58.383670+08:00",
+  "gate": "NOT_ACCEPTED",
+  "rows": [
+    {
+      "method": "FM16",
+      "action": "A",
+      "steps": 4,
+      "flow": -1.0764016932562779,
+      "e2e": 220.01102212630212,
+      "gpu": 38924.02490234375,
+      "cpu": 6484.130859375,
+      "noisy": 12,
+      "commits": 3,
+      "mad": 3.09698194743168,
+      "boundary": 3.620657218215812,
+      "input_fairness": true
+    },
+    {
+      "method": "FM16",
+      "action": "D",
+      "steps": 4,
+      "flow": -1.290064774061504,
+      "e2e": 222.25891129672527,
+      "gpu": 38924.02490234375,
+      "cpu": 6484.130859375,
+      "noisy": 12,
+      "commits": 3,
+      "mad": 3.1861741286057694,
+      "boundary": 3.8845694778311968,
+      "input_fairness": true
+    },
+    {
+      "method": "FM16",
+      "action": "A",
+      "steps": 8,
+      "flow": -1.1352842363872027,
+      "e2e": 265.00834727846086,
+      "gpu": 38924.02490234375,
+      "cpu": 6484.130859375,
+      "noisy": 24,
+      "commits": 3,
+      "mad": 3.5440009936951755,
+      "boundary": 4.3622087005876065,
+      "input_fairness": true
+    },
+    {
+      "method": "FM16",
+      "action": "D",
+      "steps": 8,
+      "flow": -1.4561852844137895,
+      "e2e": 257.7221303945407,
+      "gpu": 38924.02490234375,
+      "cpu": 6484.130859375,
+      "noisy": 24,
+      "commits": 3,
+      "mad": 3.5458277981612687,
+      "boundary": 4.473353615785257,
+      "input_fairness": true
+    },
+    {
+      "method": "AnyFlow16 detached",
+      "action": "A",
+      "steps": 4,
+      "flow": -1.1985360350655883,
+      "e2e": 228.2151676416397,
+      "gpu": 38984.1572265625,
+      "cpu": 6484.130859375,
+      "noisy": 12,
+      "commits": 3,
+      "mad": 4.072428648996289,
+      "boundary": 6.069311732104701,
+      "input_fairness": true
+    },
+    {
+      "method": "AnyFlow16 detached",
+      "action": "D",
+      "steps": 4,
+      "flow": -1.2421144356853084,
+      "e2e": 220.6885876171291,
+      "gpu": 38984.1572265625,
+      "cpu": 6484.130859375,
+      "noisy": 12,
+      "commits": 3,
+      "mad": 4.048487382443488,
+      "boundary": 6.485358239850427,
+      "input_fairness": true
+    },
+    {
+      "method": "AnyFlow16 detached",
+      "action": "A",
+      "steps": 8,
+      "flow": -1.3053472794984515,
+      "e2e": 267.0753343212418,
+      "gpu": 38984.1572265625,
+      "cpu": 6484.130859375,
+      "noisy": 24,
+      "commits": 3,
+      "mad": 3.870126083312247,
+      "boundary": 5.284875383947649,
+      "input_fairness": true
+    },
+    {
+      "method": "AnyFlow16 detached",
+      "action": "D",
+      "steps": 8,
+      "flow": -1.49647114857247,
+      "e2e": 271.636616948992,
+      "gpu": 38984.1572265625,
+      "cpu": 6484.130859375,
+      "noisy": 24,
+      "commits": 3,
+      "mad": 3.7231860450404857,
+      "boundary": 4.913276659321582,
+      "input_fairness": true
+    }
+  ],
+  "visual_review": {
+    "FM_all_frames": [
+      0,
+      38
+    ],
+    "comparison_frames": [
+      12,
+      24,
+      30,
+      38
+    ],
+    "mode": "all-frame contact sheets, not real-time playback"
+  },
+  "scope": "single scene, seed13, generated history,16updates"
+}

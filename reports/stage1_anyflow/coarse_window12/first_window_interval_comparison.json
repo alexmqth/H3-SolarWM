@@ -1,0 +1,63 @@
+{
+  "at": "2026-10-09T05:30:41.514811+08:00",
+  "records": [
+    {
+      "group": "matched_first5",
+      "action": "A",
+      "source_sha256": "1cf97eedc44496468b94c6cc42142dda91c1ddb665c209d053b364206696aef0",
+      "first17_flow": -1.1689114840701222,
+      "whole_window_flow": -1.1689114840701222,
+      "whole_window_frames": 17,
+      "first17_frames": 17
+    },
+    {
+      "group": "matched_first5",
+      "action": "D",
+      "source_sha256": "284cb6f74a8b9dfdafde7ff096e57cfc0dae41ad2864577af33d856448b7d116",
+      "first17_flow": -1.1740905232727528,
+      "whole_window_flow": -1.1740905232727528,
+      "whole_window_frames": 17,
+      "first17_frames": 17
+    },
+    {
+      "group": "coarse_A",
+      "action": "A",
+      "source_sha256": "bc9e8a3f5ebd2f2cf30e7318f68dad30945ceb6a98a2b4c2c30807ce3408d43f",
+      "first17_flow": 0.28542825183831155,
+      "whole_window_flow": 0.863117962585468,
+      "whole_window_frames": 39,
+      "first17_frames": 17
+    },
+    {
+      "group": "coarse_A",
+      "action": "D",
+      "source_sha256": "b6ef03650bc74c58df7cb21c26324ac3f73e67710dbe7805f9477a096e2c87e5",
+      "first17_flow": -1.198251910507679,
+      "whole_window_flow": -1.17421731548874,
+      "whole_window_frames": 39,
+      "first17_frames": 17
+    },
+    {
+      "group": "coarse_D",
+      "action": "A",
+      "source_sha256": "4d9854f00fe86d0dacb522e81843d61791bbf1839d57f8e9fd79eaf29f063560",
+      "first17_flow": 0.28636431717313826,
+      "whole_window_flow": 0.8635682915582469,
+      "whole_window_frames": 39,
+      "first17_frames": 17
+    },
+    {
+      "group": "coarse_D",
+      "action": "D",
+      "source_sha256": "a4123c699b313aaefe544856f4df68cc8ec6aa09ce1ddd9872ca7a4e63576497",
+      "first17_flow": -1.1984912976622581,
+      "whole_window_flow": -1.174459825024793,
+      "whole_window_frames": 39,
+      "first17_frames": 17
+    }
+  ],
+  "evaluator_sha256": "1f378333c207b2b2946e6bf762b3edbd32b6f01d6370ed854976329f51a1cf59",
+  "method": "Existing Farneback evaluator with input-frame iterator limited to first17; no reencoding",
+  "interpretation": "Same first17 displayed RGB interval;12-latent generator/decoder still uses its entire known39RGB window. Not an equal interactive-latency comparison or proof of later-window ability.",
+  "stage1_accepted": false
+}

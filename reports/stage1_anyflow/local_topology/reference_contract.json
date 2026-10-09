@@ -1,0 +1,46 @@
+{
+  "at": "2026-10-09T04:48:13.863266+08:00",
+  "purpose": "Calibrate the Original local reference before using its action delta as supervision. No optimizer or candidate architecture sweep.",
+  "unchanged": [
+    "Original H3 + released action LoRA",
+    "seed13 video/audio initial noise",
+    "parking image and prompt",
+    "native 30step video solver shift2.22",
+    "h3_fp32 precision",
+    "SDPA directed Original predicate"
+  ],
+  "controls": [
+    {
+      "id": "fixed_dual_window12",
+      "status": "complete_fail",
+      "text_time": "clean1",
+      "anchor": "two duplicate I0",
+      "audio": "fixed noise native0"
+    },
+    {
+      "id": "native_dual_window12",
+      "status": "complete_fail",
+      "text_time": "1-sigma_video",
+      "anchor": "two duplicate I0",
+      "audio": "fixed noise native0",
+      "A": -0.00059424393418196,
+      "D": -0.7991182800186308
+    },
+    {
+      "id": "native_single_window12",
+      "status": "running",
+      "text_time": "1-sigma_video",
+      "anchor": "one I0",
+      "audio": "fixed noise native0",
+      "sole_change": "remove duplicate image slot"
+    }
+  ],
+  "residual_original_difference": "Released benchmark baseline jointly denoises audio with shift3. The local/cached prototype keeps initial audio noise at native time0. Even native_single_window12 is not yet an exact reproduction of original joint inference.",
+  "source_evidence": {
+    "baseline_joint": "code/causal/benchmark.py baseline branch scheduler_audio.set_timesteps(steps,shift=3.) and update audio each step",
+    "prefix_time": "DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py model_fn default fixed_prefix_timesteps=False",
+    "solarwm_policy": "SolarWM/src/solarwm/backends/minimax_h3/torch_layout.py stage0p5 default_text=video_values[0], stage1 default_text=1"
+  },
+  "decision_rule": "Review completed single-anchor control first. Do not call any 12-latent control a 5-latent causal pass. Native single-anchor 5+5+2 requires a separately verified no-retime rule for I0; no GPU launch before reference decision.",
+  "geometry_and_training": "Remain gated while local reference is unreliable."
+}

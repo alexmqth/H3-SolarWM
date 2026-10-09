@@ -1,0 +1,88 @@
+{
+  "status": "frozen_before_optimizer",
+  "at": "2026-10-09T07:05:14.194185+08:00",
+  "source_sha256": "aae6f35909e78c3a7d8843a352232ceb27e264b693ef45e441da20fa7efb6b11",
+  "calibration_sha256": "439763d807d7b45dad1b60dd10579dc12e2c0d27337d9a85dec962d2dc4edb51",
+  "baseline_review_sha256": "f092f81265d8b7f79dde3be4270fcb5e17629c489977c9bd8dce9969a5b5a1ce",
+  "parameter_bank": "Released action LoRA tail8 qkv/out; FP32 masters; frozen base, refiner, time embedding; no added modules",
+  "conditions": "T2/N, 12latent current, singleI0, native text times, fixed action origin, no persistent hiddenKV",
+  "optimizer_steps": 4,
+  "logical_batch": 2,
+  "lr": 2e-05,
+  "optimizer": "AdamW beta(.9,.95), weight_decay0, grad_clip1.0",
+  "margin": 9.3068927526474e-05,
+  "action_weight": 2.4858908311120174,
+  "seed": 13,
+  "samples": [
+    [
+      {
+        "clip_id": "43866101158a538d22c52ac5b2fa606b_A_1245",
+        "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/43866101158a538d22c52ac5b2fa606b_A_1245.pt",
+        "sha256": "a85e4c017d4e78bafa27f6d4bf93705c5f510ff8a4866fca2dd2bfa1ac693b5a",
+        "window": 1,
+        "sigma": 0.85
+      },
+      {
+        "clip_id": "7199292ca430b478bfd0d83cf2e519d8_D_0700",
+        "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/7199292ca430b478bfd0d83cf2e519d8_D_0700.pt",
+        "sha256": "5d3d20dc19b247f31da272fa6049f26d1be2d67a83da3ef1b86295ae44231020",
+        "window": 1,
+        "sigma": 0.55
+      }
+    ],
+    [
+      {
+        "clip_id": "b784d995827f53977a8067e5b9dc4b5e_D_1155",
+        "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/b784d995827f53977a8067e5b9dc4b5e_D_1155.pt",
+        "sha256": "dd6802b74be59cd887170348a3a1e7e9ea6de9c0fc5e3a96db7409f362e68fa2",
+        "window": 1,
+        "sigma": 0.25
+      },
+      {
+        "clip_id": "b784d995827f53977a8067e5b9dc4b5e_A_1635",
+        "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/b784d995827f53977a8067e5b9dc4b5e_A_1635.pt",
+        "sha256": "cd6281736a899c0dd4f13f5c3b2a51027bf056ba6c0ff2222c1a297d45cc2049",
+        "window": 2,
+        "sigma": 0.1
+      }
+    ],
+    [
+      {
+        "clip_id": "9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410",
+        "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410.pt",
+        "sha256": "fc16e3079effa49a903acc32df509b6d75591d33ac2ddda44ae6748f0726f0fa",
+        "window": 1,
+        "sigma": 0.55
+      },
+      {
+        "clip_id": "43866101158a538d22c52ac5b2fa606b_D_1555",
+        "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/43866101158a538d22c52ac5b2fa606b_D_1555.pt",
+        "sha256": "3661d74cf0e91a0a5d3f204bfddd7d373a15530cd75becb95cbb5909d34185d1",
+        "window": 1,
+        "sigma": 0.85
+      }
+    ],
+    [
+      {
+        "clip_id": "b784d995827f53977a8067e5b9dc4b5e_A_1635",
+        "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/b784d995827f53977a8067e5b9dc4b5e_A_1635.pt",
+        "sha256": "cd6281736a899c0dd4f13f5c3b2a51027bf056ba6c0ff2222c1a297d45cc2049",
+        "window": 1,
+        "sigma": 0.1
+      },
+      {
+        "clip_id": "43866101158a538d22c52ac5b2fa606b_D_1555",
+        "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/43866101158a538d22c52ac5b2fa606b_D_1555.pt",
+        "sha256": "3661d74cf0e91a0a5d3f204bfddd7d373a15530cd75becb95cbb5909d34185d1",
+        "window": 0,
+        "sigma": 0.25
+      }
+    ]
+  ],
+  "CPU_hinge_replay_test_sha256": "60893b5d683de1744c705a9adeff2d8f9fc1fc76c8ba4b11ec9561d911f9040e",
+  "preselected_evaluation": "Same two held-out GT-history24 current12 actual-action videos + original parking both fixed reference histories current12 A/D local forks at30steps. Report matching frozen0 versus4; no AnyFlow or new anchors.",
+  "stop": "After4updates per arm stop. Evaluate actual local action and structure before any extension toward16. No loss-only acceptance.",
+  "distinction": "FM-only and FM+action differ only in objective. Both log paired same-state positive/negative error; no validation is used for coefficient calibration.",
+  "known_limits": "Only6train/2validation adapter-split episodes; pretraining may have seen them. One eligible train history24 A. Tiny-data smoke, not broad causal effect identification.",
+  "frozen_at": "2026-10-09T07:12:40.428943+08:00"
+}

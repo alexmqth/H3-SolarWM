@@ -1,0 +1,79 @@
+{
+  "at": "2026-10-09T04:36:00.347310+08:00",
+  "rows": [
+    {
+      "reference": "A",
+      "chunk": 0,
+      "A": -0.9071429669857025,
+      "D": -0.8977661076933146,
+      "separation": -0.009376859292387962,
+      "same_history_noise_anchor": true
+    },
+    {
+      "reference": "A",
+      "chunk": 1,
+      "A": 0.49019410042092204,
+      "D": 0.4783756756223738,
+      "separation": 0.011818424798548222,
+      "same_history_noise_anchor": true
+    },
+    {
+      "reference": "A",
+      "chunk": 2,
+      "A": 1.6567087769508362,
+      "D": 1.6572966128587723,
+      "separation": -0.0005878359079360962,
+      "same_history_noise_anchor": true
+    },
+    {
+      "reference": "D",
+      "chunk": 0,
+      "A": -0.9071429669857025,
+      "D": -0.8979967590421438,
+      "separation": -0.009146207943558693,
+      "same_history_noise_anchor": true
+    },
+    {
+      "reference": "D",
+      "chunk": 1,
+      "A": -0.963516054674983,
+      "D": -0.9637399408966303,
+      "separation": 0.00022388622164726257,
+      "same_history_noise_anchor": true
+    },
+    {
+      "reference": "D",
+      "chunk": 2,
+      "A": -0.6089367493987083,
+      "D": -0.6096122190356255,
+      "separation": 0.0006754696369171143,
+      "same_history_noise_anchor": true
+    }
+  ],
+  "local_reference_usable": false,
+  "reason": "Changing current A/D barely affects outcome; same fixed history determines both directions",
+  "frozen_time_control_failed": true,
+  "stage1_accepted": false,
+  "video_audits": [
+    {
+      "group": "positive_A",
+      "videos": 9
+    },
+    {
+      "group": "positive_D",
+      "videos": 9
+    },
+    {
+      "group": "window12_calibration",
+      "videos": 9
+    }
+  ],
+  "review_scope": "all39-frame static contact sheets reviewed for each A/D/reference and window12; not realtime playback",
+  "visual_observation": "People and parking structure mostly remain recognizable; oracle resets at frames17/34 are not free-rollout continuity",
+  "geometry_launch": false,
+  "calibration_in_progress": "Only native text/action time, with exact same weights/anchors/noise/window",
+  "evaluation_sha256": {
+    "A": "043a25c07685d808afb75af8cd02835ef7dbbc7032b7a570969fe0778f145b46",
+    "D": "efaa89311b90452cd2ccb49c0b8245b5ae4882c3faea60b293493b3f21d0f64c"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "scope": "Endpoint trajectory diagnostic against original H3 pseudo-GT, not a score-field counterfactual test or perceptual-quality metric. Only chunk0 has no generated history. Later A/D trajectories have different histories, so delta does not isolate a same-state action effect.",
+  "rows": [
+    {
+      "steps_per_chunk": 4,
+      "chunk": 0,
+      "latent_frames": [
+        0,
+        5
+      ],
+      "AD_endpoint_delta_cosine": -0.11806565523147583,
+      "AD_endpoint_delta_norm_ratio": 0.3435117304325104,
+      "A_teacher_endpoint_MSE": 0.15717054903507233,
+      "D_teacher_endpoint_MSE": 0.1567285805940628
+    },
+    {
+      "steps_per_chunk": 4,
+      "chunk": 1,
+      "latent_frames": [
+        5,
+        10
+      ],
+      "AD_endpoint_delta_cosine": -0.025626208633184433,
+      "AD_endpoint_delta_norm_ratio": 0.360589861869812,
+      "A_teacher_endpoint_MSE": 0.529175877571106,
+      "D_teacher_endpoint_MSE": 0.5415420532226562
+    },
+    {
+      "steps_per_chunk": 4,
+      "chunk": 2,
+      "latent_frames": [
+        10,
+        12
+      ],
+      "AD_endpoint_delta_cosine": -0.013103805482387543,
+      "AD_endpoint_delta_norm_ratio": 0.29352954030036926,
+      "A_teacher_endpoint_MSE": 0.6735856533050537,
+      "D_teacher_endpoint_MSE": 0.6196324825286865
+    },
+    {
+      "steps_per_chunk": 8,
+      "chunk": 0,
+      "latent_frames": [
+        0,
+        5
+      ],
+      "AD_endpoint_delta_cosine": -0.039222799241542816,
+      "AD_endpoint_delta_norm_ratio": 0.5002462267875671,
+      "A_teacher_endpoint_MSE": 0.15564318001270294,
+      "D_teacher_endpoint_MSE": 0.12453768402338028
+    },
+    {
+      "steps_per_chunk": 8,
+      "chunk": 1,
+      "latent_frames": [
+        5,
+        10
+      ],
+      "AD_endpoint_delta_cosine": 0.05124472826719284,
+      "AD_endpoint_delta_norm_ratio": 0.4854932129383087,
+      "A_teacher_endpoint_MSE": 0.30452531576156616,
+      "D_teacher_endpoint_MSE": 0.21618016064167023
+    },
+    {
+      "steps_per_chunk": 8,
+      "chunk": 2,
+      "latent_frames": [
+        10,
+        12
+      ],
+      "AD_endpoint_delta_cosine": -0.019065825268626213,
+      "AD_endpoint_delta_norm_ratio": 0.5763543844223022,
+      "A_teacher_endpoint_MSE": 0.3365578353404999,
+      "D_teacher_endpoint_MSE": 0.25923389196395874
+    }
+  ]
+}

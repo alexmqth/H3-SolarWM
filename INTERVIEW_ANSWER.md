@@ -29,13 +29,15 @@ SolarWM 的核心启发是把长视频拆成 causal chunks，历史 chunk 通过
 | Stage1（TF-AnyFlow） | Stage 2：Teacher-Forced AnyFlow | **块因果** | latent 切成有序块，当前块只看“自身噪声状态 + 干净 GT 历史”（teacher forcing），用 AnyFlow loss 监督任意两个噪声水平之间的 flow map，直接得到少步自回归初始化器 |
 | Stage2（SGF/DMD） | Stage 3：DMD-based Causal Training | 块因果 + KV Cache | 学生在**自己的 rollout** 上训练：冻结双向 teacher 给 `s_real`，可训练 critic 跟踪学生分布给 `s_fake`，更新方向 ∝ `s_fake − s_real`；SGF 通过 rollout-and-replay 让未来块的梯度也能监督历史 K/V 的“写入” |
 
-**本项目与它们的对应关系（诚实边界）：** 没有做 Stage0.5（直接把已发布的 H3-World LoRA 当作双向 teacher）；Stage1 只是 Stage1-**style**（块因果 + clean-history teacher forcing + per-sigma teacher replay，**没有 AnyFlow**）；Stage2 只是 Stage2-**lite**：student self-rollout → detached generated history → trainable fake-score critic → frozen teacher → DMD surrogate，共享一个 H3 33B backbone 轮换 student/critic/teacher 三个小 adapter，**没有 SGF**，也不是官方 recipe。
+**展示 checkpoint 与最新实验要分开说明：** 会议主视频仍来自旧 Stage1-style checkpoint（块因果 + clean-history teacher forcing，没有 AnyFlow），不能改称 TF-AnyFlow 效果。最新代码已经实现并在真实33B上训练 TF-AnyFlow，包含目标时间条件、有限区间目标和采样；但完整4/8步画质及动作门槛仍未通过。另做了真实ABot普通causal FM48桥接，同状态动作差分也未恢复。Stage0.5沿用已发布H3权重/action LoRA，没有重新训练。旧Stage2-lite具有self-rollout、可训练fake-score和DMD surrogate，但teacher实际仍使用causal cached路径、student梯度为单次endpoint replay；不等于Original双向teacher＋完整FMBS生成Jacobian，也没有SGF或官方规模训练。
 
 另外，SolarWM 的 H3 控制信号是几何相机（`camera_viewmats`/`camera_K`），没有 H3-World 的键盘动作行，所以它的成功不能直接证明 H3-World 的 W/S/A/D 方向保真。
 
+截至2026-10-08：[TF-AnyFlow](STAGE1_ANYFLOW.md) 的真实训练和136有限预算对照已运行，效果验收失败；不是停在CPU或单次更新。随后完成了[同状态动作场诊断与真实FM48桥接](reports/stage1_anyflow/real_abot_fm/FM48_GEOMETRY_RESULTS.md)。[H3 FMBS生成端](reports/stage1_anyflow/h3_fmbs_integration/README.md)仅通过真实tiny-H3 CPU梯度/缓存检查，尚无新的33B完整teacher/critic/DMD训练。
+
 ## 3. Stage2 为什么能减少采样步数
 
-> 先区分：**因果 mask + KV Cache = 可流式、复用历史计算；Stage2 = 少步。** 本项目没有做少步蒸馏，所以没有端到端加速（RGB 版 124 帧慢约 1.5–1.7 倍，见 meeting/METRICS.md）。
+> 先区分：**因果 mask + KV Cache 提供分块执行与历史复用；Stage1 AnyFlow 学习有限步映射；Stage2 SGF/DMD 改善 student 自身 rollout 分布上的少步质量。** 当前展示 checkpoint 没有经过 AnyFlow 训练，且有 CPU KV/RGB anchor 开销，尚无端到端加速证据（见 meeting/METRICS.md）。
 
 KV cache 只减少历史 token 的重复计算，不会改变每个 chunk 需要多少次 denoiser evaluation。Stage2 的少步收益来自训练 student，使它在少量 solver steps 中近似原始多步 teacher 在目标生成分布上的更新方向。teacher/fake-score distribution matching 让 student 学会自己的 generated-history 状态下的有效 score，而不是只在 teacher-forced clean history 上拟合。
 
@@ -118,6 +120,8 @@ RGB visual baseline 约为：
 因此不能写“动作仍然有效”或“完整保真”。可以写：causal rollout 的工程链路已经跑通，但 generated-history causal score field 的 A/D 几何尚未恢复。
 
 ## 9. action failure 的定位
+
+最新的严格干预固定同一generated history、同一显式加噪当前latent，只替换当前chunk A/D。FM0→48整体velocity cosine0.994733→0.995210，但A/D delta cosine0.012540→0.009336。GT18点也未恢复（0.017516→0.017641）。时间跨度、当前直接路由、cache只读和重复输出已核查；这支持“动作条件velocity geometry失配”，不支持只归因于漏传或错位action。Teacher双向重算与student缓存的内部历史依赖仍不同，因此不把一个低cosine当作单层权重错误的证明。见[完整协议与限制](reports/stage1_anyflow/real_abot_fm/FM48_GEOMETRY_RESULTS.md)。下列是此前检查。
 
 已经排除了几种简单原因：
 

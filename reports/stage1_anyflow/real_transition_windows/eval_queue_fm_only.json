@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-09T07:25:30.070754+08:00",
+  "pid": 269304,
+  "start_ticks": "258080839",
+  "gpu": 1,
+  "arm": "fm_only",
+  "status": "complete_all_preselected_suites",
+  "source_sha256": "1ee3155bd4bd366b69e5df5a81166c86492d88ef461029458b8b55493afb8868",
+  "previous_pid": 248861,
+  "previous_start_ticks": "258064548",
+  "children": [
+    {
+      "suite": "parking_A",
+      "pid": 337236,
+      "start_ticks": "258127903",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/evaluate_objective.py",
+        "--gpu",
+        "1",
+        "--arm",
+        "fm_only",
+        "--suite",
+        "parking_A"
+      ],
+      "exit_code": 0
+    },
+    {
+      "suite": "gt",
+      "pid": 455234,
+      "start_ticks": "258190658",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/evaluate_objective.py",
+        "--gpu",
+        "1",
+        "--arm",
+        "fm_only",
+        "--suite",
+        "gt"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

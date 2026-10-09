@@ -1,0 +1,14 @@
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+{'objective': 'anyflow', 'history': 'full', 'chunk': 0, 'dtype': 'torch.float32', 'raw_samples_exact': True, 'actual_AnyFlow_noise_exact': True, 'CPU_and_logical_RNG_exact': True, 'gradient_difference_norm': 2.608853546336935e-10, 'one_Adam_update_close': True, 'global_batch': 4, 'ranks': 4}
+{'objective': 'anyflow', 'history': 'full', 'chunk': 1, 'dtype': 'torch.float32', 'raw_samples_exact': True, 'actual_AnyFlow_noise_exact': True, 'CPU_and_logical_RNG_exact': True, 'gradient_difference_norm': 2.736176943574833e-10, 'one_Adam_update_close': True, 'global_batch': 4, 'ranks': 4}
+{'objective': 'anyflow', 'history': 'full', 'chunk': 2, 'dtype': 'torch.float32', 'raw_samples_exact': True, 'actual_AnyFlow_noise_exact': True, 'CPU_and_logical_RNG_exact': True, 'gradient_difference_norm': 4.1012639813714945e-10, 'one_Adam_update_close': True, 'global_batch': 4, 'ranks': 4}
+{'objective': 'anyflow', 'history': 'detached', 'chunk': 2, 'dtype': 'torch.float32', 'raw_samples_exact': True, 'actual_AnyFlow_noise_exact': True, 'CPU_and_logical_RNG_exact': True, 'gradient_difference_norm': 3.988620634299669e-10, 'one_Adam_update_close': True, 'global_batch': 4, 'ranks': 4}
+{'objective': 'fm', 'history': 'full', 'chunk': 2, 'dtype': 'torch.float32', 'raw_samples_exact': True, 'actual_AnyFlow_noise_exact': False, 'CPU_and_logical_RNG_exact': True, 'gradient_difference_norm': 4.213925897816291e-10, 'one_Adam_update_close': True, 'global_batch': 4, 'ranks': 4}
+{'objective': 'anyflow', 'history': 'full', 'chunk': 2, 'dtype': 'torch.bfloat16', 'raw_samples_exact': True, 'actual_AnyFlow_noise_exact': True, 'CPU_and_logical_RNG_exact': True, 'gradient_difference_norm': 3.820373979619298e-10, 'one_Adam_update_close': True, 'global_batch': 4, 'ranks': 4}

@@ -1,0 +1,151 @@
+FFFFF.
+=================================== FAILURES ===================================
+_ test_original_teacher_is_identical_after_nonzero_student_critic_and_time[dtype0] _
+
+dtype = torch.float32
+
+    @pytest.mark.parametrize('dtype',[torch.float32,torch.bfloat16])
+    def test_original_teacher_is_identical_after_nonzero_student_critic_and_time(dtype):
+>       model,bank,time,roles,b,common,ref=setup(dtype)
+
+H3-World/tests/test_shared_h3_roles.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+H3-World/tests/test_shared_h3_roles.py:43: in setup
+    bank=install_stage1_lora(model,rank=2,alpha=2)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = MiniMaxH3DiT(
+  (video_patch_proj): Linear(in_features=96, out_features=64, bias=True)
+  (audio_patch_proj): Linear(in...r(in_features=64, out_features=96, bias=True)
+    (audio_out): Linear(in_features=64, out_features=32, bias=True)
+  )
+)
+rank = 2, alpha = 2, device = 'cpu'
+
+    def install_stage1_lora(model, *, rank=8, alpha=8., device='cpu'):
+        names = target_names(model)
+        if any(isinstance(model.get_submodule(n), Stage1LinearLoRA) for n in names):
+>           raise ValueError('Stage1 LoRA bank is already installed')
+E           ValueError: Stage1 LoRA bank is already installed
+
+H3-World/code/causal/stage1_lora.py:111: ValueError
+_ test_original_teacher_is_identical_after_nonzero_student_critic_and_time[dtype1] _
+
+dtype = torch.bfloat16
+
+    @pytest.mark.parametrize('dtype',[torch.float32,torch.bfloat16])
+    def test_original_teacher_is_identical_after_nonzero_student_critic_and_time(dtype):
+>       model,bank,time,roles,b,common,ref=setup(dtype)
+
+H3-World/tests/test_shared_h3_roles.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+H3-World/tests/test_shared_h3_roles.py:43: in setup
+    bank=install_stage1_lora(model,rank=2,alpha=2)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = MiniMaxH3DiT(
+  (video_patch_proj): Linear(in_features=96, out_features=64, bias=True)
+  (audio_patch_proj): Linear(in...r(in_features=64, out_features=96, bias=True)
+    (audio_out): Linear(in_features=64, out_features=32, bias=True)
+  )
+)
+rank = 2, alpha = 2, device = 'cpu'
+
+    def install_stage1_lora(model, *, rank=8, alpha=8., device='cpu'):
+        names = target_names(model)
+        if any(isinstance(model.get_submodule(n), Stage1LinearLoRA) for n in names):
+>           raise ValueError('Stage1 LoRA bank is already installed')
+E           ValueError: Stage1 LoRA bank is already installed
+
+H3-World/code/causal/stage1_lora.py:111: ValueError
+__ test_live_fmbs_gradient_survives_teacher_pass_and_critic_optimizer[dtype0] __
+
+dtype = torch.float32
+
+    @pytest.mark.parametrize('dtype',[torch.float32,torch.bfloat16])
+    def test_live_fmbs_gradient_survives_teacher_pass_and_critic_optimizer(dtype):
+>       model,bank,time,roles,b,common,_=setup(dtype)
+
+H3-World/tests/test_shared_h3_roles.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+H3-World/tests/test_shared_h3_roles.py:43: in setup
+    bank=install_stage1_lora(model,rank=2,alpha=2)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = MiniMaxH3DiT(
+  (video_patch_proj): Linear(in_features=96, out_features=64, bias=True)
+  (audio_patch_proj): Linear(in...r(in_features=64, out_features=96, bias=True)
+    (audio_out): Linear(in_features=64, out_features=32, bias=True)
+  )
+)
+rank = 2, alpha = 2, device = 'cpu'
+
+    def install_stage1_lora(model, *, rank=8, alpha=8., device='cpu'):
+        names = target_names(model)
+        if any(isinstance(model.get_submodule(n), Stage1LinearLoRA) for n in names):
+>           raise ValueError('Stage1 LoRA bank is already installed')
+E           ValueError: Stage1 LoRA bank is already installed
+
+H3-World/code/causal/stage1_lora.py:111: ValueError
+__ test_live_fmbs_gradient_survives_teacher_pass_and_critic_optimizer[dtype1] __
+
+dtype = torch.bfloat16
+
+    @pytest.mark.parametrize('dtype',[torch.float32,torch.bfloat16])
+    def test_live_fmbs_gradient_survives_teacher_pass_and_critic_optimizer(dtype):
+>       model,bank,time,roles,b,common,_=setup(dtype)
+
+H3-World/tests/test_shared_h3_roles.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+H3-World/tests/test_shared_h3_roles.py:43: in setup
+    bank=install_stage1_lora(model,rank=2,alpha=2)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = MiniMaxH3DiT(
+  (video_patch_proj): Linear(in_features=96, out_features=64, bias=True)
+  (audio_patch_proj): Linear(in...r(in_features=64, out_features=96, bias=True)
+    (audio_out): Linear(in_features=64, out_features=32, bias=True)
+  )
+)
+rank = 2, alpha = 2, device = 'cpu'
+
+    def install_stage1_lora(model, *, rank=8, alpha=8., device='cpu'):
+        names = target_names(model)
+        if any(isinstance(model.get_submodule(n), Stage1LinearLoRA) for n in names):
+>           raise ValueError('Stage1 LoRA bank is already installed')
+E           ValueError: Stage1 LoRA bank is already installed
+
+H3-World/code/causal/stage1_lora.py:111: ValueError
+_____ test_wrong_backward_role_is_rejected_and_exception_restores_modules ______
+
+    def test_wrong_backward_role_is_rejected_and_exception_restores_modules():
+>       model,bank,time,roles,b,common,_=setup()
+
+H3-World/tests/test_shared_h3_roles.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+H3-World/tests/test_shared_h3_roles.py:43: in setup
+    bank=install_stage1_lora(model,rank=2,alpha=2)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = MiniMaxH3DiT(
+  (video_patch_proj): Linear(in_features=96, out_features=64, bias=True)
+  (audio_patch_proj): Linear(in...r(in_features=64, out_features=96, bias=True)
+    (audio_out): Linear(in_features=64, out_features=32, bias=True)
+  )
+)
+rank = 2, alpha = 2, device = 'cpu'
+
+    def install_stage1_lora(model, *, rank=8, alpha=8., device='cpu'):
+        names = target_names(model)
+        if any(isinstance(model.get_submodule(n), Stage1LinearLoRA) for n in names):
+>           raise ValueError('Stage1 LoRA bank is already installed')
+E           ValueError: Stage1 LoRA bank is already installed
+
+H3-World/code/causal/stage1_lora.py:111: ValueError
+=========================== short test summary info ============================
+FAILED H3-World/tests/test_shared_h3_roles.py::test_original_teacher_is_identical_after_nonzero_student_critic_and_time[dtype0]
+FAILED H3-World/tests/test_shared_h3_roles.py::test_original_teacher_is_identical_after_nonzero_student_critic_and_time[dtype1]
+FAILED H3-World/tests/test_shared_h3_roles.py::test_live_fmbs_gradient_survives_teacher_pass_and_critic_optimizer[dtype0]
+FAILED H3-World/tests/test_shared_h3_roles.py::test_live_fmbs_gradient_survives_teacher_pass_and_critic_optimizer[dtype1]
+FAILED H3-World/tests/test_shared_h3_roles.py::test_wrong_backward_role_is_rejected_and_exception_restores_modules
+5 failed, 1 passed in 4.28s

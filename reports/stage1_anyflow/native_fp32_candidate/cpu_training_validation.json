@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "scope": "CPU small H3 only; not 33B quality or GPU resume proof",
+  "old_checkpoint_legacy_resume_bitwise": true,
+  "fp32_uninterrupted_vs_resume_bitwise": true,
+  "checked": [
+    "adapter values",
+    "Adam",
+    "RNG",
+    "per-sample losses",
+    "QKV gradients",
+    "frozen time MLP"
+  ],
+  "precision_change_rejected_on_exact_resume": true
+}

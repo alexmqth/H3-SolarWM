@@ -1,0 +1,62 @@
+{
+  "type": "same_weight_diagonal_velocity_ablation",
+  "frames": 39,
+  "fps": 24,
+  "inputs": [
+    {
+      "action": "A",
+      "label": "Original H3",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39/baseline.mp4",
+      "sha256": "0fd5b9198edb9564657b0b5db235ca72f8f95ce4d88dd4307c460fd5b9efb8f6",
+      "seconds": 212.41900077299215,
+      "nfe": 30,
+      "commits": 0
+    },
+    {
+      "action": "A",
+      "label": "Finite map r=next | 8/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/eval/anyflow/step_128/generated_8step_native/A/cached.mp4",
+      "sha256": "27803be0cebfea15c4359738017df01620bbfa01c0428ddd9ce94deb4bf3b6c4",
+      "seconds": 289.26958731235936,
+      "nfe": 24,
+      "commits": 3
+    },
+    {
+      "action": "A",
+      "label": "Diagonal velocity r=current | 8/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-15/stage1_diagonal_inference128/eval/anyflow/step_128/generated_8step_diagonal/A/cached.mp4",
+      "sha256": "cf5e51e271e09cb6d97fdab4f8bb5b02c6f42bf18bdf00bd6024aae895d32bd5",
+      "seconds": 246.8486099508591,
+      "nfe": 24,
+      "commits": 3
+    },
+    {
+      "action": "D",
+      "label": "Original H3",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39/baseline.mp4",
+      "sha256": "1c420bcc68b98e471b70f1611cdfb6fca14c81e1618b3a5f0d5397e5c02491b5",
+      "seconds": 218.03564923605882,
+      "nfe": 30,
+      "commits": 0
+    },
+    {
+      "action": "D",
+      "label": "Finite map r=next | 8/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/eval/anyflow/step_128/generated_8step_native/D/cached.mp4",
+      "sha256": "356b5587f18ed79ce250635e3b127b43cfda85d5bf19e75fcb14fe77c84ebf96",
+      "seconds": 276.55712517816573,
+      "nfe": 24,
+      "commits": 3
+    },
+    {
+      "action": "D",
+      "label": "Diagonal velocity r=current | 8/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-15/stage1_diagonal_inference128/eval/anyflow/step_128/generated_8step_diagonal/D/cached.mp4",
+      "sha256": "abd822a0e5e0c68c3b18abd7c766e1845757aa75b142288a55081ead389dac9e",
+      "seconds": 247.8896675822325,
+      "nfe": 24,
+      "commits": 3
+    }
+  ],
+  "output_sha256": "a76f79cdad4d22be29c0b94de4b96c576dc3bfd768639956a7cbcd46cf8eea5c"
+}

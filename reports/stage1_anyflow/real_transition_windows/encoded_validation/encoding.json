@@ -1,0 +1,148 @@
+{
+  "status": "complete",
+  "at": "2026-10-09T06:49:22.686131+08:00",
+  "pid": 4188769,
+  "start_ticks": "257863718",
+  "gpu": 2,
+  "split": "validation",
+  "clips": [
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015",
+      "split": "validation",
+      "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_validation/118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015.pt",
+      "sha256": "db69657211845d8536e73d469b6a449df838436b735dc7c9b8274dc3159ee145",
+      "clean_shape": [
+        1,
+        24,
+        37,
+        30,
+        52
+      ],
+      "anchor_shape": [
+        390,
+        96
+      ],
+      "audio_shape": [
+        2,
+        32,
+        207
+      ],
+      "prefix_checks": [
+        {
+          "latent_stop": 12,
+          "RGB_stop": 39,
+          "observed_only_padded_frames": 51,
+          "safe_vs_full_max_abs": 0.0,
+          "future_RGB_inversion_max_abs": 0.0
+        },
+        {
+          "latent_stop": 24,
+          "RGB_stop": 81,
+          "observed_only_padded_frames": 102,
+          "safe_vs_full_max_abs": 0.0,
+          "future_RGB_inversion_max_abs": 0.0
+        },
+        {
+          "latent_stop": 36,
+          "RGB_stop": 120,
+          "observed_only_padded_frames": 136,
+          "safe_vs_full_max_abs": 0.0,
+          "future_RGB_inversion_max_abs": 0.0
+        }
+      ],
+      "position_checks": [
+        {
+          "stop": 12,
+          "future_length_and_content_visible_input_identity": true
+        },
+        {
+          "stop": 24,
+          "future_length_and_content_visible_input_identity": true
+        },
+        {
+          "stop": 36,
+          "future_length_and_content_visible_input_identity": true
+        }
+      ],
+      "reconstruction": {
+        "MSE": 0.003551546949893236,
+        "PSNR_dB": 24.49582439771376
+      },
+      "action_position_reference": 908,
+      "negative_windows": [
+        "0",
+        "24"
+      ],
+      "prompt_rows": 1002
+    },
+    {
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_A_1080",
+      "split": "validation",
+      "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_validation/dfec8ed3237860eba14d67c089ecd041_A_1080.pt",
+      "sha256": "72bc0dfc15951ff29991014b799a48f9085d874bb8b8d5eff42697c997f4b40e",
+      "clean_shape": [
+        1,
+        24,
+        37,
+        30,
+        52
+      ],
+      "anchor_shape": [
+        390,
+        96
+      ],
+      "audio_shape": [
+        2,
+        32,
+        207
+      ],
+      "prefix_checks": [
+        {
+          "latent_stop": 12,
+          "RGB_stop": 39,
+          "observed_only_padded_frames": 51,
+          "safe_vs_full_max_abs": 0.0
+        },
+        {
+          "latent_stop": 24,
+          "RGB_stop": 81,
+          "observed_only_padded_frames": 102,
+          "safe_vs_full_max_abs": 0.0
+        },
+        {
+          "latent_stop": 36,
+          "RGB_stop": 120,
+          "observed_only_padded_frames": 136,
+          "safe_vs_full_max_abs": 0.0
+        }
+      ],
+      "position_checks": [
+        {
+          "stop": 12,
+          "future_length_and_content_visible_input_identity": true
+        },
+        {
+          "stop": 24,
+          "future_length_and_content_visible_input_identity": true
+        },
+        {
+          "stop": 36,
+          "future_length_and_content_visible_input_identity": true
+        }
+      ],
+      "reconstruction": null,
+      "action_position_reference": 1081,
+      "negative_windows": [
+        "0",
+        "24"
+      ],
+      "prompt_rows": 1002
+    }
+  ],
+  "protocol_sha256": "613caf952d93bcec38cbdc55fc3539f41a9d68a549c7950c1e30e281d1856b10",
+  "source_sha256": "0d7696f6a0a098f189dd06a30e496aa2524483500f34b667562443a2e52cd544",
+  "model_scope": "frozen text encoder + video VAE only; no DiT",
+  "optimizer_updates": 0,
+  "wall_seconds": 243.21309288963675,
+  "GPU_peak_MiB": 20086.923828125
+}

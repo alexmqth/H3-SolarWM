@@ -1,0 +1,207 @@
+{
+  "status": "passed",
+  "scope": "random tiny H3 + real conditioning layout; not 33B geometry/quality",
+  "exact_original_teacher_restoration": true,
+  "exact_student_restoration": true,
+  "future_only_rmse": 0.0,
+  "current_only_action_response_rms": 0.0038292402240138893,
+  "actual_SDPA_mask_audits": [
+    {
+      "chunk": 1,
+      "layer": 0,
+      "history_rows": 20,
+      "current_rows": 20,
+      "frame_start": 5,
+      "mask_sha256": "49bef232420462aec0314bc7cd872366b80ae24fa19255193c82f47a3da489a7",
+      "history_indices": [
+        0
+      ],
+      "query": "prefix",
+      "feedback_own_frame_only": true,
+      "history_read": false
+    },
+    {
+      "chunk": 1,
+      "layer": 0,
+      "history_rows": 20,
+      "current_rows": 20,
+      "frame_start": 5,
+      "mask_sha256": "4db37039e5d0cbf3faf7ca5cbd1cf68e47ee094378b7d3092ca176c24c56815d",
+      "history_indices": [
+        0
+      ],
+      "query": "video",
+      "action_visibility": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "all_history_and_current_video_visible": true
+    }
+  ],
+  "real_conditioning_interventions": [
+    {
+      "history": "A",
+      "chunk": 1,
+      "changed_rows": [
+        471,
+        472,
+        473,
+        474,
+        475,
+        481,
+        482,
+        483,
+        484,
+        485,
+        491,
+        492,
+        493,
+        494,
+        495,
+        501,
+        502,
+        503,
+        504,
+        505,
+        511,
+        512,
+        513,
+        514,
+        515
+      ]
+    },
+    {
+      "history": "A",
+      "chunk": 2,
+      "changed_rows": [
+        521,
+        522,
+        523,
+        524,
+        525,
+        531,
+        532,
+        533,
+        534,
+        535
+      ]
+    },
+    {
+      "history": "D",
+      "chunk": 1,
+      "changed_rows": [
+        471,
+        472,
+        473,
+        474,
+        475,
+        481,
+        482,
+        483,
+        484,
+        485,
+        491,
+        492,
+        493,
+        494,
+        495,
+        501,
+        502,
+        503,
+        504,
+        505,
+        511,
+        512,
+        513,
+        514,
+        515
+      ]
+    },
+    {
+      "history": "D",
+      "chunk": 2,
+      "changed_rows": [
+        521,
+        522,
+        523,
+        524,
+        525,
+        531,
+        532,
+        533,
+        534,
+        535
+      ]
+    }
+  ],
+  "KV_content_and_commits_unchanged": true,
+  "parameter_versions_unchanged": true
+}

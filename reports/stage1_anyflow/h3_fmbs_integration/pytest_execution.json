@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/lpeng/miniconda3/envs/h3world/bin/python",
+    "-m",
+    "pytest",
+    "H3-World/tests/test_fmbs_h3.py",
+    "-q",
+    "-s",
+    "--tb=short"
+  ],
+  "exit_code": 0,
+  "at": "2026-10-08T21:45:07.711405+08:00",
+  "scope": "Tiny real H3 CPU, including BF16 backbone with h3_fp32 inputs and FP32 trajectory",
+  "source_sha256": {
+    "H3-World/code/causal/fmbs.py": "cfd2fcf1c2c91f016848a10af1b171d673e76301e99bd34be580bd157a72eff6",
+    "H3-World/tests/test_fmbs_h3.py": "29c02f78b0108cb8473a660ecbce212b36222ee1a007911ff99cbffbd2cd683c"
+  }
+}

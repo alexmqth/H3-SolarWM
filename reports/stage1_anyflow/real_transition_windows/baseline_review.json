@@ -1,0 +1,62 @@
+{
+  "at": "2026-10-09T07:12:40.026794+08:00",
+  "complete": true,
+  "records": [
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015",
+      "observed_action": "W+A+J with varying F; filename D refers only to old first39RGB source start selection",
+      "review_scope": "All39 current frames as contact sheet; six native-size character crops; rawGT80/generated81 boundary",
+      "structure": "Character present with recognizable torso and limbs throughout; no severe multi-arm/torso breakup in inspected current39. Some foot/pose distortion and changing textures.",
+      "boundary": "Substantial smear/blur at first generated RGB81 and camera/geometry jump relative toGT80; not a wholesale scene change. Subsequent frames sharpen.",
+      "action": "Generated pose turns toward viewer unlike observed GT; actual joint controls do not isolate action effect. No claim of correct pure A/D or local gate pass.",
+      "motion": "Sequence differs from observed GT; joint camera+W/A means Farneback sign is not a pure lateral-action target."
+    },
+    {
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_A_1080",
+      "observed_action": "D+L+F throughout current window; filename A is old first39RGB source selection",
+      "review_scope": "All39 current frames as contact sheet; six native-size character crops; GT80/generated81 boundary",
+      "structure": "Character and swords stay recognizable; arms raised/running pose and later turn, no persistent duplicate torso/multiple extra arms seen. Dark exposure limits small-detail assessment.",
+      "boundary": "Large immediate camera/pose displacement relative toGT80. Same stone-road/medieval setting retained, not wholesale scene switch.",
+      "action": "Scene/camera and character move, but actual D+L does not isolate lateral response; no counterfactual direction acceptance.",
+      "motion": "Observed GT moves over ledge near end; local generation takes a different path. This is outcome mismatch, not proof of matching transition."
+    }
+  ],
+  "decision": "Two genuine GT histories support recognizable local people/scenes with30steps; boundary and motion mismatch remain. Full local action gate not passed. Enter fixed4-update FM-vs-FM+observed-action objective experiment; no AnyFlow/Stage2.",
+  "local_structure": "No sustained severe person disintegration in these two current39RGB clips; boundary jumps and pose/texture artifacts still present.",
+  "action_gate_passed": false,
+  "full_stage1_accepted": false,
+  "playback_verification": [
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/gt_history_baseline/118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015/current.mp4",
+      "frames": 39,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24,
+      "sha256": "9ac8ff0150be834645e1118fbdebbbe43fa81cdf12bd0d28636d01c1a0dff3f9"
+    },
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/gt_history_baseline/118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015/GT_vs_local.mp4",
+      "frames": 47,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24,
+      "sha256": "ea7aadf5bee2ef6abb057e0cac777594624aa11936ea2a4feadbe974cd6b0312"
+    },
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/gt_history_baseline/dfec8ed3237860eba14d67c089ecd041_A_1080/current.mp4",
+      "frames": 39,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24,
+      "sha256": "0d4e7a8a3d846b90b257b1dc5522f5e9c0448b4b5b0dcea2198246d201b27ef4"
+    },
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/gt_history_baseline/dfec8ed3237860eba14d67c089ecd041_A_1080/GT_vs_local.mp4",
+      "frames": 47,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "fps": 24,
+      "sha256": "58dbe90e5099661340968e9b98cd0a27e9ba35b3999ab66e0b289f5c6576946f"
+    }
+  ]
+}

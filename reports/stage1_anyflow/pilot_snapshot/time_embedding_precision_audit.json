@@ -1,0 +1,50 @@
+{
+  "scope": "CPU emulation of BF16 base/FP32 cloned target-time embedding at diagonal; not a CUDA end-to-end output comparison",
+  "checkpoint": "H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_00/anyflow_adapter.pt",
+  "max_relative_l2": 0.00353422062471509,
+  "mean_relative_l2": 0.0016424584900960326,
+  "max_abs": 0.001953125,
+  "per_time": [
+    {
+      "native_time": 0.0,
+      "relative_l2": 0.00353422062471509
+    },
+    {
+      "native_time": 0.13054829835891724,
+      "relative_l2": 0.001828862470574677
+    },
+    {
+      "native_time": 0.25,
+      "relative_l2": 0.001670998171903193
+    },
+    {
+      "native_time": 0.3105590045452118,
+      "relative_l2": 0.0014522128039970994
+    },
+    {
+      "native_time": 0.5,
+      "relative_l2": 0.0012111180694773793
+    },
+    {
+      "native_time": 0.5747126936912537,
+      "relative_l2": 0.001133984187617898
+    },
+    {
+      "native_time": 0.75,
+      "relative_l2": 0.0010936334729194641
+    },
+    {
+      "native_time": 0.8999999761581421,
+      "relative_l2": 0.0011232370743528008
+    },
+    {
+      "native_time": 0.9990000128746033,
+      "relative_l2": 0.0016255228547379375
+    },
+    {
+      "native_time": 1.0,
+      "relative_l2": 0.0017507945885881782
+    }
+  ],
+  "conclusion": "A mixed-precision diagonal is approximately, not bitwise, identical to BF16 FM. This does not establish that rounding causes rollout failure; full-backbone ablation would be required."
+}

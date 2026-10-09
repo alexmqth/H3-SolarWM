@@ -1,0 +1,103 @@
+{
+  "scope": "CPU real step00 time-MLP weights; embedding-only finite-difference versus FP32 JVP, not full-H3 velocity or rollout quality",
+  "weights": "Same BF16-rounded pretrained values in all profiles; no restored FP32-checkpoint values",
+  "rows": [
+    {
+      "profile": "legacy_bf16_current_fp32_target",
+      "sigma": 0.9297062158584595,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 0.290367990732193,
+      "derivative_cosine": 0.9572759866714478
+    },
+    {
+      "profile": "legacy_bf16_current_fp32_target",
+      "sigma": 0.592182993888855,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 0.7403586506843567,
+      "derivative_cosine": 0.9465374946594238
+    },
+    {
+      "profile": "legacy_bf16_current_fp32_target",
+      "sigma": 0.2961868345737457,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 0.18861880898475647,
+      "derivative_cosine": 0.9900227189064026
+    },
+    {
+      "profile": "legacy_bf16_current_fp32_target",
+      "sigma": 0.30199578404426575,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 0.17475071549415588,
+      "derivative_cosine": 0.9907153844833374
+    },
+    {
+      "profile": "fp32_current_then_bf16_mix",
+      "sigma": 0.9297062158584595,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 0.04405232146382332,
+      "derivative_cosine": 0.9992042183876038
+    },
+    {
+      "profile": "fp32_current_then_bf16_mix",
+      "sigma": 0.592182993888855,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 0.6115431785583496,
+      "derivative_cosine": 0.7912493944168091
+    },
+    {
+      "profile": "fp32_current_then_bf16_mix",
+      "sigma": 0.2961868345737457,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 0.3139655292034149,
+      "derivative_cosine": 0.9504739046096802
+    },
+    {
+      "profile": "fp32_current_then_bf16_mix",
+      "sigma": 0.30199578404426575,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 0.16310738027095795,
+      "derivative_cosine": 0.9921886920928955
+    },
+    {
+      "profile": "fp32_current_and_mix",
+      "sigma": 0.9297062158584595,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 0.0010327063500881195,
+      "derivative_cosine": 0.9999997019767761
+    },
+    {
+      "profile": "fp32_current_and_mix",
+      "sigma": 0.592182993888855,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 0.00017794065934140235,
+      "derivative_cosine": 0.9999998211860657
+    },
+    {
+      "profile": "fp32_current_and_mix",
+      "sigma": 0.2961868345737457,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 8.241650357376784e-05,
+      "derivative_cosine": 0.9999996423721313
+    },
+    {
+      "profile": "fp32_current_and_mix",
+      "sigma": 0.30199578404426575,
+      "target_sigma": 0.0,
+      "epsilon_sigma": 0.005,
+      "derivative_relative_l2_error": 6.293720070971176e-05,
+      "derivative_cosine": 1.0000003576278687
+    }
+  ],
+  "limitation": "This measures time-conditioning quantization. It cannot attribute full-model video failure without same-state GPU velocity and video controls."
+}

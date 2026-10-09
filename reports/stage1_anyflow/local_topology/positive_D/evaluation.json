@@ -1,0 +1,428 @@
+{
+  "status": "complete_pending_visual_review",
+  "scope": "E1 R-prefix/T2 local parking A/D positive control, no future chunks.\n\nEach current chunk forks from the SAME frozen Original-generated history.\nThis is an oracle-history local experiment, never an autonomous trajectory.\nAll video output uses prefix-only decode and never revises emitted RGB.\n",
+  "pid": 2087792,
+  "start_ticks": "256911616",
+  "gpu": 1,
+  "started_at": "2026-10-09T04:10:41.965913+08:00",
+  "history_reference": "D",
+  "history_kind": "Original_generated_reference_not_GT",
+  "optimizer_updates": 0,
+  "weights": "Original H3 + released action LoRA only",
+  "source_sha256": "d1c8d39c139da5d666de104c74118d9e6831560140938b028d27c39f6e09df19",
+  "runtime_manifest_sha256": "a06d0dcc5cfa49ed6d745dea2d49128464fd1465e08ff3b3ed3df2937b82ff19",
+  "input_sha256": "07d77cd422cdda78cafa66b49211c706770cc64819579280807094d970c0cd69",
+  "preparation_sha256": "5d4fa402222144f8ef201495c7b49d34ec96c4904b0b1367e62b0f4df8a12c01",
+  "steps_per_chunk": 30,
+  "chunk_frames": 5,
+  "history_cap": 5,
+  "precision": "h3_fp32",
+  "anchor": "RGB dual from initial RGB and available history prefix decode",
+  "timing_scope": "single shared-host feasibility run, cached text/anchors; not a speedup benchmark",
+  "denoiser_forwards": 180,
+  "diagnostic_forwards": 3,
+  "clean_commits": 0,
+  "cpu_KV_MiB": 0,
+  "window_policy": "recompute all known prefix every sigma; history latents read-only",
+  "preflight": {
+    "repeat_max_abs": 0.0,
+    "first_chunk_T1_T2_max_abs": 0.0,
+    "first_chunk_T1_T2_relative_rms": 0.0,
+    "note": "Same mask predicate; one versus split SDPA query shapes can round differently in BF16."
+  },
+  "records": [
+    {
+      "chunk": 0,
+      "action": "A",
+      "latent_range": [
+        0,
+        5
+      ],
+      "rgb_range": [
+        0,
+        17
+      ],
+      "initial_noise_sha256": "9e915fd43835520b4d8df0ead95842f2d5baee2387721f5a75227d7c29157e3b",
+      "history_sha256": "757c6445aed8fa6311f3c313cd5551658a528c09caa86dc76c16ddeccc957d1c",
+      "endpoint_sha256": "e1e9f21f5313a3789aa6db3f82269e5e6a0cbbcf29157f5c613063abb0926551",
+      "prompt_sha256": "f22a3f7ec7cba35f30f7948bc503108d704584999d1f437b0d1754486e2a5edd",
+      "anchor_sha256": "4114c3008f3299bd5dfedfb10961cf6bd222ea08980534f4db05c9acea15cd36",
+      "visible_action_frames": 5,
+      "sampling_seconds": 118.55777965579182,
+      "GPU_peak_MiB": 26251.5859375,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-04/stage1_local_topology/positive_D/chunk0_A.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": -0.9071429669857025,
+          "median": -0.8375832140445709,
+          "p05": -1.4492669105529785,
+          "p95": -0.43151435256004333,
+          "mean_abs": 0.9071429669857025
+        },
+        "vertical_flow_px": {
+          "mean": 0.2783786435611546,
+          "median": 0.28209754824638367,
+          "p05": 0.10459870845079422,
+          "p95": 0.4520949050784111,
+          "mean_abs": 0.2783786435611546
+        },
+        "flow_magnitude_px": {
+          "mean": 1.1731855534017086,
+          "median": 1.2322830557823181,
+          "p05": 0.5446936190128326,
+          "p95": 1.6979999542236328,
+          "mean_abs": 1.1731855534017086
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "frame_gray_MAD": 3.8031487464904785,
+      "video_sha256": "ecae962b083dff9ed94011db10a5a01faf4eb0902d44c9e77507b20193dd042a"
+    },
+    {
+      "chunk": 0,
+      "action": "D",
+      "latent_range": [
+        0,
+        5
+      ],
+      "rgb_range": [
+        0,
+        17
+      ],
+      "initial_noise_sha256": "9e915fd43835520b4d8df0ead95842f2d5baee2387721f5a75227d7c29157e3b",
+      "history_sha256": "757c6445aed8fa6311f3c313cd5551658a528c09caa86dc76c16ddeccc957d1c",
+      "endpoint_sha256": "c8c088dc4f4cd657235ec97308f08ff0731f6057f469b39265d7b02df177c29e",
+      "prompt_sha256": "0253050d06e7c65d588884eded9932cafce65f0c515702a38679b96576fa694d",
+      "anchor_sha256": "4114c3008f3299bd5dfedfb10961cf6bd222ea08980534f4db05c9acea15cd36",
+      "visible_action_frames": 5,
+      "sampling_seconds": 117.7086289790459,
+      "GPU_peak_MiB": 26252.30029296875,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-04/stage1_local_topology/positive_D/chunk0_D.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": -0.8979967590421438,
+          "median": -0.8488658964633942,
+          "p05": -1.4222511649131775,
+          "p95": -0.43364574760198593,
+          "mean_abs": 0.8979967590421438
+        },
+        "vertical_flow_px": {
+          "mean": 0.2773836781270802,
+          "median": 0.28473034501075745,
+          "p05": 0.11133933253586292,
+          "p95": 0.44780346006155014,
+          "mean_abs": 0.2773836781270802
+        },
+        "flow_magnitude_px": {
+          "mean": 1.1614457927644253,
+          "median": 1.1772679686546326,
+          "p05": 0.5450001657009125,
+          "p95": 1.6946742534637451,
+          "mean_abs": 1.1614457927644253
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "frame_gray_MAD": 3.7894160747528076,
+      "video_sha256": "c27acd042f5480248831c437f8038a0ec8bc25ab984a107efa9a718d3dabe60a"
+    },
+    {
+      "chunk": 1,
+      "action": "A",
+      "latent_range": [
+        5,
+        10
+      ],
+      "rgb_range": [
+        17,
+        34
+      ],
+      "initial_noise_sha256": "bc6f8226052a4d30bde6fe38f94668e25f25457fd0b85eb64b4a2426d81aea48",
+      "history_sha256": "be703b8b04078353633736355d9f753984204c94ca8df81b4eb24cf25e5e6372",
+      "endpoint_sha256": "57a07f12b97852db92290ec48ad64670ce0d192c52d3b3ff66d9a87fba1373f7",
+      "prompt_sha256": "04ce46cecf3e8cf4cff7ebcb16ff130128f8a8f78ed9bfd1c6c05a9239e873e4",
+      "anchor_sha256": "2691a25846d83705aca742f6cedd3c45e604bb8136ec62d8bdd101fddfb52b91",
+      "visible_action_frames": 10,
+      "sampling_seconds": 160.16367226606235,
+      "GPU_peak_MiB": 26804.1767578125,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-04/stage1_local_topology/positive_D/chunk1_A.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": -0.963516054674983,
+          "median": -1.0978764295578003,
+          "p05": -1.4623529016971588,
+          "p95": -0.3706165701150894,
+          "mean_abs": 0.963516054674983
+        },
+        "vertical_flow_px": {
+          "mean": 0.3192633339203894,
+          "median": 0.31004056334495544,
+          "p05": 0.11482208035886288,
+          "p95": 0.6042020469903946,
+          "mean_abs": 0.3192633339203894
+        },
+        "flow_magnitude_px": {
+          "mean": 1.220108626410365,
+          "median": 1.3233362436294556,
+          "p05": 0.46014849096536636,
+          "p95": 1.9121596217155457,
+          "mean_abs": 1.220108626410365
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "frame_gray_MAD": 3.5371053218841553,
+      "video_sha256": "1b126644919868020007cf1ccf16c113f7f33f210d9a7a64f3579903e69d5c72"
+    },
+    {
+      "chunk": 1,
+      "action": "D",
+      "latent_range": [
+        5,
+        10
+      ],
+      "rgb_range": [
+        17,
+        34
+      ],
+      "initial_noise_sha256": "bc6f8226052a4d30bde6fe38f94668e25f25457fd0b85eb64b4a2426d81aea48",
+      "history_sha256": "be703b8b04078353633736355d9f753984204c94ca8df81b4eb24cf25e5e6372",
+      "endpoint_sha256": "2e4ad5a2f000e7704454fb235fa07771c8321a13574fdb6344adf3e896777ed6",
+      "prompt_sha256": "428cbb722f49b5ce528b6552c1a1323456ae194769ea99ce4ea234ff2deb0809",
+      "anchor_sha256": "2691a25846d83705aca742f6cedd3c45e604bb8136ec62d8bdd101fddfb52b91",
+      "visible_action_frames": 10,
+      "sampling_seconds": 151.71515869814903,
+      "GPU_peak_MiB": 26804.89111328125,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-04/stage1_local_topology/positive_D/chunk1_D.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": -0.9637399408966303,
+          "median": -1.104129135608673,
+          "p05": -1.4704245626926422,
+          "p95": -0.3462974354624748,
+          "mean_abs": 0.9637399408966303
+        },
+        "vertical_flow_px": {
+          "mean": 0.32035907777026296,
+          "median": 0.3103262931108475,
+          "p05": 0.11805254966020584,
+          "p95": 0.6120496094226837,
+          "mean_abs": 0.32035907777026296
+        },
+        "flow_magnitude_px": {
+          "mean": 1.2204927168786526,
+          "median": 1.3406034111976624,
+          "p05": 0.4320829212665558,
+          "p95": 1.9330255389213562,
+          "mean_abs": 1.2204927168786526
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "frame_gray_MAD": 3.5288262367248535,
+      "video_sha256": "ed5d47fa27463daa659622413552b8c0981fe1c9fc695f093ddd2238a6b05935"
+    },
+    {
+      "chunk": 2,
+      "action": "A",
+      "latent_range": [
+        10,
+        12
+      ],
+      "rgb_range": [
+        34,
+        39
+      ],
+      "initial_noise_sha256": "8c21b5a7d62cf9ba1a76865b29becfd08f427cf405fdfb2989e4fdc97e311484",
+      "history_sha256": "0eb3e9aca86269fd41bc96c1a191e2c5d8f8034ee56ede00e4d4b4c9a1f4a246",
+      "endpoint_sha256": "f430bd32093108aaa5e2d4bafa0b6262fd267780d584862d4ad81397c05fb4e7",
+      "prompt_sha256": "f375cd04abb4f24048849aba2533f7dc08bb4893eedac59eec24e54de0ec8ffd",
+      "anchor_sha256": "f734066a2f5bca8cf954adc13113a12f8e5c598c3e0bdfa06c1200ee2f523feb",
+      "visible_action_frames": 12,
+      "sampling_seconds": 184.06380399223417,
+      "GPU_peak_MiB": 26804.89111328125,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-04/stage1_local_topology/positive_D/chunk2_A.mp4",
+        "frames": 5,
+        "horizontal_flow_px": {
+          "mean": -0.6089367493987083,
+          "median": -0.4790748506784439,
+          "p05": -1.1612567991018294,
+          "p95": -0.23842335790395747,
+          "mean_abs": 0.6089367493987083
+        },
+        "vertical_flow_px": {
+          "mean": 0.2517146114259958,
+          "median": 0.24957547336816788,
+          "p05": 0.09977318234741689,
+          "p95": 0.40665083378553385,
+          "mean_abs": 0.2517146114259958
+        },
+        "flow_magnitude_px": {
+          "mean": 1.140622340142727,
+          "median": 0.9668520092964172,
+          "p05": 0.3643883988261223,
+          "p95": 2.1601347446441648,
+          "mean_abs": 1.140622340142727
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "frame_gray_MAD": 3.740614414215088,
+      "video_sha256": "d24d5124438e6869c299e576cf25cf6485630d9be790f386fb05804193b44047"
+    },
+    {
+      "chunk": 2,
+      "action": "D",
+      "latent_range": [
+        10,
+        12
+      ],
+      "rgb_range": [
+        34,
+        39
+      ],
+      "initial_noise_sha256": "8c21b5a7d62cf9ba1a76865b29becfd08f427cf405fdfb2989e4fdc97e311484",
+      "history_sha256": "0eb3e9aca86269fd41bc96c1a191e2c5d8f8034ee56ede00e4d4b4c9a1f4a246",
+      "endpoint_sha256": "1f9f45d2d22e602e5912f3bfe54b13053fc792b2b6607d26bb1a2ab5ede4b77a",
+      "prompt_sha256": "0993664e74bb94f077fcbc0dc5c15ddca772cd50ffecea7f8c89387a11601988",
+      "anchor_sha256": "f734066a2f5bca8cf954adc13113a12f8e5c598c3e0bdfa06c1200ee2f523feb",
+      "visible_action_frames": 12,
+      "sampling_seconds": 170.81241353973746,
+      "GPU_peak_MiB": 26804.89111328125,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-04/stage1_local_topology/positive_D/chunk2_D.mp4",
+        "frames": 5,
+        "horizontal_flow_px": {
+          "mean": -0.6096122190356255,
+          "median": -0.4777180999517441,
+          "p05": -1.1569616228342057,
+          "p95": -0.2469145819544793,
+          "mean_abs": 0.6096122190356255
+        },
+        "vertical_flow_px": {
+          "mean": 0.25186638347804546,
+          "median": 0.2512299492955208,
+          "p05": 0.09790966324508191,
+          "p95": 0.4067141115665435,
+          "mean_abs": 0.25186638347804546
+        },
+        "flow_magnitude_px": {
+          "mean": 1.1446106433868408,
+          "median": 0.9702516198158264,
+          "p05": 0.3699318945407868,
+          "p95": 2.1633920252323144,
+          "mean_abs": 1.1446106433868408
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "frame_gray_MAD": 3.7443759441375732,
+      "video_sha256": "5d5c4bbde68e6c3b5dfb95a214c95f3d23e816245e21deda1f97778418fda8f4"
+    }
+  ],
+  "wall_seconds": 1008.7143712188117,
+  "released_action_LoRA_sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+  "precision_receipt": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97"
+    }
+  },
+  "load_seconds": 4.031031803693622,
+  "sigmas": [
+    1.0,
+    0.9847047729492188,
+    0.9688279418945313,
+    0.9523355102539063,
+    0.935191162109375,
+    0.9173554077148437,
+    0.898785400390625,
+    0.8794351196289063,
+    0.8592540893554688,
+    0.8381876831054688,
+    0.8161763916015625,
+    0.7931553344726563,
+    0.7690530395507813,
+    0.7437918701171875,
+    0.717285888671875,
+    0.6894410400390625,
+    0.6601530151367188,
+    0.629306640625,
+    0.5967742309570313,
+    0.5624136352539062,
+    0.5260662841796875,
+    0.48755487060546876,
+    0.44668011474609376,
+    0.40321749877929686,
+    0.3569131774902344,
+    0.30747921752929686,
+    0.25458717346191406,
+    0.19786099243164063,
+    0.13686807250976563,
+    0.07110826873779297,
+    0.0
+  ],
+  "probe_sigma_indices": [
+    0,
+    15,
+    27
+  ],
+  "probe_sigmas": [
+    1.0,
+    0.6894410400390625,
+    0.19786099243164063
+  ],
+  "history_latent_sha256": "e19e2f09ca9c5753d4fcd84162a82734d21d78b548b80f61bd3f05926f7388be",
+  "initial_noise_sha256": "159826abc03d6f356327285f8dfc243155a21069dd3bafff01632be468d42517",
+  "decode_pair_seconds": [
+    6.696988833602518,
+    8.339739975053817,
+    7.784982989076525
+  ],
+  "parameter_versions_unchanged": true,
+  "GPU_peak_MiB": 26804.89111328125,
+  "history_latents_unchanged": true,
+  "latent_history_MiB": 1.7138671875,
+  "local_action_pairs": [
+    {
+      "chunk": 0,
+      "A": -0.9071429669857025,
+      "D": -0.8979967590421438
+    },
+    {
+      "chunk": 1,
+      "A": -0.963516054674983,
+      "D": -0.9637399408966303
+    },
+    {
+      "chunk": 2,
+      "A": -0.6089367493987083,
+      "D": -0.6096122190356255
+    }
+  ],
+  "future_RGB_revision_policy": "Only newly available RGB appended; oracle history resets marked at frames17/34",
+  "stage1_accepted": false
+}

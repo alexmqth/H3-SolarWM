@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-08T05:58:03.151639+08:00",
+  "scope": "Frozen16 complete39f6videos; sampled frames0/10/20/30/38",
+  "acceptance": "FAIL",
+  "pairs": [
+    {
+      "steps_per_chunk": 4,
+      "sigma_grid": "native",
+      "A": -1.218440375731964,
+      "D": -1.2215120555269288,
+      "separation": 0.00307167979496481,
+      "numeric_gate": false
+    },
+    {
+      "steps_per_chunk": 8,
+      "sigma_grid": "native",
+      "A": -1.250413249197759,
+      "D": -1.4797436453794177,
+      "separation": 0.22933039618165862,
+      "numeric_gate": false
+    },
+    {
+      "steps_per_chunk": 4,
+      "sigma_grid": "uniform",
+      "A": -2.6324568453587984,
+      "D": -2.310145920828769,
+      "separation": -0.3223109245300293,
+      "numeric_gate": false
+    }
+  ],
+  "visual": {
+    "native4": "A/D: severe later ghosting/fog and loss of person/garage detail",
+    "native8": "A/D: more recognizable scene/person than4, but later blur/ghosting persists; A action remains incorrect",
+    "uniform4": "A/D: severe later fog and person/garage loss"
+  },
+  "fairness": "All6 videos decoded39f832x480@24fps; saved initial RGB/prompt/noise/action rows match original reference per action",
+  "limitations": "Contact sheets reject obvious degradation; not a full temporal PASS. Archived teacher reserve unknown; no fair speedup claim."
+}

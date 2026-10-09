@@ -1,0 +1,479 @@
+{
+  "scope": "same validation generator1001; identical actual sigma/r/classes/weights; no logged actual GPU noise hash comparison",
+  "sources": [
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-08/stage1_anyflow39_full_history/train_16/training.json",
+      "sha256": "de5398df1230f23f1b459239389a3783c11d21da13d1b74469253334a252c8a5"
+    },
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_full_history_duration64/train_32/training.json",
+      "sha256": "1c5752f4a98e447cd35aee1d1aab9b3172232238a44f49de79e001a0d0347c8f"
+    },
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_full_history_duration64/train_64/training.json",
+      "sha256": "9a257c197ba0b490ea40c0fe7bd3ec0ec80ae91fd6b4566375ec804cd276afa6"
+    }
+  ],
+  "points": [
+    {
+      "step": 0,
+      "validation": [
+        {
+          "action": "A",
+          "chunk": 2,
+          "samples": [
+            {
+              "sigma": 0.592182993888855,
+              "target_sigma": 0.592182993888855,
+              "raw_loss": 0.06443649530410767,
+              "weight": 1.6200730800628662,
+              "finite_difference_norm": 0.4762687385082245,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.10439182817935944
+            },
+            {
+              "sigma": 0.2961868345737457,
+              "target_sigma": 0.2961868345737457,
+              "raw_loss": 0.1409790813922882,
+              "weight": 1.3472659587860107,
+              "finite_difference_norm": 0.7108502388000488,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.1899363100528717
+            },
+            {
+              "sigma": 0.9297062158584595,
+              "target_sigma": 0.0,
+              "raw_loss": 59.62465286254883,
+              "weight": 0.36489734053611755,
+              "finite_difference_norm": 2.214745044708252,
+              "model_evaluations": 4,
+              "sample_type": "endpoint",
+              "adaptive_scale": 0.0017225721385329962,
+              "weighted_loss": 0.03747779130935669
+            },
+            {
+              "sigma": 0.30199578404426575,
+              "target_sigma": 0.2080625593662262,
+              "raw_loss": 0.16897019743919373,
+              "weight": 1.3670686483383179,
+              "finite_difference_norm": 0.42642468214035034,
+              "model_evaluations": 4,
+              "sample_type": "flow_map",
+              "adaptive_scale": 0.6078096032142639,
+              "weighted_loss": 0.14040029048919678
+            }
+          ],
+          "loss": 0.11805155500769615,
+          "model_evaluations": 16,
+          "clean_commit_forwards": 2,
+          "differentiable_history_forwards": 0,
+          "cpu_kv_peak_MiB": 5403.4423828125
+        },
+        {
+          "action": "D",
+          "chunk": 2,
+          "samples": [
+            {
+              "sigma": 0.592182993888855,
+              "target_sigma": 0.592182993888855,
+              "raw_loss": 0.09687608480453491,
+              "weight": 1.6200730800628662,
+              "finite_difference_norm": 0.5127235651016235,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.1569463312625885
+            },
+            {
+              "sigma": 0.2961868345737457,
+              "target_sigma": 0.2961868345737457,
+              "raw_loss": 0.19890905916690826,
+              "weight": 1.3472659587860107,
+              "finite_difference_norm": 0.7196921706199646,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.26798340678215027
+            },
+            {
+              "sigma": 0.9297062158584595,
+              "target_sigma": 0.0,
+              "raw_loss": 22.80476951599121,
+              "weight": 0.36489734053611755,
+              "finite_difference_norm": 1.4125252962112427,
+              "model_evaluations": 4,
+              "sample_type": "endpoint",
+              "adaptive_scale": 0.006485156714916229,
+              "weighted_loss": 0.05396558344364166
+            },
+            {
+              "sigma": 0.30199578404426575,
+              "target_sigma": 0.2080625593662262,
+              "raw_loss": 0.22810429334640503,
+              "weight": 1.3670686483383179,
+              "finite_difference_norm": 0.4373842775821686,
+              "model_evaluations": 4,
+              "sample_type": "flow_map",
+              "adaptive_scale": 0.648326575756073,
+              "weighted_loss": 0.20217043161392212
+            }
+          ],
+          "loss": 0.17026643827557564,
+          "model_evaluations": 16,
+          "clean_commit_forwards": 2,
+          "differentiable_history_forwards": 0,
+          "cpu_kv_peak_MiB": 5403.4423828125
+        }
+      ]
+    },
+    {
+      "step": 16,
+      "validation": [
+        {
+          "action": "A",
+          "chunk": 2,
+          "samples": [
+            {
+              "sigma": 0.592182993888855,
+              "target_sigma": 0.592182993888855,
+              "raw_loss": 0.06437456607818604,
+              "weight": 1.6200730800628662,
+              "finite_difference_norm": 0.4748513996601105,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.10429149866104126
+            },
+            {
+              "sigma": 0.2961868345737457,
+              "target_sigma": 0.2961868345737457,
+              "raw_loss": 0.14085179567337036,
+              "weight": 1.3472659587860107,
+              "finite_difference_norm": 0.7294253706932068,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.1897648274898529
+            },
+            {
+              "sigma": 0.9297062158584595,
+              "target_sigma": 0.0,
+              "raw_loss": 61.3442497253418,
+              "weight": 0.36489734053611755,
+              "finite_difference_norm": 2.2421135902404785,
+              "model_evaluations": 4,
+              "sample_type": "endpoint",
+              "adaptive_scale": 0.001672743004746735,
+              "weighted_loss": 0.03744327276945114
+            },
+            {
+              "sigma": 0.30199578404426575,
+              "target_sigma": 0.2080625593662262,
+              "raw_loss": 0.17236928641796112,
+              "weight": 1.3670686483383179,
+              "finite_difference_norm": 0.45165467262268066,
+              "model_evaluations": 4,
+              "sample_type": "flow_map",
+              "adaptive_scale": 0.5952755808830261,
+              "weighted_loss": 0.1402711272239685
+            }
+          ],
+          "loss": 0.11794268153607845,
+          "model_evaluations": 16,
+          "clean_commit_forwards": 2,
+          "differentiable_history_forwards": 0,
+          "cpu_kv_peak_MiB": 5403.4423828125
+        },
+        {
+          "action": "D",
+          "chunk": 2,
+          "samples": [
+            {
+              "sigma": 0.592182993888855,
+              "target_sigma": 0.592182993888855,
+              "raw_loss": 0.09680116176605225,
+              "weight": 1.6200730800628662,
+              "finite_difference_norm": 0.49087750911712646,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.1568249613046646
+            },
+            {
+              "sigma": 0.2961868345737457,
+              "target_sigma": 0.2961868345737457,
+              "raw_loss": 0.19884011149406433,
+              "weight": 1.3472659587860107,
+              "finite_difference_norm": 0.7252292633056641,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.2678905129432678
+            },
+            {
+              "sigma": 0.9297062158584595,
+              "target_sigma": 0.0,
+              "raw_loss": 22.865306854248047,
+              "weight": 0.36489734053611755,
+              "finite_difference_norm": 1.4138320684432983,
+              "model_evaluations": 4,
+              "sample_type": "endpoint",
+              "adaptive_scale": 0.006464840844273567,
+              "weighted_loss": 0.0539393350481987
+            },
+            {
+              "sigma": 0.30199578404426575,
+              "target_sigma": 0.2080625593662262,
+              "raw_loss": 0.22535614669322968,
+              "weight": 1.3670686483383179,
+              "finite_difference_norm": 0.42029133439064026,
+              "model_evaluations": 4,
+              "sample_type": "flow_map",
+              "adaptive_scale": 0.655913233757019,
+              "weighted_loss": 0.20207199454307556
+            }
+          ],
+          "loss": 0.17018170095980167,
+          "model_evaluations": 16,
+          "clean_commit_forwards": 2,
+          "differentiable_history_forwards": 0,
+          "cpu_kv_peak_MiB": 5403.4423828125
+        }
+      ]
+    },
+    {
+      "step": 32,
+      "validation": [
+        {
+          "action": "A",
+          "chunk": 2,
+          "samples": [
+            {
+              "sigma": 0.592182993888855,
+              "target_sigma": 0.592182993888855,
+              "raw_loss": 0.06408757716417313,
+              "weight": 1.6200730800628662,
+              "finite_difference_norm": 0.44548988342285156,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.10382656008005142
+            },
+            {
+              "sigma": 0.2961868345737457,
+              "target_sigma": 0.2961868345737457,
+              "raw_loss": 0.14048506319522858,
+              "weight": 1.3472659587860107,
+              "finite_difference_norm": 0.7561984658241272,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.1892707496881485
+            },
+            {
+              "sigma": 0.9297062158584595,
+              "target_sigma": 0.0,
+              "raw_loss": 49.92776870727539,
+              "weight": 0.36489734053611755,
+              "finite_difference_norm": 2.0224194526672363,
+              "model_evaluations": 4,
+              "sample_type": "endpoint",
+              "adaptive_scale": 0.0020486856810748577,
+              "weighted_loss": 0.037324000149965286
+            },
+            {
+              "sigma": 0.30199578404426575,
+              "target_sigma": 0.2080625593662262,
+              "raw_loss": 0.17004843056201935,
+              "weight": 1.3670686483383179,
+              "finite_difference_norm": 0.43755674362182617,
+              "model_evaluations": 4,
+              "sample_type": "flow_map",
+              "adaptive_scale": 0.6014775037765503,
+              "weighted_loss": 0.13982419669628143
+            }
+          ],
+          "loss": 0.11756137665361166,
+          "model_evaluations": 16,
+          "clean_commit_forwards": 2,
+          "differentiable_history_forwards": 0,
+          "cpu_kv_peak_MiB": 5403.4423828125
+        },
+        {
+          "action": "D",
+          "chunk": 2,
+          "samples": [
+            {
+              "sigma": 0.592182993888855,
+              "target_sigma": 0.592182993888855,
+              "raw_loss": 0.09650419652462006,
+              "weight": 1.6200730800628662,
+              "finite_difference_norm": 0.5040042996406555,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.15634384751319885
+            },
+            {
+              "sigma": 0.2961868345737457,
+              "target_sigma": 0.2961868345737457,
+              "raw_loss": 0.19832943379878998,
+              "weight": 1.3472659587860107,
+              "finite_difference_norm": 0.7366253137588501,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.2672024965286255
+            },
+            {
+              "sigma": 0.9297062158584595,
+              "target_sigma": 0.0,
+              "raw_loss": 24.23392105102539,
+              "weight": 0.36489734053611755,
+              "finite_difference_norm": 1.454282522201538,
+              "model_evaluations": 4,
+              "sample_type": "endpoint",
+              "adaptive_scale": 0.0060830749571323395,
+              "weighted_loss": 0.05379198119044304
+            },
+            {
+              "sigma": 0.30199578404426575,
+              "target_sigma": 0.2080625593662262,
+              "raw_loss": 0.2255897969007492,
+              "weight": 1.3670686483383179,
+              "finite_difference_norm": 0.4284507930278778,
+              "model_evaluations": 4,
+              "sample_type": "flow_map",
+              "adaptive_scale": 0.6534439325332642,
+              "weighted_loss": 0.20151998102664948
+            }
+          ],
+          "loss": 0.1697145765647292,
+          "model_evaluations": 16,
+          "clean_commit_forwards": 2,
+          "differentiable_history_forwards": 0,
+          "cpu_kv_peak_MiB": 5403.4423828125
+        }
+      ]
+    },
+    {
+      "step": 64,
+      "validation": [
+        {
+          "action": "A",
+          "chunk": 2,
+          "samples": [
+            {
+              "sigma": 0.592182993888855,
+              "target_sigma": 0.592182993888855,
+              "raw_loss": 0.06157224625349045,
+              "weight": 1.6200730800628662,
+              "finite_difference_norm": 0.44890296459198,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.0997515395283699
+            },
+            {
+              "sigma": 0.2961868345737457,
+              "target_sigma": 0.2961868345737457,
+              "raw_loss": 0.13605816662311554,
+              "weight": 1.3472659587860107,
+              "finite_difference_norm": 0.7083065509796143,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.1833065301179886
+            },
+            {
+              "sigma": 0.9297062158584595,
+              "target_sigma": 0.0,
+              "raw_loss": 47.88284683227539,
+              "weight": 0.36489734053611755,
+              "finite_difference_norm": 1.988918662071228,
+              "model_evaluations": 4,
+              "sample_type": "endpoint",
+              "adaptive_scale": 0.0020636864937841892,
+              "weighted_loss": 0.03605739772319794
+            },
+            {
+              "sigma": 0.30199578404426575,
+              "target_sigma": 0.2080625593662262,
+              "raw_loss": 0.15910084545612335,
+              "weight": 1.3670686483383179,
+              "finite_difference_norm": 0.4169222116470337,
+              "model_evaluations": 4,
+              "sample_type": "flow_map",
+              "adaptive_scale": 0.6210463047027588,
+              "weighted_loss": 0.13507866859436035
+            }
+          ],
+          "loss": 0.1135485339909792,
+          "model_evaluations": 16,
+          "clean_commit_forwards": 2,
+          "differentiable_history_forwards": 0,
+          "cpu_kv_peak_MiB": 5403.4423828125
+        },
+        {
+          "action": "D",
+          "chunk": 2,
+          "samples": [
+            {
+              "sigma": 0.592182993888855,
+              "target_sigma": 0.592182993888855,
+              "raw_loss": 0.09343346208333969,
+              "weight": 1.6200730800628662,
+              "finite_difference_norm": 0.4687538743019104,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.15136903524398804
+            },
+            {
+              "sigma": 0.2961868345737457,
+              "target_sigma": 0.2961868345737457,
+              "raw_loss": 0.1933184266090393,
+              "weight": 1.3472659587860107,
+              "finite_difference_norm": 0.7167114615440369,
+              "model_evaluations": 4,
+              "sample_type": "diffusion",
+              "adaptive_scale": 1.0,
+              "weighted_loss": 0.2604513466358185
+            },
+            {
+              "sigma": 0.9297062158584595,
+              "target_sigma": 0.0,
+              "raw_loss": 18.44073486328125,
+              "weight": 0.36489734053611755,
+              "finite_difference_norm": 1.2705742120742798,
+              "model_evaluations": 4,
+              "sample_type": "endpoint",
+              "adaptive_scale": 0.007774954661726952,
+              "weighted_loss": 0.05231747403740883
+            },
+            {
+              "sigma": 0.30199578404426575,
+              "target_sigma": 0.2080625593662262,
+              "raw_loss": 0.2132626175880432,
+              "weight": 1.3670686483383179,
+              "finite_difference_norm": 0.410160630941391,
+              "model_evaluations": 4,
+              "sample_type": "flow_map",
+              "adaptive_scale": 0.6722660660743713,
+              "weighted_loss": 0.19599556922912598
+            }
+          ],
+          "loss": 0.16503335628658533,
+          "model_evaluations": 16,
+          "clean_commit_forwards": 2,
+          "differentiable_history_forwards": 0,
+          "cpu_kv_peak_MiB": 5403.4423828125
+        }
+      ]
+    }
+  ]
+}

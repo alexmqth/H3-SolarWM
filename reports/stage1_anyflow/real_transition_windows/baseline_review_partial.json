@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-09T07:06:09.278198+08:00",
+  "complete": false,
+  "records": [
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015",
+      "observed_action": "W+A+J with varying F; filename D refers only to old first39RGB source start selection",
+      "review_scope": "All39 current frames as contact sheet; six native-size character crops; rawGT80/generated81 boundary",
+      "structure": "Character present with recognizable torso and limbs throughout; no severe multi-arm/torso breakup in inspected current39. Some foot/pose distortion and changing textures.",
+      "boundary": "Substantial smear/blur at first generated RGB81 and camera/geometry jump relative toGT80; not a wholesale scene change. Subsequent frames sharpen.",
+      "action": "Generated pose turns toward viewer unlike observed GT; actual joint controls do not isolate action effect. No claim of correct pure A/D or local gate pass.",
+      "motion": "Sequence differs from observed GT; joint camera+W/A means Farneback sign is not a pure lateral-action target."
+    }
+  ],
+  "decision": "Wait for second baseline and full review before registering/starting optimizer. E1 full gate still not passed."
+}

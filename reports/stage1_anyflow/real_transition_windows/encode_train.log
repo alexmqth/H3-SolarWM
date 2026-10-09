@@ -1,0 +1,67 @@
+2026-10-09 06:49:30,061 | INFO    | modelscope_hub.download | No files to download for MiniMax/MiniMax-H3@master
+2026-10-09 06:49:38,832 | INFO    | modelscope_hub.download | No files to download for MiniMax/MiniMax-H3@master
+2026-10-09 06:49:50,312 | INFO    | modelscope_hub.download | No files to download for MiniMax/MiniMax-H3@master
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [√] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [ ] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_text_encoder",
+    "model_class": "diffsynth.models.minimax_h3_text_encoder.MiniMaxH3TextEncoder",
+    "extra_kwargs": null
+}
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+Using minimax_h3_text_encoder from [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors"
+].
+No minimax_h3_dit models available. This is not an error.
+Using minimax_h3_video_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+No minimax_h3_audio_vae models available. This is not an error.
+{"index": 1, "total": 6, "clip": "43866101158a538d22c52ac5b2fa606b_A_1245", "prefix_max": 0.0}
+{"index": 2, "total": 6, "clip": "43866101158a538d22c52ac5b2fa606b_D_1555", "prefix_max": 0.0}
+{"index": 3, "total": 6, "clip": "7199292ca430b478bfd0d83cf2e519d8_D_0700", "prefix_max": 0.0}
+{"index": 4, "total": 6, "clip": "9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410", "prefix_max": 0.0}
+{"index": 5, "total": 6, "clip": "b784d995827f53977a8067e5b9dc4b5e_D_1155", "prefix_max": 0.0}
+{"index": 6, "total": 6, "clip": "b784d995827f53977a8067e5b9dc4b5e_A_1635", "prefix_max": 0.0}

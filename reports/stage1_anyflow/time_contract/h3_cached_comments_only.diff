@@ -1,0 +1,54 @@
+--- frozen
++++ main
+@@ -262,8 +262,9 @@
+             if self.action_rows is not None:
+                 for frame, (lo, hi) in enumerate(self.action_rows.tolist()):
+                     ann[lo:hi] = frame
+-            # Prefix has no target-video input. Action rows can read only
+-            # their own annotation and common static condition rows.
++            # Prefix-to-prefix visibility: action rows read their own
++            # annotation and common conditions. Optional action-to-video
++            # feedback is added separately by attend().
+             prefix_mask = (ann[None, :] < 0) | (ann[:, None] == ann[None, :])
+             current_frame = self.frame_start + torch.arange(current_rows, device=device)//self.frame_rows
+             if self.action_prefix_mode == 'own':
+@@ -271,9 +272,9 @@
+                 # per-latent action annotation.
+                 video_prefix = (ann[None, :] < 0) | (ann[None, :] == current_frame[:, None])
+             elif self.action_prefix_mode == 'causal':
+-                # Actions are known controls, so exposing past/current rows is
+-                # causal with respect to video generation while preserving the
+-                # action history that the bidirectional H3 model used.
++                # Expose known past/current controls. This is an additional
++                # DIRECT path beyond released H3's own-action predicate; it
++                # does not imply preservation of H3's action representation.
+                 video_prefix = (ann[None, :] < 0) | (ann[None, :] <= current_frame[:, None])
+             elif self.action_prefix_mode == 'all':
+                 # Diagnostic upper bound: all action rows are known before
+@@ -359,8 +360,9 @@
+ def slice_packed(full, start, stop, frame_rows):
+     """Keep the complete prefix, select global-position video rows, drop pad.
+ 
+-    All action sentences stay in the text refiner. They remain independently
+-    refined and current video queries can read only their own action sentence.
++    All action sentences stay independently refined in the text refiner.
++    ChunkAttention determines which rows video queries may read, according to
++    action_prefix_mode; retaining a row does not itself make it visible.
+     """
+     v0 = int(full['action_video_start'])
+     lo, hi = v0+start*frame_rows, v0+stop*frame_rows
+@@ -376,10 +378,10 @@
+     result['img_pos'] = mapped_img[mapped_img >= 0]
+     result['audio_pos'] = remap[full['audio_pos']]
+     result['text_pos'] = remap[full['text_pos']]
+-    # Keep the full per-latent action rows.  Cached current chunks and explicit
+-    # recompute both rely on the same action-text layout; historical rows are
+-    # hidden from the current video query by the directed action mask while
+-    # their hidden states still retain the action context used at commit time.
++    # Keep the full per-latent action layout for cached and recompute paths.
++    # Visibility depends on action_prefix_mode: own hides older action rows,
++    # causal exposes them. Historical video KV retains the state constructed
++    # during its clean commit; retaining text rows does not recompute that KV.
+     result['action_text_rows'] = full.get('action_text_rows')
+     result['action_text_spans_local'] = full.get('action_text_spans_local')
+     result['action_video_start'] = v0

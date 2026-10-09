@@ -1,0 +1,38 @@
+{
+  "scope": "small actual-H3 CPU continuation; not pretrained CUDA/video acceptance",
+  "cases": [
+    {
+      "case": "frozen",
+      "full_updates": 4,
+      "resumed_from": 2,
+      "all_adapter_tensors_bitwise_equal": true,
+      "adam_state_bitwise_equal": true,
+      "logical_and_global_rng_equal": true,
+      "all_loss_and_gradient_records_equal": true
+    },
+    {
+      "case": "trainable",
+      "full_updates": 4,
+      "resumed_from": 2,
+      "all_adapter_tensors_bitwise_equal": true,
+      "adam_state_bitwise_equal": true,
+      "logical_and_global_rng_equal": true,
+      "all_loss_and_gradient_records_equal": true
+    },
+    {
+      "case": "fm",
+      "full_updates": 4,
+      "resumed_from": 2,
+      "all_adapter_tensors_bitwise_equal": true,
+      "adam_state_bitwise_equal": true,
+      "logical_and_global_rng_equal": true,
+      "all_loss_and_gradient_records_equal": true
+    }
+  ],
+  "rejected": [
+    "changed_learning_rate",
+    "nonincreasing_total_steps",
+    "mixed_adapter_weights",
+    "missing_optimizer_and_rng"
+  ]
+}

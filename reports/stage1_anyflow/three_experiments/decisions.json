@@ -1,0 +1,108 @@
+{
+  "at": "2026-10-09T06:30:06.227740+08:00",
+  "scope": "Three decision experiments supersede expansion of A-D",
+  "status": "E1_history_conditioning_visual_no_go_E2_real_data_preparation",
+  "max_project_gpus": 3,
+  "E1": {
+    "status": "history_conditioning_window1_direction_pass_visual_fail",
+    "weights": "Original H3 + released action LoRA",
+    "optimizer_updates": 0,
+    "candidates": [
+      "T1 immutable video KV with prefix grounding in allowed history",
+      "T2 original visible-window recomputation each sigma"
+    ],
+    "frames": 39,
+    "latent_frames": 12,
+    "chunks": [
+      5,
+      5,
+      2
+    ],
+    "history_cap": 5,
+    "steps_per_chunk": 30,
+    "flow_shift": 2.22,
+    "precision": "h3_fp32",
+    "anchor": "dynamic_last_frame_rgb_dual",
+    "development_seed": 13,
+    "held_out_seed": 29,
+    "probe_sigma_indices": [
+      0,
+      15,
+      27
+    ],
+    "initial_fixed_time_dual_local_reference": "FAIL",
+    "native_time_dual_local_reference": "FAIL",
+    "native_time_single_I0_window12": "calibrated_positive_only_not_multichunk_pass",
+    "single_window12_flow": {
+      "A": 1.2504212500919636,
+      "D": -0.9773133601012983
+    },
+    "current_anchor": "original single I0 at fixed coordinates",
+    "current_prefix_time": "native1-sigma",
+    "original_anchor_protocol": "dynamic_last_frame_rgb_dual retained as failed control",
+    "geometry_launch": false,
+    "local_action_gate": false,
+    "gpus": [],
+    "native_time_single_I0_local_reference": "FAIL",
+    "next": "real_transition_data_and_training_gradient_preflight",
+    "next_protocol": "../history_conditioning/protocol.json",
+    "coarse_result": "../coarse_window12/FINAL_RESULTS.md",
+    "matched_first5": "FAIL",
+    "coarse_first_window": "positive_only_not_multichunk_pass",
+    "coarse_multihistory_gate": false,
+    "history_contract_audit": "../coarse_window12/history_contract_audit.json",
+    "GT_future_RGB_audit": "8_cases_max_abs0",
+    "coarse12_current_protocol": {
+      "current_window_latents": 12,
+      "windows": 3,
+      "RGB_interval_lengths": [
+        39,
+        42,
+        39
+      ],
+      "reference_kind": "Original_generated_not_GT",
+      "prefix_time": "native1-sigma",
+      "anchor": "single I0 original coordinates",
+      "optimizer_updates": 0,
+      "denoiser_forwards_including_matched5": 420,
+      "diagnostic_forwards": 9,
+      "GPU_runs_complete": true
+    },
+    "history_conditioning": "../history_conditioning/VIDEO_RESULTS.md",
+    "history_conditioning_window2_launch": false
+  },
+  "E2": {
+    "status": "real_observed_transition_data_preparation_not_training",
+    "max_optimizer_updates_per_arm": 16,
+    "checkpoints": [
+      0,
+      4,
+      8,
+      16
+    ],
+    "arms": [
+      "FM-only",
+      "FM + action-swapped transition ranking"
+    ],
+    "teacher_scope": "same-state prefix-only local consequence pairs; no future chunks",
+    "current_reference_source": "real observed ABot actions and outcomes; not different-history teacher deltas",
+    "current_preparation": "../history_conditioning/E2_REAL_TRANSITION_PREPARATION.md",
+    "valid_extended_starts": {
+      "train": 12,
+      "validation": 5
+    },
+    "optimizer_updates": 0
+  },
+  "E3": {
+    "status": "gated_by_local_action_and_structure",
+    "order": [
+      "AnyFlow",
+      "on-policy Stage2",
+      "final end-to-end evaluation"
+    ]
+  },
+  "legacy_local_step_gpu_started": false,
+  "legacy_density_complete": true,
+  "meeting_replaced": false,
+  "pushed": false
+}

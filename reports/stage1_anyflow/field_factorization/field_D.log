@@ -1,0 +1,118 @@
+[preflight] diffsynth resolved from the v2 checkout: ok /home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+[preflight] directed attention mask present: ok 
+[preflight] packed-sequence builder is the per-latent version: ok 
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_text_encoder",
+    "model_class": "diffsynth.models.minimax_h3_text_encoder.MiniMaxH3TextEncoder",
+    "extra_kwargs": null
+}
+Loading models from: [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_dit",
+    "model_class": "diffsynth.models.minimax_h3_dit.MiniMaxH3DiT",
+    "extra_kwargs": null
+}
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_audio_vae",
+    "model_class": "diffsynth.models.minimax_h3_audio_vae.MiniMaxH3AudioVAE",
+    "extra_kwargs": null
+}
+Using minimax_h3_text_encoder from [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors"
+].
+Using minimax_h3_dit from [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors"
+].
+Using minimax_h3_video_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+Using minimax_h3_audio_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/training_runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors".
+104 tensors are patched by LoRA. You can use `pipe.clear_lora()` to clear all LoRA layers.
+{"chunk": 1, "sigma": 0.9395404663085938, "delta_cosines": {"original": 1.0, "causal_original": 0.295877, "causal_initializer": 0.141573, "causal_initializer_diagonal": 0.141573, "causal_fm32": 0.123632, "causal_anyflow32": 0.138928, "causal_anyflow32_finite": 0.076463, "causal_anyflow128": 0.210666, "causal_anyflow128_finite": -0.012347}}
+W1008 18:32:57.584000 461917 site-packages/torch/_inductor/codecache.py:1040] [0/0] fx graph cache unable to load compiled graph
+W1008 18:32:57.584000 461917 site-packages/torch/_inductor/codecache.py:1040] [0/0] Traceback (most recent call last):
+W1008 18:32:57.584000 461917 site-packages/torch/_inductor/codecache.py:1040] [0/0]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 18:32:57.584000 461917 site-packages/torch/_inductor/codecache.py:1040] [0/0]     yield pickle.loads(content), content
+W1008 18:32:57.584000 461917 site-packages/torch/_inductor/codecache.py:1040] [0/0] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+{"chunk": 1, "sigma": 0.6894410400390625, "delta_cosines": {"original": 1.0, "causal_original": 0.073636, "causal_initializer": 0.052659, "causal_initializer_diagonal": 0.052659, "causal_fm32": 0.050501, "causal_anyflow32": 0.06824, "causal_anyflow32_finite": 0.071439, "causal_anyflow128": 0.073507, "causal_anyflow128_finite": 0.067394}}
+{"chunk": 1, "sigma": 0.24078089904785155, "delta_cosines": {"original": 1.0, "causal_original": 0.061946, "causal_initializer": 0.021806, "causal_initializer_diagonal": 0.021806, "causal_fm32": 0.028913, "causal_anyflow32": 0.022535, "causal_anyflow32_finite": 0.015566, "causal_anyflow128": 0.019861, "causal_anyflow128_finite": 0.029272}}
+{"chunk": 2, "sigma": 0.9395404663085938, "delta_cosines": {"original": 1.0, "causal_original": 0.120266, "causal_initializer": -0.032495, "causal_initializer_diagonal": -0.032495, "causal_fm32": -0.009446, "causal_anyflow32": 0.015722, "causal_anyflow32_finite": -0.061742, "causal_anyflow128": -0.072337, "causal_anyflow128_finite": -0.120638}}
+W1008 18:42:25.496000 461917 site-packages/torch/_inductor/codecache.py:1040] [0/1] fx graph cache unable to load compiled graph
+W1008 18:42:25.496000 461917 site-packages/torch/_inductor/codecache.py:1040] [0/1] Traceback (most recent call last):
+W1008 18:42:25.496000 461917 site-packages/torch/_inductor/codecache.py:1040] [0/1]   File "/home/lpeng/miniconda3/envs/h3world/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 1038, in iterate_over_candidates
+W1008 18:42:25.496000 461917 site-packages/torch/_inductor/codecache.py:1040] [0/1]     yield pickle.loads(content), content
+W1008 18:42:25.496000 461917 site-packages/torch/_inductor/codecache.py:1040] [0/1] TypeError: DefaultsSource.__init__() takes from 3 to 4 positional arguments but 6 were given
+{"chunk": 2, "sigma": 0.6894410400390625, "delta_cosines": {"original": 1.0, "causal_original": 0.03265, "causal_initializer": 0.007315, "causal_initializer_diagonal": 0.007315, "causal_fm32": -0.004289, "causal_anyflow32": -0.002375, "causal_anyflow32_finite": -0.002828, "causal_anyflow128": -0.010158, "causal_anyflow128_finite": -0.009333}}
+{"chunk": 2, "sigma": 0.24078089904785155, "delta_cosines": {"original": 1.0, "causal_original": 0.026078, "causal_initializer": 0.031329, "causal_initializer_diagonal": 0.031329, "causal_fm32": 0.031535, "causal_anyflow32": 0.034247, "causal_anyflow32_finite": 0.029351, "causal_anyflow128": 0.031502, "causal_anyflow128_finite": 0.03441}}

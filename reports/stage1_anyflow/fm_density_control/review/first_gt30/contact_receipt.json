@@ -1,0 +1,63 @@
+{
+  "status": "complete_static_full_frame_review",
+  "clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+  "scope": "first held-out natural clip only, clean GT history30; not free rollout or pure A/D",
+  "sources": [
+    {
+      "label": "Real ABot GT",
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/clips/validation/118eb5d8b75e1b8ac23a4e9ae77af9a9/A_1140.mp4",
+      "frames": 39,
+      "fps": 24.0,
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "sha256": "5a4338d3d07da6594d35cd614226da99f8347535df69dea8755752ee48067fa8"
+    },
+    {
+      "label": "Original 30 full-sequence",
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/eval/original/generated_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140/video.mp4",
+      "frames": 39,
+      "fps": 24.0,
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "sha256": "0b8e39e408fdea1b45e95c6d42f1146adf61f44983a845639562e6979fef0240"
+    },
+    {
+      "label": "FM48 shift12 GT30/chunk",
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/eval/step_48/gt_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140/video.mp4",
+      "frames": 39,
+      "fps": 24.0,
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "sha256": "d57a373eba7a69e7f7020b6935d2993e15d31b5727801fd18449d4a49a28ef8e"
+    },
+    {
+      "label": "FM48 shift2.22 GT30/chunk",
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/gt_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140/video.mp4",
+      "frames": 39,
+      "fps": 24.0,
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "sha256": "2f4faac3280dc34181650870cd55429b8cd701a14c9df99195e3bdffa2ccab83"
+    }
+  ],
+  "input_fingerprints_equal": true,
+  "source_evaluations": {
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/eval/original/generated_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140/evaluation.json": "cc436de388b689562171b31d9e5af5ce27be4ab288474591668aaec50b8626dd",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/eval/step_48/gt_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140/evaluation.json": "5d7930ed72e6f607bc2eaefed1dc5263dd2653bd96e4bebaeb0b549ebffeb33f",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/gt_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140/evaluation.json": "03922944d75e3f361aa661ed89ce7e0d96b0f4fe9e74b8d03183480254ff0e57"
+  },
+  "artifact_names": [
+    "candidate_all39.jpg",
+    "candidate_late18_38.jpg",
+    "matched.jpg"
+  ],
+  "reviewed_at": "2026-10-09T01:51:29.284261+08:00",
+  "review_method": "all39 contact sheet + every frame18-38 at larger resolution + matched0/8/16/24/30/38 across GT/Original/old/new; not real-time playback",
+  "visual_findings": [
+    "Person remains identifiable throughout all39 frames; no complete disintegration seen in this GT-history clip.",
+    "No clear visual improvement over matched oldFM48.",
+    "Vegetation/building/viewpoint distortions remain; visible changes at GT-history reset boundaries17/34.",
+    "Cannot use this oracle-history clip to claim free generated-history stability or pure A/D correctness."
+  ],
+  "stage1_accepted": false
+}

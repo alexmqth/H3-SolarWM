@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-08T05:11:14.875302+08:00",
+  "scope": "Real pretrained GPU2->GPU0 load/save at step08, before resumed optimizer updates; not an uninterrupted-training comparison",
+  "optimizer_step": 8,
+  "state_equal": {
+    "optimizer": true,
+    "logical_rng_state": true,
+    "cpu_rng_state": true,
+    "cuda_rng_state": true,
+    "updates": true,
+    "teacher_artifacts": true,
+    "optimizer_step": true
+  },
+  "adapter_values_equal": {
+    "causal_adapter.pt": true,
+    "anyflow_adapter.pt": true,
+    "action_adapter.pt": true
+  },
+  "visible_devices": "0",
+  "all_checks_passed": true
+}

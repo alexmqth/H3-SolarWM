@@ -1,0 +1,39 @@
+{
+  "scope": "first held-out natural combined-action clip, GT30 oracle history; not A/D or free rollout",
+  "rows": [
+    {
+      "method": "Original30 full-sequence",
+      "frame_gray_MAD": 19.052132556827768,
+      "boundary_rgb_MAD": 18.75383572048611,
+      "horizontal_flow": 2.288792199210117,
+      "recorded_inference_after_load_seconds": 227.67005181498826,
+      "allocated_GPU_peak_MiB": 25928.9111328125,
+      "CPU_KV_peak_MiB": 0.0,
+      "noisy_forwards": 30,
+      "commits": 0
+    },
+    {
+      "method": "FM48 shift12 GT30/chunk",
+      "frame_gray_MAD": 15.978592853829285,
+      "boundary_rgb_MAD": 46.47461563501602,
+      "horizontal_flow": 0.5612482506181359,
+      "recorded_inference_after_load_seconds": 522.2881389795803,
+      "allocated_GPU_peak_MiB": 26002.10107421875,
+      "CPU_KV_peak_MiB": 6484.130859375,
+      "noisy_forwards": 90,
+      "commits": 3
+    },
+    {
+      "method": "FM48 shift2.22 GT30/chunk",
+      "frame_gray_MAD": 14.91739342157979,
+      "boundary_rgb_MAD": 46.338867604834405,
+      "horizontal_flow": 0.5653736340127101,
+      "recorded_inference_after_load_seconds": 452.2426499077119,
+      "allocated_GPU_peak_MiB": 26002.10107421875,
+      "CPU_KV_peak_MiB": 6484.130859375,
+      "noisy_forwards": 90,
+      "commits": 3
+    }
+  ],
+  "stage1_accepted": false
+}

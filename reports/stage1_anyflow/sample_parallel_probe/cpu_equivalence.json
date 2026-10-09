@@ -1,0 +1,87 @@
+{
+  "status": "complete",
+  "at": "2026-10-08T12:23:52.391142+08:00",
+  "backend": "gloo",
+  "world_size": 4,
+  "scope": "actual four-process small-H3 CPU gradient and Adam check; no33B/GPU/quality evidence",
+  "cases": [
+    {
+      "objective": "anyflow",
+      "history": "full",
+      "chunk": 0,
+      "dtype": "torch.float32",
+      "raw_samples_exact": true,
+      "actual_AnyFlow_noise_exact": true,
+      "CPU_and_logical_RNG_exact": true,
+      "gradient_difference_norm": 2.608853546336935e-10,
+      "one_Adam_update_close": true,
+      "global_batch": 4,
+      "ranks": 4
+    },
+    {
+      "objective": "anyflow",
+      "history": "full",
+      "chunk": 1,
+      "dtype": "torch.float32",
+      "raw_samples_exact": true,
+      "actual_AnyFlow_noise_exact": true,
+      "CPU_and_logical_RNG_exact": true,
+      "gradient_difference_norm": 2.736176943574833e-10,
+      "one_Adam_update_close": true,
+      "global_batch": 4,
+      "ranks": 4
+    },
+    {
+      "objective": "anyflow",
+      "history": "full",
+      "chunk": 2,
+      "dtype": "torch.float32",
+      "raw_samples_exact": true,
+      "actual_AnyFlow_noise_exact": true,
+      "CPU_and_logical_RNG_exact": true,
+      "gradient_difference_norm": 4.1012639813714945e-10,
+      "one_Adam_update_close": true,
+      "global_batch": 4,
+      "ranks": 4
+    },
+    {
+      "objective": "anyflow",
+      "history": "detached",
+      "chunk": 2,
+      "dtype": "torch.float32",
+      "raw_samples_exact": true,
+      "actual_AnyFlow_noise_exact": true,
+      "CPU_and_logical_RNG_exact": true,
+      "gradient_difference_norm": 3.988620634299669e-10,
+      "one_Adam_update_close": true,
+      "global_batch": 4,
+      "ranks": 4
+    },
+    {
+      "objective": "fm",
+      "history": "full",
+      "chunk": 2,
+      "dtype": "torch.float32",
+      "raw_samples_exact": true,
+      "actual_AnyFlow_noise_exact": false,
+      "CPU_and_logical_RNG_exact": true,
+      "gradient_difference_norm": 4.213925897816291e-10,
+      "one_Adam_update_close": true,
+      "global_batch": 4,
+      "ranks": 4
+    },
+    {
+      "objective": "anyflow",
+      "history": "full",
+      "chunk": 2,
+      "dtype": "torch.bfloat16",
+      "raw_samples_exact": true,
+      "actual_AnyFlow_noise_exact": true,
+      "CPU_and_logical_RNG_exact": true,
+      "gradient_difference_norm": 3.820373979619298e-10,
+      "one_Adam_update_close": true,
+      "global_batch": 4,
+      "ranks": 4
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "reference": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/probe_real_geometry.py",
+  "reference_sha256": "d2abb64084dce2d5d8ccf13f3e04ba35def0639302df79e5dd5e2a8ceb68c208",
+  "candidate_sha256": "5259332f3243bf954ead2dada3a275bbbfc6ba019a5c3e467b55335bd1db75db",
+  "replacements": {
+    "BASE=Path(__file__).resolve().parent": "RUN=Path(__file__).resolve().parent\nBASE=RUN.parents[1]/'2026-10-08-18/stage1_real_abot_fm'",
+    "checkpoint=BASE/f'train_48/step_{args.step:02d}'": "checkpoint=RUN/f'train_48/step_{args.step:02d}'",
+    "run=BASE/'geometry'/f'step_{args.step:02d}_{args.history}'": "run=RUN/'geometry'/f'step_{args.step:02d}_{args.history}'",
+    "receipt['source_sha256']={n:sha(BASE/n) for n in ('probe_real_geometry.py','geometry_primitives.py','prepare_counterfactual.py')}": "receipt['source_sha256']={n:sha(BASE/n) for n in ('geometry_primitives.py','prepare_counterfactual.py')}\n        receipt['source_sha256']['probe_real_geometry.py']=sha(Path(__file__))\n        receipt['reference_probe_sha256']=sha(BASE/'probe_real_geometry.py')"
+  },
+  "reverse_replacements_recover_reference_exactly": true,
+  "model_inputs_and_calculation_unchanged": true
+}

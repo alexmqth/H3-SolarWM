@@ -1,0 +1,39 @@
+{
+  "cpu_frozen": {
+    "status": "complete",
+    "trainable_parameters": 2048,
+    "target_time_parameters": 3168,
+    "target_time_trainable": false,
+    "target_time_trainable_parameters": 0,
+    "qkv_parameters_changed": true,
+    "target_time_parameters_changed": false,
+    "wall_seconds": 3.18522916873917,
+    "qkv_grad_norms": [
+      0.00018861150601878762,
+      0.00018642115173861384
+    ],
+    "target_time_grad_norms": [
+      0.0,
+      0.0
+    ]
+  },
+  "cpu_trainable": {
+    "status": "complete",
+    "trainable_parameters": 5216,
+    "target_time_parameters": 3168,
+    "target_time_trainable": true,
+    "target_time_trainable_parameters": 3168,
+    "qkv_parameters_changed": true,
+    "target_time_parameters_changed": true,
+    "wall_seconds": 2.9685395089909434,
+    "qkv_grad_norms": [
+      0.00018861150601878762,
+      0.00018646915850695223
+    ],
+    "target_time_grad_norms": [
+      0.019491471350193024,
+      0.019644783809781075
+    ]
+  },
+  "identical_initial_target_time_weights": true
+}

@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "old_native_tail_resume_bitwise": {
+    "causal_adapter.pt": true,
+    "anyflow_adapter.pt": true,
+    "optimizer": true,
+    "optimizer_step": true,
+    "logical_rng_state": true,
+    "cpu_rng_state": true,
+    "cuda_rng_state": true,
+    "update1": true,
+    "update2": true,
+    "update3": true,
+    "update4": true
+  },
+  "rejected_changes": [
+    "adapter_scope",
+    "bank_rank",
+    "bank_alpha"
+  ]
+}

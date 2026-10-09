@@ -1,0 +1,7 @@
+# Continue validated parallel step68 on idle GPUs4–7
+
+The previous64→68 training completed successfully: all four model/Adam/RNG hashes match and actual source64 pre-update restoration is exact. Peak allocated~39.55GiB/rank, noOOM. Its controller then stopped before launching96 because a new unrelated process acquiredGPU3(1811MiB). Do not rewrite the failed guard record or redo completed optimizer updates.
+
+This directory reuses the exact frozen/tested training_runtime via a symlink. Only physical GPU selection and starting checkpoint change. The copied four-process entrypoint and audit helper are unchanged. Continue from old train_68/step_68, preserving adapters, Adam, update history and logical/CPU/CUDA RNG. Train to96, evaluateA/D8; if numericgate passes, alsoA/D4 then stop for visual review. Otherwise continue at most128 and evaluateA/D4/8, then stop. No automatic extension beyond128. Same model, data, objective, logicalbatch4, LR, native inferencegrid, trainshift12/inferenceshift2.22, RGBdual, causal feedback, history, and noise rules as the original PLAN.
+
+Source64 action gate is still failed: A−0.589203,D−1.212299,separation0.623096;8-step blur/transparency and4-step severe fog remain. No68 video is claimed. Finalgate remains A>0,D<0,A−D>1 AND intact person/scene; then matchedFM, independentseed, temporalgrounding and124f. Stage2 stays deferred. GPU0 user memory authorization remains uncapped25GiB, butGPU0/1/2/3 are currently occupied by unrelated jobs; use idle4–7 without interrupting them.

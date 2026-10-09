@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "at": "2026-10-08T07:02:12.652859+08:00",
+  "cpu_tests": {
+    "integration_passed": 38,
+    "seconds": 6.42,
+    "oracle_passed": 6,
+    "oracle_seconds": 1.4,
+    "oracle_dependency": "SolarWM/src via PYTHONPATH; first full-suite attempt lacked that import path"
+  },
+  "initial_invariance": "actual small H3 float32/bfloat16 + real CPU offload wrappers + nonzero frozen visual LoRA + unchanged RNG",
+  "checkpoint_resume": "continuous4 ==2+resume4 adapters/Adam/RNG/loss/gradients bitwise",
+  "legacy_native_resume": "bitwise old-tail checkpoint compatibility",
+  "gpu_status": "not_started",
+  "gpu": 0,
+  "vram_reserve_gib": 6,
+  "gate": "Only start if current native16 exits cleanly and fails both short A/D numeric settings"
+}

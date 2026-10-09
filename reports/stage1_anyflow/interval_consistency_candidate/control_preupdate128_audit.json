@@ -1,0 +1,23 @@
+{
+  "source": "H3-World/outputs/2026-10-08-13/stage1_parallel_resume68_to128/train_128/step_128",
+  "destination": "H3-World/outputs/2026-10-08-15/stage1_interval_consistency_candidate/control/train_136/step_128",
+  "checks": {
+    "causal_adapter.pt": true,
+    "action_adapter.pt": true,
+    "stage1_lora.pt": true,
+    "anyflow_adapter.pt": true,
+    "optimizer": true,
+    "optimizer_step": true,
+    "updates": true,
+    "teacher_artifacts": true,
+    "logical_rng_state": true,
+    "cpu_rng_state": true,
+    "cuda_rng_state": true,
+    "all_other_config_equal": true
+  },
+  "objective_extension": {
+    "interval_consistency_weight": 0.0,
+    "interval_reference_dir": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-15/stage1_finite_interval_refinement128"
+  },
+  "note": "Explicit objective fork, not an unchanged-objective continuation"
+}

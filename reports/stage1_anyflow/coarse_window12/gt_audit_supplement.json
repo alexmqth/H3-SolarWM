@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-09T05:51:01.192234+08:00",
+  "scope": "Additional VAE-only history data causality audit; no DiT or optimization and no change to frozen run protocols",
+  "original_attempt": "gt_boundary_audit/audit.json",
+  "revised_attempt": "gt_boundary_audit_v2/audit.json",
+  "revised_script": "audit_gt_boundaries_v2.py",
+  "source_change": "Second episode D_1750 has only40 of124 target frames before EOF. Use validation A_1030 in same episode, purely for RGB future-dependency audit. Failure preserved.",
+  "interventions": [
+    "future RGB17 / prefix latent5",
+    "future RGB34 / prefix latent10",
+    "future RGB39 / prefix latent12",
+    "future RGB81 / prefix latent24"
+  ],
+  "gpus_max": 3,
+  "extra_denoiser_forwards": 0,
+  "optimizer_updates": 0
+}

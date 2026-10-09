@@ -1,0 +1,93 @@
+{
+  "status": "complete",
+  "at": "2026-10-09T06:52:53.032910+08:00",
+  "pid": 24192,
+  "start_ticks": "257884773",
+  "gpu": 4,
+  "protocol_sha256": "226de8021bbb2efedce18f9d40ece0f454dec26f986c67773d56fa6fbabbdc51",
+  "records": [
+    {
+      "history_latents": 12,
+      "current_action": "positive",
+      "sigma": 0.5,
+      "FM": 0.1621188372373581,
+      "gradient_norm": 0.004244703333824873,
+      "wall_seconds": 16.39724734891206,
+      "GPU_peak_MiB": 26580.8671875
+    },
+    {
+      "history_latents": 12,
+      "current_action": "negative",
+      "sigma": 0.5,
+      "FM": 0.16219864785671234,
+      "gradient_norm": 0.0042640455067157745,
+      "wall_seconds": 16.653930742293596,
+      "GPU_peak_MiB": 26580.8671875
+    },
+    {
+      "history_latents": 24,
+      "current_action": "positive",
+      "sigma": 0.5,
+      "FM": 0.15563033521175385,
+      "gradient_norm": 0.004713819827884436,
+      "wall_seconds": 27.04355608066544,
+      "GPU_peak_MiB": 28481.9248046875
+    }
+  ],
+  "optimizer_updates": 0,
+  "source_sha256": "0044973052ce19f9a7aa0ac6e548ff21351102577afe283b6e8fffa8dcffc201",
+  "inference_identity_checked": true,
+  "wall_seconds": 89.65699083311483,
+  "precision": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97"
+    }
+  },
+  "parameter_installation_max_abs": 0.0,
+  "trainable_parameters": 10092544,
+  "parameter_names": [
+    "blocks.42.attn.qkv_proj",
+    "blocks.42.attn.out_proj",
+    "blocks.43.attn.qkv_proj",
+    "blocks.43.attn.out_proj",
+    "blocks.44.attn.qkv_proj",
+    "blocks.44.attn.out_proj",
+    "blocks.45.attn.qkv_proj",
+    "blocks.45.attn.out_proj",
+    "blocks.46.attn.qkv_proj",
+    "blocks.46.attn.out_proj",
+    "blocks.47.attn.qkv_proj",
+    "blocks.47.attn.out_proj",
+    "blocks.48.attn.qkv_proj",
+    "blocks.48.attn.out_proj",
+    "blocks.49.attn.qkv_proj",
+    "blocks.49.attn.out_proj"
+  ],
+  "parameters_unchanged": true,
+  "GPU_peak_MiB": 28481.9248046875,
+  "scope": "Memory and gradient feasibility only. No measured trained quality, no calibrated margin, no optimizer instantiated."
+}

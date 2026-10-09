@@ -1,0 +1,446 @@
+--- /dev/null
++++ b/code/causal/stage1_lora.py
+@@ -0,0 +1,161 @@
++"""Stage1 LoRA on all H3 block/refiner Q/K/V/out/FFN projections.
++
++Keep the existing visual/action initialization frozen underneath this bank.
++Separate Q/K/V low-rank factors reproduce the official split-projection
++capacity even though DiffSynth executes one fused QKV projection.
++"""
++from __future__ import annotations
++
++from dataclasses import dataclass
++import math
++from pathlib import Path
++
++import torch
++from torch import nn
++from torch.nn import functional as F
++
++
++SUFFIXES = ('attn.qkv_proj', 'attn.out_proj', 'mlp.fc1', 'mlp.fc2')
++
++
++def linear_shape(module):
++    if hasattr(module, 'in_features') and hasattr(module, 'out_features'):
++        return int(module.in_features), int(module.out_features)
++    if hasattr(module, 'base'):
++        return linear_shape(module.base)
++    raise TypeError(f'Expected materialized linear or frozen LoRA wrapper: {type(module)}')
++
++
++class Stage1LinearLoRA(nn.Module):
++    def __init__(self, base, *, rank, alpha, device, split_qkv=False):
++        super().__init__()
++        if rank < 1 or not math.isfinite(alpha) or alpha <= 0:
++            raise ValueError('LoRA rank/alpha must be positive and finite')
++        self.in_features, self.out_features = linear_shape(base)
++        self.parts = 3 if split_qkv else 1
++        if self.out_features % self.parts:
++            raise ValueError('Fused QKV output must split into equal Q/K/V projections')
++        self.base = base.requires_grad_(False)
++        self.rank, self.alpha = int(rank), float(alpha)
++        self.scale = self.alpha / self.rank
++        self.enabled = True
++        self.lora_A = nn.ParameterList([
++            nn.Parameter(torch.empty(rank, self.in_features, device=device, dtype=torch.float32))
++            for _ in range(self.parts)])
++        self.lora_B = nn.ParameterList([
++            nn.Parameter(torch.zeros(self.out_features // self.parts, rank,
++                                     device=device, dtype=torch.float32))
++            for _ in range(self.parts)])
++        for weight in self.lora_A:
++            nn.init.kaiming_uniform_(weight, a=math.sqrt(5))
++
++    def forward(self, x):
++        base_output = self.base(x)
++        if not self.enabled:
++            return base_output
++        with torch.autocast(device_type=x.device.type, enabled=False):
++            delta = torch.cat([F.linear(F.linear(x.float(), a), b)
++                               for a, b in zip(self.lora_A, self.lora_B)], dim=-1)
++        return base_output + (delta * self.scale).to(base_output.dtype)
++
++    def adapter_parameters(self):
++        return [p for pair in zip(self.lora_A, self.lora_B) for p in pair]
++
++
++def target_names(model):
++    prefixes = [f'blocks.{i}' for i in range(len(model.blocks))]
++    prefixes += [f'token_refiner.blocks.{i}' for i in range(len(model.token_refiner.blocks))]
++    if not prefixes:
++        raise ValueError('No H3 block/refiner targets found')
++    names = tuple(f'{prefix}.{suffix}' for prefix in prefixes for suffix in SUFFIXES)
++    for name in names:
++        linear_shape(model.get_submodule(name))
++    return names
++
++
++@dataclass
++class Stage1LoRABank:
++    names: tuple[str, ...]
++    modules: list[Stage1LinearLoRA]
++    rank: int
++    alpha: float
++
++    def parameters(self, group=None):
++        def matches(name):
++            if group is None:
++                return True
++            if group == 'qkv':
++                return name.endswith('attn.qkv_proj')
++            if group == 'out':
++                return name.endswith('attn.out_proj')
++            if group == 'ffn':
++                return '.mlp.' in name
++            if group == 'refiner':
++                return name.startswith('token_refiner.')
++            raise ValueError(f'Unknown adapter group {group}')
++        return [p for name, module in zip(self.names, self.modules)
++                if matches(name) for p in module.adapter_parameters()]
++
++    def describe(self):
++        return dict(scope='all_qkvo_ffn', rank=self.rank, alpha=self.alpha,
++                    fused_wrappers=len(self.names),
++                    logical_linear_targets=sum(m.parts for m in self.modules),
++                    trainable_parameters=sum(p.numel() for p in self.parameters()),
++                    targets=list(self.names),
++                    initialization='existing visual/action frozen; added B=0; independent split Q/K/V')
++
++
++def install_stage1_lora(model, *, rank=8, alpha=8., device='cpu'):
++    names = target_names(model)
++    if any(isinstance(model.get_submodule(n), Stage1LinearLoRA) for n in names):
++        raise ValueError('Stage1 LoRA bank is already installed')
++    modules = []
++    dev = torch.device(device)
++    devices = [dev.index if dev.index is not None else torch.cuda.current_device()] if dev.type == 'cuda' else []
++    # Adding trainable capacity must not change subsequent training/video noise.
++    with torch.random.fork_rng(devices=devices):
++        for name in names:
++            parent, _, slot = name.rpartition('.')
++            module = Stage1LinearLoRA(model.get_submodule(name), rank=rank,
++                alpha=alpha, device=device, split_qkv=name.endswith('attn.qkv_proj'))
++            setattr(model.get_submodule(parent), slot, module)
++            modules.append(module)
++    return Stage1LoRABank(names, modules, int(rank), float(alpha))
++
++
++def save_stage1_lora(path, bank, metadata):
++    path = Path(path)
++    state = dict(format='h3world_stage1_all_qkvo_ffn_v1', rank=bank.rank, alpha=bank.alpha,
++        targets=list(bank.names),
++        weights={name: dict(A=[p.detach().cpu() for p in module.lora_A],
++                            B=[p.detach().cpu() for p in module.lora_B])
++                 for name, module in zip(bank.names, bank.modules)}, metadata=metadata)
++    temporary = path.with_suffix('.tmp.pt')
++    torch.save(state, temporary)
++    temporary.replace(path)
++
++
++def load_stage1_lora(model, path, *, device='cpu'):
++    state = torch.load(path, map_location='cpu', weights_only=True)
++    if state.get('format') != 'h3world_stage1_all_qkvo_ffn_v1':
++        raise ValueError('Unsupported Stage1 full-scope adapter format')
++    names = target_names(model)
++    if list(names) != state['targets'] or set(names) != set(state['weights']):
++        raise ValueError('Stage1 adapter targets do not match the H3 topology')
++    # Validate all shapes before mutating the model.
++    for name in names:
++        inputs, outputs = linear_shape(model.get_submodule(name))
++        parts = 3 if name.endswith('attn.qkv_proj') else 1
++        values = state['weights'][name]
++        if (len(values['A']) != parts or len(values['B']) != parts
++                or any(p.shape != (state['rank'], inputs) for p in values['A'])
++                or any(p.shape != (outputs // parts, state['rank']) for p in values['B'])):
++            raise ValueError(f'Stage1 adapter shape mismatch: {name}')
++    bank = install_stage1_lora(model, rank=state['rank'], alpha=state['alpha'], device=device)
++    with torch.no_grad():
++        for name, module in zip(bank.names, bank.modules):
++            for group, values in ((module.lora_A, state['weights'][name]['A']),
++                                  (module.lora_B, state['weights'][name]['B'])):
++                for parameter, value in zip(group, values):
++                    parameter.copy_(value)
++    return bank, state['metadata']
+--- a/code/causal/train_stage1_anyflow.py
++++ b/code/causal/train_stage1_anyflow.py
+@@ -190,6 +190,9 @@
+     ap.add_argument('--action-adapter', type=Path)
+     ap.add_argument('--objective', choices=['anyflow', 'fm'], default='anyflow')
+     ap.add_argument('--precision-profile', choices=['legacy', 'h3_fp32'], default='legacy')
++    ap.add_argument('--adapter-scope', choices=['tail_qkv','all_qkvo_ffn'], default='tail_qkv')
++    ap.add_argument('--bank-rank', type=int, default=8)
++    ap.add_argument('--bank-alpha', type=float, default=8.)
+     ap.add_argument('--train-target-time', action=argparse.BooleanOptionalAction, default=False,
+                     help='Experimental variant; official H3 Stage1 freezes the cloned time MLP')
+     ap.add_argument('--device', default='cuda:0')
+@@ -213,7 +216,7 @@
+     args = ap.parse_args()
+     if args.logical_batch < 4 or args.logical_batch % 4 or min(args.steps, args.checkpoint_every, args.chunk_frames, args.history_chunks, args.validation_cases) < 1:
+         ap.error('Invalid steps/chunks/checkpoint interval or logical batch (must be 4k)')
+-    if min(args.lr, args.flow_shift, args.finite_difference_epsilon, args.rank, args.tail_blocks) <= 0:
++    if min(args.lr, args.flow_shift, args.finite_difference_epsilon, args.rank, args.tail_blocks, args.bank_rank, args.bank_alpha) <= 0:
+         ap.error('Learning rate, shift, finite-difference epsilon, rank and tail blocks must be positive')
+     if not args.smoke and (not args.teacher_dir or len(args.teacher_dir) != len(args.actions)):
+         ap.error('Provide one original H3 teacher directory per action')
+@@ -310,12 +313,29 @@
+                            if resume else install_anyflow(model, device=args.device))
+         if time_module is not None:
+             time_module.requires_grad_(args.train_target_time)
+-        params = []
+-        for adapter in adapters:
+-            for p in (adapter.lora_A, adapter.lora_B):
+-                p.requires_grad_(True); params.append(p)
+-        if time_module is not None and args.train_target_time:
+-            params.extend(time_module.parameters())
++        bank = None
++        if args.adapter_scope == 'all_qkvo_ffn':
++            from causal.stage1_lora import install_stage1_lora, load_stage1_lora, save_stage1_lora
++            for adapter in adapters:
++                adapter.requires_grad_(False)
++            if resume:
++                bank, bank_metadata = load_stage1_lora(model, args.resume_from/'stage1_lora.pt', device=args.device)
++                validate_precision_checkpoint(bank_metadata, precision)
++            else:
++                bank = install_stage1_lora(model, rank=args.bank_rank, alpha=args.bank_alpha, device=args.device)
++            params = bank.parameters()
++            qkv_params = bank.parameters('qkv')
++            result['stage1_lora'] = bank.describe()
++        else:
++            params = []
++            for adapter in adapters:
++                for p in (adapter.lora_A, adapter.lora_B):
++                    p.requires_grad_(True); params.append(p)
++            qkv_params = list(params)
++        time_params = list(time_module.parameters()) if time_module is not None and args.train_target_time else []
++        params.extend(time_params)
++        if {id(p) for p in model.parameters() if p.requires_grad} != {id(p) for p in params}:
++            raise RuntimeError('Unexpected trainable parameters outside the selected Stage1 adapter scope')
+         optimizer = torch.optim.AdamW(params, lr=args.lr, betas=(.9, .95), weight_decay=.01)
+         result.update(trainable_parameters=sum(p.numel() for p in params),
+             qkv_block_indices=indices, target_time_parameters=sum(p.numel() for p in time_module.parameters()) if time_module else 0,
+@@ -333,6 +353,8 @@
+             metadata = {k: result[k] for k in ('objective', 'scope', 'config', 'history_protocol', 'velocity_convention', 'precision')}
+             metadata['optimizer_step'] = len(result['updates'])
+             save_adapters(directory / 'causal_adapter.pt', adapters, indices, metadata)
++            if bank is not None:
++                save_stage1_lora(directory / 'stage1_lora.pt', bank, metadata)
+             if time_module is not None:
+                 save_anyflow(directory / 'anyflow_adapter.pt', time_module, metadata)
+             if action_adapter is not None:
+@@ -340,6 +362,8 @@
+             # Save optimizer/RNG along with adapters so a later extension need
+             # not silently reset Adam moments or the logical noise sequence.
+             files = ['causal_adapter.pt']
++            if bank is not None:
++                files.append('stage1_lora.pt')
+             if time_module is not None:
+                 files.append('anyflow_adapter.pt')
+             if action_adapter is not None:
+@@ -369,6 +393,9 @@
+         if not args.smoke:
+             torch.cuda.reset_peak_memory_stats(args.device)
+         initial = [p.detach().cpu().clone() for p in params]
++        initial_by_id = dict(zip(map(id, params), initial))
++        frozen_visual = ([p.detach().cpu().clone() for a in adapters for p in (a.lora_A,a.lora_B)]
++                         if bank is not None else None)
+         initial_time = [p.detach().cpu().clone() for p in time_module.parameters()] if time_module else []
+         if resume:
+             # Validation owns a separate noise generator. Re-establish global
+@@ -383,8 +410,10 @@
+             def group_grad_norm(group):
+                 norms = [p.grad.detach().float().norm() for p in group if p.grad is not None]
+                 return float(torch.stack(norms).norm()) if norms else 0.0
+-            metrics['qkv_grad_norm'] = group_grad_norm(params[:2 * len(adapters)])
+-            metrics['target_time_grad_norm'] = group_grad_norm(params[2 * len(adapters):]) if time_module else None
++            metrics['qkv_grad_norm'] = group_grad_norm(qkv_params)
++            metrics['target_time_grad_norm'] = group_grad_norm(time_params) if time_module else None
++            if bank is not None:
++                metrics['adapter_group_grad_norms'] = {g:group_grad_norm(bank.parameters(g)) for g in ('qkv','out','ffn','refiner')}
+             norm = torch.nn.utils.clip_grad_norm_(params, 1.)
+             if not torch.isfinite(norm):
+                 raise FloatingPointError('Non-finite AnyFlow gradient norm')
+@@ -399,9 +428,14 @@
+                 checkpoint(args.out_dir / f'step_{step+1:02d}')
+         result['validation_after'] = validate()
+         result['parameters_changed'] = any(not torch.equal(p.detach().cpu(), old) for p, old in zip(params, initial))
+-        qkv_count = 2 * len(adapters)
+-        result['qkv_parameters_changed'] = any(not torch.equal(p.detach().cpu(), old)
+-            for p, old in zip(params[:qkv_count], initial[:qkv_count]))
++        result['qkv_parameters_changed'] = any(not torch.equal(p.detach().cpu(), initial_by_id[id(p)]) for p in qkv_params)
++        if bank is not None:
++            result['adapter_groups_changed'] = {g:any(not torch.equal(p.detach().cpu(), initial_by_id[id(p)])
++                for p in bank.parameters(g)) for g in ('qkv','out','ffn','refiner')}
++            result['frozen_visual_unchanged'] = all(torch.equal(p.detach().cpu(), old)
++                for p,old in zip((p for a in adapters for p in (a.lora_A,a.lora_B)), frozen_visual))
++            if not result['frozen_visual_unchanged'] or not all(result['adapter_groups_changed'].values()):
++                raise RuntimeError('Full-scope update violated frozen initialization or failed to update a target group')
+         result['target_time_parameters_changed'] = (any(not torch.equal(p.detach().cpu(), old)
+             for p, old in zip(time_module.parameters(), initial_time)) if time_module else None)
+         if not result['qkv_parameters_changed']:
+--- a/code/causal/training_state.py
++++ b/code/causal/training_state.py
+@@ -34,11 +34,15 @@
+     config.setdefault('precision_profile', 'legacy')
+     compare_old = dict(old)
+     compare_old.setdefault('precision_profile', 'legacy')
++    for key,value in [('adapter_scope','tail_qkv'),('bank_rank',8),('bank_alpha',8.)]:
++        config.setdefault(key,value);compare_old.setdefault(key,value)
+     mismatches = [k for k in set(config) | set(old)
+                   if k not in mutable and config.get(k) != compare_old.get(k)]
+     if mismatches:
+         raise ValueError(f'Resume protocol mismatch: {sorted(mismatches)}')
+     required = {'causal_adapter.pt'}
++    if config.get('adapter_scope') == 'all_qkvo_ffn':
++        required.add('stage1_lora.pt')
+     if config['objective'] == 'anyflow':
+         required.add('anyflow_adapter.pt')
+     if config.get('action_adapter'):
+--- a/code/causal/benchmark.py
++++ b/code/causal/benchmark.py
+@@ -155,9 +155,12 @@
+     ap.add_argument('--teacher-latents', type=Path, default=None,
+                     help='teacher latent tensor [1,24,T,H,W] for --history-source clean')
+     ap.add_argument('--precision-profile', choices=['legacy', 'h3_fp32'], default='legacy')
++    ap.add_argument('--stage1-lora', type=Path, default=None)
+     args = ap.parse_args()
+     if args.precision_profile != 'legacy' and args.modes != ['cached']:
+         ap.error('FP32 prototype currently requires --modes cached')
++    if args.stage1_lora and (not args.anyflow_adapter or not args.causal_adapter):
++        ap.error('Full-scope Stage1 bank requires matching AnyFlow and frozen visual checkpoints')
+     if args.anyflow_adapter and (args.modes != ['cached'] or args.causal_adapter_scope != 'all'):
+         ap.error('AnyFlow requires --modes cached and --causal-adapter-scope all')
+     if args.anyflow_sigma_grid == 'uniform' and not args.anyflow_adapter:
+@@ -260,6 +263,20 @@
+         # score field used to generate the current chunk.
+         set_causal_adapter_enabled(args.causal_adapter_scope == 'all')
+         action_adapter = None
++        if args.anyflow_adapter:
++            full_scope = anyflow_metadata['config'].get('adapter_scope','tail_qkv') == 'all_qkvo_ffn'
++            if full_scope != bool(args.stage1_lora):
++                raise ValueError('Checkpoint requires its matching full-scope Stage1 adapter bank')
++        if args.stage1_lora:
++            from causal.stage1_lora import load_stage1_lora
++            bank, bank_metadata = load_stage1_lora(pipe.dit,args.stage1_lora,device=args.device)
++            validate_precision_checkpoint(bank_metadata, setup['precision'])
++            if (bank_metadata['config'] != anyflow_metadata['config']
++                    or bank_metadata['optimizer_step'] != anyflow_metadata['optimizer_step']):
++                raise ValueError('Stage1 bank and AnyFlow time checkpoints differ')
++            for parameter in bank.parameters():
++                parameter.requires_grad_(False)
++            setup['stage1_lora'] = dict(path=str(args.stage1_lora), **bank.describe())
+         if args.causal_action_adapter:
+             from causal.pretrained_lora import load_action_residual
+             loaded_action = load_action_residual(pipe.dit, args.causal_action_adapter, args.device)
+--- a/code/causal/report_stage1_anyflow.py
++++ b/code/causal/report_stage1_anyflow.py
+@@ -120,6 +120,8 @@
+                 objective += f' time={policy}'
+             if precision_profile != 'legacy':
+                 objective += f' precision={precision_profile}'
++            if setup.get('stage1_lora'):
++                objective += ' scope=all_qkvo_ffn'
+             row = summarize_video(file.parent, 'cached',
+                 label=f"{objective} step{data['step']:02d} grid={grid} / {data['action']} / "
+                       f"{data['steps_per_chunk']} steps/chunk / {data['history']}",
+--- /dev/null
++++ b/tests/test_stage1_lora.py
+@@ -0,0 +1,98 @@
++import copy
++from pathlib import Path
++import sys
++
++import pytest
++import torch
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path[:0] = [str(ROOT / 'code'), str(ROOT / 'DiffSynth-Studio-h3-v2')]
++from causal.h3_training import make_small_h3, synthetic_h3_batch
++from causal.h3_cached import H3ChunkCache, chunk_forward
++from causal.anyflow import install_anyflow
++from causal.h3_precision import configure_precision
++from causal.pretrained_lora import install_adapters
++from causal.stage1_lora import install_stage1_lora, save_stage1_lora, load_stage1_lora, target_names
++from diffsynth.core.vram.layers import AutoWrappedLinear
++
++
++@pytest.mark.parametrize('dtype', [torch.float32, torch.bfloat16])
++def test_full_scope_preserves_initial_video_rng_frozen_base_and_roundtrip(tmp_path, dtype):
++    torch.set_num_threads(2)
++    torch.manual_seed(81)
++    model = make_small_h3().eval().to(dtype).requires_grad_(False)
++    for block in model.blocks:
++        block.attn.qkv_proj = block.attn.qkv_proj.base
++    # Exercise real offload wrappers beneath a nonzero pretrained visual LoRA.
++    for name in target_names(model):
++        parent, _, slot = name.rpartition('.')
++        wrapper = AutoWrappedLinear(model.get_submodule(name), computation_dtype=dtype,
++            computation_device='cpu', offload_device='cpu')
++        wrapper.onload()
++        setattr(model.get_submodule(parent), slot, wrapper)
++    visual, _ = install_adapters(model, rank=4, block_indices=list(range(len(model.blocks))))
++    with torch.no_grad():
++        for adapter in visual:
++            adapter.lora_B.normal_(std=.02)
++    model.requires_grad_(False)
++    configure_precision(model, 'h3_fp32')
++    install_anyflow(model).requires_grad_(False)
++    fresh = copy.deepcopy(model)
++    original = {id(p): p.detach().clone() for p in model.parameters()}
++    b = synthetic_h3_batch(frames=7, seed=99)
++    common = dict(full_packed=b['packed'], prompt=b['prompt_embeds'].to(dtype),
++        anchor=b['anchor_rows'].to(dtype), audio=b['audio_latents'].to(dtype), chunk_frames=5)
++    def forward(model, cache, *, grad=False):
++        return chunk_forward(model, b['noise'][:,:,5:], sigma=.7, target_sigma=.2,
++            index=1, cache=cache, allow_grad_read=grad,
++            use_gradient_checkpointing=grad, **common)
++    def history(model):
++        cache = H3ChunkCache(2, 'cpu')
++        with torch.no_grad():
++            chunk_forward(model, b['clean_video'][:,:,:5], sigma=0., index=0,
++                          cache=cache, commit=True, **common)
++        return cache
++    with torch.no_grad():
++        before = forward(model, history(model))
++    rng = torch.get_rng_state().clone()
++    bank = install_stage1_lora(model, rank=4, alpha=4.)
++    for module in bank.modules:
++        base = module.base.base if hasattr(module.base, 'base') else module.base
++        base.offload(); base.onload()
++    assert torch.equal(rng, torch.get_rng_state())
++    assert bank.describe()['logical_linear_targets'] == 6 * (len(model.blocks) + len(model.token_refiner.blocks))
++    assert {id(p) for p in model.parameters() if p.requires_grad} == {id(p) for p in bank.parameters()}
++    cache = history(model)
++    with torch.no_grad():
++        assert torch.equal(before, forward(model, cache))
++    commits = cache.commits
++    optimizer = torch.optim.AdamW(bank.parameters(), lr=1e-3)
++    forward(model, cache, grad=True).square().mean().backward()
++    assert cache.commits == commits
++    for group in ('qkv', 'out', 'ffn', 'refiner'):
++        assert any(p.grad is not None and p.grad.norm()>0 for p in bank.parameters(group))
++        assert all(torch.isfinite(p.grad).all() for p in bank.parameters(group) if p.grad is not None)
++    optimizer.step()
++    assert all(torch.equal(p, original[id(p)]) and p.grad is None
++               for p in model.parameters() if id(p) in original)
++    path = tmp_path/'adapter.pt'
++    save_stage1_lora(path, bank, {'optimizer_step':1})
++    loaded, metadata = load_stage1_lora(fresh, path)
++    assert metadata['optimizer_step']==1
++    assert all(torch.equal(x,y) for x,y in zip(bank.parameters(),loaded.parameters()))
++    with torch.no_grad():
++        assert torch.equal(forward(model, history(model)), forward(fresh, history(fresh)))
++    with pytest.raises(ValueError, match='already installed'):
++        install_stage1_lora(model)
++
++
++def test_wrong_topology_rejected_before_modification(tmp_path):
++    model = make_small_h3().eval().requires_grad_(False)
++    bank = install_stage1_lora(model, rank=2, alpha=2.)
++    path = tmp_path/'bank.pt';save_stage1_lora(path, bank, {})
++    state = torch.load(path, weights_only=True)
++    state['targets'].pop();torch.save(state,path)
++    fresh = make_small_h3().eval().requires_grad_(False)
++    with pytest.raises(ValueError, match='topology'):
++        load_stage1_lora(fresh,path)
++    assert not hasattr(fresh.blocks[0].mlp.fc1,'lora_A')

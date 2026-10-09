@@ -1,0 +1,40 @@
+{
+  "status": "stopped_before_any_gpu_launch",
+  "started_at": "2026-10-08T20:19:36.403403+08:00",
+  "dependencies": {
+    "training": {
+      "pid": 799534,
+      "start_ticks": "253602389",
+      "receipt": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/train_48/training.json"
+    },
+    "parking0": {
+      "pid": 1506669,
+      "start_ticks": "253990539",
+      "receipt": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/parking_queue_step00.json"
+    },
+    "geometry0": {
+      "pid": 1695577,
+      "start_ticks": "254037856",
+      "receipt": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_00_step00_generated/probe.json"
+    }
+  },
+  "source_hashes": {
+    "audit_completed_training.py": "b14a8d7d90798c628dd66ec153ea306c10ec2cfc0657a8d9353c9b19df576d37",
+    "evaluation_queue.py": "7ab331452c6bdc3c17eef7971b0c2975499807de74eb20bb8257943567d7029c",
+    "evaluate_real.py": "74967b873ce4edb018b64e99bd0472e7876aab4c135d75589d88e13681d5b352",
+    "parking_regression.py": "7acc610253c223cb74443c86387a2a21ef9bfb57c7a71bf0f35b2011c74669d7",
+    "probe_real_geometry.py": "d2abb64084dce2d5d8ccf13f3e04ba35def0639302df79e5dd5e2a8ceb68c208",
+    "geometry_primitives.py": "5877b26d3243c0b29f6f287b192753603231744115d8647eecabf7e808822f18"
+  },
+  "allowed_project_gpus": [
+    0,
+    4,
+    1
+  ],
+  "launches": [],
+  "completed": [],
+  "scope": "FM48 evaluation only; no training extension or Stage2",
+  "updated_at": "2026-10-08T20:26:56.977051+08:00",
+  "reason": "Correct pending auditor nested LoRA tensor-list traversal before model evaluation",
+  "stopped_at": "2026-10-08T20:27:05.782830+08:00"
+}

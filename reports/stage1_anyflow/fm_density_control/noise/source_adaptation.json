@@ -1,0 +1,9 @@
+{
+  "reference_sha256": "441ab06d30191d8f502df77b54ec7119964cd40eadad92dfe7c68c3f8ff61f96",
+  "candidate_sha256": "7622a0b17dbcff805f39c22922e752e4326517e959cbd4db8d7f0ecbc0b53f05",
+  "replacements": {
+    "BRIDGE=BASE.parents[1]/'2026-10-08-18/stage1_real_abot_fm'": "BRIDGE=BASE.parents[2]/'2026-10-08-18/stage1_real_abot_fm'",
+    "checkpoint=BRIDGE/f'train_48/step_{args.step:02d}'": "checkpoint=BASE.parent/f'train_48/step_{args.step:02d}'"
+  },
+  "model_inputs_and_calculation_unchanged": true
+}

@@ -1,0 +1,155 @@
+{
+  "at": "2026-10-09T06:58:18.306830+08:00",
+  "source_sha256": "b3e32f46feb75b9594c8192ea4cf2c66fd773462e78ed2d65c531941e8ca8f76",
+  "train_examples": [
+    {
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_A_1245",
+      "split": "train",
+      "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/43866101158a538d22c52ac5b2fa606b_A_1245.pt",
+      "sha256": "a85e4c017d4e78bafa27f6d4bf93705c5f510ff8a4866fca2dd2bfa1ac693b5a",
+      "clean_shape": [
+        1,
+        24,
+        37,
+        30,
+        52
+      ],
+      "anchor_shape": [
+        390,
+        96
+      ],
+      "audio_shape": [
+        2,
+        32,
+        207
+      ],
+      "prefix_checks": [
+        {
+          "latent_stop": 12,
+          "RGB_stop": 39,
+          "observed_only_padded_frames": 51,
+          "safe_vs_full_max_abs": 0.0,
+          "future_RGB_inversion_max_abs": 0.0
+        },
+        {
+          "latent_stop": 24,
+          "RGB_stop": 81,
+          "observed_only_padded_frames": 102,
+          "safe_vs_full_max_abs": 0.0,
+          "future_RGB_inversion_max_abs": 0.0
+        },
+        {
+          "latent_stop": 36,
+          "RGB_stop": 120,
+          "observed_only_padded_frames": 136,
+          "safe_vs_full_max_abs": 0.0,
+          "future_RGB_inversion_max_abs": 0.0
+        }
+      ],
+      "position_checks": [
+        {
+          "stop": 12,
+          "future_length_and_content_visible_input_identity": true
+        },
+        {
+          "stop": 24,
+          "future_length_and_content_visible_input_identity": true
+        },
+        {
+          "stop": 36,
+          "future_length_and_content_visible_input_identity": true
+        }
+      ],
+      "reconstruction": {
+        "MSE": 0.0009940320160239935,
+        "PSNR_dB": 30.02599627515531
+      },
+      "action_position_reference": 1066,
+      "negative_windows": [
+        "0",
+        "12"
+      ],
+      "prompt_rows": 1001
+    },
+    {
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_D_1555",
+      "split": "train",
+      "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/43866101158a538d22c52ac5b2fa606b_D_1555.pt",
+      "sha256": "3661d74cf0e91a0a5d3f204bfddd7d373a15530cd75becb95cbb5909d34185d1",
+      "clean_shape": [
+        1,
+        24,
+        37,
+        30,
+        52
+      ],
+      "anchor_shape": [
+        390,
+        96
+      ],
+      "audio_shape": [
+        2,
+        32,
+        207
+      ],
+      "prefix_checks": [
+        {
+          "latent_stop": 12,
+          "RGB_stop": 39,
+          "observed_only_padded_frames": 51,
+          "safe_vs_full_max_abs": 0.0
+        },
+        {
+          "latent_stop": 24,
+          "RGB_stop": 81,
+          "observed_only_padded_frames": 102,
+          "safe_vs_full_max_abs": 0.0
+        },
+        {
+          "latent_stop": 36,
+          "RGB_stop": 120,
+          "observed_only_padded_frames": 136,
+          "safe_vs_full_max_abs": 0.0
+        }
+      ],
+      "position_checks": [
+        {
+          "stop": 12,
+          "future_length_and_content_visible_input_identity": true
+        },
+        {
+          "stop": 24,
+          "future_length_and_content_visible_input_identity": true
+        },
+        {
+          "stop": 36,
+          "future_length_and_content_visible_input_identity": true
+        }
+      ],
+      "reconstruction": null,
+      "action_position_reference": 1029,
+      "negative_windows": [
+        "0",
+        "12"
+      ],
+      "prompt_rows": 971
+    }
+  ],
+  "sigmas": [
+    0.85,
+    0.55,
+    0.25,
+    0.1
+  ],
+  "history_latents": 12,
+  "current_latents": 12,
+  "seed": 13,
+  "parameter_bank": "Identical to successful released LoRA tail8 QKV/out preflight",
+  "forwards": 16,
+  "backwards": 16,
+  "optimizer_updates": 0,
+  "margin_rule": "max(1e-5,median abs(e_negative-e_positive)) over8 train states",
+  "lambda_rule": "min(10,0.25*median(norm(grad_FM)/norm(grad_FM_positive-grad_FM_negative))) over states with active hinge at calibrated margin",
+  "stop_rule": "No finite nonzero action gradient or OOM -> no optimizer; no additional calibration sweep",
+  "caveat": "Only2train clips,8 states; not validation selection, video-quality evidence or guarantee against wrong-action loss inflation"
+}

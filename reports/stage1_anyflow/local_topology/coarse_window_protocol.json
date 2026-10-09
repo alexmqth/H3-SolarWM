@@ -1,0 +1,92 @@
+{
+  "at": "2026-10-09T05:07:21.738428+08:00",
+  "status": "designed_not_launched",
+  "scope": "E1 conditional coarser-window option B; never a final124 free-rollout deliverable",
+  "trigger": "Complete native single-I0 5+5+2 local review remains No-Go, while native single-I0 window12 reference is positive.",
+  "fixed": [
+    "Original H3 + released action LoRA",
+    "native text time 1-sigma",
+    "single I0 at original coordinates",
+    "fixed audio noise/time",
+    "h3_fp32, SDPA directed Original visibility",
+    "30 solver steps with shift2.22",
+    "all currently visible history/window recomputed each sigma; old latent history immutable"
+  ],
+  "sole_method_factor": "Current window granularity changes from5 to12 latent frames; full37 conditioning/noise must be frozen for new matched comparison, not treated as bit-identical to prior39f fixture.",
+  "states": [
+    {
+      "index": 0,
+      "history_latent_stop": 0,
+      "current_latent_range": [
+        0,
+        12
+      ]
+    },
+    {
+      "index": 1,
+      "history_latent_stop": 12,
+      "current_latent_range": [
+        12,
+        24
+      ]
+    },
+    {
+      "index": 2,
+      "history_latent_stop": 24,
+      "current_latent_range": [
+        24,
+        36
+      ]
+    }
+  ],
+  "actions": "From each fixed A/D reference history, fork only current-window A/D; past actions fixed. Unknown later actions/video physically deleted before refiner.",
+  "sources": {
+    "A": {
+      "conditioning.pt": {
+        "path": "H3-World/outputs/2026-10-01-21/action_A_teacher_latents/conditioning.pt",
+        "sha256": "e2ec2c3953a5c3cd55aded4ca9b7e261f953b24e38eacfe634aa4b5737207006"
+      },
+      "baseline_latents.pt": {
+        "path": "H3-World/outputs/2026-10-01-21/action_A_teacher_latents/baseline_latents.pt",
+        "sha256": "9b660c2deb776b8ed68cb32ba807374aeff63cf1b1be06f28b73ddb33a3b4c88"
+      },
+      "baseline.json": {
+        "path": "H3-World/outputs/2026-10-01-21/action_A_teacher_latents/baseline.json",
+        "sha256": "dc0ab77ba31980850cf2336167b7ba322767efef23bee5b00e875b12bd0d7010"
+      }
+    },
+    "D": {
+      "conditioning.pt": {
+        "path": "H3-World/outputs/2026-10-01-21/action_D_teacher_latents/conditioning.pt",
+        "sha256": "907d9d1903fd0afc5588db4980c57cbdc092f7f8b551308c4e6744452a7e6354"
+      },
+      "baseline_latents.pt": {
+        "path": "H3-World/outputs/2026-10-01-21/action_D_teacher_latents/baseline_latents.pt",
+        "sha256": "201193683658fc22f1394a6a1d3ad341e259e0a62b8f68dd4864603ccc427d0a"
+      },
+      "baseline.json": {
+        "path": "H3-World/outputs/2026-10-01-21/action_D_teacher_latents/baseline.json",
+        "sha256": "9488a71c22c2f0fd6b75cf4cc395882d5b831419489f19eb8109fb47b4ebfd01"
+      }
+    }
+  },
+  "preflight": [
+    "A/D original full37 conditioning, image/prompt and video/audio noise equality",
+    "Fixed action-content-independent global position contract; future input interventions",
+    "VAE prefix-only decode at12/24/36 boundaries; freeze earlier emitted RGB; measured frame ranges, not guessed",
+    "Native single-I0 time/position/Original mask checks; first-window held A/D should be credible in this full37 fixture",
+    "Keep actual A-solver noisy states for within-state A/D geometry; do not subtract different solver paths"
+  ],
+  "budget": {
+    "optimizer_updates": 0,
+    "histories": 2,
+    "windows_per_history": 3,
+    "actions_per_window": 2,
+    "steps_per_branch": 30,
+    "total_noisy_forwards": 360,
+    "max_concurrent_project_gpus": 3
+  },
+  "acceptance": "Multiple windows and both fixed histories have action-dependent motion with correct qualitative direction and no severe local decomposition; state/delta checks must agree. Optical flow alone is not enough.",
+  "no_go": "If longer current window also loses control on fixed histories, stop granularity expansion. Investigate clean-history conditioning/representation or reliable action-consequence supervision. Do not jump to AnyFlow/DMD.",
+  "timing": "Report recomputation, first/current-window display delay and CPU/GPU memory as feasibility measurements. Warmup repetitions only after a route is credible."
+}

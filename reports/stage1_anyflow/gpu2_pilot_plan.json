@@ -1,0 +1,17 @@
+{
+  "queue_directory": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot",
+  "queue_pid": 227188,
+  "gpu": 2,
+  "vram_reserve_gib": 20,
+  "run_state": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/run.json",
+  "steps": [
+    "AnyFlow: 16 optimizer updates, checkpoints 00/04/08/12/16",
+    "AnyFlow step16: generated-history A/D at 4 and 8 steps per chunk",
+    "FM control: same initialization/data/noise, 16 updates; A/D at 4 and 8 steps per chunk",
+    "AnyFlow step00/04/08/12: generated-history A/D at 4 steps per chunk",
+    "AnyFlow step16: clean-history A/D at 4 steps per chunk"
+  ],
+  "fail_policy": "Stop queue on any subprocess failure, incomplete output, decode/count mismatch or source code mutation",
+  "quality_policy": "Completion does not imply action or visual PASS; manual video review required",
+  "timing_policy": "GPU2 shares pre-existing workloads; single recorded timings, not isolated multi-run speedup"
+}

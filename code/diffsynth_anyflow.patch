@@ -1,0 +1,112 @@
+--- a/diffsynth/models/minimax_h3_dit.py
++++ b/diffsynth/models/minimax_h3_dit.py
+@@ -527,6 +527,8 @@
+         # position the model is already used to being modulated at from pretraining.
+         if action_film is not None:
+             h = _apply_action_film(h, *action_film)
++        if causal_control is not None and hasattr(causal_control, "apply_hidden"):
++            h = causal_control.apply_hidden(h, layer_index)
+         h = self.attn(h, rope_freqs=rope_freqs, cu_seqlens=cu_seqlens,
+                       max_seqlen=max_seqlen, block_masks=block_masks,
+                       causal_control=causal_control, layer_index=layer_index)
+@@ -658,7 +660,7 @@
+             self.action_shift.to(device=ref.device, dtype=ref.dtype)
+         return self
+ 
+-    def _embed(self, *, x, audio_x, text_embeddings_selected, unique_timesteps, img_pos, audio_pos, text_pos, refiner_cu_seqlens, refiner_max_seqlen, seq_len, device):
++    def _embed(self, *, x, audio_x, text_embeddings_selected, unique_timesteps, img_pos, audio_pos, text_pos, refiner_cu_seqlens, refiner_max_seqlen, seq_len, device, unique_target_timesteps=None):
+         dtype = text_embeddings_selected.dtype
+         x_rows = x.view(-1, x.shape[-1]).index_select(0, img_pos).to(dtype)
+         video_embed = self.video_patch_proj(x_rows)
+@@ -674,6 +676,13 @@
+         embeddings.index_add_(0, audio_pos, audio_embed.to(dtype)[: audio_pos.shape[0]])
+ 
+         t_emb = self.time_embedder(unique_timesteps, dtype=dtype)
++        anyflow = getattr(self, "anyflow_conditioner", None)
++        if anyflow is not None:
++            if unique_target_timesteps is None:
++                raise ValueError("AnyFlow requires explicit target timesteps")
++            t_emb = anyflow(t_emb, unique_target_timesteps.to(device), dtype=dtype)
++        elif unique_target_timesteps is not None:
++            raise ValueError("Target timesteps require an AnyFlow conditioner")
+         return embeddings, t_emb
+ 
+     def forward(
+@@ -707,6 +716,7 @@
+         causal_frame_rows=None,
+         causal_latent_frames=None,
+         causal_control=None,
++        unique_target_timesteps=None,
+     ) -> tuple[torch.Tensor, torch.Tensor]:
+         inverse_indices = inverse_indices.view(-1).to(torch.long)
+         token_tags = token_tags.view(-1).to(torch.long)
+@@ -735,6 +745,7 @@
+             img_pos=img_pos.to(device), audio_pos=audio_pos.to(device), text_pos=text_pos.to(device),
+             refiner_cu_seqlens=refiner_cu.to(device), refiner_max_seqlen=refiner_max,
+             seq_len=seq_len, device=device,
++            unique_target_timesteps=unique_target_timesteps,
+         )
+ 
+         combined_indices = (inverse_indices * MINIMAX_H3_ADALN_MODALITY_NUM + token_tags.clamp(min=0)).to(device)
+@@ -767,8 +778,15 @@
+         # attention_forward accepts only one block mask per segment.
+         block_masks = None
+         if causal_control is not None:
+-            if inject_action or use_gradient_checkpointing or use_gradient_checkpointing_offload:
+-                raise ValueError("cached attention supports action text and no-grad inference only")
++            # Historical raw K/V is detached at commit time, so a current
++            # chunk may be differentiated while reading the cache.  Gradient
++            # checkpointing is safe when the control explicitly permits grad
++            # reads; commit forwards remain no-grad.
++            if inject_action:
++                raise ValueError("cached attention does not support the legacy action injection path")
++            if ((use_gradient_checkpointing or use_gradient_checkpointing_offload)
++                    and not getattr(causal_control, "allow_grad_read", False)):
++                raise ValueError("gradient-checkpointed cached attention requires allow_grad_read=True")
+         elif causal_chunk_size is not None:
+             if causal_video_start is None or causal_frame_rows is None or causal_latent_frames is None:
+                 raise ValueError("causal video start, frame rows and latent frames are required")
+--- a/diffsynth/pipelines/minimax_h3_audio_video.py
++++ b/diffsynth/pipelines/minimax_h3_audio_video.py
+@@ -937,6 +937,7 @@
+     causal_window_chunks=5,
+     causal_control=None,
+     fixed_prefix_timesteps=False,
++    target_timestep_video=None,
+     **kwargs,
+ ):
+     # action_cond is the binned, pooled key tensor, [latent_t, num_buttons].
+@@ -993,7 +994,24 @@
+         # the current chunk's noise level. Audio data/time must also be fixed.
+         timesteps[text_pos] = 1.0
+         timesteps[img_pos[:cond_rows_count]] = imgvid_cond_noise_aug
+-    unique_timesteps, inverse_indices = torch.unique(timesteps, sorted=True, return_inverse=True)
++    unique_target_timesteps = None
++    if target_timestep_video is None:
++        unique_timesteps, inverse_indices = torch.unique(timesteps, sorted=True, return_inverse=True)
++    else:
++        sigma, rho = float(timestep_video) / 1000, float(target_timestep_video) / 1000
++        if not 0 <= rho <= sigma <= 1:
++            raise ValueError("AnyFlow requires 0 <= target sigma <= current sigma <= 1")
++        targets = timesteps.clone()
++        current_rows = img_pos[cond_rows_count:]
++        if denoise_mask_video is not None:
++            current_rows = current_rows[denoise_mask_video != 0]
++        targets[current_rows] = 1.0 - rho
++        # Equal current times can have DIFFERENT targets (video vs audio or
++        # clean history). Deduplicate pairs, never current times alone.
++        pairs, inverse_indices = torch.unique(
++            torch.stack((timesteps, targets), dim=1), dim=0,
++            sorted=True, return_inverse=True)
++        unique_timesteps, unique_target_timesteps = pairs.unbind(dim=1)
+ 
+     # Token Refiner segmentation.
+     #
+@@ -1042,6 +1060,7 @@
+         audio_x=audio_x,
+         img_position_ids=packed["img_position_ids"],
+         unique_timesteps=unique_timesteps,
++        unique_target_timesteps=unique_target_timesteps,
+         inverse_indices=inverse_indices,
+         token_tags=packed["token_tags"],
+         prompt_embeds=prompt_embeds,

@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "checks": {
+    "frozen_visual_starts_zero_output": true,
+    "trainable_bank_starts_zero_output": true,
+    "visual_stays_frozen_step1": true,
+    "bank_learns_step1": true,
+    "no_anyflow_target_time": true,
+    "no_old_action_residual": true,
+    "real_video_supervision": true,
+    "no_inherited_visual_initialization": true,
+    "frozen_runtime_hashes": true
+  },
+  "checkpoint_steps": [
+    0,
+    1
+  ],
+  "scope": "initialization/first update and frozen source, not video quality"
+}

@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "at": "2026-10-09T01:06:06.869620+08:00",
+  "sources": {
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-00/stage_c_time_contract/compare_native_time.py": "3d103a3d5b852f4b5764a73f5a3394d41085b798fe8940873a6ffb6e2eb42387",
+    "/home/lpeng/miniconda3/envs/solarwm-h3/lib/python3.10/site-packages/diffusers/models/embeddings.py": "4eb810f715786eb1f24f2a4641e529817f7c951b9caf2f7925811329a03ec796",
+    "/home/lpeng/miniconda3/envs/solarwm-h3/lib/python3.10/site-packages/diffusers/models/transformers/transformer_minimax_h3.py": "1926b1bc15a5bebda05e3dc8cde1b3955d56641ba7f8f9d6e90c8f78c66ae30c"
+  },
+  "extracted_AST_nodes": [
+    "TimestepEmbedding",
+    "Timesteps",
+    "get_timestep_embedding"
+  ],
+  "AST_bodies_modified": false,
+  "native_constructor": "self.time_proj = Timesteps(num_channels=freq_dim, flip_sin_to_cos=True, downscale_freq_shift=0)",
+  "time_values": [
+    0.0,
+    0.06045953184366226,
+    0.125,
+    0.13054828345775604,
+    0.21276593208312988,
+    0.25,
+    0.3105589747428894,
+    0.375,
+    0.42881646752357483,
+    0.5,
+    0.5747126936912537,
+    0.625,
+    0.75,
+    0.7592191100120544,
+    0.875,
+    0.9990000128746033,
+    1.0
+  ],
+  "compared_native_times": 17,
+  "maximum_abs_error": 0.0,
+  "bit_identical": true,
+  "actual_weight_shapes": {
+    "proj_in.weight": [
+      5376,
+      256
+    ],
+    "proj_in.bias": [
+      5376
+    ],
+    "proj_out.weight": [
+      2688,
+      5376
+    ],
+    "proj_out.bias": [
+      2688
+    ]
+  },
+  "scope": "CPU actual native sinusoid and MLP versus DiffSynth port, FP32 initialization only",
+  "transformer_forwards": 0,
+  "optimizer_updates": 0,
+  "C_complete": false
+}

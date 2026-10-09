@@ -1,0 +1,101 @@
+{
+  "scope": "matched full-history train shift12 32-update FM/AnyFlow diagnostic; NOT ACCEPTED",
+  "inputs": [
+    {
+      "action": "A",
+      "label": "Original H3 30 full steps",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39/baseline.mp4",
+      "sha256": "0fd5b9198edb9564657b0b5db235ca72f8f95ce4d88dd4307c460fd5b9efb8f6"
+    },
+    {
+      "action": "A",
+      "label": "FM32 full-history | 4 steps/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/eval/fm/step_32/generated_4step_native/A/cached.mp4",
+      "sha256": "4663815facab0b92ecd39488e8a8e7e992a209a5a292d96614fda6c02a8bbd6f"
+    },
+    {
+      "action": "A",
+      "label": "AnyFlow32 full-history | 4 steps/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-11/stage1_shift12_step32_4step/eval/anyflow/step_32/generated_4step_native/A/cached.mp4",
+      "sha256": "5761b783050bc042b164ec24e4d250ff80ccf189bafad805a377334ba7121c95"
+    },
+    {
+      "action": "D",
+      "label": "Original H3 30 full steps",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39/baseline.mp4",
+      "sha256": "1c420bcc68b98e471b70f1611cdfb6fca14c81e1618b3a5f0d5397e5c02491b5"
+    },
+    {
+      "action": "D",
+      "label": "FM32 full-history | 4 steps/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/eval/fm/step_32/generated_4step_native/D/cached.mp4",
+      "sha256": "978b0a867bcbd61794d503b00ec572fe81cc294282d7f3d273b7f56caa6c98d8"
+    },
+    {
+      "action": "D",
+      "label": "AnyFlow32 full-history | 4 steps/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-11/stage1_shift12_step32_4step/eval/anyflow/step_32/generated_4step_native/D/cached.mp4",
+      "sha256": "7339732bade9da6223cd0c2cb7d98e48c525ec15cecac06a3724ce3ad9dfb041"
+    },
+    {
+      "action": "A",
+      "label": "Original H3 30 full steps",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39/baseline.mp4",
+      "sha256": "0fd5b9198edb9564657b0b5db235ca72f8f95ce4d88dd4307c460fd5b9efb8f6"
+    },
+    {
+      "action": "A",
+      "label": "FM32 full-history | 8 steps/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/eval/fm/step_32/generated_8step_native/A/cached.mp4",
+      "sha256": "c4a29ccf23c291aae9d382c382e0b96e90e23e5c5f0db438a8c1e7a96bb4e0d2"
+    },
+    {
+      "action": "A",
+      "label": "AnyFlow32 full-history | 8 steps/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_shift12_duration64/eval/anyflow/step_32/generated_8step_native/A/cached.mp4",
+      "sha256": "bf4743e985d1ff5bc8d75c7754cd4dc26b4896b6fb50e7eb703144fa4ea75b5f"
+    },
+    {
+      "action": "D",
+      "label": "Original H3 30 full steps",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39/baseline.mp4",
+      "sha256": "1c420bcc68b98e471b70f1611cdfb6fca14c81e1618b3a5f0d5397e5c02491b5"
+    },
+    {
+      "action": "D",
+      "label": "FM32 full-history | 8 steps/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/eval/fm/step_32/generated_8step_native/D/cached.mp4",
+      "sha256": "e15431a0ed6ffbdc16508fe019dcc4748b6c40ce8aec21d523f4837dd0fb8b51"
+    },
+    {
+      "action": "D",
+      "label": "AnyFlow32 full-history | 8 steps/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_shift12_duration64/eval/anyflow/step_32/generated_8step_native/D/cached.mp4",
+      "sha256": "8e3a33863eeccc3d170b8da1a56939ee2b2a192e1d3765b9ea9e5cb519abbcb2"
+    }
+  ],
+  "videos": [
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/report/matched_FM32_AnyFlow32_4step_AD_diagnostic.mp4",
+      "frames": 39,
+      "fps": 24,
+      "sha256": "50bc7270cc6ee86f3232e9627b2137912b641ee2d243480234b906adf3d51228"
+    },
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/report/matched_FM32_AnyFlow32_8step_AD_diagnostic.mp4",
+      "frames": 39,
+      "fps": 24,
+      "sha256": "02977a8006722265c9dc9c0cc1f56bf78abe1a1a4beda9e83888c1b9646622dc"
+    }
+  ],
+  "contact_sheets": [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/report/FM32_A_4step_all39.jpg",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/report/AnyFlow32_A_4step_all39.jpg",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/report/FM32_D_4step_all39.jpg",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/report/AnyFlow32_D_4step_all39.jpg",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/report/FM32_A_8step_all39.jpg",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/report/AnyFlow32_A_8step_all39.jpg",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/report/FM32_D_8step_all39.jpg",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/report/AnyFlow32_D_8step_all39.jpg"
+  ]
+}

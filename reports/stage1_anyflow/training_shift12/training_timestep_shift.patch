@@ -1,0 +1,98 @@
+--- a/code/causal/train_stage1_anyflow.py
++++ b/code/causal/train_stage1_anyflow.py
+@@ -14,6 +14,7 @@
+ from datetime import datetime
+ import hashlib
+ import json
++import math
+ import os
+ from pathlib import Path
+ import sys
+@@ -38,6 +39,16 @@
+     if isinstance(value, dict):
+         return {k: move_tree(v, device) for k, v in value.items()}
+     return value
++
++
++def timestep_shift(args, *, training):
++    """Separate training density from common validation and inference grids."""
++    key = 'training_timestep_shift' if training else 'validation_timestep_shift'
++    shift = getattr(args, key, None)
++    shift = float(args.flow_shift if shift is None else shift)
++    if not math.isfinite(shift) or shift <= 0:
++        raise ValueError(f'{key} must be positive and finite')
++    return shift
+ 
+ 
+ def condition(case, chunk, args):
+@@ -71,7 +82,8 @@
+     start = chunk * args.chunk_frames
+     clean = case['clean'][:, :, start:start + args.chunk_frames]
+     common = condition(case, chunk, args)
+-    pairs = logical_time_pairs(generator, shift=args.flow_shift,
++    sample_shift = timestep_shift(args, training=backward)
++    pairs = logical_time_pairs(generator, shift=sample_shift,
+                                batch_size=args.logical_batch)
+     diffusion_losses, metrics = [], []
+     initial_commits = cache.commits
+@@ -102,7 +114,7 @@
+             with context:
+                 if args.objective == 'anyflow':
+                     raw, weight, item = anyflow_sample_loss(
+-                        velocity, clean, noise, t, r, shift=args.flow_shift,
++                        velocity, clean, noise, t, r, shift=sample_shift,
+                         epsilon=args.finite_difference_epsilon,
+                         preserve_fp32_inputs=args.precision_profile == "h3_fp32")
+                     is_diffusion = bool(pairs.is_diffusion[i])
+@@ -121,7 +133,7 @@
+                     prediction = velocity(noisy, t, t).float()
+                     raw = (prediction - (noise.float() - clean.float())).square().mean()
+                     weight = gaussian_timestep_weights(
+-                        torch.tensor([t * 1000], device=clean.device), shift=args.flow_shift)[0]
++                        torch.tensor([t * 1000], device=clean.device), shift=sample_shift)[0]
+                     value = raw * weight / args.logical_batch
+                     item = dict(sigma=t, target_sigma=t, raw_loss=float(raw.detach()),
+                         weight=float(weight), adaptive_scale=1., sample_type='diffusion',
+@@ -224,11 +236,20 @@
+     ap.add_argument('--action-prefix-mode', choices=['own', 'causal'], default='causal')
+     ap.add_argument('--action-feedback', action=argparse.BooleanOptionalAction, default=True)
+     ap.add_argument('--flow-shift', type=float, default=2.22)
++    ap.add_argument('--training-timestep-shift', type=float,
++                    help='Training time-pair density and Gaussian weight; defaults to --flow-shift')
++    ap.add_argument('--validation-timestep-shift', type=float,
++                    help='Fixed-noise validation time density/weight; defaults to --flow-shift independently of training')
+     ap.add_argument('--finite-difference-epsilon', type=float, default=5.)
+     ap.add_argument('--seed', type=int, default=13)
+     ap.add_argument('--validation-seed', type=int, default=1001)
+     ap.add_argument('--validation-cases', type=int, default=2)
+     args = ap.parse_args()
++    try:
++        timestep_shift(args, training=True)
++        timestep_shift(args, training=False)
++    except ValueError as exc:
++        ap.error(str(exc))
+     if args.logical_batch < 4 or args.logical_batch % 4 or min(args.steps, args.checkpoint_every, args.chunk_frames, args.history_chunks, args.validation_cases) < 1:
+         ap.error('Invalid steps/chunks/checkpoint interval or logical batch (must be 4k)')
+     if min(args.lr, args.flow_shift, args.finite_difference_epsilon, args.rank, args.tail_blocks, args.bank_rank, args.bank_alpha) <= 0:
+@@ -254,6 +275,9 @@
+         objective='TF-AnyFlow v1.5' if args.objective == 'anyflow' else 'TF-FM control',
+         scope='random-small-H3 CPU integration' if args.smoke else 'pretrained-H3 clean teacher history',
+         config=config, resumed_from=str(args.resume_from) if resume else None,
++        time_sampling=dict(training_shift=timestep_shift(args, training=True),
++                           validation_shift=timestep_shift(args, training=False),
++                           inference_flow_shift=args.flow_shift),
+         resumed_optimizer_step=start_step,
+         history_protocol=('clean pseudo-GT from original H3; differentiable CPU history rebuilt per gradient prediction; detached no-grad targets'
+             if args.history_gradient_mode == 'full' else
+--- a/code/causal/training_state.py
++++ b/code/causal/training_state.py
+@@ -34,7 +34,8 @@
+     config.setdefault('precision_profile', 'legacy')
+     compare_old = dict(old)
+     compare_old.setdefault('precision_profile', 'legacy')
+-    for key,value in [('adapter_scope','tail_qkv'),('bank_rank',8),('bank_alpha',8.),('history_gradient_mode','detached')]:
++    for key,value in [('adapter_scope','tail_qkv'),('bank_rank',8),('bank_alpha',8.),('history_gradient_mode','detached'),
++                      ('training_timestep_shift',None),('validation_timestep_shift',None)]:
+         config.setdefault(key,value);compare_old.setdefault(key,value)
+     mismatches = [k for k in set(config) | set(old)
+                   if k not in mutable and config.get(k) != compare_old.get(k)]

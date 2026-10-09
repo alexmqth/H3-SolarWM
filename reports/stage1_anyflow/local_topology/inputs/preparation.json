@@ -1,0 +1,244 @@
+{
+  "status": "complete",
+  "pid": 2017482,
+  "gpu": 1,
+  "started_at": "2026-10-09T04:06:10.202182+08:00",
+  "histories": {
+    "A": {
+      "source_latents": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39/baseline_latents.pt",
+      "source_sha256": "30bebc3ea571d4e7e79a7799d01edd53befe0c62af42c375ba0fdcdd6ea7a066",
+      "history_sha256": "0b330d4f49f6f59accdf8c1811e726e18ed81d05914283c69992a3652e9eb3e5",
+      "noise_sha256": "cbaa0d3e9806ad049ebb2fc171a533d108019902d8a50790460df8d852a7b182",
+      "audio_sha256": "3bbd1669f83dc2ba7e6ceca1bf2ef215e305116311a846f93e5f218378eadcc7",
+      "anchor_sha256": [
+        "4114c3008f3299bd5dfedfb10961cf6bd222ea08980534f4db05c9acea15cd36",
+        "c9f8cb6acb0210863d348ce9c741ade5a5be7b4d055eb35a4e11e6795b4fc0a3",
+        "c0e4b6e56fc684c96f79e1611d35cf44afe609065d8aca69b90403054481c3c9"
+      ],
+      "future_actions_not_required_by_runtime": true
+    },
+    "D": {
+      "source_latents": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39/baseline_latents.pt",
+      "source_sha256": "b6e4aa534a4e86dd4875da3e2d920446af78ceffd5cac716b023590c0d677f96",
+      "history_sha256": "81230767865a2662ac8fc600973115dddbade78979cfb7254928fea5897c6290",
+      "noise_sha256": "cbaa0d3e9806ad049ebb2fc171a533d108019902d8a50790460df8d852a7b182",
+      "audio_sha256": "3bbd1669f83dc2ba7e6ceca1bf2ef215e305116311a846f93e5f218378eadcc7",
+      "anchor_sha256": [
+        "4114c3008f3299bd5dfedfb10961cf6bd222ea08980534f4db05c9acea15cd36",
+        "2691a25846d83705aca742f6cedd3c45e604bb8136ec62d8bdd101fddfb52b91",
+        "f734066a2f5bca8cf954adc13113a12f8e5c598c3e0bdfa06c1200ee2f523feb"
+      ],
+      "future_actions_not_required_by_runtime": true
+    }
+  },
+  "encoder_audit": [
+    {
+      "clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+      "rgb_stop": 17,
+      "latent_stop": 5,
+      "historical_latent_max_abs": 0.0,
+      "historical_latent_mean_abs": 0.0,
+      "source_sha256": "5a4338d3d07da6594d35cd614226da99f8347535df69dea8755752ee48067fa8"
+    },
+    {
+      "clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+      "rgb_stop": 34,
+      "latent_stop": 10,
+      "historical_latent_max_abs": 0.0,
+      "historical_latent_mean_abs": 0.0,
+      "source_sha256": "5a4338d3d07da6594d35cd614226da99f8347535df69dea8755752ee48067fa8"
+    },
+    {
+      "clip": "dfec8ed3237860eba14d67c089ecd041_D_1750",
+      "rgb_stop": 17,
+      "latent_stop": 5,
+      "historical_latent_max_abs": 0.0,
+      "historical_latent_mean_abs": 0.0,
+      "source_sha256": "14f1391d3a0911d189aaab2db8fbcec0e0d24672612dab9ec634c57f475dcbc2"
+    },
+    {
+      "clip": "dfec8ed3237860eba14d67c089ecd041_D_1750",
+      "rgb_stop": 34,
+      "latent_stop": 10,
+      "historical_latent_max_abs": 0.0,
+      "historical_latent_mean_abs": 0.0,
+      "source_sha256": "14f1391d3a0911d189aaab2db8fbcec0e0d24672612dab9ec634c57f475dcbc2"
+    }
+  ],
+  "decoder_audit": [
+    {
+      "reference": "A",
+      "latent_stop": 5,
+      "frames": 17,
+      "prefix_vs_full_max_abs": 0.435546875,
+      "prefix_vs_full_mean_abs": 0.003967998083680868,
+      "per_frame_mean_abs": [
+        0.003250610549002886,
+        0.0035084006376564503,
+        0.003156491322442889,
+        0.0032634437084198,
+        0.0028340823482722044,
+        0.0033159619197249413,
+        0.003360611852258444,
+        0.0034105214290320873,
+        0.0032285964116454124,
+        0.003869303734973073,
+        0.003890607738867402,
+        0.003930994775146246,
+        0.003944190684705973,
+        0.005375429522246122,
+        0.005433188751339912,
+        0.005820265505462885,
+        0.005863269791007042
+      ],
+      "interpretation": "Full decode may revise earlier RGB. Prefix decode uses no unavailable tokens."
+    },
+    {
+      "reference": "A",
+      "latent_stop": 10,
+      "frames": 34,
+      "prefix_vs_full_max_abs": 0.416015625,
+      "prefix_vs_full_mean_abs": 0.002008317271247506,
+      "per_frame_mean_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0007142979884520173,
+        0.0014281445182859898,
+        0.002130487933754921,
+        0.002498842775821686,
+        0.004035979509353638,
+        0.004139308352023363,
+        0.004122377838939428,
+        0.003678319277241826,
+        0.005248114001005888,
+        0.0048239692114293575,
+        0.004784097895026207,
+        0.004378287121653557,
+        0.006698785349726677,
+        0.006592965684831142,
+        0.006555983331054449,
+        0.006452825851738453
+      ],
+      "interpretation": "Full decode may revise earlier RGB. Prefix decode uses no unavailable tokens."
+    },
+    {
+      "reference": "A",
+      "intervention": "future_latent_frames_5_plus",
+      "earlier_rgb_max_abs": 0.517578125,
+      "earlier_rgb_mean_abs": 0.007269053719937801
+    },
+    {
+      "reference": "D",
+      "latent_stop": 5,
+      "frames": 17,
+      "prefix_vs_full_max_abs": 0.2685546875,
+      "prefix_vs_full_mean_abs": 0.0040161097422242165,
+      "per_frame_mean_abs": [
+        0.0033039040863513947,
+        0.003674740670248866,
+        0.0033199007157236338,
+        0.0035566671285778284,
+        0.0031228484585881233,
+        0.003623946802690625,
+        0.0034908356610685587,
+        0.003585241502150893,
+        0.0033824164420366287,
+        0.004053396638482809,
+        0.00407444778829813,
+        0.00406170217320323,
+        0.0038420481141656637,
+        0.005079214461147785,
+        0.005242565181106329,
+        0.0053442236967384815,
+        0.005515764933079481
+      ],
+      "interpretation": "Full decode may revise earlier RGB. Prefix decode uses no unavailable tokens."
+    },
+    {
+      "reference": "D",
+      "latent_stop": 10,
+      "frames": 34,
+      "prefix_vs_full_max_abs": 0.27734375,
+      "prefix_vs_full_mean_abs": 0.0018044388853013515,
+      "per_frame_mean_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0006683398387394845,
+        0.0012782480334863067,
+        0.002046501962468028,
+        0.0023700741585344076,
+        0.003529890673235059,
+        0.0035306401550769806,
+        0.0037169689312577248,
+        0.003146448405459523,
+        0.004411132540553808,
+        0.00421907426789403,
+        0.0042563313618302345,
+        0.003761333180591464,
+        0.006302961613982916,
+        0.006230153143405914,
+        0.006204254925251007,
+        0.005678566638380289
+      ],
+      "interpretation": "Full decode may revise earlier RGB. Prefix decode uses no unavailable tokens."
+    },
+    {
+      "reference": "D",
+      "intervention": "future_latent_frames_5_plus",
+      "earlier_rgb_max_abs": 0.470703125,
+      "earlier_rgb_mean_abs": 0.007046237122267485
+    }
+  ],
+  "files": {
+    "parking_A.pt": "0aa3dbdb0360af96b1b13887ac0639439d7c56ddf19cc8536ec2f52243bd52f6",
+    "parking_D.pt": "07d77cd422cdda78cafa66b49211c706770cc64819579280807094d970c0cd69"
+  },
+  "source_sha256": {
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-04/stage1_local_topology/prepare.py": "b46121192632d72f3d5da9bf989d97f5293f0bbb418267f769e1c1ee3194aacd"
+  },
+  "scope": "Freeze parking A/D inputs and audit real VAE temporal dependencies.\n\nOnly the released VAE is loaded. No DiT training, no text encoding/download.\nParking histories are Original-generated, explicitly not dataset GT.\n",
+  "wall_seconds": 55.22486473619938,
+  "vae_configuration": {
+    "clip_length": 17,
+    "tokens_chunk_size": 5,
+    "token_drop": 3,
+    "token_overlap": 2,
+    "frame_overlap": 5,
+    "frame_pre_padding": 3
+  },
+  "GPU_peak_MiB": 7518.8642578125,
+  "decoder_policy": "Decode available prefix after each chunk, append only new RGB; never revise emitted frames",
+  "encoder_future_checks_passed": true
+}

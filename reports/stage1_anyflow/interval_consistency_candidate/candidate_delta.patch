@@ -1,0 +1,79 @@
+--- original/train_stage1_anyflow.py
++++ candidate/train_stage1_anyflow.py
+@@ -150,11 +150,22 @@
+                       f"type={item['sample_type']} raw={item['raw_loss']:.6f} "
+                       f"weighted={item['weighted_loss']:.6f}", flush=True)
+             del value, raw, noise
++        auxiliary = None
++        if args.interval_consistency_weight:
++            from causal.finite_interval_consistency import interval_consistency_loss
++            with (nullcontext() if backward else torch.no_grad()):
++                aux_raw, auxiliary = interval_consistency_loss(velocity, case, chunk, args)
++                aux_weighted = args.interval_consistency_weight * aux_raw
++                if backward:
++                    aux_weighted.backward()
++            auxiliary['weighted_loss'] = float(aux_weighted.detach())
+         if cache.commits != initial_commits:
+             raise RuntimeError('Loss evaluations unexpectedly mutated the clean-history cache')
+         return dict(action=case['label'], chunk=chunk, samples=metrics,
+-            loss=sum(x['weighted_loss'] for x in metrics) / len(metrics),
+-            model_evaluations=sum(x['model_evaluations'] for x in metrics),
++            base_anyflow_loss=sum(x['weighted_loss'] for x in metrics) / len(metrics),
++            interval_consistency=auxiliary,
++            loss=sum(x['weighted_loss'] for x in metrics) / len(metrics) + (auxiliary['weighted_loss'] if auxiliary else 0.),
++            model_evaluations=sum(x['model_evaluations'] for x in metrics)+(1 if auxiliary else 0),
+             clean_commit_forwards=chunk, differentiable_history_forwards=graph_forwards,
+             cpu_kv_peak_MiB=combined_cpu_kv_peak / 2**20)
+     finally:
+@@ -213,6 +224,8 @@
+     ap.add_argument('--actions', nargs='+', default=['A', 'D'])
+     ap.add_argument('--causal-adapter', type=Path)
+     ap.add_argument('--action-adapter', type=Path)
++    ap.add_argument('--interval-consistency-weight', type=float, default=0.)
++    ap.add_argument('--interval-reference-dir', type=Path)
+     ap.add_argument('--objective', choices=['anyflow', 'fm'], default='anyflow')
+     ap.add_argument('--precision-profile', choices=['legacy', 'h3_fp32'], default='legacy')
+     ap.add_argument('--adapter-scope', choices=['tail_qkv','all_qkvo_ffn'], default='tail_qkv')
+@@ -262,6 +275,10 @@
+         args.device, args.anchor_mode = 'cpu', 'fixed'
+     if (args.out_dir / 'training.json').exists():
+         ap.error('Output already contains a run; choose a new experiment directory')
++    if not math.isfinite(args.interval_consistency_weight) or args.interval_consistency_weight < 0:
++        ap.error('Interval consistency weight must be nonnegative')
++    if args.interval_consistency_weight and (args.objective != 'anyflow' or args.interval_reference_dir is None):
++        ap.error('Interval consistency requires AnyFlow and a completed frozen reference')
+     config = serialize_config(args)
+     resume = load_training_state(args.resume_from, config) if args.resume_from else None
+     start_step = resume['optimizer_step'] if resume else 0
+@@ -274,6 +291,9 @@
+     result = dict(status='running', started_at=datetime.now().astimezone().isoformat(),
+         objective='TF-AnyFlow v1.5' if args.objective == 'anyflow' else 'TF-FM control',
+         scope='random-small-H3 CPU integration' if args.smoke else 'pretrained-H3 clean teacher history',
++        objective_extension=dict(name='frozen diagonal finite-interval consistency auxiliary',
++            weight=args.interval_consistency_weight, reference_dir=str(args.interval_reference_dir),
++            official_recipe=False, reference_is_ground_truth=False),
+         config=config, resumed_from=str(args.resume_from) if resume else None,
+         time_sampling=dict(training_shift=timestep_shift(args, training=True),
+                            validation_shift=timestep_shift(args, training=False),
+@@ -391,7 +411,7 @@
+         generator = torch.Generator().manual_seed(args.seed + 10000)
+         def checkpoint(directory):
+             directory.mkdir(parents=True, exist_ok=True)
+-            metadata = {k: result[k] for k in ('objective', 'scope', 'config', 'history_protocol', 'velocity_convention', 'precision')}
++            metadata = {k: result[k] for k in ('objective', 'scope', 'config', 'history_protocol', 'velocity_convention', 'precision', 'objective_extension')}
+             metadata['optimizer_step'] = len(result['updates'])
+             save_adapters(directory / 'causal_adapter.pt', adapters, indices, metadata)
+             if bank is not None:
+--- original/training_state.py
++++ candidate/training_state.py
+@@ -28,7 +28,9 @@
+         raise ValueError('Checkpoint update history does not match its optimizer step')
+     # Everything affecting data, noise, model, loss and Adam is fixed on an
+     # exact continuation. A changed LR/objective is a separate experiment.
+-    mutable = {'out_dir', 'steps', 'checkpoint_every', 'resume_from', 'device'}
++    # Explicit isolated objective fork: preserve weights/Adam/RNG, permit only auxiliary settings.
++    mutable = {'out_dir', 'steps', 'checkpoint_every', 'resume_from', 'device',
++               'interval_consistency_weight', 'interval_reference_dir'}
+     old = state['config']
+     config = dict(config)
+     config.setdefault('precision_profile', 'legacy')

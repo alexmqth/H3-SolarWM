@@ -1,0 +1,168 @@
+--- a/code/causal/benchmark.py
++++ b/code/causal/benchmark.py
+@@ -159,8 +159,9 @@
+     args = ap.parse_args()
+     if args.precision_profile != 'legacy' and args.modes != ['cached']:
+         ap.error('FP32 prototype currently requires --modes cached')
+-    if args.stage1_lora and (not args.anyflow_adapter or not args.causal_adapter):
+-        ap.error('Full-scope Stage1 bank requires matching AnyFlow and frozen visual checkpoints')
++    if args.stage1_lora and (not args.causal_adapter or args.modes != ['cached']
++                            or args.causal_adapter_scope != 'all'):
++        ap.error('Full-scope Stage1 bank requires its frozen visual checkpoint, cached mode and all scope')
+     if args.anyflow_adapter and (args.modes != ['cached'] or args.causal_adapter_scope != 'all'):
+         ap.error('AnyFlow requires --modes cached and --causal-adapter-scope all')
+     if args.anyflow_sigma_grid == 'uniform' and not args.anyflow_adapter:
+@@ -263,17 +264,15 @@
+         # score field used to generate the current chunk.
+         set_causal_adapter_enabled(args.causal_adapter_scope == 'all')
+         action_adapter = None
+-        if args.anyflow_adapter:
+-            full_scope = anyflow_metadata['config'].get('adapter_scope','tail_qkv') == 'all_qkvo_ffn'
++        bank_metadata = None
++        if args.causal_adapter:
++            full_scope = loaded_causal.get('metadata', {}).get('config', {}).get('adapter_scope') == 'all_qkvo_ffn'
+             if full_scope != bool(args.stage1_lora):
+                 raise ValueError('Checkpoint requires its matching full-scope Stage1 adapter bank')
+         if args.stage1_lora:
+             from causal.stage1_lora import load_stage1_lora
+             bank, bank_metadata = load_stage1_lora(pipe.dit,args.stage1_lora,device=args.device)
+             validate_precision_checkpoint(bank_metadata, setup['precision'])
+-            if (bank_metadata['config'] != anyflow_metadata['config']
+-                    or bank_metadata['optimizer_step'] != anyflow_metadata['optimizer_step']):
+-                raise ValueError('Stage1 bank and AnyFlow time checkpoints differ')
+             for parameter in bank.parameters():
+                 parameter.requires_grad_(False)
+             setup['stage1_lora'] = dict(path=str(args.stage1_lora), **bank.describe())
+@@ -286,6 +285,11 @@
+                 'block_indices': loaded_action['block_indices'],
+                 'metadata': loaded_action['metadata'],
+             }
++        if args.causal_adapter:
++            from causal.stage1_protocol import validate_stage1_protocol
++            validate_stage1_protocol(loaded_causal.get('metadata', {}), bank_metadata,
++                loaded_action['metadata'] if args.causal_action_adapter else None,
++                anyflow_metadata if args.anyflow_adapter else None, vars(args))
+         action_prefix_adapter = None
+         if args.causal_action_prefix_adapter:
+             from causal.pretrained_lora import load_action_prefix_residual
+--- a/code/causal/stage1_protocol.py
++++ b/code/causal/stage1_protocol.py
+@@ -0,0 +1,33 @@
++"""Require one coherent full-scope checkpoint for either FM or AnyFlow."""
++
++
++def validate_stage1_protocol(visual, bank, action, time, inference):
++    config = visual.get('config', {})
++    full = config.get('adapter_scope') == 'all_qkvo_ffn'
++    if full != (bank is not None):
++        raise ValueError('Checkpoint requires its matching full-scope Stage1 bank')
++    if not full:
++        return
++    objective = visual.get('objective')
++    if objective not in ('TF-FM control', 'TF-AnyFlow v1.5'):
++        raise ValueError('Unsupported full-scope training objective')
++    if (objective == 'TF-AnyFlow v1.5') != (time is not None):
++        raise ValueError('Target-time module must match the training objective')
++    if bool(config.get('action_adapter')) != (action is not None):
++        raise ValueError('Full-scope inference requires the matching action checkpoint')
++    for label, metadata in [('bank', bank), ('action', action), ('time', time)]:
++        if metadata is None:
++            continue
++        for key in ('objective', 'optimizer_step', 'config', 'precision'):
++            if metadata.get(key) != visual.get(key):
++                raise ValueError(f'Stage1 {label}/{key} checkpoint mismatch')
++    aliases = {'fixed': 'fixed', 'latent': 'dynamic_last_frame_dual',
++               'rgb': 'dynamic_last_frame_rgb_dual'}
++    expected = dict(anchor_mode=aliases[config['anchor_mode']],
++        chunk_frames=config['chunk_frames'], history_chunks=config['history_chunks'],
++        action_prefix_mode=config['action_prefix_mode'], action_feedback=config['action_feedback'],
++        flow_shift=config['flow_shift'], precision_profile=config['precision_profile'],
++        modes=['cached'], causal_adapter_scope='all')
++    for key, value in expected.items():
++        if inference.get(key) != value:
++            raise ValueError(f'Stage1 {key} mismatch: trained={value}, inference={inference.get(key)}')
+--- a/tests/test_stage1_lora.py
++++ b/tests/test_stage1_lora.py
+@@ -16,8 +16,9 @@
+ from diffsynth.core.vram.layers import AutoWrappedLinear
+ 
+ 
++@pytest.mark.parametrize('anyflow', [False, True])
+ @pytest.mark.parametrize('dtype', [torch.float32, torch.bfloat16])
+-def test_full_scope_preserves_initial_video_rng_frozen_base_and_roundtrip(tmp_path, dtype):
++def test_full_scope_preserves_initial_video_rng_frozen_base_and_roundtrip(tmp_path, dtype, anyflow):
+     torch.set_num_threads(2)
+     torch.manual_seed(81)
+     model = make_small_h3().eval().to(dtype).requires_grad_(False)
+@@ -36,14 +37,15 @@
+             adapter.lora_B.normal_(std=.02)
+     model.requires_grad_(False)
+     configure_precision(model, 'h3_fp32')
+-    install_anyflow(model).requires_grad_(False)
++    if anyflow:
++        install_anyflow(model).requires_grad_(False)
+     fresh = copy.deepcopy(model)
+     original = {id(p): p.detach().clone() for p in model.parameters()}
+     b = synthetic_h3_batch(frames=7, seed=99)
+     common = dict(full_packed=b['packed'], prompt=b['prompt_embeds'].to(dtype),
+         anchor=b['anchor_rows'].to(dtype), audio=b['audio_latents'].to(dtype), chunk_frames=5)
+     def forward(model, cache, *, grad=False):
+-        return chunk_forward(model, b['noise'][:,:,5:], sigma=.7, target_sigma=.2,
++        return chunk_forward(model, b['noise'][:,:,5:], sigma=.7, target_sigma=.2 if anyflow else None,
+             index=1, cache=cache, allow_grad_read=grad,
+             use_gradient_checkpointing=grad, **common)
+     def history(model):
+--- a/tests/test_stage1_protocol.py
++++ b/tests/test_stage1_protocol.py
+@@ -0,0 +1,51 @@
++import copy
++from pathlib import Path
++import sys
++
++import pytest
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'code'))
++from causal.stage1_protocol import validate_stage1_protocol
++
++
++def fixture(anyflow):
++    config = dict(adapter_scope='all_qkvo_ffn', action_adapter='initial_action.pt',
++        anchor_mode='rgb', chunk_frames=5, history_chunks=5, action_prefix_mode='causal',
++        action_feedback=True, flow_shift=2.22, precision_profile='h3_fp32')
++    visual = dict(objective='TF-AnyFlow v1.5' if anyflow else 'TF-FM control',
++        optimizer_step=16, config=config, precision={'profile':'h3_fp32'})
++    inference = dict(config, anchor_mode='dynamic_last_frame_rgb_dual',
++                     modes=['cached'], causal_adapter_scope='all')
++    return [visual, copy.deepcopy(visual), copy.deepcopy(visual),
++            copy.deepcopy(visual) if anyflow else None, inference]
++
++
++@pytest.mark.parametrize('anyflow', [False, True])
++def test_matching_bank_and_objective_accepted(anyflow):
++    validate_stage1_protocol(*fixture(anyflow))
++
++
++@pytest.mark.parametrize('anyflow', [False, True])
++@pytest.mark.parametrize('mutation', ['no_bank', 'no_action', 'wrong_time', 'other_step',
++    'other_training', 'other_objective', 'wrong_precision', 'other_anchor', 'no_feedback'])
++def test_cannot_silently_omit_bank_or_mix_protocol(anyflow, mutation):
++    args = fixture(anyflow)
++    if mutation == 'no_bank': args[1] = None
++    if mutation == 'no_action': args[2] = None
++    if mutation == 'wrong_time': args[3] = None if anyflow else copy.deepcopy(args[0])
++    if mutation == 'other_step': args[1]['optimizer_step'] = 4
++    if mutation == 'other_training': args[2]['config']['flow_shift'] = 12.
++    if mutation == 'other_objective': args[1]['objective'] = 'unknown'
++    if mutation == 'wrong_precision': args[1]['precision']['profile'] = 'legacy'
++    if mutation == 'other_anchor': args[4]['anchor_mode'] = 'fixed'
++    if mutation == 'no_feedback': args[4]['action_feedback'] = False
++    with pytest.raises(ValueError):
++        validate_stage1_protocol(*args)
++
++
++def test_old_tail_scope_keeps_its_separate_validation_path():
++    validate_stage1_protocol({}, None, None, None, {})
++    args = fixture(False)
++    args[0]['config']['adapter_scope'] = 'tail_qkv'
++    with pytest.raises(ValueError):
++        validate_stage1_protocol(*args)

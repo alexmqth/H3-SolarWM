@@ -1,0 +1,59 @@
+{
+  "status": "failed",
+  "at": "2026-10-09T00:55:28.213223+08:00",
+  "scope": "actual FP32 time weights; production preprocessing intercepted before transformer",
+  "GPU_forwards": 0,
+  "transformer_forwards": 0,
+  "optimizer_updates": 0,
+  "C_complete": false,
+  "trained_diagonal_preservation": "not measured",
+  "records": [],
+  "time_weights": {
+    "proj_in.weight": {
+      "shape": [
+        5376,
+        256
+      ],
+      "dtype": "torch.float32",
+      "sha256": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913"
+    },
+    "proj_in.bias": {
+      "shape": [
+        5376
+      ],
+      "dtype": "torch.float32",
+      "sha256": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7"
+    },
+    "proj_out.weight": {
+      "shape": [
+        2688,
+        5376
+      ],
+      "dtype": "torch.float32",
+      "sha256": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154"
+    },
+    "proj_out.bias": {
+      "shape": [
+        2688
+      ],
+      "dtype": "torch.float32",
+      "sha256": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c"
+    }
+  },
+  "released_action_lora_time_keys": [],
+  "sources": {
+    "H3-World/outputs/2026-10-09-00/stage_c_time_contract/audit_time_contract.py": "d48a8568800485cba5a7eed50f04ec6b93c5304037bd9e254ceaecd104dc0da6",
+    "SolarWM/src/solarwm/backends/minimax_h3/anyflow_conditioning.py": "7c85d26c0e2e22606162256288730dbc126fb2464802e400eb27c98f14c9c64d",
+    "H3-World/code/causal/anyflow.py": "27b6eb22d16b6047642269604f1ddf249d8ab602fa5c8593b240144c48abc805",
+    "H3-World/code/causal/anyflow_sampling.py": "9e4202bb00e528115901bc07975d0ef78f3fc1cc91190aa58bfd19ade4ecfd46",
+    "H3-World/code/causal/h3_cached.py": "629f8f26d912c188d7d7122c6106ff742f5b2a633dab5881acbb1eb5f77c806e",
+    "H3-World/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b",
+    "H3-World/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py": "68e9cb9336590fae7c53f2fac83c09aaf8d03fba1776777383a2b924eee40e38"
+  },
+  "data_source": {
+    "clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+    "encoded_sha256": "b1b036fab5050c90fd496684af112a9f70eddc9104e1cfa070e4c8df4df263ba"
+  },
+  "error": "IndexError('index_copy_(): Number of indices (1560) should be equal to source.size(dim) (1950)')",
+  "wall_seconds": 0.33203687984496355
+}

@@ -1,0 +1,57 @@
+{
+  "at": "2026-10-08T15:16:49.584261+08:00",
+  "rows": [
+    {
+      "action": "A",
+      "conditioning": {
+        "prompt_embeds": true,
+        "anchor": true,
+        "initial_noise": true,
+        "audio_noise": true,
+        "packed:img_pos": true,
+        "packed:audio_pos": true,
+        "packed:text_pos": true,
+        "packed:img_position_ids": true,
+        "packed:token_tags": true,
+        "packed:cu_seqlens": true,
+        "packed:action_text_rows": true
+      },
+      "actual_integration_sigma_pairs_equal": true,
+      "actual_diagonal_model_condition": true,
+      "noisy_forwards": 24,
+      "clean_commits": 3,
+      "checkpoint_hashes": {
+        "causal_adapter.pt": "bc2a0c4a269235a731aa26a464e3809601e84d1816c991232fe6c721f608a1f0",
+        "action_adapter.pt": "0b022fdf7d72d795248dca69cffa28626726d544b21660f54dfa2c8d6e3a0b8b",
+        "stage1_lora.pt": "df0fe04d0311eced0510f5242753c6de8d485c44351d158332f550d705387424",
+        "anyflow_adapter.pt": "c00cfd923323ea17261d3e0c67d686aa98ce520d8cc738acdc7a43665962cbc1"
+      }
+    },
+    {
+      "action": "D",
+      "conditioning": {
+        "prompt_embeds": true,
+        "anchor": true,
+        "initial_noise": true,
+        "audio_noise": true,
+        "packed:img_pos": true,
+        "packed:audio_pos": true,
+        "packed:text_pos": true,
+        "packed:img_position_ids": true,
+        "packed:token_tags": true,
+        "packed:cu_seqlens": true,
+        "packed:action_text_rows": true
+      },
+      "actual_integration_sigma_pairs_equal": true,
+      "actual_diagonal_model_condition": true,
+      "noisy_forwards": 24,
+      "clean_commits": 3,
+      "checkpoint_hashes": {
+        "causal_adapter.pt": "bc2a0c4a269235a731aa26a464e3809601e84d1816c991232fe6c721f608a1f0",
+        "action_adapter.pt": "0b022fdf7d72d795248dca69cffa28626726d544b21660f54dfa2c8d6e3a0b8b",
+        "stage1_lora.pt": "df0fe04d0311eced0510f5242753c6de8d485c44351d158332f550d705387424",
+        "anyflow_adapter.pt": "c00cfd923323ea17261d3e0c67d686aa98ce520d8cc738acdc7a43665962cbc1"
+      }
+    }
+  ]
+}

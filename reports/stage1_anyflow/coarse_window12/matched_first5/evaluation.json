@@ -1,0 +1,235 @@
+{
+  "status": "complete_pending_visual_review",
+  "scope": "E1 Original-weight visible-window A/D forks with native time and single I0.\n\nDefault: three 12-latent current windows from fixed full37 reference histories.\n--first5: one matched first-window control with identical full37 inputs.\nBoth are local oracle tests, not autonomous free rollout or Stage1 acceptance.\n",
+  "variant": "matched_first5",
+  "pid": 3450180,
+  "start_ticks": "257340963",
+  "gpu": 4,
+  "started_at": "2026-10-09T05:22:15.145369+08:00",
+  "history_reference": "A",
+  "history_kind": "Original_generated_reference_not_GT",
+  "optimizer_updates": 0,
+  "weights": "Original H3 + released action LoRA only",
+  "source_sha256": "3db7d36f2fa732e1429dc3f978a07cf80ac687d38dc18991614d52a4016c5f09",
+  "runtime_manifest_sha256": "a06d0dcc5cfa49ed6d745dea2d49128464fd1465e08ff3b3ed3df2937b82ff19",
+  "input_sha256": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572",
+  "preparation_sha256": "7cb44a4ac7c302b4f7abddf39867828b4c4a23057e8662b6aabf9b385587b0e1",
+  "protocol_sha256": "78f1b0f50a25a299a33d22fc8ab32760990e211350eec5f056708ad345b0318f",
+  "launch_protocol_sha256": "d7b3a79ec42d7f1e2cd96f3e1aa31a2c30d26c5e0eb04c2496e0091fdb9d7d9c",
+  "single_anchor_variant_sha256": "531e3ebc4ca2218666dfa970e56c508e8c06ab2096b523f6cdfee8bcf93eb4d7",
+  "prefix_variant_sha256": "f5c7b3c34047e5edfa18acdf5c8986355426b5c1d12f6b532f7d6dc9582a8815",
+  "steps_per_window": 30,
+  "current_window_latents": 5,
+  "history_cap_windows": 5,
+  "precision": "h3_fp32",
+  "anchor": "original I0 at original coordinates",
+  "prefix_time": "native1-sigma",
+  "audio": "fixed noise at native0",
+  "position_contract": "frozen action-content-independent full37 coordinates; future rows physically deleted",
+  "denoiser_forwards": 60,
+  "diagnostic_forwards": 3,
+  "clean_commits": 0,
+  "cpu_KV_MiB": 0,
+  "window_policy": "recompute all visible history/prefix each sigma; raw history immutable",
+  "timing_scope": "single shared-host run with cached conditioning; not latency/speedup benchmark",
+  "rgb_bounds": [
+    0,
+    17
+  ],
+  "preflight": {
+    "repeat_max_abs": 0.0,
+    "first_window_T1_T2_max_abs": 0.0,
+    "first_window_T1_T2_relative_rms": 0.0,
+    "note": "Split versus whole SDPA can round differently; predeclared2%RMS guard"
+  },
+  "records": [
+    {
+      "window": 0,
+      "action": "A",
+      "latent_range": [
+        0,
+        5
+      ],
+      "rgb_range": [
+        0,
+        17
+      ],
+      "initial_noise_sha256": "d8b124448dc5d358a445481dd505ed67225fee1763eebc1e1137f055226df2db",
+      "history_sha256": "757c6445aed8fa6311f3c313cd5551658a528c09caa86dc76c16ddeccc957d1c",
+      "endpoint_sha256": "823da9bdcb95ec17d03ba496939779fe4cb6f4bf0f0c1cb51397fc2dba770c6f",
+      "prompt_sha256": "f22a3f7ec7cba35f30f7948bc503108d704584999d1f437b0d1754486e2a5edd",
+      "anchor_sha256": "fc127dbd0e5fd519298eae191f867fa0889a4bb9bbabd6f1adb5ede7cfe0f23b",
+      "visible_action_frames": 5,
+      "layout_positions_sha256": "428427bbf638a562012b595a6dce9586151e4047cf825fbf87a32bbbd72af929",
+      "sampling_seconds": 100.91015541087836,
+      "GPU_peak_MiB": 26241.4267578125,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-05/stage1_coarse_window12/matched_first5/window0_A.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": -1.1689114840701222,
+          "median": -1.0033710598945618,
+          "p05": -2.260867118835449,
+          "p95": -0.1534981019794941,
+          "mean_abs": 1.1689114840701222
+        },
+        "vertical_flow_px": {
+          "mean": 0.25020121852867305,
+          "median": 0.22962545603513718,
+          "p05": 0.03140630852431059,
+          "p95": 0.4670875445008278,
+          "mean_abs": 0.25020121852867305
+        },
+        "flow_magnitude_px": {
+          "mean": 1.3386896857991815,
+          "median": 1.1029882729053497,
+          "p05": 0.1779121719300747,
+          "p95": 2.452476143836975,
+          "mean_abs": 1.3386896857991815
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "video_sha256": "1cf97eedc44496468b94c6cc42142dda91c1ddb665c209d053b364206696aef0",
+      "frame_gray_MAD": 3.8857040405273438
+    },
+    {
+      "window": 0,
+      "action": "D",
+      "latent_range": [
+        0,
+        5
+      ],
+      "rgb_range": [
+        0,
+        17
+      ],
+      "initial_noise_sha256": "d8b124448dc5d358a445481dd505ed67225fee1763eebc1e1137f055226df2db",
+      "history_sha256": "757c6445aed8fa6311f3c313cd5551658a528c09caa86dc76c16ddeccc957d1c",
+      "endpoint_sha256": "2f1dbb38af7b3c32113a413f739bddf6172e66c5ba7e9771fb88c32ee82f945a",
+      "prompt_sha256": "0253050d06e7c65d588884eded9932cafce65f0c515702a38679b96576fa694d",
+      "anchor_sha256": "fc127dbd0e5fd519298eae191f867fa0889a4bb9bbabd6f1adb5ede7cfe0f23b",
+      "visible_action_frames": 5,
+      "layout_positions_sha256": "428427bbf638a562012b595a6dce9586151e4047cf825fbf87a32bbbd72af929",
+      "sampling_seconds": 100.75461843097582,
+      "GPU_peak_MiB": 26242.14111328125,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-05/stage1_coarse_window12/matched_first5/window0_D.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": -1.1740905232727528,
+          "median": -0.9936281144618988,
+          "p05": -2.114593744277954,
+          "p95": -0.4088533893227577,
+          "mean_abs": 1.1740905232727528
+        },
+        "vertical_flow_px": {
+          "mean": 0.24566361075267196,
+          "median": 0.24175343662500381,
+          "p05": 0.07845454104244709,
+          "p95": 0.4265003949403763,
+          "mean_abs": 0.24566361075267196
+        },
+        "flow_magnitude_px": {
+          "mean": 1.3698630277067423,
+          "median": 1.192077875137329,
+          "p05": 0.4844953492283821,
+          "p95": 2.3833783864974976,
+          "mean_abs": 1.3698630277067423
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "video_sha256": "284cb6f74a8b9dfdafde7ff096e57cfc0dae41ad2864577af33d856448b7d116",
+      "frame_gray_MAD": 3.967167377471924
+    }
+  ],
+  "stage1_accepted": false,
+  "wall_seconds": 246.90336060104892,
+  "released_action_LoRA_sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+  "precision_receipt": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac"
+    }
+  },
+  "load_seconds": 3.43791261408478,
+  "history_latent_sha256": "eee46c0c904faed807e293dd0695606115431a7932fe2c4fabdefbff4b03f9cc",
+  "full_initial_noise_sha256": "ade3797c23b6fa1f70c6fef3bbd447924875bb6b9937e00ded4fe1bea5d00c65",
+  "audio_sha256": "1b0a8cdcbc61be98d06ee193c619b9439ef8529785eea8bd4d5393b2e0aa9a76",
+  "anchor_sha256": "fc127dbd0e5fd519298eae191f867fa0889a4bb9bbabd6f1adb5ede7cfe0f23b",
+  "sigmas": [
+    1.0,
+    0.9847047729492188,
+    0.9688279418945313,
+    0.9523355102539063,
+    0.935191162109375,
+    0.9173554077148437,
+    0.898785400390625,
+    0.8794351196289063,
+    0.8592540893554688,
+    0.8381876831054688,
+    0.8161763916015625,
+    0.7931553344726563,
+    0.7690530395507813,
+    0.7437918701171875,
+    0.717285888671875,
+    0.6894410400390625,
+    0.6601530151367188,
+    0.629306640625,
+    0.5967742309570313,
+    0.5624136352539062,
+    0.5260662841796875,
+    0.48755487060546876,
+    0.44668011474609376,
+    0.40321749877929686,
+    0.3569131774902344,
+    0.30747921752929686,
+    0.25458717346191406,
+    0.19786099243164063,
+    0.13686807250976563,
+    0.07110826873779297,
+    0.0
+  ],
+  "probe_sigma_indices": [
+    0,
+    15,
+    27
+  ],
+  "decode_pair_seconds": [
+    5.531286554876715
+  ],
+  "parameter_versions_unchanged": true,
+  "GPU_peak_MiB": 26242.14111328125,
+  "history_latents_unchanged": true,
+  "latent_history_MiB": 5.284423828125,
+  "local_action_pairs": [
+    {
+      "window": 0,
+      "A": -1.1689114840701222,
+      "D": -1.1740905232727528
+    }
+  ],
+  "future_RGB_revision_policy": "Append only new prefix-decoded interval; boundaries are oracle history resets"
+}

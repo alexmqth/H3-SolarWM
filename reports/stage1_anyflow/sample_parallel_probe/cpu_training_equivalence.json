@@ -1,0 +1,102 @@
+{
+  "status": "complete",
+  "at": "2026-10-08T12:33:09.383082+08:00",
+  "scope": "CPU integrated trainer and actual Adam/RNG resume; no33B quality claim",
+  "comparisons": {
+    "parallel_vs_serial": {
+      "causal_adapter.pt": {
+        "tensors": 4,
+        "max_abs_difference": 0.0,
+        "exact": false
+      },
+      "anyflow_adapter.pt": {
+        "tensors": 4,
+        "max_abs_difference": 0.0,
+        "exact": false
+      },
+      "stage1_lora.pt": {
+        "tensors": 36,
+        "max_abs_difference": 7.450580596923828e-09,
+        "exact": false
+      },
+      "trainer_state.pt": {
+        "tensors": 110,
+        "max_abs_difference": 1.2369127944111824e-10,
+        "exact": false
+      }
+    },
+    "parallel_resume_vs_full": {
+      "causal_adapter.pt": {
+        "tensors": 4,
+        "max_abs_difference": 0.0,
+        "exact": true
+      },
+      "anyflow_adapter.pt": {
+        "tensors": 4,
+        "max_abs_difference": 0.0,
+        "exact": true
+      },
+      "stage1_lora.pt": {
+        "tensors": 36,
+        "max_abs_difference": 0.0,
+        "exact": true
+      },
+      "trainer_state.pt": {
+        "tensors": 110,
+        "max_abs_difference": 0.0,
+        "exact": true
+      }
+    }
+  },
+  "serial_to_parallel_resume": {
+    "actual_old_serial_state_loaded": true,
+    "global_logical_RNG_matches": true,
+    "replica_audit": {
+      "equality": {
+        "parameter_sha256": true,
+        "optimizer_sha256": true,
+        "logical_rng_sha256": true,
+        "cpu_rng_sha256": true,
+        "cuda_rng_sha256": true
+      },
+      "rows": [
+        {
+          "rank": 0,
+          "parameter_sha256": "601e91acc972859492622daa7d5b9c4373ed7eac502592630df1615983578e63",
+          "optimizer_sha256": "00ad37998b54b47c8b54b0cb223c0a406b4316de912ea9735f4b8f4570418c40",
+          "logical_rng_sha256": "c181f4a9d0f05163ad296d16afd86a588ef935a09a9f15c5bcdcd937b06d8c77",
+          "cpu_rng_sha256": "55ba9451f6caa57865f1f263086215a2b928cc57ab7834c5a37d2fc9989bf6fa",
+          "cuda_rng_sha256": null,
+          "allocated_peak_MiB": 0.0
+        },
+        {
+          "rank": 1,
+          "parameter_sha256": "601e91acc972859492622daa7d5b9c4373ed7eac502592630df1615983578e63",
+          "optimizer_sha256": "00ad37998b54b47c8b54b0cb223c0a406b4316de912ea9735f4b8f4570418c40",
+          "logical_rng_sha256": "c181f4a9d0f05163ad296d16afd86a588ef935a09a9f15c5bcdcd937b06d8c77",
+          "cpu_rng_sha256": "55ba9451f6caa57865f1f263086215a2b928cc57ab7834c5a37d2fc9989bf6fa",
+          "cuda_rng_sha256": null,
+          "allocated_peak_MiB": 0.0
+        },
+        {
+          "rank": 2,
+          "parameter_sha256": "601e91acc972859492622daa7d5b9c4373ed7eac502592630df1615983578e63",
+          "optimizer_sha256": "00ad37998b54b47c8b54b0cb223c0a406b4316de912ea9735f4b8f4570418c40",
+          "logical_rng_sha256": "c181f4a9d0f05163ad296d16afd86a588ef935a09a9f15c5bcdcd937b06d8c77",
+          "cpu_rng_sha256": "55ba9451f6caa57865f1f263086215a2b928cc57ab7834c5a37d2fc9989bf6fa",
+          "cuda_rng_sha256": null,
+          "allocated_peak_MiB": 0.0
+        },
+        {
+          "rank": 3,
+          "parameter_sha256": "601e91acc972859492622daa7d5b9c4373ed7eac502592630df1615983578e63",
+          "optimizer_sha256": "00ad37998b54b47c8b54b0cb223c0a406b4316de912ea9735f4b8f4570418c40",
+          "logical_rng_sha256": "c181f4a9d0f05163ad296d16afd86a588ef935a09a9f15c5bcdcd937b06d8c77",
+          "cpu_rng_sha256": "55ba9451f6caa57865f1f263086215a2b928cc57ab7834c5a37d2fc9989bf6fa",
+          "cuda_rng_sha256": null,
+          "allocated_peak_MiB": 0.0
+        }
+      ]
+    }
+  }
+}

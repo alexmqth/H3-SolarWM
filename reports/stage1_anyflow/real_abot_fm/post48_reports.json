@@ -1,0 +1,176 @@
+{
+  "status": "complete_artifacts_manual_review_pending",
+  "pid": 3449611,
+  "started_at": "2026-10-08T21:41:37.958477+08:00",
+  "scope": "CPU artifact generation only, manual video acceptance remains pending",
+  "source_sha256": {
+    "report_real.py": "3e6709ce7635c7d774e597cba77bc6166788172db0c04957714b3f7fb55d7e05",
+    "report_parking.py": "969d1963dafdacb80970d8dd2d5f7e14abdaf4424ab0aeab863d5f02a766ee59",
+    "summarize_geometry.py": "3989c062be7f95efe6014cc0f3b53299792a2429a68fa33a7754276d6b0bcccf",
+    "compare_geometry.py": "adfe4a5fbdaf4f58aaeb81e623551a6e9322f88f12a3830428713317d5a91c99"
+  },
+  "completed": [
+    {
+      "name": "geometry_gt",
+      "commands": [
+        [
+          "/home/lpeng/miniconda3/envs/h3world/bin/python",
+          "-u",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/summarize_geometry.py",
+          "--input",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_48_gt/probe.json",
+          "--out",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_48_gt"
+        ],
+        [
+          "/home/lpeng/miniconda3/envs/h3world/bin/python",
+          "-u",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/compare_geometry.py",
+          "--before",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_00_gt/probe.json",
+          "--after",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_48_gt/probe.json",
+          "--out",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/compare_00_48_gt"
+        ]
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_report_geometry_gt.log",
+      "dependency_sha256": {
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_48_gt/probe.json": "0e208a8bb7aae638f63381215ee451293b8fd00b6402da691cf1824cfbb2ed44"
+      }
+    },
+    {
+      "name": "parking_30",
+      "commands": [
+        [
+          "/home/lpeng/miniconda3/envs/h3world/bin/python",
+          "-u",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/report_parking.py",
+          "--step",
+          "48",
+          "--steps",
+          "30"
+        ]
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_report_parking_30.log",
+      "dependency_sha256": {
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/parking/step_48/30step/A/evaluation.json": "d77ae6b8f4760e1c5a0252e9515a15828f652723b37518a44e725d9c0782786a",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/parking/step_48/30step/D/evaluation.json": "9e4c4a61a6cb659fbe1f1d15e80fa7ad89b14a776088bc345d0cae4e210372c2"
+      }
+    },
+    {
+      "name": "real_gt30",
+      "commands": [
+        [
+          "/home/lpeng/miniconda3/envs/h3world/bin/python",
+          "-u",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/report_real.py",
+          "--label",
+          "trained_complete_gt30",
+          "--history",
+          "gt",
+          "--steps",
+          "30"
+        ]
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_report_real_gt30.log",
+      "dependency_sha256": {
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/eval/step_48/gt_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140/evaluation.json": "5d7930ed72e6f607bc2eaefed1dc5263dd2653bd96e4bebaeb0b549ebffeb33f",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/eval/step_48/gt_30/dfec8ed3237860eba14d67c089ecd041_D_1750/evaluation.json": "046e9e1b69a0410331a7bd3c2cfe88a6e7db5c46148442ef568932af6eba9694"
+      }
+    },
+    {
+      "name": "geometry_step00_generated",
+      "commands": [
+        [
+          "/home/lpeng/miniconda3/envs/h3world/bin/python",
+          "-u",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/summarize_geometry.py",
+          "--input",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_48_step00_generated/probe.json",
+          "--out",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_48_step00_generated"
+        ],
+        [
+          "/home/lpeng/miniconda3/envs/h3world/bin/python",
+          "-u",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/compare_geometry.py",
+          "--before",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_00_step00_generated/probe.json",
+          "--after",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_48_step00_generated/probe.json",
+          "--out",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/compare_00_48_step00_generated"
+        ]
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_report_geometry_step00_generated.log",
+      "dependency_sha256": {
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_48_step00_generated/probe.json": "49b928e4dcd6f44923b24fa51bf25ceeb06f80af6fbd3fc14c8408f0d0108cc2"
+      }
+    },
+    {
+      "name": "parking_8",
+      "commands": [
+        [
+          "/home/lpeng/miniconda3/envs/h3world/bin/python",
+          "-u",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/report_parking.py",
+          "--step",
+          "48",
+          "--steps",
+          "8"
+        ]
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_report_parking_8.log",
+      "dependency_sha256": {
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/parking/step_48/8step/A/evaluation.json": "11b29fdb6d4d1a9726d7e20ac22e1ba70b168500d9b57358e14b2e7501b42eda",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/parking/step_48/8step/D/evaluation.json": "7648e9c6e841032c090e6dd8cd70f9e670a24054e47a8c1752a5540a5fe276a8"
+      }
+    },
+    {
+      "name": "real_generated30",
+      "commands": [
+        [
+          "/home/lpeng/miniconda3/envs/h3world/bin/python",
+          "-u",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/report_real.py",
+          "--label",
+          "trained_complete_generated30",
+          "--history",
+          "generated",
+          "--steps",
+          "30"
+        ]
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_report_real_generated30.log",
+      "dependency_sha256": {
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/eval/step_48/generated_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140/evaluation.json": "054f854f33390877984ed50b973c2bc9aac1a2b7d38c61f5866071d91c3b3e13",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/eval/step_48/generated_30/dfec8ed3237860eba14d67c089ecd041_D_1750/evaluation.json": "46fb1b7b7a90df4f5ad186609685b2475e218f497a37b81688191eb6b3f9ceda"
+      }
+    },
+    {
+      "name": "real_generated8",
+      "commands": [
+        [
+          "/home/lpeng/miniconda3/envs/h3world/bin/python",
+          "-u",
+          "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/report_real.py",
+          "--label",
+          "trained_complete_generated8",
+          "--history",
+          "generated",
+          "--steps",
+          "8"
+        ]
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_report_real_generated8.log",
+      "dependency_sha256": {
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/eval/step_48/generated_8/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140/evaluation.json": "30ab4560e3d60aecf097ec939f68d9df6bd0381610f3b1f43c166e593ec09930",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/eval/step_48/generated_8/dfec8ed3237860eba14d67c089ecd041_D_1750/evaluation.json": "a48c7ac4e27f39e3b165a09f4f8fc7915636224387443f08223e42e26a5038c7"
+      }
+    }
+  ],
+  "active": null,
+  "pending": [],
+  "updated_at": "2026-10-08T22:46:16.962724+08:00"
+}

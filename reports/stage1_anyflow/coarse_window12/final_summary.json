@@ -1,0 +1,246 @@
+{
+  "at": "2026-10-09T05:59:42.446689+08:00",
+  "status": "complete_no_go",
+  "rows": [
+    {
+      "group": "matched_first5",
+      "window": 0,
+      "RGB_range": [
+        0,
+        17
+      ],
+      "A": -1.1689114840701222,
+      "D": -1.1740905232727528,
+      "separation": 0.00517903920263052,
+      "correct_flow_signs": false,
+      "frame_gray_MAD_A": 3.8857040405273438,
+      "frame_gray_MAD_D": 3.967167377471924,
+      "sampling_seconds_A": 100.91015541087836,
+      "sampling_seconds_D": 100.75461843097582,
+      "verdict": "FAIL: A/D nearly identical"
+    },
+    {
+      "group": "coarse_A",
+      "window": 0,
+      "RGB_range": [
+        0,
+        39
+      ],
+      "A": 0.863117962585468,
+      "D": -1.17421731548874,
+      "separation": 2.0373352780742082,
+      "correct_flow_signs": true,
+      "frame_gray_MAD_A": 3.470710039138794,
+      "frame_gray_MAD_D": 3.7381272315979004,
+      "sampling_seconds_A": 153.88622095016763,
+      "sampling_seconds_D": 152.63795975223184,
+      "verdict": "首窗方向恢复；人物/场景可辨"
+    },
+    {
+      "group": "coarse_A",
+      "window": 1,
+      "RGB_range": [
+        39,
+        81
+      ],
+      "A": 1.2756236813417294,
+      "D": 1.17601593184035,
+      "separation": 0.0996077495013794,
+      "correct_flow_signs": false,
+      "frame_gray_MAD_A": 6.290255546569824,
+      "frame_gray_MAD_D": 6.858668327331543,
+      "sampling_seconds_A": 282.29222026793286,
+      "sampling_seconds_D": 266.61941691627726,
+      "verdict": "FAIL：同正方向，D肢体重影"
+    },
+    {
+      "group": "coarse_A",
+      "window": 2,
+      "RGB_range": [
+        81,
+        120
+      ],
+      "A": 1.3423568673039739,
+      "D": -0.2272673816126036,
+      "separation": 1.5696242489165775,
+      "correct_flow_signs": true,
+      "frame_gray_MAD_A": 4.528176784515381,
+      "frame_gray_MAD_D": 4.360653877258301,
+      "sampling_seconds_A": 450.9196294359863,
+      "sampling_seconds_D": 432.17987160012126,
+      "verdict": "局部符号恢复；不能弥补前窗FAIL"
+    },
+    {
+      "group": "coarse_D",
+      "window": 0,
+      "RGB_range": [
+        0,
+        39
+      ],
+      "A": 0.8635682915582469,
+      "D": -1.174459825024793,
+      "separation": 2.03802811658304,
+      "correct_flow_signs": true,
+      "frame_gray_MAD_A": 3.470710039138794,
+      "frame_gray_MAD_D": 3.7381272315979004,
+      "sampling_seconds_A": 153.5803645630367,
+      "sampling_seconds_D": 152.62636131141335,
+      "verdict": "首窗方向恢复；非独立历史证据"
+    },
+    {
+      "group": "coarse_D",
+      "window": 1,
+      "RGB_range": [
+        39,
+        81
+      ],
+      "A": 0.3096446338586691,
+      "D": -1.4826017894395969,
+      "separation": 1.792246423298266,
+      "correct_flow_signs": true,
+      "frame_gray_MAD_A": 5.510103225708008,
+      "frame_gray_MAD_D": 5.230236053466797,
+      "sampling_seconds_A": 279.8900247537531,
+      "sampling_seconds_D": 268.1903817472048,
+      "verdict": "FAIL：符号正确，肢体重影"
+    },
+    {
+      "group": "coarse_D",
+      "window": 2,
+      "RGB_range": [
+        81,
+        120
+      ],
+      "A": -2.343243553450233,
+      "D": -2.324911299504732,
+      "separation": -0.018332253945501087,
+      "correct_flow_signs": false,
+      "frame_gray_MAD_A": 5.321444988250732,
+      "frame_gray_MAD_D": 5.3115315437316895,
+      "sampling_seconds_A": 453.271208726801,
+      "sampling_seconds_D": 435.06029754318297,
+      "verdict": "FAIL：A/D几乎相同且同负"
+    }
+  ],
+  "runs": [
+    {
+      "group": "matched_first5",
+      "wall_seconds": 246.90336060104892,
+      "load_seconds": 3.43791261408478,
+      "GPU_peak_MiB": 26242.14111328125,
+      "CPU_KV_MiB": 0,
+      "raw_history_MiB": 5.284423828125,
+      "denoiser_forwards": 60,
+      "diagnostic_forwards": 3,
+      "clean_commits": 0,
+      "receipt_sha256": "57baad69ef5b0749c6e354ee242232e4b073cf28573cd5b72d96797a24627ab8",
+      "videos": 5
+    },
+    {
+      "group": "coarse_A",
+      "wall_seconds": 1878.8143813759089,
+      "load_seconds": 3.434328243136406,
+      "GPU_peak_MiB": 26531.75146484375,
+      "CPU_KV_MiB": 0,
+      "raw_history_MiB": 5.284423828125,
+      "denoiser_forwards": 180,
+      "diagnostic_forwards": 3,
+      "clean_commits": 0,
+      "receipt_sha256": "3bd41500efda13f5f6863b5e128623733e6410014e80f91156f25fb03801355e",
+      "videos": 9
+    },
+    {
+      "group": "coarse_D",
+      "wall_seconds": 1881.4250493859872,
+      "load_seconds": 3.4036460127681494,
+      "GPU_peak_MiB": 26531.75146484375,
+      "CPU_KV_MiB": 0,
+      "raw_history_MiB": 5.284423828125,
+      "denoiser_forwards": 180,
+      "diagnostic_forwards": 3,
+      "clean_commits": 0,
+      "receipt_sha256": "45912d443a0c0f80613e0b6146afc3d97b0e7a9b933b76b7b17f1df741c69c87",
+      "videos": 9
+    }
+  ],
+  "future_RGB_encoder_audit": [
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+      "rgb_stop": 17,
+      "latent_stop": 5,
+      "historical_max_abs": 0.0,
+      "historical_mean_abs": 0.0,
+      "safe_vs_full_max_abs": 0.0,
+      "safe_vs_full_mean_abs": 0.0
+    },
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+      "rgb_stop": 34,
+      "latent_stop": 10,
+      "historical_max_abs": 0.0,
+      "historical_mean_abs": 0.0,
+      "safe_vs_full_max_abs": 0.0,
+      "safe_vs_full_mean_abs": 0.0
+    },
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+      "rgb_stop": 39,
+      "latent_stop": 12,
+      "historical_max_abs": 0.0,
+      "historical_mean_abs": 0.0,
+      "safe_vs_full_max_abs": 0.0,
+      "safe_vs_full_mean_abs": 0.0
+    },
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+      "rgb_stop": 81,
+      "latent_stop": 24,
+      "historical_max_abs": 0.0,
+      "historical_mean_abs": 0.0,
+      "safe_vs_full_max_abs": 0.0,
+      "safe_vs_full_mean_abs": 0.0
+    },
+    {
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_A_1030",
+      "rgb_stop": 17,
+      "latent_stop": 5,
+      "historical_max_abs": 0.0,
+      "historical_mean_abs": 0.0,
+      "safe_vs_full_max_abs": 0.0,
+      "safe_vs_full_mean_abs": 0.0
+    },
+    {
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_A_1030",
+      "rgb_stop": 34,
+      "latent_stop": 10,
+      "historical_max_abs": 0.0,
+      "historical_mean_abs": 0.0,
+      "safe_vs_full_max_abs": 0.0,
+      "safe_vs_full_mean_abs": 0.0
+    },
+    {
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_A_1030",
+      "rgb_stop": 39,
+      "latent_stop": 12,
+      "historical_max_abs": 0.0,
+      "historical_mean_abs": 0.0,
+      "safe_vs_full_max_abs": 0.0,
+      "safe_vs_full_mean_abs": 0.0
+    },
+    {
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_A_1030",
+      "rgb_stop": 81,
+      "latent_stop": 24,
+      "historical_max_abs": 0.0,
+      "historical_mean_abs": 0.0,
+      "safe_vs_full_max_abs": 0.0,
+      "safe_vs_full_mean_abs": 0.0
+    }
+  ],
+  "runtime_305_files_unchanged": true,
+  "optimizer_updates": 0,
+  "local_action_gate": false,
+  "stage1_accepted": false,
+  "same_state_geometry_completed": false,
+  "next_decision": "Stop window-width expansion; audit history conditioning before another effect-training run. E2 needs credible local consequence pairs; E3 remains gated."
+}

@@ -1,0 +1,2213 @@
+{
+  "status": "complete",
+  "gpu": 1,
+  "pid": 3226677,
+  "started_at": "2026-10-08T21:17:13.515017+08:00",
+  "optimizer_steps": 0,
+  "history_frames": 0,
+  "state_source": "fixed step00-generated first-chunk endpoint/noise interpolants",
+  "roles": [
+    "own_common",
+    "own_static",
+    "causal_common",
+    "causal_static"
+  ],
+  "records": [
+    {
+      "clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+      "sigma": 0.9395404663085938,
+      "state_sha256": "06aa5f991a7ff76648c48a9728cc8521dee66f92b57c9327396c9e55047de0c0",
+      "history_sha256": "757c6445aed8fa6311f3c313cd5551658a528c09caa86dc76c16ddeccc957d1c",
+      "anchor_sha256": "09822d51fddeb36417143129cd71e72dbcc551599013d7bc6b43ef80b81f6e54",
+      "pair_sha256": "e44cd835fbfd950c134529c0c62fea982a9674acd24fdd41c32b293d7c39e2b9",
+      "generated_file_sha256": "9904a3f09acf153cf6c4794f473357ed87009de04bceea0dffb31cddd8f215c7",
+      "teacher_prediction_sha256": {
+        "A": "4df95a7207188da0787946b5596a103d34b9c2902f545eed1df4901a72be0bf9",
+        "D": "ee3ce8a62a59cb3d28cf402d34113559d103e30d7b7ae295dd8b3432869268cb"
+      },
+      "roles": {
+        "own_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.3776604256097031,
+              "teacher_rms": 1.3776604256097031,
+              "student_norm": 596.0670365656135,
+              "teacher_norm": 596.0670365656135,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999569,
+              "relative_delta_error": 0.0
+            },
+            "D": {
+              "student_rms": 1.3821360661481465,
+              "teacher_rms": 1.3821360661481465,
+              "student_norm": 598.0034947398431,
+              "teacher_norm": 598.0034947398431,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999536,
+              "relative_delta_error": 0.0
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.07221973098885397,
+            "teacher_rms": 0.07221973098885397,
+            "student_norm": 31.247033181660537,
+            "teacher_norm": 31.247033181660537,
+            "norm_ratio": 1.0,
+            "cosine": 1.0000000000001656,
+            "relative_delta_error": 0.0,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.008683887941039988,
+                "teacher_rms": 0.008683887941039988,
+                "student_norm": 1.6802818281121423,
+                "teacher_norm": 1.6802818281121423,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000016,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.062026616206633224,
+                "teacher_rms": 0.062026616206633224,
+                "student_norm": 12.001789610703895,
+                "teacher_norm": 12.001789610703895,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000258,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.08596920520415537,
+                "teacher_rms": 0.08596920520415537,
+                "student_norm": 16.634541378534227,
+                "teacher_norm": 16.634541378534227,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000266,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.08458940002692805,
+                "teacher_rms": 0.08458940002692805,
+                "student_norm": 16.367557098984378,
+                "teacher_norm": 16.367557098984378,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000284,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.08723339872058651,
+                "teacher_rms": 0.08723339872058651,
+                "student_norm": 16.879155473890933,
+                "teacher_norm": 16.879155473890933,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000255,
+                "relative_delta_error": 0.0
+              }
+            ],
+            "student_response_relative_to_velocity": 0.05233699745944215,
+            "teacher_response_relative_to_velocity": 0.05233699745944215
+          }
+        },
+        "own_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.3944340483220397,
+              "teacher_rms": 1.3776604256097031,
+              "student_norm": 603.3244153773672,
+              "teacher_norm": 596.0670365656135,
+              "norm_ratio": 1.0121754406242105,
+              "cosine": 0.9938989597362765,
+              "relative_delta_error": 0.11179842390971999
+            },
+            "D": {
+              "student_rms": 1.393158815330054,
+              "teacher_rms": 1.3821360661481465,
+              "student_norm": 602.7726652244746,
+              "teacher_norm": 598.0034947398431,
+              "norm_ratio": 1.0079751548721405,
+              "cosine": 0.9905100968976486,
+              "relative_delta_error": 0.13854521353611157
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.08251150834451267,
+            "teacher_rms": 0.07221973098885397,
+            "student_norm": 35.69993689823892,
+            "teacher_norm": 31.247033181660537,
+            "norm_ratio": 1.1425064482343197,
+            "cosine": -0.30425445272366153,
+            "relative_delta_error": 1.732208513008326,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.010376423205676987,
+                "teacher_rms": 0.008683887941039988,
+                "student_norm": 2.007777561350258,
+                "teacher_norm": 1.6802818281121423,
+                "norm_ratio": 1.194905240156093,
+                "cosine": 0.04044029184714047,
+                "relative_delta_error": 1.526811677866432
+              },
+              {
+                "student_rms": 0.05367665747894092,
+                "teacher_rms": 0.062026616206633224,
+                "student_norm": 10.386121143896537,
+                "teacher_norm": 12.001789610703895,
+                "norm_ratio": 0.865381037394089,
+                "cosine": -0.4437969886132295,
+                "relative_delta_error": 1.5865028637472527
+              },
+              {
+                "student_rms": 0.08053156426423669,
+                "teacher_rms": 0.08596920520415537,
+                "student_norm": 15.582389471326417,
+                "teacher_norm": 16.634541378534227,
+                "norm_ratio": 0.9367489681100831,
+                "cosine": -0.4201853089642918,
+                "relative_delta_error": 1.632395460184171
+              },
+              {
+                "student_rms": 0.10784324184658776,
+                "teacher_rms": 0.08458940002692805,
+                "student_norm": 20.867040292302644,
+                "teacher_norm": 16.367557098984378,
+                "norm_ratio": 1.2749025505826683,
+                "cosine": -0.2632551239558939,
+                "relative_delta_error": 1.8156612490915756
+              },
+              {
+                "student_rms": 0.11373826829590625,
+                "teacher_rms": 0.08723339872058651,
+                "student_norm": 22.007693636321278,
+                "teacher_norm": 16.879155473890933,
+                "norm_ratio": 1.303838552252409,
+                "cosine": -0.22986961474797324,
+                "relative_delta_error": 1.8164307588617918
+              }
+            ],
+            "student_response_relative_to_velocity": 0.05919911004249904,
+            "teacher_response_relative_to_velocity": 0.05233699745944215
+          }
+        },
+        "causal_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.3784864925179945,
+              "teacher_rms": 1.3776604256097031,
+              "student_norm": 596.4244477569889,
+              "teacher_norm": 596.0670365656135,
+              "norm_ratio": 1.0005996157637482,
+              "cosine": 0.9989628988925539,
+              "relative_delta_error": 0.04556100830986018
+            },
+            "D": {
+              "student_rms": 1.3750786726735196,
+              "teacher_rms": 1.3821360661481465,
+              "student_norm": 594.9499994545758,
+              "teacher_norm": 598.0034947398431,
+              "norm_ratio": 0.9948938504337744,
+              "cosine": 0.9961646313818356,
+              "relative_delta_error": 0.08750795431276186
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.052373633047871654,
+            "teacher_rms": 0.07221973098885397,
+            "student_norm": 22.660298332371156,
+            "teacher_norm": 31.247033181660537,
+            "norm_ratio": 0.7251983956566764,
+            "cosine": 0.051223547860678925,
+            "relative_delta_error": 1.2048312095917268,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.009523360294866294,
+                "teacher_rms": 0.008683887941039988,
+                "student_norm": 1.8427148478509876,
+                "teacher_norm": 1.6802818281121423,
+                "norm_ratio": 1.096670104396323,
+                "cosine": 0.18721744120796144,
+                "relative_delta_error": 1.3386761282281638
+              },
+              {
+                "student_rms": 0.03526547269013446,
+                "teacher_rms": 0.062026616206633224,
+                "student_norm": 6.8236639306426845,
+                "teacher_norm": 12.001789610703895,
+                "norm_ratio": 0.5685538700459258,
+                "cosine": -0.09718397208538718,
+                "relative_delta_error": 1.1973980750006872
+              },
+              {
+                "student_rms": 0.05593020810972368,
+                "teacher_rms": 0.08596920520415537,
+                "student_norm": 10.822170088717607,
+                "teacher_norm": 16.634541378534227,
+                "norm_ratio": 0.6505842176498416,
+                "cosine": 0.12579314709758033,
+                "relative_delta_error": 1.1223108980468286
+              },
+              {
+                "student_rms": 0.06827347329385194,
+                "teacher_rms": 0.08458940002692805,
+                "student_norm": 13.210520137598483,
+                "teacher_norm": 16.367557098984378,
+                "norm_ratio": 0.8071161785296724,
+                "cosine": 0.03665725446355657,
+                "relative_delta_error": 1.261849119097972
+              },
+              {
+                "student_rms": 0.06775827553146405,
+                "teacher_rms": 0.08723339872058651,
+                "student_norm": 13.110832365957249,
+                "teacher_norm": 16.879155473890933,
+                "norm_ratio": 0.7767469401083121,
+                "cosine": 0.05909331534792636,
+                "relative_delta_error": 1.2294448768500874
+              }
+            ],
+            "student_response_relative_to_velocity": 0.03804059821059583,
+            "teacher_response_relative_to_velocity": 0.05233699745944215
+          }
+        },
+        "causal_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.39684970131991,
+              "teacher_rms": 1.3776604256097031,
+              "student_norm": 604.3695866670747,
+              "teacher_norm": 596.0670365656135,
+              "norm_ratio": 1.0139288865046092,
+              "cosine": 0.994968255152691,
+              "relative_delta_error": 0.10196899911037455
+            },
+            "D": {
+              "student_rms": 1.3939680865122466,
+              "teacher_rms": 1.3821360661481465,
+              "student_norm": 603.1228094736542,
+              "teacher_norm": 598.0034947398431,
+              "norm_ratio": 1.0085606769506226,
+              "cosine": 0.9925241056249627,
+              "relative_delta_error": 0.12309781221918341
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.04641917617781033,
+            "teacher_rms": 0.07221973098885397,
+            "student_norm": 20.084006384865827,
+            "teacher_norm": 31.247033181660537,
+            "norm_ratio": 0.6427492257618077,
+            "cosine": -0.25875945244853715,
+            "relative_delta_error": 1.3212726602246578,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.010995452335987185,
+                "teacher_rms": 0.008683887941039988,
+                "student_norm": 2.1275560990046394,
+                "teacher_norm": 1.6802818281121423,
+                "norm_ratio": 1.2661900303921194,
+                "cosine": -0.050925558645478104,
+                "relative_delta_error": 1.6529367992644195
+              },
+              {
+                "student_rms": 0.03126766793365582,
+                "teacher_rms": 0.062026616206633224,
+                "student_norm": 6.050111953664185,
+                "teacher_norm": 12.001789610703895,
+                "norm_ratio": 0.5041008174537857,
+                "cosine": -0.31834566802788705,
+                "relative_delta_error": 1.2550196242007592
+              },
+              {
+                "student_rms": 0.049705774419020285,
+                "teacher_rms": 0.08596920520415537,
+                "student_norm": 9.617778358678144,
+                "teacher_norm": 16.634541378534227,
+                "norm_ratio": 0.5781811556938534,
+                "cosine": -0.2133496944594384,
+                "relative_delta_error": 1.2573794155379112
+              },
+              {
+                "student_rms": 0.05599466679180421,
+                "teacher_rms": 0.08458940002692805,
+                "student_norm": 10.834642468934774,
+                "teacher_norm": 16.367557098984378,
+                "norm_ratio": 0.661958434200732,
+                "cosine": -0.2811456214825772,
+                "relative_delta_error": 1.3455119469434254
+              },
+              {
+                "student_rms": 0.06378922977533842,
+                "teacher_rms": 0.08723339872058651,
+                "student_norm": 12.34284508834108,
+                "teacher_norm": 16.879155473890933,
+                "norm_ratio": 0.7312477870965333,
+                "cosine": -0.2644758178355573,
+                "relative_delta_error": 1.386188313036565
+              }
+            ],
+            "student_response_relative_to_velocity": 0.03326564448614016,
+            "teacher_response_relative_to_velocity": 0.05233699745944215
+          }
+        }
+      }
+    },
+    {
+      "clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+      "sigma": 0.6894410400390625,
+      "state_sha256": "61fb7ed6fc221b3fee61faa09899a218955c398485a03da73369d3cd6e1852e5",
+      "history_sha256": "757c6445aed8fa6311f3c313cd5551658a528c09caa86dc76c16ddeccc957d1c",
+      "anchor_sha256": "09822d51fddeb36417143129cd71e72dbcc551599013d7bc6b43ef80b81f6e54",
+      "pair_sha256": "e44cd835fbfd950c134529c0c62fea982a9674acd24fdd41c32b293d7c39e2b9",
+      "generated_file_sha256": "9904a3f09acf153cf6c4794f473357ed87009de04bceea0dffb31cddd8f215c7",
+      "teacher_prediction_sha256": {
+        "A": "c6ce5c6d8f08f5c8a1c791fd83705b155696cf7956ab4195cf8cfa44355a2e20",
+        "D": "922771f43017ae7ef4aeb13b20fccb3de0f0b019e11f296185d61bc14cb2b29d"
+      },
+      "roles": {
+        "own_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.397810700445186,
+              "teacher_rms": 1.397810700445186,
+              "student_norm": 604.785378461698,
+              "teacher_norm": 604.785378461698,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999534,
+              "relative_delta_error": 0.0
+            },
+            "D": {
+              "student_rms": 1.3975257920796291,
+              "teacher_rms": 1.3975257920796291,
+              "student_norm": 604.6621082551974,
+              "teacher_norm": 604.6621082551974,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999588,
+              "relative_delta_error": 0.0
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.028115286869155515,
+            "teacher_rms": 0.028115286869155515,
+            "student_norm": 12.164533011733548,
+            "teacher_norm": 12.164533011733548,
+            "norm_ratio": 1.0,
+            "cosine": 1.0000000000001286,
+            "relative_delta_error": 0.0,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.008452966664179593,
+                "teacher_rms": 0.008452966664179593,
+                "student_norm": 1.6355999036253894,
+                "teacher_norm": 1.6355999036253894,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000013,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.022063641338669476,
+                "teacher_rms": 0.022063641338669476,
+                "student_norm": 4.269186320120821,
+                "teacher_norm": 4.269186320120821,
+                "norm_ratio": 1.0,
+                "cosine": 1.000000000000007,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.030533056516773766,
+                "teacher_rms": 0.030533056516773766,
+                "student_norm": 5.907968915558287,
+                "teacher_norm": 5.907968915558287,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000118,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.03378500390574931,
+                "teacher_rms": 0.03378500390574931,
+                "student_norm": 6.537201828370115,
+                "teacher_norm": 6.537201828370115,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000195,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.036337251340179386,
+                "teacher_rms": 0.036337251340179386,
+                "student_norm": 7.031046868061533,
+                "teacher_norm": 7.031046868061533,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000173,
+                "relative_delta_error": 0.0
+              }
+            ],
+            "student_response_relative_to_velocity": 0.020115851486459942,
+            "teacher_response_relative_to_velocity": 0.020115851486459942
+          }
+        },
+        "own_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.4119500542154197,
+              "teacher_rms": 1.397810700445186,
+              "student_norm": 610.9029982641559,
+              "teacher_norm": 604.785378461698,
+              "norm_ratio": 1.01011535665432,
+              "cosine": 0.9965254165677002,
+              "relative_delta_error": 0.08439064288197183
+            },
+            "D": {
+              "student_rms": 1.41246327593279,
+              "teacher_rms": 1.3975257920796291,
+              "student_norm": 611.1250519302765,
+              "teacher_norm": 604.6621082551974,
+              "norm_ratio": 1.0106885210547234,
+              "cosine": 0.9964346347728036,
+              "relative_delta_error": 0.08556396378868264
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.019172557609061506,
+            "teacher_rms": 0.028115286869155515,
+            "student_norm": 8.295316744950641,
+            "teacher_norm": 12.164533011733548,
+            "norm_ratio": 0.6819264444388637,
+            "cosine": 0.043746681101459066,
+            "relative_delta_error": 1.1854786536357114,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.008067362648678663,
+                "teacher_rms": 0.008452966664179593,
+                "student_norm": 1.5609877685434517,
+                "teacher_norm": 1.6355999036253894,
+                "norm_ratio": 0.9543824043297164,
+                "cosine": 0.007624766444116013,
+                "relative_delta_error": 1.3770591446380915
+              },
+              {
+                "student_rms": 0.01399973884267089,
+                "teacher_rms": 0.022063641338669476,
+                "student_norm": 2.7088680710035073,
+                "teacher_norm": 4.269186320120821,
+                "norm_ratio": 0.6345162445210039,
+                "cosine": 0.0935058635706623,
+                "relative_delta_error": 1.1331146834164387
+              },
+              {
+                "student_rms": 0.019686712926773684,
+                "teacher_rms": 0.030533056516773766,
+                "student_norm": 3.8092644919778342,
+                "teacher_norm": 5.907968915558287,
+                "norm_ratio": 0.6447671858845366,
+                "cosine": 0.0631435303281061,
+                "relative_delta_error": 1.1551185961971686
+              },
+              {
+                "student_rms": 0.023223567954176527,
+                "teacher_rms": 0.03378500390574931,
+                "student_norm": 4.49362537636073,
+                "teacher_norm": 6.537201828370115,
+                "norm_ratio": 0.6873927858337366,
+                "cosine": 0.043771147544790646,
+                "relative_delta_error": 1.1884161307876764
+              },
+              {
+                "student_rms": 0.025494293953984573,
+                "teacher_rms": 0.036337251340179386,
+                "student_norm": 4.932997655229899,
+                "teacher_norm": 7.031046868061533,
+                "norm_ratio": 0.7016021579429369,
+                "cosine": 0.01749306674128193,
+                "relative_delta_error": 1.2114863768448796
+              }
+            ],
+            "student_response_relative_to_velocity": 0.013576311515323031,
+            "teacher_response_relative_to_velocity": 0.020115851486459942
+          }
+        },
+        "causal_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.4014689687735553,
+              "teacher_rms": 1.397810700445186,
+              "student_norm": 606.3681873461763,
+              "teacher_norm": 604.785378461698,
+              "norm_ratio": 1.0026171414535587,
+              "cosine": 0.9994842626276588,
+              "relative_delta_error": 0.032264898718086306
+            },
+            "D": {
+              "student_rms": 1.4006737145661914,
+              "teacher_rms": 1.3975257920796291,
+              "student_norm": 606.0241077675762,
+              "teacher_norm": 604.6621082551974,
+              "norm_ratio": 1.0022524968801318,
+              "cosine": 0.9994925450755375,
+              "relative_delta_error": 0.03197295219862216
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.029888095942030714,
+            "teacher_rms": 0.028115286869155515,
+            "student_norm": 12.931567493396361,
+            "teacher_norm": 12.164533011733548,
+            "norm_ratio": 1.0630549878834605,
+            "cosine": 0.2716721331801292,
+            "relative_delta_error": 1.245985984982105,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.008875256684192149,
+                "teacher_rms": 0.008452966664179593,
+                "student_norm": 1.7173105672863986,
+                "teacher_norm": 1.6355999036253894,
+                "norm_ratio": 1.049957610953567,
+                "cosine": 0.1346984670824615,
+                "relative_delta_error": 1.348909049345175
+              },
+              {
+                "student_rms": 0.024275029948821778,
+                "teacher_rms": 0.022063641338669476,
+                "student_norm": 4.697077159081608,
+                "teacher_norm": 4.269186320120821,
+                "norm_ratio": 1.1002277265211224,
+                "cosine": 0.26473171360482933,
+                "relative_delta_error": 1.2759195536595869
+              },
+              {
+                "student_rms": 0.03302006725121911,
+                "teacher_rms": 0.030533056516773766,
+                "student_norm": 6.389191033091468,
+                "teacher_norm": 5.907968915558287,
+                "norm_ratio": 1.0814530550873263,
+                "cosine": 0.2541279732350931,
+                "relative_delta_error": 1.2727473293160863
+              },
+              {
+                "student_rms": 0.03611792251758333,
+                "teacher_rms": 0.03378500390574931,
+                "student_norm": 6.988608016075921,
+                "teacher_norm": 6.537201828370115,
+                "norm_ratio": 1.069051897058891,
+                "cosine": 0.30761700144691645,
+                "relative_delta_error": 1.218669307349799
+              },
+              {
+                "student_rms": 0.037464849748964524,
+                "teacher_rms": 0.036337251340179386,
+                "student_norm": 7.24923060425826,
+                "teacher_norm": 7.031046868061533,
+                "norm_ratio": 1.0310314723100233,
+                "cosine": 0.262950041427679,
+                "relative_delta_error": 1.233209779469601
+              }
+            ],
+            "student_response_relative_to_velocity": 0.02133231553106243,
+            "teacher_response_relative_to_velocity": 0.020115851486459942
+          }
+        },
+        "causal_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.4149783118243489,
+              "teacher_rms": 1.397810700445186,
+              "student_norm": 612.2132228342733,
+              "teacher_norm": 604.785378461698,
+              "norm_ratio": 1.0122817856335555,
+              "cosine": 0.9961753518679556,
+              "relative_delta_error": 0.08884866650266254
+            },
+            "D": {
+              "student_rms": 1.4149749921383135,
+              "teacher_rms": 1.3975257920796291,
+              "student_norm": 612.2117865184874,
+              "teacher_norm": 604.6621082551974,
+              "norm_ratio": 1.0124857803394944,
+              "cosine": 0.9961741637209229,
+              "relative_delta_error": 0.08889940591216432
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.022946061663272867,
+            "teacher_rms": 0.028115286869155515,
+            "student_norm": 9.927984227626279,
+            "teacher_norm": 12.164533011733548,
+            "norm_ratio": 0.8161418295342731,
+            "cosine": 0.004397408596115721,
+            "relative_delta_error": 1.287986672183291,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.009609196635044412,
+                "teacher_rms": 0.008452966664179593,
+                "student_norm": 1.859323680619466,
+                "teacher_norm": 1.6355999036253894,
+                "norm_ratio": 1.1367839264958268,
+                "cosine": 0.0081376658185121,
+                "relative_delta_error": 1.507904559359083
+              },
+              {
+                "student_rms": 0.02031326438823368,
+                "teacher_rms": 0.022063641338669476,
+                "student_norm": 3.9304985569745576,
+                "teacher_norm": 4.269186320120821,
+                "norm_ratio": 0.9206669051781563,
+                "cosine": 0.06368516076313853,
+                "relative_delta_error": 1.315432214353586
+              },
+              {
+                "student_rms": 0.023628929241006003,
+                "teacher_rms": 0.030533056516773766,
+                "student_norm": 4.572060428575156,
+                "teacher_norm": 5.907968915558287,
+                "norm_ratio": 0.7738802444499844,
+                "cosine": 0.017928249071699077,
+                "relative_delta_error": 1.2534520322699307
+              },
+              {
+                "student_rms": 0.02615046752091895,
+                "teacher_rms": 0.03378500390574931,
+                "student_norm": 5.059963425411787,
+                "teacher_norm": 6.537201828370115,
+                "norm_ratio": 0.7740258842021037,
+                "cosine": 0.01145520476336325,
+                "relative_delta_error": 1.2575304447302584
+              },
+              {
+                "student_rms": 0.029756849809031653,
+                "teacher_rms": 0.036337251340179386,
+                "student_norm": 5.757777430507693,
+                "teacher_norm": 7.031046868061533,
+                "norm_ratio": 0.8189075593653551,
+                "cosine": -0.03521214417737257,
+                "relative_delta_error": 1.3146408531923637
+              }
+            ],
+            "student_response_relative_to_velocity": 0.016216565574522012,
+            "teacher_response_relative_to_velocity": 0.020115851486459942
+          }
+        }
+      },
+      "original_identity_rmse": {
+        "A": 0.0,
+        "D": 0.0
+      },
+      "cached_vs_full_causal": {
+        "absolute": {
+          "A": {
+            "student_rms": 1.4149783118243489,
+            "teacher_rms": 1.4149783118243489,
+            "student_norm": 612.2132228342733,
+            "teacher_norm": 612.2132228342733,
+            "norm_ratio": 1.0,
+            "cosine": 0.9999999999999601,
+            "relative_delta_error": 0.0
+          },
+          "D": {
+            "student_rms": 1.4149749921383135,
+            "teacher_rms": 1.4149749921383135,
+            "student_norm": 612.2117865184874,
+            "teacher_norm": 612.2117865184874,
+            "norm_ratio": 1.0,
+            "cosine": 0.9999999999999595,
+            "relative_delta_error": 0.0
+          }
+        },
+        "action_delta": {
+          "student_rms": 0.022946061663272867,
+          "teacher_rms": 0.022946061663272867,
+          "student_norm": 9.927984227626279,
+          "teacher_norm": 9.927984227626279,
+          "norm_ratio": 1.0,
+          "cosine": 1.0000000000000733,
+          "relative_delta_error": 0.0,
+          "per_latent_frame": [
+            {
+              "student_rms": 0.009609196635044412,
+              "teacher_rms": 0.009609196635044412,
+              "student_norm": 1.859323680619466,
+              "teacher_norm": 1.859323680619466,
+              "norm_ratio": 1.0,
+              "cosine": 1.000000000000002,
+              "relative_delta_error": 0.0
+            },
+            {
+              "student_rms": 0.02031326438823368,
+              "teacher_rms": 0.02031326438823368,
+              "student_norm": 3.9304985569745576,
+              "teacher_norm": 3.9304985569745576,
+              "norm_ratio": 1.0,
+              "cosine": 1.0000000000000089,
+              "relative_delta_error": 0.0
+            },
+            {
+              "student_rms": 0.023628929241006003,
+              "teacher_rms": 0.023628929241006003,
+              "student_norm": 4.572060428575156,
+              "teacher_norm": 4.572060428575156,
+              "norm_ratio": 1.0,
+              "cosine": 1.0000000000000067,
+              "relative_delta_error": 0.0
+            },
+            {
+              "student_rms": 0.02615046752091895,
+              "teacher_rms": 0.02615046752091895,
+              "student_norm": 5.059963425411787,
+              "teacher_norm": 5.059963425411787,
+              "norm_ratio": 1.0,
+              "cosine": 1.000000000000005,
+              "relative_delta_error": 0.0
+            },
+            {
+              "student_rms": 0.029756849809031653,
+              "teacher_rms": 0.029756849809031653,
+              "student_norm": 5.757777430507693,
+              "teacher_norm": 5.757777430507693,
+              "norm_ratio": 1.0,
+              "cosine": 1.000000000000009,
+              "relative_delta_error": 0.0
+            }
+          ],
+          "student_response_relative_to_velocity": 0.016216565574522012,
+          "teacher_response_relative_to_velocity": 0.016216565574522012
+        },
+        "caveat": "Identical mask predicates; different one-vs-two SDPA query shapes can affect BF16 rounding"
+      }
+    },
+    {
+      "clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+      "sigma": 0.24078089904785155,
+      "state_sha256": "0b3877fd356f6f7a7c2f8fdb1b1727af36456a9edf7513f7efaee40db57d7be9",
+      "history_sha256": "757c6445aed8fa6311f3c313cd5551658a528c09caa86dc76c16ddeccc957d1c",
+      "anchor_sha256": "09822d51fddeb36417143129cd71e72dbcc551599013d7bc6b43ef80b81f6e54",
+      "pair_sha256": "e44cd835fbfd950c134529c0c62fea982a9674acd24fdd41c32b293d7c39e2b9",
+      "generated_file_sha256": "9904a3f09acf153cf6c4794f473357ed87009de04bceea0dffb31cddd8f215c7",
+      "teacher_prediction_sha256": {
+        "A": "644a8dcb6c7268a93d4d1b672ec56a6a097437bbdf824f547e096f32424b9067",
+        "D": "6c3f6e856c6d6ee0c0dc1b314a95e297855764fd77850427edc94adc065160a7"
+      },
+      "roles": {
+        "own_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.3230986028597218,
+              "teacher_rms": 1.3230986028597218,
+              "student_norm": 572.4599826126718,
+              "teacher_norm": 572.4599826126718,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999615,
+              "relative_delta_error": 0.0
+            },
+            "D": {
+              "student_rms": 1.3231646296664272,
+              "teacher_rms": 1.3231646296664272,
+              "student_norm": 572.4885501771279,
+              "teacher_norm": 572.4885501771279,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999598,
+              "relative_delta_error": 0.0
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.023255914298267524,
+            "teacher_rms": 0.023255914298267524,
+            "student_norm": 10.062046975223573,
+            "teacher_norm": 10.062046975223573,
+            "norm_ratio": 1.0,
+            "cosine": 1.0000000000000733,
+            "relative_delta_error": 0.0,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.01676685766390434,
+                "teacher_rms": 0.01676685766390434,
+                "student_norm": 3.244289474770352,
+                "teacher_norm": 3.244289474770352,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000053,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.02194676664363619,
+                "teacher_rms": 0.02194676664363619,
+                "student_norm": 4.246571746146126,
+                "teacher_norm": 4.246571746146126,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000087,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.024431624498052577,
+                "teacher_rms": 0.024431624498052577,
+                "student_norm": 4.727377293910665,
+                "teacher_norm": 4.727377293910665,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000067,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.025904739704869763,
+                "teacher_rms": 0.025904739704869763,
+                "student_norm": 5.012416521677825,
+                "teacher_norm": 5.012416521677825,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000056,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.025950719689809592,
+                "teacher_rms": 0.025950719689809592,
+                "student_norm": 5.021313381434173,
+                "teacher_norm": 5.021313381434173,
+                "norm_ratio": 1.0,
+                "cosine": 1.000000000000005,
+                "relative_delta_error": 0.0
+              }
+            ],
+            "student_response_relative_to_velocity": 0.017576417956022616,
+            "teacher_response_relative_to_velocity": 0.017576417956022616
+          }
+        },
+        "own_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.332864640090731,
+              "teacher_rms": 1.3230986028597218,
+              "student_norm": 576.6854163720113,
+              "teacher_norm": 572.4599826126718,
+              "norm_ratio": 1.0073811862622344,
+              "cosine": 0.9884778938320321,
+              "relative_delta_error": 0.1525411022314983
+            },
+            "D": {
+              "student_rms": 1.332461842046582,
+              "teacher_rms": 1.3231646296664272,
+              "student_norm": 576.5111392917916,
+              "teacher_norm": 572.4885501771279,
+              "norm_ratio": 1.007026497059931,
+              "cosine": 0.9884901441037103,
+              "relative_delta_error": 0.15241663751261222
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.015328537819358978,
+            "teacher_rms": 0.023255914298267524,
+            "student_norm": 6.632139490270254,
+            "teacher_norm": 10.062046975223573,
+            "norm_ratio": 0.6591242822261711,
+            "cosine": 0.013784347306611103,
+            "relative_delta_error": 1.1900729487603976,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.01682322944239504,
+                "teacher_rms": 0.01676685766390434,
+                "student_norm": 3.255197086160481,
+                "teacher_norm": 3.244289474770352,
+                "norm_ratio": 1.0033620956067433,
+                "cosine": 0.00715109537755242,
+                "relative_delta_error": 1.4115187631811836
+              },
+              {
+                "student_rms": 0.012692413815761756,
+                "teacher_rms": 0.02194676664363619,
+                "student_norm": 2.4559082791376805,
+                "teacher_norm": 4.246571746146126,
+                "norm_ratio": 0.5783272780841349,
+                "cosine": 0.008947640402383225,
+                "relative_delta_error": 1.1507011391051238
+              },
+              {
+                "student_rms": 0.015453873706107008,
+                "teacher_rms": 0.024431624498052577,
+                "student_norm": 2.9902347126789173,
+                "teacher_norm": 4.727377293910665,
+                "norm_ratio": 0.6325356591551596,
+                "cosine": 0.012046937118044948,
+                "relative_delta_error": 1.1768012259856468
+              },
+              {
+                "student_rms": 0.014392889117616646,
+                "teacher_rms": 0.025904739704869763,
+                "student_norm": 2.784940363413758,
+                "teacher_norm": 5.012416521677825,
+                "norm_ratio": 0.5556083281126734,
+                "cosine": 0.02881099235352084,
+                "relative_delta_error": 1.1299050224167266
+              },
+              {
+                "student_rms": 0.01687378058940177,
+                "teacher_rms": 0.025950719689809592,
+                "student_norm": 3.26497843919985,
+                "teacher_norm": 5.021313381434173,
+                "norm_ratio": 0.6502239934419939,
+                "cosine": 0.010891205834345578,
+                "relative_delta_error": 1.1868562654953771
+              }
+            ],
+            "student_response_relative_to_velocity": 0.011502184007917181,
+            "teacher_response_relative_to_velocity": 0.017576417956022616
+          }
+        },
+        "causal_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.3257348803650644,
+              "teacher_rms": 1.3230986028597218,
+              "student_norm": 573.600610659294,
+              "teacher_norm": 572.4599826126718,
+              "norm_ratio": 1.0019925026748884,
+              "cosine": 0.9991698834537913,
+              "relative_delta_error": 0.04083517084720248
+            },
+            "D": {
+              "student_rms": 1.325030878144162,
+              "teacher_rms": 1.3231646296664272,
+              "student_norm": 573.2960127266354,
+              "teacher_norm": 572.4885501771279,
+              "norm_ratio": 1.001410443142064,
+              "cosine": 0.9991950534637775,
+              "relative_delta_error": 0.040176524051406634
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.028407998312291786,
+            "teacher_rms": 0.023255914298267524,
+            "student_norm": 12.291179345790733,
+            "teacher_norm": 10.062046975223573,
+            "norm_ratio": 1.2215386567023683,
+            "cosine": 0.0986825475364983,
+            "relative_delta_error": 1.5003558233641516,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.018966584643893263,
+                "teacher_rms": 0.01676685766390434,
+                "student_norm": 3.6699238560957186,
+                "teacher_norm": 3.244289474770352,
+                "norm_ratio": 1.1311949456530832,
+                "cosine": 0.05793566931398222,
+                "relative_delta_error": 1.4657861141616377
+              },
+              {
+                "student_rms": 0.0276264853326084,
+                "teacher_rms": 0.02194676664363619,
+                "student_norm": 5.34556429034586,
+                "teacher_norm": 4.246571746146126,
+                "norm_ratio": 1.2587952376401266,
+                "cosine": 0.12703047222241073,
+                "relative_delta_error": 1.504910211065081
+              },
+              {
+                "student_rms": 0.02988198540643517,
+                "teacher_rms": 0.024431624498052577,
+                "student_norm": 5.781990441061806,
+                "teacher_norm": 4.727377293910665,
+                "norm_ratio": 1.2230863080274104,
+                "cosine": 0.11168488323792258,
+                "relative_delta_error": 1.490885513337696
+              },
+              {
+                "student_rms": 0.031767520122455394,
+                "teacher_rms": 0.025904739704869763,
+                "student_norm": 6.146830446035873,
+                "teacher_norm": 5.012416521677825,
+                "norm_ratio": 1.2263207615432408,
+                "cosine": 0.08258773387321086,
+                "relative_delta_error": 1.5170051103397513
+              },
+              {
+                "student_rms": 0.03178064551119214,
+                "teacher_rms": 0.025950719689809592,
+                "student_norm": 6.149370132444889,
+                "teacher_norm": 5.021313381434173,
+                "norm_ratio": 1.2246537240996744,
+                "cosine": 0.09824991766124892,
+                "relative_delta_error": 1.5030410802231962
+              }
+            ],
+            "student_response_relative_to_velocity": 0.021433805096583308,
+            "teacher_response_relative_to_velocity": 0.017576417956022616
+          }
+        },
+        "causal_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.3347502590361746,
+              "teacher_rms": 1.3230986028597218,
+              "student_norm": 577.5012598672656,
+              "teacher_norm": 572.4599826126718,
+              "norm_ratio": 1.0088063400197613,
+              "cosine": 0.9877371158820305,
+              "relative_delta_error": 0.15754142983584352
+            },
+            "D": {
+              "student_rms": 1.334361577145648,
+              "teacher_rms": 1.3231646296664272,
+              "student_norm": 577.3330903689292,
+              "teacher_norm": 572.4885501771279,
+              "norm_ratio": 1.0084622481799896,
+              "cosine": 0.9877706459175059,
+              "relative_delta_error": 0.1572809380306724
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.01663678010478557,
+            "teacher_rms": 0.023255914298267524,
+            "student_norm": 7.198171647170468,
+            "teacher_norm": 10.062046975223573,
+            "norm_ratio": 0.7153784577725576,
+            "cosine": -0.0005462920787074422,
+            "relative_delta_error": 1.2298568815169086,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.018062197694063555,
+                "teacher_rms": 0.01676685766390434,
+                "student_norm": 3.4949302394463277,
+                "teacher_norm": 3.244289474770352,
+                "norm_ratio": 1.0772559805853075,
+                "cosine": 0.008358482043369305,
+                "relative_delta_error": 1.463718551555297
+              },
+              {
+                "student_rms": 0.014302006832332586,
+                "teacher_rms": 0.02194676664363619,
+                "student_norm": 2.7673551696046097,
+                "teacher_norm": 4.246571746146126,
+                "norm_ratio": 0.6516680595626476,
+                "cosine": 0.010533279701468005,
+                "relative_delta_error": 1.1878311563376214
+              },
+              {
+                "student_rms": 0.016675208243708044,
+                "teacher_rms": 0.024431624498052577,
+                "student_norm": 3.2265558448158385,
+                "teacher_norm": 4.727377293910665,
+                "norm_ratio": 0.6825255621064908,
+                "cosine": 0.02944824982539327,
+                "relative_delta_error": 1.1940028376844507
+              },
+              {
+                "student_rms": 0.016340619971203424,
+                "teacher_rms": 0.025904739704869763,
+                "student_norm": 3.1618149593960765,
+                "teacher_norm": 5.012416521677825,
+                "norm_ratio": 0.6307965321161518,
+                "cosine": -0.004864958392853425,
+                "relative_delta_error": 1.1849227243563012
+              },
+              {
+                "student_rms": 0.017551166493686418,
+                "teacher_rms": 0.025950719689809592,
+                "student_norm": 3.3960486733296205,
+                "teacher_norm": 5.021313381434173,
+                "norm_ratio": 0.6763267725703371,
+                "cosine": -0.036956300695679706,
+                "relative_delta_error": 1.2277650322625644
+              }
+            ],
+            "student_response_relative_to_velocity": 0.012466154380840457,
+            "teacher_response_relative_to_velocity": 0.017576417956022616
+          }
+        }
+      }
+    },
+    {
+      "clip": "dfec8ed3237860eba14d67c089ecd041_D_1750",
+      "sigma": 0.9395404663085938,
+      "state_sha256": "540084858302a1f1fead1668b0e585453fcc95004a70019caeddaa527323199f",
+      "history_sha256": "757c6445aed8fa6311f3c313cd5551658a528c09caa86dc76c16ddeccc957d1c",
+      "anchor_sha256": "6861927348ea3a3cfb251f406bad13bafb49de11d5379ce9ea9d8e8fc897e502",
+      "pair_sha256": "43ddc2a45c994cbe9618e12d4ae6821c95937fe9d5bca77d1a205001b617c0f4",
+      "generated_file_sha256": "e2c613eb9ad880264f250417c7f67fd953d34af2e52e114e6e8a9d0104eb3827",
+      "teacher_prediction_sha256": {
+        "A": "a9c03a330e31ca13267555858a446e18d76926ce275162981c438780e5ec8d8d",
+        "D": "37b0f812528422c6b95065b4f61df24541922e9ada5475d2dc29a0a93f84882c"
+      },
+      "roles": {
+        "own_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.3932725843209146,
+              "teacher_rms": 1.3932725843209146,
+              "student_norm": 602.8218892160872,
+              "teacher_norm": 602.8218892160872,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999605,
+              "relative_delta_error": 0.0
+            },
+            "D": {
+              "student_rms": 1.3929042544481827,
+              "teacher_rms": 1.3929042544481827,
+              "student_norm": 602.6625253469986,
+              "teacher_norm": 602.6625253469986,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999548,
+              "relative_delta_error": 0.0
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.05371681902176496,
+            "teacher_rms": 0.05371681902176496,
+            "student_norm": 23.241449440533327,
+            "teacher_norm": 23.241449440533327,
+            "norm_ratio": 1.0,
+            "cosine": 1.0000000000001465,
+            "relative_delta_error": 0.0,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.008646406563680811,
+                "teacher_rms": 0.008646406563680811,
+                "student_norm": 1.6730293995113998,
+                "teacher_norm": 1.6730293995113998,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000016,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.043532811648674404,
+                "teacher_rms": 0.043532811648674404,
+                "student_norm": 8.423345952473822,
+                "teacher_norm": 8.423345952473822,
+                "norm_ratio": 1.0,
+                "cosine": 1.000000000000022,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.0599522882681159,
+                "teacher_rms": 0.0599522882681159,
+                "student_norm": 11.600419214828156,
+                "teacher_norm": 11.600419214828156,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000238,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.06299723913704218,
+                "teacher_rms": 0.06299723913704218,
+                "student_norm": 12.18959950449664,
+                "teacher_norm": 12.18959950449664,
+                "norm_ratio": 1.0,
+                "cosine": 1.000000000000032,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.06996204817691429,
+                "teacher_rms": 0.06996204817691429,
+                "student_norm": 13.537249560027659,
+                "teacher_norm": 13.537249560027659,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000384,
+                "relative_delta_error": 0.0
+              }
+            ],
+            "student_response_relative_to_velocity": 0.0385595187457638,
+            "teacher_response_relative_to_velocity": 0.0385595187457638
+          }
+        },
+        "own_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.4195153706500199,
+              "teacher_rms": 1.3932725843209146,
+              "student_norm": 614.1762546225644,
+              "teacher_norm": 602.8218892160872,
+              "norm_ratio": 1.0188353568601207,
+              "cosine": 0.99135180785569,
+              "relative_delta_error": 0.13407810606897066
+            },
+            "D": {
+              "student_rms": 1.4192893985406654,
+              "teacher_rms": 1.3929042544481827,
+              "student_norm": 614.0784841393145,
+              "teacher_norm": 602.6625253469986,
+              "norm_ratio": 1.0189425396671925,
+              "cosine": 0.9926784747343133,
+              "relative_delta_error": 0.12360925089105311
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.027771941153049953,
+            "teacher_rms": 0.05371681902176496,
+            "student_norm": 12.01597894157794,
+            "teacher_norm": 23.241449440533327,
+            "norm_ratio": 0.5170064359506747,
+            "cosine": -0.15468873650284512,
+            "relative_delta_error": 1.194673930198676,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.011393195683027801,
+                "teacher_rms": 0.008646406563680811,
+                "student_norm": 2.204517124160938,
+                "teacher_norm": 1.6730293995113998,
+                "norm_ratio": 1.3176798475895024,
+                "cosine": -0.009572959676127202,
+                "relative_delta_error": 1.6617786774530274
+              },
+              {
+                "student_rms": 0.026382693362857073,
+                "teacher_rms": 0.043532811648674404,
+                "student_norm": 5.1048977756562826,
+                "teacher_norm": 8.423345952473822,
+                "norm_ratio": 0.6060415664344219,
+                "cosine": -0.021632710203928325,
+                "relative_delta_error": 1.180468984515353
+              },
+              {
+                "student_rms": 0.0274548265493637,
+                "teacher_rms": 0.0599522882681159,
+                "student_norm": 5.312349313819188,
+                "teacher_norm": 11.600419214828156,
+                "norm_ratio": 0.45794459798734805,
+                "cosine": -0.1056274311395999,
+                "relative_delta_error": 1.1430031836373364
+              },
+              {
+                "student_rms": 0.03090709370110641,
+                "teacher_rms": 0.06299723913704218,
+                "student_norm": 5.9803429360591815,
+                "teacher_norm": 12.18959950449664,
+                "norm_ratio": 0.49061028902984744,
+                "cosine": -0.19836812167023254,
+                "relative_delta_error": 1.1980573186270398
+              },
+              {
+                "student_rms": 0.03635293960861246,
+                "teacher_rms": 0.06996204817691429,
+                "student_norm": 7.034082456791096,
+                "teacher_norm": 13.537249560027659,
+                "norm_ratio": 0.5196094247653601,
+                "cosine": -0.22331189899367335,
+                "relative_delta_error": 1.2255871609411169
+              }
+            ],
+            "student_response_relative_to_velocity": 0.019565939478795126,
+            "teacher_response_relative_to_velocity": 0.0385595187457638
+          }
+        },
+        "causal_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.3957437235839696,
+              "teacher_rms": 1.3932725843209146,
+              "student_norm": 603.8910675347007,
+              "teacher_norm": 602.8218892160872,
+              "norm_ratio": 1.0017736222551636,
+              "cosine": 0.9994142235522347,
+              "relative_delta_error": 0.03430417647495358
+            },
+            "D": {
+              "student_rms": 1.3954134897513575,
+              "teacher_rms": 1.3929042544481827,
+              "student_norm": 603.7481865327345,
+              "teacher_norm": 602.6625253469986,
+              "norm_ratio": 1.0018014413375227,
+              "cosine": 0.9995743843152383,
+              "relative_delta_error": 0.029257648635761618
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.03677002141977924,
+            "teacher_rms": 0.05371681902176496,
+            "student_norm": 15.909143715469455,
+            "teacher_norm": 23.241449440533327,
+            "norm_ratio": 0.6845159875323329,
+            "cosine": 0.5709426804833049,
+            "relative_delta_error": 0.8288083926196282,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.009479935188206114,
+                "teacher_rms": 0.008646406563680811,
+                "student_norm": 1.8343123421875855,
+                "teacher_norm": 1.6730293995113998,
+                "norm_ratio": 1.0964017385010016,
+                "cosine": 0.19824895643758747,
+                "relative_delta_error": 1.3294268581609365
+              },
+              {
+                "student_rms": 0.03615248539261654,
+                "teacher_rms": 0.043532811648674404,
+                "student_norm": 6.9952957314448705,
+                "teacher_norm": 8.423345952473822,
+                "norm_ratio": 0.8304652059779698,
+                "cosine": 0.6083444302832975,
+                "relative_delta_error": 0.824169092564454
+              },
+              {
+                "student_rms": 0.04142909736191465,
+                "teacher_rms": 0.0599522882681159,
+                "student_norm": 8.01628946906659,
+                "teacher_norm": 11.600419214828156,
+                "norm_ratio": 0.691034463549371,
+                "cosine": 0.6545193635939773,
+                "relative_delta_error": 0.7569265190263257
+              },
+              {
+                "student_rms": 0.041421179580489687,
+                "teacher_rms": 0.06299723913704218,
+                "student_norm": 8.014757424395162,
+                "teacher_norm": 12.18959950449664,
+                "norm_ratio": 0.657507855072563,
+                "cosine": 0.5807146543460936,
+                "relative_delta_error": 0.8177210318351504
+              },
+              {
+                "student_rms": 0.04394561159839514,
+                "teacher_rms": 0.06996204817691429,
+                "student_norm": 8.503220342709035,
+                "teacher_norm": 13.537249560027659,
+                "norm_ratio": 0.6281350066720394,
+                "cosine": 0.49564164440422265,
+                "relative_delta_error": 0.8785748979895421
+              }
+            ],
+            "student_response_relative_to_velocity": 0.02634751008943739,
+            "teacher_response_relative_to_velocity": 0.0385595187457638
+          }
+        },
+        "causal_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.4176654972446423,
+              "teacher_rms": 1.3932725843209146,
+              "student_norm": 613.37587701262,
+              "teacher_norm": 602.8218892160872,
+              "norm_ratio": 1.0175076386331245,
+              "cosine": 0.9923080789001774,
+              "relative_delta_error": 0.12633168391214455
+            },
+            "D": {
+              "student_rms": 1.4166798391592335,
+              "teacher_rms": 1.3929042544481827,
+              "student_norm": 612.9494161205786,
+              "teacher_norm": 602.6625253469986,
+              "norm_ratio": 1.017069073222459,
+              "cosine": 0.9928975999226143,
+              "relative_delta_error": 0.12140270256174004
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.03095755308962484,
+            "teacher_rms": 0.05371681902176496,
+            "student_norm": 13.394285403303641,
+            "teacher_norm": 23.241449440533327,
+            "norm_ratio": 0.5763102442287386,
+            "cosine": 0.061457595078083564,
+            "relative_delta_error": 1.1230744473740697,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.010504758805404748,
+                "teacher_rms": 0.008646406563680811,
+                "student_norm": 2.032609753749162,
+                "teacher_norm": 1.6730293995113998,
+                "norm_ratio": 1.2149276960361701,
+                "cosine": 0.0046240943718907695,
+                "relative_delta_error": 1.5699724284052778
+              },
+              {
+                "student_rms": 0.030348253511122764,
+                "teacher_rms": 0.043532811648674404,
+                "student_norm": 5.87221060841703,
+                "teacher_norm": 8.423345952473822,
+                "norm_ratio": 0.6971351576379742,
+                "cosine": 0.16290046395669627,
+                "relative_delta_error": 1.1219938265317808
+              },
+              {
+                "student_rms": 0.03404551679662693,
+                "teacher_rms": 0.0599522882681159,
+                "student_norm": 6.587609558122336,
+                "teacher_norm": 11.600419214828156,
+                "norm_ratio": 0.5678768530797378,
+                "cosine": 0.22066216720103593,
+                "relative_delta_error": 1.0353097343577837
+              },
+              {
+                "student_rms": 0.034535414875037716,
+                "teacher_rms": 0.06299723913704218,
+                "student_norm": 6.682401988007397,
+                "teacher_norm": 12.18959950449664,
+                "norm_ratio": 0.548205212611154,
+                "cosine": 0.030632955603325445,
+                "relative_delta_error": 1.1255854757659107
+              },
+              {
+                "student_rms": 0.03753254485388936,
+                "teacher_rms": 0.06996204817691429,
+                "student_norm": 7.262329213479099,
+                "teacher_norm": 13.537249560027659,
+                "norm_ratio": 0.5364700695865919,
+                "cosine": -0.08441993940571113,
+                "relative_delta_error": 1.1740433029054744
+              }
+            ],
+            "student_response_relative_to_velocity": 0.02184458801968201,
+            "teacher_response_relative_to_velocity": 0.0385595187457638
+          }
+        }
+      }
+    },
+    {
+      "clip": "dfec8ed3237860eba14d67c089ecd041_D_1750",
+      "sigma": 0.6894410400390625,
+      "state_sha256": "54e4e5ab612a14b233734b82e98492429e182b28509690c1819d98ff48c84da4",
+      "history_sha256": "757c6445aed8fa6311f3c313cd5551658a528c09caa86dc76c16ddeccc957d1c",
+      "anchor_sha256": "6861927348ea3a3cfb251f406bad13bafb49de11d5379ce9ea9d8e8fc897e502",
+      "pair_sha256": "43ddc2a45c994cbe9618e12d4ae6821c95937fe9d5bca77d1a205001b617c0f4",
+      "generated_file_sha256": "e2c613eb9ad880264f250417c7f67fd953d34af2e52e114e6e8a9d0104eb3827",
+      "teacher_prediction_sha256": {
+        "A": "f0da19a1bdbbd415f1524ede3922fd13a813ac37e38d06dd85e89212daa42ecc",
+        "D": "465dd7528aa8f1df0dda318e155976546af679661ec47d03b66829ef96dea9ac"
+      },
+      "roles": {
+        "own_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.433599970943236,
+              "teacher_rms": 1.433599970943236,
+              "student_norm": 620.2701844487573,
+              "teacher_norm": 620.2701844487573,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999575,
+              "relative_delta_error": 0.0
+            },
+            "D": {
+              "student_rms": 1.4343569708933879,
+              "teacher_rms": 1.4343569708933879,
+              "student_norm": 620.5977127050547,
+              "teacher_norm": 620.5977127050547,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999516,
+              "relative_delta_error": 0.0
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.025639607988754965,
+            "teacher_rms": 0.025639607988754965,
+            "student_norm": 11.093390554349883,
+            "teacher_norm": 11.093390554349883,
+            "norm_ratio": 1.0,
+            "cosine": 1.0000000000000644,
+            "relative_delta_error": 0.0,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.008842155494974066,
+                "teacher_rms": 0.008842155494974066,
+                "student_norm": 1.7109056796243645,
+                "teacher_norm": 1.7109056796243645,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000018,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.02877642138116055,
+                "teacher_rms": 0.02877642138116055,
+                "student_norm": 5.56807022996555,
+                "teacher_norm": 5.56807022996555,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000093,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.028961643351165776,
+                "teacher_rms": 0.028961643351165776,
+                "student_norm": 5.603909604273473,
+                "teacher_norm": 5.603909604273473,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000064,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.02802270694404915,
+                "teacher_rms": 0.02802270694404915,
+                "student_norm": 5.42223086851102,
+                "teacher_norm": 5.42223086851102,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000053,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.02750695289757733,
+                "teacher_rms": 0.02750695289757733,
+                "student_norm": 5.322435459133813,
+                "teacher_norm": 5.322435459133813,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000047,
+                "relative_delta_error": 0.0
+              }
+            ],
+            "student_response_relative_to_velocity": 0.01788005085762236,
+            "teacher_response_relative_to_velocity": 0.01788005085762236
+          }
+        },
+        "own_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.451230633318329,
+              "teacher_rms": 1.433599970943236,
+              "student_norm": 627.8983753144131,
+              "teacher_norm": 620.2701844487573,
+              "norm_ratio": 1.0122981743390345,
+              "cosine": 0.9954586615436741,
+              "relative_delta_error": 0.09667275908322474
+            },
+            "D": {
+              "student_rms": 1.4505353749752137,
+              "teacher_rms": 1.4343569708933879,
+              "student_norm": 627.5975605617173,
+              "teacher_norm": 620.5977127050547,
+              "norm_ratio": 1.0112792034410691,
+              "cosine": 0.995467462975979,
+              "relative_delta_error": 0.09640820137623107
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.01595024366213149,
+            "teacher_rms": 0.025639607988754965,
+            "student_norm": 6.90113056559481,
+            "teacher_norm": 11.093390554349883,
+            "norm_ratio": 0.6220938974233423,
+            "cosine": 0.01770777622156952,
+            "relative_delta_error": 1.1683188854771052,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.009534434685510417,
+                "teacher_rms": 0.008842155494974066,
+                "student_norm": 1.844857678053665,
+                "teacher_norm": 1.7109056796243645,
+                "norm_ratio": 1.0782930351009823,
+                "cosine": 0.003931739597332895,
+                "relative_delta_error": 1.4677318333742095
+              },
+              {
+                "student_rms": 0.020422212552617877,
+                "teacher_rms": 0.02877642138116055,
+                "student_norm": 3.951579393353823,
+                "teacher_norm": 5.56807022996555,
+                "norm_ratio": 0.7096856235914021,
+                "cosine": 0.05695421555514685,
+                "relative_delta_error": 1.1928178856671572
+              },
+              {
+                "student_rms": 0.016195451332630312,
+                "teacher_rms": 0.028961643351165776,
+                "student_norm": 3.1337256718485715,
+                "teacher_norm": 5.603909604273473,
+                "norm_ratio": 0.559203465640993,
+                "cosine": -0.03165953826786354,
+                "relative_delta_error": 1.1610843048740436
+              },
+              {
+                "student_rms": 0.01456365327597527,
+                "teacher_rms": 0.02802270694404915,
+                "student_norm": 2.817982235226362,
+                "teacher_norm": 5.42223086851102,
+                "norm_ratio": 0.5197090097346221,
+                "cosine": -0.009968273857052802,
+                "relative_delta_error": 1.1315735319763138
+              },
+              {
+                "student_rms": 0.017020179595992502,
+                "teacher_rms": 0.02750695289757733,
+                "student_norm": 3.293305795805351,
+                "teacher_norm": 5.322435459133813,
+                "norm_ratio": 0.6187591791561737,
+                "cosine": 0.045548215685263106,
+                "relative_delta_error": 1.1517361541130533
+              }
+            ],
+            "student_response_relative_to_velocity": 0.010993473365215577,
+            "teacher_response_relative_to_velocity": 0.01788005085762236
+          }
+        },
+        "causal_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.4363062629271683,
+              "teacher_rms": 1.433599970943236,
+              "student_norm": 621.4411053904927,
+              "teacher_norm": 620.2701844487573,
+              "norm_ratio": 1.0018877595136642,
+              "cosine": 0.9996144768542904,
+              "relative_delta_error": 0.027857951778119363
+            },
+            "D": {
+              "student_rms": 1.4364911235877535,
+              "teacher_rms": 1.4343569708933879,
+              "student_norm": 621.5210883413595,
+              "teacher_norm": 620.5977127050547,
+              "norm_ratio": 1.001487881146516,
+              "cosine": 0.9995722077147247,
+              "relative_delta_error": 0.029309919291976745
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.029510206968202553,
+            "teacher_rms": 0.025639607988754965,
+            "student_norm": 12.768067724807972,
+            "teacher_norm": 11.093390554349883,
+            "norm_ratio": 1.1509617066354365,
+            "cosine": 0.3176858342815868,
+            "relative_delta_error": 1.2623091499881893,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.00934359351369071,
+                "teacher_rms": 0.008842155494974066,
+                "student_norm": 1.8079310208649177,
+                "teacher_norm": 1.7109056796243645,
+                "norm_ratio": 1.05670992994883,
+                "cosine": 0.12678398550816997,
+                "relative_delta_error": 1.3596646951224847
+              },
+              {
+                "student_rms": 0.035389179229261915,
+                "teacher_rms": 0.02877642138116055,
+                "student_norm": 6.847600426728955,
+                "teacher_norm": 5.56807022996555,
+                "norm_ratio": 1.2297977834182816,
+                "cosine": 0.3830395371541025,
+                "relative_delta_error": 1.2531082317953077
+              },
+              {
+                "student_rms": 0.030864036884949514,
+                "teacher_rms": 0.028961643351165776,
+                "student_norm": 5.972011692466921,
+                "teacher_norm": 5.603909604273473,
+                "norm_ratio": 1.0656866570282895,
+                "cosine": 0.23419721173321423,
+                "relative_delta_error": 1.2792679014395247
+              },
+              {
+                "student_rms": 0.03162603039558621,
+                "teacher_rms": 0.02802270694404915,
+                "student_norm": 6.119453006513722,
+                "teacher_norm": 5.42223086851102,
+                "norm_ratio": 1.1285858449981794,
+                "cosine": 0.3527414735848701,
+                "relative_delta_error": 1.215527844792904
+              },
+              {
+                "student_rms": 0.03258481638497877,
+                "teacher_rms": 0.02750695289757733,
+                "student_norm": 6.304972521040282,
+                "teacher_norm": 5.322435459133813,
+                "norm_ratio": 1.184602907719687,
+                "cosine": 0.3116588583448106,
+                "relative_delta_error": 1.2903100671366603
+              }
+            ],
+            "student_response_relative_to_velocity": 0.020544579375298227,
+            "teacher_response_relative_to_velocity": 0.01788005085762236
+          }
+        },
+        "causal_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.4539864720986058,
+              "teacher_rms": 1.433599970943236,
+              "student_norm": 629.0907334779171,
+              "teacher_norm": 620.2701844487573,
+              "norm_ratio": 1.0142204949557567,
+              "cosine": 0.9952494579514223,
+              "relative_delta_error": 0.09918879317907303
+            },
+            "D": {
+              "student_rms": 1.4541672842733868,
+              "teacher_rms": 1.4343569708933879,
+              "student_norm": 629.1689647860054,
+              "teacher_norm": 620.5977127050547,
+              "norm_ratio": 1.0138112853229677,
+              "cosine": 0.9951141460328904,
+              "relative_delta_error": 0.10048591634033406
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.025866952668286473,
+            "teacher_rms": 0.025639607988754965,
+            "student_norm": 11.191754902260394,
+            "teacher_norm": 11.093390554349883,
+            "norm_ratio": 1.0088669327405895,
+            "cosine": 0.06231465401393128,
+            "relative_delta_error": 1.3755282986029724,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.013519866675554196,
+                "teacher_rms": 0.008842155494974066,
+                "student_norm": 2.6160155966628014,
+                "teacher_norm": 1.7109056796243645,
+                "norm_ratio": 1.529023854334949,
+                "cosine": -0.02070715112796542,
+                "relative_delta_error": 1.8442443989843744
+              },
+              {
+                "student_rms": 0.032684278570313786,
+                "teacher_rms": 0.02877642138116055,
+                "student_norm": 6.3242178756253935,
+                "teacher_norm": 5.56807022996555,
+                "norm_ratio": 1.135800666017196,
+                "cosine": 0.06777881435268097,
+                "relative_delta_error": 1.4615323150576685
+              },
+              {
+                "student_rms": 0.027228554670326165,
+                "teacher_rms": 0.028961643351165776,
+                "student_norm": 5.268567020779372,
+                "teacher_norm": 5.603909604273473,
+                "norm_ratio": 0.9401591732960195,
+                "cosine": 0.03654291882242844,
+                "relative_delta_error": 1.3472887405574168
+              },
+              {
+                "student_rms": 0.02664579704575465,
+                "teacher_rms": 0.02802270694404915,
+                "student_norm": 5.15580680860141,
+                "teacher_norm": 5.42223086851102,
+                "norm_ratio": 0.9508644935322033,
+                "cosine": 0.09480668928936133,
+                "relative_delta_error": 1.3129534096345705
+              },
+              {
+                "student_rms": 0.025358522265537125,
+                "teacher_rms": 0.02750695289757733,
+                "student_norm": 4.906726622897459,
+                "teacher_norm": 5.322435459133813,
+                "norm_ratio": 0.9218949972379735,
+                "cosine": 0.0656024311726454,
+                "relative_delta_error": 1.3148890750641142
+              }
+            ],
+            "student_response_relative_to_velocity": 0.017789260703021604,
+            "teacher_response_relative_to_velocity": 0.01788005085762236
+          }
+        }
+      },
+      "original_identity_rmse": {
+        "A": 0.0,
+        "D": 0.0
+      },
+      "cached_vs_full_causal": {
+        "absolute": {
+          "A": {
+            "student_rms": 1.4539864720986058,
+            "teacher_rms": 1.4539864720986058,
+            "student_norm": 629.0907334779171,
+            "teacher_norm": 629.0907334779171,
+            "norm_ratio": 1.0,
+            "cosine": 0.9999999999999551,
+            "relative_delta_error": 0.0
+          },
+          "D": {
+            "student_rms": 1.4541672842733868,
+            "teacher_rms": 1.4541672842733868,
+            "student_norm": 629.1689647860054,
+            "teacher_norm": 629.1689647860054,
+            "norm_ratio": 1.0,
+            "cosine": 0.9999999999999546,
+            "relative_delta_error": 0.0
+          }
+        },
+        "action_delta": {
+          "student_rms": 0.025866952668286473,
+          "teacher_rms": 0.025866952668286473,
+          "student_norm": 11.191754902260394,
+          "teacher_norm": 11.191754902260394,
+          "norm_ratio": 1.0,
+          "cosine": 1.000000000000075,
+          "relative_delta_error": 0.0,
+          "per_latent_frame": [
+            {
+              "student_rms": 0.013519866675554196,
+              "teacher_rms": 0.013519866675554196,
+              "student_norm": 2.6160155966628014,
+              "teacher_norm": 2.6160155966628014,
+              "norm_ratio": 1.0,
+              "cosine": 1.000000000000002,
+              "relative_delta_error": 0.0
+            },
+            {
+              "student_rms": 0.032684278570313786,
+              "teacher_rms": 0.032684278570313786,
+              "student_norm": 6.3242178756253935,
+              "teacher_norm": 6.3242178756253935,
+              "norm_ratio": 1.0,
+              "cosine": 1.0000000000000189,
+              "relative_delta_error": 0.0
+            },
+            {
+              "student_rms": 0.027228554670326165,
+              "teacher_rms": 0.027228554670326165,
+              "student_norm": 5.268567020779372,
+              "teacher_norm": 5.268567020779372,
+              "norm_ratio": 1.0,
+              "cosine": 1.0000000000000056,
+              "relative_delta_error": 0.0
+            },
+            {
+              "student_rms": 0.02664579704575465,
+              "teacher_rms": 0.02664579704575465,
+              "student_norm": 5.15580680860141,
+              "teacher_norm": 5.15580680860141,
+              "norm_ratio": 1.0,
+              "cosine": 1.000000000000005,
+              "relative_delta_error": 0.0
+            },
+            {
+              "student_rms": 0.025358522265537125,
+              "teacher_rms": 0.025358522265537125,
+              "student_norm": 4.906726622897459,
+              "teacher_norm": 4.906726622897459,
+              "norm_ratio": 1.0,
+              "cosine": 1.000000000000005,
+              "relative_delta_error": 0.0
+            }
+          ],
+          "student_response_relative_to_velocity": 0.017789260703021604,
+          "teacher_response_relative_to_velocity": 0.017789260703021604
+        },
+        "caveat": "Identical mask predicates; different one-vs-two SDPA query shapes can affect BF16 rounding"
+      }
+    },
+    {
+      "clip": "dfec8ed3237860eba14d67c089ecd041_D_1750",
+      "sigma": 0.24078089904785155,
+      "state_sha256": "ffdc57dad9c8fe731fd0efedc831e81f84dd55a140d62fc7fad8546836ca89ea",
+      "history_sha256": "757c6445aed8fa6311f3c313cd5551658a528c09caa86dc76c16ddeccc957d1c",
+      "anchor_sha256": "6861927348ea3a3cfb251f406bad13bafb49de11d5379ce9ea9d8e8fc897e502",
+      "pair_sha256": "43ddc2a45c994cbe9618e12d4ae6821c95937fe9d5bca77d1a205001b617c0f4",
+      "generated_file_sha256": "e2c613eb9ad880264f250417c7f67fd953d34af2e52e114e6e8a9d0104eb3827",
+      "teacher_prediction_sha256": {
+        "A": "ab7cdc13c75997f61297d0498fa36bddec85f1c3080da6480482aa4b1628b37d",
+        "D": "1e3f47bf0f2448dda956ec371ed3e3e77f149a21c67940067ba969e70e198cca"
+      },
+      "roles": {
+        "own_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.3578695837070573,
+              "teacher_rms": 1.3578695837070573,
+              "student_norm": 587.5042091338645,
+              "teacher_norm": 587.5042091338645,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999503,
+              "relative_delta_error": 0.0
+            },
+            "D": {
+              "student_rms": 1.3569931621498859,
+              "teacher_rms": 1.3569931621498859,
+              "student_norm": 587.1250111902646,
+              "teacher_norm": 587.1250111902646,
+              "norm_ratio": 1.0,
+              "cosine": 0.9999999999999615,
+              "relative_delta_error": 0.0
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.029162246690463096,
+            "teacher_rms": 0.029162246690463096,
+            "student_norm": 12.617517090022593,
+            "teacher_norm": 12.617517090022593,
+            "norm_ratio": 1.0,
+            "cosine": 1.000000000000117,
+            "relative_delta_error": 0.0,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.03585366842457221,
+                "teacher_rms": 0.03585366842457221,
+                "student_norm": 6.937476385462383,
+                "teacher_norm": 6.937476385462383,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000115,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.0285072356059488,
+                "teacher_rms": 0.0285072356059488,
+                "student_norm": 5.515984347519175,
+                "teacher_norm": 5.515984347519175,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000062,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.028152730804978234,
+                "teacher_rms": 0.028152730804978234,
+                "student_norm": 5.447389729636764,
+                "teacher_norm": 5.447389729636764,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000049,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.026344306749330706,
+                "teacher_rms": 0.026344306749330706,
+                "student_norm": 5.097470189120273,
+                "teacher_norm": 5.097470189120273,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000053,
+                "relative_delta_error": 0.0
+              },
+              {
+                "student_rms": 0.02583479028179802,
+                "teacher_rms": 0.02583479028179802,
+                "student_norm": 4.998881715002245,
+                "teacher_norm": 4.998881715002245,
+                "norm_ratio": 1.0,
+                "cosine": 1.0000000000000058,
+                "relative_delta_error": 0.0
+              }
+            ],
+            "student_response_relative_to_velocity": 0.021483404076295624,
+            "teacher_response_relative_to_velocity": 0.021483404076295624
+          }
+        },
+        "own_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.357742837556876,
+              "teacher_rms": 1.3578695837070573,
+              "student_norm": 587.4493703646513,
+              "teacher_norm": 587.5042091338645,
+              "norm_ratio": 0.9999066580828517,
+              "cosine": 0.9862627631457841,
+              "relative_delta_error": 0.16574654717666018
+            },
+            "D": {
+              "student_rms": 1.3577874851034206,
+              "teacher_rms": 1.3569931621498859,
+              "student_norm": 587.4686878468547,
+              "teacher_norm": 587.1250111902646,
+              "norm_ratio": 1.0005853551629378,
+              "cosine": 0.9865302179417013,
+              "relative_delta_error": 0.16418183812504586
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.015552075991650387,
+            "teacher_rms": 0.029162246690463096,
+            "student_norm": 6.728856891336635,
+            "teacher_norm": 12.617517090022593,
+            "norm_ratio": 0.5332948505897039,
+            "cosine": 0.013977616209154711,
+            "relative_delta_error": 1.1267186943375556,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.01970416384562212,
+                "teacher_rms": 0.03585366842457221,
+                "student_norm": 3.8126411433146528,
+                "teacher_norm": 6.937476385462383,
+                "norm_ratio": 0.5495717652176974,
+                "cosine": -0.00699217463751089,
+                "relative_delta_error": 1.144427598688962
+              },
+              {
+                "student_rms": 0.013563825287691515,
+                "teacher_rms": 0.0285072356059488,
+                "student_norm": 2.6245213325342065,
+                "teacher_norm": 5.515984347519175,
+                "norm_ratio": 0.47580289703225687,
+                "cosine": 0.006324593628573097,
+                "relative_delta_error": 1.1047035244273562
+              },
+              {
+                "student_rms": 0.013838293585727673,
+                "teacher_rms": 0.028152730804978234,
+                "student_norm": 2.677629352434311,
+                "teacher_norm": 5.447389729636764,
+                "norm_ratio": 0.49154356220678513,
+                "cosine": 0.013401897529266715,
+                "relative_delta_error": 1.1083500532968784
+              },
+              {
+                "student_rms": 0.013242840249811578,
+                "teacher_rms": 0.026344306749330706,
+                "student_norm": 2.5624125939245572,
+                "teacher_norm": 5.097470189120273,
+                "norm_ratio": 0.5026831935954453,
+                "cosine": 0.032112319122479645,
+                "relative_delta_error": 1.1047197594244553
+              },
+              {
+                "student_rms": 0.016438756696094105,
+                "teacher_rms": 0.02583479028179802,
+                "student_norm": 3.1808038450914977,
+                "teacher_norm": 4.998881715002245,
+                "norm_ratio": 0.6363030826565715,
+                "cosine": 0.041833828978171304,
+                "relative_delta_error": 1.1626020919996558
+              }
+            ],
+            "student_response_relative_to_velocity": 0.011454172219601391,
+            "teacher_response_relative_to_velocity": 0.021483404076295624
+          }
+        },
+        "causal_common": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.3587182927709416,
+              "teacher_rms": 1.3578695837070573,
+              "student_norm": 587.8714168195985,
+              "teacher_norm": 587.5042091338645,
+              "norm_ratio": 1.00062502988068,
+              "cosine": 0.999311570626689,
+              "relative_delta_error": 0.03712290380242414
+            },
+            "D": {
+              "student_rms": 1.3575636917210048,
+              "teacher_rms": 1.3569931621498859,
+              "student_norm": 587.3718600250053,
+              "teacher_norm": 587.1250111902646,
+              "norm_ratio": 1.0004204365851155,
+              "cosine": 0.9993269634291598,
+              "relative_delta_error": 0.03669898972601829
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.031698644153143926,
+            "teacher_rms": 0.029162246690463096,
+            "student_norm": 13.71493042282055,
+            "teacher_norm": 12.617517090022593,
+            "norm_ratio": 1.0869753791469596,
+            "cosine": 0.1330508776830799,
+            "relative_delta_error": 1.3755978403737537,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.030140747968006695,
+                "teacher_rms": 0.03585366842457221,
+                "student_norm": 5.832059492269789,
+                "teacher_norm": 6.937476385462383,
+                "norm_ratio": 0.8406600856315681,
+                "cosine": 0.20569076017704205,
+                "relative_delta_error": 1.1665664813657066
+              },
+              {
+                "student_rms": 0.035979220121199675,
+                "teacher_rms": 0.0285072356059488,
+                "student_norm": 6.961769908797079,
+                "teacher_norm": 5.515984347519175,
+                "norm_ratio": 1.2621083509651634,
+                "cosine": 0.07048401212825053,
+                "relative_delta_error": 1.5540272098463408
+              },
+              {
+                "student_rms": 0.03325581896274648,
+                "teacher_rms": 0.028152730804978234,
+                "student_norm": 6.434807618601947,
+                "teacher_norm": 5.447389729636764,
+                "norm_ratio": 1.1812644106576573,
+                "cosine": 0.13397004303926147,
+                "relative_delta_error": 1.441831307751799
+              },
+              {
+                "student_rms": 0.029646896651377166,
+                "teacher_rms": 0.026344306749330706,
+                "student_norm": 5.736502133773707,
+                "teacher_norm": 5.097470189120273,
+                "norm_ratio": 1.1253625663211029,
+                "cosine": 0.13163353591750945,
+                "relative_delta_error": 1.4036274427670257
+              },
+              {
+                "student_rms": 0.02891648770506514,
+                "teacher_rms": 0.02583479028179802,
+                "student_norm": 5.595172249289774,
+                "teacher_norm": 4.998881715002245,
+                "norm_ratio": 1.1192847857347754,
+                "cosine": 0.12335380781902819,
+                "relative_delta_error": 1.4059382457521883
+              }
+            ],
+            "student_response_relative_to_velocity": 0.023339730067880156,
+            "teacher_response_relative_to_velocity": 0.021483404076295624
+          }
+        },
+        "causal_static": {
+          "absolute": {
+            "A": {
+              "student_rms": 1.359899639351911,
+              "teacher_rms": 1.3578695837070573,
+              "student_norm": 588.3825455002117,
+              "teacher_norm": 587.5042091338645,
+              "norm_ratio": 1.001495029912453,
+              "cosine": 0.9853578584123389,
+              "relative_delta_error": 0.17126090963487559
+            },
+            "D": {
+              "student_rms": 1.3599631669785592,
+              "teacher_rms": 1.3569931621498859,
+              "student_norm": 588.4100317540443,
+              "teacher_norm": 587.1250111902646,
+              "norm_ratio": 1.0021886660239097,
+              "cosine": 0.985686384078081,
+              "relative_delta_error": 0.16939503402522516
+            }
+          },
+          "action_delta": {
+            "student_rms": 0.018268519966785395,
+            "teacher_rms": 0.029162246690463096,
+            "student_norm": 7.904170256049496,
+            "teacher_norm": 12.617517090022593,
+            "norm_ratio": 0.6264441886351622,
+            "cosine": 0.011538246919763427,
+            "relative_delta_error": 1.173872303964478,
+            "per_latent_frame": [
+              {
+                "student_rms": 0.021769372209921197,
+                "teacher_rms": 0.03585366842457221,
+                "student_norm": 4.212246954600758,
+                "teacher_norm": 6.937476385462383,
+                "norm_ratio": 0.6071727989485635,
+                "cosine": -0.024276764770714374,
+                "relative_delta_error": 1.182429359502514
+              },
+              {
+                "student_rms": 0.01573738484005081,
+                "teacher_rms": 0.0285072356059488,
+                "student_norm": 3.045092468751731,
+                "teacher_norm": 5.515984347519175,
+                "norm_ratio": 0.5520487871074666,
+                "cosine": 0.028734413643648794,
+                "relative_delta_error": 1.1282873157783753
+              },
+              {
+                "student_rms": 0.019442264984381886,
+                "teacher_rms": 0.028152730804978234,
+                "student_norm": 3.7619652363553415,
+                "teacher_norm": 5.447389729636764,
+                "norm_ratio": 0.6905996124874643,
+                "cosine": 0.02989715487077101,
+                "relative_delta_error": 1.1981794096175056
+              },
+              {
+                "student_rms": 0.016184498125959627,
+                "teacher_rms": 0.026344306749330706,
+                "student_norm": 3.1316062900401858,
+                "teacher_norm": 5.097470189120273,
+                "norm_ratio": 0.6143451896440894,
+                "cosine": 0.00821655287523326,
+                "relative_delta_error": 1.1693264781788337
+              },
+              {
+                "student_rms": 0.017526654374241547,
+                "teacher_rms": 0.02583479028179802,
+                "student_norm": 3.3913057207315003,
+                "teacher_norm": 4.998881715002245,
+                "norm_ratio": 0.6784128759345883,
+                "cosine": 0.03737806027015967,
+                "relative_delta_error": 1.187235661317652
+              }
+            ],
+            "student_response_relative_to_velocity": 0.013433412835577948,
+            "teacher_response_relative_to_velocity": 0.021483404076295624
+          }
+        }
+      }
+    }
+  ],
+  "model_forwards": 56,
+  "scope": "Read-only 2x2 attention-edge ablation on the first generated chunk.\n\nThere is no history KV in this experiment. The four branches share identical\ntokens, weights, SDPA backend, current state and A/D interventions. This is a\nlocal mechanism test, not a trained model or an accepted rollout variant.\n",
+  "source_sha256": {
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-21/stage1_first_chunk_routes/probe_routes.py": "53e6f5d3025d2a09df1132a445e568395512d7847e795d9c133394b8d854d050",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry_primitives.py": "5877b26d3243c0b29f6f287b192753603231744115d8647eecabf7e808822f18",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/code/causal/h3_cached.py": "91a0ea05f3effdaee502fd7377df760ef6ee1f97cbc6057cf232edbd791cc83e",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/encoded_manifest.json": "ffa190e91f03d9211429def3f25bdc4e2de34c21688c937914a2ea7f2180341e"
+  },
+  "wall_seconds": 404.5360113270581,
+  "checkpoint_sha256": {
+    "causal_adapter.pt": "28c24e5f2b6620852a5ac042009b547dbf622377117d194ec853d9560631db05",
+    "stage1_lora.pt": "d8f2a4a3aee822051fce1804aab44cddcb79954ec4e45a16595a05e85b9dbec0"
+  },
+  "gpu_allocated_peak_MiB": 20222.02587890625,
+  "parameter_versions_unchanged": true,
+  "limitation": "First chunk only, no history KV. Local edge intervention does not prove multi-chunk correctness or video quality. All branches use full-prefix SDPA; cached deployment shape control reported separately."
+}

@@ -1,3 +1,840 @@
+## 2026-10-09 16:16：E2受控评测收尾；动作监督短试没有额外收益
+
+2026-10-09 16:16：E2两臂各4更新、六组局部视频评测及48次held-out诊断全部完成。停车场两份历史的A/D符号均保留，但A分支重影仍在，FM+action没有一致优于FM-only；局部动作＋结构联合gate仍为No-Go。本轮不自动扩训，不进入AnyFlow/Stage2。
+
+两臂均从Original H3＋released action LoRA出发，只更新tail8 QKV/out共10,092,544参数，LR2e-5、logical batch2；仅objective不同。初始化bank完全相同，梯度replay误差0，训练wall284.76/416.62秒，峰值allocated均27.91GiB。六组评测共360采样＋12identity forward，另48次held-out同状态诊断；全部原作业及两队列已结束，无重启。
+
+停车场同状态对照（A flow / D flow）：
+
+| 固定历史 | Original权重局部N | FM-only4 | FM+action4 |
+|---|---:|---:|---:|
+| A-history | +1.645495 / −1.546733 | +1.657549 / −1.395918 | +1.678612 / −1.376481 |
+| D-history | +0.614104 / −0.673822 | +0.699057 / −0.667578 | +0.657532 / −0.616613 |
+
+四组当前A/D均完整检查42RGB；A分支中段/末段仍有多重手臂、躯干或腿部残影，D分支相对完整。FM-only局部减轻D-history/currentA的重影，动作项未进一步消除。两份真实GT-history24各生成39RGB：一组首帧背景拖影及边界MAD改善，另一组几乎不变，初始姿态/视角突跳仍存在。三bank六case共738当前RGB静态逐帧及原尺寸细节/边界评审完成，不声称实时播放评审。
+
+Held-out正确动作FM均值0.25976668→0.25969061/0.25969900，改善均不足0.03%；正确排序5/8→4/8、4/8。两状态×四sigma不是八个独立视频试验。没有用验证集改lambda、margin或noise权重，错误动作无反事实视频GT。
+
+训练覆盖审计发现8个microbatch无纯A/D，其中3个还含相机按键。仅CPU扫描原训练episode后，A与D各找到一段更纯的源视频候选；源画面人物完整，但A存在按键激活到明显运动的待核查时序。没有移标签、编码或新训练；它们也不是同状态反事实配对。这是下一轮监督可靠性需要处理的缺口，不是已证实的ghosting成因。
+
+当前T2/N每sigma重算可见hidden，CPU hiddenKV=0，不宣称persistent-KV加速。停车场历史来自Original生成，真实GT例子含联合相机和观测派生F，二者均为局部条件实验，不是124f自由rollout。会议主demo保持原验收状态。
+
+[完整结果与六条三列视频](reports/stage1_anyflow/real_transition_windows/FINAL_RESULTS.md) · [监督覆盖和源视频检查](reports/stage1_anyflow/real_transition_windows/SUPERVISION_COVERAGE.md)。完整Stage1及研究目标仍未完成；路线继续保持“可信causal30 → AnyFlow → on-policy Stage2”。
+
+## 2026-10-09 07:14：真实GT局部基线已评审，两臂动作后果监督开始
+
+2026-10-09 07:14：E2真实后果数据与前置审计已完成（6train+2validation；24个真实前缀检查差0；17项CPU检查）。33B梯度预检峰值27.81GiB。两条真实GT-history24的30step局部基线人物大体完整，仍有边界跳变和运动偏离；GPU1/4现运行同初始化FM-only与FM+action，各固定4更新。动作+结构完整gate未过，不进入AnyFlow/Stage2。
+
+本轮两个124RGB真实条件下，仅生成history24之后的12latent/39RGB；展示视频附8个共同GT上下文，总47帧。W+A+J场景采样445.15s、MAD19.250、边界MAD23.376；D+L+F场景451.77s、MAD12.425、边界23.757。两条合计60noisy forward，torch峰值25.62GiB，T2每sigma重算、CPU hiddenKV0。这些是单次局部采样时间、不是整视频端到端加速或纯A/D定量保真。全部78当前RGB静态逐帧检查，并看原尺寸人物细节及GT80→生成81边界；4个H264/yuv420p MP4完整解码通过。
+
+训练集8状态校准中，5/8交换动作的FM误差更低；不把这个当反事实视频真值。预登记规则给margin9.30689275e-5、lambda2.48589083；lr2e-5、logical batch2、released action LoRA tail8 QKV/out，双方同数据/noise/初始化，仅loss不同。序贯hinge梯度与联合图2项新CPU检查通过。两臂各停在4更新，再做冻结的真实GT与停车场same-state动作/视觉评测；不能凭训练loss直接扩到16或进入AnyFlow。
+
+进程：FM-only GPU1 PID174575/start_ticks258003891；FM+action GPU4 PID174707/start_ticks258004007；启动参数hash相同，后续等待原进程、不重启。未完成Stage1或完整研究目标。[报告和局部视频](reports/stage1_anyflow/real_transition_windows/BASELINE_RESULTS.md)。
+
+## 2026-10-09 06:56：真实动作后果数据准备与33B反向传播可行性
+
+2026-10-09 06:56：E2真实后果输入已建立6train+2validation，完整124RGB同episode不重叠；新窗口标签/位置合同通过15项CPU检查。真实33B仅released action LoRA tail8 QKV/out的3次backward已通过，峰值27.81GiB、零optimizer；验证编码通过，训练编码和两条GT-history24/30step局部基线仍在运行。E1动作+结构尚未过，不进入AnyFlow/Stage2。
+
+新数据保留完整联合按键、源帧/pose对齐；原39f起点扩长后的重叠片段不再作为独立124f样本。A/D交换负例只改当前横向动作，未知反事实没有视频GT；train后续窗口7个有资格，history24仅1个A，泛化结论须谨慎。相机F限制为窗口内邻格派生并提交，translation不进入条件；F仍是观测速度代理。第一次混合句长坐标检查因约1e-13的FP64平移舍入停下，已留存attempt1；修订直接按固定origin重建时间坐标，实际tiny-H3及混合句长检查通过。
+
+真实33B预检10092544个released LoRA参数，安装前后输出差0；history12正例/负例FM=0.16211884/0.16219865，history24正例0.15563034，梯度有限非零且权重未变；峰值28481.92MiB、wall89.66s。该值是预检成本，不是生成速度。当前GT-history基线只生成后续39RGB、附8GT上下文，不称124f自由rollout。训练需先登记LR/noise/margin/lambda，仍按先4/最多16更新/臂，不扩模型。
+
+[完整新协议与收据](reports/stage1_anyflow/real_transition_windows/README.md)。没有新模型训练完成或质量改善结论，完整目标继续。
+
+## 2026-10-09 06:30：历史条件改变能恢复当前窗口A/D方向，但视觉仍未通过；停止该因素扩展
+
+C/N同状态探针已完成56次真实H3前向，首窗identity、旧C重放及repeat均0。12个保存的C轨迹noisy states上仅fork当前A/D，指标由保存field在CPU独立重算一致。N/C动作差分方向变化很大，但该cosine不是对可信teacher的保真度。两probe wall312.69/313.03秒、torch峰值allocated27709.41MiB；原PID均已退出。
+
+按预注册门槛完成窗口1的两history×A/D、30步共120采样前向。A历史的A/D从C的+1.275624/+1.176016变为N的+1.645495/−1.546733；D历史从+0.309645/−1.482602变为+0.614104/−0.673822。两份历史当前方向都分开：A历史的D符号由错误正值变为负值，D历史原本符号正确、新协议保持；D分支的原多重手臂明显减少；但D历史当前A在RGB59–68存在明显多重手臂和躯干重影，A历史当前A末段有腿部残影。因此不能仅凭符号改善通过。A历史/A的首边界MAD5.250→9.677，其余3分支降低；未见整体场景/I0姿态重置，但不证明长时history adherence。
+
+4条当前片段全部42RGB静态逐帧检查、原尺寸细节及历史38→当前39边界图复核，非实时播放评审。6个MP4完整解码H264/yuv420p/24fps并归档：两张2×2网格左C右N、上A下D，前8帧相同历史＋42帧当前，总50RGB；不是自由rollout。两视频进程wall575.91/577.08秒（完整两动作作业），全程最多2GPU，CPU hiddenKV0、T2逐sigma重算。参数、history/noise及305文件runtime/启动源码hash保持。所有本轮GPU任务已核实退出；窗口2未运行，无新训练，会议未换、未推送。
+
+下一步按用户E2允许的“真实动作后果”分支准备监督，避免拿失真的R-prefix当teacher。只读核查现有原片哈希：12个train＋5个validation旧起点可延伸124RGB而不越界；多数为联合W/S＋A/D，旧39帧计数不能当新124帧标注，也不是同状态反事实配对。先重建多窗口真实RGB/完整action及无未来泄漏条件，保留其他按键/相机；再做训练梯度/显存预检和FM vs FM+action对照。当前仅数据可用性完成，尚未新编码/训练，不宣称E2效果或Stage1通过。
+
+[视频与完整结果](reports/stage1_anyflow/history_conditioning/VIDEO_RESULTS.md) · [E2实际准备清单](reports/stage1_anyflow/history_conditioning/E2_REAL_TRANSITION_PREPARATION.md)。保留本轮“动作改善但画质不够”的正负证据，完整目标继续。
+
+## 2026-10-09 06:09：E1历史条件实现与CPU检查通过，真实H3同状态探针已启动
+
+上一轮完成coarse12三窗No-Go，本轮执行已登记的C/N历史条件对照，不扩窗口/网络或训练预算。N只在临时模型输入将H与固定历史noise按当前sigma插值，并匹配历史video时间；history与已发出的RGB只读，动作/prefix/单I0/Original权重/12latent不变。4项实际tiny-H3 FP32/BF16测试通过，涵盖无历史与sigma0一致、逐行数据/时间、future隔离、current action和history真实使用。
+
+GPU1的A probe PID3805243/start_ticks257601298、GPU5的D probe PID3805579/start_ticks257601415已核实存活，保持原进程。两路真实33B首窗C/N误差0、旧C重放0；第二窗口三个sigma的C重放均0。新历史协议使动作差分改变，不能据此称方向更正确。总预算56诊断，当前未有新视频/optimizer，E2/E3不启动。
+
+[本轮协议与实现](reports/stage1_anyflow/history_conditioning/README.md)。运行源码/协议和305文件runtime冻结，旧视频不改，meeting未换，未推送。完整任务仍在E1。
+
+## 2026-10-09 05:59：E1粗窗口全部收尾，多窗口动作/结构仍No-Go；历史编码未发现未来泄漏
+
+Original＋released action LoRA、native时间、单I0、30步的12latent实验完整结束。两份历史每份三个当前窗口：A历史A/D flow依次为+0.863118/−1.174217、+1.275624/+1.176016、+1.342357/−0.227267；D历史依次为+0.863568/−1.174460、+0.309645/−1.482602、−2.343244/−2.324911。首窗无历史，重复结果不算两份泛化证据。所有12个局部分支全部帧静态检查、原尺寸关键帧复核：第二窗有多重手臂/拖影，A历史第二窗与D历史第三窗动作失败。不能仅凭部分符号正确或窗口扩大宣布通过。
+
+VAE-only边界审计完成：两验证片段×RGB17/34/39/81→latent5/10/12/24，反转未来RGB后past latent最大差全部0；仅过去RGB＋重复末帧得到相同历史prefix。原D_1750尝试因源片只剩40目标帧，在模型加载前退出，记录保留；改用同验证episode的A_1030完成纯RGB因果审计，不冒充A/D配对。因此本轮不支持VAE历史编码泄漏解释失败，也不能把该检查当动作能力证明。
+
+CPU实际tiny-H3新增9状态历史条件审计：历史video time=1，当前video及所有text/action time=1−sigma，历史action与own video时间相差sigma。这符合现有denoise-mask语义，原生retake也支持clean rows，不能直接称bug或唯一根因。下一项有限对照只比较clean历史与同sigma加噪的历史条件协议，保持Original/12latent/单I0/30步/路由不变；计划已登记，尚未实现或启动。局部后果参照不可靠，E2不开始；AnyFlow/Stage2继续受门槛约束，不继续窗口扫描。
+
+本轮两coarse wall1878.81/1881.43秒，torch峰值allocated26531.75MiB；CPU hidden KV=0（每sigma重算），不是persistent-KV加速。共420 noisy＋9 diagnostic forwards，零optimizer。23个MP4完整H264/yuv420p/24fps解码通过、哈希匹配归档；120f拼接明确为39+42+39 oracle local forks，历史来自Original生成，不是GT或自由rollout。305冻结runtime与启动源/协议hash保持。所有原PID＋start_ticks已核实结束，最多3GPU未超额；当前无本轮GPU作业。会议视频不替换，未推送。
+
+[完整报告与可播放视频](reports/stage1_anyflow/coarse_window12/FINAL_RESULTS.md) · [后续历史条件对照](reports/stage1_anyflow/coarse_window12/NEXT_HISTORY_CONTROL.md)。E1整体/Stage1尚未完成，不把本轮收尾写成完整研究目标达成。
+
+## 2026-10-09 05:32：同输入首窗对照有明确差别，12latent方向恢复；后续窗口继续
+
+新full37 fixture的匹配5latent A/D已完整结束并经全部17帧静态检查、5个MP4解码核验：A=-1.168911、D=-1.174091、分离0.005179，人物可辨但动作近同。coarse12两个reference首窗已完成；A参考首窗A=+0.863118、D=-1.174217、分离2.037335，D参考数值接近。首窗本来无历史，两份不是独立历史泛化证据。
+
+补齐相同前17RGB区间的原Farneback评估，直接截断原解码帧iterator、不二次压缩：coarse12 A=+0.285428、D=-1.198252，相同区间也保留符号差异；匹配5latent指标逐值重放一致。因此差别不只来自39帧比17帧长的统计区间。12latent的生成/解码仍能用整个当前已知窗口，控制与显示粒度不同，不能据此说交互延迟更好。
+
+coarse_A首窗A/D全部39帧静态检查中人物/停车场完整，A转向/运动与D不同；coarse_D首窗完成输入/指标/编解码核验，未单独作第二次人工视觉结论。首窗口T1/T2与repeat仍0。这个结果支持继续窗口间causal路线，但没有后续窗口/same-state geometry/GT局部画面的完整验收，Stage1仍未过。
+
+GPU4的matched_first5原进程已正常退出。GPU1 PID3445415/start_ticks257337890与GPU5 PID3445945/start_ticks257338007仍存活，正在窗口1/2；保持同一进程，不重启/不改source。最多3GPU约束保持，目前本项目2张。E2/AnyFlow/Stage2不启动，训练0次。
+
+[同区间首窗报告和视频](reports/stage1_anyflow/coarse_window12/FIRST_WINDOW_RESULTS.md)。首窗视频快照明确不代表完整120f oracle局部串接已完成。submission归档/索引同步；meeting未换、未推送，完整目标继续。
+
+## 2026-10-09 05:25：E1 12latent跨窗口试验已启动，三路同输入对照运行
+
+上一轮完成条件校准与5latent局部No-Go，是实质进展；本轮按登记协议执行更粗窗口。现有Original124f A/D参考、37latent的首图/prompt/layout/video+audio noise一致性及源hash通过。真实VAE prefix12/24/36实测39/81/120RGB，窗口输出39/42/39帧；不会误标成124f free rollout。CPU实际tiny-H3新2项(FP32/BF16)覆盖3窗口、未来隔离/当前动作干预/历史只读/单I0位置与首块identity。
+
+公平性补充：旧39f与本组37latent的noise/layout不同，新增一次同fixture首5latent A/D控制，仅60次forward；coarse两history保持360，诊断9，训练0。GPU0被他人占用时free-memory guard在加载前拒绝启动，已改GPU4；原失败log保留，未修改运行中source/协议。实际GPU1/4/5三个job均按PID/start_ticks核实，首窗真实33B T1/T2及repeat均0。当前还没有完整新动作/视频结果，不宣称E1通过。
+
+[新实验与运行快照](reports/stage1_anyflow/coarse_window12/README.md)。保持原进程等待；不重启已运行作业，不扩E2/AnyFlow/Stage2。原305runtime不变，source/协议/CPU/VAE收据已归档；meeting未换、未推送，完整目标仍在执行。
+
+## 2026-10-09 05:09：E1 条件校准全部收尾；整窗口正控恢复，5-latent 局部动作仍 No-Go
+
+本轮全部GPU作业正常退出。原生text/action时间＋单I0的5+5+2实验，两history各6分支/180次noisy forward＋3诊断，已收齐并检查四条完整39帧静态图、解码核验18个MP4。人物和停车场可辨，但局部动作失败：首块A/D约−1.036/−1.002；A历史第二块+1.663/+0.534（同正）；D历史第二块−0.969241/−0.969736；末块两历史A/D也近同向。oracle串接在17/34重置，不能说是free-rollout稳定。
+
+对照的完整12latent已知动作窗口，同Original权重/seed13/noise/30steps：clean text＋双首帧分离0.021764；恢复原生text time后0.798524；再恢复原始单首帧后2.227735（A=+1.250421、D=−0.977313），人物保持完整。这个正控恢复表明条件协议本身是重要因素；分块负结果说明不能仅修条件就宣布causal action保留，更不能把全部失败归因于缺Stage2。
+
+本轮17项CPU路径检查通过（9拓扑＋5时间＋3单I0），真实VAE审计/首块33B identity证据保持；没有新T1后续geometry、E2或E3更新。single局部组wall853.35/861.05s、peak26409.54MiB、CPU KV0（T2重算），这些不是单条39f推理成本。完整9组81个片段/拼接MP4与1个三列诊断视频已完整解码验证并归档。305冻结runtime未改，训练0次；只使用允许范围内最多3GPU，当前全部本轮GPU任务结束。
+
+下一步仍在E1：使用已恢复正控的12latent当前窗口，跨窗口causal、逐sigma重算，在多个固定历史位置检验当前动作；现有Original124f A/D参考latent已经定位，无需新权重/数据。[有限协议](reports/stage1_anyflow/local_topology/coarse_window_protocol.json)已登记、尚未启动。若后续窗口仍失败，不继续无限扩窗口，不转AnyFlow/DMD。当前首个验收门槛仍未过，完整任务继续。
+
+[完整结果及局部视频](reports/stage1_anyflow/local_topology/CONDITIONING_RESULTS.md) · [三列条件视频](reports/stage1_anyflow/local_topology/conditioning_window12_AD.mp4) · [突破归档：仅参照校准](breakthrough/09_original_conditioning_calibration/README.md)。root/submission的计划、进度与验收同步；meeting未替换，未推送。
+
+## 2026-10-09 04:57：E1 恢复完整短窗口动作正控；原生时间＋单首帧分块检验继续
+
+没有增加训练。此前fixed-text-time T2的两份history×三chunk局部正控全部失败；只恢复H3原始text/action time后，A历史第二块A−D=1.412259，但D历史对应块仅0.008370，首块/末块仍弱，未通过跨chunk验收。
+
+独立12latent/39RGB窗口的受控校准已完成：clean text＋双首帧A=-0.745426、D=-0.767189；原生text time＋双首帧A=-0.000594、D=-0.799118；原生text time＋原始单首帧A=+1.250421、D=-0.977313、A−D=2.227735。最后一组全部39帧静态图中人物结构完整、动作明显不同。三个版本同Original权重/初图/prompt/seed13/noise/30steps，逐次只改一个条件。这是完整已知动作窗口正控恢复，不是5latent causal或Stage1通过；也不把单seed与旧teacher2.023跨协议当学习曲线。
+
+源码确认H3原生text/action time=1−sigma，原型固定为1；SolarWM Stage0.5/Stage1也有video-time→clean-time策略，需训练适配，不能说SolarWM有bug。旧field/真实FM几何的“Original”同样用了原型时间，已补归因限定，保留全部旧数据。当前校准仍固定audio noise，原H3 joint audio/video还存在差别；已有可靠窗口正控，不启动额外audio扫描。
+
+新的native-single T2局部检验已在GPU1/5分别启动两种reference，PID2998665/start_ticks257163067与PID2999208/start_ticks257163183已核实，最多3GPU约束保持。恢复单I0时禁止把它retime到历史末帧；3项新CPU检查通过，真实33B首块T1/T2/repeat均0。保持5+5+2、30steps、相同history/noise/动作干预，收齐后再决定。39f串接是oracle local forks，history是Original-generated，不是GT或自由rollout。
+
+完整校准与视频见[条件对照](reports/stage1_anyflow/local_topology/CONDITIONING_RESULTS.md)；[三列A/D视频](reports/stage1_anyflow/local_topology/conditioning_window12_AD.mp4)。已完成四组native视频共36个MP4完整解码核验，源runtime305文件不改；失败dual参照的geometry仍未启动，E2/AnyFlow/Stage2保持门槛。会议视频未更换、未推送，完整任务继续。
+
+## 2026-10-09 04:16：E1已执行，T1/T2机械检查通过，真实VAE时域审计与局部正控启动
+
+按新三实验路线开始E1，没有恢复旧A–D扩训。隔离实现T1历史KV冻结＋prefix grounding和T2逐sigma窗口重算；305文件runtime冻结。实际tiny-H3 CPU9项通过，包含Original directed mask、首块identity、future动作删除/扰动、KV只读与祖先replay、滑窗eviction、T2动作/sigma变化与原始历史不改。新代码只支持no_grad，不提前声称可用于训练。
+
+真实VAE-only GPU1准备55.22秒、峰值7518.86MiB，已结束。两个ABot场景分别扰动RGB17/34以后，过去5/10latent差均0；GT encoder本协议通过。反过来，decoder未来latent扰动会改变前17RGB，平均绝对变化0.00727/0.00705，因此新演示采用prefix-only解码并冻结已显示RGB。这个发现不解释解码前action velocity失配，不能当作已修复模型。
+
+GPU0/1已经启动两份停车场Original-generated reference下的同状态A/D局部正控，30steps/chunk。PID2087344/start_ticks256911499与PID2087792/start_ticks256911616已实际核实存活；真实33B首块T1/T2 max_abs=0、repeat=0。完整后续chunk/方向/画面仍待结果。保存实际solver states供同状态geometry，不相减不同轨迹。停车场history不是GT；39f拼接是oracle local forks，不能当自由rollout。
+
+新geometry runner已准备，但要求局部正控完整评审后再启动；没有新optimizer或AnyFlow/Stage2训练。当前2GPU、总上限3，会议不换、未推送。完整任务尚未完成。
+
+[实现、测试与VAE证据](reports/stage1_anyflow/local_topology/README.md) · [当前计划](NEXT_PLAN.md)。
+
+## 2026-10-09 02:57：按用户新要求收敛为三个实验；旧密度队列完整结束
+
+当前研究目标已调整：不继续扩展旧A–D工作流，先从Original H3 + released action LoRA恢复chunk-local action information flow。新E1比较严格过去KV冻结/局部双向路由，以及局部Original窗口每个sigma重算；后者允许作为窗口间causal方案，不能冒充标准persistent-KV。先证明无未来信息泄漏与正确的prefix/cache语义，再做首块和两个后续块的同状态A/D及30步局部视频。停车场teacher-generated history与真实ABot GT history分开，原全长teacher不是合法局部监督。
+
+E2只在拓扑/局部正控可信但动作仍弱时开展，优先可靠同起始状态fork出的action consequences，普通FM与action-swapped transition ranking受控比较；不直接相减不同历史teacher velocity。E3为可信causal→AnyFlow少步→on-policy Stage2，不要求进入Stage2前先解决全部长时漂移。最多3GPU约束保持。新协议是设计，不是已实现或已通过结果。
+
+旧FM48 density全部收尾：54noise、GT/generated各18geometry、10完整39f候选视频、8报告组已齐。停车场新30步A=-0.190239、D=-0.158556、A−D=-0.031684；新8步A=-0.042918、D=-0.116288、A−D=0.073371。新30步人物大体完整但控制失败，新8步约23帧后人物重影；全部39帧静态图检查，非实时播放评审。自然场景六视频已记录FAIL。四个停车场并排MP4完整解码为H264/yuv420p/24fps/39f/faststart，归档哈希匹配。原训练/评测/报告进程按/proc及原start_ticks核实退出，306冻结runtime和队列/report源hash保持。
+
+旧local-step准备的tiny-H3 CPU sequential-VJP对照4例通过，全部参数梯度最大差约2.33e−10、repeat输出0、错误重放能拒绝；仅证明梯度实现，无GPU更新。按新要求搁置该方案，不把它当新E2或效果进展。旧计划全文和此CPU准备均保留。未启动E1新GPU任务，未续训48/136，会议视频未更换、未推送。
+
+[当前计划](NEXT_PLAN.md) · [三实验完整协议](reports/stage1_anyflow/three_experiments/PROTOCOL.md) · [旧密度终态](reports/stage1_anyflow/fm_density_control/FINAL_RESULTS.md)。下方均为历史进展；当时的“继续完整A–D”已由本条取代。
+
+## 2026-10-09 02:32：六条自然视频评审完成；停车场继续；AnyFlow输出梯度核查补齐
+
+上一目标轮完成同状态机制和30步评审，本轮取得两条generated8新证据并检查全部39帧/18–38放大帧：第一场景人物仍可辨但背景持续横向拖影，第二场景前段模糊、23帧后红色残影与人体混合，末段结构不可靠。新旧FM48未见明确质变；本密度分支六条自然场景视频全部完成并已归档完整四列MP4/指标/逐帧图，H264/yuv420p/24fps/faststart解码通过。视觉FAIL，MAD下降不作画质通过。
+
+停车场回归沿原队列继续：A30已完整39帧，flow−0.190239（仍非预期正方向）、frame MAD3.623436、boundary MAD4.003298；D30尚在生成，未提前计算A−D或称全部评测结束。原GPU/CPU控制器与parking父/子PID均按/proc/start ticks核实存活；当前仅GPU1。冻结源码保持，无重启、无新增训练。
+
+C准备新增旧AnyFlow128的512样本自适应权重与输出梯度CPU核查：adaptive scale逐值重放误差0、weighted loss一致；真实latent维度含末chunk2，解析输出梯度范数与3组autograd检查相符。不detach的负对照另有极强梯度抑制，实际冻结源码正确detach。高noise endpoint108样本raw residual均值64.381、weighted仅0.06978；同保存状态的输出梯度范数之和约为数学上去掉adaptive的0.935%。这些是预测velocity输出端导数，不是H3参数梯度贡献；raw含finite derivative项，也不是endpoint质量。不能直接删adaptive、据此归咎普通FM动作失败或宣称C完成。初版CPU负对照复用释放图的fixture失败及修正保留，生产源未改。
+
+全512记录已在submission仅用归档输入重算，audit/CSV/README逐byte一致。C/D仍须可信局部field；完整A–D未完成，48/136预算不扩大，meeting未换、未推送。
+
+[六条自然视频总览](reports/stage1_anyflow/fm_density_control/NATURAL_VIDEO_RESULTS.md) · [8步逐帧评审](reports/stage1_anyflow/fm_density_control/report/natural_generated_8/MANUAL_REVIEW.md) · [C权重/输出梯度核查](reports/stage1_anyflow/adaptive_weight_audit/README.md)。
+
+## 2026-10-09 02:15：同状态动作差分仍近正交；密度对照generated30继续分解
+
+B密度对照48更新后的54点noise及GT/generated各18点A/D已经完整完成，原GPU0探针正常退出。后两chunk各12点单列：generated的新FM48整体cos0.996377、A/D delta cos0.035019、范数比0.672755；旧shift12为0.996389/0.029239/0.645296。GT后两chunkdelta cos0.011453→−0.002418。含首块的18点generated均值为0.013624，不与12点口径混用。动作非零，方向仍未恢复。
+
+输入state/history/action-pair/endpoint匹配、A/D共用只读KV、D独立历史重建等于A、repeat RMSE0、参数version/source核查通过；teacher双向重算历史与student固定KV的结构差异、插值状态及旧收据缺完整teacher/anchor tensor hash仍披露。归档原始记录在CPU重算，逐点CSV及全部分组报告一致。
+
+54点noise相对旧FM48：低段MSE−0.985%、中段−0.804%、高段+2.548%，全54点等权均值+0.195%；sigma1六点全变差。固定Gaussian权重函数、仅改sampling density呈现取舍，没有证据修复动作geometry。
+
+两条GT30和两条generated30均完整39帧并经静态逐帧检查。GT新旧未见明确质变；generated第一场景人物保留但运动偏弱，第二场景23帧起红色残影、24–36帧身体分解、37–38帧近消失，与旧control相似。因此本轮已观察到视觉FAIL，不能由低/中noise MSE下降判通过。四个完整对比视频已归档并验证H264/yuv420p/24fps/faststart完整解码；不是实时播放评审。
+
+原GPU/CPU队列继续generated8和停车场A/D30/8，当前只用GPU1，项目最多3GPU限制保持；不重启原训练/扫描，不改冻结源码、不延长48/136预算。完整A–D仍未完成，C/D可信局部field前置有效，meeting未换、未推送。
+
+[同状态结果与图](reports/stage1_anyflow/fm_density_control/GEOMETRY_RESULTS.md) · [generated30完整评审及视频](reports/stage1_anyflow/fm_density_control/report/natural_generated_30/MANUAL_REVIEW.md) · [noise解释](reports/stage1_anyflow/fm_density_control/report/noise/INTERPRETATION.md)。
+
+## 2026-10-09 01:45：B密度分支48更新正常完成；两路正式评测已启动
+
+上一目标轮完成step32与C时间条件证据；本轮持续核实等待同一训练进程，现已取得实际终态。GPU1原训练PID1563900已退出，完整48-update收据通过最终checkpoint/参数/数据课程/306项冻结源码核验；step48附加审计确认208/208 bank更新、冻结visual零输出、全部Adam finite/step48、完整noise RNG重放符合预注册计划。预算封顶，无追加更新。
+
+训练wall6656.35s（1.85h），update合计6371.65s，allocated peak34683.62MiB（33.87GiB）。192样本低/中/高为30/76/86；旧control为4/35/153。两次GPU/共享负载不同，allocated峰值也不同，不将wall差说成采样策略提速。
+
+固定4验证片段×4sigma共16项，全部最后chunk2：初始化/旧shift12 FM48/新shift2.22 FM48的mid raw MSE为0.181478/0.178895/0.177215，新比旧低0.94%；high为0.086299/0.081888/0.082432，新比旧高0.67%。新16项均优于初始化，13/16优于旧control，但高段有取舍；本组无low样本，不推断低噪声或视频效果。历史完整validation noise tensor哈希缺失的限制保留。[训练比较](submission/reports/stage1_anyflow/fm_density_control/training_report/README.md)已在提交包内无GPU/权重重算，逐行/分组/CSV一致。
+
+原GPU评测控制器1615283/start_ticks255366821继续运行，已真实启动GPU1自然GT30评测3377015/start_ticks255999773和GPU0噪声扫描3377028/start_ticks255999783；CPU报告1898518/start_ticks255496357存活等完整组。当前项目仅GPU0/1；只读观察session7232已因评测启动正常结束，不是GPU任务退出。噪声扫描本次快照39/54点，完整action/视频验收仍待结果。保留原队列，不重启已启动工作。
+
+接下来仍收齐54点noise、36点同状态A/D、10条完整39帧视频并逐帧检查，才决定B局部能力是否可信；不由训练loss宣布action/画质PASS。完整A–D未完成，C/D前置有效，meeting不换、未推送。
+
+## 2026-10-09 01:08：B step32执行审计通过；C真实时间条件与原生实现数值核查完成
+
+上一目标轮完成视频报告链路CPU集成检查并核实原训练存活；本轮继续同一进程，完成两项新证据。B密度分支目前32/48，GPU1训练PID1563900/start_ticks255332670，两个后评测队列1615283/start_ticks255366821、1898518/start_ticks255496357均存活。step32于01:06保存，208/208 bank模块更新、冻结visual仍零输出、Adam finite且step=32、数据/chunk/sigma课程与完整noise RNG重放匹配、306项runtime哈希保持。只读观察session5968已正常完成，不是训练退出；不要重启原任务。
+
+C准备新增真实FP32时间MLP与生产逐token时间检查：4/8步native/uniform、3chunk、diagonal/finite及显式clean-history共148个CPU用例通过。current/target均采用native1−sigma坐标，text/action、RGB anchor、audio、history、padding分别核验；初始化diagonal embedding误差0，SolarWM实际mix函数对照误差0。另执行SolarWM环境原生Diffusers三个未改AST节点，在全部17个实际native时间上与项目time embedder比较，真实FP32权重输出逐元素相同。权重hash匹配B初始化；h3_cached仅注释/docstring差异，计算AST相同，没有忽略源码差异。
+
+初次检查器单anchor packed与双anchor张量不匹配的fixture失败保留；改用生产实际causal_packed后通过，未改生产代码或运行中训练。上述是时间条件核查，没有transformer/attention/KV/视频/optimizer执行，不能替代训练后velocity diagonal、finite-map composition或C阶段效果。[完整C时间证据](submission/reports/stage1_anyflow/time_contract/README.md)。
+
+本轮没有增加GPU实验或训练预算。继续现存队列等待完整48后的54噪声点、36反事实点和10条39帧视频，再决定B局部能力是否可信；完整A–D仍未完成，meeting不换、未推送。
+
+## 2026-10-09 00:49：原训练继续22/48；完整视频报告链路核验通过
+
+训练PID1563900/start_ticks255332670和两个原评测/报告队列再次核实存活；未重启、未扩大48预算、未增加GPU实验。step16参数/Adam/RNG/source检查已通过。固定generated-state的A/D机制结论保持：对齐/直接路由/只读KV正确不等于动作geometry保真，AnyFlow128的delta cos0.03822；Original同权重causal化对照0.060153。
+
+新增CPU报告端到端检查，用已完成旧control作为两列identity fixture，跑自然GT30和停车场8/chunk的真实输入核验、指标、全部39帧contact sheet及渲染。4个临时MP4全部39f/24fps/H264/yuv420p/faststart完整解码，14张全帧图生成，identity统计一致、自动视觉PASS保持false。临时视频已删除，仅保留源码与收据；不是新候选效果。冻结report_density.py及运行中controller源码未改。
+
+新48-update密度分支仍待完整54点噪声/36点反事实/10视频。C/D局部能力前置有效，完整A–D未完成，meeting不换、未推送。
+
+## 2026-10-09 00:40：B密度分支step16审计通过，训练继续17/48
+
+上一目标轮已实现并接入严格结果报告；本轮核验了实际checkpoint并等待同一训练进程，属于具体进展与已核实等待，没有重启或扩大预算。step16于00:37保存，208/208可训练bank模块改变，冻结visual保持零输出，Adam所有已初始化状态step=16且finite，完整逻辑noise RNG和动作/chunk/sigma序列与预注册计划匹配，306项冻结runtime源hash保持。[step16收据](reports/stage1_anyflow/fm_density_control/checkpoint16_audit.json)；step3相同检查也通过。
+
+当前训练17/48，GPU1/PID1563900/start_ticks255332670仍存活；GPU评测1615283/start_ticks255366821、CPU报告1898518/start_ticks255496357均存活等待。只读step16 watcher2105423已完整核验后退出，不是训练退出。只读观察session74602也已完成。
+
+本轮没有新增GPU实验、没有更改训练源/architecture，也没有训练后动作或画质结果。训练48预算、54噪声点/36反事实点/10完整视频及8报告组保持。C/D前置和完整A–D仍未完成，meeting未替换，未推送。
+
+## 2026-10-09 00:20：B密度训练10/48；完整配对报告已接入等待队列
+
+原训练PID1563900/start_ticks255332670、GPU评测队列1615283/start_ticks255366821均已重新核实存活，未重启任务。当前仅GPU1训练，预算48不变。新增CPU报告控制器1898518/start_ticks255496357存活，等待8组完成后生成完整39帧对照和CSV/contact sheet，不占GPU。
+
+报告器新增严格配对核验：54噪声点输入和Original全输出hash一致；18点geometry固定state/action pair、KV只读、teacher范数和可逆源码路径适配均核对。8项CPU identity/负对照通过，会拒绝错state、teacher hash、action pair、KV写入和未审计source。旧geometry缺完整anchor/teacher tensor hash仍披露。比较器fixture不是新模型效果，不输出未完成模型占位列。
+
+自然场景各GT30/generated30/generated8、停车场A/D30/8报告将保留全部39帧；时延/显存口径和MAD非画质的限制明示，自动脚本不判视觉PASS。新候选尚无训练后视频结论，meeting不变。C/D前置与完整A–D目标未完成，未推送。[本轮协议及报告入口](reports/stage1_anyflow/fm_density_control/README.md)。
+
+## 2026-10-09 00:03：真实FM单变量密度对照已运行4/48；DMD完整FMBS梯度准备通过
+
+上一目标轮完成noise证据与归档，本轮继续B，不重复诊断或延长旧训练。训练入口新增独立`training_weight_shift` / `validation_weight_shift`；默认与旧耦合行为完全相同。45项测试通过，另与冻结旧trainer逐元素对照FM/AnyFlow完整历史loss、梯度、RNG；旧resume兼容，更改loss policy被拒绝为精确resume。
+
+新分支只改变训练sigma采样shift12→2.22，Gaussian权重grid固定12；模型/初始化/rank8全block-refiner bank/真实ABot16train8val/动作和chunk课程/noise序列/RGB dual/CPU KV/完整历史梯度/LR/batch/seed均保持。新预算48封顶，从原始零输出初始化开始，与既有完成的FM48对照，不重新训练control。低/中/高noise样本重放为30/76/86，对照4/35/153；固定的是w(sigma)函数，不是每个样本权重、总梯度量或importance corrected objective。
+
+GPU1于23:47启动，PID1563900/start_ticks255332670；00:02核验仍存活，目前4/48，已覆盖chunk0/1/2。首次前向前实际step00 bank/visual张量、optimizer、数据、logical RNG与对照相同；初始4片段16样本完整validation记录也逐项相同。306项runtime仅3项入口/兼容/测试变化，其余303项保持。不能从这些机械检查声称训练后动作/画质改善。
+
+后续评测队列PID1615283/start_ticks255366821已确认存活，等待原训练PID退出且完整48收据通过审计。最多GPU1/0两路，显存不足等待、失败不自动重试。将跑54点噪声扫描、GT和固定step00-generated各18点动作geometry、2自然场景GT30/generated30/generated8，以及parking A/D30/8完整39帧；不换新分支自己的状态冒充同状态比较。见[单变量协议与实时收据](reports/stage1_anyflow/fm_density_control/README.md)。submission保存的是时间点快照，实时进程以outputs和/proc为准。
+
+D准备进一步实现`causal/dmd.py`：noise-minus-clean参数化下fake_x0−real_x0=sigma*(v_real−v_fake)，teacher/critic及normalizer detach，critic目标为noise−student_endpoint.detach()，student必须保留实际生成图。7项CPU测试通过：官方SolarWM masked/unmasked方向与surrogate对照、Gaussian后验方向及反号负对照、tiny-H3 FP32/BF16两块self-generated history＋CPU KV＋完整FMBS＋独立critic AdamW更新，student全梯度等于直接J^Tg、无base/critic旁路梯度、KV不变。[DMD接通证据](reports/stage1_anyflow/dmd_gradient/README.md)。未启动33B Stage2，不声称critic收敛或视频改善。
+
+完整A–D仍未完成：A诊断完成，B旧FM48失败且本次受控分支在运行，C/D局部能力前置仍有效。最多3GPU限制继续遵守；当前仅训练GPU1，meeting不替换，未推送。
+
+## 2026-10-08 23:35：同状态动作机制汇总；54点分噪声扫描完成
+
+用户要求的固定generated history、当前noisy latent、只改当前chunk A/D验证已完成，统一解释见[动作机制总览](reports/stage1_anyflow/ACTION_MECHANISM_SUMMARY.md)。部署AnyFlow128的12点delta cosine均值0.03822，差分范数比0.7935–3.5563；对齐/直接路由/只读KV/重复与future内容负对照通过。完整输入范围受控的同Original权重causal化，delta cos已降至0.060153，说明失配先于AnyFlow。真实FM48也未恢复。Teacher双向重算历史与student固定KV的依赖仍不同，不能将低cosine唯一归因于某层权重或泛称漏一次action alignment。
+
+两组FM0/48各54状态噪声扫描于23:24前后完整写出，当前原PID1199123/1199134均已退出；新增optimizer=0，最多2张项目GPU。2个真实ABot held-out自然场景×3chunks×实际8步全部8个sigma＋30步末端0.071108；逐输入hash和两进程Original完整输出hash相同。整体raw MSE 0.213904→0.210760，下降1.47%，52/54点下降；sigma=1均值反而0.276204→0.277907，Original0.163484。低sigma0.071108时Original也为0.514912，FM48为0.569519。因此额外误差横跨噪声段，不能直接认定大幅低噪声upweight是解法。
+
+192个实际训练样本低/中/高段为4/35/153；低段样本2.08%、Gaussian权重总量2.06%、weighted loss6.51%，都不是gradient mass。Endpoint估计为单次z_t−sigma*v，其MSE等于sigma²×velocity MSE，不是完整采样终点或独立画质指标。本扫描为GT history自然联合动作，不是新A/D或generated-history实验。[结果与图](reports/stage1_anyflow/fm_noise_audit/README.md)及[解释](reports/stage1_anyflow/fm_noise_audit/INTERPRETATION.md)已归档；提交包在无模型/GPU下重算统计，全部分组/CSV相同。
+
+D准备新增共享H3角色管理器：student / Original teacher / independent critic LoRA共用冻结base，禁用/恢复AnyFlow与旧visual residual，不覆盖保留图中的student参数。真实tiny-H3 FP32/BF16共6项检查通过；含critic AdamW更新插在活跃FMBS图中，恢复后student全梯度不变、teacher逐元素等于Original reference、错误角色backward拒绝。主代码与submission代码/测试/证据已同步。[角色与梯度检查](reports/stage1_anyflow/shared_h3_roles/README.md)。这不是新的DMD训练或画质通过。
+
+下一受控B因素应先解耦sigma sampling density与Gaussian loss weight，固定模型、数据、初始化及有限预算，同时看分sigma误差、当前A/D几何和完整39帧。尚未启动新训练，不继续盲延48/136预算。完整A–D仍未完成，C/D前置未通过；会议视频不替换，本轮未推送。
+
+## 2026-10-08 22:50：同状态动作机制收尾；真实FM48完整验收失败
+
+真实FM48的全部6条自然场景视频、4条停车场A/D和GT/generated各18状态几何完成，所有评测/报告进程正常退出。训练预算48封顶；未追加optimizer。GT delta cos0.017516→0.017641，固定generated delta cos0.012540→0.009336；整体cos改善不等于action保留。generated差分幅度仍约teacher的67%，主要是方向失配而非动作完全无效。
+
+停车场FM48 30/chunk A−D=−0.018685，8/chunk=0.017456，均未通过。全帧静态评审：30步人物/车库大体保留但左右近同，8步约22帧后重影。第二自然场景generated30约23帧后红色残影、26–35帧人物分解；8步更早模糊且末段仍分解。第一场景人物大体保留，但运动/场景仍失真。MAD/boundary下降不能判画质PASS。8个完整对比MP4解码/H264/yuv420p/24fps/faststart验证通过；没有替换meeting。
+
+隔离own/current-prefix候选的真实33B18状态也完成：首块6点Original身份逐输出相同；后续12点delta cos反而0.028777→0.008548，norm ratio0.6716→1.0330，relative error1.1952→1.4432。不能用含首块identity的全均值0.339宣称改善。120current/reference+16clean前向、零训练；候选没有生成视频或进入生产默认。10项CPU机械检查通过不等于实际action/质量通过。
+
+结论支持当前action已正确到达、却未保持Original动作条件velocity geometry；teacher双向历史重算与student固定raw KV依赖仍不同，不能锁定单层权重或简单宣称再对齐一次就好。当前有限FM48未建立C/D所需可信基线，A–D总体未完成。下一步先使用分noise/clean-vs-generated和局部action证据来确定受控训练因素，不继续blind LoRA/anchor/prefix sweep或Stage2扩训。
+
+INTERVIEW_ANSWER已更新：真实AnyFlow训练/136对照做过但效果失败，会议旧checkpoint没有AnyFlow；旧Stage2-lite causal-teacher/单endpoint Jacobian的限制也明示。当前本轮GPU任务全部结束、未推送。
+
+[完整FM48验收](reports/stage1_anyflow/real_abot_fm/FM48_COMPLETE_REVIEW.md) · [同状态机制](reports/stage1_anyflow/real_abot_fm/FM48_GEOMETRY_RESULTS.md) · [跨chunk候选结论](reports/stage1_anyflow/current_prefix_candidate/INTERPRETATION.md)。
+
+## 2026-10-08 22:29：FM48匹配几何完成；隔离路由候选进入真实跨chunk验证
+
+GT与固定step00-generated各18个同状态A/D对照全部完成。FM0→48：GT整体cos0.988193→0.989033、delta cos0.017516→0.017641；generated整体cos0.994733→0.995210、delta cos0.012540→0.009336。普通FM48未恢复动作geometry。输入/source/pair hashes匹配、A/D内KV只读、重复误差0；teacher双向历史重算与student缓存仍是结构差异，不能将低cosine只归因于权重。
+
+停车场30/chunk完整A/D为A−0.182680、D−0.163995、分离度−0.018685（零更新−0.008565，Original2.023377）。全39帧静态评审：人物/车库大体保留，但A/D近同向，未恢复左右控制。两个自然GT-history30也完整，FM48未见明确视觉质变；边界GT重置不能混同自由rollout崩溃。generated30/8与parking8继续等待完整组。
+
+依首块2×2证据建立隔离候选：own-action直接绑定＋公共prefix读当前video，prefix不读历史video KV、历史仍persistent。10项tiny-H3 FP32/BF16 CPU检查通过，首块Original身份误差0、future-action不污染过去输出/KV、当前action与历史KV真实生效、全祖先按原条件replay误差0。它不是已验收修复，未改生产默认、FM48冻结runtime或meeting。
+
+原GPU1两套几何已正常退出（PID4112044不再存在、receipt complete）；22:27在该空出的lane启动只读33B候选探针PID421741/start_ticks254849925。当前项目GPU0/4/1，最多3张，未增训练预算。A–D整体仍未完成，C/D须有可信局部action/生成基础。
+
+[匹配几何与视频证据](reports/stage1_anyflow/real_abot_fm/FM48_GEOMETRY_RESULTS.md) · [隔离候选](reports/stage1_anyflow/current_prefix_candidate/README.md)。
+
+## 2026-10-08 22:06：FM48首条GT-history视频完整检查，尚无明显画质提升
+
+第一个验证场景的FM48 GT30/chunk已完整生成39帧，输入记录与Original/causal0相同。全部39帧静态接触表及0/8/16/24/30/38四行对应图复核：人物可辨，但这条零更新GT历史本来就保留人物；树木/建筑细节漂移、17/34帧边界重置仍在，未见明确质变。非实时播放。GT oracle拼接不等于自主rollout失败，尚未收齐generated-history与纯A/D结果。
+
+Original/causal0GT/causal48GT的水平flow为2.2888/0.8856/0.5612；frame MAD19.0521/17.1435/15.9786，boundary RGB MAD18.7538/47.2777/46.4746。联合按键/镜头运动变弱不直接等于A/D准确率，MAD降低不判质量提升。FM48载入后推理522.29s、allocated GPU26002.10MiB、CPU KV6484.13MiB、90 noisy＋3commits；单次共享主机不声称加速。
+
+完整首条视频、对应帧、39帧图及原始评测/解码收据：submission/reports/stage1_anyflow/real_abot_fm/review/first_trained_gt30/README.md。H264/yuv420p/24fps/39f/faststart完整解码通过。三路评测继续，完整B/C/D未完成，meeting不变。
+
+## 2026-10-08 22:01：真实causal FM48完成；三路训练后评测运行；H3 FMBS生成端CPU接入
+
+真实ABot普通FM全部48更新正常完成，GPU0训练PID799534已退出。总wall10380.96s（2.88h），update合计10029.77s，allocated GPU peak30125.81MiB（29.42GiB）。208个bank模块更新、visual冻结零输出、16train片段×3chunk各一次、权重/optimizer-RNG协议/manifest/306项冻结runtime核查通过；没有AnyFlow/旧action residual。训练完成不等于视频验收。
+
+固定4个held-out片段×4sigma的16项raw FM loss均下降：中段0.181478→0.178895（−1.42%），高段0.086299→0.081888（−5.11%）。训练192样本分布为高153/中35/低4；validation低sigma≤0.240781为0项，不能推断低噪声改善，也不据此盲目增权。实际validation noise tensor hash未保存，source/seed协议与sigma/weight检查的证据边界保留。完整训练报告：submission/reports/stage1_anyflow/real_abot_fm/FM48_TRAINING_RESULTS.md。
+
+后续评测已真实启动：GPU0自然场景队列3560455（子进程3560459）、GPU4停车场队列3560462（子进程3560658）、GPU1 GT几何3638654。GPU1曾因free<34000等待，计划迁移到GPU2前检查发现原队列已自行启动，因此取消迁移，controller2136435恢复继续，未重启任何GPU任务。项目实际0/4/1三卡；自然场景、停车场A/D和完整36点训练后geometry均尚未收齐，不能以部分值宣布FM48效果。
+
+CPU报告controller3449611已排队：各完整视频组/动作对和geometry达到完整状态后生成对比视频、逐项指标及0→48固定state核查；不启动GPU、训练或自动PASS。四个report脚本也已指纹冻结，运行期间不要修改。
+
+D准备新增主代码causal/fmbs.py：最多三段1→t→r→0保留当前chunk完整梯度，接到实际H3 chunk_forward，历史KV列表快照允许调用者推进/淘汰窗口后仍正确反算。随机小H3用自己8-step生成两块历史，最后2-latent执行FMBS；FP32/BF16、checkpoint/offload、有限差分、detach负对照、缓存生命周期及协议检查共6项通过（5.25s）。完整梯度范数0.00521061，detach首段差0.00124804；有限差分0.00515580。通用primitive与此前45组官方对照版本AST相同，未重复旧数学测试。初次合成网格起点1.0000000000000002被拒，修正fixture端点后通过。报告：submission/reports/stage1_anyflow/h3_fmbs_integration/README.md。
+
+这只是H3生成端接入，尚无新的33B teacher/critic/DMD训练、显存或画质证明，C/D仍未完成；继续先完成B真实视频/动作验收。会议视频不变，不新增训练预算。
+
+## 2026-10-08 21:28：首块两类路由消融完成；真实FM 40/48，训练预算不变
+
+固定两个场景的step00 generated endpoint/noise、三sigma、首块无历史，仅替换当前A/D；在同权重/同token范围/同后端下做2×2路由消融。当前causal（直接读过去action＋禁止通用prefix读取video）delta cosine均值−0.019933；只恢复prefix的视频反馈为0.240543，六状态均提高但未恢复；只恢复own-action读取为−0.061621。Original规则身份正控为1，不能当作模型修复。整体velocity分别仍约0.9918/0.9991/0.9918，进一步说明整体相似不等于动作几何保真。
+
+真实33B共56前向、404.54s、GPU allocated20222.03MiB；GPU1进程3226677已正常退出。两个中sigma部署cached与full-prefix causal动作差分逐元素相同；四次独立Original身份重放RMSE0。CPU真实layout证明只改声明的两类边且首块attention图无未来action路径；不是多chunk泄漏/视频验收。完整解释见submission/reports/stage1_anyflow/first_chunk_routes/INTERPRETATION.md。没有optimizer更新，没有新39/124帧视频，不改meeting。
+
+这支持信息流改变足以造成局部动作velocity失配，不能全部归因generated-history漂移或AnyFlow。SolarWM官方condition prefix确实静态；但H3-World动作LoRA的依赖图不同，照搬不保证保真，也不能由本实验推断官方SolarWM失败。主代码h3_cached仅更正own/causal可见性注释，计算AST不变，冻结训练runtime未动。
+
+FM48训练GPU0/PID799534当前40/48，队列2136435继续等待正常退出后进行既定训练后评测，最多0/4/1三张卡。新增CPU比较器对0→48逐状态current/history/action-pair/source哈希和teacher范数核查；两组真实step00 identity及10种坏输入拒绝/不同checkpoint KV许可共13项通过。实际anchor/teacher输出全张量哈希旧probe未记录，限制明确；不把新模型own-generated states冒充固定状态。先完成普通FM局部视频和动作验收，再决定C/D，完整A–D目标仍未完成。
+
+## 2026-10-08 21:00：停车场零更新30/8步全部失败；真实FM 32/48；FMBS数学路径准备完成
+
+停车场A/D四条39帧baseline全部完成，控制器1506669与子进程已退出。Original30为A+1.181253/D−0.842124、分离度2.023377；causal0 30/chunk为−0.195516/−0.186950、分离度−0.008565，8/chunk为−0.021397/−0.031908、分离度0.010510。所有初始conditioning/noise/action rows与对应Original逐张量一致；Original为旧legacy、causal为h3_fp32，anchor/prefix差异披露，不能单独归因一个mask。causal0/48将作为匹配训练前后对照。
+
+全部39帧contact sheet与对应帧静态复核：30步人物/车库较完整但尺度/细节漂移，两动作运动近同；8步约20–22帧起人物透明/多轮廓、地面柱子叠影持续到38帧。30步改善画面但没恢复动作，8步视觉也失败。三列两行完整视频与记录见submission/reports/stage1_anyflow/real_abot_fm/report/parking_baseline_complete/README.md。三个归档MP4完整解码H264/yuv420p/24fps/39f/faststart通过；不替换meeting。
+
+GPU0训练PID799534仍活跃，真实FM已到32/48，step32完整checkpoint保存，CPU权重hash/metadata/optimizer-RNG协议与前32样本curriculum核查通过；这不是画质结果。后续队列2136435继续等待正常训练退出，届时最多0/4/1，当前只有训练占用一张项目GPU。不新增训练预算。
+
+C/D独立方法核查已读取AnyFlow原论文2605.13724与NVlabs官方commit bf9195a，以及本地干净SolarWM ce1da4e。区分SolarWM四步re-noise SGF/replay与AnyFlow最多三段1→t→r→0的FMBS。隔离CPU原型对固定官方方法45组输出/梯度，最大差均1.1921e−7；精确线性ODE组合/解析梯度通过；detach首段负对照梯度差0.282294，说明单次endpoint replay不等于完整FMBS。初次harness缺copy的失败保留并修复，无GPU训练。方法来源/源码/许可/检查收据见submission/reports/stage1_anyflow/cd_method_audit/README.md。
+
+旧stage2_lite_dmd.py主入口的teacher仍走causal cached graph，不是关掉adapter就恢复双向Original。已仅更正docstring、注释与三个metadata字段；去除这些非计算变化后AST逐项相同，FM48的306项冻结runtime hash不变。未启动新的Stage2、未把CPU准备当C/D完成；后续仍需B可信局部能力及C的对角/嵌入/权重/网格/composition验证。
+
+## 2026-10-08 20:29：固定generated-state 18点完成，动作差分cos0.012540；FM 23/48
+
+两个真实场景×三chunk×三sigma的step00 generated-state探针完整结束：整体velocity平均cos0.994733，当前A/D差分cos0.012540（范围−0.258759～0.142183），范数比0.346～1.012。GT18点为0.988193/0.017516。首块无历史仍失配。每套六组KV内容/commit/参数不变、两场景chunk1重建A/D历史KV一致、重复student/teacher误差0。generated探针84预测+8commit、887.61s、GPU peak26597.34MiB，PID1695577已退出，释放GPU1。
+
+两套state跨组改变endpoint/history/anchor，不是只改history的消融；每个A/D pair内部固定相同状态，后续FM48对照将复用这些固定states。统一SDPA，teacher仍双向重算历史而student使用CPU KV；状态为显式加噪endpoint而非实际solver中间态。路由入口存在≠原始信息流等价，低cosine支持动作条件函数迁移问题，不能唯一定位权重或自动判视频方向。完整36点解释：submission/reports/stage1_anyflow/real_abot_fm/GEOMETRY_BASELINE_RESULTS.md。
+
+GPU0真实FM当前23/48；GPU4停车场零更新回归继续，第一条A30完成flow−0.195516，D及8步尚未收齐，不发布分离度。项目当前实际用2张卡；训练后队列2136435仅CPU等待，完成/审计后最多复用0/4/1。预算不增加、C/D仍有前置门槛，Stage1未通过，不更新meeting。
+
+20:24补充：六个真实packed layout的CPU SDPA mask拦截确认当前action↔对应视频的双向入口均存在；但causal额外允许video读取更早action，关闭通用prefix→当前video，以及当前prefix中的过去action→历史video反馈。该结构差异不是index错位，首块也适用；尚未做逐边模型效应消融，不归因到唯一边。见real_abot_fm/ATTENTION_ROUTE_INTERPRETATION.md。FM48后的固定评测队列2136435已启动CPU等待（替换仅等待的1915121，修正预审脚本对LoRA列表的遍历，step16的208个bank模块CPU审计通过，无GPU工作重启），正常训练退出/审计通过后复用0/4/1，失败不自动重试、不加训练预算。
+
+## 2026-10-08 20:15：真实场景零更新基线完成；GT动作差分近正交，第二场景30步仍崩溃
+
+真实FM训练GPU0/PID799534仍在运行，已完成20/48次更新；保持固定预算，不把零更新视频当训练结果。两个验证episode的Original30、causal0 GT30/chunk、causal0 generated30/chunk共6条39帧视频完成，初始conditioning/noise一致性检查通过。完整contact sheet与对应帧静态检查：户外场景人物保留但运动变弱、场景漂移；中世纪村落generated-history约23–24帧出现红影，26–33帧人物分解，38帧大部消失。Original完整、GT-history人物保留但拼接跳变。不能根据第一个场景声称30步causal稳定；GT拼接边界不等于自主rollout失败。完整视频与解释见submission/reports/stage1_anyflow/real_abot_fm/BASELINE_COMPLETE_REVIEW.md。
+
+GT同状态当前chunk A/D共18点完成：整体velocity平均cos0.988193，动作差分cos0.017516；无历史chunk0为0.034156。A/D历史KV重建哈希相同、读取期间内容/commit/参数version不变、重复前向RMSE0。差分失配在真实GT和无历史条件已存在，不能全部归因于generated-history drift。低cosine仍不是视频方向判决；teacher双向历史重算/student缓存语义差异明示。
+
+第一个真实场景的Original纯A/D也是弱正控：A+0.744212、D+0.711019、分离度0.033192。保留原视频，不套用旧停车场A>0/D<0/separation>1门槛归罪student。新增停车场step00的30/8步回归GPU4串行运行，对照已知Original约2.023分离度；causal0/48统一h3_fp32，旧Original legacy精度差异单独披露。
+
+固定step00 generated-state探针原GPU5因free27204MiB<34000而启动前退出，没有模型结果。失败记录保留；确认退出后于20:11改GPU1/PID1695577运行。项目当前卡0/4/1，不超过3张，不操作他人进程。
+
+真实数据loader与trainer接口已同步主代码和submission/code，新增6项provenance/split/time-bin测试通过，主入口CPU三chunk训练和旧checkpoint恢复兼容已验证；306项冻结训练runtime hash不变。提交包收录6条基线的4个三列诊断视频、GT18几何与纯Original弱正控，不收数据/PT/optimizer，不更新meeting。
+
+后续仍为完整A–D：先收齐FM48训练后GT/generated视频、停车场A/D及相同固定状态geometry；可信局部能力成立后才继续AnyFlow/Stage2，不盲增136预算。当前Stage1效果未通过，C/D未完成。
+
+## 2026-10-08 19:16：真实FM已完成3/48更新；首条独立episode的Original参考完整解码
+
+训练GPU0/PID799534持续运行。真实数据/零输出初始化/首步bank更新/冻结visual保持/无AnyFlow与旧action residual/运行源hash检查通过。GPU5串行基准已有首条Original30完整39帧，采样207.00s，allocated peak25928.91MiB；全39静态检查人物和场景保持，尚无trained-causal效果结论。该真实动作含forward+strafe left+camera pan left，flow+2.2888不能当纯A正确率。
+
+评测入口前两次dtype错误均发生在首个denoiser输出前，失败日志保留；修正为FP32 video/audio/anchor、BF16 text，并在tiny H3原生/cached路径验证后真实运行成功。未改训练runtime或随机输入。新增来源、执行快照、原始参考视频/接触表见submission/reports/stage1_anyflow/real_abot_fm；受控field图与归因结果见field_factorization。完整A–D目标保持未完成，当前最多2张项目GPU使用，不更新meeting。
+
+## 2026-10-08 19:04：实验A完成；真实ABot causal FM桥接启动
+
+输入范围受控的A对照已完成：12个固定generated-state、9角色、224真实H3前向。统一SDPA/完整prefix历史及anchor/action/timestep下，Original权重仅改causal路由（无新增适配）的整体velocity cosine=0.996253，A/D动作差分cosine=0.060153；匹配FM32为0.054469、AnyFlow32 r=t为0.058434。动作几何失配在AnyFlow训练前已经出现，不支持继续盲增AnyFlow updates。共同初始化AnyFlow r=t逐元素保持输出。原生Flex与SDPA的动作差分cos约0.843–0.868，小动作差分对BF16后端敏感；主表均采用同一后端。
+
+A采用完整历史/历史action-prefix重算，不能冒充部署persistent-KV等价性；此前固定KV机制诊断单独保留。两条诊断进程已退出，无optimizer。报告：submission/reports/stage1_anyflow/field_factorization/RESULTS.md。
+
+按完整A–D目标进入B：仅下载6个公开ABot episode（视频502,961,486字节），取16train＋8validation个39帧片段，按episode隔离；真实联合按键/镜头动作保留。RGB与动作共同按源帧索引30→24fps，真实VAE latents为[1,24,12,30,52]；dual anchor采用GT prefix decode→末RGB→H3 image encode，与生成条件一致。24份编码/源哈希/时间bin校验完成；两张VAE静态检查train PSNR35.97dB、validation23.28dB，不是生成质量。初次编码的模型路径失败已保留并修复，成功编码800.78s、GPU peak9683MiB。
+
+B在18:59已于GPU0启动真实33B ordinary FM，PID799534。Original H3+发布action LoRA初始化，不继承旧visual/action residual；全block/refiner rank8 QKVO/FFN bank，GT history、全历史梯度、CPU KV、RGB dual。固定48updates、batch4、LR3e-5、training shift12；48更新覆盖16cases×3chunks。保存0/1/3/16/32/48。训练尚未完成，不把loader/CPU smoke当训练或视频通过。与旧FM32相比数据和初始化均改变，不作单变量归因。
+
+下一步评估独立episode的Original30与causal30（GT/generated history分开），8步补充诊断，再做同状态当前A/D反事实。真实A/D-dominant样本含联合按键/镜头动作，不能直接比较不同片段光流来宣称A/D恢复。C需可靠causal基线并补时间嵌入/自适应权重/scheduler覆盖/composition，D需on-policy teacher/critic及Flow Map Backward Simulation对照；这两个阶段未完成。完整门槛：submission/reports/stage1_anyflow/ABCD_STATUS.md。项目最多同时3张GPU，未更新会议主视频。
+
+## 2026-10-08 18:09：同generated-state当前chunk A/D机制诊断完成，动作速度方向失配
+
+固定AnyFlow128的A/D generated history，在chunk1/2及高/中/低sigma共12点，只替换当前chunk动作。主对照student r=t与Original H3瞬时velocity。匹配dual RGB anchors/prefix时间条件下delta cosine平均0.03822，范围−0.10234到0.20505；student/teacher范数比0.79349–3.55631。原始单anchor/native prefix参照平均0.02968，范围−0.35006到0.27738，两套结果完整保留。动作有响应，但差分方向与teacher弱相关，支持优先调查因果化后的动作条件函数/velocity geometry，不再泛称缺action alignment。
+
+时间索引/action spans/global RoPE/tail anchor检查通过；实际SDPA masks在0/25/49层符合当前causal+feedback设计；4组完整KV哈希/commit及参数version不变。4次student、4次teacher重复前向RMSE均0；两种history的future-only干预RMSE均0（固定layout内容对照）。中sigma文本路径单独干预也缺少teacher几何一致性，不能归因为正确文本路径简单被residual抵消。
+
+结论边界：状态是显式加噪generated endpoint，并非保存的solver中间状态；teacher双向重算历史，student固定KV，内部表征与依赖图本来不同。低余弦不能唯一归因某组权重，也不能排除generated-history分布影响。下一项建议只读三路：Original双向 / Original权重+causal-KV / trained AnyFlow r=t；各自重建自己的history KV，避免混用。三路尚未运行，无新训练、无Stage2。
+
+单GPU6串行，A/D各57 noisy+2 clean，473.87/421.92秒；allocated peak28763.39/27626.28MiB、CPU KV5403.44MiB。所有进程正常完成。完整中文解释、12点表/路径干预/图/源代码/原始收据归档submission/reports/stage1_anyflow/generated_action_geometry128/INTERPRETATION.md。没有新视频或画质修复，不替换meeting；Stage1仍未通过。
+
+## 2026-10-08 17:59：同generated-state当前chunk A/D机制检查已启动（只读）
+
+新探针固定AnyFlow128保存的A/D generated rollout，只替换当前chunk动作文本span和residual输入，保留过去/未来、当前明确加噪状态与KV。主比较r=t瞬时速度；有限区间另列。Original H3权重保留released action LoRA，关闭我们新增visual/bank/AnyFlow/residual；分别测匹配dual RGB anchors/固定prefix时间与native单anchor条件。Teacher重算双向历史、student读固定KV差异明确保留。
+
+CPU真实tiny H3验证通过：非零适配后teacher逐元素恢复、student切回逐元素恢复、未来动作不影响当前输出、KV/参数不变。真实layout检查latent5–9→RGB[17,34)、10–11→[34,39)，action rows/global RoPE/tail anchor均匹配。实际33B已在GPU6运行，A之后串行D，项目本轮只用1张卡；因其他任务进入GPU6，权重offload reserve14GiB且启动free≥36000MiB，不改变算术dtype/模型条件。controller3961954、A进程3944211。
+
+首批A/chunk1高/中/低sigma的matched delta cosine约0.03247/0.00356/0.01905；仍仅局部结果，等待chunk2及D历史。中sigma重复student/teacher误差0、未来动作负对照0。实际SDPA masks在0/25/49层核查；不可在全组结束前把这些数值扩成最终结论。源outputs/2026-10-08-17/stage1_generated_action_geometry，归档submission/reports/stage1_anyflow/generated_action_geometry128。没有新训练、没有新视频验收、没有Stage2。
+
+## 2026-10-08 17:38：136对照与54个双指标case全部完成；按最新指示优先做动作差分机制诊断
+
+两组均完成从128相同权重/Adam/RNG新增8更新到136，没有追加训练。原loss8步A+0.039588/D−0.541371、分离度0.580959；4步−0.675601/−0.871925、0.196324。辅助8步+0.095252/−0.539922、0.635174；4步−0.665904/−0.865820、0.199916。全39帧和对应12/24/30/38帧静态检查均未解决后段重影/人物透明，4步22–38帧严重雾化。非实时播放。完整四列Original/128/control136/auxiliary136视频及time/GPU/CPU-KV/forwards/MAD/boundary表在submission/reports/stage1_anyflow/interval_consistency_candidate/FINAL_RESULTS.md；H264/yuv420p/24fps/faststart全帧解码通过，不替换meeting。
+
+双局部指标54个case均完成：低噪声self-consistency相对速度误差128/control/aux为18.12%/18.13%/17.90%；finite到teacher clean平均RMSE0.058802/0.058682/0.058319。平均未见牺牲finite伪目标距离，只是改善不足1%且未转化成视频效果。当前diagonal伪GT误差0.064893→0.067320变大，不能把参考当GT；冻结128参考fit改善幅度大于当前自一致性改善。所有参数version/KV内容不变，128重复输入/finite/diagonal哈希一致。见dual_metric136/RESULTS.md。
+
+低sigma≤0.240781的endpoint仅2/128：D/chunk1与A/chunk0；A/chunk2三种原AnyFlow样本均无这个噪声段。训练shift12同时改变采样density和Gaussian weight，未来需解耦；已有shift2.22负结果保留，不能直接宣称降shift解决。最新用户优先要求动作机制诊断，因此先不启动噪声训练。
+
+下一项：同generated history、同明确加噪z_t，只替换当前chunk A/D，保留过去/未来action；核查实际时间索引、直接attention可见性与KV读写不变，再比较student与Original teacher动作速度差分。AnyFlow finite output是区间平均速度，主对照使用r=t的瞬时速度，finite另列；teacher额外anchor/固定prefix时间等条件差异须明确。旧FM探针曾用clean latent配非零sigma且替换整段action，不能直接复用其几何结论到当前AnyFlow。最多3张GPU持续有效。Stage2未启动，Stage1尚未通过效果验收。
+
+## 2026-10-08 16:51：最多3张GPU；控制组136完整4/8步未通过，辅助组已真实训练
+
+按最新指示，项目同时最多使用3张GPU，不增加136以上optimizer预算。控制组已完成全部4/8步A/D39帧评测：4步A−0.675601/D−0.871925、分离度0.196324；8步A+0.039588/D−0.541371、分离度0.580959。4步全部0–38帧与Original/128/136的12/24/30/38对应帧静态复核：约18帧起重影加重，22–38帧人物/柱子严重叠影和雾化，未修复；非实时播放。完整4/8对照和指标在submission/reports/stage1_anyflow/interval_consistency_candidate/CONTROL_RESULTS.md，未替换meeting。
+
+实际恢复任务时，原队列已于16:42自动在GPU6启动辅助组，controller1961979/trainer1963046。因此没有终止或重复启动；保留这次运行。真实预更新128的四套adapter、Adam、逻辑/CPU/CUDA RNG及其余固定配置逐项匹配源128。辅助训练未完成，其结论尚待实际视频。
+
+为落实双局部指标，准备隔离只读诊断：128/control136/auxiliary136在同clean history、Original teacher伪GT和保存噪声下，按native8高/中/低噪声区间分别记录当前finite/当前diagonal自一致性、到相同r的teacher插值目标误差，并单独测各t→0的finite endpoint到clean伪GT距离。低噪声另记对冻结128训练参考的fit，避免混同于当前模型自一致性。r>0不能直接与clean比较。每动作每checkpoint159 noisy+3 clean forwards，无optimizer；源outputs/2026-10-08-16/stage1_dual_metric136。分析不替代视频验收。
+
+若辅助136也失败，优先检查低噪声采样覆盖/监督，按噪声段而非一个total loss判断；不扩大LoRA或改architecture。Stage2只做准备，前置条件为可信clean-history局部画面、同状态A/D反事实及有限区间行为；不要求Stage1预先解决全部长时generated-history漂移。Original同状态反事实参照仍未补，不能夸大现有oracle-history动作结论。
+
+## 2026-10-08 16:39：原loss136训练完成，8步A/D仍失败，完整对比视频已归档
+
+原loss控制组128→136的8次更新全部正常结束，新增更新共1512.02秒，含准备/前后验证总1888.10秒，allocated peak40666.14MiB。128 current+8 physical clean+32 differentiable-history forwards，不含validation与backward checkpoint重计算；visual/action/time冻结、四组bank更新通过。实际129–136动作/chunk/sigma/r与重建序列一致，128/132/136保存的logical RNG逐bit相同于重建；实际GPU noise未直接记录。固定验证A endpoint34.422421→22.487106，D15.185422→14.106135，详见TRAIN_CONTROL_RESULTS.md。
+
+正常finite-map A/D39f、8步/chunk完整评测已完成：A+0.039588、D−0.541371、A−D0.580959，低于128的0.759660。全部39帧和12/24/30/38对应画面静态复核：A约22帧后透明/重影、末段更虚；D人物/柱子叠影仍严重，未见修复。静态全帧观察非实时播放。两条输入conditioning与Original逐张量一致，每条24 noisy+3 commits、CPU KV6484.13MiB、allocated38984.16MiB；A/D E2E242.10/252.37秒，单次共享主机不作speedup结论。训练loss下降没有转化为画质或动作改善。
+
+Original/128/control136三列两行完整对比已归档submission/reports/stage1_anyflow/interval_consistency_candidate/original128_control136_8step_AD.mp4；H264/yuv420p/24fps/faststart、39帧完整解码和第30帧标签检查通过。CONTROL8_RESULTS.md含原指标表、视觉限制与视频链接。未替换meeting。
+
+控制器684856继续A4/D4；辅助队列732565等待本组评测正常结束后用GPU6，从原128相同权重/Adam/RNG重新开始新增8步。辅助组尚未训练，不把控制组负结果当作辅助项结论。不增加既定预算，Stage1未通过、Stage2未启动。
+
+## 2026-10-08 16:17：控制组继续到134/136，step132随机流与冻结策略验证通过
+
+GPU6控制器684856、训练685759与辅助排队732565均已检查真实/proc存活，未重复启动。控制组已完成134次更新，继续原定136上限；辅助组尚未训练，仍等待控制及其评测结束后使用同一GPU6。
+
+新增逻辑采样核查从源128的logical RNG重建后续8步的时间对/样本类别/FP32 CPU噪声序列，已完成129–132的动作、chunk、sigma/r逐项匹配，实际step132保存的logical RNG与重建值逐bit一致。保存了重建CPU noise hashes；实际GPU noise未在训练时直接记录，不能冒充GPU逐张量审计。真实step132的visual/action/time adapter保持不变，QKV/out/FFN/refiner bank均更新。收据与脚本归档reports/stage1_anyflow/interval_consistency_candidate。
+
+已准备正常finite-map完整39帧contact/matched-frame/并排视频整理脚本，保持Original/128/同8更新两组的标签与计步/单次耗时口径；当前尚无已完成的新视频，未把准备脚本当作效果验收。Stage1效果未通过、Stage2未启动，继续等待这次受控实验。
+
+## 2026-10-08 16:04：有限区间诊断完成，启动原loss/一致性辅助的有限预算对照
+
+同128权重、clean history及固定teacher/noise插值状态的A/D诊断全部完成：各3chunk×3区间，4/8细分参考；随后各3chunk末区间8/16细分也完成。所有原探针进程均退出。重复输入、正常finite端点与8细分端点hash逐项相同，真实CPU KV内容hash/commit次数和模型parameter version不变。4/8参考下高噪声相对速度差约2.1–8.2%、中间约2.9–3.0%，末区间15.0–18.6%；16参考下末区间约16.5–20.4%，finite/16端点差约为8→16参考变化的10–12倍，细分变化约减半，差异仍存在。
+
+实际128训练更新的512逻辑样本中，低sigma≤0.240781的diffusion/endpoint/general map仅6/2/3个（各类型总数256/128/128），说明低噪声覆盖稀少，是可检验因素而非唯一原因。必须保留反证：六个局部case中正常finite端点到Original teacher伪标签的latent误差都小于diagonal16；细分参考不是更准确GT。内部自洽性不等于视频质量。完整数据/图已归档submission/reports/stage1_anyflow/finite_interval_probe128/RESULTS.md及finite_interval_refinement128。
+
+基于r=t实生成重影更少、末区间差异持续，准备一次明确独立的有限预算训练对照：同128四套adapter/Adam/逻辑-CPU-CUDA RNG，各新增8更新到136，原loss/数据/架构/anchor/采样保持；候选只增加0.25*MSE(v_finite, frozen diagonal16 average velocity)的末区间辅助。官方AnyFlow以外的实验，不是Stage2，不是默认继续增加训练时长；两组等更新数不等算力。只用正常finite-map A/D39f 8/4完整视频决定是否有效，不用参考fit代替验收。
+
+CPU零权重两步与原trainer模型/Adam/RNG逐项相同；辅助六步小H3训练/full-history反传通过，冻结策略通过，错误动作reference拒绝。GPU6控制器684856/训练685759已真实运行，预更新128的四套adapter、Adam、三类RNG与其余配置逐项相同，固定验证A endpoint34.422421/D15.185422与源128一致；正在新增更新。辅助组启动前GPU5被其它任务占1983MiB，未放行、未打断。CPU队列732565确认控制器存活，等待控制组及评测正常结束后复查GPU6空闲，再运行辅助组；辅助组尚未训练。详见reports/stage1_anyflow/interval_consistency_candidate/README.md。
+
+没有新画质/动作结论，未替换会议视频，未开始Stage2。Stage1先验证局部少步能力，不要求其独自消除全部长时历史漂移；目标仍active。
+
+## 2026-10-08 15:32：澄清Stage2职责，启动有限区间只读探针
+
+用户关于后段崩溃/Stage2的判断有同权重证据支持：AnyFlow128 teacher history比generated history明显减轻人物/车库退化，A/D分离度0.760→1.334；不能要求Stage1先消除全部长时generated-history漂移才能进入Stage2。Oracle状态重置与动作历史泄漏仍限制结论；同权重r=t改善重影也说明有限步条件值得独立诊断，可能与历史分布相互作用。当前AnyFlow尚无匹配Stage2对照，旧FM Stage2-lite不能回答其疗效。详见submission/reports/stage1_anyflow/STAGE_BOUNDARY.md。
+
+已完成隔离probe代码和CPU验证：解析常速度场、时变场Euler收敛、故意finite-map偏置，以及随机小H3三chunk/三sigma区间的KV/模型不变性。不是33B画质验收。固定128权重、clean teacher历史、teacher/noise插值状态，比较一次finite map与4/8细分r=t积分；覆盖每动作3chunk×3区间，每动作117 noisy+3 clean forwards。参考仅是同模型数值自洽性，不是GT，记录细分参考的不确定性。
+
+最初所有GPU有其它任务，未抢占；15:31重新检查GPU5/6各3MiB后启动A/D，PID173171/173176，真实状态running，1001项冻结输入复核通过。source为outputs/2026-10-08-15/stage1_finite_interval_probe128；报告/CPU收据/代码/启动快照归档submission/reports/stage1_anyflow/finite_interval_probe128。当前没有真实区间误差结论，不追加训练次数、不变架构/anchor、不开始Stage2。GPU0资源授权保留，但其上仍有其它任务。
+
+## 2026-10-08 15:18：同权重对角条件消融完成，定位有限步预测的视觉退化
+
+GPU0/3两条AnyFlow128同权重r=t诊断均正常完成，控制器3641070/3641075及子进程已结束；当前无本轮在跑的GPU任务。A+0.074321、D−0.587728、分离度0.662048；正常finite-map为+0.040414/−0.719245/0.759660。对角条件动作仍不足，但完整39帧与Original/finite/diagonal同帧静态复核显示人物/车库明显更完整，尤其D后段严重人像/柱子叠影减轻；仍有模糊/轻微透明感及人物退远，不是整体PASS。静态复核非实时播放。
+
+实际审计确认两个分支checkpoint路径/哈希和conditioning/packed tensor相同；积分sigma网格逐元素相同、3块24 noisy+3 commits不变；全部27条model time trace中noisy target_sigma确为current sigma，实际积分target_sigma仍为原next sigma，commit0→0。只通过隔离wrapper改变模型的目标时间条件，未改原runtime或权重。完整Original/finite/diagonal三列A/D视频已H264/yuv420p/24fps全39帧解码及第30帧标签检查，报告submission/reports/stage1_anyflow/diagonal_inference128/FINAL_RESULTS.md，保留实际tensor/time audit与全部指标。未替换meeting。
+
+这支持有限步预测的使用在本次rollout中加重视觉退化，不能把当前失败全部解释为缺Stage2；单seed结果不证明实现数学错误，也不排除有限步预测与generated-history分布的交互。对角版本不是重训FM，也不能冒充AnyFlow finite-map成功。没有额外optimizer更新、无Stage2。下一步固定同一clean history/noisy state测有限区间预测相对冻结r=t细分轨迹的偏差；有系统误差后再决定小预算一致性校准，正常finite-map 4/8完整视频仍是验收目标。不自动增加128以上训练预算，不做architecture/anchor扫参。Stage1目标保持active、尚未完成。
+
+## 2026-10-08 15:05：128完整评测、历史对照与同历史动作干预完成
+
+128训练及A/D39f4/8评测全部正常结束，原控制器2446816退出。4步A−0.751431/D−0.885575、分离度0.134144；8步A+0.040414/D−0.719245、分离度0.759660。4条全0–38帧及Original/64/128对应画面静态检查完成：4步18–20帧起重影、22帧后严重雾化；8步A人物保留但透明/退远，D后段显著人像/柱子叠影，视觉未过。8步分离高于64的0.623，但不能以此称整体更好。Original/64/128的4/8完整39f grid均H264/yuv420p/24fps完整解码与标签检查通过；静态复核非实时播放。STEP128_RESULTS.md含完整时间/allocated/CPU KV/forwards/MAD/boundary表，不作单次共享主机speedup声明。
+
+为检验用户关于Stage2/历史漂移的解释，在GPU5/6只改history来源：同128 checkpoint teacher-history A+0.504958/D−0.828582、分离度1.333539，对应generated 0.759660。实际首块5 latent均逐元素相同，conditioning/packed tensor一致；后续才不同。Teacher历史下人物/车库明显更完整，A在17/34帧位置/朝向重置、边界MAD13.50（generated4.10），D也有状态跳变。完整39f Original/generated/teacher三列视频及核查在reports/stage1_anyflow/history128/FINAL_RESULTS.md；不能当free-running PASS。
+
+分时段已有Farneback：128 generated A在RGB[0,17)/[17,34)/[34,39)为−0.074203/−0.114319/+1.039100；clean为−0.051449/+0.692521/+1.542388。D generated−1.206855/−0.527455/+0.186407，clean−1.213613/−0.854157/−0.526932。全片均值与原记录1e−12内一致，跨边界transition另记；末区间4个transition、temporal VAE影响使RGB区间并非独立latent隔离。
+
+进一步新增同历史动作干预A→D→D、D→A→A（只对chunk1归因），分别对照已有held A/D。实际noise/anchor/基础prompt和前5行action embedding不变、后续action embedding确实改变、packed tensor相同；首块latent max_abs=0。A历史当前A/D flow为+0.692521/+0.378091，A−D=0.314431；D历史当前A/D为−0.427330/−0.854157，差0.426827。相对变化方向一致，动作有独立作用，但未出现同history下相反光流符号；无Original同状态参照，不能把动作惯性与控制不足严格区分。Teacher-history的1.334包含不同历史状态，不能据此宣称动作保真。全部39帧、同帧图与可播放2×2对照在counterfactual128/FINAL_RESULTS.md；chunk2 KV会受到改变后的action commit影响，不扩大chunk1归因。
+
+没有追加训练预算、未开始Stage2。下一项同权重推理消融已实际启动：GPU0重新空闲（启动前3MiB），与GPU3分别运行A/D；控制器3641070/3641075，子进程3642246/3642253于15:05仍存活。仅将AnyFlow模型target_sigma设为当前sigma（r=t），实际native8步积分网格、权重、generated history、anchor等不变，clean commit仍0→0；新sampler名称/27条时间trace显式记录。首块9条trace已落盘，未声称视频完成。997项输入冻结，源目录outputs/2026-10-08-15/stage1_diagonal_inference128/。这是定位有限步映射不足的消融，不可将对角结果冒充AnyFlow finite-map成功。GPU0使用reserve6，不限25GiB。
+
+## 2026-10-08 14:34：128训练完成；区分Stage1能力与Stage2历史适应
+
+14:37补记：128首条A4已完成，flow−0.751431。全39帧及Original/64/128同帧静态检查显示约18–20帧起重影，22帧后严重雾化/人物轮廓分解，未见相较64的明确画质修复；并非实时播放。D4/A8/D8仍待完成，不计算128分离度。证据已加入TRAIN128_RESULTS.md。
+
+GPU4–7完成96→128新增32次optimizer更新，含加载/验证1659.72秒、逐更新wall合计1507.65秒，allocated峰值40504.14–40505.49MiB/卡。四replica参数/Adam/logical-CPU-CUDA RNG一致，四组bank更新、原visual/time冻结。实际预更新96与来源权重/Adam/历史/RNG全部一致；前验证8个样本记录与96后验证相同。新增512 current、120 physical clean commits、120带梯度history forwards，不含验证与反向重算。固定0/16/32/64/68/96/128学习曲线已归档，A endpoint35.395→34.422、D18.416→15.185；内部误差不能代替画质。控制器2446816继续既定A/D39f的4/8步评测（本快照A4，3236763存活），完成后停，无128以上自动训练。报告submission/reports/stage1_anyflow/parallel_resume68_to128/TRAIN128_RESULTS.md。
+
+回应用户关于“后段崩溃是否缺Stage2”：官方源码明确Stage1 clean-history TF-AnyFlow，Stage2在自身rollout上用SGF+DMD与trainable critic适应生成分布，因此这是合理原因之一。已有step16同权重teacher/generated-history对照分离度0.664/0.180，支持历史来源影响；但teacher history下A仍错，第0块尚无历史累积时已偏离，不能全归因于Stage2缺失。这是step16证据，不能当作128诊断。oracle历史含动作后的世界状态，还需要同一历史上的当前action反事实对照。
+
+明确更正阶段门槛：Stage1先证明首块/受控历史下合理画面、动作响应与少步能力；若这些成立而free-running后段退化，才有针对性进入Stage2。不要求Stage1预先消除全部长时漂移。39f自生成A>0/D<0/A−D>1、独立seed、switching及124f保持最终交付验收，不全部作为Stage2启动前提。目前仍未证明局部能力已满足，先收齐128视频，不立即启动Stage2。说明及官方定位见submission/reports/stage1_anyflow/STAGE_BOUNDARY.md；next_plan和验收文档已同步。
+
+只读精度源码核查完成：官方原生H3的residual/scale/gate仍用block dtype，FP32用于六组边界与时间SiLU；当前h3_fp32已实现对应策略。未发现“官方FP32 residual而本地BF16”的证据，未开新精度实验、未改运行runtime。该结论不是两套模型数值等价证明，源哈希与限定见parallel_resume68_to128/PRECISION_SOURCE_AUDIT.md。GPU0不限25GiB授权保留，当前因其它任务占用使用4–7。
+
+## 2026-10-08 14:19：AnyFlow96完整评测退步，既定128续训运行
+
+GPU4–7完成68→96新增28次更新，含加载/前后验证1491.87秒、逐更新wall合计1327.22秒；allocated峰值40504.14–40505.35MiB/卡。四replica bank/Adam/logical-CPU-CUDA RNG哈希一致，原visual/time冻结、四组bank都更新，真实step68恢复全部通过。固定0/16/32/64/68/96验证sigma/r/类型/权重一致：A endpoint64→96为61.048→35.395、D19.991→18.416，diffusion/general-map raw也略降；actual GPU noise hash未记录，不能以scaled total下降作效果验收。
+
+同一96 checkpoint的A/D39f、8 steps/chunk都完成：A−0.483647、D−0.729654、分离度0.246007，低于64的0.623096，A仍方向错误。两条全部0–38帧及Original/64/96在12/24/30/38帧对应画面已静态查看。A保留人物/车库但约20帧后模糊、透明和重影仍在，无明确视觉修复；D后段比64明显恶化，约22帧起叠影、末段严重雾化。静态全帧复核非实时播放。说明clean-history内部拟合改善不等于generated-history rollout改善；最新checkpoint不能默认当最好。
+
+完整Original/64/96三列、A/D两行视频已归档submission/reports/stage1_anyflow/parallel_resume68_to128/original_anyflow64_anyflow96_8step_AD.mp4；39f/24fps/H264/yuv420p/faststart完整解码与第30帧标签检查通过，保留所有失败后段，不替换meeting。STEP96_RESULTS.md包含time/GPU/CPU KV/forwards/MAD/boundary/动作表与限制。两边conditioning逐张量相同；每条24 noisy+3 commits、CPU KV6484.13MiB，单次共享主机时间不称公平speedup。96只评测8步，未冒用64次4步结果。新runtime正确记录trainshift12。
+
+原控制器2446816按既定预算已从step96继续128，torchrun2798817；本快照113/128，真实/proc均存活。实际train_128/step_96与源96的四套adapter、Adam、teacher/update history、固定配置、logical/CPU/CUDA RNG逐项完全一致（gpu_resume96_preupdate.json）。只执行这次已定的128上限及4/8评测，不自动增加预算。64次保留为当前较好的参考，任何新方案须等这条受控曲线完整后再决策。Stage1效果未过gate，Stage2暂缓。
+
+## 2026-10-08 13:45：继续四卡96训练；64次分时段诊断确认动作尚未恢复
+
+已重新核查控制器2446816与torchrun2447766的真实/proc状态，均存活且非zombie。当前GPU4–7训练已完成86次更新，step80的完整trainer_state已落盘；仍在向96推进，没有96视频或验收结果，不重启任务。原有到96评测/最多128的固定预算保持。
+
+复用原Farneback实现，对Original、shift12 AnyFlow16/32/64、shift2.22 AnyFlow64及匹配FM32的全部12条已完成8-step A/D视频按RGB[0,17)、[17,34)、[34,39)分段，重算全片mean与原值在1e−12内一致。shift12 A在32→64：首段−1.205984→−0.710155，中段−1.345781→−0.673391，末段−1.205748→+0.015203；对应A−D分段0.288056→0.446936、0.083266→0.532387、0.068286→1.181313。提升并非只有最后几帧，但前两段A仍负，末段仅4个transition且接近零，不能称动作方向恢复。RGB分段有temporal-VAE时域影响，不是独立latent chunk隔离实验。跨边界transition单列；累计光流图则保留全部transition。
+
+结果/逐transition/视频哈希和已查看的独立累计光流图归档submission/reports/stage1_anyflow/duration_response/RESULTS.md。使用已有base Python中的Matplotlib绘图，没有修改运行中的h3world环境；没有新增metric、改变gate或训练协议。已经为接下来的实际96/128完整视频准备只读contact-sheet整理入口，未声称预备脚本就是评测结果。Stage1仍未通过，Stage2暂缓。
+
+## 2026-10-08 13:30：真实四卡64→68通过；从step68转到GPU4–7继续96
+
+GPU3–6完成真实33B的4次新增optimizer更新，含加载/前后验证327.30秒，逐更新为62.97/64.11/25.13/23.80秒（chunk2/2/0/0，不能视为各chunk充分吞吐benchmark）。四卡allocated峰值40503.25–40504.67MiB，约39.55GiB/卡，无OOM。实际保存的预更新checkpoint与源64的四套adapter、Adam、teacher/update history、logical/CPU/CUDA RNG和固定配置全部相等；固定验证8个raw loss也相等。最后四replica的参数、Adam、三种RNG哈希完全一致；原visual/time冻结、四组bank均更新。源training.json和恢复证据归档submission/reports/stage1_anyflow/parallel_duration128/TRAIN68_RESULTS.md。这是训练执行验证，非视频验收，未评测step68。
+
+原控制器2337864成功保存step68后，在启动96前发现GPU3新增其它进程占1811MiB，idle guard拒绝并停止；保留其failed状态（原因为硬件占用），不混淆已成功的68训练。没有启动96或重复更新，也未打断其它进程。
+
+13:29:21已建立独立接续outputs/2026-10-08-13/stage1_parallel_resume68_to128/，启动前GPU4/5/6/7均3MiB。控制器2446816、torchrun2447766，当前running、resume68，直接继续96；988项冻结输入复核通过，runtime通过symlink重用原测试版本，仅换physical GPU和已验证起点。96 A/D8通过数字gate则补4并停待视觉等检查，否则最多128评测4/8，无超128自动训练。新报告submission/reports/stage1_anyflow/parallel_resume68_to128/README.md。GPU0不限25GiB授权保留，但现在确有其它任务；使用空闲卡避让。当前Stage1实际画质/action gate仍未通过，Stage2暂缓。
+
+13:32补记：GPU4–7接续已实际完成第69次更新，控制器2446816/torchrun2447766存活。新train_96/step_68与来源的四套adapter、Adam、teacher/update history、固定配置、logical/CPU/CUDA RNG逐项一致；证据gpu_resume68_preupdate.json和current_snapshot.json已归档parallel_resume68_to128。当前在向96推进，不表示96已完成或Stage1效果通过。
+
+## 2026-10-08 13:20：两组64完整评测归档；shift12动作分离开始增加，四卡有限续训启动
+
+GPU0原shift2.22总64队列已全部完成：4步A−1.000683、D−1.153995、分离度0.153312；8步A−1.072072、D−1.287603、分离度0.215531。四条全39帧及Original/16/64同帧复核完成，4步约22帧后严重雾化，8步人物/车库保留但模糊/透明感，动作未恢复。完整诊断和指标在submission/reports/stage1_anyflow/full_history_duration64/FINAL_RESULTS.md。
+
+GPU1 train shift12总64及全部评测也正常结束：4步A−0.903425、D−1.052966、分离度0.149541；8步A−0.589203、D−1.212299、分离度0.623096。8步16→32→64为0.179888→0.172691→0.623096，开始明显增加，但A仍错且没有明确视觉修复。四条全0–38帧contact sheet和Original/16/64同帧已静态复核；4步约20–22帧后重影雾化，8步后段模糊/透明。完整Original/4/8与Original/16/64的4/8学习曲线视频已归档，H264/yuv420p/24fps完整解码及第30帧标签检查通过。入口submission/reports/stage1_anyflow/shift12_duration64/FINAL_RESULTS.md。静态复核不是实时播放，未替换meeting主视频。
+
+shift12新增32次含准备/验证5108.91秒、allocated40667.62MiB；endpoint32→64 A59.536766→61.048344变差，D22.905317→19.990650改善。完整固定0/16/32/64验证已归档，实际sigma/r/类型/权重一致，原日志未记录实际GPU noise哈希。AF64比FM32训练更多，不把0.623对0.414当AnyFlow优势证据。旧cached.json误记trainshift2.22的更正说明保留，真实training/checkpoint为12。
+
+基于shift12开始移动的8步学习曲线，只增加一次有限64-update预算：保持loss/data/global batch4/LR/架构/anchor/噪声，使用已通过CPU多步恢复和33B只读等价检查的四卡同样本并行候选。先64→68核查真实恢复和全部replica weights/Adam/RNG，再96评测A/D8；数字gate通过则补4并停待视觉验收，否则最多128并评测4/8，无自动超128。不是SP，四张卡各自有完整33B副本；未使用diagonal shortcut，未改主trainer。
+
+准备GPU0/3/4/5时，GPU0突然出现其它r2_real_models.py进程2253489，占约1.8GiB且高利用率，启动guard拒绝，未启动或打断任何任务。保留原输入清单，改用确认空闲GPU3–6，972项输入重新冻结。控制器2337864、torchrun2338965在13:19:51实际启动，训练state为running、resume64；真实optimizer结果仍待完成。GPU0不限25GiB的用户授权保留，独占配置reserve6，既有allocated实测约39.7GiB。新源目录outputs/2026-10-08-13/stage1_parallel_duration128/，报告入口submission/reports/stage1_anyflow/parallel_duration128/README.md。Stage1短片gate未过，Stage2暂缓。
+
+## 2026-10-08 12:46：AnyFlow64的A/D4-step均未通过
+
+D4已完成：flow−1.153995；A4为−1.000683，A−D=0.153312，A方向仍错误。两动作的全39帧contact sheet与Original/16/64同帧复核均显示约22帧后重影和严重雾化。Original/16/64三列、A/D两行的完整4-step诊断视频已生成并完整解码、检查标签：submission/reports/stage1_anyflow/full_history_duration64/original_anyflow16_anyflow64_4step_AD.mp4。属于静态完整帧复核，非真人实时播放。GPU0继续A8/D8；GPU1 shift12继续总64。所有训练/推理协议保持不变，Stage1未通过，Stage2暂缓。
+
+## 2026-10-08 12:41：AnyFlow64首条A4仍失败；同batch四卡计算/恢复链路已验证
+
+GPU0 shift2.22总64次训练完成，新增32次含准备/前后验证5241.37秒、GPU allocated峰值40668.18MiB。相同validation时间/权重下，endpoint32→64 A49.928→47.883、D24.234→18.441，diffusion raw也下降；不能用此代替视频验收。首条39f A4已完成，flow−1.000683；全39帧与Original/16/64对应帧复核显示约22帧起重影、后段严重雾化，A方向仍错。报告与原视频：submission/reports/stage1_anyflow/full_history_duration64/TRAIN64_RESULTS.md。D4/A8/D8继续；GPU1 shift12仍在总64训练。
+
+独立diagonal省算力探针已正常结束：CPU20个小H3 cases loss/gradient/RNG/cache逐bit一致；真实33B同批损失一致，候选梯度差与重复原始反传差均约1.6e−4。当前forward16→10，本批约238→207秒（−13.19%），显存基本不变；单批不是正式吞吐benchmark。未合入主trainer，详见reports/stage1_anyflow/diagonal_compute_probe/RESULTS.md。
+
+进一步实现了隔离的四卡同样本并行候选：global logical batch仍4，每卡一个sample，原AnyFlow每样本4次forward保持不变；共享两个FM raw reference做原adaptive scale，loss已/4后梯度SUM。真实GPU3–6 step32 A/chunk2只读探针完成：四卡最慢82.27秒，对应串行225.98秒，约2.75×单批wall比（不同GPU资源、共享主机，不能当完整训练或推理加速）。实际noise、loss、RNG相同，四卡归约梯度hash相同；相对串行梯度cosine0.9999704、差范数1.738e−4，接近已有CUDA重复性波动；没有optimizer update。
+
+四进程CPU六case以及集成trainer的串行4、并行4、并行2+恢复4、旧串行step2→并行4均完成。并行/串行bank最大差7.45e−9；并行连续与恢复的weights/Adam/RNG逐bit相等，四replica状态一致。rank0唯一写checkpoint的training_runtime及310项代码/测试收据已冻结；尚未启动真实33B多卡optimizer训练、未改主代码或GPU0/1实时runtime。完整证据在submission/reports/stage1_anyflow/sample_parallel_probe/RESULTS.md。仍先收齐既有64次视频，再决定更大训练预算；Stage1实际画质/action gate未过，Stage2暂缓。
+
+## 2026-10-08 12:10：匹配FM32完整评测归档，未验证出AnyFlow少步收益
+
+GPU3的FM32 A/D39f全部4/8-step完成：4步A=−1.058372、D=−1.298657、分离度0.240284；8步A=−0.943292、D=−1.356802、分离度0.413510。对应shift12 AnyFlow32为−0.019565/0.172691，两者A均错误。FM四条全39帧contact sheet及Original/AnyFlow同帧复核完成：4-step FM人物/停车场明显更完整，仍模糊/透明；AnyFlow4约20帧后严重雾化。8-step两者保留主体，但模糊、后段透明和动作偏差仍在，未见明确AnyFlow优势。静态完整帧复核不等同真人实时播放。
+
+两条Original/FM32/AnyFlow32三列A/D诊断视频已归档submission/reports/stage1_anyflow/fm_full_history_shift12_32/FINAL_RESULTS.md，H264/yuv420p/24fps、完整39帧解码与展示标签检查通过。报告含时间/GPU/CPU KV/forwards/MAD/boundary、真实初始化与32更新匹配审计；相同更新数不是等算力，单次并行时间不宣称speedup。不替换meeting视频。
+
+GPU0/1继续各自的AnyFlow总64；GPU0当前实占约42GiB，不限25GiB，无OOM。利用空闲GPU4启动独立只读探针（控制器1179085、子进程1179158）：检查r=t时省去三次零系数有限差分前向的等价性；CPU20个真实小H3 cases已确认loss/gradient/RNG/cache精确一致，真实33B结果尚待完成。331项输入冻结；没有修改主trainer、运行中runtime或任何checkpoint，没有optimizer update，不属于画质改善。Stage1未验收，Stage2暂缓。
+
+## 2026-10-08 11:48：首条匹配FM32/A4画质优于AnyFlow32/A4，但动作仍失败
+
+GPU3首条FM32 A/39f/4 steps per chunk完成：flow=−1.058372，A仍错误。全部39帧contact sheet及Original/AnyFlow32/FM32在12/24/30/38帧的对应画面已检查：FM仍有模糊/透明感，但人物与车库明显比AnyFlow4完整，后者约20帧后严重雾化。这条严格匹配初始化/容量/数据与sigma/更新数的结果不支持AnyFlow32的4步画质优势；不能扩展为尚未完成的D4/A8/D8结论。静态完整帧复核不等于真人实时播放。证据与原视频在submission/reports/stage1_anyflow/fm_full_history_shift12_32/GPU_RESULTS.md。
+
+GPU3 D4正在生成（子进程991460）；GPU0/1继续各自总64训练，模型数学和训练协议未改，Stage1效果未验收，Stage2暂缓。
+
+## 2026-10-08 11:44：匹配FM32训练完成，实际对照审计通过，视频评测开始
+
+GPU3 full-history/train-shift12/FM32训练与验证结束：含准备/验证3215.65秒，allocated峰值41251.94MiB。真实初始adapter/三种RNG与AnyFlow匹配；两者32次action/chunk和全部128个current sigma逐项一致，共有训练配置与43,237,376参数一致。FM的r=t是其目标定义，不应和AnyFlow的off-diagonal r相等。实际训练forward计数：FM current128、AnyFlow512；两者各30 clean commits和120带梯度历史重建，不含验证/反向checkpoint重算。同更新数不是等算力。
+
+公共每动作前两个r=t验证点，FM residual略低，但不能据此比较画质或声称显著收益。GPU3已开始FM step32 A4视频（子进程961255），后续D4/A8/D8按原队列继续；实际完整审计见submission/reports/stage1_anyflow/fm_full_history_shift12_32/GPU_RESULTS.md。GPU0/1的AnyFlow64继续，Stage1仍未验收，Stage2暂缓。
+
+## 2026-10-08 11:40：shift12 AnyFlow32全部4/8步短片仍失败，双分支继续64
+
+GPU1的full-history/train-shift12总32次训练完成，新增16次含准备/验证3012.30秒，allocated峰值40667.85MiB。相同noise公共endpoint A54.556→59.537变差、D24.329→22.905变好，其它raw residual变化很小。全32次更新的action/chunk与128个实际sigma/r对预先计划全部一致；未比较actual GPU noise hash，不把预测hash当实际采样证据。
+
+同一step32的A/D39f评测全部完成：4 steps/chunk（GPU4补评测）A=−1.216895、D=−1.197330、分离度−0.019565；8 steps/chunk（GPU1）A=−1.305473、D=−1.478164、分离度0.172691。A均方向错误。四条全0–38帧contact sheet及Original/16/32的12/24/30/38帧对照已复核：4步约20帧后严重雾化/重影，8步主体保留但模糊、D后段有透明感；相比16次未见明确改善。静态完整帧复核不是实时播放评审。
+
+完整Original/4-step/8-step、A/D两行H264/yuv420p/24fps诊断视频已归档submission/reports/stage1_anyflow/shift12_duration64/shift12_anyflow32_AD_diagnostic.mp4；STEP32_RESULTS.md含E2E/GPU/CPU KV/forwards/MAD/boundary与动作表。所有conditioning与原始H3逐张量相同；单次并行运行时间不作speedup比较。GPU4控制器正常完成退出，未覆盖meeting视频。
+
+GPU1控制器334580已按原计划从step32继续总64；真实回载四套adapter、Adam、teacher/更新历史和CPU/CUDA/logical RNG逐项相同，见gpu_resume32_audit.json。GPU0控制器136179继续shift2.22的总64（快照43/64）；GPU1快照32/64；GPU3匹配FM32仍在训练（30/32），不提前宣称FM/AnyFlow优劣。匹配训练32的真实sigma/前向计数和三列评测整理入口已准备，尚未执行完成结果审计。本轮未改模型/训练数学，Stage1未通过，Stage2暂缓。
+
+## 2026-10-08 11:22：补齐32次训练的AnyFlow/FM少步公平对照
+
+检查发现GPU1的shift12 step32原计划只评测8 steps/chunk，而GPU3匹配FM32评测4/8。已利用空闲GPU4启动只读补评测控制器720483，outputs/2026-10-08-11/stage1_shift12_step32_4step/。它等待GPU1训练完整结束后读取同一step32，生成A/D39f、4 steps/chunk（12 noisy+3 commits）；不重新训练、不改anchor/action/noise/网格或模型结构。330项输入与控制器冻结，启动前GPU4占用0MiB，运行前再次检查；源训练、checkpoint与conditioning均有协议检查。
+
+11:20实际进程核查：GPU0总64已到35次，GPU1总32已到30次，GPU3/FM32已到18次；均存活、日志继续推进。GPU4控制器存活等待训练完成，目前没有补评测的视频结果。匹配32次的三列视频整理入口已准备，会拒绝不完整评测；不把预备脚本当结果。目的仍是验证Stage1 AnyFlow是否在真实动作和画面上有效，Stage2暂缓。
+
+## 2026-10-08 11:11：GPU0不限制25GiB；full-history32评测失败，64续训与匹配FM对照运行
+
+GPU0独占继续reserve6，真实32次训练已完成：新增16次含准备/验证3024.73秒，allocated峰值40668.66MiB（39.72GiB），无OOM。初始化→16→32的公共noise/sigma验证已归档；A endpoint 59.625→61.344→49.928，D 22.805→22.865→24.234，不能用weighted total下降宣称视频改善。
+
+32次A/D完整39f、8 steps/chunk均完成：A=−1.309516，D=−1.497935，A−D=0.188419（16次0.182509），A仍错误。两条0–38帧contact sheet和Original/16/32同帧检查完成：人物/车库主体保留，但模糊/重影、D后段透明感仍在，没有明确改善。这是静态全帧复核，非真人实时播放。可播放三列完整视频与E2E/GPU/CPU KV/forwards/MAD/boundary表见submission/reports/stage1_anyflow/full_history_duration64/STEP32_RESULTS.md，视频已完整解码H264/yuv420p/24fps。
+
+GPU0控制器136179已按既定gate规则从step32精确续到总64，真实GPU回载的四套adapter/Adam/teacher与更新历史/三种RNG全部逐项相等（gpu_resume32_audit.json）；GPU1控制器334580继续自己的shift12总32训练（本快照27/32）；GPU3控制器515452运行匹配full-history/shift12/全覆盖rank8/FM32（本快照12/32）。三者都在运行。FM实际初始三套adapter、CPU/CUDA/logical RNG、公共diagonal验证与shift12 AnyFlow一致；预先CPU计划中的noise hash不是实际GPU逐样本hash证据。最终应将FM32与shift12 AnyFlow32比较，同更新数仍不等计算预算。
+
+修正主源码和submission中benchmark的一处metadata记录：anyflow_training_shift现在优先读取training_timestep_shift，而非误用inference flow_shift。公式/训练/采样均未改；三个运行中的冻结runtime不改写，因此旧shift12 cached.json仍错误显示2.22，应以checkpoint/setup config及training.json中的12为准。三个legacy/None/explicit12元数据分支实际检查通过；此前84项完整测试收据保留，本轮未重跑完整套件。根README同时澄清旧FM、新AnyFlow和Stage2-lite的区别。Stage1效果未验收，Stage2暂缓。
+
+## 2026-10-08 10:41：shift12/16全部评测失败，teacher-history定位完成；两组训练量对照运行
+
+训练shift12的full-history AnyFlow16完整结束：含准备/验证2516.05秒，allocated41310.95MiB。真实初始四套adapter/三种RNG、公共验证和全部64个sample sigma/r审计通过。公共endpoint A59.625→54.556下降、D22.805→24.329上升，diffusion变化很小，不能用weighted total宣称改善。
+
+完整39f自生成历史：4-step A=−1.227654、D=−1.232781、A−D=0.005126；8-step A=−1.312275、D=−1.492164、A−D=0.179888。四条全0–38帧contact sheet与Original/FM/shift2.22同帧复核：4-step后半段仍严重雾化，8-step主体保留但A方向错，没有明确shift12收益。完整mp4与指标见submission/reports/stage1_anyflow/training_shift12/FINAL_RESULTS.md。
+
+GPU3同一shift12 step16的clean-history A/D8诊断也完成：A=−0.211312、D=−0.875811、分离度0.664499。人物/车库较完整，但teacher状态在17/34帧附近引入跳变，boundary MAD A14.823/D9.286；不是free-running改善，也未通过A正门槛。两动作的首5个latent在clean/generated运行中逐元素相同，max_abs=0，之后才分歧。A第0块[0,17) flow−1.207126，原始H3对应+0.083398；说明偏离在尚无生成历史时已出现，不能全归因于generated-history累积误差。teacher历史本身含action后的场景状态，后续正flow不能独立证明当前action binding。完整三列Original/generated/teacher视频与分段证据见submission/reports/stage1_anyflow/shift12_history_diagnostic/FINAL_RESULTS.md。
+
+现在只做有限训练量对照，不加模块：GPU0 shift2.22从原step16续到32→最多64（控制器136179，子进程136859，已完成26/32）；GPU1 shift12源评测全部失败后也已从自己的step16续到32→最多64（控制器334580，子进程391767，快照完成16/32）。各自四套权重、Adam、teacher/更新历史、CPU/CUDA/logical RNG真实回载均逐项一致。两个step16之间三种RNG状态也相同，但已训练权重/Adam不同，绝不互换。训练/验证/推理shift各自固定，GPU0/1均reserve6，不限25GiB。32数字gate通过时停训等待视觉检查，否则继续到最多64；不自动判定Stage1通过。
+
+本轮只新增诊断/队列与报告，主模型代码未改动，84项已完成检查不重复运行。会议主视频未替换，Stage1效果仍未验收，Stage2暂缓。
+
+## 2026-10-08 10:09：full-history16全部失败已归档；GPU0同配置续训启动
+
+完整A/D39f评测：4 steps/chunk A=−1.248505、D=−1.224589、A−D=−0.023916；8 steps/chunk A=−1.304568、D=−1.487077、A−D=0.182509。A均方向错误。四条全39帧contact sheet及Original/FM/detached同帧检查完成：4-step约20帧后严重雾化/ghosting，8-step人物/车库主体保留但无明确收益。完整39帧可播放诊断已放submission/reports/stage1_anyflow/full_history_candidate/full_history16_AD_diagnostic.mp4，指标与限制在FINAL_RESULTS.md；没有替换meeting。
+
+GPU0按用户授权独占且不限制25GiB，继续reserve6；此前真实训练allocated峰值41310.60MiB（40.34GiB）。有限训练量对照已实际启动：控制器136179、子进程136859，outputs/2026-10-08-10/stage1_full_history_duration64/。从原full-history16的step16恢复完整权重/Adam/CPU-CUDA-logical RNG，先到32并评测A/D8；数字gate未过再到最多64并评测A/D4/8。仅改总更新数，训练/validation/inference shift继续2.22，anchor/架构/LR/数据/噪声不变；322项冻结依赖及保存state/config/hash预检查通过。启动前GPU0实占0MiB，未打断其它进程。真实GPU回载后step16快照核验通过：四套adapter、Adam、更新记录、teacher身份及CPU/CUDA/logical RNG全部与来源完全一致。
+
+GPU1原shift12 fresh16对照继续运行（该快照11/16）；尚无视频结果。两支checkpoint与归因独立。16次更新的微小loss变化不足以证明训练充分，所以增加有限训练预算检查学习曲线；这不保证效果。Stage1尚未验收，Stage2继续暂缓。
+
+## 2026-10-08 09:58：full-history16首条A4仍严重雾化；采样入口合入后84项检查通过
+
+step16 A/39f/4 steps/chunk已完成，flow=-1.248505，A方向仍错。0–38帧全部静态复核与Original/FM16/detached16同帧对比显示约20帧后重影、雾化、人物/车库结构丢失；没有明确修复detached4的问题，FM4仍更完整。证据见submission/reports/stage1_anyflow/full_history_candidate/GPU_RESULTS.md。当前只完成此条step16视频，D4/A8/D8继续。
+
+训练与validation时间分布的可选独立参数已从已验证候选合入H3-World与submission，默认旧数学保留；完整主源码84 passed（7.84秒）。GPU1仍用冻结runtime进行shift12训练，实测初始化/三种RNG/公共validation全部匹配；没有更改GPU0评测的推理shift、anchor、steps或其它协议。冻结CPU审计receipt的一项validation_before占位已另文明确不算一致性证据，其最终权重/Adam/RNG/逐sample/后验证比较均实际通过。
+
+Stage1实际效果仍未通过，不将工程合入作为最终验收，Stage2暂缓。
+
+## 2026-10-08 09:52：full-history AnyFlow16训练完成，公共验证无明确端点收益，开始step16视频
+
+GPU0完成16次更新，含准备/验证2863.15秒，allocated峰值41310.60MiB（约40.34GiB）。四组LoRA更新，旧visual/time冻结；实际初始化/三种RNG/公共验证samples和16次action/chunk/sigma审计全部通过。额外带图历史前向合计56次。
+
+同noise的公共验证：A weighted0.118051555→0.117942682、endpoint59.624653→61.344250；D weighted0.170266438→0.170181701、endpoint22.804770→22.865307。weighted下降不到0.1%，端点无明确改善，不能先宣称视频有效。完整数值见submission/reports/stage1_anyflow/full_history_candidate/GPU_RESULTS.md。
+
+已自动开始step16 A/native4视频（PID4125388）；D4和A/D8继续串行。GPU1 training_shift12仍运行，实际初始weights/RNG/公共验证与原分支匹配，推理不改shift2.22。当前Stage1视觉/action gate未通过，Stage2暂缓。
+
+## 2026-10-08 09:46：full-history step04 A/D未通过；官方训练shift12受控对照已启动
+
+完整step04 A/D39f、8 steps/chunk均完成：A=-1.308945，D=-1.494894，A-D=0.185948。人物/车库主体保留但模糊，A方向仍错，相对detached16的8-step未见明显改善。两条全39帧静态检查、完整三列并排mp4和指标已归档submission/reports/stage1_anyflow/full_history_step04/FINAL_RESULTS.md；视频明确标注4与16 optimizer updates不同，不作等训练量消融结论。
+
+发现训练分布与官方的一个差异：当前train shift2.22，官方H3 Stage1为12。按真实logical RNG和noise形状重放，本轮16次中A的8个endpoint样本无sigma≥0.9，D仅1个；改12则分别2/3个。A的diffusion/general-map仍有高噪声样本，不能说完全无监督，也尚未证明这是失败原因。覆盖证据见training_shift12/COVERAGE.md。
+
+隔离实现training/validation/inference shift分离，仅训练采样及Gaussian权重改12，公共validation和inference继续2.22，其余full-history/初始化/rank8/FP32/LR/data/action/anchor/16updates均固定。17项CPU检查通过，默认新旧full4的参数/Adam/RNG/loss/gradient逐bit一致；shift12连续4与2+恢复4也一致，改变train shift不能伪装exact resume。主trainer尚未合入这些新参数。
+
+GPU1新有限队列PID4006869、训练子进程4007285已运行（321项冻结输入）；真实step00四套adapter、CPU/CUDA/logical RNG和公共验证samples全部匹配，已观察训练sigma/r符合shift12计划。GPU0原队列3677838/3707254继续，已完成15/16更新，随后原计划A/D4/8评测。两条路线尚无通过Stage1的结果，不扩124f、不做Stage2。
+
+## 2026-10-08 09:26：full-history step04首条A8仍未过动作gate
+
+GPU1完成step04 A/39f/8 steps/chunk，flow=-1.308945，A仍朝错误方向。完整39帧静态复核显示人物/车库主体保留但模糊，与detached AnyFlow16的8-step没有明显改善；所有conditioning与原始H3逐项相同，真实bank/time/step/full-history元数据正确。耗时230.21秒、allocated38984.16MiB、CPU KV6484.13MiB、24 noisy+3 commits；与GPU0训练并行，不作speedup比较。
+
+对照图与逐帧证据在submission/reports/stage1_anyflow/full_history_step04/VISUAL_REVIEW.md。D仍在生成；GPU0主训练已完成8/16，未更改配置。当前只得出step04 A尚未改善，不能提前判定16次结果。Stage1未验收，Stage2暂缓。
+
+## 2026-10-08 09:20：完整历史梯度训练覆盖A/D三块，GPU1并行检查step04效果
+
+GPU0独占训练已完成6/16次更新，A/D的chunk0/1/2均覆盖；history前向次数分别0/4/8，chunk2 CPU raw KV10806.88MiB。GPU0实占约42.6GiB，无OOM。保存的step04逐张量检查：原visual/action/time冻结，208个LoRA wrapper均有更新，history计数正确。实际step00四套adapter、CPU/CUDA/logical RNG及固定noise验证sample与detached参照完全一致。
+
+同时发现独立GPU轨迹并非逐bit相同：chunk0尚无历史时梯度已出现微差。GPU1同模型/同noise重复反传（不更新参数）确认前向sample记录相同，detached两次梯度cosine0.9999106、差范数1.2636e-5；full-no-history为0.9999032、1.3149e-5，处于相近量级。它确认实际GPU反传重复性误差，具体kernel未定位；不将微小训练曲线差当因果效果证据。完整日志见submission/reports/stage1_anyflow/gradient_repeatability/RESULTS.md。
+
+GPU1现并行评测full-history step04的A/D 39f、8 steps/chunk（控制器3859336，A子进程3859754）；GPU0原16次训练及后续step16四条评测继续，实时源文件和冻结输入不变。step04视频存于原实验eval/anyflow/step_04，额外控制器在outputs/2026-10-08-09/stage1_full_history_step04_eval/。并行运行的时间不作公平speedup比较。尚无full-history视频结果，Stage1未验收，Stage2继续暂缓。
+
+## 2026-10-08 09:07：FM/AnyFlow完整诊断归档，历史梯度可选入口合入
+
+完整FM A4/D4/A8/D8的39帧contact sheet与Original/AnyFlow同帧对照已复核：FM4仍模糊/透明，但明显好于AnyFlow4后半段的重影雾化；8-step两者保留主体场景，均未恢复A方向。两条完整Original/FM/AnyFlow三列、A/D两行的H264诊断mp4已归档submission/reports/stage1_anyflow/fullscope_fm_control/FINAL_RESULTS.md，标记NOT PASSED；会议主视频未替换。
+
+真实探针验证后的--history-gradient-mode full作为可选路径合入H3-World与submission，默认detached不变，主源码CPU完整77 passed（6.25秒）。实时训练runtime及314项冻结输入未改动。更改gradient mode不能伪装成exact resume；生成时仍使用原cache语义。fresh16训练已完成chunk0的A/D两次更新，后续带历史的chunk继续执行，当前尚无full-history视频。Stage1未验收，Stage2暂缓。
+
+## 2026-10-08 09:02：GPU0完整历史梯度探针通过，fresh AnyFlow16已启动
+
+同容量FM16四条39f评测已完成：4-step A=-1.076402、D=-1.290065、A-D=0.213663；8-step A=-1.135284、D=-1.456185、A-D=0.320901。A均为负，未过动作gate。完整FM/AnyFlow同帧视觉复核与诊断视频正在整理；不把单一光流或MAD当画质结论。
+
+真实33B A/chunk2的detached/full-history探针已完成：四类sample raw loss逐项完全相同；梯度cosine=0.911813、差范数0.000651273，四组LoRA均有非零有限梯度。full模式额外8次带图历史前向，CPU raw KV峰值10806.88MiB；一次Adam更新后原visual/time/action不变。GPU allocated峰值40973.35MiB（约40.0GiB）、reserved43176MiB，无OOM，GPU0不再限25GiB。详见submission/reports/stage1_anyflow/clean_history_gradient/GPU_RESULTS.md。
+
+新控制器3677838已自动启动fresh16训练（子进程3707254），目录outputs/2026-10-08-08/stage1_anyflow39_full_history/。从原始初始化开始，不使用探针更新权重；唯一训练数学改动为history-gradient-mode full，继续同rank8/FP32/LR/data/noise/action/anchor协议。训练后核验初始化与采样序列，再评测A/D4/8 steps/chunk。历史梯度改变已证实，画质是否改善尚未证实。Stage1效果未验收，Stage2暂缓。
+
+## 2026-10-08 08:43：首条同容量FM4画面优于AnyFlow4，但动作仍失败
+
+首条FM16 A4完成，flow=-1.076402，A方向gate失败。同容量/初始化/训练量/FP32/causal协议下，0/6/12/18/24/30/38帧对照显示FM4人物与车库明显比AnyFlow4完整；仍有模糊，不能声称动作恢复。当前A4未显示AnyFlow少步画质收益，FM其余D4/A8/D8继续评测，不提前推广结论。证据见submission/reports/stage1_anyflow/fullscope_fm_control/FM16_A4_vs_AnyFlow_teacher.jpg及GPU_RESULTS.md。历史梯度probe等待控制器3542531仍待本队列完整退出；Stage1效果未验收。
+
+## 2026-10-08 08:40：同容量FM16训练及真实初始化审计通过；历史梯度探针重新冻结排队
+
+GPU0完成FM16训练，脚本含准备/验证1040.3秒，allocated峰值37970.6MiB。真实step00 visual/action/full-bank、CPU/CUDA/logical RNG与AnyFlow完全一致，16次训练action/chunk/sigma序列相同；四组LoRA更新且visual/action冻结。FM held-out A weighted0.126271→0.126175、D0.181725→0.181611，变化很小。当前A/D4/8视频评测已开始，不能先写FM效果优劣。见submission/reports/stage1_anyflow/fullscope_fm_control/GPU_RESULTS.md。
+
+clean-history梯度候选在真实GPU启动前修正临时capture容器：每次前向后seal/clear，防止checkpoint backward重复复制CPU KV和通过容器保留自身计算图。修正后9项原专项及1项容器检查通过；新连续4次、从旧step2恢复到4次都与旧full4的权重/Adam/RNG/loss/gradient完全相同。前向/梯度数学未变，最终CPU fixture的history_protocol标签也已正确。
+
+仅停止旧的等待控制器3477486，未中断FM GPU任务；新探针等待控制器PID3542531已启动，状态waiting_for_fullscope_fm16，冻结311项源代码/输入。完整FM四条评测退出后，只执行一次A/chunk2真实梯度、显存及单次更新探针；仍无full-history分支的33B或视频结果。Stage1未验收，Stage2暂缓。
+
+## 2026-10-08 08:32：全覆盖AnyFlow四条视频均失败；同容量FM运行，clean-history梯度候选通过CPU检查
+
+全覆盖rank8/native-FP32/16次更新的全部39f评测完成：4-step A=-1.198536、D=-1.242114、A-D=0.043578；8-step A=-1.305347、D=-1.496471、A-D=0.191124。两组A都不符合原始方向。4-step后段严重重影/雾化；8-step人物/车库较完整但仍模糊，与native tail16没有明确收益。完整39帧诊断mp4（Original/4/8，A/D两行）、同帧对照和数值已归档submission/reports/stage1_anyflow/fullscope_candidate/FINAL_RESULTS.md；不替换meeting，未通过Stage1 gate。
+
+GPU0已自动转入相同容量/初始化/精度的FM16（当前12/16，PID3361205），后续A/D4/8按冻结协议串行运行。当前不能比较尚未完成的FM结果。
+
+另核对官方Stage1的clean/noisy拼接计算图与本地detached历史KV差异，隔离实现--history-gradient-mode full：只给梯度prediction重建带计算图的clean history，目标前向仍no_grad；每块只读cache快照避免checkpoint反向重写历史。它保持现有cache前向语义，不是官方融合两流算子，未改变RGB/audio/action等其他差异，也没有证明是画质失败原因。
+
+小H3 FM/AnyFlow、FP32/BF16、checkpoint/offload：前向和K/V逐元素相同，历史获得梯度、未来帧无梯度。参数数值差分0.00122190与full方向导数0.00121648吻合，detached为0.00020518；这是选定小模型方向，不是33B梯度缺失比例。完整套件72项通过后扩充FM专项，9项相关检查通过；full连续4次vs2+resume4的权重/Adam/RNG/loss/gradient完全相同。
+
+新的有限探针队列PID3477486已确认存活，等待FM16四条评测完全退出后在GPU0/reserve6执行一次真实A/chunk2梯度、显存和单次更新检查。尚未执行33B full-history梯度，也无该分支视频。源目录outputs/2026-10-08-08/stage1_clean_history_gradient/；证据在submission/reports/stage1_anyflow/clean_history_gradient/。候选未合入主源码，当前主源码仍是67项检查通过的detached默认路径。Stage2继续暂缓。
+
+## 2026-10-08 08:03：全覆盖AnyFlow16完成，固定噪声验证未见明确收益，开始A/D视频
+
+GPU0完成全50+2块rank8的总16次更新。step01→16脚本含准备/验证耗时1963.6秒，allocated峰值37386.2MiB；四组LoRA均更新，旧visual和时间MLP仍冻结。加上fresh1段，两段脚本共2415.2秒，包含重复启动/验证，不作连续训练速度推断。
+
+同noise初始→16：A weighted 0.118052→0.118061，endpoint59.625→71.849；D weighted0.170266→0.170215，endpoint22.805→22.715。A端点变差、D变化很小，尚无明确验证收益。现已开始首条A/native4评测（PID3213786），完整4条视频仍待生成；同容量FM16继续等待。当前未通过Stage1动作/视觉验收，不能用训练完成替代效果通过。完整数值见submission/reports/stage1_anyflow/fullscope_candidate/GPU_RESULTS.md。
+
+## 2026-10-08 07:55：全覆盖Stage1/FM入口合入主代码，67项检查通过
+
+全50+2块Q/K/V/out/FFN LoRA、checkpoint/Adam/RNG恢复、FM与AnyFlow匹配评测入口已合入H3-World及submission。默认tail_qkv保留；全覆盖须显式--adapter-scope all_qkvo_ffn，推理须--stage1-lora。新增协议检查拒绝遗漏bank以及混用不同step/objective/precision/action/anchor；FM评测不再依赖AnyFlow模块。完整测试67 passed（6.59秒），此前真实小H3 FM连续4次vs2+resume已逐张量相同。主代码变更未触及两个实时实验runtime或311项冻结输入。
+
+当前GPU0全覆盖AnyFlow完成14/16更新，尚无评测视频；同容量FM16队列继续等待。不能把工程合入和CPU测试称为画质/动作通过。Stage1 gate未通过，Stage2仍暂缓。复现入口见submission/REPRODUCE.md，证据见reports/stage1_anyflow/fullscope_fm_control/main_integration_tests.json。
+
+## 2026-10-08 07:46：GPU0高显存全覆盖AnyFlow继续；同容量FM对照已排队
+
+GPU0继续独占、reserve6，不限制25GiB；nvidia-smi实时占用约40GiB。当前全覆盖AnyFlow已完成9/16次更新，QKV/out/FFN/refiner梯度均有限；训练及视频评测尚未结束。
+
+补齐同容量FP32/full-scope FM评测入口，避免将增加LoRA覆盖的作用误归因于AnyFlow。26项检查通过，FM真实小H3连续4次vs2+恢复4次的权重/Adam/RNG/逐sample指标一致。独立有限队列PID3099247已启动等待当前AnyFlow训练和四条视频全部完成，再串行FM16+A/D4/8。固定初始化、数据/噪声、训练参数量、LR和更新次数；目标时间条件与loss/sampler是对照差异，训练前向算力不同。源运行目录outputs/2026-10-08-07/stage1_fm39_fullscope_control/，证据镜像submission/reports/stage1_anyflow/fullscope_fm_control/。
+
+当前仍无full-scope生成视频，不宣称画质改善；Stage1未过效果gate，Stage2继续暂缓。
+
+## 2026-10-08 07:33：全覆盖rank8真实单次更新通过，已精确续训到16次
+
+GPU0、reserve6完成全50主块+2refiner Q/K/V/out/FFN rank8的1次真实AnyFlow更新；43,237,376参数，update102.09秒，含准备/前后验证451.63秒，allocated峰值37,629.48MiB（36.75GiB），无OOM。QKV/out/FFN/refiner均有限非零梯度且实际更新，原visual adapter和时间MLP不变。峰值受驻留/offload状态影响，不把更低的单次allocated读数解释为新算法节省显存。
+
+初始A/D固定noise8个样本与native旧初始化逐项相同。更新后A endpoint59.625→69.483、D22.805→21.893，weighted total略升；只证明硬件和梯度链路，不构成画质改善。当前尚无full-scope视频。
+
+已从自身step01继续到总16次更新。独立真实GPU加载审计核验完整stage1_lora.pt、visual/time/action adapter、Adam、logical/CPU/CUDA RNG、更新历史和teacher身份全部一致。后续A/D4/8-step评测由有限队列完成；Stage1视觉/action验收仍未通过，Stage2暂缓。完整日志及限制见submission/reports/stage1_anyflow/fullscope_candidate/GPU_RESULTS.md。
+
+## 2026-10-08 07:26：native-FP32完整评测失败；全覆盖rank8真实GPU测试启动
+
+native-FP32/tail16总16次更新的A/D评测全部完成：4-step A=-1.251782、D=-1.212726、分离度-0.039056；8-step A=-1.333328、D=-1.478203、分离度0.144875。两组A方向均错。4-step后段严重雾化/重影；8-step人物/车库较完整，但与旧legacy8相比无明确视觉收益。完整39帧三列诊断mp4和抽帧在submission/reports/stage1_anyflow/native_fp32_candidate/FINAL_RESULTS.md，标记未通过。汇总现含38条已完成视频、19组A/D。
+
+当前GPU0已自动切换到全50主块+2refiner的Q/K/V/out/FFN rank8候选，trainable=43,237,376，单次真实更新链路运行中。新增零B LoRA的A/D固定noise前验证8个样本记录（包括raw loss和有限差分）与原生FP32初始化逐项完全相同，真实GPU初始函数审计通过；这不是视频改善或训练完成。显存/梯度组/冻结约束与1-update后的回载待该子进程结束检查。控制器仍只使用GPU0，reserve6，下一阶段为自身Adam/RNG恢复到16并评测A/D4/8。Stage1未通过，Stage2继续暂缓。
+
+## 2026-10-08 07:10：native-FP32训练结束，首条step16 A4仍失败
+
+native-FP32总16次更新完成；step01→16本次运行含准备/前后验证1436.1秒，allocated峰值38,652.9MiB。固定noise验证A endpoint raw74.741→55.934、D23.891→22.691；相对最初step00的59.625/22.805变化有限。QKV更新、time仍严格冻结。
+
+首条训练后A/native4完整39帧已生成，flow=-1.251782，方向gate失败；约20帧起明显ghosting、后半段人物/车库严重雾化，未看到相对初始化的明确修复。输入逐张量与teacher相等，E2E226.71秒，GPU allocated39069.22MiB，CPU KV6484.13MiB。原始H3/FM16/native00/native16抽帧对照在submission/reports/stage1_anyflow/native_fp32_candidate/native16_A4_vs_initial_FM_teacher.jpg。固定noise数值下降没有转化为这条视频的效果改善。
+
+当前D/native4及A/D/native8继续串行评测，不能提前写成全部完成。后续full-scope rank8候选控制器仍存活等待；仅当前四条评测完整结束且两组数值gate均失败后才启动真实1-update/16-update测试。Stage1未验收，Stage2暂缓。
+
+## 2026-10-08 07:04：native-FP32完成16次更新；全覆盖rank8候选准备完成
+
+GPU0上的native-FP32 tail16已完成16次optimizer更新，正在后验证，4/8-step视频尚待完成，Stage1效果gate未通过。训练进程/等待控制器均核验存活，未重启现有任务。
+
+准备了更接近官方Stage1可训练范围的独立候选：50个主块+2个refiner，Q/K/V独立rank8及out/FFN LoRA，共312个逻辑投影、43,237,376参数。原visual/action冻结，新增B零初始化；FP32/BF16实际小H3/offload/nonzero旧adapter初始输出与RNG逐bit保持，各组真实反传/回载/冻结检查通过。FP32参数+梯度+Adam约659.75MiB，实际GPU激活峰值仍须1次真实更新验证。alpha/rank从旧adapter的1/8改为新bank的1，因此是覆盖与参数化候选，不能把后续潜在收益严格归因于“只增加block数”。
+
+38项集成及6项官方oracle通过；full-scope连续4次vs2+恢复4次的权重/Adam/RNG/loss/gradient逐bit一致，旧native/tail checkpoint通过新trainer续训也与原连续轨迹一致。scope/rank/alpha变化被精确恢复入口拒绝。代码保留在独立runtime，主训练源码未再次改变。
+
+候选队列PID2666006已实际启动等待，不占GPU模型显存。只有当前native16四条评测全部完成且两组A/D数值gate均失败，才串行运行1次真实更新→自身精确续训16→A/D4/8评测；当前模型若通过数值gate则先等视觉审查。证据与限制见submission/reports/stage1_anyflow/fullscope_candidate/README.md。尚无full-scope GPU效果结果，不扩长视频、不开始Stage2。
+
+## 2026-10-08 06:47：GPU0约38GiB运行，原生FP32单次更新完成，初始化仍失败
+
+独立FP32输入诊断完成24项真实33B测量、8次逐bit回滚；耗时322.8秒，allocated峰值37,736.6MiB。与前一诊断重叠的16项legacy/boundary记录完全复现。结果混合：A/chunk2 endpoint146.207→67.016，但D的两个endpoint升高；没有导数真值或画质改善证据。已归档submission/reports/stage1_anyflow/fp32_inputs/RESULTS.md。
+
+native-FP32候选在独占GPU0、reserve6完成1次真实更新：update60.21秒，准备/前后验证合计308.71秒，allocated峰值38,556.3MiB（37.65GiB）。QKV实际更新、时间MLP严格冻结；A/D验证endpoint59.625→74.741、22.805→23.891，不能宣称改善。初始化step00的39f4-step A=-1.233794、D=-1.225326、A-D=-0.008468；推理allocated约39,069MiB，完整解码且输入逐张量公平。抽帧显示约20帧起重影、后段人物/场景雾化，与旧初始化无明确改善。
+
+当前已从自身step01精确恢复Adam/RNG到总16次更新，快照完成5/16；真实加载审计确认QKV/time/action adapter、Adam、logical/CPU/CUDA RNG和teacher记录相同。后续4/8-step A/D由有限队列执行；训练后效果尚待验证，未扩124f或Stage2。当前legacy64次续训仍暂缓，未重启。
+
+可选precision profile已合入主代码和submission，默认legacy保留；实时实验runtime/manifest未动。源测试41 passed，独立从base+导出patch重建模型/pipeline与源文件一致，17项集成及6项官方oracle检查通过。新提交补丁为code/diffsynth_native_fp32.patch；训练/推理必须一致声明--precision-profile h3_fp32，精度切换不是精确续训。汇总报告现含34条已完成视频、17个A/D pair；Stage1的动作与视觉gate仍未通过。
+
+## 2026-10-08 06:24：legacy32仍失败，优先完整FP32输入与原生边界策略
+
+GPU0高显存续训完成总32次更新，新增16次含准备/验证1316.6秒，allocated峰值38,619.2MiB（37.71GiB）。39f native8 A=-1.332148、D=-1.474533、A-D=0.142385，低于step16的0.229330，A仍方向错误；人物和车库尚可辨认，但后段模糊/重影没有明确修复。A验证weighted loss略降，endpoint raw反而146.207→186.948，D endpoint17.867→18.614。证据在submission/reports/stage1_anyflow/duration32_snapshot/。
+
+基于这些结果与已确认的官方FP32扰动协议差异，06:21停止本实验自动64次分支（第33次更新尚未开始），保留完整step32/Adam/RNG及A/D评测。旧队列状态为completed32_deferred64；没有把计划中的64次写成已完成。随后重新安排等待控制器，FP32输入诊断已实际接管GPU0；其首条legacy数值复现上一轮，其他profiles运行中。停止/优先级调整记录在duration32_snapshot/precision_priority_receipt.json。
+
+另外完成可训练/可评测的独立native-FP32副本：六组12个原始FP32权重恢复并记录哈希、FP32 clean/noise/有限差分输入、FP32时间混合和SiLU、BF16主block、持久offload dtype，以及精度/原生权重checkpoint校验。`--precision-profile h3_fp32`仅作用于新实验，旧legacy路径保留；精度改变不能假装是精确恢复。17项专项测试通过；小H3旧legacy checkpoint恢复与旧连续训练、以及FP32连续4次vs2+恢复到4次的权重/Adam/RNG/loss/gradient逐bit一致。CPU检查不是GPU或画质通过。
+
+新候选位于outputs/2026-10-08-06/stage1_anyflow39_precision_training/，等待输入诊断完整退出后串行进行1次真实更新→step00 A/D4→保留自身Adam/RNG续训到16→step16 A/D4/8。fresh visual/action初始化保持不变，precision profile和FP32训练噪声舍入策略明确不同；未改变anchor、chunk、LoRA容量或action routing。当前尚无native-FP32的33B训练/视频结果。Stage1未通过，Stage2暂缓。
+
+## 2026-10-08 05:59：冻结16-update的6条视频均未过gate；真实精度诊断完成，GPU0高显存续训中
+
+冻结time-MLP分支的完整39f A/D评测已全部完成：native4 A=-1.218440、D=-1.221512、A-D=0.003072；native8 A=-1.250413、D=-1.479744、A-D=0.229330；uniform4 A=-2.632457、D=-2.310146、A-D=-0.322311。三组A方向均错误。native4/uniform4后段严重重影/雾化，native8人物和场景较完整但仍模糊/重影。所有6条视频完整解码、对应原始H3输入逐张量相等。冻结策略没有修复本轮画面/action。汇总在submission/reports/stage1_anyflow/frozen_time_snapshot/；合并报告现含30条视频、15个A/D pair，均不把解码完成当成质量通过。
+
+GPU0的真实33B同状态计算精度诊断已完成24项测量和8次逐bit恢复检查：只切换time FP32或六组boundary FP32，固定旧clean KV、noisy state和有限差分方向。A/chunk2 endpoint raw146.207→59.420，但另外3个endpoint均上升；4个general-map raw小幅下降。结果混合，没有完整导数真值或画质改善证据。总计305.5秒，allocated峰值37,734.5MiB（36.85GiB），reserved峰值40,058MiB；reserve6实际可运行，无OOM。证据见submission/reports/stage1_anyflow/precision_probe/RESULTS.md。
+
+该诊断没有包含FP32输入扰动，也没有恢复原始F32权重值。进一步核对官方stage1.py/anyflow_loss.py确认其noisy/plus/minus到输入投影前都保留FP32；本地旧路径会先转BF16。新增完全隔离的runtime，在chunk_forward/_embed支持可选FP32输入。CPU真实小H3/offload测试：1+1e-4扰动在旧两条路径保留0/1920个原始值，新路径保留1920/1920；梯度/cache只读/逐bit回滚均通过，既有集成回归6 passed。这不代表真实训练所有扰动都丢失，也不是33B效果通过。真实输入精度诊断已在stage1_anyflow39_fp32_inputs/排队，等待当前有限32/64-update队列退出；原训练源码及共享DiffSynth未改变。
+
+当前GPU0已从step16的Adam/RNG继续到总32次更新，截至本条已完成21次；reserve=6，最近完整更新约58–63秒。后续按既定gate决定是否继续64次。这些时间不是与旧GPU2/不同reserve的公平加速比。Stage1实际画质和动作gate仍失败，独立seed、切换动作、124f验收未满足，Stage2不启动。
+
+## 2026-10-08 05:30：GPU0冻结时间MLP训练完成；首条A4评测失败，高显存队列继续
+
+补充：frozen16 native4 A/D已全部完成，D=-1.221512，A-D=0.003072，两个视频后段都严重雾化；方向与视觉gate失败。native8/uniform4继续运行。
+
+冻结time-MLP分支已完成总16次更新（GPU2完成1–8，GPU0精确恢复后完成9–16）。GPU0续训阶段含准备/前后验证用时933.1秒，PyTorch allocated峰值25,063.4MiB（约24.5GiB）；QKV实际变化、time参数严格不变。该数值不是整个1–16训练的合计耗时。step08→16相同noise验证weighted loss：A0.117044→0.116573，D0.169255→0.168760；A endpoint raw154.850→146.207，仍远未证明少步质量有效。
+
+首条frozen16 A/native4已完整生成39帧，水平flow=-1.218440，A方向gate失败；与原始H3/旧trainable-time的同帧contact sheet显示约20帧开始严重重影/雾化，后段人物和车库仍丢失。冻结time参数没有修复这条视频，D/native4及native8/uniform4仍在评测；不提前推断尚未生成的结果。图片在outputs/2026-10-08-05/stage1_anyflow39_gpu0/report/frozen16_A4_vs_previous.jpg。
+
+按用户允许GPU0独占使用的指示，后续保持reserve6（约38GiB模型驻留预算）。05:29在32/64-update续训前增加一个独立33B精度诊断：相同checkpoint、clean CPU KV、noisy state及有限差分方向，仅比较legacy/time_fp32/boundary_fp32计算。小型实际H3+offload wrapper的cache只读、反传和逐bit恢复已通过；真实33B诊断待6条视频评测完成后运行。它不恢复原生FP32权重、不改现有训练runtime，数值差异不能直接证明画质原因。只重启了尚未加载模型的续训等待控制器，当前GPU0评测未受影响。
+
+诊断入口为outputs/2026-10-08-05/stage1_anyflow39_precision_probe/，后续队列为stage1_anyflow39_gpu0_extend64_fullmem/。顺序为frozen16六条评测→精度诊断→条件32/64续训；新增诊断实际显存及结果仍待测。Stage1效果验收未通过，Stage2保持暂缓。
+
+## 2026-10-08 05 时段：按用户要求迁移GPU0；后续模型驻留预算提高至约38GiB
+
+GPU2冻结time-MLP训练在step08完整保存后，于05:08停止本实验的训练与等待控制器；从step08在GPU0恢复继续到总16次更新。真实33B恢复审计确认QKV/time/action adapter权重、Adam、logical/CPU/CUDA RNG、更新历史及teacher身份逐项相等。GPU0已完成第9次更新（A/chunk1），说明恢复后真实反传/更新继续运行。该审计证明载入状态一致，不声称与未中断CUDA训练的整条轨迹完全相同。
+
+当前训练/评测队列为outputs/2026-10-08-05/stage1_anyflow39_gpu0/。旧GPU2队列已标记migrated_to_gpu0，保留原状态和日志。当前16-update对照仍使用reserve20。
+
+用户确认GPU0独占并允许更多显存，后续32/64-update条件续训及其评测改用ABOT_VRAM_RESERVE_GIB=6：L40约44.4GiB可见显存，对应约38.4GiB模型驻留预算（不是实际allocated峰值的保证）。新队列outputs/2026-10-08-05/stage1_anyflow39_gpu0_extend64_fullmem/已通过预检查并启动等待；旧reserve20续训等待队列已停止、标记superseded。仅运行设备/offload预算变更，训练目标、LR、data/noise、anchor、chunk、action routing及time冻结策略保持原协议；两种reserve的耗时/显存不直接混算算法收益。当前训练不中断，后续预算的实际峰值仍待测。
+
+证据入口：submission/reports/stage1_anyflow/gpu0_migration/README.md。Stage1视频/action验收仍未通过，Stage2暂缓。
+
+## 2026-10-08 05 时段：冻结参数策略真实更新正常；同协议32/64-update续训已条件排队
+
+冻结时间MLP的33B训练已完成前4次更新，覆盖A/D chunk0/1；QKV梯度有限非零，time梯度始终0。逐张量核对step00/04确认16个QKV块全部变化，目标时间MLP权重严格不变，32个Adam参数状态及adapter SHA256校验通过。真实参数策略证据为submission/reports/stage1_anyflow/parameter_policy_gpu_step04.json。当前还没有这一分支的视频质量结果。
+
+新增有限续训队列outputs/2026-10-08-04/stage1_anyflow39_frozen_extend64/run_extension.py，已确认控制器进程存活。它等待frozen16训练和6条A/D评测完整完成且父队列退出；若任一完整A/D配置满足A>0、D<0、A-D>1，则暂不加训，等待视觉审查。否则从step16的Adam/RNG/权重精确恢复到总32次更新，评测native8 A/D；仍失败才继续到总64次并评测native4/8。step48额外保存。仅改训练量，数据、noise序列、目标、LR、anchor、chunk、routing、time冻结策略保持一致；只串行使用GPU2，任何运行/解码/输入一致性异常都会停止。CPU preflight检查了真实step00状态兼容、源码/teacher输入哈希和gate分支；实际33B CUDA续训尚待触发。保存目录与计划已同步submission/reports/stage1_anyflow/continuation_plan/。
+
+另核查官方Stage1 EMA包（约4.15GB）的可访问性：公开文件列表可读，但manifest下载返回GatedRepoError，现有HuggingFace凭据无权限；未下载该权重。本地训练不依赖这一外部资源。Stage1的短片动作与视觉验收仍未通过，Stage2暂缓。
+
+## 2026-10-08 04:50：uniform4对照完成；冻结时间MLP的33B训练已实际启动
+
+旧trainable-time AnyFlow的uniform4 step00：A=-2.711084、D=-2.140539、A-D=-0.570545；step16：A=-2.695826、D=-2.253384、A-D=-0.442442。四条39帧视频均完整解码、输入conditioning与对应原始H3逐张量一致，但抽帧都显示后半段严重雾化/人物和场景结构丢失。因此仅改官方均匀sigma网格没有修复该pilot，不继续扩solver/anchor sweep。证据汇总为submission/reports/stage1_anyflow/uniform_snapshot/README.md。
+
+uniform进程退出后，冻结时间MLP的真实33B训练已自动在GPU2启动（训练PID1426752）。training.json明确记录trainable_parameters=3,440,640、target_time_trainable=false、target_time_trainable_parameters=0。当前处于初始验证/训练开始阶段，尚无该分支质量结论；将按计划完成16次更新，再做native4/native8/uniform4 A/D。进度入口为outputs/2026-10-08-04/stage1_anyflow39_frozen_time/run.json。Stage1未完成效果验收，Stage2暂缓。
+
+## 2026-10-08 04 时段：旧AnyFlow pilot全部完成，均匀网格对照已启动
+
+旧队列训练AnyFlow/FM各16次，完成18条causal评测（加2条archived original reference）。AnyFlow native4在step00/04/08/12/16的A-D分别为-0.0162/0.0390/0.0033/0.0361/-0.0909，无持续改善。clean-history对照A=-0.4053、D=-0.9188、A-D=0.5135，仍失败；teacher历史能恢复部分块首的人物/车库，但块内仍模糊/重影且块边界出现context重置。boundary RGB MAD A17.752/D12.307，不能把teacher-history重置当成部署时的视觉改善。抽帧证据为pilot/report/clean_vs_generated_4step.jpg。
+
+原进程退出后，已把默认冻结目标时间MLP、显式uniform采样和精确续训CLI合入主源码与submission；36项测试通过。旧源码快照保存在pilot/original_source，历史结果不改标签。resume的连续4步 vs 2+恢复到4步仅经过小型H3 CPU验证，真实33B CUDA恢复仍待验证。新report明确记录时间MLP策略及sigma网格，不混合实验。
+
+GPU2已进入旧step16/00的uniform4 A/D评测；冻结时间MLP16-update队列随后自动运行。两队列使用隔离代码和依赖哈希，只串行占用GPU2。结果汇总为submission/reports/stage1_anyflow/pilot_snapshot/REPORT.md；当前短片视觉和action gate未通过，Stage2继续暂缓。
+
+## 2026-10-08 04 时段：FM对照完成；官方AnyFlow参数策略复核与受控修正
+
+同初始化FM训练完成16次更新，训练脚本760.1秒，allocated peak=16,597.4 MiB；A/D固定noise验证loss从0.125927/0.181004到0.124712/0.179743。39帧generated-history评测完成：FM4-step A=-1.125998、D=-1.359751、A-D=0.233753；FM8-step A=-1.141958、D=-1.456845、A-D=0.314888。旧AnyFlow16对应分离度为-0.090887/0.304306，尚无AnyFlow动作收益证据。FM4画面比AnyFlow4明显完整；AnyFlow step00 A的抽帧也已有严重后段雾化，所以不能把全部画面失败归咎于训练时间MLP引起的参数漂移。原队列继续完成step00/04/08/12与clean-history诊断。
+
+首块定位：只取前17个RGB帧的同一Farneback指标，原始H3 A=+0.0834、D=-0.8945；AnyFlow4 A=-1.3442、D=-1.6299；AnyFlow8 A=-1.2125、D=-1.5137。第一个latent chunk尚无generated history，其A/D endpoint差向量与teacher的cosine约-0.118（4-step）/-0.039（8-step）。后者只是endpoint轨迹诊断，不是同state score-field指标；但结合首段flow说明不能只用长时历史漂移解释当前问题。证据在pilot/report/first_chunk_flow_diagnostic.json及endpoint_chunk_diagnostic.json。
+
+**重要更正：** 复核SolarWM固定版本ce1da4e后，runtime.py在enable_anyflow后执行整个transformer.requires_grad_(False)，再注入LoRA，optimizer仅使用self.lora.parameters；lora.py还断言all and only LoRA参数可训练。因此官方H3 Stage1的克隆目标时间MLP是冻结的。本地旧pilot额外训练该MLP，是参数策略变体；此前“time MLP必须实际更新”的官方验收理解不准确。数学loss/gradient一致不等于optimizer策略一致。原16-update结果保持不变，不重标为官方参数策略。
+
+已在独立副本中添加默认冻结/显式train-target-time选项，小型真实H3两步训练验证：两分支初始time权重完全相同，QKV都更新，冻结分支time权重严格不变且梯度0，trainable分支time更新。证据在outputs/2026-10-08-04/stage1_anyflow39_frozen_time/parameter_policy_cpu_validation.json。正式39f冻结时间MLP16-update及评测已排队，但截至本条尚未开始占用GPU。
+
+GPU2后续有限队列已启动并核验控制进程存活：uniform队列PID919787等待原pilot退出，再对旧AnyFlow step16/step00各跑A/D 4-step均匀sigma；frozen-time队列PID1033264等待uniform队列退出，再从同一旧visual初始化、同数据/噪声/协议训练16次，只改变时间MLP可训练性，然后native4/native8/uniform4分别评测A/D。当前只原pilot使用GPU；等待进程不加载模型。两个新实验使用各自runtime/代码副本，保留源码哈希和补丁，不改动旧队列冻结源码。原生/均匀采样helper的4项CPU检查通过；均匀4-step明确为[1,.75,.5,.25,0]，与训练shift分开记录。
+
+冻结分支已实现optimizer/RNG/adapter SHA256状态保存与严格恢复CLI（--resume-from，--steps表示目标总更新数）。小型实际H3 CPU验证：冻结时间AnyFlow、可训练时间AnyFlow及FM三分支中，连续4步与2步后恢复到4步的adapter、Adam、RNG和loss/gradient记录完全相等；拒绝LR变化、权重错配和缺失optimizer状态。尚未验证真实33B CUDA恢复，不把CPU验证视为画质证据。详细更正及证据入口为submission/STAGE1_PARAMETER_POLICY.md。代码补丁暂保存在各实验目录和submission/reports/stage1_anyflow/，待旧pilot结束后统一合入主训练/benchmark；不要把准备完成和排队写成真实效果通过。Stage1质量gate仍未通过，Stage2不启动。
+
+## 2026-10-08 03 时段：Stage1 AnyFlow 16-update 与4/8-step A/D完成，效果未通过
+
+GPU 2 的真实 H3 33B AnyFlow 训练完成16次更新，step_00/04/08/12/16完整保存；训练脚本总计3043.0秒，更新及最终验证阶段的PyTorch allocated peak为17,439.4 MiB。QKV和目标时间MLP均确认变化，A/D三个chunk均实际反传，无NaN/OOM。
+
+固定held-out noise的加权验证loss仅略降：A 0.117473→0.116278，D 0.169817→0.168317；但endpoint raw loss反而从A 133.788→144.185、D 18.083→19.440。AnyFlow自适应缩放会掩盖高endpoint残差，因此不将total loss下降当成少步学习成功。
+
+step16的generated-history 39帧/4-step-per-chunk A/D已完成：A=-1.315323、D=-1.224436、A-D=-0.090887，方向gate失败。A全39帧contact sheet显示约20帧起明显重影/雾化，后段人物和车库结构严重退化；D的抽帧亦出现相同现象，视觉gate失败。它们是诊断结果，未替换会议主demo。保存的video/audio noise、prompt、initial image anchor、action text rows逐张量与对应原始H3 reference完全一致，见pilot/report/metrics.json。随后8-step/chunk A/D也已完成：A=-1.170865、D=-1.475171、A-D=0.304306；人物和车库比4-step明显完整，后段仍有模糊/重影，A方向仍错误，验收未通过。4-step A/D E2E=188.1/167.1秒，8-step=214.5/213.5秒；全部CPU KV peak=6484.1 MiB、allocated GPU peak=16247.2 MiB，不能与旧teacher不同offload的峰值作公平效率比较。三列原始H3/AnyFlow4/AnyFlow8诊断视频保存在pilot/report/anyflow16_AD_original_4step_8step_diagnostic.mp4，完整39帧，已解码检查；本轮没有新正式demo。GPU2串行队列已自动进入FM control训练，之后继续checkpoint和clean-history诊断。
+
+另外完成可选的action RoPE位置契约原型：固定未来action内容长度时，改变未来embedding对当前chunk影响为0；只改变未来句子长度会通过原生text-length位置原点轻微影响当前输出。使用只依赖首个action和已知horizon的固定原点后，小型实际H3的FM/AnyFlow两项回归通过。当前A/D固定动作的坐标改动严格为0。这只是后续action-switching的因果性检查，未证明与画面崩坏有关；helper尚未接入正在运行的训练/benchmark，保持本轮协议冻结。源码为code/causal/position_contract.py，证据为pilot/future_action_layout_probe.json和position_contract_AD_noop.json，已同步submission。
+
+## 2026-10-08 03 时段：Stage1 实验继续，输入公平性与验收证据补齐
+
+已重新确认队列 PID 227188、训练 PID 227490 存活且使用 GPU 2。截至 03:09，AnyFlow 完成 9/16 次更新，step_00/04/08 已保存。A/D 的 chunk0、chunk1、chunk2（最后不足5 latent frames）均已有真实反传，QKV 和 target-time MLP 梯度有限且非零；这仍不构成视频质量通过。
+
+逐张量对照 archived H3 teacher A 与 AnyFlow smoke A：initial video noise、audio noise、prompt embedding、image anchor 完全相等（最大绝对差0），action text rows 也相同。证据在 pilot/input_fairness_smoke.json。重算原始 H3 的 Farneback 参考：A=+1.181253，D=-0.842124，A-D=2.023377。新增 report_stage1_anyflow.py，统一输出已完成视频的指标和contact sheet；本轮表格/图片在 pilot/report/，不把尚未完成的视频列成结果。
+
+官方源码复核发现：H3 Stage1 验证用均匀 sigma=[1,.75,.5,.25,0]，本轮保持之前的shift=2.22网格；官方也使用encoded silence加噪及音频时间调度，当前prototype固定audio noise。差异已列入 submission/STAGE1_ACCEPTANCE.md，尚未证明它们是失败原因。当前训练/采样源码保持冻结，先完成已有FM/AnyFlow对照，再单独检查采样网格，避免同时改变多个变量。旧teacher offload reserve未记录，不能把旧teacher和本轮不同的allocated peak当作公平显存收益。
+
+目标继续保持“改善Stage1 AnyFlow/causal实际效果，再开始Stage2”；39帧动作与视觉、独立seed、切换动作、124帧验收仍未完成。已有1-update视频的后段分解/雾化和错误A方向仍然保留为失败证据。
+
+## 2026-10-08 02 时段：GPU 2 真实 H3 AnyFlow 单次更新通过
+
+用户指定 GPU 2。保留其他进程，使用 `CUDA_VISIBLE_DEVICES=2`、`ABOT_VRAM_RESERVE_GIB=20`、CPU raw KV 与 activation checkpoint/offload，运行 `outputs/2026-10-08-02/stage1_anyflow39_smoke/`。真实 H3 33B、A/D 39 帧 teacher 伪真值、RGB dual anchor，完成一次 optimizer update；QKV 3,440,640 参数和 target-time MLP 15,835,008 参数均实际更新。训练 loss=0.0938887、梯度范数=0.0370643；单 update 161.8 秒，包含数据准备及前后验证的脚本计时 499.7 秒，PyTorch allocated 峰值 17,221.8 MiB。
+
+同一 held-out noise 的 A/chunk2 加权验证 loss 从 0.117473 到 0.118669，略升；高噪声 endpoint 样本 raw loss 从 133.788 到 42.081。只能据此确认训练和硬件链路可行，不能宣称质量改善。
+
+回载后的首轮生成在第 2 个 solver step 暴露 FP32 轨迹与 BF16 H3 condition 的类型不匹配，失败日志保留在 `eval4/A/`。已修复 AnyFlow model-call 边界的输入转换，并让 RGB anchor 遵守显式 compute dtype，保持轨迹累积为 FP32；新增 BF16 H3 两步采样/clean commit 和 RGB anchor dtype 回归检查，专项测试 12 passed。修复后的回载视频 `eval4_verified/A/cached.mp4` 已完整解码 39 帧：12 noisy forwards + 3 clean commits，E2E 194.1 秒，GPU allocated peak 16,247.2 MiB，CPU KV 6,484.1 MiB。人工 contact-sheet 检查发现后半段人物/场景明显重影与雾化，A 水平光流 -1.296，未通过视觉或方向 gate。
+
+已启动 `outputs/2026-10-08-02/stage1_anyflow39_pilot/run_pilot.py`，仅串行使用 GPU 2：AnyFlow 16 updates（每4步保存）→ step16 A/D 4/8-step → 同初始化 FM 16-update 对照及 A/D 4/8-step → AnyFlow 00/04/08/12 的 4-step 学习曲线 → step16 clean-history A/D 诊断。运行状态在 `run.json`，错误、解码/计数异常或源码变化都会停止队列。该队列不包含 Stage2 或长视频，也不自动判定质量通过。
+
+## 2026-10-07 21 时段：补齐 Stage1 TF-AnyFlow 目标，33B 训练待 GPU
+
+已从 GitHub fast-forward 同步到 d3d5844，保留用户精简后的提交包组织。根据用户要求暂停继续扩展 Stage2，先补 TF-AnyFlow。新增目标时间 MLP、(t,r) packed row 索引、SolarWM v1.5 有限差分目标、2 FM + 1 endpoint + 1 finite-map 的 logical batch，以及 benchmark 有限步采样。H3-World 的 scheduler velocity 已是 noise-clean，移植时未重复取负号；所有 loss 前向共享相同 clean history，更新参数后重建 CPU KV。
+
+CPU 验证：源项目完整测试集 28 passed，与官方 loss/gradient 数值对照通过；实际 H3 小配置验证 target-time 作用、prefix 时间不污染、checkpoint 梯度、cache 只读与精确回载。随机小型 H3 跑完 8 次 AnyFlow 更新，held-out noise weighted loss 2.75052→2.74759，QKV 和目标时间 MLP 均独立确认实际更新；相同采样流程的 FM control 也完成。它们只证明实现可运行，不是 33B 画质或 action gate 通过。
+
+实验目录为 `H3-World/outputs/2026-10-07-21/anyflow_stage1/`；新增源训练入口 `H3-World/code/causal/train_stage1_anyflow.py`，提交包实现与验收计划为 `submission/STAGE1_ANYFLOW.md`。提交补丁已补齐 cached attention 的梯度读取支持，并验证可从文档记录的 base + patches 重建为当前测试源码；独立临时目录复现的 AnyFlow 专项测试 10 passed。尚无新的 AnyFlow 预训练模型对比视频。检查时 8 张 L40 全部被占用（GPU 0–3 高负载、GPU 4–7 显存近满），已询问可用卡，没有停止或占用他人的训练。下一步先真实 33B 单 update 及回载，再 16-update 学习曲线与 39f A/D 的 FM/AnyFlow 4/8-step 对照，质量通过后才扩 124 帧或 Stage2。
+
 ## 2026-10-07：保留动作较强旧版，完成 10/20 秒长视频对照
 
 按用户要求同时保留 fixed-mix 旧版与 RGB visual 稳定版，新增三列原始/旧 causal/稳定 causal 的 124 帧视频，路径为 `submission/meeting/action_vs_stability/`。旧版 action adapter 已独立备份到 `submission/checkpoints/legacy_fixed_mix/`；A=+0.1427、D=-0.3105、A-D=0.4532，方向符号较好但后段明显漂移。新稳定版 A=-0.7841、D=-1.0075、A-D=0.2233，结构较稳但动作失真。两套模型都保留，不把任何一套写成四方向完全保真。
@@ -2927,6 +3764,65 @@ outputs/2026-10-06-08/trainable_gain_full_teacher_rgb_8x4/
 
 其中 `step_01` 可作为“旧 BF16 gain path”诊断证据，训练状态为 interrupted；它不会被提升为
 最终模型。修正同时新增了 gain 精度/旧 checkpoint 兼容测试，相关测试总数为 9 项。
+
+---
+
+## 第 3 轮（2026-09-23）：(A) 构念实验收官 + (B) 证伪复现 + (C) 论文改造
+
+### （A）构念实验：从"弱"变成"弱但可复现"
+
+**新增 k=11 独立样本（r68-1B，45 条），并改用与分布匹配的统计量（r76）。**
+
+| 样本 | n | 平均 gap | 95% CI | 符号秩 p | top-3 率 | 平均秩 |
+|---|---|---|---|---|---|---|
+| 1B k=5 三个池 | 20/44/70 | +0.449/+0.650/+0.741 | 见附表 | 0.33/0.019/0.0048 | 45/50/53% | 6.05/5.39/5.07 |
+| 1B k=5 合并 | 134 | +0.667 | [+0.326, +1.002] | 1.5e-4 | 51% | 5.32 |
+| 1B k=11（独立样本） | 45 | +0.584 | [-0.030, +1.170] | 0.089 | 49% | 5.33 |
+| 1B 两样本合并 | 179 | +0.646 | [+0.364, +0.943] | 3.3e-5 | 50% | 5.32 |
+| 2B k=5 | 20 | +0.055 | [-0.967, +1.043] | 0.31 | 65% | 4.95 |
+
+- **新的主统计量是"答案区域进入前 3 的比例"（50% vs 随机 25%）和平均秩（5.32 vs 零假设 6.5）**，
+  而不是符号检验：item gap 分布强烈右偏，符号检验把效应所在的样本点丢掉。同一批数据
+  符号检验 p=0.012、符号秩检验 p=1.5e-4。
+- 2B 的**幅度**仍未分辨，但**排序**是锚定的（top-3 65%，平均秩 4.95，p=0.045）——
+  之前写的"2B 完全测不到"要改成"未分辨的是幅度，不是定位"。
+
+**机制操作（对比度降到 40%）**：两个样本的边际均值差都是 +0.14（+0.139 / +0.142），
+但**配对检验不显著**（+0.141，CI [-0.102, +0.413]，p=0.47，见 D30）。
+论文按配对检验写，并明确写出"两个边际均值一致到 0.003"正是让它看起来可信的原因。
+
+### （B）C1 冗余感知探针：两个解码器上都证伪（r60 重跑，两个解码器）
+
+- 配对增益 1B +0.0576 [-0.0581, +0.1733] p=0.329；2B +0.0162 [-0.0421, +0.0746] p=0.586。
+- 可靠性更差：目标臂 split-half τ 0.140 / 0.210，已发表的边际探针 0.376 / 0.370。
+- 池化敏感度也更低（1B 0.0351 vs 0.0470；2B 0.0188 vs 0.0217）。
+- **结论：冗余不是可靠性天花板背后的机制，这个设计在两个解码器上都被支配。**
+- 顺带补上了一个此前的漏洞：2B 的"已发表探针 0.370"以前在 results 里没有来源，
+  r60 原来只写了 1B；重跑后 0.3762 / 0.3695 都有了出处。
+
+### （C）论文改造：8 页合规 + 建设性产物
+
+- 正文新增 §4.9 的 k=11 复现、top-3/平均秩、四套对照规则的稳健性、对比度机制的**诚实写法**。
+- §5 新增 **"What a reliance claim should report"**（那就是用户要的"建设性产物"）：
+  ① 写明干预方式（region 级结论只在给定操作下可复现，但**跨模型分歧**不依赖它）；
+  ② 报告信度与它蕴含的噪声地板并做衰减校正；③ 检查构念，不能只看信度。
+- 补充材料新增 **§S16 冗余感知探针**，并把 §S15 扩成完整表格（三个池 / 合并 / k=11 / 2B）+ 机制配对表。
+- **页数恢复合规**：正文 8 页、参考文献从第 9 页开始、0 overfull、0 undefined。
+
+### 机械门（全部本地 + 远端各跑一遍）
+
+| 检查 | 结果 |
+|---|---|
+| final_gate（页数/串栏/警告/未定义） | **PASS** |
+| check_s11（S11/S13/S15/S16 逐格对账） | **148/148 一致** |
+| reverse_audit（正文每个小数是否可溯源） | **415 个中 0 个无法溯源**（4 个派生量已列明操作数） |
+| number_audit（22 个关键数字） | 20 FOUND，2 NEAR-ONLY（四舍五入形式） |
+| check_pages（含新的"正文不得越页"判据） | COMPLIANT，并用注入式回归测试验证会 FAIL |
+
+### 仍未完成
+
+- **r68-2B（k=11，70 条）** 进行中（37/70）。它决定 2B 的幅度是否只是样本量不足；
+  落地后要把 2B 的 k=11 行加进 §S15 表格，并按结果决定正文那句"only the rank-level effect is resolved"是否要改。
 
 ## 2026-10-06：tail4 action-QKV paired alignment 4-update curve 已完成
 

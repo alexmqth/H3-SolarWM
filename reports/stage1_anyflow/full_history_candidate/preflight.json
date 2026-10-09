@@ -1,0 +1,46 @@
+{
+  "at": "2026-10-08T08:55:51.739503+08:00",
+  "source": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-08/stage1_clean_history_gradient",
+  "tested_math_identical_to_probe_runtime": [
+    "h3_cached.py",
+    "clean_history_graph.py",
+    "train_stage1_anyflow.py",
+    "training_state.py",
+    "anyflow.py",
+    "stage1_lora.py",
+    "benchmark.py",
+    "stage1_protocol.py"
+  ],
+  "changes_from_initial_detached_1_update_config": {
+    "out_dir": {
+      "before": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-06/stage1_anyflow39_fullscope/train_01",
+      "after": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-08/stage1_anyflow39_full_history/train_16"
+    },
+    "steps": {
+      "before": 1,
+      "after": 16
+    },
+    "checkpoint_every": {
+      "before": 1,
+      "after": 4
+    },
+    "history_gradient_mode": {
+      "before": null,
+      "after": "full"
+    }
+  },
+  "fixed_against_detached16": [
+    "same original visual/action/full-bank initialization",
+    "native FP32 weights and input policy",
+    "rank=alpha8; all50+2 QKVO/FFN",
+    "frozen target time/visual/action",
+    "logical batch4, LR3e-5, seed13, validation1001",
+    "same A/D39f teachers, chunks5/history5, RGB dual, action routing/feedback, shift2.22"
+  ],
+  "training_change": "retain gradient through clean-history representation for each gradient prediction",
+  "training_amount": 16,
+  "CPU_evidence": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-08/stage1_clean_history_gradient/cpu_sealed_resume_audit.json",
+  "GPU_precondition": "real A/chunk2 gradient/VRAM probe must complete with nonzero gradient contribution and frozen weights unchanged",
+  "no_checkpoint_from_probe_loaded": true,
+  "not_claimed": "official fused two-stream reproduction, quality improvement, Stage1 acceptance"
+}

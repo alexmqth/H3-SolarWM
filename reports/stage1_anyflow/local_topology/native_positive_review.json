@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-09T04:50:17.234819+08:00",
+  "rows": [
+    {
+      "reference": "A",
+      "chunk": 0,
+      "A": -0.9200141616165638,
+      "D": -0.9306973554193974,
+      "separation": 0.010683193802833557
+    },
+    {
+      "reference": "A",
+      "chunk": 1,
+      "A": 1.9379474967718124,
+      "D": 0.5256886009592563,
+      "separation": 1.4122588958125561
+    },
+    {
+      "reference": "A",
+      "chunk": 2,
+      "A": 1.672589123249054,
+      "D": 1.6687797904014587,
+      "separation": 0.003809332847595215
+    },
+    {
+      "reference": "D",
+      "chunk": 0,
+      "A": -0.9200141616165638,
+      "D": -0.930702356621623,
+      "separation": 0.010688195005059242
+    },
+    {
+      "reference": "D",
+      "chunk": 1,
+      "A": -0.956911962479353,
+      "D": -0.9652817919850349,
+      "separation": 0.008369829505681992
+    },
+    {
+      "reference": "D",
+      "chunk": 2,
+      "A": -0.6277914419770241,
+      "D": -0.628439512103796,
+      "separation": 0.0006480701267719269
+    }
+  ],
+  "review_method": "A/D all39 contact sheets for both histories; not real-time playback",
+  "visual_observation": "Person and parking structure recognizable in all chunks. Reference-A chunk1 shows substantial action-dependent posture/motion; both signs remain positive. Reference-D actions nearly identical. Abrupt state resets at RGB17/34 are oracle resets, not free-rollout scene transitions.",
+  "local_reference_usable": false,
+  "stage1_accepted": false,
+  "geometry_launch": false,
+  "reason": "Native time alone does not restore robust current-action response across initial and later chunks of both histories. Five-frame final chunk and optical flow have limited ability to resolve action semantics; failure of this positive-control gate is not proof of zero information."
+}

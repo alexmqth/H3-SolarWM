@@ -1,0 +1,7 @@
+{
+  "status": "diagnostic_fixture_failed",
+  "error": "Negative control reused a graph freed by the positive autograd check",
+  "scope": "CPU audit only; no model/training source changed",
+  "source_sha256": "9da1cde418310079c3368e0d59c70c443f264296988abc8273560af79fb51b27",
+  "correction": "Recompute raw scalar from the same prediction leaf for the independent negative control"
+}

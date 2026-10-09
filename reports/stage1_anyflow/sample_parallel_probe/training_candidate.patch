@@ -1,0 +1,82 @@
+--- frozen/train_stage1_anyflow.py
++++ training_candidate/train_stage1_anyflow.py
+@@ -24,6 +24,7 @@
+ sys.path[:0] = [str(ROOT / 'code/abot'), str(ROOT / 'code'),
+                str(ROOT / 'DiffSynth-Studio-h3-v2')]
+ import torch
++import torch.distributed as dist
+ from causal.training_state import serialize_config, load_training_state, restore_random_state
+ from causal.anyflow import (install_anyflow, load_anyflow, save_anyflow, logical_time_pairs,
+     anyflow_sample_loss, adaptive_scale)
+@@ -78,6 +79,14 @@
+ 
+ 
+ def logical_batch(model, case, chunk, args, *, generator, backward):
++    if not dist.is_initialized() or dist.get_world_size() != 4:
++        raise RuntimeError('Use the four-process candidate entrypoint')
++    from causal.sample_parallel import parallel_batch
++    return parallel_batch(model, case, chunk, args, generator=generator,
++        backward=backward, parameters=[p for p in model.parameters() if p.requires_grad])
++
++
++def serial_logical_batch(model, case, chunk, args, *, generator, backward):
+     cache = clean_cache(model, case, chunk, args)
+     start = chunk * args.chunk_frames
+     clean = case['clean'][:, :, start:start + args.chunk_frames]
+@@ -260,7 +269,7 @@
+         ap.error('Actions must be W/S/A/D')
+     if args.smoke:
+         args.device, args.anchor_mode = 'cpu', 'fixed'
+-    if (args.out_dir / 'training.json').exists():
++    if dist.get_rank() == 0 and (args.out_dir / 'training.json').exists():
+         ap.error('Output already contains a run; choose a new experiment directory')
+     config = serialize_config(args)
+     resume = load_training_state(args.resume_from, config) if args.resume_from else None
+@@ -285,8 +294,14 @@
+         velocity_convention='noise-clean; native H3 time=1-sigma',
+         visible_devices=os.environ.get('CUDA_VISIBLE_DEVICES'),
+         vram_reserve_gib=float(os.environ.get('ABOT_VRAM_RESERVE_GIB', '5')),
+-        updates=list(resume['updates']) if resume else [])
++        updates=list(resume['updates']) if resume else [],
++        parallel_execution=dict(world_size=4, local_batch=1, global_logical_batch=4,
++            gradient_reduction='SUM of already /4 losses', primary_checkpoint_rank=0,
++            objective_changed=False, diagonal_shortcut=False,
++            note='Runtime-only parallel execution; not a bitwise CUDA serial continuation claim'))
+     def save_result():
++        if dist.get_rank() != 0:
++            return
+         tmp = args.out_dir / 'training.tmp.json'
+         tmp.write_text(json.dumps(result, indent=2) + '\n')
+         tmp.replace(args.out_dir / 'training.json')
+@@ -390,8 +405,10 @@
+         save_result()
+         generator = torch.Generator().manual_seed(args.seed + 10000)
+         def checkpoint(directory):
++            if dist.get_rank() != 0:
++                return
+             directory.mkdir(parents=True, exist_ok=True)
+-            metadata = {k: result[k] for k in ('objective', 'scope', 'config', 'history_protocol', 'velocity_convention', 'precision')}
++            metadata = {k: result[k] for k in ('objective', 'scope', 'config', 'history_protocol', 'velocity_convention', 'precision', 'parallel_execution')}
+             metadata['optimizer_step'] = len(result['updates'])
+             save_adapters(directory / 'causal_adapter.pt', adapters, indices, metadata)
+             if bank is not None:
+@@ -463,7 +480,8 @@
+                 torch.cuda.synchronize(args.device)
+             metrics.update(step=step + 1, grad_norm=float(norm), seconds=time.perf_counter() - tick)
+             result['updates'].append(metrics)
+-            print(f"[TF-{args.objective}] {step+1}/{args.steps} {case['label']} chunk={chunk} loss={metrics['loss']:.6f} grad={float(norm):.4f}", flush=True)
++            if dist.get_rank() == 0:
++                print(f"[TF-{args.objective}] {step+1}/{args.steps} {case['label']} chunk={chunk} loss={metrics['loss']:.6f} grad={float(norm):.4f}", flush=True)
+             save_result()
+             if (step + 1) % args.checkpoint_every == 0:
+                 checkpoint(args.out_dir / f'step_{step+1:02d}')
+@@ -484,6 +502,9 @@
+         if time_module and result['target_time_parameters_changed'] != args.train_target_time:
+             raise RuntimeError('Target-time parameter changes violate the configured frozen/trainable policy')
+         checkpoint(args.out_dir)
++        from causal.sample_parallel_state import audit_replicas
++        result['replica_audit'] = audit_replicas(params, optimizer, generator,
++            device=args.device, smoke=args.smoke)
+         result.update(status='complete', updates_this_run=len(result['updates']) - start_step,
+             wall_seconds=time.perf_counter() - started,
+             gpu_allocated_peak_MiB=torch.cuda.max_memory_allocated(args.device) / 2**20 if not args.smoke else 0,

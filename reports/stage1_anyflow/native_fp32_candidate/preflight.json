@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "cpu_tests": {
+    "command": "python -m pytest -q tests/test_h3_precision.py tests/test_anyflow.py",
+    "passed": 17,
+    "seconds": 4.65
+  },
+  "cpu_exact_resume": "cpu_training_validation.json",
+  "gpu_status": "not_started",
+  "precision_profile": "h3_fp32",
+  "native_tensor_count": 12,
+  "parameter_policy": "frozen target-time MLP; tail16 QKV rank8 only",
+  "architecture_changes": false,
+  "noise_policy": "FP32 training clean/noise/interpolation; inference initial noise unchanged",
+  "scope": "New numerical policy; fresh same visual/action initialization, no legacy optimizer resume"
+}

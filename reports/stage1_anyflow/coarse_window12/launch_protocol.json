@@ -1,0 +1,51 @@
+{
+  "at": "2026-10-09T05:21:40.189345+08:00",
+  "purpose": "Execute bounded E1 coarse-window decision experiment",
+  "base_protocol_sha256": "78f1b0f50a25a299a33d22fc8ab32760990e211350eec5f056708ad345b0318f",
+  "addendum": "Full37 conditioning/noise differ from prior39f fixture. Add only one paired first5 control on exactly this same input to distinguish fixture change from window width. No past history, no duplicate reference-D run.",
+  "budget": {
+    "coarse_noisy_forwards": 360,
+    "matched_first5_noisy_forwards": 60,
+    "diagnostic_forwards": 9,
+    "optimizer_updates": 0,
+    "maximum_project_gpus": 3
+  },
+  "jobs": [
+    {
+      "gpu": 0,
+      "history": "A",
+      "first5": true
+    },
+    {
+      "gpu": 1,
+      "history": "A",
+      "first5": false
+    },
+    {
+      "gpu": 5,
+      "history": "D",
+      "first5": false
+    }
+  ],
+  "rgb_bounds": [
+    0,
+    39,
+    81,
+    120
+  ],
+  "history": "Original-generated reference, not GT",
+  "display": "Prefix-only decode; append39/42/39RGB. 120f local oracle concatenation, not autonomous124f.",
+  "runtime_frozen": true,
+  "sha256": {
+    "prepare.py": "78fe51b5c18da5ad344a7bd848ddefe769c2c5de10f7ef57562d988c0109c4e7",
+    "run_windows.py": "3db7d36f2fa732e1429dc3f978a07cf80ac687d38dc18991614d52a4016c5f09",
+    "single_anchor.py": "531e3ebc4ca2218666dfa970e56c508e8c06ab2096b523f6cdfee8bcf93eb4d7",
+    "native_prefix.py": "f5c7b3c34047e5edfa18acdf5c8986355426b5c1d12f6b532f7d6dc9582a8815",
+    "test_coarse_window.py": "81604ef670bd656b2cf98eeb4843770d01d37a9863f0b5ea289a256440fda3d3",
+    "cpu_tests.xml": "c6b2ca97e41284be22f24ebbd70a55939a62a7fcf25c9e7c2767f846ec65a914",
+    "runtime_manifest.json": "a06d0dcc5cfa49ed6d745dea2d49128464fd1465e08ff3b3ed3df2937b82ff19",
+    "inputs/preparation.json": "7cb44a4ac7c302b4f7abddf39867828b4c4a23057e8662b6aabf9b385587b0e1"
+  },
+  "acceptance": "No automatic pass from flow; full visual/state review and multiple-window current-action response required.",
+  "later_stages": "E2/AnyFlow/Stage2 remain gated"
+}

@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-08T23:33:48.005067+08:00",
+  "status": "complete",
+  "process_checks": [
+    {
+      "pid": 1199123,
+      "expected_start_ticks": "255075247",
+      "exists": false,
+      "checkpoint_step": 0,
+      "status": "complete",
+      "records": 54,
+      "model_forwards": 108,
+      "clean_forwards": 4,
+      "receipt_sha256": "e2edd53ab4e0fdd5a155a4e9ff52096fa49669d5841aa75775af9f6ebf40dd75",
+      "wall_seconds": 1193.039399100002,
+      "peak_allocated_MiB": 17383.2939453125
+    },
+    {
+      "pid": 1199134,
+      "expected_start_ticks": "255075255",
+      "exists": false,
+      "checkpoint_step": 48,
+      "status": "complete",
+      "records": 54,
+      "model_forwards": 108,
+      "clean_forwards": 4,
+      "receipt_sha256": "de16f1c6b8527cdd20695788d1381fbe0bffad06e74f6ae00eee8761b13317b9",
+      "wall_seconds": 1195.3474443349987,
+      "peak_allocated_MiB": 23465.85302734375
+    }
+  ],
+  "input_hashes_matched": true,
+  "teacher_full_output_hashes_matched": true,
+  "probe_source_unchanged_since_launch": true,
+  "probe_source_sha256": "441ab06d30191d8f502df77b54ec7119964cd40eadad92dfe7c68c3f8ff61f96",
+  "new_optimizer_steps": 0,
+  "peak_project_gpu_count": 2,
+  "report_source_sha256": "7270befe072c7239393f0d90eb8794d33cb287954360a9e6807f28ef6f5d1680",
+  "interpretation": "read-only GT-state audit; no new A/D intervention, training or generated video",
+  "process_limit": "No captured process exit code; complete receipts, matching source, full records and absent original PIDs verified."
+}

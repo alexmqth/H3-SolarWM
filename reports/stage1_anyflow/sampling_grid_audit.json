@@ -1,0 +1,53 @@
+{
+  "scope": "Read-only schedule audit; no live sampler modification",
+  "official_source": "SolarWM/src/solarwm/backends/minimax_h3/stage1_sampling.py:39",
+  "rows": [
+    {
+      "steps_per_chunk": 4,
+      "current_grid": [
+        1.0,
+        0.8694517016410828,
+        0.6894410252571106,
+        0.4252873361110687,
+        0.0
+      ],
+      "uniform_grid": [
+        1.0,
+        0.75,
+        0.5,
+        0.25,
+        0.0
+      ],
+      "current_final_sigma_jump": 0.4252873361110687,
+      "uniform_final_sigma_jump": 0.25
+    },
+    {
+      "steps_per_chunk": 8,
+      "current_grid": [
+        1.0,
+        0.939540445804596,
+        0.8694517016410828,
+        0.7872340679168701,
+        0.6894410252571106,
+        0.5711835622787476,
+        0.4252873361110687,
+        0.24078090488910675,
+        0.0
+      ],
+      "uniform_grid": [
+        1.0,
+        0.875,
+        0.75,
+        0.625,
+        0.5,
+        0.375,
+        0.25,
+        0.125,
+        0.0
+      ],
+      "current_final_sigma_jump": 0.24078090488910675,
+      "uniform_final_sigma_jump": 0.125
+    }
+  ],
+  "next_experiment": "Same step16 checkpoint; compare uniform and native shifted grid in a separate run after the frozen pilot. Training time distribution and inference sampling grid are distinct."
+}

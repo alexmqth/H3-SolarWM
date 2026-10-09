@@ -1,0 +1,187 @@
+--- a/code/causal/train_stage1_anyflow.py
++++ b/code/causal/train_stage1_anyflow.py
+@@ -22,7 +22,8 @@
+ sys.path[:0] = [str(ROOT / 'code/abot'), str(ROOT / 'code'),
+                str(ROOT / 'DiffSynth-Studio-h3-v2')]
+ import torch
+-from causal.anyflow import (install_anyflow, save_anyflow, logical_time_pairs,
++from causal.training_state import serialize_config, load_training_state, restore_random_state
++from causal.anyflow import (install_anyflow, load_anyflow, save_anyflow, logical_time_pairs,
+     anyflow_sample_loss, adaptive_scale)
+ from causal.h3_cached import (H3ChunkCache, chunk_forward, expand_packed_two_anchors,
+     last_frame_anchor, last_frame_image_anchor)
+@@ -181,11 +182,14 @@
+ def main():
+     ap = argparse.ArgumentParser(description=__doc__)
+     ap.add_argument('--out-dir', type=Path, required=True)
++    ap.add_argument('--resume-from', type=Path, help='Checkpoint directory with adapters, Adam and RNG; --steps is total updates')
+     ap.add_argument('--teacher-dir', type=Path, nargs='+')
+     ap.add_argument('--actions', nargs='+', default=['A', 'D'])
+     ap.add_argument('--causal-adapter', type=Path)
+     ap.add_argument('--action-adapter', type=Path)
+     ap.add_argument('--objective', choices=['anyflow', 'fm'], default='anyflow')
++    ap.add_argument('--train-target-time', action=argparse.BooleanOptionalAction, default=False,
++                    help='Experimental variant; official H3 Stage1 freezes the cloned time MLP')
+     ap.add_argument('--device', default='cuda:0')
+     ap.add_argument('--smoke', action='store_true', help='CPU random SMALL H3; not a pretrained/video-quality result')
+     ap.add_argument('--steps', type=int, default=16)
+@@ -217,6 +221,11 @@
+         args.device, args.anchor_mode = 'cpu', 'fixed'
+     if (args.out_dir / 'training.json').exists():
+         ap.error('Output already contains a run; choose a new experiment directory')
++    config = serialize_config(args)
++    resume = load_training_state(args.resume_from, config) if args.resume_from else None
++    start_step = resume['optimizer_step'] if resume else 0
++    qkv_path = args.resume_from / 'causal_adapter.pt' if resume else args.causal_adapter
++    action_path = args.resume_from / 'action_adapter.pt' if resume and args.action_adapter else args.action_adapter
+     args.out_dir.mkdir(parents=True, exist_ok=True)
+     torch.set_num_threads(4)
+     torch.manual_seed(args.seed)
+@@ -224,13 +233,13 @@
+     result = dict(status='running', started_at=datetime.now().astimezone().isoformat(),
+         objective='TF-AnyFlow v1.5' if args.objective == 'anyflow' else 'TF-FM control',
+         scope='random-small-H3 CPU integration' if args.smoke else 'pretrained-H3 clean teacher history',
+-        config={k: ([str(x) for x in v] if isinstance(v, list) else str(v) if isinstance(v, Path) else v)
+-                for k, v in vars(args).items()},
++        config=config, resumed_from=str(args.resume_from) if resume else None,
++        resumed_optimizer_step=start_step,
+         history_protocol='clean pseudo-GT from original H3; detached CPU cache rebuilt per optimizer step',
+         velocity_convention='noise-clean; native H3 time=1-sigma',
+         visible_devices=os.environ.get('CUDA_VISIBLE_DEVICES'),
+         vram_reserve_gib=float(os.environ.get('ABOT_VRAM_RESERVE_GIB', '5')),
+-        updates=[])
++        updates=list(resume['updates']) if resume else [])
+     def save_result():
+         tmp = args.out_dir / 'training.tmp.json'
+         tmp.write_text(json.dumps(result, indent=2) + '\n')
+@@ -244,7 +253,12 @@
+             for block in model.blocks:
+                 block.attn.qkv_proj = block.attn.qkv_proj.base
+             indices = list(range(len(model.blocks)))
+-            adapters, indices = install_adapters(model, rank=4, block_indices=indices)
++            if resume:
++                loaded = load_adapter(model, qkv_path, args.device)
++                indices = loaded['block_indices']
++                adapters = [model.blocks[i].attn.qkv_proj for i in indices]
++            else:
++                adapters, indices = install_adapters(model, rank=4, block_indices=indices)
+             b = synthetic_h3_batch(frames=12, seed=31)
+             cases = [dict(label='synthetic', clean=b['clean_video'], packed=b['packed'],
+                 prompt=b['prompt_embeds'], audio=b['audio_latents'],
+@@ -257,8 +271,8 @@
+                 ROOT / 'checkpoints/H3-World/step-10000.safetensors'), hotload=True)
+             model = pipe.dit.requires_grad_(False).eval()
+             pipe.load_models_to_device(['dit'])
+-            if args.causal_adapter:
+-                loaded = load_adapter(model, args.causal_adapter, args.device)
++            if qkv_path:
++                loaded = load_adapter(model, qkv_path, args.device)
+                 trained_anchor = loaded.get('metadata', {}).get('anchor_mode')
+                 aliases = {'dynamic_last_frame_dual': 'latent',
+                            'dynamic_last_frame_rgb_dual': 'rgb'}
+@@ -271,22 +285,34 @@
+                     raise ValueError('Requested more QKV blocks than the H3 model contains')
+                 indices = list(range(len(model.blocks) - args.tail_blocks, len(model.blocks)))
+                 adapters, indices = install_adapters(model, args.rank, indices, args.device)
+-            if args.action_adapter:
+-                action_adapter = load_action_residual(model, args.action_adapter, args.device)['adapter']
++            if action_path:
++                action_adapter = load_action_residual(model, action_path, args.device)['adapter']
+                 action_adapter.requires_grad_(False)
+             cases = prepare_real_cases(pipe, action_adapter, args)
+-        time_module = install_anyflow(model, device=args.device) if args.objective == 'anyflow' else None
++        time_module = None
++        if args.objective == 'anyflow':
++            time_module = (load_anyflow(model, args.resume_from / 'anyflow_adapter.pt', args.device)[0]
++                           if resume else install_anyflow(model, device=args.device))
++        if time_module is not None:
++            time_module.requires_grad_(args.train_target_time)
+         params = []
+         for adapter in adapters:
+             for p in (adapter.lora_A, adapter.lora_B):
+                 p.requires_grad_(True); params.append(p)
+-        if time_module is not None:
++        if time_module is not None and args.train_target_time:
+             params.extend(time_module.parameters())
+         optimizer = torch.optim.AdamW(params, lr=args.lr, betas=(.9, .95), weight_decay=.01)
+         result.update(trainable_parameters=sum(p.numel() for p in params),
+             qkv_block_indices=indices, target_time_parameters=sum(p.numel() for p in time_module.parameters()) if time_module else 0,
+             teacher_artifacts=[{k: c[k] for k in ('label', 'teacher_dir', 'teacher_sha256') if k in c} for c in cases])
++        if resume:
++            if result['teacher_artifacts'] != resume['teacher_artifacts']:
++                raise ValueError('Teacher artifacts changed since the saved optimizer state')
++            optimizer.load_state_dict(resume['optimizer'])
++        result['target_time_trainable'] = bool(time_module and args.train_target_time)
++        result['target_time_trainable_parameters'] = (sum(p.numel() for p in time_module.parameters()) if time_module and args.train_target_time else 0)
+         save_result()
++        generator = torch.Generator().manual_seed(args.seed + 10000)
+         def checkpoint(directory):
+             directory.mkdir(parents=True, exist_ok=True)
+             metadata = {k: result[k] for k in ('objective', 'scope', 'config', 'history_protocol', 'velocity_convention')}
+@@ -296,20 +322,44 @@
+                 save_anyflow(directory / 'anyflow_adapter.pt', time_module, metadata)
+             if action_adapter is not None:
+                 save_action_residual(directory / 'action_adapter.pt', action_adapter, metadata)
++            # Save optimizer/RNG along with adapters so a later extension need
++            # not silently reset Adam moments or the logical noise sequence.
++            files = ['causal_adapter.pt']
++            if time_module is not None:
++                files.append('anyflow_adapter.pt')
++            if action_adapter is not None:
++                files.append('action_adapter.pt')
++            training_state = dict(format='h3world_stage1_training_state_v1',
++                optimizer=move_tree(optimizer.state_dict(), 'cpu'),
++                optimizer_step=len(result['updates']), updates=result['updates'],
++                config=result['config'], teacher_artifacts=result['teacher_artifacts'],
++                logical_rng_state=generator.get_state(), cpu_rng_state=torch.get_rng_state(),
++                cuda_rng_state=None if args.smoke else torch.cuda.get_rng_state(args.device),
++                weight_sha256={name: hashlib.sha256((directory / name).read_bytes()).hexdigest()
++                               for name in files})
++            temporary = directory / 'trainer_state.tmp.pt'
++            torch.save(training_state, temporary)
++            temporary.replace(directory / 'trainer_state.pt')
+         def validate():
+             output = []
+             for c in cases[:args.validation_cases]:
+                 output.append(logical_batch(model, c, c['chunks'] - 1, args,
+                     generator=torch.Generator().manual_seed(args.validation_seed), backward=False))
+             return output
+-        checkpoint(args.out_dir / 'step_00')
++        if resume:
++            restore_random_state(resume, generator, device=args.device)
++        checkpoint(args.out_dir / f'step_{start_step:02d}')
+         result['validation_before'] = validate()
+         save_result()
+         if not args.smoke:
+             torch.cuda.reset_peak_memory_stats(args.device)
+         initial = [p.detach().cpu().clone() for p in params]
+-        generator = torch.Generator().manual_seed(args.seed + 10000)
+-        for step in range(args.steps):
++        initial_time = [p.detach().cpu().clone() for p in time_module.parameters()] if time_module else []
++        if resume:
++            # Validation owns a separate noise generator. Re-establish global
++            # state too, so diagnostics cannot perturb continuation RNG.
++            restore_random_state(resume, generator, device=args.device)
++        for step in range(start_step, args.steps):
+             tick = time.perf_counter()
+             case = cases[step % len(cases)]
+             chunk = (step // len(cases)) % case['chunks']
+@@ -338,11 +388,14 @@
+         result['qkv_parameters_changed'] = any(not torch.equal(p.detach().cpu(), old)
+             for p, old in zip(params[:qkv_count], initial[:qkv_count]))
+         result['target_time_parameters_changed'] = (any(not torch.equal(p.detach().cpu(), old)
+-            for p, old in zip(params[qkv_count:], initial[qkv_count:])) if time_module else None)
+-        if not result['qkv_parameters_changed'] or (time_module and not result['target_time_parameters_changed']):
+-            raise RuntimeError('Optimizer must update both QKV and (when enabled) target-time parameters')
++            for p, old in zip(time_module.parameters(), initial_time)) if time_module else None)
++        if not result['qkv_parameters_changed']:
++            raise RuntimeError('Optimizer did not update QKV parameters')
++        if time_module and result['target_time_parameters_changed'] != args.train_target_time:
++            raise RuntimeError('Target-time parameter changes violate the configured frozen/trainable policy')
+         checkpoint(args.out_dir)
+-        result.update(status='complete', wall_seconds=time.perf_counter() - started,
++        result.update(status='complete', updates_this_run=len(result['updates']) - start_step,
++            wall_seconds=time.perf_counter() - started,
+             gpu_allocated_peak_MiB=torch.cuda.max_memory_allocated(args.device) / 2**20 if not args.smoke else 0,
+             quality_gate='NOT_EVALUATED: training completion is not Stage1 quality acceptance')
+         save_result()

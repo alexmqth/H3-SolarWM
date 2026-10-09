@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-08T09:12:44.099970+08:00",
+  "no_history_updates": [
+    {
+      "step": 1,
+      "chunk": 0,
+      "full_loss": 0.094029794447124,
+      "detached_loss": 0.094029794447124,
+      "full_gradient_norm": 0.000945613719522953,
+      "detached_gradient_norm": 0.0009447741322219372,
+      "samples_identical": true
+    },
+    {
+      "step": 2,
+      "chunk": 0,
+      "full_loss": 0.07130152080208063,
+      "detached_loss": 0.07128244638442993,
+      "full_gradient_norm": 0.0018805760191753507,
+      "detached_gradient_norm": 0.0012291689636185765,
+      "samples_identical": false
+    }
+  ],
+  "interpretation": "Actual initialization/RNG match, but independent GPU trajectories are not bitwise identical even with no history; reason under investigation. Do not attribute tiny later differences exclusively to history gradients.",
+  "probe": "outputs/2026-10-08-09/stage1_gradient_repeatability",
+  "probe_gpu": 1
+}

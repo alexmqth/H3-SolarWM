@@ -1,0 +1,14 @@
+{
+  "rank": 8,
+  "alpha": 8,
+  "fused_wrappers": 208,
+  "logical_linear_targets": 312,
+  "trainable_parameters": 43237376,
+  "official_rank384_parameters": 2075394048,
+  "count_equals_official_rank_scaling": true,
+  "fp32_weight_gradient_Adam_MiB": 659.75,
+  "base_precision": "same native FP32 boundary + BF16 stack",
+  "init": "frozen existing visual/action + B-zero new bank; preserved initial output",
+  "gpu_fit": "not_yet_measured",
+  "activation_memory": "not included; must measure real one-update GPU run"
+}

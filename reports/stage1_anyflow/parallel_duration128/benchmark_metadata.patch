@@ -1,0 +1,14 @@
+--- frozen/benchmark.py
++++ new/benchmark.py
+@@ -457,7 +457,10 @@
+             result['video_sigma_grid'] = args.anyflow_sigma_grid
+             result['effective_video_sampling_shift'] = (1.0 if args.anyflow_sigma_grid == 'uniform' else args.flow_shift)
+             if args.anyflow_adapter:
+-                result['anyflow_training_shift'] = anyflow_metadata['config']['flow_shift']
++                training_shift = anyflow_metadata['config'].get('training_timestep_shift')
++                result['anyflow_training_shift'] = (
++                    anyflow_metadata['config']['flow_shift']
++                    if training_shift is None else training_shift)
+             save_json(metrics_path, result)
+             pipe.scheduler_audio.set_timesteps(steps,shift=3.)
+             video=initial.clone()

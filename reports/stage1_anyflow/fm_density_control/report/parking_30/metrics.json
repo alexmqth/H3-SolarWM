@@ -1,0 +1,121 @@
+{
+  "status": "complete_artifacts",
+  "scope": "parking current A/D, 30/chunk",
+  "rows": [
+    {
+      "action": "A",
+      "method": "Original30 full-seq",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39/baseline.mp4",
+      "seconds": 212.41900077299215,
+      "timing_scope": "benchmark wall including shared setup; see original runtime",
+      "noisy_forwards": 30,
+      "clean_commits": 0,
+      "gpu_peak_MiB": 39923.029296875,
+      "cpu_kv_MiB": 0.0,
+      "frame_gray_MAD": 4.975119796938259,
+      "boundary_rgb_MAD": 4.125065521501068,
+      "horizontal_flow": 1.181253006436715
+    },
+    {
+      "action": "A",
+      "method": "FM48 shift12 30/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/parking/step_48/30step/A/cached.mp4",
+      "seconds": 813.5156150553375,
+      "timing_scope": "benchmark wall including shared setup; see original runtime",
+      "noisy_forwards": 90,
+      "clean_commits": 3,
+      "gpu_peak_MiB": 16234.509765625,
+      "cpu_kv_MiB": 6484.130859375,
+      "frame_gray_MAD": 3.702511386639676,
+      "boundary_rgb_MAD": 4.393492922008547,
+      "horizontal_flow": -0.18267978911631202
+    },
+    {
+      "action": "A",
+      "method": "FM48 shift2.22 30/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/parking/step_48/30step/A/cached.mp4",
+      "seconds": 539.9202438280918,
+      "timing_scope": "benchmark wall including shared setup; see original runtime",
+      "noisy_forwards": 90,
+      "clean_commits": 3,
+      "gpu_peak_MiB": 26814.74609375,
+      "cpu_kv_MiB": 6484.130859375,
+      "frame_gray_MAD": 3.6234364456815116,
+      "boundary_rgb_MAD": 4.003298193776709,
+      "horizontal_flow": -0.19023942069935929
+    },
+    {
+      "action": "D",
+      "method": "Original30 full-seq",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39/baseline.mp4",
+      "seconds": 218.03564923605882,
+      "timing_scope": "benchmark wall including shared setup; see original runtime",
+      "noisy_forwards": 30,
+      "clean_commits": 0,
+      "gpu_peak_MiB": 39923.029296875,
+      "cpu_kv_MiB": 0.0,
+      "frame_gray_MAD": 3.611254190915992,
+      "boundary_rgb_MAD": 4.398797242254274,
+      "horizontal_flow": -0.8421244201691527
+    },
+    {
+      "action": "D",
+      "method": "FM48 shift12 30/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/parking/step_48/30step/D/cached.mp4",
+      "seconds": 856.7302509276196,
+      "timing_scope": "benchmark wall including shared setup; see original runtime",
+      "noisy_forwards": 90,
+      "clean_commits": 3,
+      "gpu_peak_MiB": 16234.509765625,
+      "cpu_kv_MiB": 6484.130859375,
+      "frame_gray_MAD": 3.415405108700236,
+      "boundary_rgb_MAD": 4.714101312099359,
+      "horizontal_flow": -0.16399469006635053
+    },
+    {
+      "action": "D",
+      "method": "FM48 shift2.22 30/chunk",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/parking/step_48/30step/D/cached.mp4",
+      "seconds": 576.9548880588263,
+      "timing_scope": "benchmark wall including shared setup; see original runtime",
+      "noisy_forwards": 90,
+      "clean_commits": 3,
+      "gpu_peak_MiB": 26814.74609375,
+      "cpu_kv_MiB": 6484.130859375,
+      "frame_gray_MAD": 3.11738531650641,
+      "boundary_rgb_MAD": 3.9379302717681623,
+      "horizontal_flow": -0.1585557251142075
+    }
+  ],
+  "artifacts": [
+    "A_comparison.mp4",
+    "D_comparison.mp4"
+  ],
+  "action_responses": [
+    {
+      "method": "Original30 full-seq",
+      "A": 1.181253006436715,
+      "D": -0.8421244201691527,
+      "separation": 2.023377426605868,
+      "numeric_gate_only": true
+    },
+    {
+      "method": "FM48 shift12 30/chunk",
+      "A": -0.18267978911631202,
+      "D": -0.16399469006635053,
+      "separation": -0.01868509904996149,
+      "numeric_gate_only": false
+    },
+    {
+      "method": "FM48 shift2.22 30/chunk",
+      "A": -0.19023942069935929,
+      "D": -0.1585557251142075,
+      "separation": -0.03168369558515177,
+      "numeric_gate_only": false
+    }
+  ],
+  "visual_review": "pending full39-frame manual inspection",
+  "timing": "single shared-host runs, recorded scope differs for natural/parking, no fair speedup claim",
+  "caveat": "Original\u662f\u65e7legacy\u7cbe\u5ea6/\u539f\u59cb\u6761\u4ef6\uff0c\u4e24\u4e2aFM48\u91c7\u7528\u540ch3_fp32 causal/RGB\u534f\u8bae\uff1b\u4e0eOriginal\u4e3apipeline\u53c2\u7167\uff0c\u4e24\u79cddensity\u624d\u662f\u53d7\u63a7\u8bad\u7ec3\u6bd4\u8f83\u3002",
+  "stage1_accepted": false
+}

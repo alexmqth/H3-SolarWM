@@ -1,0 +1,101 @@
+{
+  "at": "2026-10-09T05:54:15.531787+08:00",
+  "status": "complete_static_review",
+  "method": "All12 per-window contact sheets covering every120 RGB frame for each reference/action; original-size window1 details at59/66/73/80. Static visual inspection, not real-time playback.",
+  "windows": [
+    {
+      "group": "coarse_A",
+      "window": 0,
+      "RGB_range": [
+        0,
+        39
+      ],
+      "verdict": "首窗方向恢复；人物/场景可辨",
+      "observation": "A改变转向/运动，D保持另一轨迹。无严重结构分解。",
+      "video_sha256": {
+        "A": "bc9e8a3f5ebd2f2cf30e7318f68dad30945ceb6a98a2b4c2c30807ce3408d43f",
+        "D": "b6ef03650bc74c58df7cb21c26324ac3f73e67710dbe7805f9477a096e2c87e5"
+      },
+      "flow_signs_correct": true
+    },
+    {
+      "group": "coarse_D",
+      "window": 0,
+      "RGB_range": [
+        0,
+        39
+      ],
+      "verdict": "首窗方向恢复；非独立历史证据",
+      "observation": "无历史的重复首窗与coarse_A近似，不能算第二个独立正控。",
+      "video_sha256": {
+        "A": "4d9854f00fe86d0dacb522e81843d61791bbf1839d57f8e9fd79eaf29f063560",
+        "D": "a4123c699b313aaefe544856f4df68cc8ec6aa09ce1ddd9872ca7a4e63576497"
+      },
+      "flow_signs_correct": true
+    },
+    {
+      "group": "coarse_A",
+      "window": 1,
+      "RGB_range": [
+        39,
+        81
+      ],
+      "verdict": "FAIL：同正方向，D肢体重影",
+      "observation": "姿态有差别，背景总体同向；D分支后半段出现额外手臂与拖影。",
+      "video_sha256": {
+        "A": "4631c1b53fb2aa60b8796ac7fd46a82196ba61520c1252097c6d24a69c1b3cec",
+        "D": "090d13c3826f7b5f28cf926734b4bac9e55b548ad45dc47c4b6d15065ee5e2e5"
+      },
+      "flow_signs_correct": false
+    },
+    {
+      "group": "coarse_D",
+      "window": 1,
+      "RGB_range": [
+        39,
+        81
+      ],
+      "verdict": "FAIL：符号正确，肢体重影",
+      "observation": "A/D转向不同；D从约全局59帧起到80帧有明显多重手臂，A也有局部拖影。",
+      "video_sha256": {
+        "A": "8726aac5274c426746d59df028d6490a8ef0eeb8013c334e7dc96b1b0196ddac",
+        "D": "beaa076d622ff147cf80f4a3822ecec73e15dd8dec0467f99470f0ce9d54da2d"
+      },
+      "flow_signs_correct": true
+    },
+    {
+      "group": "coarse_A",
+      "window": 2,
+      "RGB_range": [
+        81,
+        120
+      ],
+      "verdict": "局部符号恢复；不能弥补前窗FAIL",
+      "observation": "A/D后半段运动有区别，人物/停车场仍可辨；早段相近，未将小图可辨升级为高质量。",
+      "video_sha256": {
+        "A": "33ff860703749140fef2723ec11836db4197f76bb451ab30990b6e7f71f5b7a5",
+        "D": "5291b3b62571e9bb06af527aeb8e9ae8107c6a95a731d62559c101147f37c003"
+      },
+      "flow_signs_correct": true
+    },
+    {
+      "group": "coarse_D",
+      "window": 2,
+      "RGB_range": [
+        81,
+        120
+      ],
+      "verdict": "FAIL：A/D几乎相同且同负",
+      "observation": "两分支整段运动和人物姿态近乎一致，当前A没有实现期望的相反方向；人物仍可辨。",
+      "video_sha256": {
+        "A": "f92d35ac2820ff0b53c02439962a51f6a5f941cd8fa71b805ab866c205ca9fa9",
+        "D": "c841ae091f7edee1e1ecfd0093fc50999c6b5e90967470b95d28f9b4a55493ff"
+      },
+      "flow_signs_correct": false
+    }
+  ],
+  "local_action_gate": false,
+  "stage1_accepted": false,
+  "geometry_completed": false,
+  "whole_video_caveat": "120RGB oracle local forks with reference history reset at39/81. No claim of free rollout stability."
+}

@@ -1,0 +1,29 @@
+{
+  "reference_revision": "ce1da4e7705391eda8eeda6016c0fd3f614b975e",
+  "finding": "Official H3 Stage1 cloned target-time MLP is frozen; only block/refiner QKVO/FFN LoRA trains. Existing local 16-update pilot additionally trained time MLP and is a variant, not the official optimizer policy.",
+  "evidence": [
+    {
+      "path": "SolarWM/src/solarwm/backends/minimax_h3/runtime.py",
+      "lines": [
+        493,
+        499,
+        501,
+        532
+      ],
+      "logic": "enable_anyflow -> requires_grad_(False) -> inject LoRA -> optimizer(self.lora.parameters)",
+      "sha256": "c65e80ec4193f63d34d39d70c1a2545d1dcc91fcf7b2a8361cc6f6ac374d6d2a"
+    },
+    {
+      "path": "SolarWM/src/solarwm/backends/minimax_h3/lora.py",
+      "lines": [
+        17,
+        54,
+        211
+      ],
+      "logic": "QKVO/FFN targets in main/refiner blocks; explicit all-and-only-LoRA trainability assertion",
+      "sha256": "63eef022a1d45d4ae4e29479b38df1afb9528b8a1e986118a05a71e5542ced12"
+    }
+  ],
+  "causality": "This discrepancy is verified in code; its contribution to poor video quality is not yet established.",
+  "controlled_next_run": "Same input/initialization/chunk/anchor/shift/loss and16 updates, but freeze target-time MLP."
+}

@@ -1,0 +1,80 @@
+{
+  "mode": "cached",
+  "status": "complete",
+  "started_at": "2026-10-08T07:08:04.226385+08:00",
+  "steps": 4,
+  "num_frames": 39,
+  "seed": 13,
+  "gpu": "NVIDIA L40",
+  "visible_devices": "0",
+  "cache_device": "cpu",
+  "chunk_frames": 5,
+  "history_chunks": 5,
+  "trained_for_causal": true,
+  "causal_adapter_scope": "all",
+  "history_source": "generated",
+  "anchor_mode": "dynamic_last_frame_rgb_dual",
+  "action_prefix_mode": "causal",
+  "boundary_blend": 0.0,
+  "boundary_overlap_frames": 1,
+  "boundary_clamp": false,
+  "action_preset": "D",
+  "action_preset_resolved": "strafe-right",
+  "action_schedule": [
+    "strafe-right",
+    "strafe-right",
+    "strafe-right"
+  ],
+  "action_feedback": true,
+  "flow_shift": 2.22,
+  "anyflow_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-06/stage1_anyflow39_precision_training/train_16/step_16/anyflow_adapter.pt",
+  "sampler": "anyflow_finite_map",
+  "anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2",
+  "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-06/stage1_anyflow39_precision_training/train_16/step_16/causal_adapter.pt",
+  "causal_action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-06/stage1_anyflow39_precision_training/train_16/step_16/action_adapter.pt",
+  "cfg_scale": 1.0,
+  "audio_output": "silent",
+  "attention_backend": "PyTorch SDPA",
+  "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+  "dit_prepare_seconds": 26.75889986101538,
+  "video_sigmas": [
+    1.0,
+    0.8694517211914062,
+    0.6894410400390625,
+    0.4252873229980469,
+    0.0
+  ],
+  "video_sigma_grid": "native",
+  "effective_video_sampling_shift": 2.22,
+  "anyflow_training_shift": 2.22,
+  "denoiser_forwards": 12,
+  "commit_forwards": 3,
+  "chunk_seconds": [
+    29.71011327812448,
+    57.824549599085,
+    57.272684808820486
+  ],
+  "rgb_anchor_seconds": [
+    30.454278531018645,
+    30.03460674593225
+  ],
+  "sampling_seconds": 144.8110556760803,
+  "sampling_memory": {
+    "allocated_peak_MiB": 38975.49267578125,
+    "reserved_peak_MiB": 40096.0
+  },
+  "kv_cache_peak_MiB": 6484.130859375,
+  "per_layer_commits": 150,
+  "vae_prepare_seconds": 19.498376451898366,
+  "vae_decode_seconds": 5.021636195015162,
+  "frames_to_cpu_seconds": 0.1541047659702599,
+  "encode_mp4_seconds": 0.4339868500828743,
+  "wall_after_conditioning_seconds": 196.74520636629313,
+  "wall_including_shared_setup_seconds": 214.8551118033938,
+  "memory_after_setup": {
+    "allocated_peak_MiB": 38975.49267578125,
+    "reserved_peak_MiB": 40096.0
+  },
+  "memory_entire_run_peak_MiB": 39069.2197265625,
+  "completed_at": "2026-10-08T07:11:20.972258+08:00"
+}

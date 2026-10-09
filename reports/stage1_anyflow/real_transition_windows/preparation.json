@@ -1,0 +1,6780 @@
+{
+  "format": "h3world_real_transition_windows_v2",
+  "status": "complete_pending_GT_review",
+  "at": "2026-10-09T06:39:03.806874+08:00",
+  "pid": 4093733,
+  "start_ticks": "257802105",
+  "source_sha256": "baa628ff17deae7cde1cd6466d6d06db66a273f7323f0d499d3020097ac73fa1",
+  "input_manifest_sha256": "5ba9b589a81ff6dc7fa76e817bb67e06b3bea002b283398e981b515a7db50d54",
+  "source_kind": "real_ABot_episode",
+  "new_download_bytes": 0,
+  "GPU_calls": 0,
+  "optimizer_updates": 0,
+  "clips": [
+    {
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_A_1245",
+      "sample_id": "43866101158a538d22c52ac5b2fa606b",
+      "split": "train",
+      "src_start": 1245,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 39,
+            "S": 39,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 0.9761904761904762,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 41,
+            "S": 41,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 42,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        }
+      ],
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/43866101158a538d22c52ac5b2fa606b_A_1245.npz",
+      "sha256": "f674762898a41a246857adf1ae0bb13ad60c093a9ac7567c051d07d4e538730a",
+      "bytes": 88326778,
+      "review": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/43866101158a538d22c52ac5b2fa606b_A_1245_review.jpg",
+      "review_sha256": "a9d45ab78cfa401b739211cfe8fbc46af20394d7f5f908d3a0112ff734052b12",
+      "prompt": "This is an outdoor, rugged mountainous landscape rendered in a realistic, high-fidelity style with a muted, overcast color palette dominated by greys, desaturated greens, and earthy browns. The terrain features exposed granite-like rock formations with weathered textures, interspersed with patches of coarse grass, moss-covered boulders, and scattered coniferous trees whose needles exhibit fine detail and subtle wind-swept posture. Diffuse, soft lighting from a thick cloud cover creates low-contrast shadows and a somber, atmospheric mood, enhancing the sense of vast, untamed wilderness. The architecture is natural\u2014no built structures are present\u2014emphasizing geological stratification and organic erosion patterns across rolling hills and steep inclines.",
+      "source_video_sha256": "dec114fa16e82a0af3e66d6a248261c9d99e01b3ff6085b6c7344f38a1f2ec3f",
+      "source_annotations_sha256": "8af5ccc92f5e3a896a2836589aac5b563eac9c6e86572e556d848289c37687d3",
+      "source_frame_ids": [
+        "frame_001246",
+        "frame_001247",
+        "frame_001248",
+        "frame_001249",
+        "frame_001251",
+        "frame_001252",
+        "frame_001253",
+        "frame_001254",
+        "frame_001256",
+        "frame_001257",
+        "frame_001258",
+        "frame_001259",
+        "frame_001261",
+        "frame_001262",
+        "frame_001263",
+        "frame_001264",
+        "frame_001266",
+        "frame_001267",
+        "frame_001268",
+        "frame_001269",
+        "frame_001271",
+        "frame_001272",
+        "frame_001273",
+        "frame_001274",
+        "frame_001276",
+        "frame_001277",
+        "frame_001278",
+        "frame_001279",
+        "frame_001281",
+        "frame_001282",
+        "frame_001283",
+        "frame_001284",
+        "frame_001286",
+        "frame_001287",
+        "frame_001288",
+        "frame_001289",
+        "frame_001291",
+        "frame_001292",
+        "frame_001293",
+        "frame_001294",
+        "frame_001296",
+        "frame_001297",
+        "frame_001298",
+        "frame_001299",
+        "frame_001301",
+        "frame_001302",
+        "frame_001303",
+        "frame_001304",
+        "frame_001306",
+        "frame_001307",
+        "frame_001308",
+        "frame_001309",
+        "frame_001311",
+        "frame_001312",
+        "frame_001313",
+        "frame_001314",
+        "frame_001316",
+        "frame_001317",
+        "frame_001318",
+        "frame_001319",
+        "frame_001321",
+        "frame_001322",
+        "frame_001323",
+        "frame_001324",
+        "frame_001326",
+        "frame_001327",
+        "frame_001328",
+        "frame_001329",
+        "frame_001331",
+        "frame_001332",
+        "frame_001333",
+        "frame_001334",
+        "frame_001336",
+        "frame_001337",
+        "frame_001338",
+        "frame_001339",
+        "frame_001341",
+        "frame_001342",
+        "frame_001343",
+        "frame_001344",
+        "frame_001346",
+        "frame_001347",
+        "frame_001348",
+        "frame_001349",
+        "frame_001351",
+        "frame_001352",
+        "frame_001353",
+        "frame_001354",
+        "frame_001356",
+        "frame_001357",
+        "frame_001358",
+        "frame_001359",
+        "frame_001361",
+        "frame_001362",
+        "frame_001363",
+        "frame_001364",
+        "frame_001366",
+        "frame_001367",
+        "frame_001368",
+        "frame_001369",
+        "frame_001371",
+        "frame_001372",
+        "frame_001373",
+        "frame_001374",
+        "frame_001376",
+        "frame_001377",
+        "frame_001378",
+        "frame_001379",
+        "frame_001381",
+        "frame_001382",
+        "frame_001383",
+        "frame_001384",
+        "frame_001386",
+        "frame_001387",
+        "frame_001388",
+        "frame_001389",
+        "frame_001391",
+        "frame_001392",
+        "frame_001393",
+        "frame_001394",
+        "frame_001396",
+        "frame_001397",
+        "frame_001398",
+        "frame_001399"
+      ],
+      "source_indices": [
+        1245,
+        1246,
+        1247,
+        1248,
+        1250,
+        1251,
+        1252,
+        1253,
+        1255,
+        1256,
+        1257,
+        1258,
+        1260,
+        1261,
+        1262,
+        1263,
+        1265,
+        1266,
+        1267,
+        1268,
+        1270,
+        1271,
+        1272,
+        1273,
+        1275,
+        1276,
+        1277,
+        1278,
+        1280,
+        1281,
+        1282,
+        1283,
+        1285,
+        1286,
+        1287,
+        1288,
+        1290,
+        1291,
+        1292,
+        1293,
+        1295,
+        1296,
+        1297,
+        1298,
+        1300,
+        1301,
+        1302,
+        1303,
+        1305,
+        1306,
+        1307,
+        1308,
+        1310,
+        1311,
+        1312,
+        1313,
+        1315,
+        1316,
+        1317,
+        1318,
+        1320,
+        1321,
+        1322,
+        1323,
+        1325,
+        1326,
+        1327,
+        1328,
+        1330,
+        1331,
+        1332,
+        1333,
+        1335,
+        1336,
+        1337,
+        1338,
+        1340,
+        1341,
+        1342,
+        1343,
+        1345,
+        1346,
+        1347,
+        1348,
+        1350,
+        1351,
+        1352,
+        1353,
+        1355,
+        1356,
+        1357,
+        1358,
+        1360,
+        1361,
+        1362,
+        1363,
+        1365,
+        1366,
+        1367,
+        1368,
+        1370,
+        1371,
+        1372,
+        1373,
+        1375,
+        1376,
+        1377,
+        1378,
+        1380,
+        1381,
+        1382,
+        1383,
+        1385,
+        1386,
+        1387,
+        1388,
+        1390,
+        1391,
+        1392,
+        1393,
+        1395,
+        1396,
+        1397,
+        1398
+      ],
+      "latent_RGB_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ],
+        [
+          56,
+          60
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          68,
+          69
+        ],
+        [
+          69,
+          73
+        ],
+        [
+          73,
+          77
+        ],
+        [
+          77,
+          81
+        ],
+        [
+          81,
+          85
+        ],
+        [
+          85,
+          86
+        ],
+        [
+          86,
+          90
+        ],
+        [
+          90,
+          94
+        ],
+        [
+          94,
+          98
+        ],
+        [
+          98,
+          102
+        ],
+        [
+          102,
+          103
+        ],
+        [
+          103,
+          107
+        ],
+        [
+          107,
+          111
+        ],
+        [
+          111,
+          115
+        ],
+        [
+          115,
+          119
+        ],
+        [
+          119,
+          120
+        ],
+        [
+          120,
+          124
+        ]
+      ],
+      "action_script": [
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly"
+      ],
+      "negative_scripts": {
+        "0": [
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly"
+        ],
+        "12": [
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes left, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man walks backward and strafes right, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly"
+        ]
+      },
+      "original_vs_bounded_F_differences": [],
+      "frame_action_same_source_indices": true,
+      "temporal_effect_lag": "Not independently inferred; retain dataset alignment, no shifted-label search",
+      "duplicated_adjacent_RGB": 0
+    },
+    {
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_D_1555",
+      "sample_id": "43866101158a538d22c52ac5b2fa606b",
+      "split": "train",
+      "src_start": 1555,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 34,
+            "A": 0,
+            "S": 0,
+            "D": 42,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        }
+      ],
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/43866101158a538d22c52ac5b2fa606b_D_1555.npz",
+      "sha256": "ee6b82923b1e1ec305c357d9f3fa21ff3e3d0a5aa0b2d589e01c0e018a5b90f4",
+      "bytes": 69868523,
+      "review": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/43866101158a538d22c52ac5b2fa606b_D_1555_review.jpg",
+      "review_sha256": "5cdb915059169d50da20937c224fe2ba925558c5413bad554063380a9b7ca3fa",
+      "prompt": "This is an outdoor, rugged mountainous landscape rendered in a realistic, high-fidelity style with a muted, overcast color palette dominated by greys, desaturated greens, and earthy browns. The terrain features exposed granite-like rock formations with weathered textures, interspersed with patches of coarse grass, moss-covered boulders, and scattered coniferous trees whose needles exhibit fine detail and subtle wind-swept posture. Diffuse, soft lighting from a thick cloud cover creates low-contrast shadows and a somber, atmospheric mood, enhancing the sense of vast, untamed wilderness. The architecture is natural\u2014no built structures are present\u2014emphasizing geological stratification and organic erosion patterns across rolling hills and steep inclines.",
+      "source_video_sha256": "dec114fa16e82a0af3e66d6a248261c9d99e01b3ff6085b6c7344f38a1f2ec3f",
+      "source_annotations_sha256": "8af5ccc92f5e3a896a2836589aac5b563eac9c6e86572e556d848289c37687d3",
+      "source_frame_ids": [
+        "frame_001556",
+        "frame_001557",
+        "frame_001558",
+        "frame_001559",
+        "frame_001561",
+        "frame_001562",
+        "frame_001563",
+        "frame_001564",
+        "frame_001566",
+        "frame_001567",
+        "frame_001568",
+        "frame_001569",
+        "frame_001571",
+        "frame_001572",
+        "frame_001573",
+        "frame_001574",
+        "frame_001576",
+        "frame_001577",
+        "frame_001578",
+        "frame_001579",
+        "frame_001581",
+        "frame_001582",
+        "frame_001583",
+        "frame_001584",
+        "frame_001586",
+        "frame_001587",
+        "frame_001588",
+        "frame_001589",
+        "frame_001591",
+        "frame_001592",
+        "frame_001593",
+        "frame_001594",
+        "frame_001596",
+        "frame_001597",
+        "frame_001598",
+        "frame_001599",
+        "frame_001601",
+        "frame_001602",
+        "frame_001603",
+        "frame_001604",
+        "frame_001606",
+        "frame_001607",
+        "frame_001608",
+        "frame_001609",
+        "frame_001611",
+        "frame_001612",
+        "frame_001613",
+        "frame_001614",
+        "frame_001616",
+        "frame_001617",
+        "frame_001618",
+        "frame_001619",
+        "frame_001621",
+        "frame_001622",
+        "frame_001623",
+        "frame_001624",
+        "frame_001626",
+        "frame_001627",
+        "frame_001628",
+        "frame_001629",
+        "frame_001631",
+        "frame_001632",
+        "frame_001633",
+        "frame_001634",
+        "frame_001636",
+        "frame_001637",
+        "frame_001638",
+        "frame_001639",
+        "frame_001641",
+        "frame_001642",
+        "frame_001643",
+        "frame_001644",
+        "frame_001646",
+        "frame_001647",
+        "frame_001648",
+        "frame_001649",
+        "frame_001651",
+        "frame_001652",
+        "frame_001653",
+        "frame_001654",
+        "frame_001656",
+        "frame_001657",
+        "frame_001658",
+        "frame_001659",
+        "frame_001661",
+        "frame_001662",
+        "frame_001663",
+        "frame_001664",
+        "frame_001666",
+        "frame_001667",
+        "frame_001668",
+        "frame_001669",
+        "frame_001671",
+        "frame_001672",
+        "frame_001673",
+        "frame_001674",
+        "frame_001676",
+        "frame_001677",
+        "frame_001678",
+        "frame_001679",
+        "frame_001681",
+        "frame_001682",
+        "frame_001683",
+        "frame_001684",
+        "frame_001686",
+        "frame_001687",
+        "frame_001688",
+        "frame_001689",
+        "frame_001691",
+        "frame_001692",
+        "frame_001693",
+        "frame_001694",
+        "frame_001696",
+        "frame_001697",
+        "frame_001698",
+        "frame_001699",
+        "frame_001701",
+        "frame_001702",
+        "frame_001703",
+        "frame_001704",
+        "frame_001706",
+        "frame_001707",
+        "frame_001708",
+        "frame_001709"
+      ],
+      "source_indices": [
+        1555,
+        1556,
+        1557,
+        1558,
+        1560,
+        1561,
+        1562,
+        1563,
+        1565,
+        1566,
+        1567,
+        1568,
+        1570,
+        1571,
+        1572,
+        1573,
+        1575,
+        1576,
+        1577,
+        1578,
+        1580,
+        1581,
+        1582,
+        1583,
+        1585,
+        1586,
+        1587,
+        1588,
+        1590,
+        1591,
+        1592,
+        1593,
+        1595,
+        1596,
+        1597,
+        1598,
+        1600,
+        1601,
+        1602,
+        1603,
+        1605,
+        1606,
+        1607,
+        1608,
+        1610,
+        1611,
+        1612,
+        1613,
+        1615,
+        1616,
+        1617,
+        1618,
+        1620,
+        1621,
+        1622,
+        1623,
+        1625,
+        1626,
+        1627,
+        1628,
+        1630,
+        1631,
+        1632,
+        1633,
+        1635,
+        1636,
+        1637,
+        1638,
+        1640,
+        1641,
+        1642,
+        1643,
+        1645,
+        1646,
+        1647,
+        1648,
+        1650,
+        1651,
+        1652,
+        1653,
+        1655,
+        1656,
+        1657,
+        1658,
+        1660,
+        1661,
+        1662,
+        1663,
+        1665,
+        1666,
+        1667,
+        1668,
+        1670,
+        1671,
+        1672,
+        1673,
+        1675,
+        1676,
+        1677,
+        1678,
+        1680,
+        1681,
+        1682,
+        1683,
+        1685,
+        1686,
+        1687,
+        1688,
+        1690,
+        1691,
+        1692,
+        1693,
+        1695,
+        1696,
+        1697,
+        1698,
+        1700,
+        1701,
+        1702,
+        1703,
+        1705,
+        1706,
+        1707,
+        1708
+      ],
+      "latent_RGB_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ],
+        [
+          56,
+          60
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          68,
+          69
+        ],
+        [
+          69,
+          73
+        ],
+        [
+          73,
+          77
+        ],
+        [
+          77,
+          81
+        ],
+        [
+          81,
+          85
+        ],
+        [
+          85,
+          86
+        ],
+        [
+          86,
+          90
+        ],
+        [
+          90,
+          94
+        ],
+        [
+          94,
+          98
+        ],
+        [
+          98,
+          102
+        ],
+        [
+          102,
+          103
+        ],
+        [
+          103,
+          107
+        ],
+        [
+          107,
+          111
+        ],
+        [
+          111,
+          115
+        ],
+        [
+          115,
+          119
+        ],
+        [
+          119,
+          120
+        ],
+        [
+          120,
+          124
+        ]
+      ],
+      "action_script": [
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly",
+        "the man stands still, camera pans right slowly"
+      ],
+      "negative_scripts": {
+        "0": [
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly"
+        ],
+        "12": [
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly",
+          "the man stands still, camera pans right slowly"
+        ]
+      },
+      "original_vs_bounded_F_differences": [],
+      "frame_action_same_source_indices": true,
+      "temporal_effect_lag": "Not independently inferred; retain dataset alignment, no shifted-label search",
+      "duplicated_adjacent_RGB": 0
+    },
+    {
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_D_0700",
+      "sample_id": "7199292ca430b478bfd0d83cf2e519d8",
+      "split": "train",
+      "src_start": 700,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 36,
+            "A": 0,
+            "S": 0,
+            "D": 42,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.02564102564102564,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 31,
+            "D": 1,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ],
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/7199292ca430b478bfd0d83cf2e519d8_D_0700.npz",
+      "sha256": "7558f004aa9270f05b22eece97c144d0242bae80229ca99832830e9e3781e528",
+      "bytes": 97164286,
+      "review": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/7199292ca430b478bfd0d83cf2e519d8_D_0700_review.jpg",
+      "review_sha256": "521eddff2e60270b921cb5710b820cfae911ae77844728488f36eb5332de6eed",
+      "prompt": "The scene is a rural, open-field landscape under an overcast sky, featuring gently rolling grassy hills bordered by weathered wooden split-rail fences that follow the contours of the terrain. Mature deciduous trees with dense canopies dot the horizon and midground, while a distant treeline of conifers suggests a forest edge; the ground consists of damp, matted grass interspersed with muddy patches and faint hoof- or footprints, indicating recent passage. Materials are natural and aged\u2014rough-hewn wood, coarse grasses, and moist earth\u2014rendered in muted greens, browns, and greys that evoke a somber, atmospheric realism typical of late 19th-century American frontier settings. The diffuse, low-contrast lighting enhances the sense of quiet desolation and immersive environmental texture without any artificial illumination.",
+      "source_video_sha256": "bc0c6dd4ed0a010b2f4cdafc290698c9baa4f6e70efb7a3c983c8de155fd977c",
+      "source_annotations_sha256": "7c1b2864f7511fa5701a0e2bfe1e99e9e4b7095574836fe0977d3a0de095d070",
+      "source_frame_ids": [
+        "frame_000701",
+        "frame_000702",
+        "frame_000703",
+        "frame_000704",
+        "frame_000706",
+        "frame_000707",
+        "frame_000708",
+        "frame_000709",
+        "frame_000711",
+        "frame_000712",
+        "frame_000713",
+        "frame_000714",
+        "frame_000716",
+        "frame_000717",
+        "frame_000718",
+        "frame_000719",
+        "frame_000721",
+        "frame_000722",
+        "frame_000723",
+        "frame_000724",
+        "frame_000726",
+        "frame_000727",
+        "frame_000728",
+        "frame_000729",
+        "frame_000731",
+        "frame_000732",
+        "frame_000733",
+        "frame_000734",
+        "frame_000736",
+        "frame_000737",
+        "frame_000738",
+        "frame_000739",
+        "frame_000741",
+        "frame_000742",
+        "frame_000743",
+        "frame_000744",
+        "frame_000746",
+        "frame_000747",
+        "frame_000748",
+        "frame_000749",
+        "frame_000751",
+        "frame_000752",
+        "frame_000753",
+        "frame_000754",
+        "frame_000756",
+        "frame_000757",
+        "frame_000758",
+        "frame_000759",
+        "frame_000761",
+        "frame_000762",
+        "frame_000763",
+        "frame_000764",
+        "frame_000766",
+        "frame_000767",
+        "frame_000768",
+        "frame_000769",
+        "frame_000771",
+        "frame_000772",
+        "frame_000773",
+        "frame_000774",
+        "frame_000776",
+        "frame_000777",
+        "frame_000778",
+        "frame_000779",
+        "frame_000781",
+        "frame_000782",
+        "frame_000783",
+        "frame_000784",
+        "frame_000786",
+        "frame_000787",
+        "frame_000788",
+        "frame_000789",
+        "frame_000791",
+        "frame_000792",
+        "frame_000793",
+        "frame_000794",
+        "frame_000796",
+        "frame_000797",
+        "frame_000798",
+        "frame_000799",
+        "frame_000801",
+        "frame_000802",
+        "frame_000803",
+        "frame_000804",
+        "frame_000806",
+        "frame_000807",
+        "frame_000808",
+        "frame_000809",
+        "frame_000811",
+        "frame_000812",
+        "frame_000813",
+        "frame_000814",
+        "frame_000816",
+        "frame_000817",
+        "frame_000818",
+        "frame_000819",
+        "frame_000821",
+        "frame_000822",
+        "frame_000823",
+        "frame_000824",
+        "frame_000826",
+        "frame_000827",
+        "frame_000828",
+        "frame_000829",
+        "frame_000831",
+        "frame_000832",
+        "frame_000833",
+        "frame_000834",
+        "frame_000836",
+        "frame_000837",
+        "frame_000838",
+        "frame_000839",
+        "frame_000841",
+        "frame_000842",
+        "frame_000843",
+        "frame_000844",
+        "frame_000846",
+        "frame_000847",
+        "frame_000848",
+        "frame_000849",
+        "frame_000851",
+        "frame_000852",
+        "frame_000853",
+        "frame_000854"
+      ],
+      "source_indices": [
+        700,
+        701,
+        702,
+        703,
+        705,
+        706,
+        707,
+        708,
+        710,
+        711,
+        712,
+        713,
+        715,
+        716,
+        717,
+        718,
+        720,
+        721,
+        722,
+        723,
+        725,
+        726,
+        727,
+        728,
+        730,
+        731,
+        732,
+        733,
+        735,
+        736,
+        737,
+        738,
+        740,
+        741,
+        742,
+        743,
+        745,
+        746,
+        747,
+        748,
+        750,
+        751,
+        752,
+        753,
+        755,
+        756,
+        757,
+        758,
+        760,
+        761,
+        762,
+        763,
+        765,
+        766,
+        767,
+        768,
+        770,
+        771,
+        772,
+        773,
+        775,
+        776,
+        777,
+        778,
+        780,
+        781,
+        782,
+        783,
+        785,
+        786,
+        787,
+        788,
+        790,
+        791,
+        792,
+        793,
+        795,
+        796,
+        797,
+        798,
+        800,
+        801,
+        802,
+        803,
+        805,
+        806,
+        807,
+        808,
+        810,
+        811,
+        812,
+        813,
+        815,
+        816,
+        817,
+        818,
+        820,
+        821,
+        822,
+        823,
+        825,
+        826,
+        827,
+        828,
+        830,
+        831,
+        832,
+        833,
+        835,
+        836,
+        837,
+        838,
+        840,
+        841,
+        842,
+        843,
+        845,
+        846,
+        847,
+        848,
+        850,
+        851,
+        852,
+        853
+      ],
+      "latent_RGB_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ],
+        [
+          56,
+          60
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          68,
+          69
+        ],
+        [
+          69,
+          73
+        ],
+        [
+          73,
+          77
+        ],
+        [
+          77,
+          81
+        ],
+        [
+          81,
+          85
+        ],
+        [
+          85,
+          86
+        ],
+        [
+          86,
+          90
+        ],
+        [
+          90,
+          94
+        ],
+        [
+          94,
+          98
+        ],
+        [
+          98,
+          102
+        ],
+        [
+          102,
+          103
+        ],
+        [
+          103,
+          107
+        ],
+        [
+          107,
+          111
+        ],
+        [
+          111,
+          115
+        ],
+        [
+          115,
+          119
+        ],
+        [
+          119,
+          120
+        ],
+        [
+          120,
+          124
+        ]
+      ],
+      "action_script": [
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man walks forward and strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man stands still, camera holds steady",
+        "the man walks backward, camera follows him",
+        "the man walks backward, camera follows him",
+        "the man walks backward, camera follows him",
+        "the man walks backward, camera follows him",
+        "the man walks backward, camera follows him",
+        "the man walks backward, camera follows him",
+        "the man walks backward, camera follows him",
+        "the man walks backward, camera follows him",
+        "the man walks backward, camera follows him",
+        "the man walks backward, camera follows him",
+        "the man walks backward, camera follows him"
+      ],
+      "negative_scripts": {
+        "0": [
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man stands still, camera holds steady",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him"
+        ],
+        "12": [
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man stands still, camera holds steady",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him",
+          "the man walks backward, camera follows him"
+        ]
+      },
+      "original_vs_bounded_F_differences": [],
+      "frame_action_same_source_indices": true,
+      "temporal_effect_lag": "Not independently inferred; retain dataset alignment, no shifted-label search",
+      "duplicated_adjacent_RGB": 0
+    },
+    {
+      "clip_id": "9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410",
+      "sample_id": "9dc2e5882a294b8d68d6b2b31ff3ef65",
+      "split": "train",
+      "src_start": 1410,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 39,
+            "S": 39,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 42,
+            "S": 42,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 42,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "opposing_keys_within_latent_bin"
+          ],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [
+            [
+              24,
+              "A",
+              "D"
+            ]
+          ],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 1,
+            "S": 1,
+            "D": 38,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 4,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ],
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410.npz",
+      "sha256": "aa3d533d0521b381a64ce98fb7f5b6c06775f26dc2d1c06ec1648de67ff37e3a",
+      "bytes": 107501800,
+      "review": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410_review.jpg",
+      "review_sha256": "6119d7a22557cf1db728d70952ba2ad81591588c35067da480f855ff8e6df73b",
+      "prompt": "The scene is an arid, sun-baked highway stretching through a semi-industrial desert landscape, flanked by dry scrub, scattered palm trees, and distant rugged mountains under a pale blue sky with soft cumulus clouds; the asphalt road shows wear with faded lane markings, bordered by metal guardrails and concrete barriers. Industrial structures\u2014including large cylindrical silos with red bands, rusted metal towers, and parked black tanker railcars\u2014stand adjacent to the road, contrasting with the natural terrain through their utilitarian steel and concrete materials, weathered textures, and muted greys, ochres, and rust tones. A lone male figure in a light grey short-sleeved shirt and khaki trousers stands centered on the road, his posture neutral, casting a sharp shadow under the bright, high-contrast daylight that emphasizes the dusty atmosphere and gritty realism of the environment.",
+      "source_video_sha256": "dc8e35dcb91b351d119efa1c99131fd15906e7bb5617098e7e691fe552d0ff0c",
+      "source_annotations_sha256": "9bcfe65eed7929a0113997a32ef5db8d85f93f00f78ce162b150a73ecc6af3eb",
+      "source_frame_ids": [
+        "frame_001411",
+        "frame_001412",
+        "frame_001413",
+        "frame_001414",
+        "frame_001416",
+        "frame_001417",
+        "frame_001418",
+        "frame_001419",
+        "frame_001421",
+        "frame_001422",
+        "frame_001423",
+        "frame_001424",
+        "frame_001426",
+        "frame_001427",
+        "frame_001428",
+        "frame_001429",
+        "frame_001431",
+        "frame_001432",
+        "frame_001433",
+        "frame_001434",
+        "frame_001436",
+        "frame_001437",
+        "frame_001438",
+        "frame_001439",
+        "frame_001441",
+        "frame_001442",
+        "frame_001443",
+        "frame_001444",
+        "frame_001446",
+        "frame_001447",
+        "frame_001448",
+        "frame_001449",
+        "frame_001451",
+        "frame_001452",
+        "frame_001453",
+        "frame_001454",
+        "frame_001456",
+        "frame_001457",
+        "frame_001458",
+        "frame_001459",
+        "frame_001461",
+        "frame_001462",
+        "frame_001463",
+        "frame_001464",
+        "frame_001466",
+        "frame_001467",
+        "frame_001468",
+        "frame_001469",
+        "frame_001471",
+        "frame_001472",
+        "frame_001473",
+        "frame_001474",
+        "frame_001476",
+        "frame_001477",
+        "frame_001478",
+        "frame_001479",
+        "frame_001481",
+        "frame_001482",
+        "frame_001483",
+        "frame_001484",
+        "frame_001486",
+        "frame_001487",
+        "frame_001488",
+        "frame_001489",
+        "frame_001491",
+        "frame_001492",
+        "frame_001493",
+        "frame_001494",
+        "frame_001496",
+        "frame_001497",
+        "frame_001498",
+        "frame_001499",
+        "frame_001501",
+        "frame_001502",
+        "frame_001503",
+        "frame_001504",
+        "frame_001506",
+        "frame_001507",
+        "frame_001508",
+        "frame_001509",
+        "frame_001511",
+        "frame_001512",
+        "frame_001513",
+        "frame_001514",
+        "frame_001516",
+        "frame_001517",
+        "frame_001518",
+        "frame_001519",
+        "frame_001521",
+        "frame_001522",
+        "frame_001523",
+        "frame_001524",
+        "frame_001526",
+        "frame_001527",
+        "frame_001528",
+        "frame_001529",
+        "frame_001531",
+        "frame_001532",
+        "frame_001533",
+        "frame_001534",
+        "frame_001536",
+        "frame_001537",
+        "frame_001538",
+        "frame_001539",
+        "frame_001541",
+        "frame_001542",
+        "frame_001543",
+        "frame_001544",
+        "frame_001546",
+        "frame_001547",
+        "frame_001548",
+        "frame_001549",
+        "frame_001551",
+        "frame_001552",
+        "frame_001553",
+        "frame_001554",
+        "frame_001556",
+        "frame_001557",
+        "frame_001558",
+        "frame_001559",
+        "frame_001561",
+        "frame_001562",
+        "frame_001563",
+        "frame_001564"
+      ],
+      "source_indices": [
+        1410,
+        1411,
+        1412,
+        1413,
+        1415,
+        1416,
+        1417,
+        1418,
+        1420,
+        1421,
+        1422,
+        1423,
+        1425,
+        1426,
+        1427,
+        1428,
+        1430,
+        1431,
+        1432,
+        1433,
+        1435,
+        1436,
+        1437,
+        1438,
+        1440,
+        1441,
+        1442,
+        1443,
+        1445,
+        1446,
+        1447,
+        1448,
+        1450,
+        1451,
+        1452,
+        1453,
+        1455,
+        1456,
+        1457,
+        1458,
+        1460,
+        1461,
+        1462,
+        1463,
+        1465,
+        1466,
+        1467,
+        1468,
+        1470,
+        1471,
+        1472,
+        1473,
+        1475,
+        1476,
+        1477,
+        1478,
+        1480,
+        1481,
+        1482,
+        1483,
+        1485,
+        1486,
+        1487,
+        1488,
+        1490,
+        1491,
+        1492,
+        1493,
+        1495,
+        1496,
+        1497,
+        1498,
+        1500,
+        1501,
+        1502,
+        1503,
+        1505,
+        1506,
+        1507,
+        1508,
+        1510,
+        1511,
+        1512,
+        1513,
+        1515,
+        1516,
+        1517,
+        1518,
+        1520,
+        1521,
+        1522,
+        1523,
+        1525,
+        1526,
+        1527,
+        1528,
+        1530,
+        1531,
+        1532,
+        1533,
+        1535,
+        1536,
+        1537,
+        1538,
+        1540,
+        1541,
+        1542,
+        1543,
+        1545,
+        1546,
+        1547,
+        1548,
+        1550,
+        1551,
+        1552,
+        1553,
+        1555,
+        1556,
+        1557,
+        1558,
+        1560,
+        1561,
+        1562,
+        1563
+      ],
+      "latent_RGB_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ],
+        [
+          56,
+          60
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          68,
+          69
+        ],
+        [
+          69,
+          73
+        ],
+        [
+          73,
+          77
+        ],
+        [
+          77,
+          81
+        ],
+        [
+          81,
+          85
+        ],
+        [
+          85,
+          86
+        ],
+        [
+          86,
+          90
+        ],
+        [
+          90,
+          94
+        ],
+        [
+          94,
+          98
+        ],
+        [
+          98,
+          102
+        ],
+        [
+          102,
+          103
+        ],
+        [
+          103,
+          107
+        ],
+        [
+          107,
+          111
+        ],
+        [
+          111,
+          115
+        ],
+        [
+          115,
+          119
+        ],
+        [
+          119,
+          120
+        ],
+        [
+          120,
+          124
+        ]
+      ],
+      "action_script": [
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward, camera pans left slowly",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him"
+      ],
+      "negative_scripts": {
+        "0": [
+          "the man walks backward and strafes right, camera pans left slowly",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left slowly",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left slowly",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left slowly",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left slowly",
+          "the man walks backward and strafes left, camera pans left slowly",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left slowly",
+          "the man walks backward, camera pans left slowly",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him"
+        ],
+        "12": [
+          "the man walks backward and strafes left, camera pans left slowly",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left slowly",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes left, camera pans left slowly",
+          "the man walks backward and strafes left, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left slowly",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left slowly",
+          "the man walks backward and strafes right, camera pans left slowly",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left sharply",
+          "the man walks backward and strafes right, camera pans left slowly",
+          "the man walks backward, camera pans left slowly",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him"
+        ]
+      },
+      "original_vs_bounded_F_differences": [],
+      "frame_action_same_source_indices": true,
+      "temporal_effect_lag": "Not independently inferred; retain dataset alignment, no shifted-label search",
+      "duplicated_adjacent_RGB": 0
+    },
+    {
+      "clip_id": "b784d995827f53977a8067e5b9dc4b5e_D_1155",
+      "sample_id": "b784d995827f53977a8067e5b9dc4b5e",
+      "split": "train",
+      "src_start": 1155,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 39,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 0.9761904761904762,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 40,
+            "D": 41,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 1,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ],
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/b784d995827f53977a8067e5b9dc4b5e_D_1155.npz",
+      "sha256": "9915ca205f3323d990c60fd13491656f2598348f881dd31c5c9281e81e9f7ad9",
+      "bytes": 69948549,
+      "review": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/b784d995827f53977a8067e5b9dc4b5e_D_1155_review.jpg",
+      "review_sha256": "fc11737f249aa839e0350451e04d585f105580dae4400a46cd1b0858b6f9f792",
+      "prompt": "A vast, overgrown field of tall, dew-laden grass dominates the scene, stretching toward distant, mist-shrouded hills under a heavy, brooding sky of layered storm clouds. The environment is rural and untamed, punctuated by scattered leafy trees, weathered wooden utility poles, and faint traces of a dirt path winding through the vegetation; the muted palette consists of deep greens, slate grays, and damp earth tones, evoking a somber, atmospheric realism. Materials appear natural and weathered\u2014rough-hewn wood, coarse grasses, and moist soil\u2014enhanced by diffuse, low-contrast lighting that casts soft shadows and emphasizes the texture of the landscape. This outdoor setting conveys a sense of quiet desolation and immersive naturalism, characteristic of a late 19th-century frontier or pastoral wilderness.",
+      "source_video_sha256": "44c7f63e3096c06c26e72ea8b727f70cb7189418732f989c13b218646ad32b5d",
+      "source_annotations_sha256": "153ee1e09fe10e7c38ece65f53b7d75e1b8cbd3d361d88d065f4b0df21d7eeb0",
+      "source_frame_ids": [
+        "frame_001156",
+        "frame_001157",
+        "frame_001158",
+        "frame_001159",
+        "frame_001161",
+        "frame_001162",
+        "frame_001163",
+        "frame_001164",
+        "frame_001166",
+        "frame_001167",
+        "frame_001168",
+        "frame_001169",
+        "frame_001171",
+        "frame_001172",
+        "frame_001173",
+        "frame_001174",
+        "frame_001176",
+        "frame_001177",
+        "frame_001178",
+        "frame_001179",
+        "frame_001181",
+        "frame_001182",
+        "frame_001183",
+        "frame_001184",
+        "frame_001186",
+        "frame_001187",
+        "frame_001188",
+        "frame_001189",
+        "frame_001191",
+        "frame_001192",
+        "frame_001193",
+        "frame_001194",
+        "frame_001196",
+        "frame_001197",
+        "frame_001198",
+        "frame_001199",
+        "frame_001201",
+        "frame_001202",
+        "frame_001203",
+        "frame_001204",
+        "frame_001206",
+        "frame_001207",
+        "frame_001208",
+        "frame_001209",
+        "frame_001211",
+        "frame_001212",
+        "frame_001213",
+        "frame_001214",
+        "frame_001216",
+        "frame_001217",
+        "frame_001218",
+        "frame_001219",
+        "frame_001221",
+        "frame_001222",
+        "frame_001223",
+        "frame_001224",
+        "frame_001226",
+        "frame_001227",
+        "frame_001228",
+        "frame_001229",
+        "frame_001231",
+        "frame_001232",
+        "frame_001233",
+        "frame_001234",
+        "frame_001236",
+        "frame_001237",
+        "frame_001238",
+        "frame_001239",
+        "frame_001241",
+        "frame_001242",
+        "frame_001243",
+        "frame_001244",
+        "frame_001246",
+        "frame_001247",
+        "frame_001248",
+        "frame_001249",
+        "frame_001251",
+        "frame_001252",
+        "frame_001253",
+        "frame_001254",
+        "frame_001256",
+        "frame_001257",
+        "frame_001258",
+        "frame_001259",
+        "frame_001261",
+        "frame_001262",
+        "frame_001263",
+        "frame_001264",
+        "frame_001266",
+        "frame_001267",
+        "frame_001268",
+        "frame_001269",
+        "frame_001271",
+        "frame_001272",
+        "frame_001273",
+        "frame_001274",
+        "frame_001276",
+        "frame_001277",
+        "frame_001278",
+        "frame_001279",
+        "frame_001281",
+        "frame_001282",
+        "frame_001283",
+        "frame_001284",
+        "frame_001286",
+        "frame_001287",
+        "frame_001288",
+        "frame_001289",
+        "frame_001291",
+        "frame_001292",
+        "frame_001293",
+        "frame_001294",
+        "frame_001296",
+        "frame_001297",
+        "frame_001298",
+        "frame_001299",
+        "frame_001301",
+        "frame_001302",
+        "frame_001303",
+        "frame_001304",
+        "frame_001306",
+        "frame_001307",
+        "frame_001308",
+        "frame_001309"
+      ],
+      "source_indices": [
+        1155,
+        1156,
+        1157,
+        1158,
+        1160,
+        1161,
+        1162,
+        1163,
+        1165,
+        1166,
+        1167,
+        1168,
+        1170,
+        1171,
+        1172,
+        1173,
+        1175,
+        1176,
+        1177,
+        1178,
+        1180,
+        1181,
+        1182,
+        1183,
+        1185,
+        1186,
+        1187,
+        1188,
+        1190,
+        1191,
+        1192,
+        1193,
+        1195,
+        1196,
+        1197,
+        1198,
+        1200,
+        1201,
+        1202,
+        1203,
+        1205,
+        1206,
+        1207,
+        1208,
+        1210,
+        1211,
+        1212,
+        1213,
+        1215,
+        1216,
+        1217,
+        1218,
+        1220,
+        1221,
+        1222,
+        1223,
+        1225,
+        1226,
+        1227,
+        1228,
+        1230,
+        1231,
+        1232,
+        1233,
+        1235,
+        1236,
+        1237,
+        1238,
+        1240,
+        1241,
+        1242,
+        1243,
+        1245,
+        1246,
+        1247,
+        1248,
+        1250,
+        1251,
+        1252,
+        1253,
+        1255,
+        1256,
+        1257,
+        1258,
+        1260,
+        1261,
+        1262,
+        1263,
+        1265,
+        1266,
+        1267,
+        1268,
+        1270,
+        1271,
+        1272,
+        1273,
+        1275,
+        1276,
+        1277,
+        1278,
+        1280,
+        1281,
+        1282,
+        1283,
+        1285,
+        1286,
+        1287,
+        1288,
+        1290,
+        1291,
+        1292,
+        1293,
+        1295,
+        1296,
+        1297,
+        1298,
+        1300,
+        1301,
+        1302,
+        1303,
+        1305,
+        1306,
+        1307,
+        1308
+      ],
+      "latent_RGB_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ],
+        [
+          56,
+          60
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          68,
+          69
+        ],
+        [
+          69,
+          73
+        ],
+        [
+          73,
+          77
+        ],
+        [
+          77,
+          81
+        ],
+        [
+          81,
+          85
+        ],
+        [
+          85,
+          86
+        ],
+        [
+          86,
+          90
+        ],
+        [
+          90,
+          94
+        ],
+        [
+          94,
+          98
+        ],
+        [
+          98,
+          102
+        ],
+        [
+          102,
+          103
+        ],
+        [
+          103,
+          107
+        ],
+        [
+          107,
+          111
+        ],
+        [
+          111,
+          115
+        ],
+        [
+          115,
+          119
+        ],
+        [
+          119,
+          120
+        ],
+        [
+          120,
+          124
+        ]
+      ],
+      "action_script": [
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly",
+        "the man stands still, camera pans left slowly"
+      ],
+      "negative_scripts": {
+        "0": [
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly"
+        ],
+        "12": [
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes right, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera follows him",
+          "the man walks backward and strafes left, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly",
+          "the man stands still, camera pans left slowly"
+        ]
+      },
+      "original_vs_bounded_F_differences": [],
+      "frame_action_same_source_indices": true,
+      "temporal_effect_lag": "Not independently inferred; retain dataset alignment, no shifted-label search",
+      "duplicated_adjacent_RGB": 0
+    },
+    {
+      "clip_id": "b784d995827f53977a8067e5b9dc4b5e_A_1635",
+      "sample_id": "b784d995827f53977a8067e5b9dc4b5e",
+      "split": "train",
+      "src_start": 1635,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 0.6190476190476191,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 33,
+            "A": 26,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ],
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/b784d995827f53977a8067e5b9dc4b5e_A_1635.npz",
+      "sha256": "933441e7a5ebec8c58cefc0a98acb0e0deba4a35f3a495c8e19e8769bc700837",
+      "bytes": 87572913,
+      "review": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/b784d995827f53977a8067e5b9dc4b5e_A_1635_review.jpg",
+      "review_sha256": "964506c97e5c8e46d6cdb39fdb500ccf99fb634d9b6ebe4dde21b9fd89387ef5",
+      "prompt": "A vast, overgrown field of tall, dew-laden grass dominates the scene, stretching toward distant, mist-shrouded hills under a heavy, brooding sky of layered storm clouds. The environment is rural and untamed, punctuated by scattered leafy trees, weathered wooden utility poles, and faint traces of a dirt path winding through the vegetation; the muted palette consists of deep greens, slate grays, and damp earth tones, evoking a somber, atmospheric realism. Materials appear natural and weathered\u2014rough-hewn wood, coarse grasses, and moist soil\u2014enhanced by diffuse, low-contrast lighting that casts soft shadows and emphasizes the texture of the landscape. This outdoor setting conveys a sense of quiet desolation and immersive naturalism, characteristic of a late 19th-century frontier or pastoral wilderness.",
+      "source_video_sha256": "44c7f63e3096c06c26e72ea8b727f70cb7189418732f989c13b218646ad32b5d",
+      "source_annotations_sha256": "153ee1e09fe10e7c38ece65f53b7d75e1b8cbd3d361d88d065f4b0df21d7eeb0",
+      "source_frame_ids": [
+        "frame_001636",
+        "frame_001637",
+        "frame_001638",
+        "frame_001639",
+        "frame_001641",
+        "frame_001642",
+        "frame_001643",
+        "frame_001644",
+        "frame_001646",
+        "frame_001647",
+        "frame_001648",
+        "frame_001649",
+        "frame_001651",
+        "frame_001652",
+        "frame_001653",
+        "frame_001654",
+        "frame_001656",
+        "frame_001657",
+        "frame_001658",
+        "frame_001659",
+        "frame_001661",
+        "frame_001662",
+        "frame_001663",
+        "frame_001664",
+        "frame_001666",
+        "frame_001667",
+        "frame_001668",
+        "frame_001669",
+        "frame_001671",
+        "frame_001672",
+        "frame_001673",
+        "frame_001674",
+        "frame_001676",
+        "frame_001677",
+        "frame_001678",
+        "frame_001679",
+        "frame_001681",
+        "frame_001682",
+        "frame_001683",
+        "frame_001684",
+        "frame_001686",
+        "frame_001687",
+        "frame_001688",
+        "frame_001689",
+        "frame_001691",
+        "frame_001692",
+        "frame_001693",
+        "frame_001694",
+        "frame_001696",
+        "frame_001697",
+        "frame_001698",
+        "frame_001699",
+        "frame_001701",
+        "frame_001702",
+        "frame_001703",
+        "frame_001704",
+        "frame_001706",
+        "frame_001707",
+        "frame_001708",
+        "frame_001709",
+        "frame_001711",
+        "frame_001712",
+        "frame_001713",
+        "frame_001714",
+        "frame_001716",
+        "frame_001717",
+        "frame_001718",
+        "frame_001719",
+        "frame_001721",
+        "frame_001722",
+        "frame_001723",
+        "frame_001724",
+        "frame_001726",
+        "frame_001727",
+        "frame_001728",
+        "frame_001729",
+        "frame_001731",
+        "frame_001732",
+        "frame_001733",
+        "frame_001734",
+        "frame_001736",
+        "frame_001737",
+        "frame_001738",
+        "frame_001739",
+        "frame_001741",
+        "frame_001742",
+        "frame_001743",
+        "frame_001744",
+        "frame_001746",
+        "frame_001747",
+        "frame_001748",
+        "frame_001749",
+        "frame_001751",
+        "frame_001752",
+        "frame_001753",
+        "frame_001754",
+        "frame_001756",
+        "frame_001757",
+        "frame_001758",
+        "frame_001759",
+        "frame_001761",
+        "frame_001762",
+        "frame_001763",
+        "frame_001764",
+        "frame_001766",
+        "frame_001767",
+        "frame_001768",
+        "frame_001769",
+        "frame_001771",
+        "frame_001772",
+        "frame_001773",
+        "frame_001774",
+        "frame_001776",
+        "frame_001777",
+        "frame_001778",
+        "frame_001779",
+        "frame_001781",
+        "frame_001782",
+        "frame_001783",
+        "frame_001784",
+        "frame_001786",
+        "frame_001787",
+        "frame_001788",
+        "frame_001789"
+      ],
+      "source_indices": [
+        1635,
+        1636,
+        1637,
+        1638,
+        1640,
+        1641,
+        1642,
+        1643,
+        1645,
+        1646,
+        1647,
+        1648,
+        1650,
+        1651,
+        1652,
+        1653,
+        1655,
+        1656,
+        1657,
+        1658,
+        1660,
+        1661,
+        1662,
+        1663,
+        1665,
+        1666,
+        1667,
+        1668,
+        1670,
+        1671,
+        1672,
+        1673,
+        1675,
+        1676,
+        1677,
+        1678,
+        1680,
+        1681,
+        1682,
+        1683,
+        1685,
+        1686,
+        1687,
+        1688,
+        1690,
+        1691,
+        1692,
+        1693,
+        1695,
+        1696,
+        1697,
+        1698,
+        1700,
+        1701,
+        1702,
+        1703,
+        1705,
+        1706,
+        1707,
+        1708,
+        1710,
+        1711,
+        1712,
+        1713,
+        1715,
+        1716,
+        1717,
+        1718,
+        1720,
+        1721,
+        1722,
+        1723,
+        1725,
+        1726,
+        1727,
+        1728,
+        1730,
+        1731,
+        1732,
+        1733,
+        1735,
+        1736,
+        1737,
+        1738,
+        1740,
+        1741,
+        1742,
+        1743,
+        1745,
+        1746,
+        1747,
+        1748,
+        1750,
+        1751,
+        1752,
+        1753,
+        1755,
+        1756,
+        1757,
+        1758,
+        1760,
+        1761,
+        1762,
+        1763,
+        1765,
+        1766,
+        1767,
+        1768,
+        1770,
+        1771,
+        1772,
+        1773,
+        1775,
+        1776,
+        1777,
+        1778,
+        1780,
+        1781,
+        1782,
+        1783,
+        1785,
+        1786,
+        1787,
+        1788
+      ],
+      "latent_RGB_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ],
+        [
+          56,
+          60
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          68,
+          69
+        ],
+        [
+          69,
+          73
+        ],
+        [
+          73,
+          77
+        ],
+        [
+          77,
+          81
+        ],
+        [
+          81,
+          85
+        ],
+        [
+          85,
+          86
+        ],
+        [
+          86,
+          90
+        ],
+        [
+          90,
+          94
+        ],
+        [
+          94,
+          98
+        ],
+        [
+          98,
+          102
+        ],
+        [
+          102,
+          103
+        ],
+        [
+          103,
+          107
+        ],
+        [
+          107,
+          111
+        ],
+        [
+          111,
+          115
+        ],
+        [
+          115,
+          119
+        ],
+        [
+          119,
+          120
+        ],
+        [
+          120,
+          124
+        ]
+      ],
+      "action_script": [
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man stands still, camera holds steady",
+        "the man walks forward, camera follows him",
+        "the man walks forward, camera follows him",
+        "the man walks forward, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him",
+        "the man walks forward and strafes left, camera follows him"
+      ],
+      "negative_scripts": {
+        "0": [
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man stands still, camera holds steady",
+          "the man walks forward, camera follows him",
+          "the man walks forward, camera follows him",
+          "the man walks forward, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him"
+        ],
+        "12": [
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man stands still, camera holds steady",
+          "the man walks forward, camera follows him",
+          "the man walks forward, camera follows him",
+          "the man walks forward, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him"
+        ],
+        "24": [
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man stands still, camera holds steady",
+          "the man walks forward, camera follows him",
+          "the man walks forward, camera follows him",
+          "the man walks forward, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes left, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes right, camera follows him",
+          "the man walks forward and strafes left, camera follows him"
+        ]
+      },
+      "original_vs_bounded_F_differences": [],
+      "frame_action_same_source_indices": true,
+      "temporal_effect_lag": "Not independently inferred; retain dataset alignment, no shifted-label search",
+      "duplicated_adjacent_RGB": 0
+    },
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015",
+      "sample_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9",
+      "split": "validation",
+      "src_start": 1015,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "opposing_keys_within_latent_bin"
+          ],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [
+            [
+              12,
+              "A",
+              "D"
+            ]
+          ],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 3,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 38,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ],
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015.npz",
+      "sha256": "92a5eaee0dc46f14dd414f73ef24adfe55dfc0d2f4109d1041108d45d5a8d321",
+      "bytes": 130638772,
+      "review": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015_review.jpg",
+      "review_sha256": "f0d0537241dc1ab12d05514fb0f974c2a34b1f9e30bd7ed9cf92631bdfb3591b",
+      "prompt": "The scene is an outdoor, semi-rural industrial setting nestled against rugged, sun-bleached rock formations and dense coniferous forest. A weathered dirt road winds through overgrown vegetation\u2014patches of green ferns, dry brown underbrush, and wildflowers\u2014leading toward a cluster of aged red-brick buildings with rusted metal roofs, corrugated sheds, and exposed timber framing, suggesting a defunct mining or logging operation. The lighting is bright daylight with soft shadows, casting a warm, slightly desaturated tone across the scene; textures include coarse gravel, cracked concrete, peeling paint, rough-hewn wood, and mossy stone, contributing to a gritty, abandoned atmosphere.",
+      "source_video_sha256": "100199334fb037922b8e804192592cbf1cbd3090dc3fd248d17c8dc75d3888a8",
+      "source_annotations_sha256": "211fccd0ec8c28e18cbc1f36eee4332e51aaca1d3be0b67bf6d1e91976aaf54d",
+      "source_frame_ids": [
+        "frame_001016",
+        "frame_001017",
+        "frame_001018",
+        "frame_001019",
+        "frame_001021",
+        "frame_001022",
+        "frame_001023",
+        "frame_001024",
+        "frame_001026",
+        "frame_001027",
+        "frame_001028",
+        "frame_001029",
+        "frame_001031",
+        "frame_001032",
+        "frame_001033",
+        "frame_001034",
+        "frame_001036",
+        "frame_001037",
+        "frame_001038",
+        "frame_001039",
+        "frame_001041",
+        "frame_001042",
+        "frame_001043",
+        "frame_001044",
+        "frame_001046",
+        "frame_001047",
+        "frame_001048",
+        "frame_001049",
+        "frame_001051",
+        "frame_001052",
+        "frame_001053",
+        "frame_001054",
+        "frame_001056",
+        "frame_001057",
+        "frame_001058",
+        "frame_001059",
+        "frame_001061",
+        "frame_001062",
+        "frame_001063",
+        "frame_001064",
+        "frame_001066",
+        "frame_001067",
+        "frame_001068",
+        "frame_001069",
+        "frame_001071",
+        "frame_001072",
+        "frame_001073",
+        "frame_001074",
+        "frame_001076",
+        "frame_001077",
+        "frame_001078",
+        "frame_001079",
+        "frame_001081",
+        "frame_001082",
+        "frame_001083",
+        "frame_001084",
+        "frame_001086",
+        "frame_001087",
+        "frame_001088",
+        "frame_001089",
+        "frame_001091",
+        "frame_001092",
+        "frame_001093",
+        "frame_001094",
+        "frame_001096",
+        "frame_001097",
+        "frame_001098",
+        "frame_001099",
+        "frame_001101",
+        "frame_001102",
+        "frame_001103",
+        "frame_001104",
+        "frame_001106",
+        "frame_001107",
+        "frame_001108",
+        "frame_001109",
+        "frame_001111",
+        "frame_001112",
+        "frame_001113",
+        "frame_001114",
+        "frame_001116",
+        "frame_001117",
+        "frame_001118",
+        "frame_001119",
+        "frame_001121",
+        "frame_001122",
+        "frame_001123",
+        "frame_001124",
+        "frame_001126",
+        "frame_001127",
+        "frame_001128",
+        "frame_001129",
+        "frame_001131",
+        "frame_001132",
+        "frame_001133",
+        "frame_001134",
+        "frame_001136",
+        "frame_001137",
+        "frame_001138",
+        "frame_001139",
+        "frame_001141",
+        "frame_001142",
+        "frame_001143",
+        "frame_001144",
+        "frame_001146",
+        "frame_001147",
+        "frame_001148",
+        "frame_001149",
+        "frame_001151",
+        "frame_001152",
+        "frame_001153",
+        "frame_001154",
+        "frame_001156",
+        "frame_001157",
+        "frame_001158",
+        "frame_001159",
+        "frame_001161",
+        "frame_001162",
+        "frame_001163",
+        "frame_001164",
+        "frame_001166",
+        "frame_001167",
+        "frame_001168",
+        "frame_001169"
+      ],
+      "source_indices": [
+        1015,
+        1016,
+        1017,
+        1018,
+        1020,
+        1021,
+        1022,
+        1023,
+        1025,
+        1026,
+        1027,
+        1028,
+        1030,
+        1031,
+        1032,
+        1033,
+        1035,
+        1036,
+        1037,
+        1038,
+        1040,
+        1041,
+        1042,
+        1043,
+        1045,
+        1046,
+        1047,
+        1048,
+        1050,
+        1051,
+        1052,
+        1053,
+        1055,
+        1056,
+        1057,
+        1058,
+        1060,
+        1061,
+        1062,
+        1063,
+        1065,
+        1066,
+        1067,
+        1068,
+        1070,
+        1071,
+        1072,
+        1073,
+        1075,
+        1076,
+        1077,
+        1078,
+        1080,
+        1081,
+        1082,
+        1083,
+        1085,
+        1086,
+        1087,
+        1088,
+        1090,
+        1091,
+        1092,
+        1093,
+        1095,
+        1096,
+        1097,
+        1098,
+        1100,
+        1101,
+        1102,
+        1103,
+        1105,
+        1106,
+        1107,
+        1108,
+        1110,
+        1111,
+        1112,
+        1113,
+        1115,
+        1116,
+        1117,
+        1118,
+        1120,
+        1121,
+        1122,
+        1123,
+        1125,
+        1126,
+        1127,
+        1128,
+        1130,
+        1131,
+        1132,
+        1133,
+        1135,
+        1136,
+        1137,
+        1138,
+        1140,
+        1141,
+        1142,
+        1143,
+        1145,
+        1146,
+        1147,
+        1148,
+        1150,
+        1151,
+        1152,
+        1153,
+        1155,
+        1156,
+        1157,
+        1158,
+        1160,
+        1161,
+        1162,
+        1163,
+        1165,
+        1166,
+        1167,
+        1168
+      ],
+      "latent_RGB_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ],
+        [
+          56,
+          60
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          68,
+          69
+        ],
+        [
+          69,
+          73
+        ],
+        [
+          73,
+          77
+        ],
+        [
+          77,
+          81
+        ],
+        [
+          81,
+          85
+        ],
+        [
+          85,
+          86
+        ],
+        [
+          86,
+          90
+        ],
+        [
+          90,
+          94
+        ],
+        [
+          94,
+          98
+        ],
+        [
+          98,
+          102
+        ],
+        [
+          102,
+          103
+        ],
+        [
+          103,
+          107
+        ],
+        [
+          107,
+          111
+        ],
+        [
+          111,
+          115
+        ],
+        [
+          115,
+          119
+        ],
+        [
+          119,
+          120
+        ],
+        [
+          120,
+          124
+        ]
+      ],
+      "action_script": [
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man walks forward, camera follows him",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left slowly",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left slowly",
+        "the man walks forward and strafes left, camera pans left slowly",
+        "the man walks forward and strafes left, camera pans left sharply"
+      ],
+      "negative_scripts": {
+        "0": [
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man strafes left, camera follows him",
+          "the man walks forward, camera follows him",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left slowly",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left slowly",
+          "the man walks forward and strafes left, camera pans left slowly",
+          "the man walks forward and strafes left, camera pans left sharply"
+        ],
+        "24": [
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man walks forward, camera follows him",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left slowly",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left slowly",
+          "the man walks forward and strafes right, camera pans left slowly",
+          "the man walks forward and strafes left, camera pans left sharply"
+        ]
+      },
+      "original_vs_bounded_F_differences": [
+        35
+      ],
+      "frame_action_same_source_indices": true,
+      "temporal_effect_lag": "Not independently inferred; retain dataset alignment, no shifted-label search",
+      "duplicated_adjacent_RGB": 0
+    },
+    {
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_A_1080",
+      "sample_id": "dfec8ed3237860eba14d67c089ecd041",
+      "split": "validation",
+      "src_start": 1080,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "opposing_keys_within_latent_bin"
+          ],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [
+            [
+              12,
+              "A",
+              "D"
+            ],
+            [
+              12,
+              "J",
+              "L"
+            ],
+            [
+              13,
+              "J",
+              "L"
+            ]
+          ],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 1,
+            "A": 1,
+            "S": 0,
+            "D": 41,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 5,
+            "K": 0,
+            "L": 40,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        }
+      ],
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/dfec8ed3237860eba14d67c089ecd041_A_1080.npz",
+      "sha256": "675e3c67d3b6b14007d98e6cf953bc06468cb5a72b5c35a9339a01243fcb9954",
+      "bytes": 97285488,
+      "review": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/data/dfec8ed3237860eba14d67c089ecd041_A_1080_review.jpg",
+      "review_sha256": "f204365ba619244827e7515830420a639338ae90bbeb97eba54cbbc87a164de7",
+      "prompt": "A medieval European village scene unfolds with rustic stone architecture, featuring weathered cobblestone paths, rough-hewn limestone walls, and steeply pitched roofs of aged terracotta tiles; wooden half-timbered structures with dark-stained beams and arched wooden doors complement the stonework, while a small gazebo with a conical tiled roof and dense evergreen shrubs add texture and greenery. The lighting is diffuse and overcast, casting soft shadows and lending a moody, atmospheric tone to the muted palette of greys, ochres, deep browns, and verdant greens. The environment evokes a late afternoon or early evening ambiance in a fortified rural settlement, where aged materials\u2014rough stone, worn wood, and patinated metal\u2014convey centuries of use and exposure to the elements.",
+      "source_video_sha256": "6e4050d896166a9aebee3b62de22b4c7e96da3ede1cf7274c5c9e17c19a38432",
+      "source_annotations_sha256": "46f04a7d22240d8e02c793357d2c6c6c1971cebb91d91ca3fb1787ccb383e262",
+      "source_frame_ids": [
+        "frame_001081",
+        "frame_001082",
+        "frame_001083",
+        "frame_001084",
+        "frame_001086",
+        "frame_001087",
+        "frame_001088",
+        "frame_001089",
+        "frame_001091",
+        "frame_001092",
+        "frame_001093",
+        "frame_001094",
+        "frame_001096",
+        "frame_001097",
+        "frame_001098",
+        "frame_001099",
+        "frame_001101",
+        "frame_001102",
+        "frame_001103",
+        "frame_001104",
+        "frame_001106",
+        "frame_001107",
+        "frame_001108",
+        "frame_001109",
+        "frame_001111",
+        "frame_001112",
+        "frame_001113",
+        "frame_001114",
+        "frame_001116",
+        "frame_001117",
+        "frame_001118",
+        "frame_001119",
+        "frame_001121",
+        "frame_001122",
+        "frame_001123",
+        "frame_001124",
+        "frame_001126",
+        "frame_001127",
+        "frame_001128",
+        "frame_001129",
+        "frame_001131",
+        "frame_001132",
+        "frame_001133",
+        "frame_001134",
+        "frame_001136",
+        "frame_001137",
+        "frame_001138",
+        "frame_001139",
+        "frame_001141",
+        "frame_001142",
+        "frame_001143",
+        "frame_001144",
+        "frame_001146",
+        "frame_001147",
+        "frame_001148",
+        "frame_001149",
+        "frame_001151",
+        "frame_001152",
+        "frame_001153",
+        "frame_001154",
+        "frame_001156",
+        "frame_001157",
+        "frame_001158",
+        "frame_001159",
+        "frame_001161",
+        "frame_001162",
+        "frame_001163",
+        "frame_001164",
+        "frame_001166",
+        "frame_001167",
+        "frame_001168",
+        "frame_001169",
+        "frame_001171",
+        "frame_001172",
+        "frame_001173",
+        "frame_001174",
+        "frame_001176",
+        "frame_001177",
+        "frame_001178",
+        "frame_001179",
+        "frame_001181",
+        "frame_001182",
+        "frame_001183",
+        "frame_001184",
+        "frame_001186",
+        "frame_001187",
+        "frame_001188",
+        "frame_001189",
+        "frame_001191",
+        "frame_001192",
+        "frame_001193",
+        "frame_001194",
+        "frame_001196",
+        "frame_001197",
+        "frame_001198",
+        "frame_001199",
+        "frame_001201",
+        "frame_001202",
+        "frame_001203",
+        "frame_001204",
+        "frame_001206",
+        "frame_001207",
+        "frame_001208",
+        "frame_001209",
+        "frame_001211",
+        "frame_001212",
+        "frame_001213",
+        "frame_001214",
+        "frame_001216",
+        "frame_001217",
+        "frame_001218",
+        "frame_001219",
+        "frame_001221",
+        "frame_001222",
+        "frame_001223",
+        "frame_001224",
+        "frame_001226",
+        "frame_001227",
+        "frame_001228",
+        "frame_001229",
+        "frame_001231",
+        "frame_001232",
+        "frame_001233",
+        "frame_001234"
+      ],
+      "source_indices": [
+        1080,
+        1081,
+        1082,
+        1083,
+        1085,
+        1086,
+        1087,
+        1088,
+        1090,
+        1091,
+        1092,
+        1093,
+        1095,
+        1096,
+        1097,
+        1098,
+        1100,
+        1101,
+        1102,
+        1103,
+        1105,
+        1106,
+        1107,
+        1108,
+        1110,
+        1111,
+        1112,
+        1113,
+        1115,
+        1116,
+        1117,
+        1118,
+        1120,
+        1121,
+        1122,
+        1123,
+        1125,
+        1126,
+        1127,
+        1128,
+        1130,
+        1131,
+        1132,
+        1133,
+        1135,
+        1136,
+        1137,
+        1138,
+        1140,
+        1141,
+        1142,
+        1143,
+        1145,
+        1146,
+        1147,
+        1148,
+        1150,
+        1151,
+        1152,
+        1153,
+        1155,
+        1156,
+        1157,
+        1158,
+        1160,
+        1161,
+        1162,
+        1163,
+        1165,
+        1166,
+        1167,
+        1168,
+        1170,
+        1171,
+        1172,
+        1173,
+        1175,
+        1176,
+        1177,
+        1178,
+        1180,
+        1181,
+        1182,
+        1183,
+        1185,
+        1186,
+        1187,
+        1188,
+        1190,
+        1191,
+        1192,
+        1193,
+        1195,
+        1196,
+        1197,
+        1198,
+        1200,
+        1201,
+        1202,
+        1203,
+        1205,
+        1206,
+        1207,
+        1208,
+        1210,
+        1211,
+        1212,
+        1213,
+        1215,
+        1216,
+        1217,
+        1218,
+        1220,
+        1221,
+        1222,
+        1223,
+        1225,
+        1226,
+        1227,
+        1228,
+        1230,
+        1231,
+        1232,
+        1233
+      ],
+      "latent_RGB_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ],
+        [
+          56,
+          60
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          68,
+          69
+        ],
+        [
+          69,
+          73
+        ],
+        [
+          73,
+          77
+        ],
+        [
+          77,
+          81
+        ],
+        [
+          81,
+          85
+        ],
+        [
+          85,
+          86
+        ],
+        [
+          86,
+          90
+        ],
+        [
+          90,
+          94
+        ],
+        [
+          94,
+          98
+        ],
+        [
+          98,
+          102
+        ],
+        [
+          102,
+          103
+        ],
+        [
+          103,
+          107
+        ],
+        [
+          107,
+          111
+        ],
+        [
+          111,
+          115
+        ],
+        [
+          115,
+          119
+        ],
+        [
+          119,
+          120
+        ],
+        [
+          120,
+          124
+        ]
+      ],
+      "action_script": [
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward and strafes left, camera pans left sharply",
+        "the man walks forward, camera follows him",
+        "the man strafes right, camera follows him",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply",
+        "the man strafes right, camera pans right sharply"
+      ],
+      "negative_scripts": {
+        "0": [
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward and strafes right, camera pans left sharply",
+          "the man walks forward, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply"
+        ],
+        "24": [
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward and strafes left, camera pans left sharply",
+          "the man walks forward, camera follows him",
+          "the man strafes right, camera follows him",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes right, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes left, camera pans right sharply",
+          "the man strafes right, camera pans right sharply"
+        ]
+      },
+      "original_vs_bounded_F_differences": [],
+      "frame_action_same_source_indices": true,
+      "temporal_effect_lag": "Not independently inferred; retain dataset alignment, no shifted-label search",
+      "duplicated_adjacent_RGB": 0
+    }
+  ],
+  "candidates": [
+    {
+      "clip_id": "b784d995827f53977a8067e5b9dc4b5e_D_1205",
+      "sample_id": "b784d995827f53977a8067e5b9dc4b5e",
+      "split": "train",
+      "src_start": 1205,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 39,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.023809523809523808,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 1,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 41,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "b784d995827f53977a8067e5b9dc4b5e_A_1635",
+      "sample_id": "b784d995827f53977a8067e5b9dc4b5e",
+      "split": "train",
+      "src_start": 1635,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 0.6190476190476191,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 33,
+            "A": 26,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "b784d995827f53977a8067e5b9dc4b5e_D_1155",
+      "sample_id": "b784d995827f53977a8067e5b9dc4b5e",
+      "split": "train",
+      "src_start": 1155,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 39,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 0.9761904761904762,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 40,
+            "D": 41,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 1,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_D_0750",
+      "sample_id": "7199292ca430b478bfd0d83cf2e519d8",
+      "split": "train",
+      "src_start": 750,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 35,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.07142857142857142,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 32,
+            "D": 3,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 39,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_D_0700",
+      "sample_id": "7199292ca430b478bfd0d83cf2e519d8",
+      "split": "train",
+      "src_start": 700,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 36,
+            "A": 0,
+            "S": 0,
+            "D": 42,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.02564102564102564,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 31,
+            "D": 1,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_A_1295",
+      "sample_id": "43866101158a538d22c52ac5b2fa606b",
+      "split": "train",
+      "src_start": 1295,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 39,
+            "S": 39,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.023809523809523808,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 1,
+            "S": 1,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 42,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_D_1605",
+      "sample_id": "43866101158a538d22c52ac5b2fa606b",
+      "split": "train",
+      "src_start": 1605,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 33,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.047619047619047616,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 2,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 40,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_A_1245",
+      "sample_id": "43866101158a538d22c52ac5b2fa606b",
+      "split": "train",
+      "src_start": 1245,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 39,
+            "S": 39,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 0.9761904761904762,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 41,
+            "S": 41,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 42,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_D_1555",
+      "sample_id": "43866101158a538d22c52ac5b2fa606b",
+      "split": "train",
+      "src_start": 1555,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 34,
+            "A": 0,
+            "S": 0,
+            "D": 42,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460",
+      "sample_id": "9dc2e5882a294b8d68d6b2b31ff3ef65",
+      "split": "train",
+      "src_start": 1460,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 39,
+            "S": 39,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "opposing_keys_within_latent_bin"
+          ],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [
+            [
+              12,
+              "A",
+              "D"
+            ]
+          ],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 3,
+            "S": 3,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 6,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 0.8717948717948718,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 34,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 5,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410",
+      "sample_id": "9dc2e5882a294b8d68d6b2b31ff3ef65",
+      "split": "train",
+      "src_start": 1410,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 39,
+            "S": 39,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 42,
+            "S": 42,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 42,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "opposing_keys_within_latent_bin"
+          ],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [
+            [
+              24,
+              "A",
+              "D"
+            ]
+          ],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 1,
+            "S": 1,
+            "D": 38,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 4,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555",
+      "sample_id": "9dc2e5882a294b8d68d6b2b31ff3ef65",
+      "split": "train",
+      "src_start": 1555,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 42,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+      "sample_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9",
+      "split": "validation",
+      "src_start": 1140,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 27,
+            "J": 3,
+            "K": 0,
+            "L": 27,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 3,
+            "J": 27,
+            "K": 27,
+            "L": 3,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1090",
+      "sample_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9",
+      "split": "validation",
+      "src_start": 1090,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 0.9523809523809523,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 40,
+            "A": 40,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 42,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "insufficient_lateral_action"
+          ],
+          "lateral_fraction": 0.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 26,
+            "J": 1,
+            "K": 0,
+            "L": 26,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015",
+      "sample_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9",
+      "split": "validation",
+      "src_start": 1015,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "opposing_keys_within_latent_bin"
+          ],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [
+            [
+              12,
+              "A",
+              "D"
+            ]
+          ],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 3,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 38,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_A_1080",
+      "sample_id": "dfec8ed3237860eba14d67c089ecd041",
+      "split": "validation",
+      "src_start": 1080,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "opposing_keys_within_latent_bin"
+          ],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [
+            [
+              12,
+              "A",
+              "D"
+            ],
+            [
+              12,
+              "J",
+              "L"
+            ],
+            [
+              13,
+              "J",
+              "L"
+            ]
+          ],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 1,
+            "A": 1,
+            "S": 0,
+            "D": 41,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 5,
+            "K": 0,
+            "L": 40,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        }
+      ]
+    },
+    {
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_A_1030",
+      "sample_id": "dfec8ed3237860eba14d67c089ecd041",
+      "split": "validation",
+      "src_start": 1030,
+      "windows": [
+        {
+          "latent_start": 0,
+          "latent_stop": 12,
+          "RGB_start": 0,
+          "RGB_stop": 39,
+          "ranking_eligible": true,
+          "rejection_reasons": [],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 39,
+            "A": 39,
+            "S": 0,
+            "D": 0,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 39,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 12,
+          "latent_stop": 24,
+          "RGB_start": 39,
+          "RGB_stop": 81,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "opposing_keys_within_latent_bin"
+          ],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [
+            [
+              23,
+              "A",
+              "D"
+            ]
+          ],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 41,
+            "A": 41,
+            "S": 0,
+            "D": 1,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 42,
+            "K": 0,
+            "L": 0,
+            "Space": 0
+          }
+        },
+        {
+          "latent_start": 24,
+          "latent_stop": 36,
+          "RGB_start": 81,
+          "RGB_stop": 120,
+          "ranking_eligible": false,
+          "rejection_reasons": [
+            "opposing_keys_within_latent_bin"
+          ],
+          "lateral_fraction": 1.0,
+          "conflicting_bins": [
+            [
+              24,
+              "J",
+              "L"
+            ]
+          ],
+          "unsupported_counts": {
+            "Q": 0,
+            "E": 0,
+            "Space": 0
+          },
+          "key_counts": {
+            "W": 0,
+            "A": 0,
+            "S": 0,
+            "D": 39,
+            "Q": 0,
+            "E": 0,
+            "I": 0,
+            "J": 3,
+            "K": 0,
+            "L": 39,
+            "Space": 0
+          }
+        }
+      ]
+    }
+  ],
+  "selection_policy": "At most2 per episode, nonoverlapping full124 source spans; maximize eligible later windows then all windows, tie earlier starts. At most8train+4validation. No model results.",
+  "preprocessing": "Decode original source frame to RGB; PIL bicubic scale to height480, nearest-even width854, center crop832; lossless npz for training, JPEG review only.",
+  "action_policy": "Native global bins1/4/4/4/4; camera F neighbor bounded within12latent window; commit past rows once. Raw unnormalized pose translation stored, never used as text conditioning.",
+  "camera_speed_caveat": "F is measured current-window consequence proxy, not an independently recorded exogenous speed command; preserve in A/D negative and report separately.",
+  "counterfactual_caveat": "Swapped action has no observed video truth; ranking is statistical transition discrimination, not paired causal-effect GT.",
+  "wall_seconds": 135.22635871497914,
+  "selected_ids": [
+    "43866101158a538d22c52ac5b2fa606b_A_1245",
+    "43866101158a538d22c52ac5b2fa606b_D_1555",
+    "7199292ca430b478bfd0d83cf2e519d8_D_0700",
+    "9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410",
+    "b784d995827f53977a8067e5b9dc4b5e_D_1155",
+    "b784d995827f53977a8067e5b9dc4b5e_A_1635",
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015",
+    "dfec8ed3237860eba14d67c089ecd041_A_1080"
+  ],
+  "episode_split_disjoint": true,
+  "full124_source_spans_nonoverlapping_within_episode": true,
+  "counts": {
+    "train": 6,
+    "validation": 2
+  },
+  "total_bytes": 748307109,
+  "remaining": "GT visual review, VAE/text encoding and future-prefix checks, differentiable forward and memory preflight. No optimization."
+}

@@ -1,0 +1,83 @@
+{
+  "at": "2026-10-09T16:15:36.363842+08:00",
+  "status": "complete_static_review",
+  "method": "Every current RGB frame in half-resolution all-frame sheets, native body crops at predeclared positions, and history/current boundary. Not real-time playback review.",
+  "cases": [
+    {
+      "name": "parking_historyD_currentA",
+      "frames_per_method": 42,
+      "methods": [
+        "zero",
+        "fm_only",
+        "fm_action"
+      ],
+      "observation": "All preserve parking scene and person, with positive horizontal response. Repeated arms/torso around RGB55–68 remain. FM-only appears less duplicated than zero around RGB59–62 but does not remove ghosting; FM+action retains substantial multi-arm artifacts and is not clearly better than FM-only.",
+      "local_action_and_structure_pass": false
+    },
+    {
+      "name": "parking_historyD_currentD",
+      "frames_per_method": 42,
+      "methods": [
+        "zero",
+        "fm_only",
+        "fm_action"
+      ],
+      "observation": "All retain negative horizontal response and recognizable walking figure through RGB39–80. No severe person disintegration or scene switch evident; small limb blur remains. FM+action reduces flow magnitude and is not visibly superior.",
+      "local_action_and_structure_pass": true
+    },
+    {
+      "name": "parking_historyA_currentA",
+      "frames_per_method": 42,
+      "methods": [
+        "zero",
+        "fm_only",
+        "fm_action"
+      ],
+      "observation": "All retain positive background response and scene. FM-only is similar to zero. FM+action has visible duplicated forearm around RGB59–62; late leg transparency/smearing remains. Initial boundary displacement persists in all; small MAD reductions do not establish visual recovery.",
+      "local_action_and_structure_pass": false
+    },
+    {
+      "name": "parking_historyA_currentD",
+      "frames_per_method": 42,
+      "methods": [
+        "zero",
+        "fm_only",
+        "fm_action"
+      ],
+      "observation": "All retain negative horizontal response and identifiable walking figure/parking scene through the full current window. Mild leg blur and early pose transition remain, without sustained severe multi-body breakup. Both trained arms weaken negative flow magnitude; no clear FM+action structural benefit over FM-only.",
+      "local_action_and_structure_pass": true
+    },
+    {
+      "name": "118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015",
+      "frames_per_method": 39,
+      "methods": [
+        "zero",
+        "fm_only",
+        "fm_action"
+      ],
+      "observation": "Person and outdoor scene remain recognizable in all39 frames of each method. Both trained arms reduce first-frame background smear/boundary MAD compared with zero and look nearly identical to each other. Initial scale/pose/view transition is still abrupt from RGB81 to82; generated path is not proven faithful to observed joint controls. No sustained severe body breakup but no added action-loss quality benefit.",
+      "severe_body_breakup": false,
+      "pure_action_pass": null,
+      "structure_recovered": false
+    },
+    {
+      "name": "dfec8ed3237860eba14d67c089ecd041_A_1080",
+      "frames_per_method": 39,
+      "methods": [
+        "zero",
+        "fm_only",
+        "fm_action"
+      ],
+      "observation": "All39 current frames keep the character and dark cobbled-road scene recognizable. Zero, FM-only and FM+action are very similar; initial pose/view jump versus the same GT history remains, and later trajectory does not establish observed-action fidelity. No clear added structural benefit or gross new degradation from action ranking.",
+      "severe_body_breakup": false,
+      "pure_action_pass": null,
+      "structure_recovered": false
+    }
+  ],
+  "full_E1_pass": false,
+  "stage1_accepted": false,
+  "pending": [],
+  "current_RGB_frames_reviewed": 738,
+  "action_ranking_additional_benefit_demonstrated": false,
+  "decision": "Stop this four-update trial; no automatic extension and no promotion to AnyFlow/Stage2."
+}

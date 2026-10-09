@@ -1,0 +1,67 @@
+{
+  "name": "E2_real_observed_transition_preflight_v2",
+  "at": "2026-10-09T06:49:17.538521+08:00",
+  "preparation_sha256": "9c5847d022abfd53ff281f743675eefb086d19763e3b6b25fc4c49bea4c327bf",
+  "GT_review_sha256": "ccb905be747ae3302a60b0fbe5f4e4b9223c2f647ab6fb6a50f1a392d3f1a733",
+  "runtime_manifest_sha256": "bda5cbaa1f55efab5f6335587b2725243c8f168baced2f54f9f761e0df1daf8f",
+  "sources": {
+    "prepare_data.py": "baa628ff17deae7cde1cd6466d6d06db66a273f7323f0d499d3020097ac73fa1",
+    "encode_data.py": "0d7696f6a0a098f189dd06a30e496aa2524483500f34b667562443a2e52cd544"
+  },
+  "protocol_scope": "Data and differentiable-path preflight only. No optimizer until parameter bank, LR, noise strata, margin/lambda and memory preflight registered.",
+  "fixed": {
+    "frames": 124,
+    "latent_frames": 37,
+    "current_chunk": 12,
+    "windows": [
+      [
+        0,
+        12
+      ],
+      [
+        12,
+        24
+      ],
+      [
+        24,
+        36
+      ]
+    ],
+    "display_boundaries": [
+      0,
+      39,
+      81,
+      120
+    ],
+    "history_conditioning": "N",
+    "history_chunks": 5,
+    "anchor": "single original I0",
+    "position_contract": "Known static head + horizon37 times FIRST actual clause length, held fixed across all forks",
+    "future_rows": "Physical deletion before refiner/DiT",
+    "hidden_KV": "none; recompute every sigma",
+    "initialization": "Original H3 + released action LoRA; no trained causal/AnyFlow adapters",
+    "local_eval_steps": 30,
+    "shift": 2.22,
+    "seed": 13
+  },
+  "supervision": "Observed positive FM. Eligible current lateral A/D swap ranking is statistical negative, not counterfactual video truth.",
+  "CPU_tests": "actual tiny-H3 FP32/BF16 N-inference identity, same gradients with checkpoint, detached history, future clause content/length invariance; bounded controls",
+  "budget": {
+    "GPU_max": 3,
+    "encoding_GPUs": [
+      1,
+      2
+    ],
+    "optimizers_launched": 0,
+    "future_training_max_updates_per_arm": 16,
+    "first_checkpoint": 4
+  },
+  "restrictions": [
+    "No future-derived per-episode translation scale enters conditioning",
+    "F is current-window measured outcome proxy; preserve and disclose",
+    "Train and validation split by source episode; full124 spans do not overlap inside episode",
+    "Only sampled GT inspection so far"
+  ],
+  "CPU_test_log_sha256": "87cde1ad49844a3b8896431a63a96fa8a93ee15c3c2c73a20cf5afeb128c2fc1",
+  "revision_reason": "Attempt1 VAE checks reached text-position audit then failed bitwise FP64 equality. Native-offset-plus-shift had ~1e-13 roundoff dependent on future length. Rebuild native fractional time grid from fixed origin directly; no semantic topology/model change. No training occurred."
+}

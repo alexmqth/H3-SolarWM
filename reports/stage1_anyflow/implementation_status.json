@@ -1,0 +1,791 @@
+{
+  "status": "shift222_training64_complete_AD4_failed_8step_eval_running_shift12_training64",
+  "gpu_training": "GPU0 training64 complete, A4 failed and remaining eval running; GPU1 training64 running. Four-GPU read-only probe complete; isolated trainer CPU resume checked, no33B parallel optimizer updates.",
+  "source_revision_SolarWM": "ce1da4e7705391eda8eeda6016c0fd3f614b975e",
+  "tests": {
+    "command": "python -m pytest -q tests",
+    "working_directory": "H3-World",
+    "passed": 84,
+    "seconds": 7.84,
+    "receipt": "training_shift12/main_integration_tests.log",
+    "note": "Previously completed after source integration; not rerun for documentation changes."
+  },
+  "cpu_smoke": {
+    "scope": "random-small-H3 CPU integration",
+    "optimizer_steps": 8,
+    "qkv_parameters_changed": true,
+    "target_time_parameters_changed": true,
+    "validation_before": 2.7505198270082474,
+    "validation_after": 2.7475870698690414
+  },
+  "export_patch": {
+    "applies_after_action_and_causal": true,
+    "optional_long_mask_compatible": true,
+    "rebuilt_model_and_pipeline_identical_to_tested_source": true,
+    "fresh_export_tests_passed": 10
+  },
+  "hashes": {
+    "code/causal/anyflow.py": "27b6eb22d16b6047642269604f1ddf249d8ab602fa5c8593b240144c48abc805",
+    "code/causal/anyflow_reference.py": "c7bfe5bd01c404f7171449423f84226b6992c2ecbaa7ec06b3e9f30653bed921",
+    "code/causal/train_stage1_anyflow.py": "d72a9e966f4ea050113b7c7a8d1ca7097473781465e3887a548e9a4937b920be",
+    "code/causal/h3_cached.py": "91a0ea05f3effdaee502fd7377df760ef6ee1f97cbc6057cf232edbd791cc83e",
+    "code/causal/benchmark.py": "f7cf78f3af07877dee03176ea23bf422390ba9c33af183ccfae3ac23984aa7a4",
+    "code/causal/ANYFLOW_PROVENANCE.md": "82fa26f3188203d0cb08341a17312e5451606a5e8c4c5f1d418e45e0ad32a00e",
+    "code/causal/SOLARWM_LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "code/diffsynth_anyflow.patch": "01388522fe5b4845ee25f347d8e8d761f67b7b63b5a8e1a7a123c564880b8892",
+    "tests/test_anyflow.py": "82d59a74f457c054fd315308b0352aa77755c994159d9d12e50fb05f5a8780cd",
+    "code/causal/report_stage1_anyflow.py": "609d462231dee36b3792ca8cecc593b764a9cddd7cfe0c8fd6985e5c82338943",
+    "code/causal/position_contract.py": "9c94f87ccdd26831f774178c5fb9ca730fc8f7ae740a498565fe62790ce665f7",
+    "code/causal/make_anyflow_pilot_grid.py": "b4799588b8540ad89d10bd2147f1fcc88e5b54466fab0f0091f26d7e6a3141c6",
+    "tests/test_action_position_contract.py": "b32404e4ddcb080f40db4ddc74c06cb5add04e658f9421fa67a0522b5ef80e9d",
+    "code/causal/anyflow_sampling.py": "9e4202bb00e528115901bc07975d0ef78f3fc1cc91190aa58bfd19ade4ecfd46",
+    "tests/test_anyflow_sampling.py": "d0b706c4ef452c9d51a84351ec26fc787bd96038a61926ee64a08485a963b0ac",
+    "code/causal/training_state.py": "b2e202aa814ade4aa09abc4e3ad08b6146a467f044fdb1a985fb6e703d165034",
+    "code/causal/h3_precision.py": "ef037a952c6a1ed54c92e06300bcc8abb615424131edd74aef55abee8699cfc2",
+    "code/diffsynth_native_fp32.patch": "dfbd43a097ca7a6c9e433d6f84d55acb23969165a5ada6917f844f00d6916854",
+    "tests/test_h3_precision.py": "7f811d18c9d20d54bee7e368e8cd902dd1104638323fb2ace54895ec99d8535e",
+    "code/causal/stage1_lora.py": "cd186e28689c7477eab101512027e3787e71db314267e5445db87e32bf17c05e",
+    "code/causal/stage1_protocol.py": "b8b31e698f6687d4e3c5ab10326a5011748a0973b6bad884e97a8a49bd95eafc",
+    "tests/test_stage1_lora.py": "7583b29e60935f741ae9b3af22c486c4d68a7120ce8499dd38ce613e3721ac81",
+    "tests/test_stage1_protocol.py": "0968fd6f94b4db3f70461242e0b3beb4f3fe006895636967995372383719a27a",
+    "code/causal/clean_history_graph.py": "b567854d0d3e7c31af21ed65ddf3930410313d0fcac44e9873be00bd3d21bc48",
+    "tests/test_clean_history_graph.py": "f734fb2bbf14991818589e2c4e4ac78be02fce260998914bd56440d7adee2f47",
+    "tests/test_training_timestep_shift.py": "862afed875ea7c13ad14673ae2fcb683a6397b0947d3dffd611a329db62f3ee4"
+  },
+  "gpu2_smoke": {
+    "updates": 1,
+    "peak_allocated_MiB": 17221.7666015625,
+    "total_seconds": 499.7158607621677,
+    "qkv_changed": true,
+    "target_time_changed": true,
+    "decoded_frames": 39,
+    "steps_per_chunk": 4,
+    "denoiser_forwards": 12,
+    "clean_commits": 3,
+    "A_horizontal_flow": -1.2963772356314094,
+    "visual_review": "clear ghosting and degradation in later frames; not accepted"
+  },
+  "latest_regression": {
+    "command": "python -m pytest -q tests/test_anyflow.py",
+    "passed": 12,
+    "seconds": 7.13,
+    "includes": "FP32 trajectory with BF16 H3 and clean commit; RGB anchor explicit output dtype"
+  },
+  "pilot_progress_snapshot": {
+    "at": "2026-10-08T04:25:15.158304+08:00",
+    "verified_queue_pid": 227188,
+    "active": "anyflow_8_4_D_generated",
+    "active_pid": 1167463,
+    "AnyFlow_updates_completed": 16,
+    "FM_updates_completed": 16,
+    "completed_evaluations": 13,
+    "stage1_quality_gate": "NOT_ACCEPTED"
+  },
+  "optional_position_contract": {
+    "enabled_in_current_benchmark": false,
+    "small_H3_tests_passed": 2,
+    "constant_AD_coordinates_unchanged": true,
+    "scope": "Future action clause-length invariance; not an established cause of visual failure."
+  },
+  "official_target_time_policy_correction": {
+    "official": "frozen MLP; LoRA-only optimizer",
+    "old_pilot": "trainable MLP variant",
+    "corrected_frozen_cpu_training_verified": true,
+    "corrected_frozen_33B_training": "complete_16_updates_verified_frozen_time",
+    "uniform_schedule_tests_passed": 4
+  },
+  "followup_queues": [
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform",
+      "status": "complete",
+      "pid": 919787,
+      "verified_at": "2026-10-08T04:52:18.338911+08:00"
+    },
+    {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-04/stage1_anyflow39_frozen_time",
+      "status": "running",
+      "pid": 1033264,
+      "verified_at": "2026-10-08T04:52:18.339026+08:00"
+    }
+  ],
+  "sampling_grid_regression": {
+    "command": "python -m pytest -q tests/test_anyflow_sampling.py",
+    "passed": 4,
+    "seconds": 1.25
+  },
+  "frozen_optimizer_state_save": {
+    "optimizer_step": 2,
+    "adam_parameter_states": 4,
+    "weight_hashes_verified": true,
+    "identical_QKV_to_run_without_state_save": true,
+    "logical_rng_saved": true,
+    "global_rng_saved": true,
+    "restore_CLI_implemented": true
+  },
+  "exact_resume_cpu_validation": {
+    "scope": "small actual-H3 CPU continuation; not pretrained CUDA/video acceptance",
+    "cases": [
+      {
+        "case": "frozen",
+        "full_updates": 4,
+        "resumed_from": 2,
+        "all_adapter_tensors_bitwise_equal": true,
+        "adam_state_bitwise_equal": true,
+        "logical_and_global_rng_equal": true,
+        "all_loss_and_gradient_records_equal": true
+      },
+      {
+        "case": "trainable",
+        "full_updates": 4,
+        "resumed_from": 2,
+        "all_adapter_tensors_bitwise_equal": true,
+        "adam_state_bitwise_equal": true,
+        "logical_and_global_rng_equal": true,
+        "all_loss_and_gradient_records_equal": true
+      },
+      {
+        "case": "fm",
+        "full_updates": 4,
+        "resumed_from": 2,
+        "all_adapter_tensors_bitwise_equal": true,
+        "adam_state_bitwise_equal": true,
+        "logical_and_global_rng_equal": true,
+        "all_loss_and_gradient_records_equal": true
+      }
+    ],
+    "rejected": [
+      "changed_learning_rate",
+      "nonincreasing_total_steps",
+      "mixed_adapter_weights",
+      "missing_optimizer_and_rng"
+    ],
+    "implementation_location": "Main H3-World and submission source; existing runtime snapshots remain isolated."
+  },
+  "source_integration": {
+    "pilot_terminal_before_edit": true,
+    "old_trainer_benchmark_snapshot": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/original_source",
+    "target_time_default": "frozen",
+    "uniform_grid": "explicit opt-in; native default preserved",
+    "resume_steps": "target total updates"
+  },
+  "uniform_results": [
+    {
+      "step": 16,
+      "action": "A",
+      "flow": -2.695826397130364,
+      "visual_gate": "FAIL sampled frames"
+    },
+    {
+      "step": 16,
+      "action": "D",
+      "flow": -2.2533843015369617,
+      "visual_gate": "FAIL sampled frames"
+    },
+    {
+      "step": 0,
+      "action": "A",
+      "flow": -2.7110837572499324,
+      "visual_gate": "FAIL sampled frames"
+    },
+    {
+      "step": 0,
+      "action": "D",
+      "flow": -2.1405387144339714,
+      "visual_gate": "FAIL sampled frames"
+    }
+  ],
+  "frozen_time_running": {
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-05/stage1_anyflow39_gpu0",
+    "pid": 1633892,
+    "gpu": 0,
+    "status": "complete_16updates_6evaluations_failed",
+    "verified_at": "2026-10-08T05:14:56.778065+08:00"
+  },
+  "conditional_continuation": {
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-05/stage1_anyflow39_gpu0_extend64_fullmem",
+    "pid": 1669161,
+    "status": "completed32_deferred64",
+    "verified_at": "2026-10-08T06:47:38.173130+08:00",
+    "total_update_targets": [
+      32,
+      64
+    ],
+    "trigger": "all complete frozen16 A/D numeric gates fail; stop for visual review if step16/32 passes",
+    "gpu": 0,
+    "vram_reserve_gib": 6
+  },
+  "frozen_time_gpu_parameter_policy": {
+    "at": "2026-10-08T05:02:16.637963+08:00",
+    "scope": "Real pretrained-H3 GPU2 frozen-time updates0->4; not video-quality acceptance",
+    "optimizer_updates": 4,
+    "changed_qkv_blocks": [
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "qkv_weight_max_abs_change": 0.00011996389366686344,
+    "target_time_weights_bitwise_unchanged": true,
+    "target_time_grad_norms": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "adam_parameter_states": 32,
+    "checkpoint_hashes_verified": true
+  },
+  "gpu0_migration": {
+    "at": "2026-10-08T05:11:14.875302+08:00",
+    "scope": "Real pretrained GPU2->GPU0 load/save at step08, before resumed optimizer updates; not an uninterrupted-training comparison",
+    "optimizer_step": 8,
+    "state_equal": {
+      "optimizer": true,
+      "logical_rng_state": true,
+      "cpu_rng_state": true,
+      "cuda_rng_state": true,
+      "updates": true,
+      "teacher_artifacts": true,
+      "optimizer_step": true
+    },
+    "adapter_values_equal": {
+      "causal_adapter.pt": true,
+      "anyflow_adapter.pt": true,
+      "action_adapter.pt": true
+    },
+    "visible_devices": "0",
+    "all_checks_passed": true
+  },
+  "updated_at": "2026-10-08T11:48:31.337265+08:00",
+  "current_gpu0": {
+    "at": "2026-10-08T12:46:06.892627+08:00",
+    "gpu": 0,
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_full_history_duration64",
+    "status": "running",
+    "controller_pid": 136179,
+    "active": {
+      "label": "full_history_step64_A_8step_native",
+      "pid": 1528390,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-08/stage1_anyflow39_full_history/runtime/code/causal/benchmark.py",
+        "--modes",
+        "cached",
+        "--num-frames",
+        "39",
+        "--steps",
+        "8",
+        "--seed",
+        "13",
+        "--flow-shift",
+        "2.22",
+        "--anyflow-sigma-grid",
+        "native",
+        "--precision-profile",
+        "h3_fp32",
+        "--chunk-frames",
+        "5",
+        "--history-chunks",
+        "5",
+        "--cache-device",
+        "cpu",
+        "--action-preset",
+        "A",
+        "--action-prefix-mode",
+        "causal",
+        "--action-feedback",
+        "--anchor-mode",
+        "dynamic_last_frame_rgb_dual",
+        "--causal-adapter",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_full_history_duration64/train_64/step_64/causal_adapter.pt",
+        "--causal-action-adapter",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_full_history_duration64/train_64/step_64/action_adapter.pt",
+        "--stage1-lora",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_full_history_duration64/train_64/step_64/stage1_lora.pt",
+        "--anyflow-adapter",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_full_history_duration64/train_64/step_64/anyflow_adapter.pt",
+        "--out-dir",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_full_history_duration64/eval/anyflow/step_64/generated_8step_native/A",
+        "--save-latents"
+      ],
+      "directory": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_full_history_duration64/eval/anyflow/step_64/generated_8step_native/A"
+    },
+    "vram_reserve_gib": 6,
+    "stage1_quality_gate": "NOT_ACCEPTED"
+  },
+  "fp32_inputs_probe": {
+    "status": "complete",
+    "records": 24,
+    "restoration_checks": 8,
+    "control_replay_matches": 16,
+    "wall_seconds": 322.7921059820801,
+    "allocated_peak_MiB": 37736.57861328125,
+    "conclusion": "mixed endpoint sensitivity; not derivative-error truth or video success"
+  },
+  "native_fp32_integration": {
+    "main_source_tests_passed": 41,
+    "main_source_tests_seconds": 5.9,
+    "export_tests_passed": 23,
+    "legacy_default_preserved": true,
+    "live_runtime_unchanged": true,
+    "gpu_step01_resume_audit": "native_fp32_candidate/native_gpu_resume_audit.json"
+  },
+  "fullscope_candidate": {
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-06/stage1_anyflow39_fullscope",
+    "pid": 2666006,
+    "status": "train01_complete_train16_running",
+    "logical_linear_targets": 312,
+    "trainable_parameters": 43237376,
+    "rank": 8,
+    "alpha": 8,
+    "cpu_tests_passed": 44,
+    "gpu_fit": "1-update complete without OOM",
+    "video_quality": "not yet evaluated",
+    "source_location": "isolated runtime + exported report patch; not merged into main code",
+    "gpu_allocated_peak_MiB": 37629.4775390625,
+    "gpu_resume_audit": true
+  },
+  "native_fp32_16_training": {
+    "status": "complete",
+    "additional_updates": 15,
+    "wall_seconds": 1436.0695246830583,
+    "allocated_peak_MiB": 38652.876953125,
+    "A_endpoint_raw": [
+      74.74079895019531,
+      55.934112548828125
+    ],
+    "D_endpoint_raw": [
+      23.89067268371582,
+      22.690614700317383
+    ],
+    "stage1_gate": "NOT_ACCEPTED; videos still evaluating"
+  },
+  "native_fp32_16_A4": {
+    "flow": -1.2517821473118507,
+    "visual": "FAIL sampled frames; severe later ghosting/fog, no clear improvement from init",
+    "input_fairness": true,
+    "frame_count": 39
+  },
+  "native_fp32_results": {
+    "status": "complete_failed_gate",
+    "completed_videos": 6,
+    "AD_separation_4step": -0.03905567271929056,
+    "AD_separation_8step": 0.14487461981020466,
+    "visual": "4-step severe late ghosting/fog;8-step more intact but no clear improvement versus legacy and wrong A direction"
+  },
+  "fullscope_current_snapshot": {
+    "at": "2026-10-08T08:03:04.752819+08:00",
+    "updates": 16,
+    "training_status": "complete",
+    "training_wall_1_to_16_seconds": 1963.5963038648479,
+    "GPU_allocated_peak_MiB": 37386.20947265625,
+    "active": "fullscope_fp32_step16_A_4step",
+    "active_pid": 3213786,
+    "completed_evaluations": 0
+  },
+  "fullscope_main_integration": {
+    "at": "2026-10-08T07:55:02.272210+08:00",
+    "passed": 67,
+    "seconds": 6.59,
+    "default_scope": "tail_qkv",
+    "new_optional_scope": "all_qkvo_ffn",
+    "FM_and_AnyFlow_evaluation_supported": true,
+    "live_runtimes_unchanged": true
+  },
+  "fullscope_completed_evaluation": {
+    "at": "2026-10-08T08:32:14.470422+08:00",
+    "A4": -1.1985360350655883,
+    "D4": -1.2421144356853084,
+    "A8": -1.3053472794984515,
+    "D8": -1.49647114857247,
+    "gate": "NOT_ACCEPTED",
+    "diagnostic": "reports/stage1_anyflow/fullscope_candidate/fullscope16_AD_original_4step_8step_diagnostic.mp4"
+  },
+  "clean_history_gradient": {
+    "at": "2026-10-08T09:02:17.371875+08:00",
+    "cpu_only": false,
+    "isolated_runtime": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-08/stage1_clean_history_gradient/runtime",
+    "full_suite_passed_before_FM_expansion": 72,
+    "expanded_relevant_tests_passed": 9,
+    "exact_resume_passed": true,
+    "queued_controller_pid": 3542531,
+    "gpu_probe_status": "complete",
+    "not_official_fused_two_stream": true,
+    "sealed_capture_tests_passed": 10,
+    "sealed_math_and_resume_identical": true,
+    "gpu_probe_report": "reports/stage1_anyflow/clean_history_gradient/GPU_RESULTS.md",
+    "gpu_allocated_peak_MiB": 40973.345703125,
+    "gpu_comparison": {
+      "raw_losses_identical": true,
+      "raw_loss_abs_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gradient_difference_norm": 0.0006512731211902783,
+      "gradient_cosine": 0.9118130567291667,
+      "changed_gradient_tensors": 309
+    },
+    "main_integrated": true,
+    "default_mode": "detached",
+    "optional_mode": "full",
+    "main_tests_passed": 77,
+    "main_tests_seconds": 6.25
+  },
+  "fullscope_FM_snapshot": {
+    "at": "2026-10-08T09:02:17.371875+08:00",
+    "training_status": "complete",
+    "updates": 16,
+    "wall_seconds": 1040.3036609240808,
+    "allocated_peak_MiB": 37970.6005859375,
+    "matched_init_audit": true,
+    "active_label": null,
+    "active_pid": null,
+    "completed_evaluations": 4,
+    "status": "complete_failed_gate",
+    "A4": -1.0764016932562779,
+    "D4": -1.290064774061504,
+    "A8": -1.1352842363872027,
+    "D8": -1.4561852844137895,
+    "result": "reports/stage1_anyflow/fullscope_fm_control/FINAL_RESULTS.md"
+  },
+  "full_history_candidate": {
+    "at": "2026-10-08T09:52:03.113075+08:00",
+    "status": "complete_failed_gate",
+    "controller_pid": 3677838,
+    "active_pid": null,
+    "directory": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-08/stage1_anyflow39_full_history",
+    "gate": "NOT_ACCEPTED",
+    "independent_gpu_trajectory_caveat": {
+      "at": "2026-10-08T09:12:44.099970+08:00",
+      "no_history_updates": [
+        {
+          "step": 1,
+          "chunk": 0,
+          "full_loss": 0.094029794447124,
+          "detached_loss": 0.094029794447124,
+          "full_gradient_norm": 0.000945613719522953,
+          "detached_gradient_norm": 0.0009447741322219372,
+          "samples_identical": true
+        },
+        {
+          "step": 2,
+          "chunk": 0,
+          "full_loss": 0.07130152080208063,
+          "detached_loss": 0.07128244638442993,
+          "full_gradient_norm": 0.0018805760191753507,
+          "detached_gradient_norm": 0.0012291689636185765,
+          "samples_identical": false
+        }
+      ],
+      "interpretation": "Actual initialization/RNG match, but independent GPU trajectories are not bitwise identical even with no history; reason under investigation. Do not attribute tiny later differences exclusively to history gradients.",
+      "probe": "outputs/2026-10-08-09/stage1_gradient_repeatability",
+      "probe_gpu": 1
+    },
+    "training_updates": 16,
+    "history_chunks_covered": [
+      0,
+      1,
+      2
+    ],
+    "step04_checkpoint_audit": "passed",
+    "training_status": "complete",
+    "wall_seconds": 2863.1523022344336,
+    "gpu_allocated_peak_MiB": 41310.6044921875,
+    "post_training_audit": true,
+    "active_label": null
+  },
+  "latest_main_regression": {
+    "at": "2026-10-08T09:55:06.779182+08:00",
+    "passed": 84,
+    "seconds": 7.84,
+    "command": "CUDA_VISIBLE_DEVICES= python -m pytest -q tests"
+  },
+  "gpu_gradient_repeatability": {
+    "status": "complete",
+    "gpu": 1,
+    "pid": 3804274,
+    "no_optimization": true,
+    "scope": "same-state no-history gradient repeatability",
+    "comparison": {
+      "detached_2": {
+        "samples_identical": true,
+        "gradient_difference_norm": 1.2636060868617672e-05,
+        "gradient_cosine": 0.9999105732382029,
+        "changed_gradient_tensors": 309,
+        "max_gradient_abs_difference": 2.3554616745968815e-07
+      },
+      "full_no_history": {
+        "samples_identical": true,
+        "gradient_difference_norm": 1.3149409504177496e-05,
+        "gradient_cosine": 0.9999032094951819,
+        "changed_gradient_tensors": 309,
+        "max_gradient_abs_difference": 2.5071221898542717e-07
+      }
+    },
+    "result": "reports/stage1_anyflow/gradient_repeatability/RESULTS.md"
+  },
+  "full_history_step04_evaluation": {
+    "at": "2026-10-08T09:20:27.441218+08:00",
+    "status": "complete_failed_gate",
+    "controller_pid": 3859336,
+    "active_pid": null,
+    "gpu": 1,
+    "step": 4,
+    "steps_per_chunk": 8,
+    "gate": "NOT_ACCEPTED",
+    "A": -1.3089454315210645,
+    "D": -1.4948936716506356,
+    "AD_separation": 0.18594824012957112,
+    "report": "reports/stage1_anyflow/full_history_step04/FINAL_RESULTS.md"
+  },
+  "training_shift12": {
+    "at": "2026-10-08T09:46:46.569252+08:00",
+    "status": "complete_failed_gate",
+    "controller_pid": 4006869,
+    "active_pid": null,
+    "gpu": 1,
+    "training_shift": 12.0,
+    "validation_shift": 2.22,
+    "inference_shift": 2.22,
+    "source_scope": "optional flags integrated; live GPU uses frozen isolated runtime",
+    "cpu_relevant_tests_passed": 17,
+    "cpu_exact_resume": true,
+    "initial_gpu_audit": true,
+    "report": "reports/stage1_anyflow/training_shift12/README.md",
+    "main_integrated": true,
+    "main_tests_passed": 84,
+    "main_tests_seconds": 7.84,
+    "active_label": null
+  },
+  "full_history16_result": {
+    "A4": -1.248504987084552,
+    "D4": -1.2245886674837063,
+    "A8": -1.3045681464044672,
+    "D8": -1.4870770871639252,
+    "gate": "FAIL",
+    "report": "full_history_candidate/FINAL_RESULTS.md"
+  },
+  "historical_tests_at_initial_integration": {
+    "command": "python -m pytest -q tests",
+    "working_directory": "H3-World",
+    "passed": 36,
+    "seconds": 5.6
+  },
+  "shift12_16_result": {
+    "A4": -1.2276540637800568,
+    "D4": -1.2327805537926524,
+    "A8": -1.3122754834200208,
+    "D8": -1.4921637459805137,
+    "gate": "FAIL",
+    "report": "training_shift12/FINAL_RESULTS.md"
+  },
+  "shift12_history_diagnostic": {
+    "A8_clean": -0.21131169913630737,
+    "D8_clean": -0.8758110153047662,
+    "first_chunk_latents_equal_both_actions": true,
+    "report": "shift12_history_diagnostic/FINAL_RESULTS.md"
+  },
+  "current_gpu1": {
+    "at": "2026-10-08T12:46:06.892627+08:00",
+    "gpu": 1,
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_shift12_duration64",
+    "status": "running",
+    "controller_pid": 334580,
+    "active": {
+      "label": "shift12_full_history_resume_to64",
+      "pid": 896990,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-09/stage1_training_shift12/runtime/code/causal/train_stage1_anyflow.py",
+        "--out-dir",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_shift12_duration64/train_64",
+        "--resume-from",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_shift12_duration64/train_32/step_32",
+        "--teacher-dir",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39",
+        "--actions",
+        "A",
+        "D",
+        "--causal-adapter",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/causal_adapter.pt",
+        "--action-adapter",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/action_adapter.pt",
+        "--objective",
+        "anyflow",
+        "--precision-profile",
+        "h3_fp32",
+        "--adapter-scope",
+        "all_qkvo_ffn",
+        "--bank-rank",
+        "8",
+        "--bank-alpha",
+        "8.0",
+        "--history-gradient-mode",
+        "full",
+        "--no-train-target-time",
+        "--device",
+        "cuda:0",
+        "--steps",
+        "64",
+        "--checkpoint-every",
+        "16",
+        "--logical-batch",
+        "4",
+        "--lr",
+        "3e-05",
+        "--rank",
+        "8",
+        "--tail-blocks",
+        "16",
+        "--chunk-frames",
+        "5",
+        "--history-chunks",
+        "5",
+        "--anchor-mode",
+        "rgb",
+        "--action-prefix-mode",
+        "causal",
+        "--action-feedback",
+        "--flow-shift",
+        "2.22",
+        "--training-timestep-shift",
+        "12.0",
+        "--validation-timestep-shift",
+        "2.22",
+        "--finite-difference-epsilon",
+        "5.0",
+        "--seed",
+        "13",
+        "--validation-seed",
+        "1001",
+        "--validation-cases",
+        "2"
+      ],
+      "directory": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_shift12_duration64/train_64"
+    },
+    "vram_reserve_gib": 6,
+    "stage1_quality_gate": "NOT_ACCEPTED"
+  },
+  "current_gpu3": {
+    "at": "2026-10-08T12:10:47.910216+08:00",
+    "gpu": 3,
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32",
+    "status": "complete",
+    "controller_pid": 515452,
+    "active": null,
+    "vram_reserve_gib": 6,
+    "stage1_quality_gate": "NOT_ACCEPTED"
+  },
+  "full_history32_result": {
+    "A8": -1.309515821306329,
+    "D8": -1.4979352778510044,
+    "AD_separation": 0.1884194565446753,
+    "gate": "FAIL",
+    "report": "full_history_duration64/STEP32_RESULTS.md",
+    "visual_review": "complete contact sheets and matched frames; no clear improvement; not real-time playback"
+  },
+  "metadata_shift_correction": "metadata_shift_correction.json",
+  "shift12_step32_4step_supplement": {
+    "status": "complete_failed_gate",
+    "controller_pid": 720483,
+    "gpu": 4,
+    "source_checkpoint": "shift12_duration64/train_32/step_32",
+    "report": "shift12_step32_4step/PLAN.md",
+    "purpose": "Complete matched32 AnyFlow/FM 4-step comparison; no new training variable"
+  },
+  "current_gpu4": {
+    "at": "2026-10-08T12:21:07.861765+08:00",
+    "gpu": 4,
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-11/stage1_diagonal_compute_probe",
+    "status": "complete",
+    "controller_pid": 1179085,
+    "active": null,
+    "vram_reserve_gib": 6,
+    "stage1_quality_gate": "NOT_ACCEPTED"
+  },
+  "shift12_32_result": {
+    "A4": -1.2168946334798085,
+    "D4": -1.1973296905818738,
+    "A8": -1.305472670417083,
+    "D8": -1.4781639034810818,
+    "gate": "FAIL",
+    "report": "shift12_duration64/STEP32_RESULTS.md",
+    "visual_review": "all39 static contact sheets and matched frames; severe late fog at4; no clear improvement at8; not real-time playback"
+  },
+  "fm_full_history_shift12_32_training": {
+    "status": "complete",
+    "wall_seconds": 3215.6453664069995,
+    "allocated_peak_MiB": 41251.94140625,
+    "actual_matched_audit": true,
+    "report": "fm_full_history_shift12_32/GPU_RESULTS.md",
+    "videos": "all4_complete_failed_reviewed"
+  },
+  "fm_full_history_shift12_32_A4": {
+    "flow": -1.0583724308955043,
+    "gate": "FAIL_wrong_A_direction",
+    "visual": "Full39 static review: blurry/transparent but person/garage more intact than matched AnyFlow32 A4; no generalization to pending videos",
+    "report": "fm_full_history_shift12_32/GPU_RESULTS.md"
+  },
+  "fm_full_history_shift12_32_result": {
+    "A4": -1.0583724308955043,
+    "D4": -1.2986567734103454,
+    "A8": -0.9432920919437158,
+    "D8": -1.3568020400248075,
+    "gate": "FAIL",
+    "report": "fm_full_history_shift12_32/FINAL_RESULTS.md",
+    "visual_review": "all39 static sheets and matched frames; FM4 more intact than AnyFlow4; no clear AnyFlow8 advantage; not real-time playback"
+  },
+  "diagonal_compute_probe": {
+    "status": "complete",
+    "cpu_cases": 20,
+    "main_trainer_changed": false,
+    "gpu": 4,
+    "controller_pid": 1179085,
+    "child_pid": 1179158,
+    "optimizer_updates": 0,
+    "report": "diagonal_compute_probe/RESULTS.md",
+    "single_batch_wall_reduction_pct": 13.186046859110046
+  },
+  "full_history64_first_result": {
+    "training_complete": true,
+    "A4": -1.0006827416486646,
+    "gate": "FAIL",
+    "report": "full_history_duration64/TRAIN64_RESULTS.md",
+    "visual_review": "All39 static frames and matched Original/16/64 frames: strong ghost/fog after about22; not real-time playback",
+    "D4": -1.1539947463346547,
+    "AD_separation4": 0.1533120046869901,
+    "video": "full_history_duration64/original_anyflow16_anyflow64_4step_AD.mp4"
+  },
+  "sample_parallel_probe": {
+    "status": "read_only_33B_complete_CPU_trainer_resume_verified",
+    "global_batch": 4,
+    "gpus": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "parallel_seconds": 82.2674460359849,
+    "serial_seconds": 225.97569726780057,
+    "main_trainer_changed": false,
+    "real_optimizer_updates": 0,
+    "report": "sample_parallel_probe/RESULTS.md"
+  }
+}

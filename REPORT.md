@@ -4,7 +4,9 @@
 
 ## 一句话结论
 
-块因果 + 持久 KV Cache + clean commit 在 33B 的 H3-World 上跑通，加上 RGB 一致的 anchor 后 124 帧画面稳定；但**没有加速**（没做 Stage2 蒸馏），**动作方向没有恢复**（A−D 0.31～0.45，门槛 1.0）。这是一次可行性验证，不是已经保住动作的少步模型。
+块因果 + 持久 KV Cache + clean commit 在 33B 的 H3-World 上跑通，加上 RGB 一致的 anchor 后 124 帧画面稳定；但当前展示**没有取得端到端加速**，**动作方向没有恢复**（A−D 0.31～0.45，门槛 1.0）。这是一次可行性验证，不是已经保住动作的少步模型。
+
+新增实现状态：TF-AnyFlow128完整4/8步评测已完成，8步A/D分离度0.760但视觉仍漂移，4步严重雾化；同权重teacher history改善到1.334，但有oracle重置。固定同历史动作干预显示动作仍有独立响应，保真尚未证明。见[128完整结果](reports/stage1_anyflow/parallel_resume68_to128/STEP128_RESULTS.md)、[历史对照](reports/stage1_anyflow/history128/FINAL_RESULTS.md)及[动作干预](reports/stage1_anyflow/counterfactual128/FINAL_RESULTS.md)。同权重有限步/对角条件消融已完成：r=t后段画质明显更完整，但分离度0.662仍未过；有限步映射不足不能全推给Stage2。无新训练、无Stage2。下列表格和会议展示仍是此前的非AnyFlow结果。
 
 ## 1. 方法说明
 
@@ -14,9 +16,9 @@
 |---|---|---|
 | Stage0.5 / 论文 Stage 1 | 整段双向 | 双向 flow matching + fused-PRoPE 相机条件；产物是后续初始化，也是 Stage2 里冻结的双向 teacher |
 | Stage1 / 论文 Stage 2 | 块因果 | teacher forcing（历史用干净 GT）+ AnyFlow loss（学任意两个噪声水平间的跳转），直接得到少步自回归初始化 |
-| Stage2 / 论文 Stage 3 | 块因果 + KV | 学生在自己的 rollout 上训练；冻结 teacher 与 critic 做 DMD 分布匹配；SGF 让梯度流过历史 K/V 的写入 |
+| Stage2 / 论文 Stage 3 | 块因果 + KV | 学生在自己的 rollout 上训练；冻结 teacher，训练 fake-score critic，以两者 score 差做 DMD 分布匹配；SGF 让梯度流过历史 K/V 的写入 |
 
-**Stage2 为什么能减少采样步数。** 普通 flow 模型学瞬时速度，轨迹是弯的，步长一大就偏离，所以要 30～50 步。Stage1 的 AnyFlow 让模型能直接大步跳转；Stage2 的 DMD 对齐样本**分布**而不是 ODE 轨迹（mode-seeking，少步也锐利），并且学生正是在推理所用的那几步、在自己生成的历史上训练，误差不累积。**因果 mask + KV Cache 只省历史重算，不减少步数，减步靠 Stage2。**
+**Stage2 为什么能减少采样步数。** 普通 flow 模型学瞬时速度，轨迹是弯的，步长一大就偏离，所以要 30～50 步。Stage1 的 AnyFlow 让模型能直接大步跳转；Stage2 的 DMD 对齐样本**分布**而不是 ODE 轨迹（mode-seeking，少步也锐利），并且学生正是在推理所用的那几步、在自己生成的历史上训练，以减轻误差传播；并不保证误差完全消失。**因果 mask + KV Cache 负责分块执行与历史复用；Stage1 AnyFlow 建立少步能力，Stage2 SGF/DMD 进一步改善自身 rollout 分布上的质量。**
 
 **H3-World 与 SolarWM 因果生成的区别**
 
@@ -76,5 +78,5 @@
 ## 4. 结论
 
 1. **能因果化：** 工程上可行（块因果 + 持久 KV + clean commit，replay 误差 0）；RGB anchor 让 124 帧结构更完整，但 20 秒严重崩坏，长时稳定性**未通过**。
-2. **借鉴是否有效：** 对"长视频效率"不成立——没有 Stage2 就没有少步，反而更慢；对"动作控制"不成立——自生成历史下方向被旋转，且稳定版比旧版动作更弱。
-3. **下一步：** 多状态、多 seed 的反事实动作监督，或完整的 Stage2（在线 rollout 上的 SGF/DMD 分布匹配）。
+2. **借鉴是否有效：** 当前展示未证明"长视频效率"收益——展示 checkpoint 没有经过 AnyFlow 少步训练，且 CPU KV 搬运与 RGB anchor 额外开销较大；对"动作控制"不成立——自生成历史下方向被旋转，且稳定版比旧版动作更弱。
+3. **下一步：** 先完成 TF-AnyFlow 的真实 33B 训练与 39 帧 A/D、4/8 steps/chunk 对照，验收少步画质和动作控制，再决定多状态动作监督或 Stage2 SGF/DMD。具体 gate 见 [Stage1 计划](STAGE1_ANYFLOW.md)。

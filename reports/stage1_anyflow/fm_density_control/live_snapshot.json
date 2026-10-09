@@ -1,0 +1,78 @@
+{
+  "at": "2026-10-09T02:57:34.514814+08:00",
+  "status": "complete_failed_gate_workflow_superseded",
+  "updates": 48,
+  "maximum_updates": 48,
+  "processes": [
+    {
+      "pid": 1563900,
+      "expected_start_ticks": "255332670",
+      "same_process_live": false,
+      "observed": "absent"
+    },
+    {
+      "pid": 1615283,
+      "expected_start_ticks": "255366821",
+      "same_process_live": false,
+      "observed": "absent"
+    },
+    {
+      "pid": 1898518,
+      "expected_start_ticks": "255496357",
+      "same_process_live": false,
+      "observed": "absent"
+    },
+    {
+      "pid": 3933368,
+      "expected_start_ticks": "256246132",
+      "same_process_live": false,
+      "observed": "absent"
+    },
+    {
+      "pid": 3606445,
+      "expected_start_ticks": "256119956",
+      "same_process_live": false,
+      "observed": "absent"
+    },
+    {
+      "pid": 278980,
+      "expected_start_ticks": null,
+      "same_process_live": false,
+      "observed": "absent"
+    }
+  ],
+  "current_project_gpus": [],
+  "noise_records": 54,
+  "noise_status": "complete",
+  "geometry_records": {
+    "gt": 18,
+    "step00_generated": 18
+  },
+  "geometry_status": "complete",
+  "evaluation_jobs_completed": 10,
+  "report_groups_completed": [
+    "noise",
+    "natural_gt_30",
+    "geometry_gt",
+    "geometry_step00_generated",
+    "natural_generated_30",
+    "natural_generated_8",
+    "parking_30",
+    "parking_8"
+  ],
+  "original_training_process_exited": true,
+  "geometry_gpu_process_exited": true,
+  "natural30_visual_review": "GT two clips reviewed; generated first clip intact/weak motion, second disintegrates from frame23",
+  "stage1_accepted": false,
+  "ABCD_complete": false,
+  "frozen_queue_and_report_sources_unchanged": true,
+  "natural_video_count": 6,
+  "natural_visual_gate": "FAIL; second scene generated30/8 body corruption, first generated8 background ghosting",
+  "parking_completed": 4,
+  "parking_A30_horizontal_flow": -0.19023942069935929,
+  "parking_AD_separation": {
+    "30step": -0.03168369558515178,
+    "8step": 0.07337059511624638
+  },
+  "ABCD_workflow": "superseded_by_user_three_experiment_plan"
+}

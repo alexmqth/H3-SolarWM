@@ -1,0 +1,374 @@
+[preflight] diffsynth resolved from the v2 checkout: ok /home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+[preflight] directed attention mask present: ok 
+[preflight] packed-sequence builder is the per-latent version: ok 
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_text_encoder",
+    "model_class": "diffsynth.models.minimax_h3_text_encoder.MiniMaxH3TextEncoder",
+    "extra_kwargs": null
+}
+Loading models from: [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_dit",
+    "model_class": "diffsynth.models.minimax_h3_dit.MiniMaxH3DiT",
+    "extra_kwargs": null
+}
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_audio_vae",
+    "model_class": "diffsynth.models.minimax_h3_audio_vae.MiniMaxH3AudioVAE",
+    "extra_kwargs": null
+}
+Using minimax_h3_text_encoder from [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors"
+].
+Using minimax_h3_dit from [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors"
+].
+Using minimax_h3_video_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+Using minimax_h3_audio_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors".
+104 tensors are patched by LoRA. You can use `pipe.clear_lora()` to clear all LoRA layers.
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 chunk=2 sample=1/4 type=diffusion raw=0.105908 weighted=0.171578
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 chunk=2 sample=2/4 type=diffusion raw=0.227366 weighted=0.306322
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 chunk=2 sample=3/4 type=diffusion raw=0.075808 weighted=0.027662
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 chunk=2 sample=4/4 type=diffusion raw=0.223281 weighted=0.305240
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_D_1750 chunk=2 sample=1/4 type=diffusion raw=0.113842 weighted=0.184432
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_D_1750 chunk=2 sample=2/4 type=diffusion raw=0.224762 weighted=0.302814
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_D_1750 chunk=2 sample=3/4 type=diffusion raw=0.108265 weighted=0.039505
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_D_1750 chunk=2 sample=4/4 type=diffusion raw=0.222351 weighted=0.303969
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1750 chunk=2 sample=1/4 type=diffusion raw=0.088988 weighted=0.144167
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1750 chunk=2 sample=2/4 type=diffusion raw=0.191440 weighted=0.257921
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1750 chunk=2 sample=3/4 type=diffusion raw=0.060913 weighted=0.022227
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1750 chunk=2 sample=4/4 type=diffusion raw=0.185911 weighted=0.254153
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_A_1080 chunk=2 sample=1/4 type=diffusion raw=0.118330 weighted=0.191704
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_A_1080 chunk=2 sample=2/4 type=diffusion raw=0.238762 weighted=0.321676
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_A_1080 chunk=2 sample=3/4 type=diffusion raw=0.100210 weighted=0.036566
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_A_1080 chunk=2 sample=4/4 type=diffusion raw=0.236795 weighted=0.323714
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=0 sample=1/4 type=diffusion raw=0.210227 weighted=0.591983
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=0 sample=2/4 type=diffusion raw=0.084872 weighted=0.127277
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=0 sample=3/4 type=diffusion raw=0.276537 weighted=0.633183
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=0 sample=4/4 type=diffusion raw=0.083176 weighted=0.053241
+[TF-fm] 1/48 b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=0 loss=0.351421 grad=0.0083
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=1 sample=1/4 type=diffusion raw=0.098863 weighted=0.156137
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=1 sample=2/4 type=diffusion raw=0.152953 weighted=0.433247
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=1 sample=3/4 type=diffusion raw=0.116380 weighted=0.251723
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=1 sample=4/4 type=diffusion raw=0.094898 weighted=0.107560
+[TF-fm] 2/48 b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=1 loss=0.237167 grad=0.0026
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=2 sample=1/4 type=diffusion raw=0.062949 weighted=0.067370
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=2 sample=2/4 type=diffusion raw=0.243450 weighted=0.527249
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=2 sample=3/4 type=diffusion raw=0.063697 weighted=0.093434
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=2 sample=4/4 type=diffusion raw=0.352018 weighted=0.504596
+[TF-fm] 3/48 b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=2 loss=0.298162 grad=0.0047
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=0 sample=1/4 type=diffusion raw=0.261835 weighted=0.628220
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=0 sample=2/4 type=diffusion raw=0.307376 weighted=0.591401
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=0 sample=3/4 type=diffusion raw=0.596739 weighted=0.365466
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=0 sample=4/4 type=diffusion raw=0.353857 weighted=0.555218
+[TF-fm] 4/48 b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=0 loss=0.535076 grad=0.0045
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=1 sample=1/4 type=diffusion raw=0.133389 weighted=0.394569
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=1 sample=2/4 type=diffusion raw=0.075866 weighted=0.044435
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=1 sample=3/4 type=diffusion raw=0.075355 weighted=0.130140
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=1 sample=4/4 type=diffusion raw=0.100414 weighted=0.007218
+[TF-fm] 5/48 7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=1 loss=0.144090 grad=0.0025
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=2 sample=1/4 type=diffusion raw=0.044298 weighted=0.058226
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=2 sample=2/4 type=diffusion raw=0.058327 weighted=0.154319
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=2 sample=3/4 type=diffusion raw=0.063868 weighted=0.179567
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=2 sample=4/4 type=diffusion raw=0.138717 weighted=0.350275
+[TF-fm] 6/48 7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=2 loss=0.185597 grad=0.0065
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=0 sample=1/4 type=diffusion raw=0.077655 weighted=0.139232
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=0 sample=2/4 type=diffusion raw=0.103839 weighted=0.283260
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=0 sample=3/4 type=diffusion raw=0.231886 weighted=0.502204
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=0 sample=4/4 type=diffusion raw=0.091424 weighted=0.220688
+[TF-fm] 7/48 7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=0 loss=0.286346 grad=0.0098
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=1 sample=1/4 type=diffusion raw=0.064216 weighted=0.066548
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=1 sample=2/4 type=diffusion raw=0.086543 weighted=0.034972
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=1 sample=3/4 type=diffusion raw=0.072220 weighted=0.040744
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=1 sample=4/4 type=diffusion raw=0.273883 weighted=0.480921
+[TF-fm] 8/48 7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=1 loss=0.155796 grad=0.0082
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=2 sample=1/4 type=diffusion raw=0.072652 weighted=0.178504
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=2 sample=2/4 type=diffusion raw=0.061760 weighted=0.107463
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=2 sample=3/4 type=diffusion raw=0.083249 weighted=0.228412
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=2 sample=4/4 type=diffusion raw=0.061502 weighted=0.057057
+[TF-fm] 9/48 43866101158a538d22c52ac5b2fa606b_A_1295 chunk=2 loss=0.142859 grad=0.0090
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=0 sample=1/4 type=diffusion raw=0.097385 weighted=0.282412
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=0 sample=2/4 type=diffusion raw=0.374200 weighted=0.363112
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=0 sample=3/4 type=diffusion raw=0.081666 weighted=0.027087
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=0 sample=4/4 type=diffusion raw=0.078595 weighted=0.030082
+[TF-fm] 10/48 43866101158a538d22c52ac5b2fa606b_D_1605 chunk=0 loss=0.175673 grad=0.0041
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=1 sample=1/4 type=diffusion raw=0.230892 weighted=0.553977
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=1 sample=2/4 type=diffusion raw=0.520671 weighted=0.367438
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=1 sample=3/4 type=diffusion raw=0.115990 weighted=0.311703
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=1 sample=4/4 type=diffusion raw=0.102305 weighted=0.224597
+[TF-fm] 11/48 43866101158a538d22c52ac5b2fa606b_A_1245 chunk=1 loss=0.364429 grad=0.0148
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=2 sample=1/4 type=diffusion raw=0.055963 weighted=0.133647
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=2 sample=2/4 type=diffusion raw=0.052675 weighted=0.091655
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=2 sample=3/4 type=diffusion raw=0.202731 weighted=0.379109
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=2 sample=4/4 type=diffusion raw=0.070135 weighted=0.199606
+[TF-fm] 12/48 43866101158a538d22c52ac5b2fa606b_D_1555 chunk=2 loss=0.201004 grad=0.0115
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=0 sample=1/4 type=diffusion raw=0.072033 weighted=0.071516
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=0 sample=2/4 type=diffusion raw=0.071067 weighted=0.125524
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=0 sample=3/4 type=diffusion raw=0.069281 weighted=0.097961
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=0 sample=4/4 type=diffusion raw=0.070145 weighted=0.125766
+[TF-fm] 13/48 9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=0 loss=0.105192 grad=0.0077
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=1 sample=1/4 type=diffusion raw=0.080411 weighted=0.205207
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=1 sample=2/4 type=diffusion raw=0.152097 weighted=0.032393
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=1 sample=3/4 type=diffusion raw=0.490918 weighted=0.300657
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=1 sample=4/4 type=diffusion raw=0.241627 weighted=0.023386
+[TF-fm] 14/48 9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=1 loss=0.140411 grad=0.0053
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=2 sample=1/4 type=diffusion raw=0.060227 weighted=0.155251
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=2 sample=2/4 type=diffusion raw=0.065609 weighted=0.064674
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=2 sample=3/4 type=diffusion raw=0.198324 weighted=0.381581
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=2 sample=4/4 type=diffusion raw=0.132712 weighted=0.352122
+[TF-fm] 15/48 9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=2 loss=0.238407 grad=0.0097
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=0 sample=1/4 type=diffusion raw=0.193944 weighted=0.027238
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=0 sample=2/4 type=diffusion raw=0.152301 weighted=0.396839
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=0 sample=3/4 type=diffusion raw=0.115487 weighted=0.338265
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=0 sample=4/4 type=diffusion raw=0.062002 weighted=0.043164
+[TF-fm] 16/48 9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=0 loss=0.201377 grad=0.0144
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=1 sample=1/4 type=diffusion raw=0.213458 weighted=0.587721
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=1 sample=2/4 type=diffusion raw=0.276699 weighted=0.622580
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=1 sample=3/4 type=diffusion raw=0.098776 weighted=0.225009
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=1 sample=4/4 type=diffusion raw=0.089525 weighted=0.175660
+[TF-fm] 17/48 b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=1 loss=0.402743 grad=0.0069
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=2 sample=1/4 type=diffusion raw=0.067977 weighted=0.049964
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=2 sample=2/4 type=diffusion raw=0.065048 weighted=0.036698
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=2 sample=3/4 type=diffusion raw=0.161751 weighted=0.476059
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=2 sample=4/4 type=diffusion raw=0.067329 weighted=0.059844
+[TF-fm] 18/48 b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=2 loss=0.155641 grad=0.0051
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=0 sample=1/4 type=diffusion raw=0.100276 weighted=0.198987
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=0 sample=2/4 type=diffusion raw=0.205379 weighted=0.590536
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=0 sample=3/4 type=diffusion raw=0.121768 weighted=0.305495
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=0 sample=4/4 type=diffusion raw=0.268942 weighted=0.626032
+[TF-fm] 19/48 b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=0 loss=0.430262 grad=0.0232
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=1 sample=1/4 type=diffusion raw=0.098398 weighted=0.081718
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=1 sample=2/4 type=diffusion raw=0.095358 weighted=0.098821
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=1 sample=3/4 type=diffusion raw=0.181502 weighted=0.537152
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=1 sample=4/4 type=diffusion raw=0.211457 weighted=0.611942
+[TF-fm] 20/48 b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=1 loss=0.332408 grad=0.0093
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=2 sample=1/4 type=diffusion raw=0.189576 weighted=0.402097
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=2 sample=2/4 type=diffusion raw=0.782527 weighted=0.167554
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=2 sample=3/4 type=diffusion raw=0.101051 weighted=0.296986
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=2 sample=4/4 type=diffusion raw=0.049407 weighted=0.049228
+[TF-fm] 21/48 7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=2 loss=0.228966 grad=0.0082
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=0 sample=1/4 type=diffusion raw=0.441492 weighted=0.351620
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=0 sample=2/4 type=diffusion raw=0.102805 weighted=0.290491
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=0 sample=3/4 type=diffusion raw=0.078281 weighted=0.175068
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=0 sample=4/4 type=diffusion raw=0.385125 weighted=0.405767
+[TF-fm] 22/48 7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=0 loss=0.305737 grad=0.0147
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=1 sample=1/4 type=diffusion raw=0.402479 weighted=0.424052
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=1 sample=2/4 type=diffusion raw=0.079506 weighted=0.122806
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=1 sample=3/4 type=diffusion raw=0.155082 weighted=0.452347
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=1 sample=4/4 type=diffusion raw=0.424668 weighted=0.412084
+[TF-fm] 23/48 7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=1 loss=0.352822 grad=0.0095
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=2 sample=1/4 type=diffusion raw=0.118377 weighted=0.331646
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=2 sample=2/4 type=diffusion raw=0.110568 weighted=0.318986
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=2 sample=3/4 type=diffusion raw=0.096239 weighted=0.284376
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=2 sample=4/4 type=diffusion raw=0.044765 weighted=0.060359
+[TF-fm] 24/48 7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=2 loss=0.248842 grad=0.0137
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=0 sample=1/4 type=diffusion raw=0.182551 weighted=0.495883
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=0 sample=2/4 type=diffusion raw=0.095068 weighted=0.188652
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=0 sample=3/4 type=diffusion raw=0.090751 weighted=0.121033
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=0 sample=4/4 type=diffusion raw=0.102943 weighted=0.239700
+[TF-fm] 25/48 43866101158a538d22c52ac5b2fa606b_A_1295 chunk=0 loss=0.261317 grad=0.0196
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=1 sample=1/4 type=diffusion raw=0.181655 weighted=0.441939
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=1 sample=2/4 type=diffusion raw=0.131266 weighted=0.379875
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=1 sample=3/4 type=diffusion raw=0.076481 weighted=0.095548
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=1 sample=4/4 type=diffusion raw=0.094835 weighted=0.050167
+[TF-fm] 26/48 43866101158a538d22c52ac5b2fa606b_D_1605 chunk=1 loss=0.241882 grad=0.0156
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=2 sample=1/4 type=diffusion raw=0.060723 weighted=0.065221
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=2 sample=2/4 type=diffusion raw=0.062648 weighted=0.076865
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=2 sample=3/4 type=diffusion raw=0.082411 weighted=0.014045
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=2 sample=4/4 type=diffusion raw=0.062597 weighted=0.112233
+[TF-fm] 27/48 43866101158a538d22c52ac5b2fa606b_A_1245 chunk=2 loss=0.067091 grad=0.0116
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=0 sample=1/4 type=diffusion raw=0.090864 weighted=0.263974
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=0 sample=2/4 type=diffusion raw=0.064022 weighted=0.110155
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=0 sample=3/4 type=diffusion raw=0.762482 weighted=0.163262
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=0 sample=4/4 type=diffusion raw=0.157211 weighted=0.401391
+[TF-fm] 28/48 43866101158a538d22c52ac5b2fa606b_D_1555 chunk=0 loss=0.234696 grad=0.0140
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=1 sample=1/4 type=diffusion raw=0.107961 weighted=0.319532
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=1 sample=2/4 type=diffusion raw=0.144503 weighted=0.029063
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=1 sample=3/4 type=diffusion raw=0.082865 weighted=0.146362
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=1 sample=4/4 type=diffusion raw=0.178485 weighted=0.415470
+[TF-fm] 29/48 9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=1 loss=0.227607 grad=0.0150
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=2 sample=1/4 type=diffusion raw=0.064837 weighted=0.023276
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=2 sample=2/4 type=diffusion raw=0.271213 weighted=0.388768
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=2 sample=3/4 type=diffusion raw=0.063144 weighted=0.118878
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=2 sample=4/4 type=diffusion raw=0.387966 weighted=0.376470
+[TF-fm] 30/48 9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=2 loss=0.226848 grad=0.0190
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=0 sample=1/4 type=diffusion raw=0.179545 weighted=0.396565
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=0 sample=2/4 type=diffusion raw=0.092528 weighted=0.264538
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=0 sample=3/4 type=diffusion raw=0.088949 weighted=0.248138
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=0 sample=4/4 type=diffusion raw=0.314352 weighted=0.331202
+[TF-fm] 31/48 9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=0 loss=0.310111 grad=0.0204
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=1 sample=1/4 type=diffusion raw=0.059122 weighted=0.074668
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=1 sample=2/4 type=diffusion raw=0.058398 weighted=0.064780
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=1 sample=3/4 type=diffusion raw=0.062353 weighted=0.126553
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=1 sample=4/4 type=diffusion raw=0.081858 weighted=0.006253
+[TF-fm] 32/48 9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=1 loss=0.068064 grad=0.0097
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=2 sample=1/4 type=diffusion raw=0.366002 weighted=0.443854
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=2 sample=2/4 type=diffusion raw=0.089825 weighted=0.255643
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=2 sample=3/4 type=diffusion raw=0.052025 weighted=0.068382
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=2 sample=4/4 type=diffusion raw=0.049090 weighted=0.039053
+[TF-fm] 33/48 b784d995827f53977a8067e5b9dc4b5e_A_1750 chunk=2 loss=0.201733 grad=0.0141
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=0 sample=1/4 type=diffusion raw=0.083938 weighted=0.038150
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=0 sample=2/4 type=diffusion raw=0.080653 weighted=0.035503
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=0 sample=3/4 type=diffusion raw=0.135996 weighted=0.391325
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=0 sample=4/4 type=diffusion raw=0.145767 weighted=0.426851
+[TF-fm] 34/48 b784d995827f53977a8067e5b9dc4b5e_D_1205 chunk=0 loss=0.222957 grad=0.0112
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=1 sample=1/4 type=diffusion raw=0.243492 weighted=0.646048
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=1 sample=2/4 type=diffusion raw=0.107246 weighted=0.234571
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=1 sample=3/4 type=diffusion raw=0.113406 weighted=0.268889
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=1 sample=4/4 type=diffusion raw=0.100987 weighted=0.057188
+[TF-fm] 35/48 b784d995827f53977a8067e5b9dc4b5e_A_1635 chunk=1 loss=0.301674 grad=0.0155
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=2 sample=1/4 type=diffusion raw=0.161796 weighted=0.470799
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=2 sample=2/4 type=diffusion raw=0.060694 weighted=0.007229
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=2 sample=3/4 type=diffusion raw=0.084300 weighted=0.194155
+[TF-fm sample] phase=train action=b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=2 sample=4/4 type=diffusion raw=0.104445 weighted=0.288197
+[TF-fm] 36/48 b784d995827f53977a8067e5b9dc4b5e_D_1155 chunk=2 loss=0.240095 grad=0.0125
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=0 sample=1/4 type=diffusion raw=0.070396 weighted=0.081823
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=0 sample=2/4 type=diffusion raw=0.213153 weighted=0.511417
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=0 sample=3/4 type=diffusion raw=0.083470 weighted=0.012955
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=0 sample=4/4 type=diffusion raw=0.138918 weighted=0.411056
+[TF-fm] 37/48 7199292ca430b478bfd0d83cf2e519d8_A_1720 chunk=0 loss=0.254313 grad=0.0238
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=1 sample=1/4 type=diffusion raw=0.123867 weighted=0.365739
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=1 sample=2/4 type=diffusion raw=0.063187 weighted=0.095813
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=1 sample=3/4 type=diffusion raw=0.335996 weighted=0.432980
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=1 sample=4/4 type=diffusion raw=0.068580 weighted=0.142896
+[TF-fm] 38/48 7199292ca430b478bfd0d83cf2e519d8_D_0750 chunk=1 loss=0.259357 grad=0.0154
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=2 sample=1/4 type=diffusion raw=0.053845 weighted=0.019163
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=2 sample=2/4 type=diffusion raw=0.127611 weighted=0.353526
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=2 sample=3/4 type=diffusion raw=0.048811 weighted=0.049334
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=2 sample=4/4 type=diffusion raw=0.184257 weighted=0.390815
+[TF-fm] 39/48 7199292ca430b478bfd0d83cf2e519d8_A_1670 chunk=2 loss=0.203210 grad=0.0135
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=0 sample=1/4 type=diffusion raw=0.098136 weighted=0.275208
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=0 sample=2/4 type=diffusion raw=0.300668 weighted=0.430989
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=0 sample=3/4 type=diffusion raw=0.970196 weighted=0.105057
+[TF-fm sample] phase=train action=7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=0 sample=4/4 type=diffusion raw=0.348597 weighted=0.395438
+[TF-fm] 40/48 7199292ca430b478bfd0d83cf2e519d8_D_0700 chunk=0 loss=0.301673 grad=0.0221
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=1 sample=1/4 type=diffusion raw=0.221202 weighted=0.530730
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=1 sample=2/4 type=diffusion raw=0.133838 weighted=0.394272
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=1 sample=3/4 type=diffusion raw=0.109165 weighted=0.290650
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1295 chunk=1 sample=4/4 type=diffusion raw=0.161928 weighted=0.471183
+[TF-fm] 41/48 43866101158a538d22c52ac5b2fa606b_A_1295 chunk=1 loss=0.421709 grad=0.0190
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=2 sample=1/4 type=diffusion raw=0.041153 weighted=0.057977
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=2 sample=2/4 type=diffusion raw=0.184388 weighted=0.354768
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=2 sample=3/4 type=diffusion raw=0.048290 weighted=0.020332
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1605 chunk=2 sample=4/4 type=diffusion raw=0.068814 weighted=0.202042
+[TF-fm] 42/48 43866101158a538d22c52ac5b2fa606b_D_1605 chunk=2 loss=0.158779 grad=0.0133
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=0 sample=1/4 type=diffusion raw=0.265403 weighted=0.450065
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=0 sample=2/4 type=diffusion raw=0.208129 weighted=0.008816
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=0 sample=3/4 type=diffusion raw=0.096999 weighted=0.256635
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_A_1245 chunk=0 sample=4/4 type=diffusion raw=0.107010 weighted=0.301623
+[TF-fm] 43/48 43866101158a538d22c52ac5b2fa606b_A_1245 chunk=0 loss=0.254285 grad=0.0275
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=1 sample=1/4 type=diffusion raw=0.264803 weighted=0.464976
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=1 sample=2/4 type=diffusion raw=0.105912 weighted=0.102191
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=1 sample=3/4 type=diffusion raw=0.099405 weighted=0.193586
+[TF-fm sample] phase=train action=43866101158a538d22c52ac5b2fa606b_D_1555 chunk=1 sample=4/4 type=diffusion raw=0.642139 weighted=0.268619
+[TF-fm] 44/48 43866101158a538d22c52ac5b2fa606b_D_1555 chunk=1 loss=0.257343 grad=0.0153
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=2 sample=1/4 type=diffusion raw=0.079606 weighted=0.229529
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=2 sample=2/4 type=diffusion raw=0.163154 weighted=0.379784
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=2 sample=3/4 type=diffusion raw=0.083815 weighted=0.246382
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=2 sample=4/4 type=diffusion raw=0.156194 weighted=0.374755
+[TF-fm] 45/48 9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460 chunk=2 loss=0.307613 grad=0.0584
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=0 sample=1/4 type=diffusion raw=0.360283 weighted=0.318726
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=0 sample=2/4 type=diffusion raw=0.103401 weighted=0.305955
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=0 sample=3/4 type=diffusion raw=0.197783 weighted=0.390838
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=0 sample=4/4 type=diffusion raw=0.073366 weighted=0.074152
+[TF-fm] 46/48 9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750 chunk=0 loss=0.272418 grad=0.0268
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=1 sample=1/4 type=diffusion raw=0.077041 weighted=0.196605
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=1 sample=2/4 type=diffusion raw=0.133335 weighted=0.369385
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=1 sample=3/4 type=diffusion raw=0.106859 weighted=0.315948
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=1 sample=4/4 type=diffusion raw=0.068132 weighted=0.078060
+[TF-fm] 47/48 9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410 chunk=1 loss=0.240000 grad=0.0156
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=2 sample=1/4 type=diffusion raw=0.113461 weighted=0.298406
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=2 sample=2/4 type=diffusion raw=0.087657 weighted=0.254399
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=2 sample=3/4 type=diffusion raw=0.038831 weighted=0.039247
+[TF-fm sample] phase=train action=9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=2 sample=4/4 type=diffusion raw=0.044429 weighted=0.064693
+[TF-fm] 48/48 9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555 chunk=2 loss=0.164187 grad=0.3759
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 chunk=2 sample=1/4 type=diffusion raw=0.102799 weighted=0.166542
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 chunk=2 sample=2/4 type=diffusion raw=0.222070 weighted=0.299188
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 chunk=2 sample=3/4 type=diffusion raw=0.072460 weighted=0.026440
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 chunk=2 sample=4/4 type=diffusion raw=0.218133 weighted=0.298203
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_D_1750 chunk=2 sample=1/4 type=diffusion raw=0.110667 weighted=0.179289
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_D_1750 chunk=2 sample=2/4 type=diffusion raw=0.219533 weighted=0.295770
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_D_1750 chunk=2 sample=3/4 type=diffusion raw=0.106496 weighted=0.038860
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_D_1750 chunk=2 sample=4/4 type=diffusion raw=0.217023 weighted=0.296685
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1750 chunk=2 sample=1/4 type=diffusion raw=0.086658 weighted=0.140393
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1750 chunk=2 sample=2/4 type=diffusion raw=0.186786 weighted=0.251651
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1750 chunk=2 sample=3/4 type=diffusion raw=0.055706 weighted=0.020327
+[TF-fm sample] phase=validation action=118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1750 chunk=2 sample=4/4 type=diffusion raw=0.181564 weighted=0.248210
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_A_1080 chunk=2 sample=1/4 type=diffusion raw=0.115145 weighted=0.186543
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_A_1080 chunk=2 sample=2/4 type=diffusion raw=0.234042 weighted=0.315317
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_A_1080 chunk=2 sample=3/4 type=diffusion raw=0.095068 weighted=0.034690
+[TF-fm sample] phase=validation action=dfec8ed3237860eba14d67c089ecd041_A_1080 chunk=2 sample=4/4 type=diffusion raw=0.232153 weighted=0.317369

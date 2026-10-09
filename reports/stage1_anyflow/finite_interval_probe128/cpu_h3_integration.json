@@ -1,0 +1,366 @@
+{
+  "status": "passed",
+  "scope": "random small H3, fixed anchor; not pretrained/RGB validation",
+  "analytic": {
+    "status": "passed",
+    "scope": "CPU analytic numerical probe, not real H3 validation",
+    "constant": {
+      "sigma": 1.0,
+      "target_sigma": 0.0,
+      "initial_sha256": "5171bb8ac741ce78c483e75f2cd8d75fc79f895938747a8b63c1bd1fe971f1ce",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.25,
+      "diagonal_average_velocity_rms": 0.2499999701976794,
+      "velocity_rmse": 4.2146848510894035e-08,
+      "velocity_relative_rmse": 1.685874141407608e-07,
+      "velocity_cosine": 0.9999999999999928,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.0,
+        "8": 0.0
+      },
+      "diagonal_refinement_endpoint_rmse": 0.0,
+      "endpoint_error_over_refinement": 0.0,
+      "direct_endpoint_sha256": "d70152e33ed3a85b27265d7f49a8d7f37a1e8c2a8456a0b784c832c77d9d4289",
+      "reference_endpoint_sha256": {
+        "4": "d70152e33ed3a85b27265d7f49a8d7f37a1e8c2a8456a0b784c832c77d9d4289",
+        "8": "d70152e33ed3a85b27265d7f49a8d7f37a1e8c2a8456a0b784c832c77d9d4289"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth"
+    },
+    "affine": {
+      "sigma": 0.8,
+      "target_sigma": 0.2,
+      "initial_sha256": "5171bb8ac741ce78c483e75f2cd8d75fc79f895938747a8b63c1bd1fe971f1ce",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 1.0,
+      "diagonal_average_velocity_rms": 1.0749999880790726,
+      "velocity_rmse": 0.07499998807909473,
+      "velocity_relative_rmse": 0.06976743154491835,
+      "velocity_cosine": 0.9999999999999983,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.08999997377397603,
+        "8": 0.044999971985819426
+      },
+      "diagonal_refinement_endpoint_rmse": 0.04500000178816155,
+      "endpoint_error_over_refinement": 0.9999993377257569,
+      "direct_endpoint_sha256": "d2f29bc9be658b218f814d4224458e462712713a80b585c01435afed03fe2097",
+      "reference_endpoint_sha256": {
+        "4": "d213f46faeccb87e61a51a9ebea83c0a92f55c95feef0ea01239cc3e3e4e9ead",
+        "8": "3de92c12ff2cc6638437f6cc3cddf0034640c017323febb1d718c6f413716581"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth"
+    },
+    "deliberate_bias": {
+      "sigma": 1.0,
+      "target_sigma": 0.0,
+      "initial_sha256": "5171bb8ac741ce78c483e75f2cd8d75fc79f895938747a8b63c1bd1fe971f1ce",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.75,
+      "diagonal_average_velocity_rms": 0.2499999701976794,
+      "velocity_rmse": 0.5000000298023233,
+      "velocity_relative_rmse": 2.0000003576279006,
+      "velocity_cosine": 0.9999999999999929,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.5,
+        "8": 0.5
+      },
+      "diagonal_refinement_endpoint_rmse": 0.0,
+      "endpoint_error_over_refinement": 500000000000.0,
+      "direct_endpoint_sha256": "2fbe0946ef19e0dd9238f872be344aa218d673a31cf845e0111c2cbce60f0250",
+      "reference_endpoint_sha256": {
+        "4": "d70152e33ed3a85b27265d7f49a8d7f37a1e8c2a8456a0b784c832c77d9d4289",
+        "8": "d70152e33ed3a85b27265d7f49a8d7f37a1e8c2a8456a0b784c832c77d9d4289"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth"
+    }
+  },
+  "records": [
+    {
+      "sigma": 1.0,
+      "target_sigma": 0.9395404663085938,
+      "initial_sha256": "ebfef420ef87da86909ed2f0a1e7f74517131c3c7cb3c05ec2c914fbbf46c007",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.5758506591602103,
+      "diagonal_average_velocity_rms": 0.5755010360436816,
+      "velocity_rmse": 0.008268787923565661,
+      "velocity_relative_rmse": 0.01436798095171117,
+      "velocity_cosine": 0.9998970276532123,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.00042859004349305504,
+        "8": 0.0004999264703938693
+      },
+      "diagonal_refinement_endpoint_rmse": 7.136555938539592e-05,
+      "endpoint_error_over_refinement": 7.005150309186438,
+      "direct_endpoint_sha256": "ae448e88f224fdd0d8455e98a7de1ae5dd4a066315c05666c01b23555edbb6c6",
+      "reference_endpoint_sha256": {
+        "4": "e966380d4632802efbf56138d2946c160be726f6bc544764b7ff5be2f4755157",
+        "8": "952e682b03f9b95d2ac6769d4979f570840b5472c522ffc63ecebfb22816b8e9"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth",
+      "chunk": 0,
+      "native_step": 0
+    },
+    {
+      "sigma": 0.6894410400390625,
+      "target_sigma": 0.5711835327148438,
+      "initial_sha256": "ab1265acfdbcfd556dc0bf0c88d868f6f7e480931aab729ac2428ded8c056a9c",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.5646365517943094,
+      "diagonal_average_velocity_rms": 0.5641156216784964,
+      "velocity_rmse": 0.020846195055657674,
+      "velocity_relative_rmse": 0.03695376311975002,
+      "velocity_cosine": 0.999318265616228,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.0021134330101345612,
+        "8": 0.002465218697713596
+      },
+      "diagonal_refinement_endpoint_rmse": 0.0003522347226017016,
+      "endpoint_error_over_refinement": 6.998795233771444,
+      "direct_endpoint_sha256": "ecc550e63dff286df6eb945cc3978578c9a9ed65daa8b955857a264d0a96af08",
+      "reference_endpoint_sha256": {
+        "4": "be2ae705f02c629b2ad726aae155581f8452525d80b3b7a1b4ec3202ddcf7355",
+        "8": "2ba6bcaf5119a36e467340c1ff5ebc1d7f9f82ff17401dfda97d4dd4008309ca"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth",
+      "chunk": 0,
+      "native_step": 4
+    },
+    {
+      "sigma": 0.24078089904785155,
+      "target_sigma": 0.0,
+      "initial_sha256": "1f5f2e078c7cc5e73eff32b09848d4a360c02ce073ed27b147ba3ad615c26ea3",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.5463764320495857,
+      "diagonal_average_velocity_rms": 0.5474252983595147,
+      "velocity_rmse": 0.03870823784034928,
+      "velocity_relative_rmse": 0.07070962550753022,
+      "velocity_cosine": 0.9974971144301438,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.007983986947033611,
+        "8": 0.00932020490060282
+      },
+      "diagonal_refinement_endpoint_rmse": 0.0013425289453937051,
+      "endpoint_error_over_refinement": 6.942274825865755,
+      "direct_endpoint_sha256": "bbd51873c4f93a905166dd378bf95f02f89cf29bf65db309057cc80a7aa3f8b9",
+      "reference_endpoint_sha256": {
+        "4": "cf688fb888cd59b1f9e3c84aca065ceb49d4c3f0fe3932bca409e2bba1d94bde",
+        "8": "fa78ca34b2c6ba71395301ac252e036e7af31b12f33f2347b25c3ff490a84ae4"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth",
+      "chunk": 0,
+      "native_step": 7
+    },
+    {
+      "sigma": 1.0,
+      "target_sigma": 0.9395404663085938,
+      "initial_sha256": "964c993096660abfee4fc91d2550ae522273fb4517d19ebde01f3a5ea80af62e",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.5590505248564985,
+      "diagonal_average_velocity_rms": 0.559591968241258,
+      "velocity_rmse": 0.008352424261509233,
+      "velocity_relative_rmse": 0.014925918768562875,
+      "velocity_cosine": 0.9998889691386249,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.0004325921458356875,
+        "8": 0.0005049848564125724
+      },
+      "diagonal_refinement_endpoint_rmse": 7.242657247721465e-05,
+      "endpoint_error_over_refinement": 6.972369934687165,
+      "direct_endpoint_sha256": "4bdb13808b799a945fa7765f8a711ffaccd00bd02d6fcda58c6bee8fc8aabfe3",
+      "reference_endpoint_sha256": {
+        "4": "d458e4bced54c97e647013843a846e172022103f1f635867a402a5a9e2b8acc0",
+        "8": "3f3f73004e91f5ee1a074b6df7a8bcc6bdc00adfba0bdeb29bf1b058d5263f45"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth",
+      "chunk": 1,
+      "native_step": 0
+    },
+    {
+      "sigma": 0.6894410400390625,
+      "target_sigma": 0.5711835327148438,
+      "initial_sha256": "b6eee14ae31e7900b6eb90d86ccb53cce43f6f558dadfba7120655318af427c7",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.5630237760979155,
+      "diagonal_average_velocity_rms": 0.5643151646445527,
+      "velocity_rmse": 0.021103858960524306,
+      "velocity_relative_rmse": 0.03739729194379717,
+      "velocity_cosine": 0.9993017417982475,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.002137512810166913,
+        "8": 0.0024956895734448
+      },
+      "diagonal_refinement_endpoint_rmse": 0.0003587071800234825,
+      "endpoint_error_over_refinement": 6.957456422482041,
+      "direct_endpoint_sha256": "9c5ffd7e1a5b964c61d2f5ca714c5130eb8cefd4f7fe2895ae1ea2ac0fc51452",
+      "reference_endpoint_sha256": {
+        "4": "dd81078018e7ede4c792d852b24029c322bb51e50a4ee2aa49244f88e78cde53",
+        "8": "9098809eb71449cbc0117501d0bc3c145129d453a198d87fb9e6d30c285ee1a8"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth",
+      "chunk": 1,
+      "native_step": 4
+    },
+    {
+      "sigma": 0.24078089904785155,
+      "target_sigma": 0.0,
+      "initial_sha256": "9404615c0de864116f807bf6e5fc3d5835dfcfbc1634834111481fcabc9c1f98",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.5639501695306304,
+      "diagonal_average_velocity_rms": 0.5653035724874991,
+      "velocity_rmse": 0.04171553056943552,
+      "velocity_relative_rmse": 0.07379314867209336,
+      "velocity_cosine": 0.9972736242400423,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.008608931704228877,
+        "8": 0.010044302597411547
+      },
+      "diagonal_refinement_endpoint_rmse": 0.0014423295830247062,
+      "endpoint_error_over_refinement": 6.9639441051660755,
+      "direct_endpoint_sha256": "19cb1c17d67cfe88c2220d77ea14e805d253a405b996afc2dee02ce164683213",
+      "reference_endpoint_sha256": {
+        "4": "b663fd372e4a470c725cc65a4b43803d02ef6403a32ce203bd0b438574867b6f",
+        "8": "fe23a07aaadb44518930b48a8d0c71aaddbfa5f0bc988bce48ebb47bf8bdc8e6"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth",
+      "chunk": 1,
+      "native_step": 7
+    },
+    {
+      "sigma": 1.0,
+      "target_sigma": 0.9395404663085938,
+      "initial_sha256": "e8f51c8ae05cba68a0bf2dfce51f960156368f59750b124ffb05843de4b57984",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.581486420911818,
+      "diagonal_average_velocity_rms": 0.5818611531885959,
+      "velocity_rmse": 0.009228756613956661,
+      "velocity_relative_rmse": 0.015860754001849282,
+      "velocity_cosine": 0.9998743446994331,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.00047818088855291883,
+        "8": 0.0005579667135358433
+      },
+      "diagonal_refinement_endpoint_rmse": 7.982132453340645e-05,
+      "endpoint_error_over_refinement": 6.990196126128246,
+      "direct_endpoint_sha256": "6c601880a6c1822a5033f619ecc3a04f364c66d0def69e55b12567bc66c73712",
+      "reference_endpoint_sha256": {
+        "4": "bb799e90f612b065ef95320ede36249c880d12884a876b98404cde05e8381208",
+        "8": "07c60386016f6ed42312fff676f3da76570ebc86d274929d718ff9b9513c3ef7"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth",
+      "chunk": 2,
+      "native_step": 0
+    },
+    {
+      "sigma": 0.6894410400390625,
+      "target_sigma": 0.5711835327148438,
+      "initial_sha256": "d671a6978593d40184ceeca20b8331f2d153d23a26743c9061b16cae75bc320a",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.5952140908850143,
+      "diagonal_average_velocity_rms": 0.5959734966104278,
+      "velocity_rmse": 0.024130002359032274,
+      "velocity_relative_rmse": 0.040488381608025474,
+      "velocity_cosine": 0.9991801125820766,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.002447157974149411,
+        "8": 0.0028535536510940806
+      },
+      "diagonal_refinement_endpoint_rmse": 0.0004070072076048898,
+      "endpoint_error_over_refinement": 7.011064172269459,
+      "direct_endpoint_sha256": "fbacafa976c6b3e4c1bee88b83df9adb9ab4f1c7aa1543e6c3977203138c0328",
+      "reference_endpoint_sha256": {
+        "4": "04926f9486fe11cc2c3a9835cfbda8a46122ae75ee3177d2d63294ec6b3ae418",
+        "8": "03c1a75da21448073657138e01e05d2c242890146ffcf007d53b8819fd733884"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth",
+      "chunk": 2,
+      "native_step": 4
+    },
+    {
+      "sigma": 0.24078089904785155,
+      "target_sigma": 0.0,
+      "initial_sha256": "cfd3a8f234fdee4a169ed81a1baf10589ba48bd8112771f8a396c698a4f0b2aa",
+      "initial_state_unchanged": true,
+      "finite_velocity_rms": 0.5992196069689798,
+      "diagonal_average_velocity_rms": 0.5991613122164614,
+      "velocity_rmse": 0.04675279074772991,
+      "velocity_relative_rmse": 0.07803038980400546,
+      "velocity_cosine": 0.9969559300360701,
+      "finite_vs_diagonal_endpoint_rmse": {
+        "4": 0.009669068122190828,
+        "8": 0.011257180264495747
+      },
+      "diagonal_refinement_endpoint_rmse": 0.0015973444565211324,
+      "endpoint_error_over_refinement": 7.047434395592318,
+      "direct_endpoint_sha256": "552d0703fcab98fa2ff05259e66fa14fd982c1185e06966daf4e2e01d127798b",
+      "reference_endpoint_sha256": {
+        "4": "7609db6ff3818ff967e4191275396bd6263d575bae5d15b321405b7d1865d493",
+        "8": "3e4b2a502a60038cd26a28739ee9e9072d7b2dcd835e7681d764c78c0f5d3715"
+      },
+      "subdivisions": [
+        4,
+        8
+      ],
+      "model_forwards": 13,
+      "caveat": "4/8 refinement difference is a numerical diagnostic, not a rigorous error bound; neither reference is ground truth",
+      "chunk": 2,
+      "native_step": 7
+    }
+  ],
+  "cache_unchanged": true,
+  "parameter_versions_unchanged": true
+}

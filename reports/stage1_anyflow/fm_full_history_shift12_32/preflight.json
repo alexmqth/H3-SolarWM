@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-08T10:48:52.209613+08:00",
+  "gpu": 3,
+  "gpu_used_MiB": 0,
+  "frozen_files": 330,
+  "flags_valid": true,
+  "metadata_schema_matches_completed_FM": true,
+  "first16_schedule_matches": true,
+  "config": {
+    "out_dir": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/train_32",
+    "resume_from": null,
+    "teacher_dir": [
+      "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+      "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39"
+    ],
+    "actions": [
+      "A",
+      "D"
+    ],
+    "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/causal_adapter.pt",
+    "action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/action_adapter.pt",
+    "objective": "fm",
+    "precision_profile": "h3_fp32",
+    "adapter_scope": "all_qkvo_ffn",
+    "bank_rank": 8,
+    "bank_alpha": 8.0,
+    "history_gradient_mode": "full",
+    "train_target_time": false,
+    "device": "cuda:0",
+    "smoke": false,
+    "steps": 32,
+    "checkpoint_every": 16,
+    "logical_batch": 4,
+    "lr": 3e-05,
+    "rank": 8,
+    "tail_blocks": 16,
+    "chunk_frames": 5,
+    "history_chunks": 5,
+    "anchor_mode": "rgb",
+    "action_prefix_mode": "causal",
+    "action_feedback": true,
+    "flow_shift": 2.22,
+    "training_timestep_shift": 12.0,
+    "validation_timestep_shift": 2.22,
+    "finite_difference_epsilon": 5.0,
+    "seed": 13,
+    "validation_seed": 1001,
+    "validation_cases": 2
+  }
+}

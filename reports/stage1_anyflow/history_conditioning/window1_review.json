@@ -1,0 +1,66 @@
+{
+  "at": "2026-10-09T06:24:36.187615+08:00",
+  "status": "complete_static_review",
+  "method": "All42 current RGB frames for each of4 branches via contact sheets; native-size RGB39/52/66/80; 8 additional body crops59/62/65/68/71/74/77/80 for both A branches; shared history38 versus current39 C/N boundary sheets. Static inspection, not real-time playback.",
+  "branches": [
+    {
+      "history": "A",
+      "action": "A",
+      "observation": "方向与D分支分开；人物持续可辨，但末段腿部/下躯干有半透明残影，首边界地面/背景变化比C大。未见整个场景或人物姿态重置。",
+      "basic_visual_pass": false,
+      "severity": "borderline_late_ghosting",
+      "flow": 1.6454949282654903,
+      "video_sha256": "41e030c137be38f63aa5b8f2e76a18fbc9221bc1c8fd7245879146e9fe1a43e3",
+      "boundary_C_N": {
+        "C": 5.250150203704834,
+        "N": 9.677289009094238
+      }
+    },
+    {
+      "history": "A",
+      "action": "D",
+      "observation": "方向从C的同正恢复为负；人物/停车场保持，原C明显手臂重影大幅减少，历史首边界也更接近参考。",
+      "basic_visual_pass": true,
+      "severity": "basic_structure_preserved",
+      "flow": -1.5467326848245249,
+      "video_sha256": "c4a30f6fb8a4550f75a4f40aac02d227d360fd86f06acf1a11658e279d358e05",
+      "boundary_C_N": {
+        "C": 5.32616662979126,
+        "N": 3.0970828533172607
+      }
+    },
+    {
+      "history": "D",
+      "action": "A",
+      "observation": "方向为正且与D分支不同，但RGB59–68明显多重手臂、重复躯干轮廓，不能按人物仍存在就判结构通过。后段重影有所减轻。",
+      "basic_visual_pass": false,
+      "severity": "clear_limb_and_torso_ghosting",
+      "flow": 0.6141035389609453,
+      "video_sha256": "0faaa7b717da53d61dd15c8be4041e87c11315143fc7b23be883ec953580f235",
+      "boundary_C_N": {
+        "C": 4.50492525100708,
+        "N": 2.7534279823303223
+      }
+    },
+    {
+      "history": "D",
+      "action": "D",
+      "observation": "方向为负，人物持续可辨；原C多重手臂明显减少，当前片段及历史首边界较完整。",
+      "basic_visual_pass": true,
+      "severity": "basic_structure_preserved",
+      "flow": -0.6738224066793919,
+      "video_sha256": "b0ca0404cf198ea1f505fddeec0c04b13ec4edbb22323ffedd447ce3733ea25f",
+      "boundary_C_N": {
+        "C": 4.250680923461914,
+        "N": 3.2072014808654785
+      }
+    }
+  ],
+  "both_histories_action_structure_and_adherence_pass": false,
+  "flow_direction_gate": true,
+  "stage1_accepted": false,
+  "window2_launch_allowed": false,
+  "decision": "Stop this conditioning factor at window1: action signs restored but visual gate fails. No more noise-level sweep or window expansion.",
+  "scope": "Original-generated reference local forks; not GT or free rollout",
+  "boundary_caveat": "No entire scene/I0 pose reset observed in these4 boundaries; this does not establish long-horizon history adherence."
+}

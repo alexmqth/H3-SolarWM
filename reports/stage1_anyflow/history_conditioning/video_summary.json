@@ -1,0 +1,160 @@
+{
+  "at": "2026-10-09T06:24:36.961618+08:00",
+  "status": "reviewed",
+  "window1_pass": false,
+  "stage1_accepted": false,
+  "decision": "Window1局部门槛失败，停止本历史加噪因素，不执行窗口2，不进入AnyFlow/Stage2。",
+  "rows": [
+    {
+      "history": "A",
+      "action": "A",
+      "C_flow": 1.2756236813417294,
+      "N_flow": 1.6454949282654903,
+      "C_frame_MAD": 6.290255546569824,
+      "N_frame_MAD": 5.32309627532959,
+      "C_boundary_MAD": 5.250150203704834,
+      "N_boundary_MAD": 9.677289009094238,
+      "N_sampling_seconds": 269.90323442500085,
+      "review": "方向与D分支分开；人物持续可辨，但末段腿部/下躯干有半透明残影，首边界地面/背景变化比C大。未见整个场景或人物姿态重置。"
+    },
+    {
+      "history": "A",
+      "action": "D",
+      "C_flow": 1.17601593184035,
+      "N_flow": -1.5467326848245249,
+      "C_frame_MAD": 6.858668327331543,
+      "N_frame_MAD": 4.59966516494751,
+      "C_boundary_MAD": 5.32616662979126,
+      "N_boundary_MAD": 3.0970828533172607,
+      "N_sampling_seconds": 263.9651716980152,
+      "review": "方向从C的同正恢复为负；人物/停车场保持，原C明显手臂重影大幅减少，历史首边界也更接近参考。"
+    },
+    {
+      "history": "D",
+      "action": "A",
+      "C_flow": 0.3096446338586691,
+      "N_flow": 0.6141035389609453,
+      "C_frame_MAD": 5.510103225708008,
+      "N_frame_MAD": 4.394495964050293,
+      "C_boundary_MAD": 4.50492525100708,
+      "N_boundary_MAD": 2.7534279823303223,
+      "N_sampling_seconds": 270.1004013158381,
+      "review": "方向为正且与D分支不同，但RGB59–68明显多重手臂、重复躯干轮廓，不能按人物仍存在就判结构通过。后段重影有所减轻。"
+    },
+    {
+      "history": "D",
+      "action": "D",
+      "C_flow": -1.4826017894395969,
+      "N_flow": -0.6738224066793919,
+      "C_frame_MAD": 5.230236053466797,
+      "N_frame_MAD": 3.6941025257110596,
+      "C_boundary_MAD": 4.250680923461914,
+      "N_boundary_MAD": 3.2072014808654785,
+      "N_sampling_seconds": 265.25178391393274,
+      "review": "方向为负，人物持续可辨；原C多重手臂明显减少，当前片段及历史首边界较完整。"
+    }
+  ],
+  "cost": [
+    {
+      "history": "A",
+      "wall_seconds": 575.9148569698445,
+      "load_seconds": 3.430310497060418,
+      "GPU_peak_MiB": 26519.59326171875,
+      "noisy_forwards": 60,
+      "CPU_KV_MiB": 0,
+      "optimizer_updates": 0
+    },
+    {
+      "history": "D",
+      "wall_seconds": 577.0775752495974,
+      "load_seconds": 3.3893480147235096,
+      "GPU_peak_MiB": 26519.59326171875,
+      "noisy_forwards": 60,
+      "CPU_KV_MiB": 0,
+      "optimizer_updates": 0
+    }
+  ],
+  "video_audits": [
+    {
+      "at": "2026-10-09T06:24:36.618913+08:00",
+      "status": "complete_full_decode",
+      "group": "window1_A",
+      "videos": [
+        {
+          "name": "A.mp4",
+          "frames": 42,
+          "width": 832,
+          "height": 480,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24,
+          "sha256": "41e030c137be38f63aa5b8f2e76a18fbc9221bc1c8fd7245879146e9fe1a43e3"
+        },
+        {
+          "name": "CN_AD_context.mp4",
+          "frames": 50,
+          "width": 1664,
+          "height": 1040,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24,
+          "sha256": "2899638347031efe35afe2c5ec8fe39be7c53fd2f301a5a05ea00869ab28bb00"
+        },
+        {
+          "name": "D.mp4",
+          "frames": 42,
+          "width": 832,
+          "height": 480,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24,
+          "sha256": "c4a30f6fb8a4550f75a4f40aac02d227d360fd86f06acf1a11658e279d358e05"
+        }
+      ],
+      "paired_C_N_inputs_verified": true
+    },
+    {
+      "at": "2026-10-09T06:24:36.931019+08:00",
+      "status": "complete_full_decode",
+      "group": "window1_D",
+      "videos": [
+        {
+          "name": "A.mp4",
+          "frames": 42,
+          "width": 832,
+          "height": 480,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24,
+          "sha256": "0faaa7b717da53d61dd15c8be4041e87c11315143fc7b23be883ec953580f235"
+        },
+        {
+          "name": "CN_AD_context.mp4",
+          "frames": 50,
+          "width": 1664,
+          "height": 1040,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24,
+          "sha256": "6a29188e2616ecbcd5f2de37b24779b439be6872cdc8cf9900d9d0f2f1672ff8"
+        },
+        {
+          "name": "D.mp4",
+          "frames": 42,
+          "width": 832,
+          "height": 480,
+          "codec": "h264",
+          "pix_fmt": "yuv420p",
+          "fps": 24,
+          "sha256": "b0ca0404cf198ea1f505fddeec0c04b13ec4edbb22323ffedd447ce3733ea25f"
+        }
+      ],
+      "paired_C_N_inputs_verified": true
+    }
+  ],
+  "diagnostic_forwards": 56,
+  "sampling_forwards": 120,
+  "optimizer_updates": 0,
+  "runtime_unchanged": true,
+  "review_method": "All42 current RGB frames for each of4 branches via contact sheets; native-size RGB39/52/66/80; 8 additional body crops59/62/65/68/71/74/77/80 for both A branches; shared history38 versus current39 C/N boundary sheets. Static inspection, not real-time playback."
+}

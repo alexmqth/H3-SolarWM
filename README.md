@@ -1,5 +1,7 @@
 # H3-World × SolarWM: causalization interview submission
 
+2026-10-09 16:16：E2两臂各4更新、六组局部视频评测及48次held-out诊断全部完成。停车场两份历史的A/D符号均保留，但A分支重影仍在，FM+action没有一致优于FM-only；局部动作＋结构联合gate仍为No-Go。本轮不自动扩训，不进入AnyFlow/Stage2。 [完整结果与视频](reports/stage1_anyflow/real_transition_windows/FINAL_RESULTS.md)。
+
 这是面试题的可审阅提交包：在 H3-World 中验证 SolarWM 风格的 causal chunk、KV cache 和少步生成思路，同时检查 H3-World 原有 action control 是否保留。
 
 包内包含 causal/KV 实现、最小 Stage2-lite 训练链路、实验 adapter、可播放对比视频和报告；不包含 MiniMax-H3 33B 基础权重、H3-World 原始 LoRA、数据集、缓存、latent/conditioning 中间文件。
@@ -18,6 +20,8 @@
 
 ## 当前结论
 
+- **04时段更正：** 官方H3 Stage1冻结目标时间MLP；旧pilot额外训练了它。[参数策略复核与修正](STAGE1_PARAMETER_POLICY.md)记录了证据；真实33B冻结分支训练及评测已完成，单独冻结没有解决画质和动作问题。
+- [Stage1 TF-AnyFlow实现](STAGE1_ANYFLOW.md)与[验收清单](STAGE1_ACCEPTANCE.md)：时间条件、有限差分loss、有限区间采样、native-FP32和完整历史梯度均已接通，公式/梯度/恢复检查通过。既定136对照及完整4/8步视频仍未通过画质/action gate。真实ABot FM48与后续密度对照均已收尾并未通过，当前按[三实验协议](reports/stage1_anyflow/three_experiments/PROTOCOL.md)优先校准Original局部动作信息流。工程检查通过不等于视觉验收；会议视频仍来自旧FM checkpoint。
 - H3-World 已跑通 chunk-wise causal attention、persistent raw KV、clean KV commit 和 generated-history rollout；124 帧（约 5.17 秒）可完整解码。
 - 早期 fixed-mix 主视频出现人物透明、车库 tearing，是旧 anchor protocol 和缺少 visual adapter 的 generated-history 漂移；它后来被错误地选成会议主展示。旧视频已移到 `meeting/diagnostics/legacy_fixed_mix/`。
 - 当前 124 帧会议主视频使用 RGB-consistent dual anchor（generated latent tail 解码到 RGB，再经过 H3 image branch）和 tail16 visual QKV adapter。该长度下人物和场景结构比旧主视频更完整，但仍有 blur/ghosting；扩展到 481 帧后视觉崩坏。
@@ -27,6 +31,7 @@
 可 defensibly 写成：
 
 > We successfully causalized H3-World with chunk-wise attention and persistent KV caching. RGB-consistent anchoring and visual adaptation improve visual coherence at 124 frames relative to the earlier fixed-mix prototype, but the same checkpoint suffers severe visual collapse in the 20-second rollout. The strict A/D action gate is also not reached. The prototype demonstrates causal execution with bounded history KV and exposes unresolved action-control and long-horizon generated-history failures; it does not establish long-video stability or full preservation of H3-World action control.
+
 
 ## 文档和目录
 

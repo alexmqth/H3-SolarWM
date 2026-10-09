@@ -1,0 +1,921 @@
+{
+  "status": "complete",
+  "pid": 919787,
+  "gpu": 2,
+  "started_at": "2026-10-08T03:57:19.575531+08:00",
+  "active": null,
+  "evaluations": [
+    {
+      "objective": "anyflow",
+      "step": 16,
+      "steps_per_chunk": 4,
+      "action": "A",
+      "history": "generated",
+      "sigma_grid": "uniform",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_16/generated_4step/A/cached.mp4",
+      "video_stats": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_16/generated_4step/A/cached.mp4",
+        "width": 832,
+        "height": 480,
+        "fps": 24.0,
+        "codec": "h264",
+        "frames": 39,
+        "duration_seconds": 1.625,
+        "gray_pixel_difference_mean": 5.41503286837888,
+        "gray_pixel_difference_p95": 17,
+        "mean_spatial_edge_difference": 1.599082548697181,
+        "adjacent_frame_mad": [
+          5.72978766025641,
+          3.860539362980769,
+          4.802296173878205,
+          4.42988030849359,
+          4.150080128205128,
+          3.995332532051282,
+          4.726201923076923,
+          4.26611578525641,
+          3.904845252403846,
+          3.743221654647436,
+          3.8038035857371795,
+          4.939821213942308,
+          3.866258513621795,
+          3.911358173076923,
+          3.7777193509615383,
+          4.731362680288462,
+          18.056805889423078,
+          2.7188827123397434,
+          8.095658052884616,
+          6.622042768429488,
+          6.540657552083333,
+          7.110894931891026,
+          6.2317758413461535,
+          5.97177233573718,
+          6.460759715544872,
+          6.635281450320512,
+          6.003828625801282,
+          5.488997395833334,
+          5.437627704326923,
+          5.83114983974359,
+          5.367668269230769,
+          5.449927383814103,
+          4.891902043269231,
+          6.062953225160256,
+          4.965579927884615,
+          4.55233874198718,
+          4.231693209134615,
+          4.404427083333333
+        ],
+        "caveat": "Descriptive pixel statistics; lower MAD may mean blur or little motion, not better quality."
+      },
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_16/generated_4step/A/cached.mp4",
+        "frames": 39,
+        "horizontal_flow_px": {
+          "mean": -2.695826397130364,
+          "median": -2.374957799911499,
+          "p05": -5.15007221698761,
+          "p95": -1.2370571434497835,
+          "mean_abs": 2.695826397130364
+        },
+        "vertical_flow_px": {
+          "mean": 0.2134631263386262,
+          "median": 0.18804261088371277,
+          "p05": -0.0496943823993206,
+          "p95": 0.6003362596035,
+          "mean_abs": 0.2263563805700917
+        },
+        "flow_magnitude_px": {
+          "mean": 2.825922330743388,
+          "median": 2.464060068130493,
+          "p05": 1.365430474281311,
+          "p95": 5.232528352737426,
+          "mean_abs": 2.825922330743388
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary": {
+        "frames": [
+          17,
+          34
+        ],
+        "rgb_mad": [
+          17.928498096955128,
+          6.062982438568376
+        ],
+        "mean": 11.995740267761752
+      },
+      "runtime": {
+        "mode": "cached",
+        "status": "complete",
+        "started_at": "2026-10-08T04:39:05.099978+08:00",
+        "steps": 4,
+        "num_frames": 39,
+        "seed": 13,
+        "gpu": "NVIDIA L40",
+        "visible_devices": "2",
+        "cache_device": "cpu",
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "trained_for_causal": true,
+        "causal_adapter_scope": "all",
+        "history_source": "generated",
+        "anchor_mode": "dynamic_last_frame_rgb_dual",
+        "action_prefix_mode": "causal",
+        "boundary_blend": 0.0,
+        "boundary_overlap_frames": 1,
+        "boundary_clamp": false,
+        "action_preset": "A",
+        "action_preset_resolved": "strafe-left",
+        "action_schedule": [
+          "strafe-left",
+          "strafe-left",
+          "strafe-left"
+        ],
+        "action_feedback": true,
+        "flow_shift": 2.22,
+        "anyflow_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_16/anyflow_adapter.pt",
+        "sampler": "anyflow_finite_map",
+        "anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2",
+        "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_16/causal_adapter.pt",
+        "causal_action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_16/action_adapter.pt",
+        "cfg_scale": 1.0,
+        "audio_output": "silent",
+        "attention_backend": "PyTorch SDPA",
+        "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+        "dit_prepare_seconds": 8.662367586046457,
+        "video_sigmas": [
+          1.0,
+          0.75,
+          0.5,
+          0.25,
+          0.0
+        ],
+        "video_sigma_grid": "uniform",
+        "effective_video_sampling_shift": 1.0,
+        "anyflow_training_shift": 2.22,
+        "denoiser_forwards": 12,
+        "commit_forwards": 3,
+        "chunk_seconds": [
+          31.910159348975867,
+          41.90490097599104,
+          39.04624958196655
+        ],
+        "rgb_anchor_seconds": [
+          13.390522119123489,
+          14.302441183943301
+        ],
+        "sampling_seconds": 112.86386553477496,
+        "sampling_memory": {
+          "allocated_peak_MiB": 16104.3193359375,
+          "reserved_peak_MiB": 17110.0
+        },
+        "kv_cache_peak_MiB": 6484.130859375,
+        "per_layer_commits": 150,
+        "vae_prepare_seconds": 6.922231089323759,
+        "vae_decode_seconds": 3.8852343768812716,
+        "frames_to_cpu_seconds": 0.5423134169541299,
+        "encode_mp4_seconds": 0.4165215129032731,
+        "wall_after_conditioning_seconds": 133.35308952303603,
+        "wall_including_shared_setup_seconds": 151.81863620504737,
+        "memory_after_setup": {
+          "allocated_peak_MiB": 16104.3193359375,
+          "reserved_peak_MiB": 17110.0
+        },
+        "memory_entire_run_peak_MiB": 16247.2412109375,
+        "completed_at": "2026-10-08T04:41:18.453725+08:00"
+      },
+      "input_fairness": {
+        "exactly_equal": true,
+        "reference": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+        "checks": {
+          "initial_noise": {
+            "shape": [
+              1,
+              24,
+              12,
+              30,
+              52
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "audio_noise": {
+            "shape": [
+              2,
+              32,
+              65
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "prompt_embeds": {
+            "shape": [
+              536,
+              5120
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "anchor": {
+            "shape": [
+              390,
+              96
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "action_text_rows_equal": true
+        }
+      }
+    },
+    {
+      "objective": "anyflow",
+      "step": 16,
+      "steps_per_chunk": 4,
+      "action": "D",
+      "history": "generated",
+      "sigma_grid": "uniform",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_16/generated_4step/D/cached.mp4",
+      "video_stats": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_16/generated_4step/D/cached.mp4",
+        "width": 832,
+        "height": 480,
+        "fps": 24.0,
+        "codec": "h264",
+        "frames": 39,
+        "duration_seconds": 1.625,
+        "gray_pixel_difference_mean": 5.094254227817139,
+        "gray_pixel_difference_p95": 16,
+        "mean_spatial_edge_difference": 1.536216493521217,
+        "adjacent_frame_mad": [
+          6.742430388621795,
+          4.065382111378205,
+          4.855789262820513,
+          4.414663461538462,
+          4.510990084134615,
+          4.174111077724359,
+          4.5611453325320515,
+          4.3214342948717945,
+          4.075232872596154,
+          3.9275966546474357,
+          4.04824719551282,
+          4.737850560897436,
+          4.012772936698718,
+          3.885947516025641,
+          3.7479942908653845,
+          4.683991887019231,
+          13.940762720352565,
+          4.5669471153846155,
+          6.472826522435898,
+          5.741919571314103,
+          5.69717297676282,
+          6.314347956730769,
+          5.588531650641026,
+          5.320149739583333,
+          5.889635917467949,
+          6.155336037660256,
+          5.51738531650641,
+          4.952311197916667,
+          4.941073217147436,
+          5.386290564903846,
+          4.932547075320513,
+          4.878170072115385,
+          4.646925080128205,
+          6.209219751602564,
+          4.350030048076923,
+          3.952391326121795,
+          3.6475711137820515,
+          3.7145357572115385
+        ],
+        "caveat": "Descriptive pixel statistics; lower MAD may mean blur or little motion, not better quality."
+      },
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_16/generated_4step/D/cached.mp4",
+        "frames": 39,
+        "horizontal_flow_px": {
+          "mean": -2.2533843015369617,
+          "median": -2.057213068008423,
+          "p05": -3.538041353225708,
+          "p95": -1.450851708650589,
+          "mean_abs": 2.2533843015369617
+        },
+        "vertical_flow_px": {
+          "mean": 0.122129026772822,
+          "median": 0.10790489986538887,
+          "p05": -0.08644860871136188,
+          "p95": 0.40934541076421715,
+          "mean_abs": 0.14808460067357182
+        },
+        "flow_magnitude_px": {
+          "mean": 2.346139249048735,
+          "median": 2.181896209716797,
+          "p05": 1.5120041072368622,
+          "p95": 3.6222287774085995,
+          "mean_abs": 2.346139249048735
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary": {
+        "frames": [
+          17,
+          34
+        ],
+        "rgb_mad": [
+          13.839815371260684,
+          6.210271434294872
+        ],
+        "mean": 10.025043402777778
+      },
+      "runtime": {
+        "mode": "cached",
+        "status": "complete",
+        "started_at": "2026-10-08T04:41:49.497601+08:00",
+        "steps": 4,
+        "num_frames": 39,
+        "seed": 13,
+        "gpu": "NVIDIA L40",
+        "visible_devices": "2",
+        "cache_device": "cpu",
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "trained_for_causal": true,
+        "causal_adapter_scope": "all",
+        "history_source": "generated",
+        "anchor_mode": "dynamic_last_frame_rgb_dual",
+        "action_prefix_mode": "causal",
+        "boundary_blend": 0.0,
+        "boundary_overlap_frames": 1,
+        "boundary_clamp": false,
+        "action_preset": "D",
+        "action_preset_resolved": "strafe-right",
+        "action_schedule": [
+          "strafe-right",
+          "strafe-right",
+          "strafe-right"
+        ],
+        "action_feedback": true,
+        "flow_shift": 2.22,
+        "anyflow_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_16/anyflow_adapter.pt",
+        "sampler": "anyflow_finite_map",
+        "anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2",
+        "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_16/causal_adapter.pt",
+        "causal_action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_16/action_adapter.pt",
+        "cfg_scale": 1.0,
+        "audio_output": "silent",
+        "attention_backend": "PyTorch SDPA",
+        "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+        "dit_prepare_seconds": 8.668443237897009,
+        "video_sigmas": [
+          1.0,
+          0.75,
+          0.5,
+          0.25,
+          0.0
+        ],
+        "video_sigma_grid": "uniform",
+        "effective_video_sampling_shift": 1.0,
+        "anyflow_training_shift": 2.22,
+        "denoiser_forwards": 12,
+        "commit_forwards": 3,
+        "chunk_seconds": [
+          30.943491399288177,
+          41.57078105723485,
+          38.95840566093102
+        ],
+        "rgb_anchor_seconds": [
+          13.194339537061751,
+          14.113752258941531
+        ],
+        "sampling_seconds": 111.47523168288171,
+        "sampling_memory": {
+          "allocated_peak_MiB": 16104.3193359375,
+          "reserved_peak_MiB": 17110.0
+        },
+        "kv_cache_peak_MiB": 6484.130859375,
+        "per_layer_commits": 150,
+        "vae_prepare_seconds": 6.963687865994871,
+        "vae_decode_seconds": 3.694068676326424,
+        "frames_to_cpu_seconds": 0.44159196875989437,
+        "encode_mp4_seconds": 0.44514277996495366,
+        "wall_after_conditioning_seconds": 131.77023532707244,
+        "wall_including_shared_setup_seconds": 148.07429228909314,
+        "memory_after_setup": {
+          "allocated_peak_MiB": 16104.3193359375,
+          "reserved_peak_MiB": 17110.0
+        },
+        "memory_entire_run_peak_MiB": 16247.2412109375,
+        "completed_at": "2026-10-08T04:44:01.268431+08:00"
+      },
+      "input_fairness": {
+        "exactly_equal": true,
+        "reference": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39",
+        "checks": {
+          "initial_noise": {
+            "shape": [
+              1,
+              24,
+              12,
+              30,
+              52
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "audio_noise": {
+            "shape": [
+              2,
+              32,
+              65
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "prompt_embeds": {
+            "shape": [
+              536,
+              5120
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "anchor": {
+            "shape": [
+              390,
+              96
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "action_text_rows_equal": true
+        }
+      }
+    },
+    {
+      "objective": "anyflow",
+      "step": 0,
+      "steps_per_chunk": 4,
+      "action": "A",
+      "history": "generated",
+      "sigma_grid": "uniform",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_00/generated_4step/A/cached.mp4",
+      "video_stats": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_00/generated_4step/A/cached.mp4",
+        "width": 832,
+        "height": 480,
+        "fps": 24.0,
+        "codec": "h264",
+        "frames": 39,
+        "duration_seconds": 1.625,
+        "gray_pixel_difference_mean": 5.369207640118927,
+        "gray_pixel_difference_p95": 17,
+        "mean_spatial_edge_difference": 1.6160710653275785,
+        "adjacent_frame_mad": [
+          5.604427083333333,
+          3.9921424278846156,
+          4.673307291666666,
+          4.554527243589743,
+          4.097017728365385,
+          3.955506310096154,
+          4.49560046073718,
+          4.305215845352564,
+          3.9153345352564104,
+          3.7928285256410255,
+          3.900793770032051,
+          4.798940805288462,
+          3.8833558693910257,
+          3.9044095552884617,
+          3.810213842147436,
+          4.652040765224359,
+          15.598657852564102,
+          4.485564403044871,
+          7.263223657852564,
+          6.379427083333334,
+          6.336415765224359,
+          7.034885817307693,
+          6.215111678685897,
+          5.952779447115384,
+          6.515289463141026,
+          6.887742888621795,
+          6.005799278846154,
+          5.486428285256411,
+          5.4461438301282055,
+          5.955160757211538,
+          5.404775140224359,
+          5.483861678685898,
+          4.963313802083333,
+          6.328297776442308,
+          4.96777093349359,
+          4.49423577724359,
+          4.1302609174679485,
+          4.35908203125
+        ],
+        "caveat": "Descriptive pixel statistics; lower MAD may mean blur or little motion, not better quality."
+      },
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_00/generated_4step/A/cached.mp4",
+        "frames": 39,
+        "horizontal_flow_px": {
+          "mean": -2.7110837572499324,
+          "median": -2.453795909881592,
+          "p05": -4.9928371667861935,
+          "p95": -1.3615803182125092,
+          "mean_abs": 2.7110837572499324
+        },
+        "vertical_flow_px": {
+          "mean": 0.12584415983445452,
+          "median": 0.10163089632987976,
+          "p05": -0.15020870119333268,
+          "p95": 0.5727184861898421,
+          "mean_abs": 0.18037279277709067
+        },
+        "flow_magnitude_px": {
+          "mean": 2.817107871959084,
+          "median": 2.540995717048645,
+          "p05": 1.473942631483078,
+          "p95": 5.07608630657196,
+          "mean_abs": 2.817107871959084
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary": {
+        "frames": [
+          17,
+          34
+        ],
+        "rgb_mad": [
+          15.508285757211539,
+          6.279313568376068
+        ],
+        "mean": 10.893799662793803
+      },
+      "runtime": {
+        "mode": "cached",
+        "status": "complete",
+        "started_at": "2026-10-08T04:44:32.252592+08:00",
+        "steps": 4,
+        "num_frames": 39,
+        "seed": 13,
+        "gpu": "NVIDIA L40",
+        "visible_devices": "2",
+        "cache_device": "cpu",
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "trained_for_causal": true,
+        "causal_adapter_scope": "all",
+        "history_source": "generated",
+        "anchor_mode": "dynamic_last_frame_rgb_dual",
+        "action_prefix_mode": "causal",
+        "boundary_blend": 0.0,
+        "boundary_overlap_frames": 1,
+        "boundary_clamp": false,
+        "action_preset": "A",
+        "action_preset_resolved": "strafe-left",
+        "action_schedule": [
+          "strafe-left",
+          "strafe-left",
+          "strafe-left"
+        ],
+        "action_feedback": true,
+        "flow_shift": 2.22,
+        "anyflow_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_00/anyflow_adapter.pt",
+        "sampler": "anyflow_finite_map",
+        "anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2",
+        "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_00/causal_adapter.pt",
+        "causal_action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_00/action_adapter.pt",
+        "cfg_scale": 1.0,
+        "audio_output": "silent",
+        "attention_backend": "PyTorch SDPA",
+        "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+        "dit_prepare_seconds": 8.630575770046562,
+        "video_sigmas": [
+          1.0,
+          0.75,
+          0.5,
+          0.25,
+          0.0
+        ],
+        "video_sigma_grid": "uniform",
+        "effective_video_sampling_shift": 1.0,
+        "anyflow_training_shift": 2.22,
+        "denoiser_forwards": 12,
+        "commit_forwards": 3,
+        "chunk_seconds": [
+          30.208432865329087,
+          40.22921082703397,
+          40.16303626913577
+        ],
+        "rgb_anchor_seconds": [
+          13.314219282008708,
+          15.508158748038113
+        ],
+        "sampling_seconds": 110.60378812206909,
+        "sampling_memory": {
+          "allocated_peak_MiB": 16104.3193359375,
+          "reserved_peak_MiB": 17110.0
+        },
+        "kv_cache_peak_MiB": 6484.130859375,
+        "per_layer_commits": 150,
+        "vae_prepare_seconds": 7.140446982812136,
+        "vae_decode_seconds": 4.650940043386072,
+        "frames_to_cpu_seconds": 0.548528612125665,
+        "encode_mp4_seconds": 0.6002718978561461,
+        "wall_after_conditioning_seconds": 132.2573525221087,
+        "wall_including_shared_setup_seconds": 149.51096866838634,
+        "memory_after_setup": {
+          "allocated_peak_MiB": 16104.3193359375,
+          "reserved_peak_MiB": 17110.0
+        },
+        "memory_entire_run_peak_MiB": 16247.2412109375,
+        "completed_at": "2026-10-08T04:46:44.510560+08:00"
+      },
+      "input_fairness": {
+        "exactly_equal": true,
+        "reference": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+        "checks": {
+          "initial_noise": {
+            "shape": [
+              1,
+              24,
+              12,
+              30,
+              52
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "audio_noise": {
+            "shape": [
+              2,
+              32,
+              65
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "prompt_embeds": {
+            "shape": [
+              536,
+              5120
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "anchor": {
+            "shape": [
+              390,
+              96
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "action_text_rows_equal": true
+        }
+      }
+    },
+    {
+      "objective": "anyflow",
+      "step": 0,
+      "steps_per_chunk": 4,
+      "action": "D",
+      "history": "generated",
+      "sigma_grid": "uniform",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_00/generated_4step/D/cached.mp4",
+      "video_stats": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_00/generated_4step/D/cached.mp4",
+        "width": 832,
+        "height": 480,
+        "fps": 24.0,
+        "codec": "h264",
+        "frames": 39,
+        "duration_seconds": 1.625,
+        "gray_pixel_difference_mean": 5.025742174321019,
+        "gray_pixel_difference_p95": 16,
+        "mean_spatial_edge_difference": 1.5135015215682894,
+        "adjacent_frame_mad": [
+          6.715049078525641,
+          4.0765850360576925,
+          4.806963641826923,
+          4.397430889423077,
+          4.450959034455129,
+          4.134192207532052,
+          4.4128355368589745,
+          4.319158153044872,
+          4.032684795673077,
+          3.9221729767628206,
+          3.9683418469551284,
+          4.73251702724359,
+          3.9476211939102566,
+          3.888243689903846,
+          3.719714042467949,
+          4.70595953525641,
+          13.22919671474359,
+          5.265609975961539,
+          6.188611778846154,
+          5.700658553685898,
+          5.525836338141025,
+          6.173662860576923,
+          5.483518629807692,
+          5.237535056089744,
+          5.749088541666667,
+          6.118121494391025,
+          5.378390424679488,
+          4.832464443108974,
+          4.785857371794871,
+          5.309577824519231,
+          4.915226862980769,
+          4.83476061698718,
+          4.5689928886217945,
+          6.134885817307692,
+          4.253881209935898,
+          3.815271935096154,
+          3.5709510216346154,
+          3.6756735777243588
+        ],
+        "caveat": "Descriptive pixel statistics; lower MAD may mean blur or little motion, not better quality."
+      },
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-03/stage1_anyflow39_uniform/eval/anyflow/step_00/generated_4step/D/cached.mp4",
+        "frames": 39,
+        "horizontal_flow_px": {
+          "mean": -2.1405387144339714,
+          "median": -2.037789046764374,
+          "p05": -3.0934736728668213,
+          "p95": -1.3936115562915803,
+          "mean_abs": 2.1405387144339714
+        },
+        "vertical_flow_px": {
+          "mean": 0.13451699650307236,
+          "median": 0.11027254909276962,
+          "p05": -0.06937190219759941,
+          "p95": 0.37395194321870767,
+          "mean_abs": 0.15469679282978177
+        },
+        "flow_magnitude_px": {
+          "mean": 2.235502556750649,
+          "median": 2.113120198249817,
+          "p05": 1.4598475635051726,
+          "p95": 3.311382257938385,
+          "mean_abs": 2.235502556750649
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary": {
+        "frames": [
+          17,
+          34
+        ],
+        "rgb_mad": [
+          13.090350393963675,
+          6.17399172008547
+        ],
+        "mean": 9.632171057024573
+      },
+      "runtime": {
+        "mode": "cached",
+        "status": "complete",
+        "started_at": "2026-10-08T04:47:14.326708+08:00",
+        "steps": 4,
+        "num_frames": 39,
+        "seed": 13,
+        "gpu": "NVIDIA L40",
+        "visible_devices": "2",
+        "cache_device": "cpu",
+        "chunk_frames": 5,
+        "history_chunks": 5,
+        "trained_for_causal": true,
+        "causal_adapter_scope": "all",
+        "history_source": "generated",
+        "anchor_mode": "dynamic_last_frame_rgb_dual",
+        "action_prefix_mode": "causal",
+        "boundary_blend": 0.0,
+        "boundary_overlap_frames": 1,
+        "boundary_clamp": false,
+        "action_preset": "D",
+        "action_preset_resolved": "strafe-right",
+        "action_schedule": [
+          "strafe-right",
+          "strafe-right",
+          "strafe-right"
+        ],
+        "action_feedback": true,
+        "flow_shift": 2.22,
+        "anyflow_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_00/anyflow_adapter.pt",
+        "sampler": "anyflow_finite_map",
+        "anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2",
+        "causal_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_00/causal_adapter.pt",
+        "causal_action_adapter": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/train_anyflow/step_00/action_adapter.pt",
+        "cfg_scale": 1.0,
+        "audio_output": "silent",
+        "attention_backend": "PyTorch SDPA",
+        "prefix_contract": "text t=1, anchor t=.999; fixed audio noise at native t=0; global H3 RoPE",
+        "dit_prepare_seconds": 8.90996275562793,
+        "video_sigmas": [
+          1.0,
+          0.75,
+          0.5,
+          0.25,
+          0.0
+        ],
+        "video_sigma_grid": "uniform",
+        "effective_video_sampling_shift": 1.0,
+        "anyflow_training_shift": 2.22,
+        "denoiser_forwards": 12,
+        "commit_forwards": 3,
+        "chunk_seconds": [
+          30.638391425833106,
+          40.7293616249226,
+          41.72979075787589
+        ],
+        "rgb_anchor_seconds": [
+          13.805884208064526,
+          14.964084242004901
+        ],
+        "sampling_seconds": 113.10047873808071,
+        "sampling_memory": {
+          "allocated_peak_MiB": 16104.3193359375,
+          "reserved_peak_MiB": 17110.0
+        },
+        "kv_cache_peak_MiB": 6484.130859375,
+        "per_layer_commits": 150,
+        "vae_prepare_seconds": 6.878491602838039,
+        "vae_decode_seconds": 4.624529751949012,
+        "frames_to_cpu_seconds": 0.4743029559031129,
+        "encode_mp4_seconds": 0.6330764601007104,
+        "wall_after_conditioning_seconds": 134.68327634222806,
+        "wall_including_shared_setup_seconds": 150.85797031736,
+        "memory_after_setup": {
+          "allocated_peak_MiB": 16104.3193359375,
+          "reserved_peak_MiB": 17110.0
+        },
+        "memory_entire_run_peak_MiB": 16247.2412109375,
+        "completed_at": "2026-10-08T04:49:29.010598+08:00"
+      },
+      "input_fairness": {
+        "exactly_equal": true,
+        "reference": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_D_teacher_39",
+        "checks": {
+          "initial_noise": {
+            "shape": [
+              1,
+              24,
+              12,
+              30,
+              52
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "audio_noise": {
+            "shape": [
+              2,
+              32,
+              65
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "prompt_embeds": {
+            "shape": [
+              536,
+              5120
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "anchor": {
+            "shape": [
+              390,
+              96
+            ],
+            "dtype": "torch.bfloat16",
+            "exactly_equal": true,
+            "max_abs_difference": 0.0
+          },
+          "action_text_rows_equal": true
+        }
+      }
+    }
+  ],
+  "overall_gate": "NOT_ACCEPTED",
+  "pilot_wait": {
+    "checked_at": "2026-10-08T04:38:22.230551+08:00",
+    "pid": 227188,
+    "status": "running",
+    "active": "anyflow_16_4_D_clean"
+  },
+  "completed_at": "2026-10-08T04:49:38.474628+08:00"
+}

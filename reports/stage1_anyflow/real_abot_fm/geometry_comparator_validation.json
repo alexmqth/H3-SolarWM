@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "scope": "CPU comparator validation on completed step00 records plus deliberately corrupted copies; no step48 result",
+  "tests": [
+    {
+      "case": "gt_identity_on_real_step00",
+      "passed": true,
+      "teacher_scalar_checks": 252
+    },
+    {
+      "case": "step00_generated_identity_on_real_step00",
+      "passed": true,
+      "teacher_scalar_checks": 252
+    },
+    {
+      "case": "different_noisy_latent",
+      "passed": true,
+      "rejected_reason": "Input changed at ('118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140', 0, 0.9395404663085938): state_sha256"
+    },
+    {
+      "case": "different_action_pair",
+      "passed": true,
+      "rejected_reason": "Input changed at ('118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140', 0, 0.9395404663085938): pair_sha256"
+    },
+    {
+      "case": "different_raw_history",
+      "passed": true,
+      "rejected_reason": "Input changed at ('118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140', 2, 0.6894410400390625): history_sha256"
+    },
+    {
+      "case": "new_own_generated_states",
+      "passed": true,
+      "rejected_reason": "Only fixed GT/step00 states can be used for a matched comparison"
+    },
+    {
+      "case": "duplicate_state",
+      "passed": true,
+      "rejected_reason": "Requires 18 unique completed cases"
+    },
+    {
+      "case": "intervention_mutates_KV",
+      "passed": true,
+      "rejected_reason": "KV was not fixed within A/D"
+    },
+    {
+      "case": "missing_history_rebuild_check",
+      "passed": true,
+      "rejected_reason": "A/D history reconstruction equality was not verified"
+    },
+    {
+      "case": "changed_teacher_norm",
+      "passed": true,
+      "rejected_reason": "Frozen teacher scalar changed at ('118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140', 0, 0.9395404663085938): teacher_norm"
+    },
+    {
+      "case": "missing_one_sample",
+      "passed": true,
+      "rejected_reason": "Requires 18 unique completed cases"
+    },
+    {
+      "case": "changed_execution_source",
+      "passed": true,
+      "rejected_reason": "Protocol changed: source_sha256"
+    },
+    {
+      "case": "different_but_internally_fixed_checkpoint_KV",
+      "passed": true,
+      "synthetic": true
+    }
+  ],
+  "script_sha256": "adfe4a5fbdaf4f58aaeb81e623551a6e9322f88f12a3830428713317d5a91c99",
+  "initial_failures": [
+    "Unclosed dictionary comprehension SyntaxError corrected before validation",
+    "Commit-count audit originally assumed chunks; actual H3 cache counter increments per layer (50 per chunk), now checked correctly"
+  ],
+  "GPU_execution": false
+}

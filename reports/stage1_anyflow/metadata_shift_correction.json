@@ -1,0 +1,48 @@
+{
+  "at": "2026-10-08T10:53:17.885968+08:00",
+  "scope": "Metadata-only correction; no model/loss/scheduler changes. Extracted actual assignment block tested for legacy/None/explicit shift.",
+  "cases": [
+    {
+      "config": {
+        "flow_shift": 2.22
+      },
+      "expected": 2.22,
+      "actual": 2.22
+    },
+    {
+      "config": {
+        "flow_shift": 2.22,
+        "training_timestep_shift": null
+      },
+      "expected": 2.22,
+      "actual": 2.22
+    },
+    {
+      "config": {
+        "flow_shift": 2.22,
+        "training_timestep_shift": 12.0
+      },
+      "expected": 12.0,
+      "actual": 12.0
+    }
+  ],
+  "benchmark_sha256": "f7cf78f3af07877dee03176ea23bf422390ba9c33af183ccfae3ac23984aa7a4",
+  "frozen_runtimes": [
+    {
+      "manifest": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_full_history_duration64/manifest.json",
+      "files": 322,
+      "unchanged": true
+    },
+    {
+      "manifest": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_shift12_duration64/manifest.json",
+      "files": 329,
+      "unchanged": true
+    },
+    {
+      "manifest": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-10/stage1_fm_full_history_shift12_32/manifest.json",
+      "files": 330,
+      "unchanged": true
+    }
+  ],
+  "historical_artifacts_note": "Frozen runtimes still record config.flow_shift under anyflow_training_shift. For shift12 experiments this cached.json field is mislabeled (2.22); canonical training shift is setup.json/adapter metadata config.training_timestep_shift=12 and training.json time_sampling.training_shift=12. Historical artifacts remain immutable."
+}

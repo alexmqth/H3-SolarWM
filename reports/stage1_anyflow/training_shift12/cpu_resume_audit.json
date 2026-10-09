@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-08T09:32:59.554816+08:00",
+  "status": "passed",
+  "checks": {
+    "default_preserves_old": {
+      "causal_adapter.pt": true,
+      "anyflow_adapter.pt": true,
+      "stage1_lora.pt": true,
+      "optimizer": true,
+      "logical_rng_state": true,
+      "cpu_rng_state": true,
+      "sample_losses_and_gradients": true,
+      "validation_before": true,
+      "validation_after": true
+    },
+    "shift12_exact_cpu_resume": {
+      "causal_adapter.pt": true,
+      "anyflow_adapter.pt": true,
+      "stage1_lora.pt": true,
+      "optimizer": true,
+      "logical_rng_state": true,
+      "cpu_rng_state": true,
+      "sample_losses_and_gradients": true,
+      "validation_before": true,
+      "validation_after": true
+    },
+    "changed_training_shift_rejected": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "at": "2026-10-08T23:20:32.260575+08:00",
+  "scope": "actual tiny H3 CPU FP32/BF16, full bidirectional Original reference and live FMBS graph, no pretrained GPU training",
+  "tests": 6,
+  "source_sha256": {
+    "H3-World/code/causal/shared_h3_roles.py": "eda9a811e3912983bbe83863ad0dccae425bfe411c505bb0c325d63f000954f0",
+    "H3-World/tests/test_shared_h3_roles.py": "dede872dd95e1da2c91fb64ede2727222139fc75f9f65cfae34f27d7242becd9"
+  },
+  "log_sha256": "db7ada07d1cae4c356da5788cc106a08d2de4ec2098ff483adbed637264d1640",
+  "verified": [
+    "one original base tensor identity preserved",
+    "nonzero student, visual residual, critic, AnyFlow time module: teacher equals pre-adaptation Original output exactly",
+    "teacher no_grad; independent student/critic optimizer parameters",
+    "actual self-generated 2-chunk detached history with persistent KV",
+    "critic AdamW update while checkpointed FMBS graph is live preserves later student full gradient",
+    "wrong backward role rejected; exception restores flags/time module",
+    "subset critic projection support; invalid install does not change student"
+  ],
+  "limitation": "No DMD direction/loss, critic convergence, real 33B cost, generated video or Stage2 quality measured.",
+  "initial_fixture_failure": "A Stage1LinearLoRA was mistakenly used for the legacy visual fixture, triggering existing duplicate-bank protection. Changed fixture to the real CausalQKVLoRA; production install guard unchanged."
+}

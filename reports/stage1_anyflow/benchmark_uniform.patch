@@ -1,0 +1,36 @@
+--- a/code/causal/benchmark.py
++++ b/code/causal/benchmark.py
+@@ -88,6 +88,8 @@
+     ap.add_argument('--modes', nargs='+', choices=['baseline', 'cached', 'recompute'], default=['baseline', 'cached'])
+     ap.add_argument('--steps', type=int, default=4, help='per chunk steps in cached/recompute mode, no distillation')
+     ap.add_argument('--flow-shift', type=float, default=12., help='Euler noise schedule shift; native H3 default 12')
++    ap.add_argument('--anyflow-sigma-grid', choices=['native', 'uniform'], default='native',
++                    help='AnyFlow inference grid; uniform is independent of the checkpoint training shift')
+     ap.add_argument('--baseline-steps', type=int, default=30)
+     ap.add_argument('--num-frames', type=int, default=124)
+     ap.add_argument('--chunk-frames', type=int, default=5)
+@@ -154,6 +156,8 @@
+     args = ap.parse_args()
+     if args.anyflow_adapter and (args.modes != ['cached'] or args.causal_adapter_scope != 'all'):
+         ap.error('AnyFlow requires --modes cached and --causal-adapter-scope all')
++    if args.anyflow_sigma_grid == 'uniform' and not args.anyflow_adapter:
++        ap.error('Uniform AnyFlow grid requires an AnyFlow checkpoint')
+     if args.anyflow_adapter and not args.causal_adapter:
+         ap.error('AnyFlow requires the matching --causal-adapter checkpoint')
+     action_aliases = {
+@@ -418,7 +422,14 @@
+             with phase(result, 'dit_prepare_seconds'):
+                 pipe.load_models_to_device(['dit'])
+             steps=result['steps']
+-            pipe.scheduler.set_timesteps(steps,shift=args.flow_shift)
++            from causal.anyflow_sampling import configure_video_schedule
++            result['video_sigmas'] = configure_video_schedule(pipe.scheduler,
++                steps=steps, grid=args.anyflow_sigma_grid, flow_shift=args.flow_shift)
++            result['video_sigma_grid'] = args.anyflow_sigma_grid
++            result['effective_video_sampling_shift'] = (1.0 if args.anyflow_sigma_grid == 'uniform' else args.flow_shift)
++            if args.anyflow_adapter:
++                result['anyflow_training_shift'] = anyflow_metadata['config']['flow_shift']
++            save_json(metrics_path, result)
+             pipe.scheduler_audio.set_timesteps(steps,shift=3.)
+             video=initial.clone()
+             audio=audio_noise.clone()

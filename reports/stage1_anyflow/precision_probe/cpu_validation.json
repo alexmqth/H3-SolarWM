@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "scope": "small random actual H3, CPU only; not video quality",
+  "profiles": [
+    {
+      "profile": "legacy",
+      "native_fp32_weights_restored": false,
+      "output_dtype": "torch.bfloat16",
+      "gradient_norms": [
+        8.392117160838097e-05,
+        7.694685336900875e-05
+      ],
+      "weights_unchanged": true,
+      "legacy_output_restored_bitwise": true
+    },
+    {
+      "profile": "time_fp32",
+      "fp32_linears": 2,
+      "native_fp32_weights_restored": false,
+      "packed_hidden_dtype": "unchanged",
+      "input_latent_rounding": "unchanged",
+      "output_dtype": "torch.bfloat16",
+      "gradient_norms": [
+        8.391164010390639e-05,
+        7.69109683460556e-05
+      ],
+      "weights_unchanged": true,
+      "legacy_output_restored_bitwise": true
+    },
+    {
+      "profile": "boundary_fp32",
+      "fp32_linears": 6,
+      "native_fp32_weights_restored": false,
+      "packed_hidden_dtype": "unchanged",
+      "input_latent_rounding": "unchanged",
+      "output_dtype": "torch.float32",
+      "gradient_norms": [
+        8.397825149586424e-05,
+        7.696398097323254e-05
+      ],
+      "weights_unchanged": true,
+      "legacy_output_restored_bitwise": true
+    }
+  ]
+}

@@ -101,3 +101,54 @@ python code/causal/check_long_mask.py --out outputs/long_mask_equivalence.json
 ```
 
 补丁只在 `H3_COMPILE_BLOCK_MASK=1` 时启用，默认行为不变。测试逐元素比较 dense mask 和 sparse BlockMask metadata，并在同形状下替换 action assignment 后重新比较，排除 stale mask。mask 编译及不同 CPU offload 配置会影响耗时，本轮不同 run 的单次时间不能作严格吞吐排名。
+
+## 7. Stage1 TF-AnyFlow
+
+新增的 AnyFlow 分支需在 H3 action/causal patches 之后应用 `code/diffsynth_anyflow.patch`。训练、FM control、4/8-step 评测、CPU 检查与当前验收状态见 [STAGE1_ANYFLOW.md](STAGE1_ANYFLOW.md)。旧视频及旧 adapters 没有被重新标记为 AnyFlow 结果。
+
+原生FP32数值策略另需在AnyFlow patch之后应用：
+
+```bash
+git -C DiffSynth-Studio-h3-v2 apply ../code/diffsynth_native_fp32.patch
+```
+
+该补丁保留默认`legacy`行为。新实验的训练和cached评测同时显式加`--precision-profile h3_fp32`，从原始safetensors恢复六组线性层的12个F32权重，并保存/核对权重哈希；目标时间MLP仍冻结。改变precision profile不能当作旧Adam/RNG的精确续训，也不能直接给旧legacy AnyFlow checkpoint换推理profile。当前FP32 benchmark只支持`--modes cached`。GPU0实测reserve6可运行；设置`CUDA_VISIBLE_DEVICES=0 ABOT_VRAM_RESERVE_GIB=6`，具体峰值以实验日志为准。
+
+数值实现与效果必须区分：[原生FP32实验记录](reports/stage1_anyflow/native_fp32_candidate/README.md)的初始化视频仍失败，训练后的视觉/action gate另行评测。
+
+
+## 全覆盖 Stage1 LoRA（2026-10-08，效果待验收）
+
+在上述AnyFlow与native-FP32补丁环境中，`train_stage1_anyflow.py`可选择两种训练范围。默认`tail_qkv`保留已有路径；全覆盖在同一训练命令上增加：
+
+```text
+--precision-profile h3_fp32
+--adapter-scope all_qkvo_ffn
+--bank-rank 8
+--bank-alpha 8
+--no-train-target-time
+```
+
+全覆盖冻结原visual/action adapters，在全部50个主块+2个refiner的Q/K/V、输出和FFN投影上增加B零初始化的LoRA。rank=alpha=8共43,237,376训练参数。这里的覆盖范围和缩放均不同于旧tail16，不是仅改变block数量的单变量实验。
+
+checkpoint保留`causal_adapter.pt`、`action_adapter.pt`、`stage1_lora.pt`，AnyFlow另有`anyflow_adapter.pt`。评测在原39f cached命令上增加`--stage1-lora <checkpoint>/stage1_lora.pt`，并让所有adapter指向同一次训练、同一个step。AnyFlow传`--anyflow-adapter`，普通FM不传；两者都用`--precision-profile h3_fp32`。加载端会核对objective、训练配置、step、precision及必需action checkpoint；遗漏全覆盖bank会报错。
+
+继续训练使用`--resume-from <checkpoint-directory>`，`--steps`表示目标总更新次数。训练范围/rank/alpha不可在精确恢复时更改；修改这些参数属于新的实验。
+
+本机GPU0独占实验使用`CUDA_VISIBLE_DEVICES=0 ABOT_VRAM_RESERVE_GIB=6`。这是offload预算设置，实际allocated/reserved峰值仍由日志报告。全覆盖方案现已通过真实33B单次更新和小模型FM/AnyFlow回载测试；完整画质/action gate尚未通过。不要用旧FM展示视频代表新AnyFlow的效果。
+
+
+## 可选完整clean-history梯度（2026-10-08）
+
+训练增加`--history-gradient-mode full`，每个梯度prediction重新计算带计算图的clean-history raw K/V；AnyFlow目标前向仍no_grad。默认`detached`保留既有行为。更改history-gradient mode不是精确resume，应从相同初始adapter开始一个新的受控实验。
+
+推理命令不需要此参数，仍读常规persistent raw KV；不要把probe产生的单次更新bank当成生产checkpoint。实际生成使用该训练保存的同一step四套adapter。此实现维持现有cache/anchor/action语义，不是官方融合两流算子。
+
+真实33B A/chunk2探针allocated峰值40973.35MiB，reserve6，CPU raw KV10806.88MiB；完整主源码CPU测试77 passed。16次训练与视频效果尚待验收，显存可用不等于质量通过。详见[梯度探针](reports/stage1_anyflow/clean_history_gradient/GPU_RESULTS.md)。
+
+
+## 训练时间分布与推理网格分离
+
+训练可显式增加`--training-timestep-shift 12 --validation-timestep-shift 2.22 --flow-shift 2.22`。第一个参数控制训练time-pair采样以及匹配的Gaussian权重；第二个用于公共固定噪声验证；`flow-shift`保留checkpoint绑定的推理sigma网格。未指定前两个参数时均继承flow-shift，保持旧训练数学。不要把training shift12误传成benchmark推理shift12。
+
+改变training/validation shift不能作为旧checkpoint的精确resume。训练分布对照从同一原始初始化开始；其他architecture/data/anchor/action/LR/更新数固定。全主源码84项CPU测试通过，独立GPU运行确认初始四套adapter/RNG/公共验证完全匹配。效果仍在评测，见[候选记录](reports/stage1_anyflow/training_shift12/README.md)。

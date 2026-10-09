@@ -1,0 +1,30 @@
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-05/stage1_coarse_window12/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+No minimax_h3_text_encoder models available. This is not an error.
+No minimax_h3_dit models available. This is not an error.
+Using minimax_h3_video_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-05/stage1_coarse_window12/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+No minimax_h3_audio_vae models available. This is not an error.
+[GT-boundary] 118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 RGB17/latent5 future_effect=0.000000
+[GT-boundary] 118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 RGB34/latent10 future_effect=0.000000
+[GT-boundary] 118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 RGB39/latent12 future_effect=0.000000
+[GT-boundary] 118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140 RGB81/latent24 future_effect=0.000000
+[GT-boundary] dfec8ed3237860eba14d67c089ecd041_A_1030 RGB17/latent5 future_effect=0.000000
+[GT-boundary] dfec8ed3237860eba14d67c089ecd041_A_1030 RGB34/latent10 future_effect=0.000000
+[GT-boundary] dfec8ed3237860eba14d67c089ecd041_A_1030 RGB39/latent12 future_effect=0.000000
+[GT-boundary] dfec8ed3237860eba14d67c089ecd041_A_1030 RGB81/latent24 future_effect=0.000000

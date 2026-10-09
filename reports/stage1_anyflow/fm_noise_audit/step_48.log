@@ -1,0 +1,156 @@
+[preflight] diffsynth resolved from the v2 checkout: ok /home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+[preflight] directed attention mask present: ok 
+[preflight] packed-sequence builder is the per-latent version: ok 
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_text_encoder",
+    "model_class": "diffsynth.models.minimax_h3_text_encoder.MiniMaxH3TextEncoder",
+    "extra_kwargs": null
+}
+Loading models from: [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_dit",
+    "model_class": "diffsynth.models.minimax_h3_dit.MiniMaxH3DiT",
+    "extra_kwargs": null
+}
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+Loading models from: "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_audio_vae",
+    "model_class": "diffsynth.models.minimax_h3_audio_vae.MiniMaxH3AudioVAE",
+    "extra_kwargs": null
+}
+Using minimax_h3_text_encoder from [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors"
+].
+Using minimax_h3_dit from [
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors"
+].
+Using minimax_h3_video_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+Using minimax_h3_audio_vae from "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors".
+104 tensors are patched by LoRA. You can use `pipe.clear_lora()` to clear all LoRA layers.
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 0, "sigma": 1.0, "mse": {"causal": 0.29458031943428886, "original": 0.25659348397495746}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 0, "sigma": 0.9395404663085938, "mse": {"causal": 0.09149924069897536, "original": 0.06877868668779089}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 0, "sigma": 0.8694517211914062, "mse": {"causal": 0.0866057455301309, "original": 0.06798142515102532}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 0, "sigma": 0.7872340698242187, "mse": {"causal": 0.09089264385707684, "original": 0.06889391965777253}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 0, "sigma": 0.6894410400390625, "mse": {"causal": 0.10222690755862592, "original": 0.0773408094661966}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 0, "sigma": 0.5711835327148438, "mse": {"causal": 0.12296328943790022, "original": 0.09796108212177698}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 0, "sigma": 0.4252873229980469, "mse": {"causal": 0.1686783729725137, "original": 0.13499980491592004}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 0, "sigma": 0.24078089904785155, "mse": {"causal": 0.2546398776465383, "original": 0.21180534389073766}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 0, "sigma": 0.07110826873779297, "mse": {"causal": 0.5148551547577116, "original": 0.44486351420236336}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 1, "sigma": 1.0, "mse": {"causal": 0.3031802292295917, "original": 0.12055622749404878}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 1, "sigma": 0.9395404663085938, "mse": {"causal": 0.13666956682452872, "original": 0.1291894329949637}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 1, "sigma": 0.8694517211914062, "mse": {"causal": 0.10062979197326709, "original": 0.07743102261526469}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 1, "sigma": 0.7872340698242187, "mse": {"causal": 0.1054805443466646, "original": 0.0847235167665228}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 1, "sigma": 0.6894410400390625, "mse": {"causal": 0.12028531953664079, "original": 0.09903580920212482}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 1, "sigma": 0.5711835327148438, "mse": {"causal": 0.14775520801566705, "original": 0.12446412757443999}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 1, "sigma": 0.4252873229980469, "mse": {"causal": 0.20012808917181937, "original": 0.1727818088610362}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 1, "sigma": 0.24078089904785155, "mse": {"causal": 0.3053467744440588, "original": 0.2671481985188889}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 1, "sigma": 0.07110826873779297, "mse": {"causal": 0.5861347752479003, "original": 0.536462938001111}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 2, "sigma": 1.0, "mse": {"causal": 0.18976616582186115, "original": 0.062021369259156196}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 2, "sigma": 0.9395404663085938, "mse": {"causal": 0.10538895565401037, "original": 0.05777510146236496}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 2, "sigma": 0.8694517211914062, "mse": {"causal": 0.06708876843405008, "original": 0.053309671316445366}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 2, "sigma": 0.7872340698242187, "mse": {"causal": 0.07149439843827372, "original": 0.05775103241767939}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 2, "sigma": 0.6894410400390625, "mse": {"causal": 0.08412470706548952, "original": 0.07023956132887502}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 2, "sigma": 0.5711835327148438, "mse": {"causal": 0.10948168336704585, "original": 0.09315478187729882}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 2, "sigma": 0.4252873229980469, "mse": {"causal": 0.15834473850115352, "original": 0.13786387331335515}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 2, "sigma": 0.24078089904785155, "mse": {"causal": 0.2634113540860794, "original": 0.23146609469464494}}
+{"clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140", "chunk": 2, "sigma": 0.07110826873779297, "mse": {"causal": 0.5984395325677938, "original": 0.5381638698653274}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 0, "sigma": 1.0, "mse": {"causal": 0.4281654740556643, "original": 0.2432777005387317}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 0, "sigma": 0.9395404663085938, "mse": {"causal": 0.13305937305787127, "original": 0.11204394631387338}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 0, "sigma": 0.8694517211914062, "mse": {"causal": 0.12247444239943407, "original": 0.1014824468027956}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 0, "sigma": 0.7872340698242187, "mse": {"causal": 0.12926583775382255, "original": 0.10591745694279166}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 0, "sigma": 0.6894410400390625, "mse": {"causal": 0.1375724267041385, "original": 0.11283889564614459}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 0, "sigma": 0.5711835327148438, "mse": {"causal": 0.15615715733294566, "original": 0.1326334591576678}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 0, "sigma": 0.4252873229980469, "mse": {"causal": 0.1929517525178954, "original": 0.17066187516367798}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 0, "sigma": 0.24078089904785155, "mse": {"causal": 0.2688168070119542, "original": 0.2434609338860851}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 0, "sigma": 0.07110826873779297, "mse": {"causal": 0.5386284758283375, "original": 0.47744546100560475}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 1, "sigma": 1.0, "mse": {"causal": 0.3136470176618346, "original": 0.17608439976444262}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 1, "sigma": 0.9395404663085938, "mse": {"causal": 0.17057412920761567, "original": 0.14007359617606996}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 1, "sigma": 0.8694517211914062, "mse": {"causal": 0.14127313625620627, "original": 0.12506315310518581}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 1, "sigma": 0.7872340698242187, "mse": {"causal": 0.14335394660649944, "original": 0.12237618150713478}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 1, "sigma": 0.6894410400390625, "mse": {"causal": 0.15300323690779039, "original": 0.1280082870009222}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 1, "sigma": 0.5711835327148438, "mse": {"causal": 0.1765675515366761, "original": 0.14717771854437886}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 1, "sigma": 0.4252873229980469, "mse": {"causal": 0.22211518876999595, "original": 0.1914591743785931}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 1, "sigma": 0.24078089904785155, "mse": {"causal": 0.3167666803187871, "original": 0.2848876127217957}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 1, "sigma": 0.07110826873779297, "mse": {"causal": 0.6001704050668731, "original": 0.5665984851279275}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 2, "sigma": 1.0, "mse": {"causal": 0.13810044215751188, "original": 0.12236993852902776}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 2, "sigma": 0.9395404663085938, "mse": {"causal": 0.1121652263811499, "original": 0.09107278044107951}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 2, "sigma": 0.8694517211914062, "mse": {"causal": 0.10217297977261944, "original": 0.08292098609143167}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 2, "sigma": 0.7872340698242187, "mse": {"causal": 0.09005839854373567, "original": 0.07288286859679947}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 2, "sigma": 0.6894410400390625, "mse": {"causal": 0.0976092445134642, "original": 0.0808203790721185}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 2, "sigma": 0.5711835327148438, "mse": {"causal": 0.11720745588044491, "original": 0.10000821120266282}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 2, "sigma": 0.4252873229980469, "mse": {"causal": 0.16164509709312774, "original": 0.13871319918463265}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 2, "sigma": 0.24078089904785155, "mse": {"causal": 0.2585277296806601, "original": 0.22602700564654238}}
+{"clip": "dfec8ed3237860eba14d67c089ecd041_D_1750", "chunk": 2, "sigma": 0.07110826873779297, "mse": {"causal": 0.5788850402122658, "original": 0.5259397127926694}}

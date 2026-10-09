@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-09T06:52:49.264123+08:00",
+  "source_sha256": "0044973052ce19f9a7aa0ac6e548ff21351102577afe283b6e8fffa8dcffc201",
+  "encoded_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_real_transition_windows/encoded_train/43866101158a538d22c52ac5b2fa606b_A_1245.pt",
+  "encoded_sha256": "a85e4c017d4e78bafa27f6d4bf93705c5f510ff8a4866fca2dd2bfa1ac693b5a",
+  "candidate_parameter_bank": "Released H3 action LoRA tail8 qkv/out only; preserve initialized forward, FP32 master matrices",
+  "initialization": "Original H3 + released action LoRA, no causal adapters",
+  "conditions": "Fixed T2/N + single I0 + native text time + fixed position reference, history12/24",
+  "forwards_budget": 5,
+  "backward_calls": 3,
+  "optimizer_updates": 0,
+  "sigma": 0.5,
+  "gpu": 4,
+  "checkpoint": true,
+  "activation_offload": true,
+  "VRAM_reserve_GiB": 20,
+  "checks": [
+    "Installation identity",
+    "Positive+negative at same history12 and z",
+    "Worst visible36 positive backward",
+    "All selected grads finite/nonzero",
+    "No weight updates"
+  ],
+  "do_not_claim": "Fit/gradient feasibility is not a training outcome or action response recovery"
+}

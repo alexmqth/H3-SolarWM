@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-09T06:05:22.575736+08:00",
+  "scope": "E1 two history protocols: clean vs same-sigma noised history; no optimizer, no teacher-correctness claim",
+  "previous_protocol_sha256": "f77142373797cb19c583fdf1a7bcd39f6755b63faf81aab239e253e106517771",
+  "sources": {
+    "history_conditioning.py": "25181ea14bb960cb9834aaf590b33b55721de7bdb9fe31151164c386e26fe9e2",
+    "single_anchor.py": "531e3ebc4ca2218666dfa970e56c508e8c06ab2096b523f6cdfee8bcf93eb4d7",
+    "run_probe.py": "de750e7fa5d3d421de51befc1c31d2aa0e23ca8daaa4519fdce596a079bd2cd9",
+    "test_history_conditioning.py": "5c4082726e3f686d70e7c7b525ca389f940d09a0be4ce6cc94dab61070e1f56e",
+    "cpu_receipt.json": "ad9154881a79437f43346ff8767e736e2cc9e5e0d4b64edddd8a9bc356c64cc3",
+    "runtime_manifest.json": "a06d0dcc5cfa49ed6d745dea2d49128464fd1465e08ff3b3ed3df2937b82ff19",
+    "source_coarse/coarse_A/evaluation.json": "3bd41500efda13f5f6863b5e128623733e6410014e80f91156f25fb03801355e",
+    "source_coarse/coarse_A/window0_solver_states.pt": "17225f4ee8ee6976e0d6d618bea69e2c1eb7176015b636d7b1cbf657292cff5c",
+    "source_coarse/coarse_A/window1_solver_states.pt": "bf4039f479f2d2a321a004ebbeeb0475afda21400c87c45870a3d990900b9989",
+    "source_coarse/coarse_A/window2_solver_states.pt": "09776d97b59470a81655fb5e80ad625992c10fefe9846c3171626311ec685135",
+    "source_coarse/coarse_D/evaluation.json": "45912d443a0c0f80613e0b6146afc3d97b0e7a9b933b76b7b17f1df741c69c87",
+    "source_coarse/coarse_D/window0_solver_states.pt": "17225f4ee8ee6976e0d6d618bea69e2c1eb7176015b636d7b1cbf657292cff5c",
+    "source_coarse/coarse_D/window1_solver_states.pt": "971c8d2b0f52be09c40771ca8a38ec72afcb2853784916995829cd0c6fa925a2",
+    "source_coarse/coarse_D/window2_solver_states.pt": "3c96876827dc90ecc82d0d325e0305d8d2c9378b4fa17c95b35b3f5713045076"
+  },
+  "source_runtime": "source_coarse/runtime",
+  "fixed": [
+    "Original+released action LoRA",
+    "native prefix time",
+    "single I0 fixed coordinates",
+    "12latent current window",
+    "30step/shift2.22/seed13",
+    "fixed full37 layout/video+audio noise",
+    "T2 full visible recomputation; CPU hiddenKV0"
+  ],
+  "variable": "temporary history data plus corresponding history video time as one protocol",
+  "history_noise": "same frozen initial_noise prefix shared by current A/D",
+  "saved_replay_relative_rms_max": 1e-06,
+  "measurable_delta_rms_min": 1e-06,
+  "repeat_required_max_abs": 0.0,
+  "budget": {
+    "diagnostic_forwards": 56,
+    "per_reference_diagnostic_forwards": 28,
+    "window1_sampling_forwards": 120,
+    "window2_conditional_sampling_forwards": 120,
+    "optimizer_updates": 0,
+    "max_project_gpus": 3
+  },
+  "video_gate": "Both probes complete, all identity/replay/repeat and hashes valid, measurable delta change in both histories; signals are not action-quality evidence. Window1 manual action+structure+history-adherence PASS required before window2."
+}

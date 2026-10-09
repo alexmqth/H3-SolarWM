@@ -1,0 +1,87 @@
+{
+  "at": "2026-10-09T07:22:46.368534+08:00",
+  "sources": {
+    "evaluate_objective.py": "59f739c402f171b5fcf6960c90ecb7265ee2587c6368d83fae176114d1fb926f",
+    "eval_common.py": "7d62dcd3f9e6bc423a102797e8ba1cf7595100723e2dad428265284cbabd1d14"
+  },
+  "checkpoints": {
+    "fm_only": {
+      "0": "9bfce291da1eb6e29f763db48f96189bd976e543d34257df36a7717289370caf",
+      "4": "096e0cd7716468bc0a4ddf84f82dcf44110c4834f105f9dcb0f2c93abe6e01e6"
+    },
+    "fm_action": {
+      "0": "81b0f4f2f0f3b2419bdbc6e0968d1b0ac12fc168c3b455b5e014d421aa083a80",
+      "4": "9da95802c5779b166585b7d435b62bdc102c06e1e3547fa4c9517c2caafe181f"
+    }
+  },
+  "GT_encoding_sha256": "9baf2796a38499bc209c959eca130853aba9f142326a9aa58607db3f6a49cb52",
+  "GT_baseline_sha256": "4ec3780817a109104b0b1059ed10fae6be6b7b0bcf53d6294e048c9a0913435e",
+  "parking_root": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-06/stage1_history_conditioning",
+  "parking_inputs": {
+    "A": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572",
+    "D": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e"
+  },
+  "parking_baselines": {
+    "A": "ee4452b3352c1e5290c04d55602247e43bc8cd2d7d6ba75297fe2e30ed222d72",
+    "D": "d2f3fb1d99e5a68be541eeb82e226d0a5887b790b1bcd561c11ce819d41bcbed"
+  },
+  "parking_probe_fields": {
+    "A": "40361dac49806ac8eb0b6fa3c83f159de42c0be7762ef9e28d9bc0bd1121f073",
+    "D": "c833b2b65eab37d2167319db05e53e2bfde45c818c02dab2099161b7f127d26a"
+  },
+  "video_jobs": [
+    {
+      "arm": "fm_only",
+      "suite": "gt"
+    },
+    {
+      "arm": "fm_only",
+      "suite": "parking_A"
+    },
+    {
+      "arm": "fm_only",
+      "suite": "parking_D"
+    },
+    {
+      "arm": "fm_action",
+      "suite": "gt"
+    },
+    {
+      "arm": "fm_action",
+      "suite": "parking_A"
+    },
+    {
+      "arm": "fm_action",
+      "suite": "parking_D"
+    }
+  ],
+  "sampling_forwards_total": 360,
+  "identity_forwards_total": 12,
+  "heldout_fit_diagnostic": {
+    "cases": 2,
+    "sigmas": [
+      0.85,
+      0.55,
+      0.25,
+      0.1
+    ],
+    "conditions": [
+      "actual",
+      "current_AD_swap"
+    ],
+    "roles": [
+      "zero",
+      "fm_only",
+      "fm_action"
+    ],
+    "forwards": 48,
+    "purpose": "Positive absolute fit versus negative inflation; not action-effect GT; coefficients frozen before this validation"
+  },
+  "invariants": [
+    "Original weights + released LoRA unchanged except registered tail8 bank",
+    "same history/noise/actions/I0/layout/scheduler",
+    "Park physical input hash and real33B archived N field replay",
+    "Same frozen0 versus4 evaluation, no video selection"
+  ],
+  "gate": "Judge both histories currentA/D signs AND body/scene/boundary visuals. GT local structure must not degrade. Only train loss or stronger flow separation is insufficient. Full E1/first-window and additional state generalization still required before AnyFlow."
+}

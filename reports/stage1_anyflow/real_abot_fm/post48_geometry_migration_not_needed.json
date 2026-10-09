@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-08T21:56:31.866229+08:00",
+  "status": "migration_cancelled_before_handoff",
+  "reason": "GPU1 previously30428MiB<34000 but original controller subsequently found sufficient free VRAM and launched geometry. Pre-handoff check observed three live lanes, so existing controller resumed immediately.",
+  "controller_pid": 2136435,
+  "geometry_pid": 3638654,
+  "actual_project_gpus": [
+    0,
+    4,
+    1
+  ],
+  "GPU_jobs_restarted": false,
+  "new_controller_launched": false,
+  "temporary_CPU_controller_stop": "SIGSTOP inspection followed by SIGCONT in exception handler; no GPU child signalled"
+}

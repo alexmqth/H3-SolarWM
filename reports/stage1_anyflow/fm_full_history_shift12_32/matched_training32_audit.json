@@ -1,0 +1,88 @@
+{
+  "at": "2026-10-08T11:43:52.806156+08:00",
+  "checks": {
+    "config.actions": true,
+    "config.teacher_dir": true,
+    "config.causal_adapter": true,
+    "config.action_adapter": true,
+    "config.precision_profile": true,
+    "config.adapter_scope": true,
+    "config.bank_rank": true,
+    "config.bank_alpha": true,
+    "config.history_gradient_mode": true,
+    "config.train_target_time": true,
+    "config.logical_batch": true,
+    "config.lr": true,
+    "config.chunk_frames": true,
+    "config.history_chunks": true,
+    "config.anchor_mode": true,
+    "config.action_prefix_mode": true,
+    "config.action_feedback": true,
+    "config.flow_shift": true,
+    "config.training_timestep_shift": true,
+    "config.validation_timestep_shift": true,
+    "config.seed": true,
+    "config.validation_seed": true,
+    "config.validation_cases": true,
+    "same_trainable_parameter_count": true,
+    "action_chunk_and_current_sigmas": true,
+    "FM_targets_are_diagonal": true,
+    "full_history_forward_counts": true
+  },
+  "scope": "Actual completed training logs, shared config, action/chunk/sigma sequence and forward counts.",
+  "initial_tensor_and_rng_audit": "gpu_matched_initialization.json and gpu_initial_audit_early.json",
+  "actual_training_noise_hashes_compared": false,
+  "dose": {
+    "FM": {
+      "model_evaluations": 128,
+      "clean_commit_forwards": 30,
+      "differentiable_history_forwards": 120,
+      "optimizer_updates": 32,
+      "loss_samples": 128
+    },
+    "AnyFlow": {
+      "model_evaluations": 512,
+      "clean_commit_forwards": 30,
+      "differentiable_history_forwards": 120,
+      "optimizer_updates": 32,
+      "loss_samples": 128
+    }
+  },
+  "common_validation": [
+    {
+      "action": "A",
+      "sample_index": 0,
+      "sigma": 0.592182993888855,
+      "FM_raw_loss": 0.06412754952907562,
+      "AnyFlow_raw_loss": 0.06436551362276077
+    },
+    {
+      "action": "A",
+      "sample_index": 1,
+      "sigma": 0.2961868345737457,
+      "FM_raw_loss": 0.14070282876491547,
+      "AnyFlow_raw_loss": 0.14080560207366943
+    },
+    {
+      "action": "D",
+      "sample_index": 0,
+      "sigma": 0.592182993888855,
+      "FM_raw_loss": 0.09641652554273605,
+      "AnyFlow_raw_loss": 0.09666193276643753
+    },
+    {
+      "action": "D",
+      "sample_index": 1,
+      "sigma": 0.2961868345737457,
+      "FM_raw_loss": 0.19856196641921997,
+      "AnyFlow_raw_loss": 0.19872021675109863
+    }
+  ],
+  "caveats": [
+    "Same updates and trainable parameter count are not equal compute.",
+    "Training noise hashes were predicted in the CPU schedule, not logged in the GPU trainer.",
+    "Only the first two common r=t validation samples per action are compared.",
+    "AnyFlow32 contains resumed history; script wall times include different launch/validation overhead.",
+    "No visual or action acceptance follows from this audit."
+  ]
+}

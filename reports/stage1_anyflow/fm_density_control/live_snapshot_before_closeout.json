@@ -1,0 +1,66 @@
+{
+  "at": "2026-10-09T02:32:51.225713+08:00",
+  "status": "all6_natural_videos_reviewed_parking_live",
+  "updates": 48,
+  "maximum_updates": 48,
+  "processes": [
+    {
+      "role": "GPU queue",
+      "pid": 1615283,
+      "start_ticks": "255366821",
+      "state": "S",
+      "live": true
+    },
+    {
+      "role": "CPU reports",
+      "pid": 1898518,
+      "start_ticks": "255496357",
+      "state": "S",
+      "live": true
+    },
+    {
+      "role": "GPU1 lane",
+      "pid": 3933368,
+      "start_ticks": "256246132",
+      "state": "S",
+      "live": true
+    },
+    {
+      "role": "parking actual evaluator",
+      "pid": 4152325,
+      "start_ticks": "256301658",
+      "state": "R",
+      "live": true
+    }
+  ],
+  "current_project_gpus": [
+    1
+  ],
+  "noise_records": 54,
+  "noise_status": "complete",
+  "geometry_records": {
+    "gt": 18,
+    "step00_generated": 18
+  },
+  "geometry_status": "complete",
+  "evaluation_jobs_completed": 9,
+  "report_groups_completed": [
+    "noise",
+    "natural_gt_30",
+    "geometry_gt",
+    "geometry_step00_generated",
+    "natural_generated_30",
+    "natural_generated_8"
+  ],
+  "original_training_process_exited": true,
+  "geometry_gpu_process_exited": true,
+  "natural30_visual_review": "GT two clips reviewed; generated first clip intact/weak motion, second disintegrates from frame23",
+  "stage1_accepted": false,
+  "ABCD_complete": false,
+  "frozen_queue_and_report_sources_unchanged": true,
+  "natural_video_count": 6,
+  "natural_visual_gate": "FAIL; second scene generated30/8 body corruption, first generated8 background ghosting",
+  "parking_completed": 1,
+  "parking_A30_horizontal_flow": -0.19023942069935929,
+  "parking_AD_separation": "pending complete pair"
+}

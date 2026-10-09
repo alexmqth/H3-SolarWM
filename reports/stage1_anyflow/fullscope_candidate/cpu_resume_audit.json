@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "scope": "small H3 CPU uninterrupted4 versus2+resume4; full-scope bank",
+  "checks": {
+    "causal_adapter.pt": true,
+    "anyflow_adapter.pt": true,
+    "stage1_lora.pt": true,
+    "optimizer": true,
+    "optimizer_step": true,
+    "logical_rng_state": true,
+    "cpu_rng_state": true,
+    "cuda_rng_state": true,
+    "update1": true,
+    "update2": true,
+    "update3": true,
+    "update4": true
+  }
+}

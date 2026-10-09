@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-09T05:28:59.048849+08:00",
+  "status": "first_window_calibrated_later_windows_pending",
+  "review_method": "coarse_A A/D all39 static frames; coarse_D counterpart codec/inputs/metrics audited, not independent visual review",
+  "first5_flow": {
+    "at": "2026-10-09T05:27:57.139105+08:00",
+    "status": "reviewed_no_go",
+    "window": 0,
+    "latent_frames": 5,
+    "rgb_frames": 17,
+    "A": -1.1689114840701222,
+    "D": -1.1740905232727528,
+    "separation": 0.00517903920263052,
+    "review_method": "All17 static frames for A/D, not real-time playback",
+    "observation": "Person/parking recognizable; A/D movement effectively the same and both horizontal flow negative.",
+    "direction_gate": false,
+    "stage1_accepted": false,
+    "comparison_scope": "This is full37-matched control, not prior39f fixture. Coarse12 result pending."
+  },
+  "coarse_first_window": [
+    {
+      "reference": "coarse_A",
+      "flow": {
+        "A": 0.863117962585468,
+        "D": -1.17421731548874
+      }
+    },
+    {
+      "reference": "coarse_D",
+      "flow": {
+        "A": 0.8635682915582469,
+        "D": -1.174459825024793
+      }
+    }
+  ],
+  "observation": "Coarse first-window A visibly changes motion/turns, D keeps a different trajectory; person/parking recognizable across39 frames. Matched5 actions look near-identical.",
+  "limitation": "Window durations differ17 vs39RGB, and coarse decoder can use all known current-window latents. This is not yet later-window evidence, same-state velocity geometry or an efficiency comparison.",
+  "stage1_accepted": false
+}

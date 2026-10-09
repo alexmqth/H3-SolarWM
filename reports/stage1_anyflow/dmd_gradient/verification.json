@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "at": "2026-10-09T00:01:00.443593+08:00",
+  "tests": 7,
+  "seconds": 4.97,
+  "source_sha256": {
+    "H3-World/code/causal/dmd.py": "11b21eb9c7f6fa1139b007ba62e71873cdd56110fe3d97a49d09010fc4819b32",
+    "H3-World/tests/test_dmd.py": "4b4e888fc3f6c119e0cf375643c49e0931e43a75fb0e2acb54f826d309309678",
+    "H3-World/code/causal/fmbs.py": "cfd2fcf1c2c91f016848a10af1b171d673e76301e99bd34be580bd157a72eff6",
+    "H3-World/code/causal/shared_h3_roles.py": "eda9a811e3912983bbe83863ad0dccae425bfe411c505bb0c325d63f000954f0",
+    "H3-World/tests/test_shared_h3_roles.py": "dede872dd95e1da2c91fb64ede2727222139fc75f9f65cfae34f27d7242becd9"
+  },
+  "reference_source": "/home/lpeng/code/mq_PubDataset/GWM/SolarWM/src/solarwm/training/sgf.py",
+  "reference_sha256": "fd55f03d12341c301b333fc71c09281bab58085712321446dd7364f97291bcfb",
+  "evidence": [
+    "SolarWM masked/unmasked gradient and surrogate equal exactly for tested tensors",
+    "Gaussian oracle mean moves toward teacher; wrong-sign control moves away",
+    "fake-score target/noisy/score/normalizer detached from student",
+    "actual tiny H3 FP32/BF16 generated history + live complete FMBS + independent critic AdamW update + Original teacher",
+    "student gradient equals full endpoint vector-Jacobian product; no critic/base gradients or historical KV mutation"
+  ],
+  "limitation": "CPU model/loss integration only. No critic warmup/convergence, actual33B DMD training, cost or new video quality measurement."
+}

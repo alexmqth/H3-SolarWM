@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-09T05:51:01.191605+08:00",
+  "scope": "Window1 interim visual review, not full-run acceptance",
+  "method": "All42 static decoded frames per branch from prior review, plus native-resolution RGB59/66/73/80 details; not real-time playback",
+  "records": [
+    {
+      "reference": "A",
+      "RGB_interval": [
+        39,
+        81
+      ],
+      "flow": {
+        "A": 1.2756236813417294,
+        "D": 1.17601593184035
+      },
+      "video_sha256": {
+        "A": "4631c1b53fb2aa60b8796ac7fd46a82196ba61520c1252097c6d24a69c1b3cec",
+        "D": "090d13c3826f7b5f28cf926734b4bac9e55b548ad45dc47c4b6d15065ee5e2e5"
+      },
+      "action_observation": "Both background flows positive; different poses do not establish correct D response.",
+      "structure_observation": "Both remain recognizable; current D has duplicated limbs and trailing arms, particularly at late window frames.",
+      "pass": false
+    },
+    {
+      "reference": "D",
+      "RGB_interval": [
+        39,
+        81
+      ],
+      "flow": {
+        "A": 0.3096446338586691,
+        "D": -1.4826017894395969
+      },
+      "video_sha256": {
+        "A": "8726aac5274c426746d59df028d6490a8ef0eeb8013c334e7dc96b1b0196ddac",
+        "D": "beaa076d622ff147cf80f4a3822ecec73e15dd8dec0467f99470f0ce9d54da2d"
+      },
+      "action_observation": "A/D background flow signs differ; this alone does not pass visual gate.",
+      "structure_observation": "Both remain recognizable; current D has duplicated limbs and trailing arms, particularly at late window frames.",
+      "pass": false
+    }
+  ],
+  "local_action_gate": false,
+  "stage1_accepted": false
+}

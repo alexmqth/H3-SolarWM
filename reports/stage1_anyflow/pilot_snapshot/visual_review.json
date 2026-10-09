@@ -1,0 +1,64 @@
+{
+  "at": "2026-10-08T03:47:25.206307+08:00",
+  "overall_gate": "NOT_ACCEPTED",
+  "scope": "AnyFlow16 generated-history review plus sampled clean-history control; earlier FM/step00 sampled comparison documented separately",
+  "videos": [
+    {
+      "action": "A",
+      "steps_per_chunk": 4,
+      "sha256": "7fbe90ae15a2f338513ec4316b20c2f5608bbdf8aafffd89e076b6ebdfb44528",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/eval/anyflow/step_16/generated_4step/A/cached.mp4",
+      "review_method": "all-frame contact sheet",
+      "observations": "Severe ghosting/fog and loss of person/garage structure in the latter half.",
+      "acceptance": "FAIL"
+    },
+    {
+      "action": "D",
+      "steps_per_chunk": 4,
+      "sha256": "8a7bb06b480a9795befff6beaa2b3960831e996ab5ebf98c7755d2ca572b9380",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/eval/anyflow/step_16/generated_4step/D/cached.mp4",
+      "review_method": "frames0/10/20/30/38 and annotated comparison frame30",
+      "observations": "Severe ghosting/fog and loss of person/garage structure in the latter half.",
+      "acceptance": "FAIL"
+    },
+    {
+      "action": "A",
+      "steps_per_chunk": 8,
+      "sha256": "91eaeabdc130243e97f190887fdc7113b2876858aabe93c769ac5bf6f54c1d84",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/eval/anyflow/step_16/generated_8step/A/cached.mp4",
+      "review_method": "all-frame contact sheet",
+      "observations": "Person and garage substantially more recognizable than 4-step. Blur/ghosting remains, especially late D. Motion still fails A/D acceptance.",
+      "acceptance": "FAIL"
+    },
+    {
+      "action": "D",
+      "steps_per_chunk": 8,
+      "sha256": "6b8b43f769ebf07d7731f7a439c2d3d2e0d0ed873c69d4ea64b3288fac9101b2",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/eval/anyflow/step_16/generated_8step/D/cached.mp4",
+      "review_method": "all-frame contact sheet",
+      "observations": "Person and garage substantially more recognizable than 4-step. Blur/ghosting remains, especially late D. Motion still fails A/D acceptance.",
+      "acceptance": "FAIL"
+    },
+    {
+      "action": "A",
+      "history": "clean",
+      "steps_per_chunk": 4,
+      "sha256": "6d99fea9ff8524baac5e50a84a6a20bd15bc4a0b2224c4056474af7990847402",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/eval/anyflow/step_16/clean_4step/A/cached.mp4",
+      "review_method": "frames0/8/16/17/28/38 in clean_vs_generated_4step.jpg",
+      "observations": "Teacher history restores some later chunk starts, but blur/ghosting and visible context resets remain; not deployable generated-history rollout.",
+      "acceptance": "FAIL"
+    },
+    {
+      "action": "D",
+      "history": "clean",
+      "steps_per_chunk": 4,
+      "sha256": "f061d6e1262febaee43d053daedce756f154be22cdf034d5f8cd1473448c88b3",
+      "video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-02/stage1_anyflow39_pilot/eval/anyflow/step_16/clean_4step/D/cached.mp4",
+      "review_method": "frames0/8/16/17/28/38 in clean_vs_generated_4step.jpg",
+      "observations": "Teacher history restores some later chunk starts, but blur/ghosting and visible context resets remain; not deployable generated-history rollout.",
+      "acceptance": "FAIL"
+    }
+  ],
+  "updated_at": "2026-10-08T04:40:42.624715+08:00"
+}

@@ -1,0 +1,58 @@
+--- prior/run_extension.py
++++ resumed/run_extension.py
+@@ -2,7 +2,7 @@
+ 
+ Wait for its complete 64-update evaluation. If any A/D configuration passes
+ the numeric short gate, defer to visual review rather than train needlessly.
+-Otherwise validate real parallel training to68, then96/eval8, at most128/eval4+8. This is a finite
++Parallel training64→68 is already complete and verified; resume68→96/eval8, at most128/eval4+8. This is a finite
+ duration-only experiment, not automatic visual acceptance or Stage2 work.
+ """
+ from datetime import datetime
+@@ -26,13 +26,13 @@
+ from report_stage1_anyflow import audit_inputs
+ from training_state import load_training_state
+ 
+-ENV = dict(os.environ, CUDA_VISIBLE_DEVICES='3,4,5,6', ABOT_VRAM_RESERVE_GIB='6',
++ENV = dict(os.environ, CUDA_VISIBLE_DEVICES='4,5,6,7', ABOT_VRAM_RESERVE_GIB='6',
+            DIFFSYNTH_SKIP_DOWNLOAD='True', HF_HUB_OFFLINE='1', PYTHONUNBUFFERED='1')
+ for key, suffix in [('HF_HOME', 'hf'), ('TORCHINDUCTOR_CACHE_DIR', 'torchinductor'),
+                     ('TRITON_CACHE_DIR', 'triton'), ('XDG_CACHE_HOME', 'xdg')]:
+     ENV[key] = str(ROOT / '.cache' / suffix)
+ ENV['DIFFSYNTH_ROOT'] = ENV['ABOT_DIFFSYNTH_ROOT'] = str(RUNTIME / 'DiffSynth-Studio-h3-v2')
+-STATE = dict(status='waiting_for_shift12_64_evaluation', pid=os.getpid(), gpus=[3,4,5,6],
++STATE = dict(status='waiting_for_shift12_64_evaluation', pid=os.getpid(), gpus=[4,5,6,7],
+     started_at=datetime.now().astimezone().isoformat(), active=None, vram_reserve_gib=6,
+     training_runs=[], evaluations=[], overall_gate='NOT_ACCEPTED',
+     history_gradient_mode='full', precision_profile='h3_fp32', adapter_scope='all_qkvo_ffn',
+@@ -114,12 +114,12 @@
+ def run_child(label, command, directory):
+     verify_sources()
+     parallel = 'torch.distributed.run' in command
+-    selected = [3,4,5,6] if parallel else [3]
++    selected = [4,5,6,7] if parallel else [4]
+     used = {gpu:int(subprocess.check_output(['nvidia-smi','-i',str(gpu),
+         '--query-gpu=memory.used','--format=csv,noheader,nounits'],text=True).strip()) for gpu in selected}
+     if any(value >= 1024 for value in used.values()):
+         raise RuntimeError(f'Required GPUs no longer idle: {used}; no process interrupted')
+-    child_env = ENV if parallel else dict(ENV,CUDA_VISIBLE_DEVICES='3')
++    child_env = ENV if parallel else dict(ENV,CUDA_VISIBLE_DEVICES='4')
+     directory.mkdir(parents=True, exist_ok=False)
+     print('START', label, flush=True)
+     with (directory / 'run.log').open('w') as log:
+@@ -224,9 +224,12 @@
+         verify_sources()
+         STATE['status'] = 'running'
+         save()
+-        # Four real optimizer updates establish memory, all-replica Adam/RNG,
+-        # and exact source checkpoint restoration before a longer allocation.
+-        train68 = train(DEPENDENCY / 'train_64', 68)
++        # Four real optimizer updates and all-replica Adam/RNG were already
++        # validated. Continue their saved step68 without repeating updates.
++        train68 = ROOT / 'outputs/2026-10-08-13/stage1_parallel_duration128/train_68'
++        verified = json.loads((train68 / 'training.json').read_text())
++        if verified['status'] != 'complete' or len(verified['updates']) != 68 or not all(verified['replica_audit']['equality'].values()):
++            raise RuntimeError('Prior real68 validation incomplete; refusing continuation')
+         train96 = train(train68, 96)
+         for action in 'AD':
+             evaluate(train96 / 'step_96', 96, action, 8)

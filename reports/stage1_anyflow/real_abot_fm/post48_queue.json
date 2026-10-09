@@ -1,0 +1,157 @@
+{
+  "status": "complete",
+  "started_at": "2026-10-08T20:27:30.209195+08:00",
+  "dependencies": {
+    "training": {
+      "pid": 799534,
+      "start_ticks": "253602389",
+      "receipt": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/train_48/training.json"
+    },
+    "parking0": {
+      "pid": 1506669,
+      "start_ticks": "253990539",
+      "receipt": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/parking_queue_step00.json"
+    },
+    "geometry0": {
+      "pid": 1695577,
+      "start_ticks": null,
+      "receipt": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry/step_00_step00_generated/probe.json"
+    }
+  },
+  "source_hashes": {
+    "audit_completed_training.py": "d78c1f46155fc54c6e947806a08ea8f364d75bb6f54d13e29a2c2975b3afd995",
+    "evaluation_queue.py": "7ab331452c6bdc3c17eef7971b0c2975499807de74eb20bb8257943567d7029c",
+    "evaluate_real.py": "74967b873ce4edb018b64e99bd0472e7876aab4c135d75589d88e13681d5b352",
+    "parking_regression.py": "7acc610253c223cb74443c86387a2a21ef9bfb57c7a71bf0f35b2011c74669d7",
+    "probe_real_geometry.py": "d2abb64084dce2d5d8ccf13f3e04ba35def0639302df79e5dd5e2a8ceb68c208",
+    "geometry_primitives.py": "5877b26d3243c0b29f6f287b192753603231744115d8647eecabf7e808822f18"
+  },
+  "allowed_project_gpus": [
+    0,
+    4,
+    1
+  ],
+  "launches": [
+    {
+      "gpu": 0,
+      "pid": 3560455,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluation_queue.py",
+        "--gpu",
+        "0",
+        "--phase",
+        "trained"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_gpu0_job0.log"
+    },
+    {
+      "gpu": 4,
+      "pid": 3560462,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/parking_regression.py",
+        "--gpu",
+        "4",
+        "--step",
+        "48"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_gpu4_job0.log"
+    },
+    {
+      "gpu": 1,
+      "pid": 3638654,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/probe_real_geometry.py",
+        "--gpu",
+        "1",
+        "--step",
+        "48",
+        "--history",
+        "gt"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_gpu1_job0.log"
+    },
+    {
+      "gpu": 1,
+      "pid": 4112044,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/probe_real_geometry.py",
+        "--gpu",
+        "1",
+        "--step",
+        "48",
+        "--history",
+        "step00_generated"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/post48_gpu1_job1.log"
+    }
+  ],
+  "completed": [
+    {
+      "gpu": 1,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/probe_real_geometry.py",
+        "--gpu",
+        "1",
+        "--step",
+        "48",
+        "--history",
+        "gt"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 1,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/probe_real_geometry.py",
+        "--gpu",
+        "1",
+        "--step",
+        "48",
+        "--history",
+        "step00_generated"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 4,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/parking_regression.py",
+        "--gpu",
+        "4",
+        "--step",
+        "48"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 0,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluation_queue.py",
+        "--gpu",
+        "0",
+        "--phase",
+        "trained"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "scope": "FM48 evaluation only; no training extension or Stage2",
+  "updated_at": "2026-10-08T22:46:04.521152+08:00",
+  "gpu1_wait_free_MiB": 30428
+}

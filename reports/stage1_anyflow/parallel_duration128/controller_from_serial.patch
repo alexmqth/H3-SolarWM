@@ -1,0 +1,152 @@
+--- serial/run_extension.py
++++ parallel/run_extension.py
+@@ -1,8 +1,8 @@
+-"""GPU1: extend full-history native-FP32 Stage1, preserving Adam/RNG.
+-
+-Wait for its complete 16-update evaluation. If any A/D configuration passes
++"""Four-GPU same-batch duration candidate; source64 must finish first.
++
++Wait for its complete 64-update evaluation. If any A/D configuration passes
+ the numeric short gate, defer to visual review rather than train needlessly.
+-Otherwise extend to32, evaluate8; extend to64, evaluate4/8. This is a finite
++Otherwise validate real parallel training to68, then96/eval8, at most128/eval4+8. This is a finite
+ duration-only experiment, not automatic visual acceptance or Stage2 work.
+ """
+ from datetime import datetime
+@@ -16,8 +16,8 @@
+ 
+ OUT = Path(__file__).resolve().parent
+ ROOT = OUT.parents[2]
+-DEPENDENCY = ROOT / 'outputs/2026-10-08-09/stage1_training_shift12'
+-RUNTIME = DEPENDENCY / 'runtime'
++DEPENDENCY = ROOT / 'outputs/2026-10-08-10/stage1_shift12_duration64'
++RUNTIME = OUT / 'training_runtime'
+ TEACHER = ROOT / 'outputs/2026-10-02-03'
+ sys.path.insert(0, str(RUNTIME / 'code/causal'))
+ from evaluate_action_control import evaluate as evaluate_flow
+@@ -26,13 +26,13 @@
+ from report_stage1_anyflow import audit_inputs
+ from training_state import load_training_state
+ 
+-ENV = dict(os.environ, CUDA_VISIBLE_DEVICES='1', ABOT_VRAM_RESERVE_GIB='6',
++ENV = dict(os.environ, CUDA_VISIBLE_DEVICES='3,4,5,6', ABOT_VRAM_RESERVE_GIB='6',
+            DIFFSYNTH_SKIP_DOWNLOAD='True', HF_HUB_OFFLINE='1', PYTHONUNBUFFERED='1')
+ for key, suffix in [('HF_HOME', 'hf'), ('TORCHINDUCTOR_CACHE_DIR', 'torchinductor'),
+                     ('TRITON_CACHE_DIR', 'triton'), ('XDG_CACHE_HOME', 'xdg')]:
+     ENV[key] = str(ROOT / '.cache' / suffix)
+ ENV['DIFFSYNTH_ROOT'] = ENV['ABOT_DIFFSYNTH_ROOT'] = str(RUNTIME / 'DiffSynth-Studio-h3-v2')
+-STATE = dict(status='waiting_for_shift12_16_evaluation', pid=os.getpid(), gpu=1,
++STATE = dict(status='waiting_for_shift12_64_evaluation', pid=os.getpid(), gpus=[3,4,5,6],
+     started_at=datetime.now().astimezone().isoformat(), active=None, vram_reserve_gib=6,
+     training_runs=[], evaluations=[], overall_gate='NOT_ACCEPTED',
+     history_gradient_mode='full', precision_profile='h3_fp32', adapter_scope='all_qkvo_ffn',
+@@ -59,7 +59,7 @@
+         if previous['status'] == 'complete' and not live:
+             return previous
+         if previous['status'] not in ('running', 'complete') or not live:
+-            raise RuntimeError('Frozen16 did not finish cleanly; review before continuation')
++            raise RuntimeError('Frozen64 did not finish cleanly; review before continuation')
+         STATE['dependency_wait'] = dict(checked_at=datetime.now().astimezone().isoformat(),
+             pid=previous['pid'], status=previous['status'], active=(previous.get('active') or {}).get('label'))
+         save()
+@@ -80,7 +80,7 @@
+         pairs.setdefault(key, {})[r['action']] = r['flow']['horizontal_flow_px']['mean']
+     expected = {(4, 'native'), (8, 'native')}
+     if set(pairs) != expected or any(set(v) != {'A', 'D'} for v in pairs.values()):
+-        raise RuntimeError('Frozen16 evaluation is incomplete; refusing to infer gate failure')
++        raise RuntimeError('Frozen64 evaluation is incomplete; refusing to infer gate failure')
+     return any(p['A'] > 0 and p['D'] < 0 and p['A'] - p['D'] > 1. for p in pairs.values())
+ 
+ 
+@@ -89,12 +89,12 @@
+     config = dict(source['config'])
+     config.update(out_dir=str(OUT / f'train_{total:02d}'),
+                   resume_from=str(source_directory / f"step_{len(source['updates']):02d}"),
+-                  steps=total, checkpoint_every=16)
++                  steps=total, checkpoint_every=4 if total == 68 else 16)
+     return source, config
+ 
+ 
+ def training_command(config):
+-    command = [sys.executable, '-u', str(RUNTIME / 'code/causal/train_stage1_anyflow.py')]
++    command = [sys.executable, '-m', 'torch.distributed.run', '--standalone', '--nproc-per-node=4', str(OUT / 'run_trainer.py')]
+     for key, value in config.items():
+         if value is None:
+             continue
+@@ -113,13 +113,17 @@
+ 
+ def run_child(label, command, directory):
+     verify_sources()
+-    used = int(subprocess.check_output(['nvidia-smi','-i','1','--query-gpu=memory.used','--format=csv,noheader,nounits'], text=True).strip())
+-    if used >= 1024:
+-        raise RuntimeError(f'GPU1 no longer idle ({used} MiB); no process interrupted')
++    parallel = 'torch.distributed.run' in command
++    selected = [3,4,5,6] if parallel else [3]
++    used = {gpu:int(subprocess.check_output(['nvidia-smi','-i',str(gpu),
++        '--query-gpu=memory.used','--format=csv,noheader,nounits'],text=True).strip()) for gpu in selected}
++    if any(value >= 1024 for value in used.values()):
++        raise RuntimeError(f'Required GPUs no longer idle: {used}; no process interrupted')
++    child_env = ENV if parallel else dict(ENV,CUDA_VISIBLE_DEVICES='3')
+     directory.mkdir(parents=True, exist_ok=False)
+     print('START', label, flush=True)
+     with (directory / 'run.log').open('w') as log:
+-        child = subprocess.Popen(command, cwd=RUNTIME, env=ENV, stdout=log, stderr=subprocess.STDOUT)
++        child = subprocess.Popen(command, cwd=RUNTIME, env=child_env, stdout=log, stderr=subprocess.STDOUT)
+         STATE['active'] = dict(label=label, pid=child.pid, command=command, directory=str(directory))
+         save()
+         code = child.wait()
+@@ -153,7 +157,11 @@
+             or metrics['time_sampling'] != dict(training_shift=12.,validation_shift=2.22,inference_flow_shift=2.22)
+             or any(x['differentiable_history_forwards'] != x['chunk'] * 4 for x in metrics['updates'])):
+         raise RuntimeError('Continuation violated its optimizer-step or trainability contract')
+-    STATE['training_runs'].append(dict(directory=str(directory), resumed_step=start, total_updates=total,
++    from audit_resume import audit
++    audit(Path(config['resume_from']), directory / f'step_{start:02d}', directory / 'resume_audit.json')
++    if not all(metrics['replica_audit']['equality'].values()):
++        raise RuntimeError('Replicas differ in model/Adam/RNG')
++    STATE['training_runs'].append(dict(replica_audit=metrics['replica_audit'],directory=str(directory), resumed_step=start, total_updates=total,
+         wall_seconds=metrics['wall_seconds'], allocated_peak_MiB=metrics['gpu_allocated_peak_MiB']))
+     save()
+     return directory
+@@ -209,25 +217,30 @@
+     save()
+     try:
+         dependency = wait_for_dependency()
+-        if any_numeric_pass(dependency['evaluations']):
++        if any_numeric_pass([e for e in dependency['evaluations'] if e['step']==64]):
+             STATE.update(status='skipped_pending_visual_review',
+-                reason='Frozen16 passed a short numeric gate; review its actual videos before further training')
++                reason='Frozen64 passed a short numeric gate; review its actual videos before further training')
+             return
+         verify_sources()
+         STATE['status'] = 'running'
+         save()
+-        train32 = train(DEPENDENCY / 'train_16', 32)
++        # Four real optimizer updates establish memory, all-replica Adam/RNG,
++        # and exact source checkpoint restoration before a longer allocation.
++        train68 = train(DEPENDENCY / 'train_64', 68)
++        train96 = train(train68, 96)
+         for action in 'AD':
+-            evaluate(train32 / 'step_32', 32, action, 8)
+-        pair = {r['action']: r['flow']['horizontal_flow_px']['mean'] for r in STATE['evaluations']}
+-        if pair['A'] > 0 and pair['D'] < 0 and pair['A'] - pair['D'] > 1.:
+-            STATE.update(status='stopped_at32_pending_visual_review',
+-                reason='Step32 numeric gate passed; visual review and few-step comparison remain')
++            evaluate(train96 / 'step_96', 96, action, 8)
++        pair = {r['action']:r['flow']['horizontal_flow_px']['mean'] for r in STATE['evaluations'] if r['step']==96}
++        if pair['A'] > 0 and pair['D'] < 0 and pair['A']-pair['D'] > 1.:
++            for action in 'AD':
++                evaluate(train96 / 'step_96', 96, action, 4)
++            STATE.update(status='stopped_at96_pending_visual_review',
++                reason='Numeric8 gate passed; full visual, matched FM, independent seed and temporal tests still required')
+             return
+-        train64 = train(train32, 64)
+-        for nfe in (4, 8):
++        train128 = train(train96, 128)
++        for nfe in (4,8):
+             for action in 'AD':
+-                evaluate(train64 / 'step_64', 64, action, nfe)
++                evaluate(train128 / 'step_128', 128, action, nfe)
+         STATE.update(status='complete', completed_at=datetime.now().astimezone().isoformat())
+     except BaseException as exc:
+         STATE.update(status='failed', error=repr(exc))

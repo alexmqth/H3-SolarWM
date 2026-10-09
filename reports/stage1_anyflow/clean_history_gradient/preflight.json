@@ -1,0 +1,77 @@
+{
+  "at": "2026-10-08T08:21:45.692124+08:00",
+  "stage": "CPU integration only; no 33B GPU or video validation yet",
+  "tests": {
+    "full_suite_before_FM_expansion": {
+      "passed": 72,
+      "seconds": 7.02
+    },
+    "expanded_history_tests": {
+      "passed": 9,
+      "seconds": 5.24
+    }
+  },
+  "gradient_oracle": {
+    "finite_difference": 0.0012219,
+    "full_history": 0.00121648,
+    "detached_history": 0.00020518,
+    "missing_gradient_norm": 0.00101131,
+    "scope": "one direction on a real small H3, aligned to full-minus-detached parameter gradient; not the fraction of gradient missing on 33B"
+  },
+  "resume": {
+    "causal_adapter.pt": true,
+    "stage1_lora.pt": true,
+    "anyflow_adapter.pt": true,
+    "optimizer": true,
+    "logical_rng_state": true,
+    "cpu_rng_state": true,
+    "update_losses_and_gradients": true,
+    "gradient_mode_change_rejected": true,
+    "stage1_gradient_forwards_per_update": [
+      0,
+      4,
+      8,
+      0
+    ]
+  },
+  "modified_files": [
+    "code/causal/training_state.py",
+    "code/causal/train_stage1_anyflow.py",
+    "code/causal/h3_cached.py",
+    "code/causal/clean_history_graph.py",
+    "tests/test_clean_history_graph.py"
+  ],
+  "claim": "Same current cached forward semantics with graph-bearing clean-history K/V. Not the official fused two-stream implementation; RGB/audio/action/window differences remain.",
+  "post_test_reporting_correction": "Only docstring/history_protocol label corrected after CPU fixtures; config.history_gradient_mode=full and differentiable_history_forwards [0,4,8,0] identify their actual execution. No math changed.",
+  "gpu_probe_scope": "Fresh original visual/action + full-scope rank8; A/chunk2, identical noise/times, compare detached/full gradients, then one full-gradient update. No rollout quality evaluation or continuation checkpoint.",
+  "capture_seal": {
+    "purpose": "Avoid duplicate CPU K/V and graph references through temporary checkpoint collectors",
+    "relevant_tests_passed": 10,
+    "finite_difference_and_forward_unchanged": true,
+    "sealed_collector_test_passed": true,
+    "training_and_resume_matches_previous_math": {
+      "cpu_sealed_full4": {
+        "causal_adapter.pt": true,
+        "anyflow_adapter.pt": true,
+        "stage1_lora.pt": true,
+        "optimizer": true,
+        "cpu_rng_state": true,
+        "logical_rng_state": true,
+        "update_records": true
+      },
+      "cpu_sealed_resume4": {
+        "causal_adapter.pt": true,
+        "anyflow_adapter.pt": true,
+        "stage1_lora.pt": true,
+        "optimizer": true,
+        "cpu_rng_state": true,
+        "logical_rng_state": true,
+        "update_records": true
+      }
+    },
+    "final_fixtures": [
+      "cpu_sealed_full4",
+      "cpu_sealed_resume4"
+    ]
+  }
+}

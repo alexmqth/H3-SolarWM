@@ -1,0 +1,65 @@
+{
+  "label": "real-FM48 parking30",
+  "action": "A",
+  "history": "generated",
+  "optimizer_step": 48,
+  "steps_per_chunk": 30,
+  "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/parking/step_48/30step/A/cached.mp4",
+  "frames": 39,
+  "seconds": 539.9202438280918,
+  "gpu_peak_MiB": 26814.74609375,
+  "vram_reserve_gib": 18.0,
+  "cpu_kv_MiB": 6484.130859375,
+  "noisy_forwards": 90,
+  "clean_commits": 3,
+  "frame_gray_mad": 3.6234364456815116,
+  "boundary_rgb_mad": 4.003298193776709,
+  "horizontal_flow": -0.19023942069935929,
+  "input_audit": {
+    "exactly_equal": true,
+    "reference": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-02-03/action_A_teacher_39",
+    "checks": {
+      "initial_noise": {
+        "shape": [
+          1,
+          24,
+          12,
+          30,
+          52
+        ],
+        "dtype": "torch.bfloat16",
+        "exactly_equal": true,
+        "max_abs_difference": 0.0
+      },
+      "audio_noise": {
+        "shape": [
+          2,
+          32,
+          65
+        ],
+        "dtype": "torch.bfloat16",
+        "exactly_equal": true,
+        "max_abs_difference": 0.0
+      },
+      "prompt_embeds": {
+        "shape": [
+          536,
+          5120
+        ],
+        "dtype": "torch.bfloat16",
+        "exactly_equal": true,
+        "max_abs_difference": 0.0
+      },
+      "anchor": {
+        "shape": [
+          390,
+          96
+        ],
+        "dtype": "torch.bfloat16",
+        "exactly_equal": true,
+        "max_abs_difference": 0.0
+      },
+      "action_text_rows_equal": true
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "initial_noise": {
+    "teacher_shape": [
+      1,
+      24,
+      12,
+      30,
+      52
+    ],
+    "anyflow_shape": [
+      1,
+      24,
+      12,
+      30,
+      52
+    ],
+    "teacher_dtype": "torch.bfloat16",
+    "anyflow_dtype": "torch.bfloat16",
+    "exactly_equal": true,
+    "max_abs_difference": 0.0
+  },
+  "audio_noise": {
+    "teacher_shape": [
+      2,
+      32,
+      65
+    ],
+    "anyflow_shape": [
+      2,
+      32,
+      65
+    ],
+    "teacher_dtype": "torch.bfloat16",
+    "anyflow_dtype": "torch.bfloat16",
+    "exactly_equal": true,
+    "max_abs_difference": 0.0
+  },
+  "prompt_embeds": {
+    "teacher_shape": [
+      536,
+      5120
+    ],
+    "anyflow_shape": [
+      536,
+      5120
+    ],
+    "teacher_dtype": "torch.bfloat16",
+    "anyflow_dtype": "torch.bfloat16",
+    "exactly_equal": true,
+    "max_abs_difference": 0.0
+  },
+  "anchor": {
+    "teacher_shape": [
+      390,
+      96
+    ],
+    "anyflow_shape": [
+      390,
+      96
+    ],
+    "teacher_dtype": "torch.bfloat16",
+    "anyflow_dtype": "torch.bfloat16",
+    "exactly_equal": true,
+    "max_abs_difference": 0.0
+  },
+  "action_text_rows_equal": true,
+  "note": "Archived teacher vs real AnyFlow smoke: exact tensor comparison, not an inference from identical seed."
+}

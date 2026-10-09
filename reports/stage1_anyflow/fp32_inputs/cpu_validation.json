@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "scope": "CPU small H3 diagnostic, not pretrained quality",
+  "profiles": [
+    {
+      "profile": "legacy",
+      "native_fp32_weights_restored": false,
+      "exact_perturbed_video_elements_retained": 0,
+      "expected_video_elements": 1920,
+      "finite_nonzero_qkv_gradient": true,
+      "cache_read_only": true,
+      "rollback_bitwise": true,
+      "output_dtype": "torch.bfloat16"
+    },
+    {
+      "profile": "boundary_fp32",
+      "fp32_linears": 6,
+      "native_fp32_weights_restored": false,
+      "packed_hidden_dtype": "unchanged",
+      "input_latent_rounding": "unchanged",
+      "exact_perturbed_video_elements_retained": 0,
+      "expected_video_elements": 1920,
+      "finite_nonzero_qkv_gradient": true,
+      "cache_read_only": true,
+      "rollback_bitwise": true,
+      "output_dtype": "torch.float32"
+    },
+    {
+      "profile": "boundary_fp32_inputs",
+      "fp32_linears": 6,
+      "native_fp32_weights_restored": false,
+      "packed_hidden_dtype": "unchanged",
+      "input_latent_rounding": "FP32 through input projection",
+      "noise_amplitudes": "unchanged from legacy BF16 noise; only interpolation/perturbation retained in FP32",
+      "exact_perturbed_video_elements_retained": 1920,
+      "expected_video_elements": 1920,
+      "finite_nonzero_qkv_gradient": true,
+      "cache_read_only": true,
+      "rollback_bitwise": true,
+      "output_dtype": "torch.float32"
+    }
+  ]
+}

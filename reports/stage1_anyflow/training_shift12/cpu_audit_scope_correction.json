@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-08T09:58:01.024810+08:00",
+  "receipt": "cpu_resume_audit.json",
+  "field": "checks.shift12_exact_cpu_resume.validation_before",
+  "correction": "This true was a not-compared placeholder, not an equality assertion: resumed before-validation is at step2 while uninterrupted before-validation is at step0. It must not be counted as evidence.",
+  "valid_assertions": [
+    "final adapters",
+    "Adam state",
+    "CPU/logical RNG",
+    "per-update samples/losses/gradients",
+    "validation_after"
+  ],
+  "default_preserves_old_validation_before": "actually compared and equal"
+}

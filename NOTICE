@@ -7,3 +7,23 @@ under the Apache License, Version 2.0.
 The file examples/first_frame.png is derived from the
 ABot-World-Explorer-500h dataset, which is licensed under the Apache License,
 Version 2.0.
+
+This product includes AnyFlow mathematical primitives from SolarWM
+(Junchao-cs/SolarWM), revision ce1da4e7705391eda8eeda6016c0fd3f614b975e,
+licensed under the Apache License, Version 2.0. See
+code/causal/ANYFLOW_PROVENANCE.md and code/causal/SOLARWM_LICENSE.
+
+Real ABot bridge provenance (2026-10-08): reports/stage1_anyflow/real_abot_fm contains small RGB/VAE reconstruction sheets and provenance from acvlab/ABot-World-Explorer-500h. The original Apache-2.0 license and source README are included there. Full dataset videos and latent caches are excluded.
+
+AnyFlow method-audit reference sources
+-------------------------------------
+The files under reports/stage1_anyflow/cd_method_audit/upstream are selected
+reference snapshots from NVlabs/AnyFlow, commit
+bf9195aa04b708a8cd9a7e742bb03265ec3a6c29.
+Copyright 2026 NVIDIA CORPORATION & AFFILIATES.
+Licensed under Apache License 2.0; the full license is preserved at
+reports/stage1_anyflow/cd_method_audit/upstream/LICENSE.
+Source: https://github.com/NVlabs/AnyFlow
+The isolated flow-map simulation helper follows the method in
+AnyFlow: Any-Step Video Diffusion Model with On-Policy Flow Map Distillation,
+arXiv:2605.13724. It has CPU algorithm checks only and is not an H3 training result.

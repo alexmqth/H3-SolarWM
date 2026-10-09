@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-08T06:45:33.860921+08:00",
+  "scope": "Real pretrained GPU0 native-FP32 load/save at step01; not an uninterrupted CUDA trajectory comparison",
+  "from": "H3-World/outputs/2026-10-08-06/stage1_anyflow39_precision_training/train_01/step_01",
+  "to": "H3-World/outputs/2026-10-08-06/stage1_anyflow39_precision_training/train_16/step_01",
+  "state_equal": {
+    "optimizer": true,
+    "optimizer_step": true,
+    "logical_rng_state": true,
+    "cpu_rng_state": true,
+    "cuda_rng_state": true,
+    "updates": true,
+    "teacher_artifacts": true
+  },
+  "adapter_values_equal": {
+    "causal_adapter.pt": true,
+    "anyflow_adapter.pt": true,
+    "action_adapter.pt": true
+  },
+  "all_checks_passed": true
+}

@@ -1,0 +1,30 @@
+{
+  "control": {
+    "source_step": 128,
+    "weight_hashes": {
+      "causal_adapter.pt": "bc2a0c4a269235a731aa26a464e3809601e84d1816c991232fe6c721f608a1f0",
+      "stage1_lora.pt": "df0fe04d0311eced0510f5242753c6de8d485c44351d158332f550d705387424",
+      "anyflow_adapter.pt": "c00cfd923323ea17261d3e0c67d686aa98ce520d8cc738acdc7a43665962cbc1",
+      "action_adapter.pt": "0b022fdf7d72d795248dca69cffa28626726d544b21660f54dfa2c8d6e3a0b8b"
+    },
+    "logical_rng_sha256": "0130600c7f163f23ca191f78f1b9c7ba076a2a5e0af66c8aefd0d6fc08172f32",
+    "only_new_objective_options": {
+      "interval_consistency_weight": 0.0,
+      "interval_reference_dir": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-15/stage1_finite_interval_refinement128"
+    }
+  },
+  "auxiliary": {
+    "source_step": 128,
+    "weight_hashes": {
+      "causal_adapter.pt": "bc2a0c4a269235a731aa26a464e3809601e84d1816c991232fe6c721f608a1f0",
+      "stage1_lora.pt": "df0fe04d0311eced0510f5242753c6de8d485c44351d158332f550d705387424",
+      "anyflow_adapter.pt": "c00cfd923323ea17261d3e0c67d686aa98ce520d8cc738acdc7a43665962cbc1",
+      "action_adapter.pt": "0b022fdf7d72d795248dca69cffa28626726d544b21660f54dfa2c8d6e3a0b8b"
+    },
+    "logical_rng_sha256": "0130600c7f163f23ca191f78f1b9c7ba076a2a5e0af66c8aefd0d6fc08172f32",
+    "only_new_objective_options": {
+      "interval_consistency_weight": 0.25,
+      "interval_reference_dir": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-15/stage1_finite_interval_refinement128"
+    }
+  }
+}

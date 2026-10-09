@@ -1,0 +1,231 @@
+{
+  "status": "complete",
+  "pid": 3398380,
+  "start_ticks": "257300308",
+  "gpu": 0,
+  "at": "2026-10-09T05:15:28.453236+08:00",
+  "scope": "Freeze full37 Original reference inputs and measure causal display bounds.\n\nOnly the VAE is loaded on GPU. Future action/video rows are deleted from\nDiT inputs; reference histories are Original-generated, never called GT.\n",
+  "source_sha256": "78fe51b5c18da5ad344a7bd848ddefe769c2c5de10f7ef57562d988c0109c4e7",
+  "protocol_sha256": "78f1b0f50a25a299a33d22fc8ab32760990e211350eec5f056708ad345b0318f",
+  "files": {
+    "parking_A.pt": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572",
+    "parking_D.pt": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e"
+  },
+  "references": {
+    "A": {
+      "latents_sha256": "2db4baa09250f86793a1ca3ef1b51318660bf6f2a34762a135f015f42ebbeafa",
+      "noise_sha256": "06227e8f825d76a113522daa4071d88b0d2c276cd82eb191f54c6c9914ccb124",
+      "audio_sha256": "1b0a8cdcbc61be98d06ee193c619b9439ef8529785eea8bd4d5393b2e0aa9a76",
+      "anchor_sha256": "fc127dbd0e5fd519298eae191f867fa0889a4bb9bbabd6f1adb5ede7cfe0f23b"
+    },
+    "D": {
+      "latents_sha256": "6058d164d6e33aace17c3bbe1b7c4a93ddce338e5550be76c0251b9a09fd4554",
+      "noise_sha256": "06227e8f825d76a113522daa4071d88b0d2c276cd82eb191f54c6c9914ccb124",
+      "audio_sha256": "1b0a8cdcbc61be98d06ee193c619b9439ef8529785eea8bd4d5393b2e0aa9a76",
+      "anchor_sha256": "fc127dbd0e5fd519298eae191f867fa0889a4bb9bbabd6f1adb5ede7cfe0f23b"
+    }
+  },
+  "layout_checks": [
+    {
+      "reference": "A",
+      "window": 0,
+      "action": "A",
+      "visible_latents": 12,
+      "seq_len": 6020,
+      "text_rows": 536,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "50c7637e26705b8324246be1dc266670384f0c1047f24bff4d59ba8155479c4c",
+      "layout_positions_sha256": "001ae8edcf99a2f82dbc0f370bd58b54c691fbb6d68ba37564d42eec823413f2"
+    },
+    {
+      "reference": "A",
+      "window": 0,
+      "action": "D",
+      "visible_latents": 12,
+      "seq_len": 6020,
+      "text_rows": 536,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "0993664e74bb94f077fcbc0dc5c15ddca772cd50ffecea7f8c89387a11601988",
+      "layout_positions_sha256": "001ae8edcf99a2f82dbc0f370bd58b54c691fbb6d68ba37564d42eec823413f2"
+    },
+    {
+      "reference": "A",
+      "window": 1,
+      "action": "A",
+      "visible_latents": 24,
+      "seq_len": 10820,
+      "text_rows": 656,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "a6b9272cc8001ca079a94bc29b6f2e63d984ccb7354c6e03668934c3944a05d3",
+      "layout_positions_sha256": "82ef444f6db4a141bd4a71029292c284e40ad402f63ca259220e50f3bf640a1d"
+    },
+    {
+      "reference": "A",
+      "window": 1,
+      "action": "D",
+      "visible_latents": 24,
+      "seq_len": 10820,
+      "text_rows": 656,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "b6430bf96c5e8a6109b7bc3531265c04f416fd0203b4ed64942f101e170fa6df",
+      "layout_positions_sha256": "82ef444f6db4a141bd4a71029292c284e40ad402f63ca259220e50f3bf640a1d"
+    },
+    {
+      "reference": "A",
+      "window": 2,
+      "action": "A",
+      "visible_latents": 36,
+      "seq_len": 15620,
+      "text_rows": 776,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "72e973a919bce718c701b7237a8ba5cb84113778de4b477c9328a89082e1d522",
+      "layout_positions_sha256": "8a017c47ca04cc72dbaa7b3b8fac06e2c46b0b8c4fb1880ad93fac06a76df4e0"
+    },
+    {
+      "reference": "A",
+      "window": 2,
+      "action": "D",
+      "visible_latents": 36,
+      "seq_len": 15620,
+      "text_rows": 776,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "e5621db504d185fd417a0dbc5f1e755d2f5b3ed168f0b5ab55dadc46708a2200",
+      "layout_positions_sha256": "8a017c47ca04cc72dbaa7b3b8fac06e2c46b0b8c4fb1880ad93fac06a76df4e0"
+    },
+    {
+      "reference": "D",
+      "window": 0,
+      "action": "A",
+      "visible_latents": 12,
+      "seq_len": 6020,
+      "text_rows": 536,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "50c7637e26705b8324246be1dc266670384f0c1047f24bff4d59ba8155479c4c",
+      "layout_positions_sha256": "001ae8edcf99a2f82dbc0f370bd58b54c691fbb6d68ba37564d42eec823413f2"
+    },
+    {
+      "reference": "D",
+      "window": 0,
+      "action": "D",
+      "visible_latents": 12,
+      "seq_len": 6020,
+      "text_rows": 536,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "0993664e74bb94f077fcbc0dc5c15ddca772cd50ffecea7f8c89387a11601988",
+      "layout_positions_sha256": "001ae8edcf99a2f82dbc0f370bd58b54c691fbb6d68ba37564d42eec823413f2"
+    },
+    {
+      "reference": "D",
+      "window": 1,
+      "action": "A",
+      "visible_latents": 24,
+      "seq_len": 10820,
+      "text_rows": 656,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "01da9c621c9614810513b6bb6019f7ce24f3afaa10cce1e819847d9cf5ec71fd",
+      "layout_positions_sha256": "82ef444f6db4a141bd4a71029292c284e40ad402f63ca259220e50f3bf640a1d"
+    },
+    {
+      "reference": "D",
+      "window": 1,
+      "action": "D",
+      "visible_latents": 24,
+      "seq_len": 10820,
+      "text_rows": 656,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "f43d6a66b45669fba5041bfa446931fcb2f22573d696bb51290936de6f27b05f",
+      "layout_positions_sha256": "82ef444f6db4a141bd4a71029292c284e40ad402f63ca259220e50f3bf640a1d"
+    },
+    {
+      "reference": "D",
+      "window": 2,
+      "action": "A",
+      "visible_latents": 36,
+      "seq_len": 15620,
+      "text_rows": 776,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "5145c55b246a3b848fc902c8b80a35bb1c7cb5fad1d6e3de61a941f9fa735054",
+      "layout_positions_sha256": "8a017c47ca04cc72dbaa7b3b8fac06e2c46b0b8c4fb1880ad93fac06a76df4e0"
+    },
+    {
+      "reference": "D",
+      "window": 2,
+      "action": "D",
+      "visible_latents": 36,
+      "seq_len": 15620,
+      "text_rows": 776,
+      "future_content_effect": 0,
+      "anchor_positions_unchanged": true,
+      "prompt_sha256": "53e335f6fb20fb69660ded4a4ec11cf0c705793c18cb41efbb48c3dd47ecb71b",
+      "layout_positions_sha256": "8a017c47ca04cc72dbaa7b3b8fac06e2c46b0b8c4fb1880ad93fac06a76df4e0"
+    }
+  ],
+  "decoder_bounds": [
+    {
+      "reference": "A",
+      "latent_stop": 12,
+      "decoded_rgb_frames": 39,
+      "prefix_rgb_sha256": "3bc7e95d314d0dafeaac68762f3bd4e6d8912b6af8295c5fb66139bf09e67726",
+      "scope": "Actual visible-prefix decode, no later latent passed to VAE"
+    },
+    {
+      "reference": "A",
+      "latent_stop": 24,
+      "decoded_rgb_frames": 81,
+      "prefix_rgb_sha256": "aa1f2898a56899858d25ecd3a5b52b65f94ad94637605677948bfec40c1ec45c",
+      "scope": "Actual visible-prefix decode, no later latent passed to VAE"
+    },
+    {
+      "reference": "A",
+      "latent_stop": 36,
+      "decoded_rgb_frames": 120,
+      "prefix_rgb_sha256": "829f26bf98d78de1f9fd32c59c328b1acbbd50a56be7b602ff9c4e0d91d76e1e",
+      "scope": "Actual visible-prefix decode, no later latent passed to VAE"
+    },
+    {
+      "reference": "D",
+      "latent_stop": 12,
+      "decoded_rgb_frames": 39,
+      "prefix_rgb_sha256": "456e3525612e728dc8d8d82ab694610dfba3c034e5ec58a99dd40630b95b7a7b",
+      "scope": "Actual visible-prefix decode, no later latent passed to VAE"
+    },
+    {
+      "reference": "D",
+      "latent_stop": 24,
+      "decoded_rgb_frames": 81,
+      "prefix_rgb_sha256": "c5ab4de59141f22a19536107e849e692d24f322ff1fdbb24174373b911e9b3de",
+      "scope": "Actual visible-prefix decode, no later latent passed to VAE"
+    },
+    {
+      "reference": "D",
+      "latent_stop": 36,
+      "decoded_rgb_frames": 120,
+      "prefix_rgb_sha256": "00c9970561474f5a004912c8fa5fa4d3f1b8b484f392d4fbf5e47ab23e8807de",
+      "scope": "Actual visible-prefix decode, no later latent passed to VAE"
+    }
+  ],
+  "optimizer_updates": 0,
+  "history_kind": "Original_generated_reference_not_GT",
+  "wall_seconds": 54.38805318623781,
+  "rgb_bounds": [
+    0,
+    39,
+    81,
+    120
+  ],
+  "GPU_peak_MiB": 6556.318359375,
+  "decoder_policy": "Decode available prefix at each window; append only new RGB; never revise emitted frames",
+  "future_action_video_policy": "Physical visibility trimming on fixed action-content-independent full37 positions",
+  "caveat": "Audio noise/layout fixed to full37 reference; this fixture differs from previous39f in RNG and global positions."
+}

@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-08T10:54:07.801042+08:00",
+  "checks": {
+    "causal_adapter.pt": true,
+    "action_adapter.pt": true,
+    "stage1_lora.pt": true,
+    "logical_rng_state": true,
+    "cpu_rng_state": true,
+    "cuda_rng_state": true,
+    "common_diffusion_initial_validation_exact": true
+  },
+  "observed_updates": 3,
+  "scope": "Actual GPU initialization; first two common r=t validation samples only. FM/AnyFlow endpoint and map objectives are different."
+}

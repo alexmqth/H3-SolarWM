@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "scope": "loader uses available real cached clips; tiny-model training tests all three chunks",
+  "train_cases": 16,
+  "available_validation_cases": 8,
+  "episode_split_disjoint": true,
+  "reject_teacher_source_kind": true,
+  "float32_targets": true,
+  "FM_noise_minus_clean_target": true,
+  "planned_48_updates_cover_all_16_cases_times_3_chunks": true,
+  "tiny_training_complete": true,
+  "validation_ids": [
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+    "dfec8ed3237860eba14d67c089ecd041_D_1750",
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1750",
+    "dfec8ed3237860eba14d67c089ecd041_A_1080"
+  ],
+  "limitation": "Not 33B training or video-quality acceptance; full manifest required before launch"
+}

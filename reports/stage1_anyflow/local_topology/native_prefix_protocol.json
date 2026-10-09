@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-09T04:32:36.036709+08:00",
+  "scope": "E1 correct local reference time semantics before interpreting topology",
+  "single_variable": "fixed_prefix_timesteps=True -> False",
+  "actual_noisy_grid_effect": "only text/action native timestep changes 1 -> 1-sigma; image anchors .999 unchanged because all sampled sigma>=.0711",
+  "sigma0_commit_note": "native anchor uses1 rather than.999 at clean commit; not used by current T2 local positive runs",
+  "tests": 5,
+  "future_information_added": false,
+  "weights_changed": false,
+  "optimizer_updates": 0,
+  "runtime_frozen": true,
+  "jobs": [
+    {
+      "gpu": 0,
+      "role": "native_prefix12_calibration"
+    },
+    {
+      "gpu": 1,
+      "role": "native_positive_A"
+    },
+    {
+      "gpu": 5,
+      "role": "native_positive_D"
+    }
+  ],
+  "maximum_project_gpus": 3,
+  "shelved": "single-anchor calibration not launched; native text time has explicit source evidence",
+  "source_sha256": {
+    "native_prefix.py": "f5c7b3c34047e5edfa18acdf5c8986355426b5c1d12f6b532f7d6dc9582a8815",
+    "test_native_prefix.py": "9535b64a7abbf762864f9abfc073e38dfd44eb7a4b22ee6887c37c4837588cef",
+    "native_prefix_tests.xml": "9161f933522d803885b89718a78bd33d04b9dff5af9491775dd341dccc6b9c4e",
+    "run_native_positive.py": "8845ae184d64442116c00cb906097414b57f3f5f6c8404ca2bbb87bd38b3b8a9",
+    "calibrate_native_prefix.py": "ca9e90e3f1e6d21d69a5760525ceafaafa5802907a10adc931a8fbd15226cbba",
+    "runtime_manifest.json": "a06d0dcc5cfa49ed6d745dea2d49128464fd1465e08ff3b3ed3df2937b82ff19"
+  }
+}

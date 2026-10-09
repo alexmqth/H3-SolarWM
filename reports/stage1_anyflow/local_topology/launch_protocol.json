@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-09T04:10:36.301139+08:00",
+  "phase": "E1 local positive control",
+  "optimizer_updates": 0,
+  "maximum_project_gpus": 2,
+  "source_sha256": {
+    "run_positive.py": "d1c8d39c139da5d666de104c74118d9e6831560140938b028d27c39f6e09df19",
+    "prepare.py": "b46121192632d72f3d5da9bf989d97f5293f0bbb418267f769e1c1ee3194aacd",
+    "runtime_manifest.json": "a06d0dcc5cfa49ed6d745dea2d49128464fd1465e08ff3b3ed3df2937b82ff19",
+    "cpu_tests.xml": "7e50375e235b6ee324886fa510762186ec1920ea5201059becf9c074d1af4a31",
+    "inputs/preparation.json": "5d4fa402222144f8ef201495c7b49d34ec96c4904b0b1367e62b0f4df8a12c01"
+  },
+  "roles": [
+    "Original-prefix/T2"
+  ],
+  "same_initial_noise_per_AD_pair": true,
+  "frames": 39,
+  "steps_per_chunk": 30,
+  "fixed_layout_content_independent": true,
+  "new_GTs": false,
+  "history_kind": "two frozen Original-generated references; not GT",
+  "decoder": "available-prefix decode, emit only new frames",
+  "stage1_accepted": false
+}

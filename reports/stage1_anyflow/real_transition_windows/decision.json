@@ -1,0 +1,133 @@
+{
+  "at": "2026-10-09T16:15:36.398349+08:00",
+  "status": "complete4_no_go_for_promotion",
+  "stage1_accepted": false,
+  "AnyFlow_or_Stage2_started": false,
+  "automatic_training_extension": false,
+  "parking": [
+    {
+      "history": "A",
+      "role": "zero",
+      "flow_A": 1.6454949282654903,
+      "flow_D": -1.5467326848245249,
+      "separation": 3.192227613090015
+    },
+    {
+      "history": "A",
+      "role": "fm_only",
+      "flow_A": 1.6575489485772645,
+      "flow_D": -1.3959182477215442,
+      "separation": 3.0534671962988087
+    },
+    {
+      "history": "A",
+      "role": "fm_action",
+      "flow_A": 1.678612190412312,
+      "flow_D": -1.3764813994852507,
+      "separation": 3.0550935898975626
+    },
+    {
+      "history": "D",
+      "role": "zero",
+      "flow_A": 0.6141035389609453,
+      "flow_D": -0.6738224066793919,
+      "separation": 1.2879259456403371
+    },
+    {
+      "history": "D",
+      "role": "fm_only",
+      "flow_A": 0.6990569094536689,
+      "flow_D": -0.667578219186242,
+      "separation": 1.366635128639911
+    },
+    {
+      "history": "D",
+      "role": "fm_action",
+      "flow_A": 0.657532455831221,
+      "flow_D": -0.6166133707071223,
+      "separation": 1.2741458265383434
+    }
+  ],
+  "costs": [
+    {
+      "arm": "fm_only",
+      "suite": "parking_A",
+      "wall_seconds": 619.8459687842987,
+      "sampling_seconds": [
+        262.0611832840368,
+        269.55939457099885
+      ],
+      "GPU_peak_MiB": 26587.26611328125,
+      "CPU_hidden_KV_MiB": 0,
+      "noisy_forwards": 60,
+      "identity_forwards": 2
+    },
+    {
+      "arm": "fm_only",
+      "suite": "parking_D",
+      "wall_seconds": 622.6895870640874,
+      "sampling_seconds": [
+        261.5633728457615,
+        271.9194861226715
+      ],
+      "GPU_peak_MiB": 26587.26611328125,
+      "CPU_hidden_KV_MiB": 0,
+      "noisy_forwards": 60,
+      "identity_forwards": 2
+    },
+    {
+      "arm": "fm_only",
+      "suite": "gt",
+      "wall_seconds": 954.6693655801937,
+      "sampling_seconds": [
+        413.18924602959305,
+        431.62466761423275
+      ],
+      "GPU_peak_MiB": 26311.9345703125,
+      "CPU_hidden_KV_MiB": 0,
+      "noisy_forwards": 60,
+      "identity_forwards": 2
+    },
+    {
+      "arm": "fm_action",
+      "suite": "parking_A",
+      "wall_seconds": 627.4674986451864,
+      "sampling_seconds": [
+        265.7777909087017,
+        273.65453131403774
+      ],
+      "GPU_peak_MiB": 26587.26611328125,
+      "CPU_hidden_KV_MiB": 0,
+      "noisy_forwards": 60,
+      "identity_forwards": 2
+    },
+    {
+      "arm": "fm_action",
+      "suite": "parking_D",
+      "wall_seconds": 632.0171870430931,
+      "sampling_seconds": [
+        264.5751358070411,
+        277.2513683969155
+      ],
+      "GPU_peak_MiB": 26587.26611328125,
+      "CPU_hidden_KV_MiB": 0,
+      "noisy_forwards": 60,
+      "identity_forwards": 2
+    },
+    {
+      "arm": "fm_action",
+      "suite": "gt",
+      "wall_seconds": 970.4353780318052,
+      "sampling_seconds": [
+        421.89510256098583,
+        438.3862306200899
+      ],
+      "GPU_peak_MiB": 26311.9345703125,
+      "CPU_hidden_KV_MiB": 0,
+      "noisy_forwards": 60,
+      "identity_forwards": 2
+    }
+  ],
+  "diagnosis": "No consistent added action/structure benefit from four-update ranking loss over matched FM-only. Limits do not establish impossibility of consequence supervision or a unique cause of artifacts.",
+  "next": "Audit reliable action-outcome supervision and effect timing before another controlled E2 run; do not tune this validation set or extend the current run automatically."
+}

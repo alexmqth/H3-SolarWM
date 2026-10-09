@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-08T21:43:11.284831+08:00",
+  "scope": "Actual tiny H3 callback, random weights, CPU only. No pretrained33B training/video or teacher/critic.",
+  "command": "/home/lpeng/miniconda3/envs/h3world/bin/python -m pytest H3-World/tests/test_fmbs_h3.py -q -s --tb=short",
+  "tests_passed": 6,
+  "pytest_seconds": 5.25,
+  "observed_stdout": [
+    "full_parameter_gradient_norm=0.00521061 detach_first_gradient_gap=0.00124804",
+    ".full_parameter_gradient_norm=0.00521059 detach_first_gradient_gap=0.00124696",
+    ".autograd_directional=0.00521061 finite_difference=0.00515580",
+    "....",
+    "6 passed in 5.25s"
+  ],
+  "history": "Two detached self-generated5-latent chunks from full8-step inference, current2-latent chunk uses3-map FMBS; fixed synthetic conditioning",
+  "source_sha256": {
+    "H3-World/outputs/2026-10-08-20/stage_cd_method_audit/flow_map_backward_simulation.py": "5f8be2570397539014f0d5a0b74952b03d9c89937b180bd1a43435c1b0eb3626",
+    "H3-World/code/causal/fmbs.py": "cfd2fcf1c2c91f016848a10af1b171d673e76301e99bd34be580bd157a72eff6",
+    "H3-World/tests/test_fmbs_h3.py": "29c02f78b0108cb8473a660ecbce212b36222ee1a007911ff99cbffbd2cd683c"
+  },
+  "primitive_AST_identical_to_officially_checked_version": true,
+  "initial_failed_preflight": "4 tests stopped in synthetic history setup: hand-calculated shifted start sigma rounded to1.0000000000000002. Explicit protocol endpoints1/0 fixed in test fixture; H3 bounds check retained.",
+  "limitations": [
+    "No frozen teacher/trainable critic role loop integrated yet",
+    "No pretrained33B memory or quality claim",
+    "Inputs/adapter role must remain unchanged or be restored before backward",
+    "History cache lists snapshotted; underlying tensors are immutable, not copied",
+    "Dummy fixed anchors in CPU test do not validate a new RGB encoder or long rollout"
+  ],
+  "backbone_dtypes": [
+    "float32",
+    "bfloat16"
+  ],
+  "final_execution_receipt": "pytest_execution.json"
+}

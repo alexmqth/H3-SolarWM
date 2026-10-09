@@ -1,0 +1,76 @@
+{
+  "at": "2026-10-09T05:08:14.048156+08:00",
+  "status": "review_complete_no_go",
+  "rows": [
+    {
+      "reference": "A",
+      "chunk": 0,
+      "A": -1.0355637688189745,
+      "D": -1.0018389355391264,
+      "separation": -0.0337248332798481
+    },
+    {
+      "reference": "A",
+      "chunk": 1,
+      "A": 1.6628185585141182,
+      "D": 0.5343281300738454,
+      "separation": 1.1284904284402728
+    },
+    {
+      "reference": "A",
+      "chunk": 2,
+      "A": 1.6501679569482803,
+      "D": 1.6519139856100082,
+      "separation": -0.0017460286617279053
+    },
+    {
+      "reference": "D",
+      "chunk": 0,
+      "A": -1.0355637688189745,
+      "D": -1.000837530940771,
+      "separation": -0.03472623787820339
+    },
+    {
+      "reference": "D",
+      "chunk": 1,
+      "A": -0.9692408461123705,
+      "D": -0.9697364084422588,
+      "separation": 0.0004955623298883438
+    },
+    {
+      "reference": "D",
+      "chunk": 2,
+      "A": -0.6163047850131989,
+      "D": -0.6092328056693077,
+      "separation": -0.007071979343891144
+    }
+  ],
+  "costs": [
+    {
+      "reference": "A",
+      "wall_seconds": 853.3536875862628,
+      "GPU_peak_MiB": 26409.54248046875,
+      "noisy_forwards": 180,
+      "diagnostic_forwards": 3,
+      "cpu_KV_MiB": 0,
+      "cpu_latent_history_MiB": 1.7138671875
+    },
+    {
+      "reference": "D",
+      "wall_seconds": 861.0524473460391,
+      "GPU_peak_MiB": 26409.54248046875,
+      "noisy_forwards": 180,
+      "diagnostic_forwards": 3,
+      "cpu_KV_MiB": 0,
+      "cpu_latent_history_MiB": 1.7138671875
+    }
+  ],
+  "review_method": "All39 contact sheets for A/D under each fixed history, not real-time playback",
+  "visual_observation": "Person and parking remain recognizable; reference-A chunk1 has clear posture/motion differences but both current actions produce positive flow. Other pairs are near-identical in movement. Oracle state resets at17/34 remain; not evidence of free-rollout continuity.",
+  "local_reference_usable": false,
+  "geometry_launch": false,
+  "stage1_accepted": false,
+  "reason": "First chunk and final chunk fail differentiation, reference-D middle chunk also fails. Whole-window recovery does not transfer to5-latent local generation.",
+  "interpretation_limit": "Optical flow is a proxy, terminal chunk only5RGB. No claim that exact action information is zero or that all causal architectures fail. No valid same-state teacher-delta supervision established for5-latent control.",
+  "decision": "No new E2/AnyFlow/Stage2 training. Next E1: bounded12-latent current-window study on multiple histories, explicit cost and future-isolation checks."
+}

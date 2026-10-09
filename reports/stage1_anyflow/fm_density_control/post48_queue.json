@@ -1,0 +1,599 @@
+{
+  "status": "complete",
+  "started_at": "2026-10-08T23:53:09.781554+08:00",
+  "training_dependency": {
+    "pid": 1563900,
+    "start_ticks": "255332670",
+    "gpu": 1
+  },
+  "allowed_gpus": [
+    1,
+    0
+  ],
+  "source_sha256": {
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_queue.py": "147a119f85d11b20eed3dfe800ff6e7753a560bc203c687a04448d3c034a1317",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/parking_regression.py": "7acc610253c223cb74443c86387a2a21ef9bfb57c7a71bf0f35b2011c74669d7",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/audit_completed_training.py": "d78c1f46155fc54c6e947806a08ea8f364d75bb6f54d13e29a2c2975b3afd995",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/probe_real_geometry.py": "5259332f3243bf954ead2dada3a275bbbfc6ba019a5c3e467b55335bd1db75db",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/geometry_primitives.py": "5877b26d3243c0b29f6f287b192753603231744115d8647eecabf7e808822f18",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/noise/probe_noise.py": "7622a0b17dbcff805f39c22922e752e4326517e959cbd4db8d7f0ecbc0b53f05",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py": "74967b873ce4edb018b64e99bd0472e7876aab4c135d75589d88e13681d5b352",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/geometry_primitives.py": "5877b26d3243c0b29f6f287b192753603231744115d8647eecabf7e808822f18",
+    "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/prepare_counterfactual.py": "40b43e537afa6e5844e6d69c4164f00d8bff90f8fc338844fc60f1d68da8ae6c"
+  },
+  "schedule": {
+    "1": [
+      [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+        "--mode",
+        "causal",
+        "--history",
+        "gt",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/gt_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140"
+      ],
+      [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "dfec8ed3237860eba14d67c089ecd041_D_1750",
+        "--mode",
+        "causal",
+        "--history",
+        "gt",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/gt_30/dfec8ed3237860eba14d67c089ecd041_D_1750"
+      ],
+      [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140"
+      ],
+      [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "dfec8ed3237860eba14d67c089ecd041_D_1750",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_30/dfec8ed3237860eba14d67c089ecd041_D_1750"
+      ],
+      [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "8",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_8/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140"
+      ],
+      [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "dfec8ed3237860eba14d67c089ecd041_D_1750",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "8",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_8/dfec8ed3237860eba14d67c089ecd041_D_1750"
+      ],
+      [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/parking_regression.py",
+        "--gpu",
+        "1",
+        "--step",
+        "48"
+      ]
+    ],
+    "0": [
+      [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/noise/probe_noise.py",
+        "--gpu",
+        "0",
+        "--step",
+        "48"
+      ],
+      [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/probe_real_geometry.py",
+        "--gpu",
+        "0",
+        "--step",
+        "48",
+        "--history",
+        "gt"
+      ],
+      [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/probe_real_geometry.py",
+        "--gpu",
+        "0",
+        "--step",
+        "48",
+        "--history",
+        "step00_generated"
+      ]
+    ]
+  },
+  "launches": [
+    {
+      "gpu": 1,
+      "pid": 3377015,
+      "start_ticks": "255999773",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+        "--mode",
+        "causal",
+        "--history",
+        "gt",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/gt_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_gpu1_00.log"
+    },
+    {
+      "gpu": 0,
+      "pid": 3377028,
+      "start_ticks": "255999783",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/noise/probe_noise.py",
+        "--gpu",
+        "0",
+        "--step",
+        "48"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_gpu0_00.log"
+    },
+    {
+      "gpu": 1,
+      "pid": 3463020,
+      "start_ticks": "256047843",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "dfec8ed3237860eba14d67c089ecd041_D_1750",
+        "--mode",
+        "causal",
+        "--history",
+        "gt",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/gt_30/dfec8ed3237860eba14d67c089ecd041_D_1750"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_gpu1_01.log"
+    },
+    {
+      "gpu": 0,
+      "pid": 3483439,
+      "start_ticks": "256057868",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/probe_real_geometry.py",
+        "--gpu",
+        "0",
+        "--step",
+        "48",
+        "--history",
+        "gt"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_gpu0_01.log"
+    },
+    {
+      "gpu": 1,
+      "pid": 3542288,
+      "start_ticks": "256093917",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_gpu1_02.log"
+    },
+    {
+      "gpu": 0,
+      "pid": 3606445,
+      "start_ticks": "256119956",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/probe_real_geometry.py",
+        "--gpu",
+        "0",
+        "--step",
+        "48",
+        "--history",
+        "step00_generated"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_gpu0_02.log"
+    },
+    {
+      "gpu": 1,
+      "pid": 3659535,
+      "start_ticks": "256147998",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "dfec8ed3237860eba14d67c089ecd041_D_1750",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_30/dfec8ed3237860eba14d67c089ecd041_D_1750"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_gpu1_03.log"
+    },
+    {
+      "gpu": 1,
+      "pid": 3757004,
+      "start_ticks": "256200061",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "8",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_8/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_gpu1_04.log"
+    },
+    {
+      "gpu": 1,
+      "pid": 3858364,
+      "start_ticks": "256224097",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "dfec8ed3237860eba14d67c089ecd041_D_1750",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "8",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_8/dfec8ed3237860eba14d67c089ecd041_D_1750"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_gpu1_05.log"
+    },
+    {
+      "gpu": 1,
+      "pid": 3933368,
+      "start_ticks": "256246132",
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/parking_regression.py",
+        "--gpu",
+        "1",
+        "--step",
+        "48"
+      ],
+      "log": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/post48_gpu1_06.log"
+    }
+  ],
+  "completed": [
+    {
+      "gpu": 1,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+        "--mode",
+        "causal",
+        "--history",
+        "gt",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/gt_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 0,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/noise/probe_noise.py",
+        "--gpu",
+        "0",
+        "--step",
+        "48"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 1,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "dfec8ed3237860eba14d67c089ecd041_D_1750",
+        "--mode",
+        "causal",
+        "--history",
+        "gt",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/gt_30/dfec8ed3237860eba14d67c089ecd041_D_1750"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 0,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/probe_real_geometry.py",
+        "--gpu",
+        "0",
+        "--step",
+        "48",
+        "--history",
+        "gt"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 1,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_30/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 0,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/probe_real_geometry.py",
+        "--gpu",
+        "0",
+        "--step",
+        "48",
+        "--history",
+        "step00_generated"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 1,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "dfec8ed3237860eba14d67c089ecd041_D_1750",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "30",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_30/dfec8ed3237860eba14d67c089ecd041_D_1750"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 1,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "8",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_8/118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 1,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-18/stage1_real_abot_fm/evaluate_real.py",
+        "--gpu",
+        "1",
+        "--clip",
+        "dfec8ed3237860eba14d67c089ecd041_D_1750",
+        "--mode",
+        "causal",
+        "--history",
+        "generated",
+        "--steps",
+        "8",
+        "--checkpoint",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/train_48/step_48",
+        "--out",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/eval/step_48/generated_8/dfec8ed3237860eba14d67c089ecd041_D_1750"
+      ],
+      "exit_code": 0
+    },
+    {
+      "gpu": 1,
+      "command": [
+        "/home/lpeng/miniconda3/envs/h3world/bin/python",
+        "-u",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-08-23/stage1_fm_density_control/parking_regression.py",
+        "--gpu",
+        "1",
+        "--step",
+        "48"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "active": {},
+  "maximum_project_gpus": 2,
+  "updated_at": "2026-10-09T02:47:04.649206+08:00"
+}

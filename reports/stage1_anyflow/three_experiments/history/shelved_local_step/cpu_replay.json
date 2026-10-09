@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "scope": "tiny-H3 CPU sequential paired VJP versus simultaneous full-history gradient",
+  "cases": [
+    {
+      "dtype": "torch.float32",
+      "chunk": 1,
+      "reference_max_abs": [
+        0.0,
+        0.0
+      ],
+      "full_parameter_grad_max_abs": 2.0372681319713593e-10,
+      "direct_norm": 0.010164277531318074,
+      "stale_reference_rejected": true
+    },
+    {
+      "dtype": "torch.float32",
+      "chunk": 2,
+      "reference_max_abs": [
+        0.0,
+        0.0
+      ],
+      "full_parameter_grad_max_abs": 1.964508555829525e-10,
+      "direct_norm": 0.008436839691331879,
+      "stale_reference_rejected": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "chunk": 1,
+      "reference_max_abs": [
+        0.0,
+        0.0
+      ],
+      "full_parameter_grad_max_abs": 2.0372681319713593e-10,
+      "direct_norm": 0.01016976226081644,
+      "stale_reference_rejected": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "chunk": 2,
+      "reference_max_abs": [
+        0.0,
+        0.0
+      ],
+      "full_parameter_grad_max_abs": 2.3283064365386963e-10,
+      "direct_norm": 0.008451378894102959,
+      "stale_reference_rejected": true
+    }
+  ],
+  "pretrained_H3_quality_verified": false
+}

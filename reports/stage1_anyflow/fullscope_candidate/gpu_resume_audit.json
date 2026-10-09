@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-08T07:33:44.389173+08:00",
+  "status": "passed",
+  "scope": "Real pretrained GPU0 full-scope load/save at step01; not an uninterrupted CUDA training trajectory comparison",
+  "state_equal": {
+    "optimizer": true,
+    "optimizer_step": true,
+    "logical_rng_state": true,
+    "cpu_rng_state": true,
+    "cuda_rng_state": true,
+    "updates": true,
+    "teacher_artifacts": true
+  },
+  "adapter_values_equal": {
+    "causal_adapter.pt": true,
+    "anyflow_adapter.pt": true,
+    "action_adapter.pt": true,
+    "stage1_lora.pt": true
+  }
+}
