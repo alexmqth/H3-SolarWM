@@ -2,9 +2,9 @@
 
 **目标：** 将SolarWM的因果分块、KV cache与少步方法迁入H3-World，同时保留action control与画面连续性，最终改善长视频效率。
 
-**当前结论：** EXP-002/v1已验收73帧native严格缓存候选：同history A/D响应可辨、真实KV复用、人物/场景基本可用；AA边界跳变保留。单scene/seed，零训练；完整V3待同配置124帧，完整E2E和公平speedup未测。
+**最新：V3可行性版本已验收。** EXP-002/003以同一Original H3 + released LoRA、native Single I0/current-prefix协议，验证strict chunk-causal、真实persistent KV、同history A/D响应与AA/AD124帧自身历史。AA有短暂明显人体形变后恢复，画质与严格连续性仍有限制。单scene/seed、零新增训练；完整从零E2E、长期泛化及公平Original speedup未验证。
 
-**最新交付：** [V3候选73帧AA/AD对比与证据](V3_native_cached_candidate/README.md)。此前[Original vs V2b持续A/D124帧](V2b_same_sigma_local_bidir/videos/Original_vs_V2b_AD_overview_248.mp4)继续保留，V2b没有persistent KV。
+**最新交付：** [V3正式版本与完整视频](V3_efficient_causal/README.md)，[Original vs V3 AA124](V3_efficient_causal/videos/Original_vs_candidate_AA_124.mp4)、[V2b vs V3 AA124](V3_efficient_causal/videos/V2b_vs_candidate_AA_124.mp4)。[Original vs V2b持续A/D124](V2b_same_sigma_local_bidir/videos/Original_vs_V2b_AD_overview_248.mp4)仍保留。
 
 **建议播放顺序：**
 
@@ -20,15 +20,15 @@
 | V1 Native causal | 显著下降 | 本代表停滞、过亮/背景退化；其他早期协议有重影 | 124f工程rollout | 是，CPU raw video KV | 8/chunk | 本代表无 | 工程可行，联合质量失败 |
 | V2a RGB-Anchor | A/D方向失败 | **124f人物结构相对稳定**；20s失败 | 124f视觉证据；243/481f负结果 | 是，clean commit的历史hidden KV | 8/chunk | visual adapter +已训action residual | Longer-horizon Visual Stability Demonstrated（仅124f scope） |
 | V2b Same-σ local bidir | 持续A/D在124f有可辨响应；切换仍有限制 | 124f人物/场景基本可用；边界与节奏有缺陷 | 单停车场、seed13、六块124f | **否**，每步重算全部可见历史 | 30/chunk | **无**，Original + released LoRA | Sustained A/D feasibility accepted；非V3 |
-| V3 Efficient causal | 候选同history A/D响应可辨 | 候选73f基本可用，AA边界跳变 | EXP-002 AA/AD73f已验收；正式124f待验证 | 是，strict chunk causal + raw KV | 30/chunk | 无，Original + released LoRA | 73f feasibility candidate；完整V3 pending |
+| V3 Efficient causal | 同history A/D可辨；AA/AD续124f | 基本可用；AA瞬态明显形变后恢复，连续性PARTIAL | 单停车场seed13，六块124f | 是，strict chunk causal + raw KV | 30/chunk | 无，Original + released LoRA | Feasibility accepted；非成熟画质/公平E2E speedup |
 
 ## 按需展开
 
 - [V0](V0_original/README.md) / [V1](V1_native_causal/README.md) / [V2a](V2a_rgb_anchor/README.md) / [V2b](V2b_same_sigma_local_bidir/README.md)：统一十项说明、代码快照、真实原片。
 - [比较/参考画廊](00_comparison_gallery/README.md) / [本地浏览器演示页](index.html)。
 - [并列路线图与维度对照](roadmap.md) / [研究分支](01_research_branches_summary/README.md) / [5分钟讲稿](TALK_5MIN.md)。
-- [未来V3与验收](02_next_steps/README.md) / [历史指标](METRICS.md) / [公平性与缺失](COMPARISON_PROTOCOL.md)。
+- [V3之后的下一步](02_next_steps/README.md) / [历史指标](METRICS.md) / [公平性与缺失](COMPARISON_PROTOCOL.md)。
 
-EXP-001 / v3已验收：单停车场、seed13，持续A/D六窗口124帧（5.17秒）具备可辨响应与基本人物/场景结构。保留AA RGB72→73姿态跳变、动作节奏不均和局部细节软化；DD后段靠近画面下边缘。AD/DA仅到73帧，DA第三块flow轻微反号；切换和泛化未通过。无persistent KV、无公平加速结论，V3仍计划中。
+EXP-001 / v3已验收：单停车场、seed13，持续A/D六窗口124帧（5.17秒）具备可辨响应与基本人物/场景结构。保留AA RGB72→73姿态跳变、动作节奏不均和局部细节软化；DD后段靠近画面下边缘。AD/DA仅到73帧，DA第三块flow轻微反号；切换和泛化未通过。V2b无persistent KV、无公平加速结论；V3另以EXP-002/003同配置证据完成可行性验收。
 
-本目录可独立复制汇报：MP4均为真实文件，核心code供阅读，不含33B权重。当前标签与文件名均使用V2a/V2b；旧V2/V3编号片保留在完整仓库archive内。最新EXP-001包含受控模型推理、0训练；原56帧素材完整保留。
+本目录可独立复制汇报：MP4均为真实文件，核心code供阅读，不含33B权重。当前正式版本使用V2a/V2b/V3名称；旧V2/V3编号片保留在完整仓库archive内。EXP-001/002/003包含受控模型推理、0新增训练；原56帧素材完整保留。

@@ -1,0 +1,583 @@
+{
+  "task_id": "EXP-003",
+  "plan_version": 1,
+  "status": "accepted",
+  "model": "Original H3 + released action LoRA; native Single I0/current-prefix/strict chunk causal; 30 steps/chunk; persistent CPU raw KV; no new training",
+  "rows": {
+    "AA": [
+      {
+        "interval": [
+          22,
+          27
+        ],
+        "rgb_interval": [
+          73,
+          90
+        ],
+        "sampling_forwards": 30,
+        "commit_forwards": 1,
+        "vae_decodes": 1,
+        "sampling_seconds": 148.45243857700007,
+        "clean_commit_seconds": 6.084225257999606,
+        "cache_save_seconds": 12.51759569099977,
+        "endpoint_save_seconds": 0.00177521300065564,
+        "vae_seconds": 7.699509817000035,
+        "render_seconds": 0.9801951170002212,
+        "chunk_wall_seconds_before_review": 198.61798095800077,
+        "review_wait_seconds": 57.70592601000044,
+        "reload_dit_seconds_before_next_chunk": 2.2137943789994097,
+        "cache_read_cpu_seconds": 0.017555114000970207,
+        "cache_transfer_enqueue_seconds": 20.34184413998355,
+        "cache_transfer_gpu_seconds": 19.470427061080933,
+        "cache_transfer_bytes": 373950720000.0,
+        "cache_read_unchanged": true,
+        "history_tensor_sha256": "0a92ccd14d7f0753fe6d2f0ae5f6ffd0386c62c91f563d9d140fdfacff6202da",
+        "prior_rgb_sha256": "776e91ee8ac79f8f0457ad6d7b9f9e3805f8a63c940bbcd3c2bbb00532011631",
+        "published_rgb_sha256": "6a60f689a3d97bd30fa4c555e98235a34e5bcf02fe0f92cb473df356791a8308",
+        "GPU_peak_allocated_MiB": 26876.6982421875,
+        "boundary_gray_MAD": 13.818807601928711,
+        "inside_gray_MAD": 5.4392547607421875,
+        "history_cache_before": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 8580,
+          "nbytes": 12465024000,
+          "peak_bytes": 12465024000,
+          "commit_calls_per_layer": 3
+        },
+        "history_cache_after": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ],
+            [
+              3,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 10530,
+          "nbytes": 15297984000,
+          "peak_bytes": 15297984000,
+          "commit_calls_per_layer": 4
+        },
+        "past5_redecode_MAD": 0.6500729322433472,
+        "status": "complete_pending_visual_review",
+        "horizontal_flow_px_per_frame": 1.4629342895932496
+      },
+      {
+        "interval": [
+          27,
+          32
+        ],
+        "rgb_interval": [
+          90,
+          107
+        ],
+        "sampling_forwards": 30,
+        "commit_forwards": 1,
+        "vae_decodes": 1,
+        "sampling_seconds": 176.42814467399967,
+        "clean_commit_seconds": 7.002812192999954,
+        "cache_save_seconds": 16.777112187000057,
+        "endpoint_save_seconds": 0.001501511000242317,
+        "vae_seconds": 9.862211030999788,
+        "render_seconds": 1.3155873669993525,
+        "chunk_wall_seconds_before_review": 235.66150651399948,
+        "review_wait_seconds": 32.60786766700039,
+        "reload_dit_seconds_before_next_chunk": 2.037389494999843,
+        "cache_read_cpu_seconds": 0.017779391007934464,
+        "cache_transfer_enqueue_seconds": 26.337876639013302,
+        "cache_transfer_gpu_seconds": 25.471055268287657,
+        "cache_transfer_bytes": 458939520000.0,
+        "cache_read_unchanged": true,
+        "history_tensor_sha256": "aa00837b8934bc35af0e79c78ed9b904ff63124f32c687c3b362dcb1c10cf5fa",
+        "prior_rgb_sha256": "6a60f689a3d97bd30fa4c555e98235a34e5bcf02fe0f92cb473df356791a8308",
+        "published_rgb_sha256": "ba170bf9f7bbf44589b8d24ee69e17fe336bc692520ec2ad958d1168140e8dbe",
+        "GPU_peak_allocated_MiB": 26048.41943359375,
+        "boundary_gray_MAD": 9.69078540802002,
+        "inside_gray_MAD": 5.015311241149902,
+        "history_cache_before": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ],
+            [
+              3,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 10530,
+          "nbytes": 15297984000,
+          "peak_bytes": 15297984000,
+          "commit_calls_per_layer": 4
+        },
+        "history_cache_after": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ],
+            [
+              3,
+              1950
+            ],
+            [
+              4,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 12480,
+          "nbytes": 18130944000,
+          "peak_bytes": 18130944000,
+          "commit_calls_per_layer": 5
+        },
+        "past5_redecode_MAD": 0.6606401801109314,
+        "status": "complete_pending_visual_review",
+        "horizontal_flow_px_per_frame": 0.9529107243288308
+      },
+      {
+        "interval": [
+          32,
+          37
+        ],
+        "rgb_interval": [
+          107,
+          124
+        ],
+        "sampling_forwards": 30,
+        "commit_forwards": 0,
+        "vae_decodes": 1,
+        "sampling_seconds": 200.42171409900038,
+        "clean_commit_seconds": 0.0,
+        "cache_save_seconds": 0.0,
+        "endpoint_save_seconds": 0.0015254969994202838,
+        "vae_seconds": 11.409100970000509,
+        "render_seconds": 1.472885836000387,
+        "chunk_wall_seconds_before_review": 226.77582520099986,
+        "review_wait_seconds": null,
+        "reload_dit_seconds_before_next_chunk": null,
+        "cache_read_cpu_seconds": 0.018543873006819922,
+        "cache_transfer_enqueue_seconds": 35.85474230499676,
+        "cache_transfer_gpu_seconds": 34.96833904266358,
+        "cache_transfer_bytes": 543928320000.0,
+        "cache_read_unchanged": true,
+        "history_tensor_sha256": "b952d2fcf92ec84d7975a8ffde29efb5687266f299e8b826957c62e35cd9ab17",
+        "prior_rgb_sha256": "ba170bf9f7bbf44589b8d24ee69e17fe336bc692520ec2ad958d1168140e8dbe",
+        "published_rgb_sha256": "90728ffecb2525e1e4967b44c2785de2ac149b552020fd70e06dbd200dd04ffe",
+        "GPU_peak_allocated_MiB": 26230.9609375,
+        "boundary_gray_MAD": 2.9096128940582275,
+        "inside_gray_MAD": 5.610358238220215,
+        "history_cache_before": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ],
+            [
+              3,
+              1950
+            ],
+            [
+              4,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 12480,
+          "nbytes": 18130944000,
+          "peak_bytes": 18130944000,
+          "commit_calls_per_layer": 5
+        },
+        "history_cache_after": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ],
+            [
+              3,
+              1950
+            ],
+            [
+              4,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 12480,
+          "nbytes": 18130944000,
+          "peak_bytes": 18130944000,
+          "commit_calls_per_layer": 5
+        },
+        "past5_redecode_MAD": 0.7794346213340759,
+        "status": "complete_pending_visual_review",
+        "horizontal_flow_px_per_frame": 1.3354486729949713
+      }
+    ],
+    "AD": [
+      {
+        "interval": [
+          22,
+          27
+        ],
+        "rgb_interval": [
+          73,
+          90
+        ],
+        "sampling_forwards": 30,
+        "commit_forwards": 1,
+        "vae_decodes": 1,
+        "sampling_seconds": 148.93955210700005,
+        "clean_commit_seconds": 6.084351405001144,
+        "cache_save_seconds": 12.579735266999705,
+        "endpoint_save_seconds": 0.0013978250008221949,
+        "vae_seconds": 7.696762113000659,
+        "render_seconds": 1.020543386999634,
+        "chunk_wall_seconds_before_review": 199.28377193100096,
+        "review_wait_seconds": 26.311118040999645,
+        "reload_dit_seconds_before_next_chunk": 2.2250580130003073,
+        "cache_read_cpu_seconds": 0.017362474973197095,
+        "cache_transfer_enqueue_seconds": 20.471023934976074,
+        "cache_transfer_gpu_seconds": 19.60145680809021,
+        "cache_transfer_bytes": 373950720000.0,
+        "cache_read_unchanged": true,
+        "history_tensor_sha256": "f1ab48d57416b4d1099771fdb88a7fcafc865392a8d3b5e2ca0ea94b578e855c",
+        "prior_rgb_sha256": "711d04400affcc0041ca8f6ca4de73b7e7fd23a3102a9788d37318d96e6c7308",
+        "published_rgb_sha256": "787b93a614ef7b2dd5108a3af323104d4cfe0d4a84d37f9869f8854c8ff94a8a",
+        "GPU_peak_allocated_MiB": 26876.6982421875,
+        "boundary_gray_MAD": 7.1778244972229,
+        "inside_gray_MAD": 4.322083950042725,
+        "history_cache_before": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 8580,
+          "nbytes": 12465024000,
+          "peak_bytes": 12465024000,
+          "commit_calls_per_layer": 3
+        },
+        "history_cache_after": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ],
+            [
+              3,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 10530,
+          "nbytes": 15297984000,
+          "peak_bytes": 15297984000,
+          "commit_calls_per_layer": 4
+        },
+        "past5_redecode_MAD": 0.645393967628479,
+        "status": "complete_pending_visual_review",
+        "horizontal_flow_px_per_frame": -1.3040258036926389
+      },
+      {
+        "interval": [
+          27,
+          32
+        ],
+        "rgb_interval": [
+          90,
+          107
+        ],
+        "sampling_forwards": 30,
+        "commit_forwards": 1,
+        "vae_decodes": 1,
+        "sampling_seconds": 176.65830056400046,
+        "clean_commit_seconds": 7.012152375000369,
+        "cache_save_seconds": 16.84598233899851,
+        "endpoint_save_seconds": 0.0015818299998500152,
+        "vae_seconds": 9.953130484998837,
+        "render_seconds": 1.1993920429995342,
+        "chunk_wall_seconds_before_review": 235.8792623270001,
+        "review_wait_seconds": 38.65236383899901,
+        "reload_dit_seconds_before_next_chunk": 2.0324567899988324,
+        "cache_read_cpu_seconds": 0.017851568023615982,
+        "cache_transfer_enqueue_seconds": 26.43033580298652,
+        "cache_transfer_gpu_seconds": 25.560279481887815,
+        "cache_transfer_bytes": 458939520000.0,
+        "cache_read_unchanged": true,
+        "history_tensor_sha256": "13ade4ce03c49b48ef4ed80912ddc81687de6c47d8f47f2b51f5acce922852e3",
+        "prior_rgb_sha256": "787b93a614ef7b2dd5108a3af323104d4cfe0d4a84d37f9869f8854c8ff94a8a",
+        "published_rgb_sha256": "89ad6e55e0fef3b3a6cfc86a62b8fb97ffc3c4ac8e2b5bbe1f01531926d9575a",
+        "GPU_peak_allocated_MiB": 26048.41943359375,
+        "boundary_gray_MAD": 3.336981773376465,
+        "inside_gray_MAD": 4.044217586517334,
+        "history_cache_before": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ],
+            [
+              3,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 10530,
+          "nbytes": 15297984000,
+          "peak_bytes": 15297984000,
+          "commit_calls_per_layer": 4
+        },
+        "history_cache_after": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ],
+            [
+              3,
+              1950
+            ],
+            [
+              4,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 12480,
+          "nbytes": 18130944000,
+          "peak_bytes": 18130944000,
+          "commit_calls_per_layer": 5
+        },
+        "past5_redecode_MAD": 0.6121282577514648,
+        "status": "complete_pending_visual_review",
+        "horizontal_flow_px_per_frame": -0.6482395537314005
+      },
+      {
+        "interval": [
+          32,
+          37
+        ],
+        "rgb_interval": [
+          107,
+          124
+        ],
+        "sampling_forwards": 30,
+        "commit_forwards": 0,
+        "vae_decodes": 1,
+        "sampling_seconds": 199.4306775490004,
+        "clean_commit_seconds": 0.0,
+        "cache_save_seconds": 0.0,
+        "endpoint_save_seconds": 0.0016525979990547057,
+        "vae_seconds": 11.404008012999839,
+        "render_seconds": 1.3995485510004073,
+        "chunk_wall_seconds_before_review": 225.54995828799838,
+        "review_wait_seconds": null,
+        "reload_dit_seconds_before_next_chunk": null,
+        "cache_read_cpu_seconds": 0.018890792001911905,
+        "cache_transfer_enqueue_seconds": 35.54536360697057,
+        "cache_transfer_gpu_seconds": 34.658691419601446,
+        "cache_transfer_bytes": 543928320000.0,
+        "cache_read_unchanged": true,
+        "history_tensor_sha256": "3e64c09aa0228f46c866771adaad70eff50586c91369749ba7fc3d261eb82cfc",
+        "prior_rgb_sha256": "89ad6e55e0fef3b3a6cfc86a62b8fb97ffc3c4ac8e2b5bbe1f01531926d9575a",
+        "published_rgb_sha256": "5d3d0b7ae8a35117fa368d37b1fb78dd5bed0c396248dbfa457bf85d12ffe033",
+        "GPU_peak_allocated_MiB": 26230.9609375,
+        "boundary_gray_MAD": 2.5032401084899902,
+        "inside_gray_MAD": 4.551706790924072,
+        "history_cache_before": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ],
+            [
+              3,
+              1950
+            ],
+            [
+              4,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 12480,
+          "nbytes": 18130944000,
+          "peak_bytes": 18130944000,
+          "commit_calls_per_layer": 5
+        },
+        "history_cache_after": {
+          "layer_count": 50,
+          "entries_per_layer": [
+            [
+              0,
+              4680
+            ],
+            [
+              1,
+              1950
+            ],
+            [
+              2,
+              1950
+            ],
+            [
+              3,
+              1950
+            ],
+            [
+              4,
+              1950
+            ]
+          ],
+          "tokens_per_layer": 12480,
+          "nbytes": 18130944000,
+          "peak_bytes": 18130944000,
+          "commit_calls_per_layer": 5
+        },
+        "past5_redecode_MAD": 0.6658530235290527,
+        "status": "complete_pending_visual_review",
+        "horizontal_flow_px_per_frame": -1.240230469033122
+      }
+    ]
+  },
+  "budget": {
+    "first_start": 1791577675.8412552,
+    "gpu_seconds": 1572.2659554481506,
+    "total_forwards": 186,
+    "sampling": 180,
+    "commits": 6,
+    "vae_decodes": 6,
+    "runs": [
+      {
+        "path": "AA",
+        "gpu": 0,
+        "start": 1791577675.8412597,
+        "end": 1791578474.786843,
+        "status": "complete_pending_visual_review"
+      },
+      {
+        "path": "AD",
+        "gpu": 0,
+        "start": 1791578508.1532733,
+        "end": 1791579281.4736736,
+        "status": "complete_pending_visual_review"
+      }
+    ]
+  },
+  "gpu_hours": 0.43674054318004185,
+  "recorded_chunk_peak_allocated_MiB": 26876.6982421875,
+  "initial_third_commit_peak_note": "44GiB upper bound was asserted but exact peak was not persisted before per-chunk reset",
+  "comparison_note": "V2b and candidate differ in topology/history sigma/cache and timing instrumentation; observed costs are not a single-factor cache speedup",
+  "judge": {
+    "formal_version": "V3 Efficient Causal H3-World feasibility",
+    "execution": "PASS",
+    "strict_chunk_causal": "PASS",
+    "persistent_KV": "PASS",
+    "action_feasibility_124f": "PASS_single_scene_seed",
+    "basic_multichunk_visual_feasibility": "PASS_with_explicit_transient_structural_defects",
+    "strict_visual_continuity_quality": "PARTIAL",
+    "full_from_zero_E2E_fair_speedup": "NOT_TESTED",
+    "review": "judge/FINAL_REVIEW.md"
+  }
+}

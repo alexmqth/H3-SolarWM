@@ -1,4 +1,4 @@
-# 研究主线：V2a / V2b是并列探索，V3才是未来统一
+# 研究主线：V2a / V2b是并列探索，V3已完成有限可行性统一
 
 V0建立原始能力，V1实现基本因果化并暴露动作/视觉退化。V2a和V2b都针对生成历史/条件协议与原生模型不匹配的问题，探索不同解法；**二者不是先后升级关系，也没有checkpoint继承关系**。
 
@@ -8,7 +8,7 @@ flowchart TD
     V1 --> V2a["V2a RGB-Anchor — Visual Stability Repair"]
     V1 --> V2b["V2b Same-σ / Local Bidir — Local Visual & Action Recovery"]
     V0 -. "Restore native H3 protocol / Original weights" .-> V2b
-    V2a -. "visual repair + history reuse insights" .-> V3["V3 Efficient Causal H3-World — Planned Unification"]
+    V2a -. "visual repair + history reuse insights" .-> V3["V3 Efficient Causal — 124f Feasibility"]
     V2b -. "local action / visual evidence" .-> V3
     V3 --> AF["Future: AnyFlow Acceleration"]
     AF --> DMD["Future: On-policy DMD"]
@@ -16,10 +16,10 @@ flowchart TD
     B["Branch B: causal adaptation / action recovery"] -.-> V2a
     C["Branch C: preliminary AnyFlow / DMD"] -. "past explorations, not V2b completion" .-> AF
     classDef planned fill:#e5e7eb,stroke:#6b7280,color:#111827
-    class V3,AF,DMD planned
+    class AF,DMD planned
 ```
 
-图中V1到两支表示研究问题的分叉；V0到V2b说明实际权重/协议来源。V2a与V2b之间没有继承箭头。向未来V3的虚线表示需要吸收的研究证据，不代表把两个checkpoint拼接就能成功。
+图中V1到两支表示研究问题的分叉；V0到V2b说明实际权重/协议来源。V2a与V2b之间没有继承箭头。指向V3的虚线表示研究经验；实际权重仍为Original + released action LoRA，EXP-002/003以同一配置验收。
 
 | 维度 | V2a：RGB-Anchor Causal | V2b：Same-σ History / Local Bidir |
 |---|---|---|
@@ -41,10 +41,10 @@ flowchart TD
 
 **V2b — 持续A/D124帧可行性已验收，历史四路径正结果仍限56帧第二块。** 原生Single I0、native time、Same-σ和C12→5/T2联合协议在自身history下有效；新增持续A/D六块124f可行性结果，尚无跨场景结果，也不支持persistent hidden KV。
 
-## 未来V3：需要训练/设计一个可信的严格因果骨干
+## V3可行性验收与后续范围
 
-目标为 **Efficient Causal Generation + Visual Stability + Action Fidelity**。研究上希望吸收V2a的历史复用和视觉修复经验，以及V2b的局部动作/结构能力；但当前没有证据证明简单合并anchor、adapter或checkpoint即可实现。
+EXP-002/003已验证native Single I0/current-prefix/strict causal/真实KV配置到AA/AD124帧；同history第二块有可辨动作响应。AA约79–86帧明显人体形变后恢复，保留质量与连续性限制。没有新训练、成熟画质、跨场景或公平Original完整E2E加速结论。
 
-真正缺少的是：在**不依赖history与current video双向重算**时，仍有正确动作条件能力的causal模型。应先验证strict causal30的局部动作与结构，再评估persistent KV与长时生成；之后AnyFlow学习少步，on-policy DMD处理自身rollout分布。
+下一阶段优先在冻结V3上验证有限预算的少步路线，不为局部缺陷无限加实验。AnyFlow/DMD仍是后续工作，历史preliminary探索不视为当前已完成。
 
-此前AnyFlow/DMD是旁路先行探索，不是V2a/V2b已经完成相应阶段。[两支能力对比](00_comparison_gallery/V2a_vs_V2b.mp4) · [下一步验收](02_next_steps/README.md) · [首页](README.md)
+[V3正式版本](V3_efficient_causal/README.md) · [下一步](02_next_steps/README.md) · [首页](README.md)

@@ -1,3 +1,11 @@
+# 最新更新：V3可行性已验收
+
+**最新：V3可行性版本已验收。** EXP-002/003以同一Original H3 + released LoRA、native Single I0/current-prefix协议，验证strict chunk-causal、真实persistent KV、同history A/D响应与AA/AD124帧自身历史。AA有短暂明显人体形变后恢复，画质与严格连续性仍有限制。单scene/seed、零新增训练；完整从零E2E、长期泛化及公平Original speedup未验证。
+
+先展示[V2b vs V3 AA124](V3_efficient_causal/videos/V2b_vs_candidate_AA_124.mp4)，说明缓存与采样成本收益及明显瞬态形变；[AD124原片](V3_efficient_causal/videos/AD_rollout_124.mp4)提供另一方向。下文旧讲稿保留历史阶段叙述，V3状态以此更新为准。
+
+---
+
 # 5分钟答辩：两条并列路线的取舍与统一目标
 
 **0:00–0:45：目标与因果化代价。** 播放[V0 vs V1](00_comparison_gallery/V1_vs_original.mp4)。我们要把SolarWM的causal/KV/少步思路迁到H3-World。V1工程可执行，但A/D近乎停滞；工程实现与能力验收分开。

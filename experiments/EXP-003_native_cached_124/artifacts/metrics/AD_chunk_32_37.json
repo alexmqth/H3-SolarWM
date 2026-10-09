@@ -1,0 +1,218 @@
+{
+  "task": "EXP-003/v1",
+  "path": "AD",
+  "interval": [
+    32,
+    37
+  ],
+  "index": 5,
+  "rgb_interval": [
+    107,
+    124
+  ],
+  "gpu": 0,
+  "status": "complete_pending_visual_review",
+  "model": "Original H3 + released action LoRA; no new training",
+  "source_manifest_sha256": "c5ac14ddb3b0ae3b642e30178551f41abd7970334bfd4a5a95153e918d6a268b",
+  "source_third_commit_cache_sha256": "8014405697dd56c267847c89e86f5646a3ad1e1fed7588017ac0ddba06a6514c",
+  "runner_sha256": "e181da2f8f478661e794ce36398cab8e94c79d61de306856a034940cbb1e69d1",
+  "interval_sha256": "9882fc041310c16377be31bd3c3b80285d6df124ff842eecf9ef2cd1dad4dd37",
+  "meter_router_sha256": "9075f518a9a76429c2de423790d879d16afd04dd2c9c903eb47ec4bd068bbd12",
+  "accepted_router_sha256": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310",
+  "precision": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6"
+    }
+  },
+  "load_seconds_shared_process": 2.883902567000405,
+  "cache_initial_disk_load_seconds_shared_process": 3.9143733499995506,
+  "first_new_commit_seconds_shared_process": 11.818136783000227,
+  "first_new_commit_transfer": {
+    "cache_read_cpu_seconds": 0.0005667569985234877,
+    "cache_transfer_enqueue_seconds": 0.44276665699635487,
+    "cache_transfer_gpu_seconds": 0.4325889625549316,
+    "cache_transfer_bytes": 9632064000
+  },
+  "first_new_cache_save_seconds_shared_process": 10.267435056999602,
+  "history_tensor_sha256": "3e64c09aa0228f46c866771adaad70eff50586c91369749ba7fc3d261eb82cfc",
+  "history_cache_before": {
+    "layer_count": 50,
+    "entries_per_layer": [
+      [
+        0,
+        4680
+      ],
+      [
+        1,
+        1950
+      ],
+      [
+        2,
+        1950
+      ],
+      [
+        3,
+        1950
+      ],
+      [
+        4,
+        1950
+      ]
+    ],
+    "tokens_per_layer": 12480,
+    "nbytes": 18130944000,
+    "peak_bytes": 18130944000,
+    "commit_calls_per_layer": 5
+  },
+  "cache_file_sha256_before": "f928c53f96239fdb646a5e63e7c88f34cd06f450de0f38b1208602b47d7b36e1",
+  "prior_rgb_sha256": "89ad6e55e0fef3b3a6cfc86a62b8fb97ffc3c4ac8e2b5bbe1f01531926d9575a",
+  "prior_rgb_frames": 107,
+  "initial_noise_sha256": "ade3797c23b6fa1f70c6fef3bbd447924875bb6b9937e00ded4fe1bea5d00c65",
+  "anchor_sha256": "fc127dbd0e5fd519298eae191f867fa0889a4bb9bbabd6f1adb5ede7cfe0f23b",
+  "audio_sha256": "1b0a8cdcbc61be98d06ee193c619b9439ef8529785eea8bd4d5393b2e0aa9a76",
+  "sampling_forwards": 30,
+  "commit_forwards": 0,
+  "vae_decodes": 1,
+  "source_checkpoint_sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+  "prompt_sha256": "6dee4e2265021e9cc822f0c940884cf23ff6334ce133b1c91ef30a390607fb28",
+  "position_sha256": "4ddcc2f2b2c49bc2a9812662bb9b3396b6d706e53b0153082e5aec5c2afa7d45",
+  "sigmas": [
+    1.0,
+    0.9847047729492188,
+    0.9688279418945313,
+    0.9523355102539063,
+    0.935191162109375,
+    0.9173554077148437,
+    0.898785400390625,
+    0.8794351196289063,
+    0.8592540893554688,
+    0.8381876831054688,
+    0.8161763916015625,
+    0.7931553344726563,
+    0.7690530395507813,
+    0.7437918701171875,
+    0.717285888671875,
+    0.6894410400390625,
+    0.6601530151367188,
+    0.629306640625,
+    0.5967742309570313,
+    0.5624136352539062,
+    0.5260662841796875,
+    0.48755487060546876,
+    0.44668011474609376,
+    0.40321749877929686,
+    0.3569131774902344,
+    0.30747921752929686,
+    0.25458717346191406,
+    0.19786099243164063,
+    0.13686807250976563,
+    0.07110826873779297,
+    0.0
+  ],
+  "GPU_peak_allocated_MiB": 26230.9609375,
+  "step_completed": 30,
+  "sampling_seconds": 199.4306775490004,
+  "cache_read_cpu_seconds": 0.018890792001911905,
+  "cache_transfer_enqueue_seconds": 35.54536360697057,
+  "cache_transfer_gpu_seconds": 34.658691419601446,
+  "cache_transfer_bytes": 543928320000.0,
+  "cache_read_unchanged": true,
+  "endpoint_save_seconds": 0.0016525979990547057,
+  "endpoint_sha256": "bcb1e688835afacf58adb07d937f34d58e0a06c463dcbd5a57c35719c2106bc1",
+  "endpoint_tensor_sha256": "2d2df1986afda00f680a9cd05b92590b66a6edb4e68de38da9b06b115bd448e6",
+  "clean_commit_seconds": 0.0,
+  "history_cache_after": {
+    "layer_count": 50,
+    "entries_per_layer": [
+      [
+        0,
+        4680
+      ],
+      [
+        1,
+        1950
+      ],
+      [
+        2,
+        1950
+      ],
+      [
+        3,
+        1950
+      ],
+      [
+        4,
+        1950
+      ]
+    ],
+    "tokens_per_layer": 12480,
+    "nbytes": 18130944000,
+    "peak_bytes": 18130944000,
+    "commit_calls_per_layer": 5
+  },
+  "cache_save_seconds": 0.0,
+  "cache_file_sha256_after": "f928c53f96239fdb646a5e63e7c88f34cd06f450de0f38b1208602b47d7b36e1",
+  "vae_seconds": 11.404008012999839,
+  "past5_redecode_MAD": 0.6658530235290527,
+  "published_file_sha256": "58f703e9847de0fb9f05930994f638cdb9dbecc7bd66f4ae8565440e617054b7",
+  "published_rgb_sha256": "5d3d0b7ae8a35117fa368d37b1fb78dd5bed0c396248dbfa457bf85d12ffe033",
+  "past_rgb_unchanged": true,
+  "render_seconds": 1.3995485510004073,
+  "video_sha256": "f704c2d3337b3cdc7a431995e4a6a4950809b78936d2fc99dd1db4cf6c2be84c",
+  "active_video_sha256": "51b83417f61a837b390c0e983aff9d93bf439779877f2bf7eebb1214b8cff827",
+  "flow": {
+    "path": "/home/qma/work/GWM/H3-World/outputs/EXP-003_native_cached_124/AD/chunk_32_37.mp4",
+    "frames": 17,
+    "horizontal_flow_px": {
+      "mean": -1.240230469033122,
+      "median": -1.3807227611541748,
+      "p05": -2.073941469192505,
+      "p95": -0.03524918109178543,
+      "mean_abs": 1.3597498293966055
+    },
+    "vertical_flow_px": {
+      "mean": 0.05891734920442104,
+      "median": 0.09040244296193123,
+      "p05": -0.20900615444406867,
+      "p95": 0.28056637197732925,
+      "mean_abs": 0.1683043148368597
+    },
+    "flow_magnitude_px": {
+      "mean": 1.6290193554013968,
+      "median": 1.6575835943222046,
+      "p05": 0.5879268571734428,
+      "p95": 2.5524344444274902,
+      "mean_abs": 1.6290193554013968
+    },
+    "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+  },
+  "boundary_gray_MAD": 2.5032401084899902,
+  "inside_gray_MAD": 4.551706790924072,
+  "frozen_parameters_unchanged": true,
+  "chunk_wall_seconds_before_review": 225.54995828799838,
+  "wall_seconds_since_process_start": 766.6781910259997
+}

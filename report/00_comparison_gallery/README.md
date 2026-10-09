@@ -1,3 +1,9 @@
+# 最新：V3可行性版本
+
+[Original vs V3 AA124](../V3_efficient_causal/videos/Original_vs_candidate_AA_124.mp4) · [V2b vs V3 AA124](../V3_efficient_causal/videos/V2b_vs_candidate_AA_124.mp4) · [V3 AD124原片](../V3_efficient_causal/videos/AD_rollout_124.mp4)。保留AA瞬态明显人体形变与质量限制，详情见[V3](../V3_efficient_causal/README.md)。
+
+---
+
 # 当前比较画廊：V2a / V2b并列路线
 
 这里是当前正式标签的25条H.264/24fps视频。V2a与V2b各自对照V0、V1，再进行两支能力比较；它们不是先后升级或checkpoint继承。

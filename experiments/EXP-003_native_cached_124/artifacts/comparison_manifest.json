@@ -1,0 +1,39 @@
+{
+  "comparison_type": "cross-protocol capability, not single-factor KV speedup",
+  "timing_scope": "candidate increment includes loading, cache IO, sampling, VAE, encoding and human review waits; not full from-zero E2E",
+  "videos": {
+    "Original_vs_candidate_AA_124": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-003_native_cached_124/artifacts/videos/Original_vs_candidate_AA_124.mp4",
+      "sha256": "9fa6415082fe772fa735fce7da8d1089c13407941e4150cfe30926bdb767c4a3",
+      "left": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-01-21/action_A_teacher_latents/baseline.mp4",
+      "left_sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+      "right": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-003_native_cached_124/AA/rollout_124.mp4",
+      "right_sha256": "2f835eea4f1d5b211df32a2ed499234a9545c9103b28131ce472f93521199825",
+      "fps": 24,
+      "frames": 124,
+      "left_timing": "full E2E 478.4s",
+      "right_timing": "73->124f increment 798.9s incl review; earlier 73f reused"
+    },
+    "V2b_vs_candidate_AA_124": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-003_native_cached_124/artifacts/videos/V2b_vs_candidate_AA_124.mp4",
+      "sha256": "a16f1dd9c32594c7518001aed92a08a8e455116d4b347fdd0b2173545465abdb",
+      "left": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-001_v2b_124/artifacts/videos/AA_rollout_124.mp4",
+      "left_sha256": "1d7d2a9b914d38c88582ddf8fbeb8aa3852a8271e74d040f0d64430b39ed9fa8",
+      "right": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-003_native_cached_124/AA/rollout_124.mp4",
+      "right_sha256": "2f835eea4f1d5b211df32a2ed499234a9545c9103b28131ce472f93521199825",
+      "fps": 24,
+      "frames": 124,
+      "left_timing": "73->124f increment 1216.8s; prior 73f reused",
+      "right_timing": "73->124f increment 798.9s incl review; earlier 73f reused"
+    },
+    "V2b_vs_candidate_AD_73": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-003_native_cached_124/artifacts/videos/V2b_vs_candidate_AD_73.mp4",
+      "sha256": "5a5cf1b941b8f56a4ca0d2019958e649ef946e057941d82eb0d0104e4dc65df6",
+      "source": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-002_native_cached/artifacts/videos/V2b_vs_cached_AD_73.mp4",
+      "source_sha256": "5a5cf1b941b8f56a4ca0d2019958e649ef946e057941d82eb0d0104e4dc65df6",
+      "frames": 73,
+      "fps": 24,
+      "note": "copied accepted EXP-002 common-range comparison; Original A->D matched source absent"
+    }
+  }
+}

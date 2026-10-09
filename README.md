@@ -2,7 +2,7 @@
 
 **研究目标：** 将SolarWM的causal chunk、KV cache与少步方法迁入H3-World，检查长视频效率、画面连续性和action control能否同时保留。
 
-**当前判断：EXP-002的73帧严格缓存候选可行性已验收；正式V3待同配置124帧。** 同history A/D响应、真实KV复用和基本人物/场景结构同时得到有限证据；AA跨块跳变及单scene/seed限制保留。0训练、124新增forward、0.22923GPU-hours；未测完整E2E或公平加速。[最新候选](report/V3_native_cached_candidate/README.md)。V2b持续A/D124帧与Original对比保留为已验收参考。
+**最新：V3可行性版本已验收。** EXP-002/003以同一Original H3 + released LoRA、native Single I0/current-prefix协议，验证strict chunk-causal、真实persistent KV、同history A/D响应与AA/AD124帧自身历史。AA有短暂明显人体形变后恢复，画质与严格连续性仍有限制。单scene/seed、零新增训练；完整从零E2E、长期泛化及公平Original speedup未验证。 [版本与视频](report/V3_efficient_causal/README.md)。
 
 ## 一分钟入口
 
@@ -25,14 +25,14 @@
 | V1 Native causal | 显著下降 | 本代表停滞、过亮/背景退化；其他早期协议有重影 | 124f工程rollout | 是，CPU raw video KV | 8/chunk | 本代表无 | 工程可行，联合质量失败 |
 | V2a RGB-Anchor | A/D方向失败 | **124f人物结构相对稳定**；20s失败 | 124f视觉证据；243/481f负结果 | 是，clean commit的历史hidden KV | 8/chunk | visual adapter +已训action residual | Longer-horizon Visual Stability Demonstrated（仅124f scope） |
 | V2b Same-σ local bidir | 持续A/D在124f有可辨响应；切换仍有限制 | 124f人物/场景基本可用；边界与节奏有缺陷 | 单停车场、seed13、六块124f | **否**，每步重算全部可见历史 | 30/chunk | **无**，Original + released LoRA | Sustained A/D feasibility accepted；非V3 |
-| V3 Efficient causal | 候选同history A/D响应可辨 | 候选73f基本可用，AA边界跳变 | EXP-002 AA/AD73f已验收；正式124f待验证 | 是，strict chunk causal + raw KV | 30/chunk | 无，Original + released LoRA | 73f feasibility candidate；完整V3 pending |
+| V3 Efficient causal | 同history A/D可辨；AA/AD续124f | 基本可用；AA瞬态明显形变后恢复，连续性PARTIAL | 单停车场seed13，六块124f | 是，strict chunk causal + raw KV | 30/chunk | 无，Original + released LoRA | Feasibility accepted；非成熟画质/公平E2E speedup |
 
-V2a与V2b共同研究生成历史/条件不匹配的修复，没有顺承关系。V2a为RGB联合视觉适配；V2b从Original恢复Single I0/native条件，Same-σ与局部双向重算，已扩展至持续A/D的124帧，切换仅有局部证据。未来V3才是严格因果、KV、视觉和动作的统一目标。
+V2a与V2b共同研究生成历史/条件不匹配的修复，没有顺承关系。V2a为RGB联合视觉适配；V2b从Original恢复Single I0/native条件，Same-σ与局部双向重算，已扩展至持续A/D的124帧，切换仅有局部证据。V3已在同一native严格缓存配置中完成124帧可行性验收；质量限制与长期泛化仍需保留。
 
 ## 目录
 
 ```text
-mainline/             V0 → V1 → {V2a RGB, V2b Same-σ} → V3 Planned
+mainline/             V0 → V1 → {V2a RGB, V2b Same-σ} → V3 Feasibility
 branches/             A机制诊断 / B因果适配与动作恢复 / C AnyFlow与DMD探索
 report/               可独立复制的简洁汇报：核心源码、真实视频、版本说明、5分钟讲稿
 archive/              历史文档、旧导航、整理前索引、hash与视频制作/验收收据
