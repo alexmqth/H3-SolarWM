@@ -1,0 +1,23 @@
+{
+  "task_id": "EXP-001",
+  "plan_version": 3,
+  "status": "CONTINUE_WITH_LIMITATIONS",
+  "active_paths": [
+    "AA",
+    "DD"
+  ],
+  "paths": {
+    "AA": "CONTINUE",
+    "DD": "CONTINUE"
+  },
+  "state_sha256": {
+    "AA": "e1b40f5cc3f5fc27f17f43e3db2fc47057bf9cae351fde4f8827aa846bdf22bc",
+    "DD": "8a3988eb0e537d98a03462e61e3a8bcfe0c1a60f900a2505b0fea61bc22e04b7"
+  },
+  "review": {
+    "AA": "90f full decode and prior73 hash pass; person/scene intact, A response proxy positive; RGB72->73 visible turn/jump with boundary MAD16.25, retain as limitation",
+    "DD": "90f full decode and prior73 hash pass; person/scene intact, D response proxy negative; boundary MAD7.82"
+  },
+  "original_v2_all_path_gate": "FAIL at DA third chunk; AD and DA stay 73f",
+  "not_claimed": "90f all four paths PASS or 124f quality"
+}

@@ -31,15 +31,15 @@ flowchart TD
 | Persistent hidden KV | 支持，CPU raw video K/V | 不支持 |
 | 采样 | 8steps/chunk | 30steps/chunk |
 | 新增训练 | visual QKV + endpoint/boundary/replay；使用已训action residual | 无；Original + released action LoRA |
-| 视觉证据 | 124f人物/场景相对完整；20秒崩坏 | 56f中第二块人物结构基本完整 |
-| 动作证据 | A/D方向门槛失败 | AA/AD/DA/DD第二块方向正确 |
+| 视觉证据 | 124f人物/场景相对完整；20秒崩坏 | 持续A/D124f基本结构可用；有边界和节奏缺陷 |
+| 动作证据 | A/D方向门槛失败 | 四路径第二块正结果；持续A/D延伸124f，DA第三块有疑点 |
 | 主要不足 | 动作控制；更长时程也退化 | 历史重算成本、效率与长时可靠性未验证 |
 
 ## 证据范围必须分开
 
 **V2a — Longer-horizon Visual Stability Demonstrated：仅指124帧的相对视觉证据。** A/D仍失败，同checkpoint20秒视频严重退化，不能说已经解决长期崩坏。RGB anchor、visual adapter、endpoint/boundary监督与routing共同变化，不能把全部提升只归因anchor。
 
-**V2b — Local Visual and Action Fidelity Demonstrated：仅指56帧中的第二块。** 原生Single I0、native time、Same-σ和C12→5/T2联合协议在自身history下有效；没有第三/第四块、124f或跨场景结果，也不支持persistent hidden KV。
+**V2b — 持续A/D124帧可行性已验收，历史四路径正结果仍限56帧第二块。** 原生Single I0、native time、Same-σ和C12→5/T2联合协议在自身history下有效；新增持续A/D六块124f可行性结果，尚无跨场景结果，也不支持persistent hidden KV。
 
 ## 未来V3：需要训练/设计一个可信的严格因果骨干
 

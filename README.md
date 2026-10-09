@@ -2,14 +2,14 @@
 
 **研究目标：** 将SolarWM的causal chunk、KV cache与少步方法迁入H3-World，检查长视频效率、画面连续性和action control能否同时保留。
 
-**当前判断：工程迁移成立，完整能力目标尚未完成。** strict causal/KV能生成124帧；RGB联合修复改善124帧结构但A/D失败、20秒崩坏；并列路线V2b从Original重新出发，Same-σ + C12→5 + T2联合重算在自身history后的第二块取得局部动作与结构正结果。V2b没有persistent hidden KV，不代表完整124帧、AnyFlow或Stage2已经成功。
+**当前判断：V2b持续A/D的124帧可行性已验收；完整V3尚未完成。** EXP-001 / v3已验收：单停车场、seed13，持续A/D六窗口124帧（5.17秒）具备可辨响应与基本人物/场景结构。保留AA RGB72→73姿态跳变、动作节奏不均和局部细节软化；DD后段靠近画面下边缘。AD/DA仅到73帧，DA第三块flow轻微反号；切换和泛化未通过。无persistent KV、无公平加速结论，V3仍计划中。
 
 ## 一分钟入口
 
 | 使用场景 | 入口 |
 |---|---|
 | 组会直接展示 | **[report/README.md](report/README.md)** / [浏览器本地演示页](report/index.html) |
-| 连续播放全部对比 | [22条画廊](report/00_comparison_gallery/README.md) |
+| 连续播放全部对比 | [比较画廊](report/00_comparison_gallery/README.md) |
 | 当前局部正结果 | [V2b四路径56f](report/00_comparison_gallery/V2b_four_paths_56.mp4) |
 | 核心模型/协议演进 | [mainline V0–V3](mainline/README.md) |
 | 机制、训练、AnyFlow/DMD细节 | [Research Branches A/B/C](branches/README.md) |
@@ -24,10 +24,10 @@
 | V0 Original | A/D方向正控 | 124f基本完整 | 124f及已有长片参考 | 否 | 30整段；另存50步 | 无，released LoRA | Reference，非GT |
 | V1 Native causal | 显著下降 | 本代表停滞、过亮/背景退化；其他早期协议有重影 | 124f工程rollout | 是，CPU raw video KV | 8/chunk | 本代表无 | 工程可行，联合质量失败 |
 | V2a RGB-Anchor | A/D方向失败 | **124f人物结构相对稳定**；20s失败 | 124f视觉证据；243/481f负结果 | 是，clean commit的历史hidden KV | 8/chunk | visual adapter +已训action residual | Longer-horizon Visual Stability Demonstrated（仅124f scope） |
-| V2b Same-σ local bidir | 两history的第二块A/D方向正确 | **56f第二块人物基本完整** | 12+5latent、两块56f | **否**，历史/当前局部双向重算 | 30/chunk | **无**，从Original出发 | Local Visual and Action Fidelity Demonstrated |
+| V2b Same-σ local bidir | 持续A/D在124f有可辨响应；切换仍有限制 | 124f人物/场景基本可用；边界与节奏有缺陷 | 单停车场、seed13、六块124f | **否**，每步重算全部可见历史 | 30/chunk | **无**，Original + released LoRA | Sustained A/D feasibility accepted；非V3 |
 | V3 Efficient causal | 目标：保留 | 目标：保留并扩大范围 | **尚未实现** | 目标：strict causal + KV | 先可信30步，后AnyFlow | 待定 | Planned Unification，无模型/视频 |
 
-V2a与V2b共同研究生成历史/条件不匹配的修复，没有顺承关系。V2a为RGB联合视觉适配；V2b从Original恢复Single I0/native条件，Same-σ与局部双向重算，仅验证第二块。未来V3才是严格因果、KV、视觉和动作的统一目标。
+V2a与V2b共同研究生成历史/条件不匹配的修复，没有顺承关系。V2a为RGB联合视觉适配；V2b从Original恢复Single I0/native条件，Same-σ与局部双向重算，已扩展至持续A/D的124帧，切换仅有局部证据。未来V3才是严格因果、KV、视觉和动作的统一目标。
 
 ## 目录
 
@@ -46,4 +46,4 @@ docs/ scripts/ tests/  原长文档、运行脚本与测试；未修改生产模
 
 **计数口径：** 8steps/chunk×8chunks=64 noisy forwards + 8 commits，不是全视频8次。KV复用不等于AnyFlow少步训练，DMD-lite不等于完整Stage2。耗时为共享硬件单次记录，无warmup均值或公平speedup结论；flow/cosine/MAD均不能单独代替动作与画质评审。
 
-底座与released LoRA不在仓库内，见复现文档。本次只整理现有证据并CPU编码对比，无训练、33B推理、AnyFlow或DMD运行。
+底座与released LoRA不在仓库内，见复现文档。EXP-001新增V2b受控推理，0训练；此前整理记录保持历史口径。

@@ -1,0 +1,440 @@
+{
+  "task_id": "EXP-001",
+  "status": "completed_pending_judge",
+  "execution": "completed",
+  "action": "PARTIAL_pending_judge_visual_review",
+  "visual": "PARTIAL_pending_judge_visual_review",
+  "efficiency": "MEASURED_no_speedup_claim",
+  "paths": {
+    "AA": {
+      "final_rgb_frames": 124,
+      "chunks": [
+        {
+          "latent_interval": [
+            17,
+            22
+          ],
+          "rgb_interval": [
+            56,
+            73
+          ],
+          "current_action": "A",
+          "horizontal_flow_mean_px": 0.3471106793076615,
+          "boundary_horizontal_flow_px": 0.3607565760612488,
+          "boundary_gray_MAD": 4.512547492980957,
+          "inside_gray_MAD": 5.251108169555664,
+          "past5_redecode_MAD": 0.6611298322677612,
+          "sampling_seconds": 252.97677737999993,
+          "decode_seconds": 15.608243200999823,
+          "wall_seconds": 313.54257776500026,
+          "GPU_peak_allocated_MiB": 26392.86181640625,
+          "GPU_peak_reserved_MiB": 27552.0,
+          "history_latent_MiB": 2.427978515625,
+          "sampling_forwards": 30,
+          "diagnostic_forwards": 3,
+          "vae_decodes": 3,
+          "prior_published_rgb_sha256": "8733ad9c7346b3e551585fb1e17df761742f9fc9ed55c198c95503a57f9a526f",
+          "published_rgb_sha256": "60491b78408ccecd3ffc0a1d7e5486a897d3b5c42e44958fb3b96934ca356ce7",
+          "result_json": "artifacts/raw_json/AA_chunk_17_22.json"
+        },
+        {
+          "latent_interval": [
+            22,
+            27
+          ],
+          "rgb_interval": [
+            73,
+            90
+          ],
+          "current_action": "A",
+          "horizontal_flow_mean_px": 1.476684027351439,
+          "boundary_horizontal_flow_px": 1.4782896041870117,
+          "boundary_gray_MAD": 16.250835418701172,
+          "inside_gray_MAD": 4.9048004150390625,
+          "past5_redecode_MAD": 0.6434621810913086,
+          "sampling_seconds": 310.25501477199987,
+          "decode_seconds": 9.371990893000202,
+          "wall_seconds": 336.21965227500004,
+          "GPU_peak_allocated_MiB": 25500.7626953125,
+          "GPU_peak_reserved_MiB": 26832.0,
+          "history_latent_MiB": 3.14208984375,
+          "sampling_forwards": 30,
+          "diagnostic_forwards": 0,
+          "vae_decodes": 1,
+          "prior_published_rgb_sha256": "60491b78408ccecd3ffc0a1d7e5486a897d3b5c42e44958fb3b96934ca356ce7",
+          "published_rgb_sha256": "b6a82e267843e83456c2fd126d010857980711ee160fca5306d163a0ed65b108",
+          "result_json": "artifacts/raw_json/AA_chunk_22_27.json"
+        },
+        {
+          "latent_interval": [
+            27,
+            32
+          ],
+          "rgb_interval": [
+            90,
+            107
+          ],
+          "current_action": "A",
+          "horizontal_flow_mean_px": 0.6848178412765265,
+          "boundary_horizontal_flow_px": 0.5921648740768433,
+          "boundary_gray_MAD": 3.219611406326294,
+          "inside_gray_MAD": 6.4998297691345215,
+          "past5_redecode_MAD": 0.6497863531112671,
+          "sampling_seconds": 377.52881321400037,
+          "decode_seconds": 10.881435305000196,
+          "wall_seconds": 404.19260863899945,
+          "GPU_peak_allocated_MiB": 24777.3955078125,
+          "GPU_peak_reserved_MiB": 27272.0,
+          "history_latent_MiB": 3.856201171875,
+          "sampling_forwards": 30,
+          "diagnostic_forwards": 0,
+          "vae_decodes": 1,
+          "prior_published_rgb_sha256": "b6a82e267843e83456c2fd126d010857980711ee160fca5306d163a0ed65b108",
+          "published_rgb_sha256": "dbb02a8ee866ce393a8040481e2056fa6743472d85bbd98211e7e46534bac4bd",
+          "result_json": "artifacts/raw_json/AA_chunk_27_32.json"
+        },
+        {
+          "latent_interval": [
+            32,
+            37
+          ],
+          "rgb_interval": [
+            107,
+            124
+          ],
+          "current_action": "A",
+          "horizontal_flow_mean_px": 0.9866542429663241,
+          "boundary_horizontal_flow_px": 0.10200062394142151,
+          "boundary_gray_MAD": 3.0690155029296875,
+          "inside_gray_MAD": 4.950735569000244,
+          "past5_redecode_MAD": 0.7383189797401428,
+          "sampling_seconds": 447.19159154799945,
+          "decode_seconds": 12.865541365999889,
+          "wall_seconds": 476.4130623909996,
+          "GPU_peak_allocated_MiB": 25323.50439453125,
+          "GPU_peak_reserved_MiB": 27232.0,
+          "history_latent_MiB": 4.5703125,
+          "sampling_forwards": 30,
+          "diagnostic_forwards": 0,
+          "vae_decodes": 1,
+          "prior_published_rgb_sha256": "dbb02a8ee866ce393a8040481e2056fa6743472d85bbd98211e7e46534bac4bd",
+          "published_rgb_sha256": "0e46c77a4dea31f25c4cc457ddbb3df6c73243b006bfa0591a0830ce4e41380b",
+          "result_json": "artifacts/raw_json/AA_chunk_32_37.json"
+        }
+      ],
+      "integrity": "PASS",
+      "full124_horizontal_flow_mean_px": 1.034787511267525,
+      "original_full124_horizontal_flow_mean_px": 1.0767251417737425,
+      "comparison": {
+        "path": "submission/experiments/EXP-001_v2b_124/artifacts/videos/Original_vs_V2b_A_124.mp4",
+        "sha256": "0836899578d3e6cdb691d18696ab5279e467430f7bfe1fbd13de7dafe2f51e51",
+        "frames": 124,
+        "original_source_sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+        "v2b_source_sha256": "1d7d2a9b914d38c88582ddf8fbeb8aa3852a8271e74d040f0d64430b39ed9fa8",
+        "original_full_e2e_seconds": 478.4470363368746,
+        "v2b_73_to_124_incremental_wall_seconds": 1216.825323304999,
+        "timing_note": "Different measurement scopes; not a speedup ratio"
+      }
+    },
+    "DD": {
+      "final_rgb_frames": 124,
+      "chunks": [
+        {
+          "latent_interval": [
+            17,
+            22
+          ],
+          "rgb_interval": [
+            56,
+            73
+          ],
+          "current_action": "D",
+          "horizontal_flow_mean_px": -0.8785817581228912,
+          "boundary_horizontal_flow_px": -1.882763385772705,
+          "boundary_gray_MAD": 9.407569885253906,
+          "inside_gray_MAD": 3.4956917762756348,
+          "past5_redecode_MAD": 0.6192222833633423,
+          "sampling_seconds": 248.98889671799998,
+          "decode_seconds": 15.376766597999904,
+          "wall_seconds": 304.75128640599996,
+          "GPU_peak_allocated_MiB": 26392.86181640625,
+          "GPU_peak_reserved_MiB": 27552.0,
+          "history_latent_MiB": 2.427978515625,
+          "sampling_forwards": 30,
+          "diagnostic_forwards": 3,
+          "vae_decodes": 3,
+          "prior_published_rgb_sha256": "ebf18ab1b861f48dc82b39ed88578ffa55844c80ae68e2587d41516062b6a9f1",
+          "published_rgb_sha256": "6fc93fb0b53ab75879890d4c1db8a422560f5af2b553cf7a12b6117033f36f83",
+          "result_json": "artifacts/raw_json/DD_chunk_17_22.json"
+        },
+        {
+          "latent_interval": [
+            22,
+            27
+          ],
+          "rgb_interval": [
+            73,
+            90
+          ],
+          "current_action": "D",
+          "horizontal_flow_mean_px": -0.8704833379015326,
+          "boundary_horizontal_flow_px": -1.0427327156066895,
+          "boundary_gray_MAD": 7.823945999145508,
+          "inside_gray_MAD": 4.570352554321289,
+          "past5_redecode_MAD": 0.6258431673049927,
+          "sampling_seconds": 304.4595587839999,
+          "decode_seconds": 9.185676455000248,
+          "wall_seconds": 330.20268816299995,
+          "GPU_peak_allocated_MiB": 25500.7626953125,
+          "GPU_peak_reserved_MiB": 26832.0,
+          "history_latent_MiB": 3.14208984375,
+          "sampling_forwards": 30,
+          "diagnostic_forwards": 0,
+          "vae_decodes": 1,
+          "prior_published_rgb_sha256": "6fc93fb0b53ab75879890d4c1db8a422560f5af2b553cf7a12b6117033f36f83",
+          "published_rgb_sha256": "e83ecc6c50d20b7256742dad838c65523e168be9c4437f45164ecf2ce826dbcc",
+          "result_json": "artifacts/raw_json/DD_chunk_22_27.json"
+        },
+        {
+          "latent_interval": [
+            27,
+            32
+          ],
+          "rgb_interval": [
+            90,
+            107
+          ],
+          "current_action": "D",
+          "horizontal_flow_mean_px": -0.6107224567967933,
+          "boundary_horizontal_flow_px": -0.0009968206286430359,
+          "boundary_gray_MAD": 2.301079273223877,
+          "inside_gray_MAD": 4.586132049560547,
+          "past5_redecode_MAD": 0.6303116679191589,
+          "sampling_seconds": 373.25320015800025,
+          "decode_seconds": 10.688973194000027,
+          "wall_seconds": 399.8250974720004,
+          "GPU_peak_allocated_MiB": 24777.3955078125,
+          "GPU_peak_reserved_MiB": 27272.0,
+          "history_latent_MiB": 3.856201171875,
+          "sampling_forwards": 30,
+          "diagnostic_forwards": 0,
+          "vae_decodes": 1,
+          "prior_published_rgb_sha256": "e83ecc6c50d20b7256742dad838c65523e168be9c4437f45164ecf2ce826dbcc",
+          "published_rgb_sha256": "e32b76f793835b21470d0efcf07d6d476a4ee6fe9647a10eadc489cc7d4fb32b",
+          "result_json": "artifacts/raw_json/DD_chunk_27_32.json"
+        },
+        {
+          "latent_interval": [
+            32,
+            37
+          ],
+          "rgb_interval": [
+            107,
+            124
+          ],
+          "current_action": "D",
+          "horizontal_flow_mean_px": -1.2599447658285499,
+          "boundary_horizontal_flow_px": -0.004407798405736685,
+          "boundary_gray_MAD": 2.4098408222198486,
+          "inside_gray_MAD": 5.14072322845459,
+          "past5_redecode_MAD": 0.5987566709518433,
+          "sampling_seconds": 436.5200554789999,
+          "decode_seconds": 12.307615044999693,
+          "wall_seconds": 464.87923373800004,
+          "GPU_peak_allocated_MiB": 25323.50439453125,
+          "GPU_peak_reserved_MiB": 27232.0,
+          "history_latent_MiB": 4.5703125,
+          "sampling_forwards": 30,
+          "diagnostic_forwards": 0,
+          "vae_decodes": 1,
+          "prior_published_rgb_sha256": "e32b76f793835b21470d0efcf07d6d476a4ee6fe9647a10eadc489cc7d4fb32b",
+          "published_rgb_sha256": "7c973a5541741449ab1b6b015819d103df98f94f2b416cbb6f3dc3d0ed214e1f",
+          "result_json": "artifacts/raw_json/DD_chunk_32_37.json"
+        }
+      ],
+      "integrity": "PASS",
+      "full124_horizontal_flow_mean_px": -1.0498486256597912,
+      "original_full124_horizontal_flow_mean_px": -1.601923440893491,
+      "comparison": {
+        "path": "submission/experiments/EXP-001_v2b_124/artifacts/videos/Original_vs_V2b_D_124.mp4",
+        "sha256": "2e771e4daabaca0c91d8bd074e5a47531d91ac079b06e3e3026e387d7619ee78",
+        "frames": 124,
+        "original_source_sha256": "aa15d2fc4a831dc0f1450842220f56994ae666e03ec5d75fd76615b387f8972a",
+        "v2b_source_sha256": "bb0a932d667d7c9bfe543dbfc0b9610d7055990584b494706d320ac1413e0b76",
+        "original_full_e2e_seconds": 454.5702168692369,
+        "v2b_73_to_124_incremental_wall_seconds": 1194.9070193730004,
+        "timing_note": "Different measurement scopes; not a speedup ratio"
+      }
+    },
+    "AD": {
+      "final_rgb_frames": 73,
+      "chunks": [
+        {
+          "latent_interval": [
+            17,
+            22
+          ],
+          "rgb_interval": [
+            56,
+            73
+          ],
+          "current_action": "D",
+          "horizontal_flow_mean_px": -0.9722426543012261,
+          "boundary_horizontal_flow_px": -4.929741859436035,
+          "boundary_gray_MAD": 15.77747631072998,
+          "inside_gray_MAD": 3.967221260070801,
+          "past5_redecode_MAD": 0.5382273197174072,
+          "sampling_seconds": 249.86799538399964,
+          "decode_seconds": 15.118745993000175,
+          "wall_seconds": 306.12182550700027,
+          "GPU_peak_allocated_MiB": 26392.86181640625,
+          "GPU_peak_reserved_MiB": 27552.0,
+          "history_latent_MiB": 2.427978515625,
+          "sampling_forwards": 30,
+          "diagnostic_forwards": 3,
+          "vae_decodes": 3,
+          "prior_published_rgb_sha256": "7e12e647125e6420fe7252c52a7d5e16c93194fa060b0a1d7ea31a898255ba3b",
+          "published_rgb_sha256": "0936c656232b97e70bd935021c13df4107849c3d0c0af07f0c43f4e58aba27fa",
+          "result_json": "artifacts/raw_json/AD_chunk_17_22.json"
+        }
+      ],
+      "integrity": "PASS"
+    },
+    "DA": {
+      "final_rgb_frames": 73,
+      "chunks": [
+        {
+          "latent_interval": [
+            17,
+            22
+          ],
+          "rgb_interval": [
+            56,
+            73
+          ],
+          "current_action": "A",
+          "horizontal_flow_mean_px": -0.1753724527079612,
+          "boundary_horizontal_flow_px": -1.284348964691162,
+          "boundary_gray_MAD": 10.273933410644531,
+          "inside_gray_MAD": 4.845711708068848,
+          "past5_redecode_MAD": 0.6564426422119141,
+          "sampling_seconds": 251.86859529899994,
+          "decode_seconds": 16.282807377000154,
+          "wall_seconds": 308.7159252480001,
+          "GPU_peak_allocated_MiB": 26392.86181640625,
+          "GPU_peak_reserved_MiB": 27552.0,
+          "history_latent_MiB": 2.427978515625,
+          "sampling_forwards": 30,
+          "diagnostic_forwards": 3,
+          "vae_decodes": 3,
+          "prior_published_rgb_sha256": "adff9dc5e8f1758318d456f69e3e44d5e5b7f6cd605dd7cf2dd68623e4ba5d00",
+          "published_rgb_sha256": "b876bc98bd14f7603b1f1395183f9bba0da4c7b9c198a835fee4e54bbc2b105d",
+          "result_json": "artifacts/raw_json/DA_chunk_17_22.json"
+        }
+      ],
+      "integrity": "PASS"
+    }
+  },
+  "S0": {
+    "source_and_six_latent_endpoint_hashes": "PASS",
+    "old_interval_cpu_tests": "8 passed in 45.54s",
+    "new_contract_cpu_tests": "4 passed in 4.54s",
+    "gpu_sampling_forwards": 0,
+    "optimizer_updates": 0,
+    "next": "none: v3 run complete",
+    "base_transformer_shards_sha256_recorded": 13,
+    "frozen_released_lora_sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+    "first_gpu_phase": "four parallel third-chunk runs AA/DD/AD/DA, GPUs 2/4/5/7, subject to per-chunk gate",
+    "gpu_override": "before09 <=6; after09 <=4",
+    "gpu_override_at_run": "v1 frozen: <=6 before09, <=4 after09; v3 fresh runs used <=2 and apply absolute09 <=8/<=3",
+    "cpu_tests_at_final_review": {
+      "new_contract": "4 passed",
+      "frozen_interval_current_collection": "4 passed",
+      "earlier_S0_log": "8 passed; discrepancy in historical collection count not investigated"
+    }
+  },
+  "plan_version_current": 3,
+  "run_config_plan_version": 1,
+  "judge_acceptance": "pending",
+  "stages": {
+    "S0": "PASS",
+    "v2_S1_all_four_paths": "FAIL_at_DA_73f_preserved",
+    "v3_S1_active_AA_DD": "CONTINUE_WITH_LIMITATIONS_at_90f",
+    "v3_S2_active_AA_DD": "COMPLETED_124f",
+    "v3_S3": "COMPARISONS_GENERATED_AND_DECODED"
+  },
+  "stop_reason": "DA path: action A produced negative horizontal flow in RGB56-72; full-frame review did not support correct left response",
+  "stopped_at_rgb_frames": 73,
+  "generated_interval_latent": [
+    17,
+    22
+  ],
+  "generated_interval_rgb": [
+    56,
+    73
+  ],
+  "time_zone": "Asia/Hong_Kong",
+  "budget": {
+    "sampling_forwards": 300,
+    "diagnostic_forwards": 12,
+    "total_denoiser_forwards": 312,
+    "vae_decodes": 18,
+    "optimizer_updates": 0,
+    "gpu_seconds": 3704.853015899658,
+    "gpu_hours": 1.029125837749905,
+    "gpus_used_overall": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      7
+    ],
+    "v3_gpus_used": [
+      0,
+      1
+    ],
+    "v3_max_simultaneous_gpus": 2,
+    "first_gpu_start_epoch": 1791573043.075133,
+    "last_gpu_end_epoch": 1791575260.2067287,
+    "max_peak_allocated_MiB": 26392.86181640625,
+    "persistent_hidden_KV_MiB": 0,
+    "budget_source": "artifacts/raw_json/budget.json"
+  },
+  "limitations": [
+    "V2b T2 same-sigma history recomputes the entire visible window at every step; it has no persistent hidden KV and is not an efficient strict-causal model.",
+    "The 73→124 V2b timing sums separate process wall times and reuses pre-existing 73f state; Original timing is a full-video run, so no fair speedup ratio.",
+    "AA has a conspicuous RGB72→73 turn/jump with boundary MAD16.25.",
+    "DD person approaches the lower-left frame edge by RGB123; visual framing drift persists.",
+    "The v2 four-path gate failed at DA RGB56–72 under A; AD/DA remain at 73f and action-switching is not validated.",
+    "Optical flow is a proxy; user-facing action and visual acceptance require the full videos, and the Worker inspected static complete-frame sheets rather than normal-speed playback.",
+    "One parking-lot scene, seed13; no 10/20s or cross-scene generalization."
+  ],
+  "artifacts": {
+    "video_integrity": "artifacts/video_integrity_audit_v3.json",
+    "full_flow": "artifacts/full124_action_flow.json",
+    "comparison_manifest": "artifacts/comparison_manifest.json",
+    "videos": "artifacts/videos/",
+    "sheets": "artifacts/sheets/",
+    "raw_metrics": "artifacts/raw_json/",
+    "raw_outputs": "H3-World/outputs/EXP-001_v2b_124/"
+  },
+  "active_paths": [
+    "AA",
+    "DD"
+  ],
+  "inactive_paths": {
+    "AD": "73f_retained",
+    "DA": "73f_A_direction_proxy_negative_retained"
+  },
+  "max_rgb_frames": {
+    "AA": 124,
+    "DD": 124,
+    "AD": 73,
+    "DA": 73
+  },
+  "run_config_plan_versions": [
+    1,
+    3
+  ]
+}

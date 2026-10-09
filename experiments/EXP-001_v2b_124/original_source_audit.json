@@ -1,0 +1,52 @@
+{
+  "A": {
+    "source_paths": {
+      "conditioning.pt": {
+        "path": "H3-World/outputs/2026-10-01-21/action_A_teacher_latents/conditioning.pt",
+        "sha256": "e2ec2c3953a5c3cd55aded4ca9b7e261f953b24e38eacfe634aa4b5737207006"
+      },
+      "baseline_latents.pt": {
+        "path": "H3-World/outputs/2026-10-01-21/action_A_teacher_latents/baseline_latents.pt",
+        "sha256": "9b660c2deb776b8ed68cb32ba807374aeff63cf1b1be06f28b73ddb33a3b4c88"
+      },
+      "baseline.json": {
+        "path": "H3-World/outputs/2026-10-01-21/action_A_teacher_latents/baseline.json",
+        "sha256": "dc0ab77ba31980850cf2336167b7ba322767efef23bee5b00e875b12bd0d7010"
+      }
+    },
+    "conditioning_equal": {
+      "initial_noise": true,
+      "audio_noise": true,
+      "anchor": true,
+      "prompt_embeds": true,
+      "img_position_ids": true,
+      "action_text_rows": true
+    },
+    "baseline_video": "/home/qma/work/GWM/H3-World/outputs/2026-10-01-21/action_A_teacher_latents/baseline.mp4"
+  },
+  "D": {
+    "source_paths": {
+      "conditioning.pt": {
+        "path": "H3-World/outputs/2026-10-01-21/action_D_teacher_latents/conditioning.pt",
+        "sha256": "907d9d1903fd0afc5588db4980c57cbdc092f7f8b551308c4e6744452a7e6354"
+      },
+      "baseline_latents.pt": {
+        "path": "H3-World/outputs/2026-10-01-21/action_D_teacher_latents/baseline_latents.pt",
+        "sha256": "201193683658fc22f1394a6a1d3ad341e259e0a62b8f68dd4864603ccc427d0a"
+      },
+      "baseline.json": {
+        "path": "H3-World/outputs/2026-10-01-21/action_D_teacher_latents/baseline.json",
+        "sha256": "9488a71c22c2f0fd6b75cf4cc395882d5b831419489f19eb8109fb47b4ebfd01"
+      }
+    },
+    "conditioning_equal": {
+      "initial_noise": true,
+      "audio_noise": true,
+      "anchor": true,
+      "prompt_embeds": true,
+      "img_position_ids": true,
+      "action_text_rows": true
+    },
+    "baseline_video": "/home/qma/work/GWM/H3-World/outputs/2026-10-01-21/action_D_teacher_latents/baseline.mp4"
+  }
+}

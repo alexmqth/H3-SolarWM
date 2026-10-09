@@ -6,7 +6,7 @@
 
 **1:35–2:30：同一问题的两条修复路线。** 播放[V2a vs V2b](00_comparison_gallery/V2a_vs_V2b.mp4)。V2a修复RGB图像条件并训练visual adapter，支持strict causal/KV，124f结构改善，A/D失败；V2b从Original恢复Single I0/native time，用Same-σ和局部双向重算，无新增训练也无persistent KV。两者不是升级关系，步数/history/cache也不匹配，比较的是能力取舍。
 
-**2:30–3:25：正结果与失败边界。** 播放[V2b四路径](00_comparison_gallery/V2b_four_paths_56.mp4)，RGB39进入第二块：自身history，无GT reset，AA/AD/DA/DD局部方向和人物结构成立。随后展示[V2a 20秒失败](V2a_rgb_anchor/videos/V2a_long20s_failure.mp4)后段；V2a只证明124f视觉相对稳定，V2b只证明56f局部，不能说两者都解决长期崩坏。
+**2:30–3:25：正结果与失败边界。** 播放[V2b四路径](00_comparison_gallery/V2b_four_paths_56.mp4)，RGB39进入第二块：自身history，无GT reset，AA/AD/DA/DD局部方向和人物结构成立。随后展示[V2a 20秒失败](V2a_rgb_anchor/videos/V2a_long20s_failure.mp4)后段；V2a只证明124f视觉相对稳定，V2b新增[Original对比124帧](V2b_same_sigma_local_bidir/videos/Original_vs_V2b_AD_overview_248.mp4)，持续A/D的基本结构与方向可用，但有边界跳变、节奏与切换限制。两者均未解决10/20秒长期稳定。
 
 **3:25–4:15：少步与训练探索没有神奇修复。** 8/chunk×8=64 noisy+8commits，对照Original30次长序列forward，不能算30/8加速。RGB decode/re-encode、CPU offload和重算成本不同。ordinary FM、真实ABot、AnyFlow16/64/128/136和DMD-lite都保留负结果；不是完整Stage1/2成功。
 

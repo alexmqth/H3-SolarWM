@@ -1,0 +1,43 @@
+{
+  "task_id": "EXP-001",
+  "plan_version": 3,
+  "source_git_head": "b3a8bcfde0d1aba73e1def34bc6760d583279c35",
+  "source_files": {
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/run.py": "0e574266e56e2f3f3f7a7168806d7d5ca2af551c2eeee6495311af1d25bddcf5",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/interval_forward.py": "8b2565b124612f4377f6669946bce589a64e905a4658954d4b4cf9f2746456bf",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/protocol.json": "b1be944a35eefcb21fce006a21a2f0daba144db22ad50e2a84073c36a37a8cd3",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/launch.json": "72669272ad97ef27d1b308c6306ab6f86cfc6c7b8584a3736324bb887f9436af",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/runtime_manifest.json": "a06d0dcc5cfa49ed6d745dea2d49128464fd1465e08ff3b3ed3df2937b82ff19",
+    "submission/experiments/11_causal_12_then5_selfhistory/manifest.json": "b2586bcc4d06c36cb7fcc2a5d061e10fff08c2ebfcc4c9af6392a1762e574561"
+  },
+  "model": "Original H3 + released action LoRA",
+  "released_lora_sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+  "checkpoint_notes": "Base weights external; frozen runtime source manifest applies. No new trainable adapter.",
+  "external_outputs": "/home/qma/work/GWM/H3-World/outputs/EXP-001_v2b_124",
+  "state_manifest": "/home/qma/work/GWM/submission/experiments/11_causal_12_then5_selfhistory/manifest.json",
+  "frozen_runtime": "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime",
+  "inputs": {
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/inputs/parking_A.pt": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/inputs/parking_D.pt": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/coarse_A/window0_A.pt": "242a1db06bc3423fe21207af5d2ccf59c9f27f07c9d88f22ce9f77921f6b0eea",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/coarse_A/window0_D.pt": "7a6a2ca7f3966d00e01792ef822b12f4e268f911908d1ff7b97249619759ec7f",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/coarse_A/window0_solver_states.pt": "17225f4ee8ee6976e0d6d618bea69e2c1eb7176015b636d7b1cbf657292cff5c",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/coarse_A/evaluation.json": "3bd41500efda13f5f6863b5e128623733e6410014e80f91156f25fb03801355e",
+    "H3-World/outputs/2026-10-09-05/stage1_coarse_window12/runtime_manifest.json": "a06d0dcc5cfa49ed6d745dea2d49128464fd1465e08ff3b3ed3df2937b82ff19"
+  },
+  "no_training": true,
+  "worker_files": {
+    "rollout_contract.py": "79b6e672cf8d97ba57f3d62e876a0e0bd901f78654cb2c1f9766818378ef2377",
+    "test_rollout_contract.py": "9a8e689bb6acfd53a3d9f4c03237c018fc8fe136c744313c44e26b95454de99a",
+    "interval_forward.py": "8b2565b124612f4377f6669946bce589a64e905a4658954d4b4cf9f2746456bf",
+    "run_rollout_v3.py": "15795a346055b807a7413a9aef667578133ab07d54f23bccc2d7d554842ac13f",
+    "config_v3.yaml": "4ab65c6837d1acdf14ddcb8fa51eeed3aec90eacdda5ea9a5bffa852e8fb8fe4",
+    "next_plan_v3_snapshot.md": "f25b09e7482872aaae9dacbfd8140289d6e1bb7b606a0996736be6a9adf52066",
+    "test_v3_contract.py": "3b57eefccf355f0a88226e7b11a06887895ccc23f1c74990b2ea6fd51c45d734"
+  },
+  "user_gpu_override": "up to 6 before 09:00 and up to 4 after 09:00 Asia/Hong_Kong; forward/time budgets unchanged",
+  "base_transformer_shards": "base_transformer_shards.json",
+  "base_transformer_shards_sha256": "211ca43eb55be7cda51925fe478eb125cad4426501021c11765952fda044b08d",
+  "prior_v1_source_manifest_sha256": "443096ecbb35c6c0edbd48c8bfbe16949ff990be33be7fdfbab27cb343c40189",
+  "note_v3": "v1 worker code/config and original hashes retained; mutable root next_plan is replaced by immutable v3 snapshot; only AA/DD may resume."
+}

@@ -1,0 +1,9 @@
+EXP-001 S0 CPU checks (Asia/Hong_Kong 2026-10-10)
+Input/source preflight: PASS; 6 saved endpoint SHA-256 values, 7 frozen input SHA-256 values, frozen runtime source manifest, released LoRA SHA-256.
+Original command: .venvs/h3world/bin/python -m pytest -q H3-World/outputs/2026-10-09-22/chunk_partition_cb/test_intervals.py
+Result: 8 passed in 45.54s.
+New command: .venvs/h3world/bin/python -m pytest -q submission/experiments/EXP-001_v2b_124/test_rollout_contract.py
+Result: 4 passed in 4.54s.
+Preflight command: .venvs/h3world/bin/python -c 'import sys; sys.path.insert(0,"submission/experiments/EXP-001_v2b_124"); import run_rollout; run_rollout.verify_sources()'
+Result: PASS.
+Frozen model source: 13 transformer shard SHA-256 digests in base_transformer_shards.json. GPU runs record actual replay/interval errors and precise budgets separately.
