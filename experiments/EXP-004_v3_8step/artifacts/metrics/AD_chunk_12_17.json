@@ -1,0 +1,427 @@
+{
+  "task": "EXP-004/v1",
+  "path": "AD",
+  "stage": "second",
+  "interval": [
+    12,
+    17
+  ],
+  "index": 1,
+  "gpu": 0,
+  "status": "complete_pending_visual_review",
+  "seed": 13,
+  "optimizer_updates": 0,
+  "sampling_forwards": 8,
+  "commit_forwards": 0,
+  "vae_decodes": 1,
+  "forward_count_start": 8,
+  "runner_sha256": "9f16c673977ec6619f6d8a6205a4030f18dd3146298444797759a7e909e17e24",
+  "config_sha256": "365a618adaa25f39a7271f7eeedf1dcc56ddbd6af603c78282f63c71dfa2a040",
+  "interval_sha256": "1d4885a837d8ae449c218f63a56deda05d21b436d162dd2abaffa742d59599d0",
+  "router_sha256": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310",
+  "precision": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97"
+    }
+  },
+  "load_seconds": 3.2316666149999946,
+  "released_lora_sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+  "first12_cache_sha256": "48d5c11bd18c2e34b372627b0bacbb84d9d5585d5dc85543e2858d6889939c69",
+  "first12_cache": {
+    "nbytes": 6799104000,
+    "layer_count": 50,
+    "entries_per_layer": {
+      "0": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "1": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "2": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "3": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "4": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "5": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "6": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "7": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "8": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "9": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "10": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "11": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "12": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "13": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "14": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "15": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "16": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "17": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "18": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "19": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "20": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "21": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "22": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "23": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "24": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "25": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "26": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "27": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "28": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "29": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "30": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "31": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "32": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "33": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "34": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "35": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "36": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "37": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "38": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "39": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "40": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "41": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "42": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "43": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "44": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "45": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "46": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "47": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "48": [
+        [
+          0,
+          4680
+        ]
+      ],
+      "49": [
+        [
+          0,
+          4680
+        ]
+      ]
+    },
+    "commit_calls_per_layer": 50
+  },
+  "history_tensor_sha256": "42afa82afff4fcca3403f72c97109e1e734aa1bd9fc56643f323819f0960b419",
+  "initial_noise_sha256": "ade3797c23b6fa1f70c6fef3bbd447924875bb6b9937e00ded4fe1bea5d00c65",
+  "anchor_sha256": "fc127dbd0e5fd519298eae191f867fa0889a4bb9bbabd6f1adb5ede7cfe0f23b",
+  "audio_sha256": "1b0a8cdcbc61be98d06ee193c619b9439ef8529785eea8bd4d5393b2e0aa9a76",
+  "cache_file_sha256": "48d5c11bd18c2e34b372627b0bacbb84d9d5585d5dc85543e2858d6889939c69",
+  "prompt_sha256": "5e820165998cff92659ceb68c0bfba49a6e0b580bd4f45d6982f976e6bf1208a",
+  "position_sha256": "5ea8f7a49620db733f09a30e604dcf27a6abbdd7b70ab53dee8a1e684dcabf06",
+  "sigmas": [
+    1.0,
+    0.9395404663085938,
+    0.8694517211914062,
+    0.7872340698242187,
+    0.6894410400390625,
+    0.5711835327148438,
+    0.4252873229980469,
+    0.24078089904785155,
+    0.0
+  ],
+  "step_completed": 8,
+  "sampling_seconds": 40.52444064500014,
+  "memory_cache_read_unchanged": true,
+  "endpoint_sha256": "9cd8f20513936f1f4163a406f1aa62a79cd4b71c2ec6d9c3208746abbbf0e7f3",
+  "endpoint_tensor_sha256": "18fa6805d1f89cb6db0ac47672accc4f724abc8495011c267fba03daf3923582",
+  "cache_file_unchanged_during_sampling": true,
+  "GPU_peak_allocated_MiB": 25490.365234375,
+  "first39_source": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-002_native_cached/AA/published_56.npy",
+  "first39_source_sha256": "56893e54d27cabc69754305e02ebc9048c85998a24e7603e5e692ca5a38a293e",
+  "decode_seconds": 5.1235903880005935,
+  "past5_redecode_MAD": 1.9835503101348877,
+  "published_file_sha256": "ee65b30ecc88e319ae89e772e3872b9da7b534a9bd806656e2fb0ad6c5b91cd0",
+  "published_RGB_sha256": "24929fe7bfa5f039513cde4bfe13437bdb34dd83c55e05930effd21c4f62cf53",
+  "prior_RGB_sha256": "3cdf167212b1d00f8a892b32019229a53578c1791303a586aab45af44916b87c",
+  "video_sha256": "f035b998e8d72bde21fc170d8f64ad5c29bbef8a2e3ff6993a25b4ec0f046c92",
+  "active_video_sha256": "ccd94e8e3ab8c98c6f82505c59da1d563517148f78d51ed5f45bad2144ea0555",
+  "flow": {
+    "path": "/home/qma/work/GWM/H3-World/outputs/EXP-004_v3_8step/AD/chunk_12_17.mp4",
+    "frames": 17,
+    "horizontal_flow_px": {
+      "mean": -1.509823689237237,
+      "median": -1.5487133860588074,
+      "p05": -2.6348294615745544,
+      "p95": -0.30660492926836014,
+      "mean_abs": 1.509823689237237
+    },
+    "vertical_flow_px": {
+      "mean": -0.05525102294632234,
+      "median": -0.05936475843191147,
+      "p05": -0.2383081540465355,
+      "p95": 0.22750169411301613,
+      "mean_abs": 0.11996628125780262
+    },
+    "flow_magnitude_px": {
+      "mean": 1.7131187468767166,
+      "median": 1.7601374983787537,
+      "p05": 0.33352484554052353,
+      "p95": 3.221850574016571,
+      "mean_abs": 1.7131187468767166
+    },
+    "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+  },
+  "boundary_gray_MAD": 2.8137996196746826,
+  "inside_gray_MAD": 4.430349826812744,
+  "GPU_peak_reserved_MiB": 26574.0,
+  "frozen_parameter_versions_unchanged": true,
+  "wall_seconds": 79.49415689700072,
+  "forward_count_end": 16
+}

@@ -1,5 +1,7 @@
 # H3-World × SolarWM：因果化、动作信息流与少步探索
 
+**新增效率证据：** [EXP-004：V3原权重8步续写](report/V3_8step_continuation/README.md)，AA/AD至73帧有限可行性accepted；首39帧复用30步结果，AA拖影明显，零训练、0.129449 GPU小时。正式30步V3的124帧定义保留。
+
 **研究目标：** 将SolarWM的causal chunk、KV cache与少步方法迁入H3-World，检查长视频效率、画面连续性和action control能否同时保留。
 
 **最新：V3可行性版本已验收。** EXP-002/003以同一Original H3 + released LoRA、native Single I0/current-prefix协议，验证strict chunk-causal、真实persistent KV、同history A/D响应与AA/AD124帧自身历史。AA有短暂明显人体形变后恢复，画质与严格连续性仍有限制。单scene/seed、零新增训练；完整从零E2E、长期泛化及公平Original speedup未验证。 [版本与视频](report/V3_efficient_causal/README.md)。
