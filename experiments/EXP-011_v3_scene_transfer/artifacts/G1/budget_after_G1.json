@@ -1,0 +1,730 @@
+{
+  "task": "EXP-011/v1",
+  "p1_gpu_seconds": 70.56469767799234,
+  "inference_gpu_seconds": 577.3380993109895,
+  "text_encoder_calls": 6,
+  "image_vae_encodes": 2,
+  "video_vae_encodes": 0,
+  "sampling_forwards": 76,
+  "commit_forwards": 0,
+  "vae_decodes": 4,
+  "events": [
+    {
+      "event": "stage_start",
+      "stage": "P1",
+      "gpu": 0,
+      "at": "2026-10-10T21:53:19.790741+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "P1",
+      "gpu": 0,
+      "status": "failed_before_model_load",
+      "at": "2026-10-10T21:53:59.491529+00:00",
+      "accounting_note": "Conservative entire exec_command wall time 4.386365982s; no encode/model call; raw budget preserved in budget_attempt1_raw.json"
+    },
+    {
+      "event": "stage_start",
+      "stage": "P1",
+      "gpu": 0,
+      "at": "2026-10-10T21:56:42.337261+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "P1",
+      "gpu": 0,
+      "status": "failed",
+      "at": "2026-10-10T21:56:42.338752+00:00"
+    },
+    {
+      "event": "accounting_adjustment",
+      "stage": "P1",
+      "attempt": 2,
+      "extra_conservative_seconds": 4.279311356004285,
+      "total_attempt_seconds": 4.280806329,
+      "at": "2026-10-10T21:57:30.954352+00:00",
+      "note": "Charge entire exec_command wall time, preserving raw ledger in attempt2_archive; zero model encode calls."
+    },
+    {
+      "event": "stage_start",
+      "stage": "P1",
+      "gpu": 0,
+      "at": "2026-10-10T21:59:25.051860+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "image_vae_encodes",
+      "count": 1,
+      "at": "2026-10-10T21:59:27.773762+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 1,
+      "at": "2026-10-10T21:59:29.986457+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 2,
+      "at": "2026-10-10T21:59:55.158934+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 3,
+      "at": "2026-10-10T21:59:55.868305+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "image_vae_encodes",
+      "count": 2,
+      "at": "2026-10-10T22:00:18.758518+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 4,
+      "at": "2026-10-10T22:00:19.335705+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 5,
+      "at": "2026-10-10T22:00:25.816003+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 6,
+      "at": "2026-10-10T22:00:26.353563+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "P1",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:00:26.949384+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G1",
+      "gpu": 0,
+      "at": "2026-10-10T22:02:41.691362+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 1,
+      "at": "2026-10-10T22:02:47.529237+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 2,
+      "at": "2026-10-10T22:02:59.686530+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 3,
+      "at": "2026-10-10T22:03:04.764079+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 4,
+      "at": "2026-10-10T22:03:09.835148+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 5,
+      "at": "2026-10-10T22:03:14.899910+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 6,
+      "at": "2026-10-10T22:03:19.983886+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 7,
+      "at": "2026-10-10T22:03:25.138698+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 8,
+      "at": "2026-10-10T22:03:31.019701+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 9,
+      "at": "2026-10-10T22:03:36.886527+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 10,
+      "at": "2026-10-10T22:03:42.527406+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 11,
+      "at": "2026-10-10T22:03:48.710898+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 12,
+      "at": "2026-10-10T22:03:54.458028+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 13,
+      "at": "2026-10-10T22:03:59.947402+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 14,
+      "at": "2026-10-10T22:04:06.084628+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 15,
+      "at": "2026-10-10T22:04:11.901650+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 16,
+      "at": "2026-10-10T22:04:17.541616+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 17,
+      "at": "2026-10-10T22:04:23.662374+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 18,
+      "at": "2026-10-10T22:04:29.371046+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 19,
+      "at": "2026-10-10T22:04:35.339042+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 20,
+      "at": "2026-10-10T22:04:40.660681+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 21,
+      "at": "2026-10-10T22:04:45.845289+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 22,
+      "at": "2026-10-10T22:04:51.117842+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 23,
+      "at": "2026-10-10T22:04:56.486209+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 24,
+      "at": "2026-10-10T22:05:01.627010+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 25,
+      "at": "2026-10-10T22:05:06.782085+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 26,
+      "at": "2026-10-10T22:05:11.937702+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 27,
+      "at": "2026-10-10T22:05:17.085757+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 28,
+      "at": "2026-10-10T22:05:22.247137+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 29,
+      "at": "2026-10-10T22:05:27.420769+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 30,
+      "at": "2026-10-10T22:05:33.118118+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "vae_decodes",
+      "count": 1,
+      "at": "2026-10-10T22:05:51.555898+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G1",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:05:59.138409+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G1",
+      "gpu": 0,
+      "at": "2026-10-10T22:06:48.594058+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 31,
+      "at": "2026-10-10T22:06:54.354599+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 32,
+      "at": "2026-10-10T22:07:05.880056+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 33,
+      "at": "2026-10-10T22:07:10.974001+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 34,
+      "at": "2026-10-10T22:07:16.084319+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 35,
+      "at": "2026-10-10T22:07:21.212532+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 36,
+      "at": "2026-10-10T22:07:26.327892+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 37,
+      "at": "2026-10-10T22:07:31.621978+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 38,
+      "at": "2026-10-10T22:07:38.855506+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "vae_decodes",
+      "count": 2,
+      "at": "2026-10-10T22:07:59.298086+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G1",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:08:06.579480+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G1",
+      "gpu": 0,
+      "at": "2026-10-10T22:08:38.620317+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 39,
+      "at": "2026-10-10T22:08:44.818314+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 40,
+      "at": "2026-10-10T22:08:57.990746+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 41,
+      "at": "2026-10-10T22:09:04.047977+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 42,
+      "at": "2026-10-10T22:09:10.456321+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 43,
+      "at": "2026-10-10T22:09:16.831624+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 44,
+      "at": "2026-10-10T22:09:23.255475+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 45,
+      "at": "2026-10-10T22:09:29.748078+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 46,
+      "at": "2026-10-10T22:09:37.224853+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 47,
+      "at": "2026-10-10T22:09:45.056942+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 48,
+      "at": "2026-10-10T22:09:51.538062+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 49,
+      "at": "2026-10-10T22:09:59.677879+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 50,
+      "at": "2026-10-10T22:10:07.628967+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 51,
+      "at": "2026-10-10T22:10:14.808297+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 52,
+      "at": "2026-10-10T22:10:21.986827+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 53,
+      "at": "2026-10-10T22:10:30.110975+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 54,
+      "at": "2026-10-10T22:10:37.148493+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 55,
+      "at": "2026-10-10T22:10:45.169220+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 56,
+      "at": "2026-10-10T22:10:50.678351+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 57,
+      "at": "2026-10-10T22:10:56.056685+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 58,
+      "at": "2026-10-10T22:11:01.324564+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 59,
+      "at": "2026-10-10T22:11:06.585175+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 60,
+      "at": "2026-10-10T22:11:11.848194+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 61,
+      "at": "2026-10-10T22:11:18.012336+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 62,
+      "at": "2026-10-10T22:11:23.260016+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 63,
+      "at": "2026-10-10T22:11:28.523226+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 64,
+      "at": "2026-10-10T22:11:33.783107+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 65,
+      "at": "2026-10-10T22:11:39.044567+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 66,
+      "at": "2026-10-10T22:11:44.306411+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 67,
+      "at": "2026-10-10T22:11:49.573466+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 68,
+      "at": "2026-10-10T22:11:54.831164+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "vae_decodes",
+      "count": 3,
+      "at": "2026-10-10T22:12:14.365856+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G1",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:12:22.175890+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G1",
+      "gpu": 0,
+      "at": "2026-10-10T22:13:04.646995+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 69,
+      "at": "2026-10-10T22:13:10.371147+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 70,
+      "at": "2026-10-10T22:13:22.577485+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 71,
+      "at": "2026-10-10T22:13:28.097246+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 72,
+      "at": "2026-10-10T22:13:33.626000+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 73,
+      "at": "2026-10-10T22:13:39.157943+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 74,
+      "at": "2026-10-10T22:13:44.701810+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 75,
+      "at": "2026-10-10T22:13:50.295815+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 76,
+      "at": "2026-10-10T22:13:56.540112+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "vae_decodes",
+      "count": 4,
+      "at": "2026-10-10T22:14:15.535860+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G1",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:14:22.997091+00:00"
+    }
+  ]
+}
