@@ -23,3 +23,8 @@ EXP-005/v2已完成有限GPU验证，281forward/9VAE/0.662707GPU小时。SW-G优
 ## 新增158帧对照
 
 [SW-G A/D](../experiments/EXP-005_v3_sliding_window/artifacts/stage2/G1/G1_A_vs_D_158.mp4) · [Global/Local A](../experiments/EXP-005_v3_sliding_window/artifacts/stage2/L1/G1_vs_L1_A_158.mp4) · [Global/Local D](../experiments/EXP-005_v3_sliding_window/artifacts/stage2/L1/G1_vs_L1_D_158.mp4)。前124帧相同，C7同历史，C8各自历史；人物基本可辨，Local场景/亮度跳变更多。
+
+
+## 全程普通FM8
+
+[V3-FM8](v3/v3_fm8/README.md)：EXP-006从首窗即8步，AA/AD73有限可行性通过、quality PARTIAL。为后续V3-AF提供有限匹配NFE对照，区别于EXP-004的30步首窗续写。

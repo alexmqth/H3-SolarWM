@@ -1,9 +1,9 @@
-# 下一步：全程普通FM8优先，AnyFlow独立设计
+# 当前：V3-AF初始化与单步训练
 
-EXP-005/v2已经收口：SW-G通过158帧有限可行性，质量PARTIAL；Local有动作响应但场景/亮度更不稳定，当前无训练方向归档。正式V3 Baseline继续冻结为124帧参考。
+EXP-006全程普通FM8已经验收：新8步首39+AA/AD73，有限可行性通过、quality PARTIAL，零训练。普通8步不再依赖30步首窗；长时全程8步仍未测。
 
-下一优先是V3-FM8从首12-latent窗口开始使用8步，解除EXP-004借用30步首窗的限制。采用冻结Baseline Global/causal/KV协议，先首39帧，再AA/AD各续两块到73帧。拟议43forward/5VAE/≤0.75GPU小时、1卡、0训练；尚未授权GPU。普通缺陷按可行性判断，明显无效则停止，不扫描步数或shift。
+EXP-007 AF0实际tiny-H3 CPU核查已通过。当前已批准新的target-time student + last8 rank8 QKV初始化及一次finite-map update，最多22forward/4backward/1update/0VAE/0.75GPU小时。保持V3 native/current-prefix/Global/strict causal/cache条件；更新后按student权重刷新KV。后续有限训练与匹配8NFE评估按实际成本另批，不因loss下降直接验收。
 
-V3-AF需新target-time-conditioned student和finite-map训练目标，student用自己的权重构造KV，8NFE与普通FM8匹配比较。旧AnyFlow产物不作新协议完成证据；暂不启动训练或DMD。
+用户授权Judge夜间持续推进至2026-10-11 09:00，期间可用所有实际空闲GPU，按任务预算执行，不抢占他人进程；09:00后最多3卡。DMD需真实student samples、独立fake-score、正确角色/梯度与明确预算，不能沿用旧单次replay结果冒充V3多步训练。
 
-[本轮Judge结论](../../experiments/EXP-005_v3_sliding_window/judge/STAGE2_FINAL_REVIEW.md) · [后续FM8/AF完整独立设计](../../experiments/EXP-005_v3_sliding_window/FUTURE_ANYFLOW.md)
+[FM8验收](../../experiments/EXP-006_v3_fm8_full/judge/FINAL_REVIEW.md) · [AF CPU核查](../../experiments/EXP-007_v3_anyflow/AF0_REVIEW.md) · [当前AF任务书](../../experiments/EXP-007_v3_anyflow/taskbook_v2.md) · [DMD准备](../../experiments/EXP-007_v3_anyflow/FUTURE_DMD.md)

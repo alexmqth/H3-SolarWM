@@ -18,3 +18,8 @@
 - [V3-SW-L：Sliding Window + Local RoPE](v3_sw_l/README.md)
 
 EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留；SW-L有动作响应但重复场景/亮度跳变更多，无已证实收益，当前无训练方向归档。正式Baseline不变。后续V3-FM8和V3-AF另立任务，普通FM减步与AnyFlow finite-map训练分别评价。
+
+
+## 全程普通FM8
+
+[EXP-006 V3-FM8](v3_fm8/README.md)已验收：新8步首39+AA/AD73，有限可行性通过、quality PARTIAL。43forward/5VAE/0.136905GPU小时，零新训练。下一项为独立V3-AF，普通减步与finite-map训练分别记录。

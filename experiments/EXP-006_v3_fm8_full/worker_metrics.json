@@ -1,0 +1,163 @@
+{
+  "task": "EXP-006/v1",
+  "status": "worker_complete_pending_judge",
+  "gpu_seconds": 492.85644006729126,
+  "forwards": 43,
+  "sampling": 40,
+  "commits": 3,
+  "vae": 5,
+  "rows": [
+    {
+      "stage": "first",
+      "path": null,
+      "latent": [
+        0,
+        12
+      ],
+      "video": "H3-World/outputs/EXP-006_v3_fm8_full/rollout_39.mp4",
+      "video_sha256": "62006b018cf18c4470ee62d564402b3552759c0cc828104d36eabda4a9d64388",
+      "verification": {
+        "frames": 39,
+        "width": 832,
+        "height": 480,
+        "average_rate": "24",
+        "decoded": true
+      },
+      "sampling_seconds": 47.20742310999776,
+      "commit_seconds": 8.524576779003837,
+      "decode_seconds": 3.50106620999577,
+      "peak_allocated_gib": 25.071776866912842,
+      "cpu_kv_bytes": 6799104000,
+      "flow_horizontal": 0.4299163971292345,
+      "boundary_gray_MAD": null,
+      "inside_gray_MAD": 3.013887405395508
+    },
+    {
+      "stage": "second",
+      "path": "AA",
+      "latent": [
+        12,
+        17
+      ],
+      "video": "H3-World/outputs/EXP-006_v3_fm8_full/AA/rollout_56.mp4",
+      "video_sha256": "7082d4c9fa7da8e390a54207b9eebee91092ccba3e9ca721d4e4ca6cbcf4284d",
+      "verification": {
+        "frames": 56,
+        "width": 832,
+        "height": 480,
+        "average_rate": "24",
+        "decoded": true
+      },
+      "sampling_seconds": 39.827034420995915,
+      "commit_seconds": 5.827781088002666,
+      "decode_seconds": 5.252404826002021,
+      "peak_allocated_gib": 24.892934799194336,
+      "cpu_kv_bytes": 9632064000,
+      "flow_horizontal": 0.8457942418754101,
+      "boundary_gray_MAD": 3.6575446128845215,
+      "inside_gray_MAD": 4.146616458892822
+    },
+    {
+      "stage": "second",
+      "path": "AD",
+      "latent": [
+        12,
+        17
+      ],
+      "video": "H3-World/outputs/EXP-006_v3_fm8_full/AD/rollout_56.mp4",
+      "video_sha256": "7c55b0b7f62ced5d50ae23f22828d5121fb0e44f9fc4344e24d53a48c0b57662",
+      "verification": {
+        "frames": 56,
+        "width": 832,
+        "height": 480,
+        "average_rate": "24",
+        "decoded": true
+      },
+      "sampling_seconds": 38.97674065300089,
+      "commit_seconds": 5.6656950039978256,
+      "decode_seconds": 5.058550912995997,
+      "peak_allocated_gib": 24.892934799194336,
+      "cpu_kv_bytes": 9632064000,
+      "flow_horizontal": -0.32058058958500624,
+      "boundary_gray_MAD": 3.850625991821289,
+      "inside_gray_MAD": 3.931856632232666
+    },
+    {
+      "stage": "third",
+      "path": "AA",
+      "latent": [
+        17,
+        22
+      ],
+      "video": "H3-World/outputs/EXP-006_v3_fm8_full/AA/rollout_73.mp4",
+      "video_sha256": "8b6d5a0c24d1216317f908fd468fb20eb6d940fefc607bc9f805fe2499047009",
+      "verification": {
+        "frames": 73,
+        "width": 832,
+        "height": 480,
+        "average_rate": "24",
+        "decoded": true
+      },
+      "sampling_seconds": 50.04676230500627,
+      "commit_seconds": 0,
+      "decode_seconds": 6.63348570800008,
+      "peak_allocated_gib": 26.06068468093872,
+      "cpu_kv_bytes": 9632064000,
+      "flow_horizontal": 0.5052466187626123,
+      "boundary_gray_MAD": 4.450831413269043,
+      "inside_gray_MAD": 3.5920169353485107
+    },
+    {
+      "stage": "third",
+      "path": "AD",
+      "latent": [
+        17,
+        22
+      ],
+      "video": "H3-World/outputs/EXP-006_v3_fm8_full/AD/rollout_73.mp4",
+      "video_sha256": "3e1d01c36305ead862b86a3c3fa87e4ee1eab474167973001844f7b315859638",
+      "verification": {
+        "frames": 73,
+        "width": 832,
+        "height": 480,
+        "average_rate": "24",
+        "decoded": true
+      },
+      "sampling_seconds": 41.75508481699944,
+      "commit_seconds": 0,
+      "decode_seconds": 6.42004449799424,
+      "peak_allocated_gib": 26.06068468093872,
+      "cpu_kv_bytes": 9632064000,
+      "flow_horizontal": -0.826496634632349,
+      "boundary_gray_MAD": 4.567633152008057,
+      "inside_gray_MAD": 3.8255858421325684
+    }
+  ],
+  "comparisons": [
+    {
+      "path": "submission/experiments/EXP-006_v3_fm8_full/artifacts/videos/AA_FM30_saved_first_vs_FM8_new_first_73.mp4",
+      "sha256": "5b867799af9c45b2a73f2e875bdd8975a8643ffb8b7fb8f90c8c9f23c47dee70",
+      "frames": 73,
+      "fps": 24,
+      "dimensions": [
+        1248,
+        400
+      ],
+      "decoded": true,
+      "note": "Different first-window generation and subsequent history; not a single-variable ablation"
+    },
+    {
+      "path": "submission/experiments/EXP-006_v3_fm8_full/artifacts/videos/AD_FM30_saved_first_vs_FM8_new_first_73.mp4",
+      "sha256": "c32313cb5196537892b5232317d979c923ae4aaf4118b002e514f6deaac120a6",
+      "frames": 73,
+      "fps": 24,
+      "dimensions": [
+        1248,
+        400
+      ],
+      "decoded": true,
+      "note": "Different first-window generation and subsequent history; not a single-variable ablation"
+    }
+  ],
+  "reference": "EXP-002 saved 30-step first; generated histories differ after first window"
+}

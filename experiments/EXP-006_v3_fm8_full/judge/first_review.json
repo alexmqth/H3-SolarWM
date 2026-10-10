@@ -1,0 +1,39 @@
+{
+  "task": "EXP-006/v1",
+  "stage": "first39",
+  "approved": true,
+  "decision": "continue authorized AA/AD C2/C3",
+  "visual": "single recognizable person, coherent garage throughout39 frames; mild detail softness and limb shimmer; no sustained collapse",
+  "quality": "PARTIAL_feasibility",
+  "frames_reviewed": "all39 contact sheet and native last frame",
+  "flow": {
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-006_v3_fm8_full/rollout_39.mp4",
+    "frames": 39,
+    "horizontal_flow_px": {
+      "mean": 0.4299163971292345,
+      "median": 0.2505384087562561,
+      "p05": -1.1520270466804505,
+      "p95": 2.2417283296585073,
+      "mean_abs": 0.715299280458375
+    },
+    "vertical_flow_px": {
+      "mean": 0.11944711487740278,
+      "median": 0.10996848344802856,
+      "p05": -0.06305990237742662,
+      "p95": 0.3025246411561965,
+      "mean_abs": 0.1368242825234407
+    },
+    "flow_magnitude_px": {
+      "mean": 0.9437908067515022,
+      "median": 0.5552302896976471,
+      "p05": 0.23758453279733657,
+      "p95": 2.631686639785766,
+      "mean_abs": 0.9437908067515022
+    },
+    "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+  },
+  "sampling_seconds": 47.20742310999776,
+  "forward_count": 9,
+  "vae": 1,
+  "history": "newly sampled FM8 first12 latent, own sigma0 clean KV; not frozen30 first-window reuse"
+}

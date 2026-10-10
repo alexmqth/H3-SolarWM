@@ -1,0 +1,34 @@
+{
+  "AA_C2": {
+    "reviewed": "RGB37-55 all17 newframes and boundary",
+    "structure": "PASS_feasibility",
+    "quality": "PARTIAL",
+    "observation": "Primary person intact, garage recognizable; abrupt posture/perspective jump and transient ghosting RGB40-43, then coherent recovery. No sustained primary-body collapse.",
+    "flow_horizontal": 0.8457942418754101,
+    "decision": "continue scheduled C3 and D branch"
+  },
+  "AD_C2": {
+    "reviewed": "RGB37-55 all17 newframes and boundary",
+    "structure": "PASS_feasibility",
+    "quality": "PARTIAL_switch_boundary",
+    "observation": "Recognizable single main body and garage, abrupt camera/pose jump at switch (RGB40), scene motion opposite A; no sustained body disappearance.",
+    "flow_horizontal": -0.32058058958500624,
+    "decision": "continue scheduled C3; no tuning"
+  },
+  "AA_C3": {
+    "reviewed": "RGB54-72 all17 newframes and boundary",
+    "structure": "PASS_feasibility",
+    "quality": "PARTIAL_limb_ghosting",
+    "observation": "Single recognizable main body and garage maintained; repeated translucent limbs/pose residues and boundary scene adjustment; no persistent primary-body disappearance or total scene collapse.",
+    "flow_horizontal": 0.5052466187626123,
+    "decision": "accept finite AA73 structure, retain quality limits"
+  },
+  "AD_C3": {
+    "reviewed": "RGB54-72 all17 newframes and boundary",
+    "structure": "PASS_feasibility",
+    "quality": "PARTIAL_boundary",
+    "observation": "Primary person remains intact and garage usable; abrupt scene/pose displacement at RGB57, D direction persists, limited trailing leg residue; no sustained body collapse.",
+    "flow_horizontal": -0.826496634632349,
+    "decision": "accept limited full-FM8 AA/AD73 feasibility"
+  }
+}

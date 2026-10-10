@@ -1,0 +1,25 @@
+{
+  "task": "EXP-007/v1",
+  "stage": "AF0",
+  "status": "CPU_PASS",
+  "gpu_forwards": 0,
+  "model": "random tiny actual H3, 2 layers; not pretrained 33B capability",
+  "seconds": 3.0042068300026585,
+  "torch": "2.10.0+cu128",
+  "checks": {
+    "ordinary_entry_exact_C1": true,
+    "ordinary_entry_exact_C2": true,
+    "conditioner_preserves_rng": true,
+    "initialized_diagonal_max_abs": 0.0,
+    "actual_native_time_and_target_prefix_rows": true,
+    "finite_map_loss": 2.378098726272583,
+    "three_detached_one_grad_prediction": true,
+    "target_time_grad_norm": 0.035778204836919875,
+    "qkv_grad_norm": 0.00044804497872239966,
+    "checkpoint_backward_cache_immutable_and_detached": true,
+    "student_update_changes_rebuilt_history_KV": true,
+    "analytic_map_sign_and_constant_field_residual": true,
+    "normalized_derivative_raw1000_unit_cancellation": true
+  },
+  "interval_sha256": "2974f9336f713cd10ccc9b11e0c2270ec6b81b52166461c31f8fd066b365a356"
+}

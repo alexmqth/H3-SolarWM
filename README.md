@@ -13,3 +13,6 @@
 - [复现与依赖](REPRODUCE.md) · [研究分支](branches/README.md)
 
 原“V2c”分类按用户最新决定恢复为V3 Baseline，历史迁移记录保留。EXP-004普通FM8步续写只验证到73帧，首窗仍借用30步结果，不能视为AnyFlow训练完成。
+
+
+**新增EXP-006：[全程V3-FM8](report/v3/v3_fm8/README.md)** 已验收新首39+AA/AD73有限可行性，quality PARTIAL，0.136905GPU小时、零训练。当前转入独立V3-AF初始化/单步训练准备，尚无AnyFlow能力验收。
