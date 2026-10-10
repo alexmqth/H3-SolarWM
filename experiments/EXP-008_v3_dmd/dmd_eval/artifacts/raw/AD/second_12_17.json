@@ -1,0 +1,81 @@
+{
+  "task": "EXP-008/v2-DMD8-EVAL",
+  "status": "failed",
+  "stage": "second",
+  "path": "AD",
+  "interval": [
+    12,
+    17
+  ],
+  "index": 1,
+  "gpu": 0,
+  "checkpoint_cycle": 8,
+  "checkpoint_manifest_sha256": "154d2fc37ecc2835f78938e078c57d6263e0a8d2045fa63d6dd57228b70b0b28",
+  "runner_sha256": "d0ef6945ef860770ac5fe8a882cde28154899fcaf66158c2899609b762a3c5fe",
+  "sampling_forwards": 0,
+  "commit_forwards": 0,
+  "vae_calls": 0,
+  "fm8_first_sha256": "587fc19007ded256b356f44f26f42c6c943d51b5c186075d2c21bd02f74da232",
+  "first_tensor_sha256": "4c373976c4d70948694606626d3d340301f0cdb8d47e04a4d45c700ed1b3ab6c",
+  "prompt_sha256": "5e820165998cff92659ceb68c0bfba49a6e0b580bd4f45d6982f976e6bf1208a",
+  "precision": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6"
+    }
+  },
+  "source_cache_sha256": "b05418bf3f49f943f4a6f0fc951eac5f296c36231c5f1067ff80760c1c1448ba",
+  "cache_before": {
+    "index": 1,
+    "layer_count": 50,
+    "entries": [
+      [
+        0,
+        4680
+      ]
+    ],
+    "nbytes": 6799104000,
+    "commits": 50
+  },
+  "prior_RGB_sha256": "f8649fb414e90a6c954ee6642e9f70f525fa435acd518fe01c9d5007a1ef0b38",
+  "history_tensor_sha256": "4c373976c4d70948694606626d3d340301f0cdb8d47e04a4d45c700ed1b3ab6c",
+  "noise_sha256": "9571b2309b5e8a593acc49c88231a1e8b6f0ecadb8680023bd750308a8dcab74",
+  "model_ready_seconds": 15.539487333997386,
+  "sigmas": [
+    1.0,
+    0.9395404663085938,
+    0.8694517211914062,
+    0.7872340698242187,
+    0.6894410400390625,
+    0.5711835327148438,
+    0.4252873229980469,
+    0.24078089904785155,
+    0.0
+  ],
+  "step_completed": 5,
+  "error": "KeyboardInterrupt()",
+  "seconds": 47.34542753700225
+}

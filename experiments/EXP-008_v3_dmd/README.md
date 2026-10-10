@@ -11,4 +11,6 @@ CPU 核查：
 
 进程PID849858已正常退出。实际17forward/3backward/3update，wall254.899秒，保守三卡0.212416 GPU小时，三卡allocated峰值25.070/25.879/27.965GiB，8-map梯度均非零。[小证据和原日志](artifacts/)已归档；四个配套checkpoint原件留在`H3-World/outputs/EXP-008_v3_dmd_pilot/cycle_01/`。本结果不授权自动扩训练或声称视频质量改善。
 
-v2有限延续训练已按独立[任务书](taskbook_v2.md)和[TRAIN放行](TRAIN_RELEASE_V2.md)完成：从pilot cycle1恢复，新增7轮到累计cycle8，99forward/14backward/14update/0VAE，1673.641秒，cycle4/8配套checkpoint保存。详见[Worker报告](worker_report_v2.md)及[CPU准备](dmd_train/CPU_PREP.md)。fake loss在cycle4跃升、后续student梯度明显变小；Judge最终训练审核已通过，见[TRAIN V2审核](judge/TRAIN_V2_REVIEW.md)。最终cycle8视频已[独立放行](EVAL_RELEASE.md)，先检查AA/AD C2，若持续崩溃则停止C3；尚无DMD生成能力结论。
+v2有限延续训练已按独立[任务书](taskbook_v2.md)和[TRAIN放行](TRAIN_RELEASE_V2.md)完成：从pilot cycle1恢复，新增7轮到累计cycle8，99forward/14backward/14update/0VAE，1673.641秒，cycle4/8配套checkpoint保存。详见[Worker报告](worker_report_v2.md)及[CPU准备](dmd_train/CPU_PREP.md)。fake loss在cycle4跃升、后续student梯度明显变小；Judge最终训练审核已通过，见[TRAIN V2审核](judge/TRAIN_V2_REVIEW.md)。
+
+最终cycle8视频在AA第二块出现**17帧持续全画面彩色噪声**，视觉能力失败，已按停止条件收口。AD第二块中断、未出片，C3未执行；不能声称AD已测或DMD改善生成。保留[AA三列56帧对比](dmd_eval/artifacts/failure_comparison/AA_FM8_AF8_DMD8_cycle8_collapse_56.mp4)、[Worker负结果报告](worker_report_v2_eval.md)与[Judge最终审核](judge/FINAL_REVIEW.md)。CPU端点诊断显示DMD8与初噪声cosine0.949，支持未有效去噪。当前DMD配置归档，不自动重训或切换checkpoint。

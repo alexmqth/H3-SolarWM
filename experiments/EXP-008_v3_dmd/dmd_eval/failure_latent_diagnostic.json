@@ -1,0 +1,61 @@
+{
+  "task": "EXP-008/v2-DMD8-EVAL-AA-failure",
+  "scope": "CPU comparison of the same C2 initial noise and saved finite endpoints; no new model inference",
+  "initial_noise_total_variation": {
+    "horizontal": 1.124890923500061,
+    "vertical": 1.1224067211151123
+  },
+  "endpoints": {
+    "FM8": {
+      "shape": [
+        1,
+        24,
+        5,
+        30,
+        52
+      ],
+      "mean": -0.08720497786998749,
+      "std": 1.061506986618042,
+      "cosine_to_initial_noise": 0.09987380355596542,
+      "rms_change_from_initial_noise": 1.3816800117492676,
+      "horizontal_latent_total_variation": 0.2239430993795395,
+      "vertical_latent_total_variation": 0.3116893172264099
+    },
+    "AF8": {
+      "shape": [
+        1,
+        24,
+        5,
+        30,
+        52
+      ],
+      "mean": -0.08721674233675003,
+      "std": 1.063510775566101,
+      "cosine_to_initial_noise": 0.11365007609128952,
+      "rms_change_from_initial_noise": 1.3724833726882935,
+      "horizontal_latent_total_variation": 0.23629292845726013,
+      "vertical_latent_total_variation": 0.3116013705730438
+    },
+    "DMD8_cycle8": {
+      "shape": [
+        1,
+        24,
+        5,
+        30,
+        52
+      ],
+      "mean": -0.09289829432964325,
+      "std": 1.039847731590271,
+      "cosine_to_initial_noise": 0.9493896961212158,
+      "rms_change_from_initial_noise": 0.32790955901145935,
+      "horizontal_latent_total_variation": 1.1409944295883179,
+      "vertical_latent_total_variation": 1.134422779083252
+    }
+  },
+  "pair_cosine": {
+    "FM8_AF8": 0.989167332649231,
+    "FM8_DMD8": 0.028156619518995285,
+    "AF8_DMD8": 0.03841983526945114
+  },
+  "interpretation_limit": "DMD8 endpoint remains close to input noise; this supports denoising failure, not a unique cause for it."
+}

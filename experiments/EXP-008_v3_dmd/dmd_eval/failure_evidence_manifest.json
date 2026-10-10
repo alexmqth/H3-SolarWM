@@ -1,0 +1,87 @@
+{
+  "task": "EXP-008/v2-DMD8-EVAL",
+  "status": "AA_C2_VISUAL_FAIL_STOPPED",
+  "checkpoint_cycle": 8,
+  "source_manifest_sha256": "154d2fc37ecc2835f78938e078c57d6263e0a8d2045fa63d6dd57228b70b0b28",
+  "archived_files": {
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/failure_comparison/AA_FM8_AF8_DMD8_cycle8_collapse_56.jpg": {
+      "bytes": 692685,
+      "sha256": "4ced0d0ca11989fb32cb37133e9d91a9e861718bfb26bdf3272ebe6177101d3a"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/failure_comparison/AA_FM8_AF8_DMD8_cycle8_collapse_56.mp4": {
+      "bytes": 1476919,
+      "sha256": "c955be8d2b3ca6b5899b92ce825c2a8b90f4b3d63553577b7cc17e6ce21ede92"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/raw/AA/chunk_12_17.mp4": {
+      "bytes": 1070199,
+      "sha256": "2487311f05183d159d21aa30b7b56b52eff8c0360c931a79de105c0ebe249c37"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/raw/AA/chunk_12_17_all_frames.jpg": {
+      "bytes": 349773,
+      "sha256": "6f108f54e57dc7126b3fa6647bbec83d52669efd92045ac1157a6af2df206504"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/raw/AA/rollout_56.mp4": {
+      "bytes": 1569049,
+      "sha256": "102474e2d8578c3d4657cfac6025928bfeb523cf162ddbb7a83809852ec93da3"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/raw/AA/second_12_17.json": {
+      "bytes": 5336,
+      "sha256": "c08da73e88dbb4fedb2a1c4cb6c4c2c91177596aba16fb7d9a3927ab1f5ae0c3"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/raw/AD/second_12_17.json": {
+      "bytes": 3280,
+      "sha256": "7886c3359132a460435dddc77bdde0b35382ae54fae48e63fdc1c299eb01e1a7"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/raw/budget.json": {
+      "bytes": 740,
+      "sha256": "4f83f7aeb04fbc444c62b42ebd3941a2fd861a469a44cde890c2346f97271ce5"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/raw/logs/EXP-008_dmd_eval_AA_second.log": {
+      "bytes": 14372,
+      "sha256": "d03aa7fc4decc437874fc335b79d0ee9968b19a238fab355df9972960680fef0"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/raw/logs/EXP-008_dmd_eval_AD_second.log": {
+      "bytes": 18641,
+      "sha256": "19eaa881a14c28b15c6af3a51e35d4daf499d2ac1cb0e2ff9ccfd29159ab9fff"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/raw/logs/EXP-008_dmd_eval_prefill.log": {
+      "bytes": 14220,
+      "sha256": "abcb18bf4603b5634cd33b92bd3b2feec1b52f71ed2661b7a4d50bd685f8bd61"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/artifacts/raw/prefill_0_12.json": {
+      "bytes": 3132,
+      "sha256": "0504015f799850fa6f0ac5c0dca4ce016f26ca45a21ef2a891597fcb680fc70c"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/cpu_preflight.log": {
+      "bytes": 633,
+      "sha256": "861f0208a26d76911dac5cf81dd6bd3945411b50b70372d5fed6ae9bab5f3e80"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/failure_comparison_manifest.json": {
+      "bytes": 643,
+      "sha256": "86abddc0b6ab04510f817fe9993900542cfa7ab167086ef00594ad8038513014"
+    },
+    "submission/experiments/EXP-008_v3_dmd/dmd_eval/failure_latent_diagnostic.json": {
+      "bytes": 1786,
+      "sha256": "51918787da622c6675be65dcf66167bc8d6539125ce589171aba4a4e23f958a9"
+    }
+  },
+  "external_checkpoint": {
+    "dmd_qkv": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_08/student_qkv.pt",
+      "sha256": "49534764770bd2cdc182624bd6f1c947daed1406824cc201b52d01897015bc06"
+    },
+    "dmd_target": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_08/student_target.pt",
+      "sha256": "ad5bce068b92653d1b84946fef1377d3ed264e9b9c0f0cb320f9aec40efb6130"
+    },
+    "dmd_state": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_08/trainer_state.pt",
+      "sha256": "f83524a2da23821b0bb4040a660b5dfeaf79328f97a2cb23d8b5e51f494f0d3f"
+    }
+  },
+  "unrun": [
+    "AD C2 complete video",
+    "AA C3",
+    "AD C3"
+  ]
+}

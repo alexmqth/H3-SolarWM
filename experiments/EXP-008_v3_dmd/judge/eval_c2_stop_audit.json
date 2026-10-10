@@ -1,0 +1,83 @@
+{
+  "task": "EXP-008/v2-DMD8-EVAL",
+  "checkpoint_cycle": 8,
+  "independent_audit_passed": true,
+  "forwards_started_or_reserved": 16,
+  "sampling_reserved": 14,
+  "sampling_completed": 13,
+  "interrupted_sampling": 1,
+  "commits": 2,
+  "vae": 1,
+  "updates": 0,
+  "cancelled_stages": [
+    "AA third",
+    "AD third"
+  ],
+  "generation_verdict": "FAIL_AA_C2_SUSTAINED_COLLAPSE",
+  "AD_verdict": "INTERRUPTED_NO_COMPLETE_VIDEO",
+  "gpu_seconds": 205.10354804992676,
+  "gpu_hours": 0.05697320779164632,
+  "interrupted_AD_cost_included": true,
+  "max_allocated_gib_completed_stages": 25.96970510482788,
+  "rows": {
+    "C1": {
+      "sampling_seconds": null,
+      "commit_seconds": 14.397714334001648,
+      "decode_seconds": null,
+      "seconds": 28.351659794003353,
+      "flow": null,
+      "boundary_gray_MAD": null,
+      "inside_gray_MAD": null,
+      "cache_before": null,
+      "peak_allocated_gib": 25.61240577697754
+    },
+    "AA_C2": {
+      "sampling_seconds": 47.67969868799992,
+      "commit_seconds": 6.464019564999035,
+      "decode_seconds": 5.87051018600323,
+      "seconds": 113.1146577949985,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-008_v3_dmd_eval/AA/chunk_12_17.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": -0.02500009210780263,
+          "median": 0.11767684668302536,
+          "p05": -0.7178772836923599,
+          "p95": 0.21207640692591667,
+          "mean_abs": 0.24815183086320758
+        },
+        "vertical_flow_px": {
+          "mean": 0.05055020142390276,
+          "median": -0.005237000790657476,
+          "p05": -0.18316826969385147,
+          "p95": 0.601478673517704,
+          "mean_abs": 0.16508782280652667
+        },
+        "flow_magnitude_px": {
+          "mean": 0.7528456058353186,
+          "median": 0.3202115595340729,
+          "p05": 0.10729078017175198,
+          "p95": 2.354348301887512,
+          "mean_abs": 0.7528456058353186
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary_gray_MAD": 37.156620025634766,
+      "inside_gray_MAD": 27.84264373779297,
+      "cache_before": {
+        "index": 1,
+        "layer_count": 50,
+        "entries": [
+          [
+            0,
+            4680
+          ]
+        ],
+        "nbytes": 6799104000,
+        "commits": 50
+      },
+      "peak_allocated_gib": 25.96970510482788
+    }
+  },
+  "scope": "Shared FM8 C1; matched history in AA C2 only. AD interrupted, not evaluated. C3 cancelled after sustained visual collapse. Audit verifies provenance and execution, not generation success."
+}
