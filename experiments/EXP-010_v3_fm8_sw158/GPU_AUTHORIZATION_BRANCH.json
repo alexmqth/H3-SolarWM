@@ -1,0 +1,25 @@
+{
+  "approved": true,
+  "task": "EXP-010/v1-FM8-SWG",
+  "phase": "branch",
+  "source_manifest_sha256": "c5be2dd41bb6b755f84ea5dea7580c0734f803177e8f57217a34380a666d41b1",
+  "allowed_stages": [
+    "C7",
+    "C8"
+  ],
+  "allowed_paths": [
+    "A",
+    "D"
+  ],
+  "gpu": 0,
+  "additional_forwards": 34,
+  "additional_sampling": 32,
+  "additional_commits": 2,
+  "additional_vae": 4,
+  "total_task_max_forwards": 62,
+  "total_task_max_vae": 7,
+  "total_task_gpu_hours": 0.75,
+  "max_allocated_gib": 44,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "stop_conditions": "No retry or extra chunks. Stop a branch after sustained person/scene collapse. Ordinary defects remain PARTIAL."
+}

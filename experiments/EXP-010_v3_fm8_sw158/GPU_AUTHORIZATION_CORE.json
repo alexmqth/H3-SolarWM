@@ -1,0 +1,23 @@
+{
+  "task": "EXP-010/v1-FM8-SWG",
+  "approved": true,
+  "phase": "core",
+  "source_manifest_sha256": "c5be2dd41bb6b755f84ea5dea7580c0734f803177e8f57217a34380a666d41b1",
+  "allowed_stages": [
+    "commit_c3",
+    "C4",
+    "C5",
+    "C6"
+  ],
+  "gpu": 0,
+  "max_forwards": 28,
+  "max_sampling": 24,
+  "max_commits": 4,
+  "max_vae": 3,
+  "total_task_max_forwards": 62,
+  "total_task_max_vae": 7,
+  "total_task_gpu_hours": 0.75,
+  "max_allocated_gib": 44,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "stop_conditions": "No retry. Stop later launches on nonfinite/OOM/protocol error or persistent person/scene collapse. C7/C8 require separate Judge release after C6 review."
+}

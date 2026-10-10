@@ -1,0 +1,149 @@
+{
+  "task": "EXP-010/v1-FM8-SWG",
+  "sources": {
+    "runner": {
+      "path": "submission/experiments/EXP-010_v3_fm8_sw158/run_fm8_sw.py",
+      "sha256": "06cacdf66ae02b0fdf0c8c6b66b29faaedb616c5fd78311fab06e1f255658d5a"
+    },
+    "config": {
+      "path": "submission/experiments/EXP-010_v3_fm8_sw158/config.json",
+      "sha256": "98f61ebfb2a6e663480ded338316d11f77642e6d3a381d63920bbc1a02e33540"
+    },
+    "taskbook": {
+      "path": "submission/experiments/EXP-010_v3_fm8_sw158/taskbook_v1.md",
+      "sha256": "f5be12998c1e834737cff002ebedccc03b35ba5a293fbae7decba6d76b7b6573"
+    },
+    "long47": {
+      "path": "H3-World/outputs/EXP-005_v3_sliding_window/inputs/long47.pt",
+      "sha256": "2d2e078599c3467293efeade48c59cba06072ad5c1849a87bf447290e17427ab"
+    },
+    "long47_metadata": {
+      "path": "H3-World/outputs/EXP-005_v3_sliding_window/inputs/long47.json",
+      "sha256": "364ccdb172034c078b611de8c5c26052abbbe535bec3a361e5d629282d9f14ba"
+    },
+    "parking_A": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_A.pt",
+      "sha256": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572"
+    },
+    "parking_D": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_D.pt",
+      "sha256": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e"
+    },
+    "released_action_lora": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/checkpoints/H3-World/step-10000.safetensors",
+      "sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526"
+    },
+    "fm8_first12": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/first12.pt",
+      "sha256": "587fc19007ded256b356f44f26f42c6c943d51b5c186075d2c21bd02f74da232"
+    },
+    "fm8_AA_C2": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/AA/chunk_12_17.pt",
+      "sha256": "8ffa37813e52286ca4ebc9fd3fc9f316173746381767a68640ed3d3388294cc7"
+    },
+    "fm8_AA_C3": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/AA/chunk_17_22.pt",
+      "sha256": "1a90016dbcea4e579614ab4ea71280d1cf6cb5a38792466b6316cc0445d1a5d5"
+    },
+    "fm8_AA_cache17": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/AA/cache_through17.pt",
+      "sha256": "0682a1c928c5858ba12fa0878d510a181cdd93e758d9ced0a7a7f97f5ed1fb8c"
+    },
+    "fm8_AA_rgb73": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/AA/published_73.npy",
+      "sha256": "de12f58bfc490feff6f28dcd96c45e023a106fbd0f0617ffda0c480153333677"
+    },
+    "fm8_C1_metrics": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/chunk_0_12.json",
+      "sha256": "7c722fc00b0619b35bc3be0e013897f66c8b5e37c5ac33a91679d0f18b38d4e8"
+    },
+    "fm8_AA_C2_metrics": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/AA/chunk_12_17.json",
+      "sha256": "3cfbcd79ee28fdfaa059d6fe09c7165bdce7693e24d48a5973854ed2071ed66f"
+    },
+    "fm8_AA_C3_metrics": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/AA/chunk_17_22.json",
+      "sha256": "517d8ad4a71e2c239cdece4d18b48b45a48da09ec8d0db5495b288eb61bdf981"
+    },
+    "fm8_runner": {
+      "path": "submission/experiments/EXP-006_v3_fm8_full/run_fm8.py",
+      "sha256": "e56437a6bda08ae1f02687c05a3a1df4bf852a718c621c7a011bb9bab8bd27cb"
+    },
+    "rollout_contract": {
+      "path": "submission/experiments/EXP-001_v2b_124/rollout_contract.py",
+      "sha256": "79b6e672cf8d97ba57f3d62e876a0e0bd901f78654cb2c1f9766818378ef2377"
+    },
+    "sw_interval": {
+      "path": "submission/experiments/EXP-005_v3_sliding_window/interval_sw.py",
+      "sha256": "56bbd6229a9da44e00b4535f510028ba77c1709d66aff8ab2bea507990de9c17"
+    },
+    "sw_stage2_interval": {
+      "path": "submission/experiments/EXP-005_v3_sliding_window/stage2/interval_stage2.py",
+      "sha256": "df215fa7109ac2c11432793d4fc58b38363b4ebeee9182466e879dd5b9c84875"
+    },
+    "sw_long_builder": {
+      "path": "submission/experiments/EXP-005_v3_sliding_window/stage2/long_fixture.py",
+      "sha256": "d43376e43d523b92fca70fd2045742500e23f4e8f3502b3882edd00d77d89fb6"
+    },
+    "sw_plan": {
+      "path": "submission/experiments/EXP-005_v3_sliding_window/chunk_plan.py",
+      "sha256": "40e0cbfde20fcf3489e493f1c1dd6f5df76eacaa92229722f3fa10b9598b4e60"
+    },
+    "sw_positions": {
+      "path": "submission/experiments/EXP-005_v3_sliding_window/position_sw.py",
+      "sha256": "c1d26591521d0efc4dcef656bd57550ab9132f3f53aa5cafdbd3bfa11b871f97"
+    },
+    "prefix_feedback": {
+      "path": "submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py",
+      "sha256": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310"
+    },
+    "cached_attention": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_cached.py",
+      "sha256": "629f8f26d912c188d7d7122c6106ff742f5b2a633dab5881acbb1eb5f77c806e"
+    },
+    "local_topology": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/local_topology.py",
+      "sha256": "ab09f33c4e847adc3d67f14c6de26cd3bd963402b79114875104816abd4a2f93"
+    },
+    "video_schedule": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/anyflow_sampling.py",
+      "sha256": "9e4202bb00e528115901bc07975d0ef78f3fc1cc91190aa58bfd19ade4ecfd46"
+    },
+    "precision": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_precision.py",
+      "sha256": "ef037a952c6a1ed54c92e06300bcc8abb615424131edd74aef55abee8699cfc2"
+    },
+    "benchmark_video": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/benchmark.py",
+      "sha256": "f7cf78f3af07877dee03176ea23bf422390ba9c33af183ccfae3ac23984aa7a4"
+    },
+    "action_flow": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/evaluate_action_control.py",
+      "sha256": "1f378333c207b2b2946e6bf762b3edbd32b6f01d6370ed854976329f51a1cf59"
+    },
+    "abot_infer": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/abot/infer.py",
+      "sha256": "ba6397fe2151a6f7b5d5ff3c3b425b1b9a6f0b8aaea6f51c6b7dca730c8f595a"
+    },
+    "h3_pipeline": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py",
+      "sha256": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b"
+    },
+    "h3_dit": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py",
+      "sha256": "68e9cb9336590fae7c53f2fac83c09aaf8d03fba1776777383a2b924eee40e38"
+    },
+    "h3_scheduler": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/diffusion/flow_match.py",
+      "sha256": "40e964e6d78b3123daed9530aed2ca78c3e1821db0d157f985861422481d71ce"
+    },
+    "transformer_config": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/config.json",
+      "sha256": "f619093a231fcfbcc3d035bec26c50ad864e7331a500d5c519f5045dc1e50458"
+    },
+    "transformer_index": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model.safetensors.index.json",
+      "sha256": "fb457a26ffa6294660e249b0ddd03a337f2e5393f770b5c34c8b8f90a29a7efb"
+    }
+  }
+}
