@@ -1,0 +1,29 @@
+{
+  "task": "EXP-005/v2",
+  "stage": "L1",
+  "approved": true,
+  "approval_scope": "execution and engineering evidence accepted; no further GPU stage authorized",
+  "verdict": "ENGINEERING_PASS_GENERATION_PARTIAL_NO_DEMONSTRATED_GAIN",
+  "approved_next_stage": null,
+  "cache_correctness": "PASS",
+  "action": "PASS_DIRECTION_WITHIN_TESTED_SCOPE; switching response retained; not mature control",
+  "visual_quality": "PARTIAL; recognizable primary body, repeated scene geometry/exposure jumps and ghosting, worse stability than Global in these outputs",
+  "candidate_decision": "retain independent evidence; do not promote over SW-G; stop current untrained Local direction without tuning/C9",
+  "fixed_history_diagnostic": {
+    "sigma": 0.5,
+    "action": "A",
+    "current_sha256": "e8f46ecc36c84838fcfccf0423c8ffb5331e5bf932e16ad46cef124e05ac14ed",
+    "history_cache_sha256": "e77008f40aac73d7c8d9a901f26cc154bc8b672e2ea6a7c324554744305583f3",
+    "max_abs": 2.0033419132232666,
+    "relative_RMS": 0.18251432478427887,
+    "global_velocity_RMS": 1.3803141117095947,
+    "local_velocity_RMS": 1.363618016242981,
+    "history_unchanged": true
+  },
+  "independent_audit": "../judge/L1_audit.json",
+  "visual_notes": "../judge/visual_notes.json",
+  "gpu_seconds": 1007.9685852527618,
+  "forwards": 124,
+  "vae": 4,
+  "peak_allocated_gib": 26.620508193969727
+}

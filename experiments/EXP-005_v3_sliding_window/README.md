@@ -1,24 +1,31 @@
-# EXP-005 / v1 — V3 sliding-window CPU protocol check
+# EXP-005：V3 Strict Causal KV 的 Sliding Window 验证
 
-**Execution: stage 1 completed (CPU only). Model capability: NOT_TESTED. Judge acceptance: accepted for the tested CPU scope; GPU remains unapproved.** This experiment prepares two independent candidates on the frozen V3 Baseline: SW-G keeps global positions and limits raw-video KV to five ancestor chunks; SW-L additionally remaps retained video positions to a native local window at read time. Neither candidate has produced a model video.
+**模型：** Original H3 + released action LoRA；没有新增训练、AnyFlow或DMD。本实验把V3 Baseline从124帧推进到真实窗口淘汰后的141/158帧，分别评估 Global RoPE (SW-G) 与读取时Local RoPE (SW-L)。原Baseline和全部旧结果保持冻结。
 
-The parent is the accepted Original H3 + released action LoRA, Single I0, current-prefix feedback, native FM 30-step strict causal KV path from [EXP-002](../EXP-002_native_cached/README.md) and [EXP-003](../EXP-003_native_cached_124/README.md). Its 124-frame result remains the reference; this CPU task does not alter it.
+## v1 CPU协议阶段（已由Judge验收）
 
-## What was checked
+先实现显式`12→5` latent分块、最近5祖先缓存审计，以及SW-G/SW-L独立入口。14项CPU测试通过；旧区间index2–5的attention数值和模型实参匹配冻结EXP-003入口，首淘汰后的结构性小张量测试通过。这只证实已测协议，不代表33B画面/动作质量。历史原版文档逐字节保存在[previous_stage1](stage2/previous_stage1/)；[v1 Judge结果](judge/FINAL_REVIEW.md)。
 
-- Explicit latent spans `[0,12), [12,17), …` and exact five-ancestor indices. At index 6, the first eviction changes history from chunks `0–4` to `1–5`; after index 7 it is `2–6`.
-- Frozen `H3ChunkCache` commits, layer completeness, row counts, capacity, sigma-0-only clean commit, cache identity during reads and append-only RGB stitching, using small CPU tensors.
-- For old indices 2–5, SW-G gives **exact CPU fp32 attention output** against the frozen EXP-003 interval function under the same toy inputs, monkeypatched lightweight model function, and `current_prefix_feedback()` context. The test also compares the actual model-call arguments: current, audio, prompt, anchor, packed positions/action rows, both timesteps, prefix-time flag, own-action routing, action feedback, frame start and prefix length. This is not a 33B-output regression.
-- SW-L uses the frozen H3 `(1,4,4,4,4)×5/3` temporal grid, leaves prefix coordinates untouched, changes only retained/current video coordinates after eviction, and stores canonical global RoPE in raw KV. Actual H3 MM-RoPE shows that changing video positions also changes video-to-prefix logits. It is not equivalent to recomputing past hidden states.
-- The real parking packed 37-latent input obeys the native grid and is physically trimmed to visible actions/video. Rebuilding a 42-latent packed sequence with the released builder moves old action/I0/video coordinates; it is **not** a safe long-input extension.
-- `interval_sw` now fails closed if the accepted external current-prefix feedback context is absent. Post-37 calls are restricted to CPU structural probes until a native long fixture and GPU authorization exist.
+## v2有限GPU阶段
 
-`OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 .venvs/h3world/bin/python -m pytest -q submission/experiments/EXP-005_v3_sliding_window/test_contract.py` → **14 passed in 4.24 s**. [Raw log](artifacts/cpu_tests.log). No 33B load, VAE, GPU forward, training, or video generation occurred.
+用户批准后按[冻结任务书v2](taskbook_v2.md)分G0→G1→L1执行；每一段独立锁预算和输入/源码SHA。30步native FM、Single I0、own-action与current-prefix feedback、sigma0 clean commit不改，全部使用真实自生成历史。47-latent长输入是[经审计的显式外推](stage2/long_fixture_review.json)：旧37latents及其prompt/position/noise不变，新增动作embedding与原生时间网格明确延伸；**它不等于H3默认full-length builder重打包**。
 
-## Decision and remaining blocker
+| 阶段 | 执行/验收 | 核心发现 | 限制 |
+| --- | --- | --- | --- |
+| [G0](stage2/G0_RESULT.md) | 已执行，Judge PASS | 旧/新同状态velocity和C6 endpoint完全相等；124RGB逐像素相等 | 淘汰前回归，不是新能力 |
+| [G1 SW-G](stage2/G1_RESULT.md) | 已执行，Judge有限可行性PASS、质量PARTIAL | 真正淘汰C1后A/D C7方向相反；两路均续到158帧 | 块边界跳变、A短暂重影、D-C8持续半透明残影；单场景seed |
+| [L1 SW-L](stage2/L1_RESULT.md) | Judge接受工程/执行证据，画质PARTIAL；不升级 | 同状态Local位置使velocity relative RMS改变0.1825；A/D方向仍可辨 | 四段帧内MAD约9–10，高于G1的约4.6–4.9；透视、亮度和残影问题，无视觉收益证据 |
 
-CPU implementation correctness is supported only within the tested scope. A certified >37-latent native conditioning fixture is still missing. The new action embeddings/rows and positions must extend the original 37-latent document without moving its old text, I0, audio, video, or action coordinates; the old prompt embeddings and first 37 noise latents must also be identical. A structural toy layout cannot satisfy this model-input requirement. The stage-two runner must implement and audit that extension before any post-37 GPU call. The draft [GPU plan](GPU_PLAN.md) is **not authorized**; this task's GPU budget remains zero. The future proposal uses one GPU and caps project usage at three; historical eight-card availability is not renewed by this report.
+G1同一C6历史下C7 A/D的水平光流为`+0.819 / −1.575 px/帧`；C8接各自历史后为`+0.768 / −1.185`。L1同历史C7为`+1.120 / −0.598`，方向还在但分离度下降。flow只是运动代理，不能替代完整视频评估。G1使用123forward、4VAE、1068.666s、峰值allocated26.121GiB；L1为124forward、4VAE、1007.969s、峰值26.621GiB。两阶段工作量不同，不能当公平E2E速度对照。只有**历史video raw KV**被W5约束为14,164,800,000 bytes，完整prefix/RGB/latent与VAE成本不因此有界。
 
-See [PROTOCOL.md](PROTOCOL.md) for exact conditions, [MANIFEST.md](MANIFEST.md) for source hashes and provenance, [metrics.json](metrics.json) for machine-readable stage-one status, and [FUTURE_ANYFLOW.md](FUTURE_ANYFLOW.md) for a separate future study. Neither AnyFlow nor DMD is part of EXP-005 stage one.
+观看：[G1 A继续 vs D切换，158帧并排](artifacts/stage2/G1/G1_A_vs_D_158.mp4) · [G1-vs-L1 A](artifacts/stage2/L1/G1_vs_L1_A_158.mp4) · [G1-vs-L1 D](artifacts/stage2/L1/G1_vs_L1_D_158.mp4)。原始大型CPU KV与latent保持在`H3-World/outputs/EXP-005_v3_sliding_window/`，不复制到提交目录；精选视频及小型日志归档于`artifacts/stage2/`供GitHub查看，逐文件hash见`artifact_manifest_stage2.json`。
 
-[Judge final review](judge/FINAL_REVIEW.md): independent rerun **14 passed in 3.74 s**. Worker snapshots preserve the original submission, including a scheduling-date ambiguity corrected in the Judge review.
+## 文件与复现入口
+
+- [stage2目录](stage2/)：G0/G1/L1独立runner、冻结配置、授权、source manifests、实际结果与Judge审核。授权文件绑定runner/config/manifest SHA；任何阶段失败均计入预算，不自动重试。
+- [协议](PROTOCOL.md)、[manifest](MANIFEST.md)、[机器指标](metrics.json)、[Worker完整报告](worker_report_v2.md)。
+- 冻结V3参考：[EXP-002](../EXP-002_native_cached/README.md)、[EXP-003](../EXP-003_native_cached_124/README.md)。
+
+当前所有生成结论只覆盖停车场seed13及特定A持续/切D路径。工程正确、动作响应、视觉稳定与效率分别报告；G1可行性成立不意味着成熟长视频或总体E2E加速。L1的Local重映射仍冻结历史hidden states，不等价于历史重算；现有视频没有证明其改善了G1。Judge已停止本轮Local调参/C9，后续需独立任务授权。
+
+[Judge阶段二最终审核](judge/STAGE2_FINAL_REVIEW.md) · [完整协议与风险](judge/STAGE2_PROTOCOL.md) · [总资源账本](judge/stage2_summary.json)

@@ -1,4 +1,6 @@
-# EXP-005 CPU protocol and GPU handoff
+# EXP-005 protocol: frozen CPU stage and separately authorized GPU stage
+
+This document preserves the v1 CPU contract. The executable v2 GPU authorization is [next_plan.md](../../../next_plan.md), with per-stage SHA-bound authorizations and source manifests in [stage2](stage2/). The original v1 document is preserved byte-for-byte in [previous_stage1](stage2/previous_stage1/PROTOCOL.md).
 
 ## Frozen parent contract
 
@@ -20,4 +22,6 @@ Only history **video KV** is bounded by W5. Known action prefix, all retained la
 
 ## Handoff gate
 
-Before GPU work, produce a certified native >37 input fixture, frozen source/input/checkpoint hashes, exact hardware/backend and a separate approval with budget. G0 old-vs-SW-G same-state/full-model regression comes first; only then consider SW-G C7/C8. SW-L requires a separate decision after SW-G. [GPU_PLAN.md](GPU_PLAN.md) records draft forward/VAE/cost caps, stop rules and metrics, and is not executable authorization. The current authorization is zero GPU. The future proposal uses at most one card and caps project usage at three; historical eight-card availability is not renewed.
+Before GPU work, produce a certified native >37 input fixture, frozen source/input/checkpoint hashes, exact hardware/backend and a separate approval with budget. G0 old-vs-SW-G same-state/full-model regression comes first; only then consider SW-G C7/C8. SW-L requires a separate decision after SW-G. [GPU_PLAN.md](GPU_PLAN.md) is the original proposal, not executable authorization.
+
+**Historical v1 gate, now superseded:** the CPU phase had zero GPU authorization. The certified 47-latent fixture and the separately approved G0/G1/L1 v2 stages are recorded in [stage2/README.md](stage2/README.md), their `*_authorization.json` files, and their metered `result.json`/`budget.json` files. Later availability of more GPUs does not increase the frozen EXP-005/v2 limits or authorize C9, training, AnyFlow, or DMD.

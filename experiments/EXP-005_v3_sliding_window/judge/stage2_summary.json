@@ -1,0 +1,55 @@
+{
+  "task": "EXP-005/v2",
+  "execution": "completed",
+  "judge_decision": "accept SW-G finite feasibility; Local engineering accepted and generation partial, archive with no demonstrated gain",
+  "total_forwards": 281,
+  "vae": 9,
+  "training_updates": 0,
+  "gpu_seconds": 2385.7457106113434,
+  "gpu_hours": 0.6627071418364843,
+  "authorized_gpu_hours": 1.7,
+  "core_elapsed_seconds": 2909.478319168091,
+  "max_allocated_gib": 26.620508193969727,
+  "stages": [
+    {
+      "task": "EXP-005/v2",
+      "stage": "G0",
+      "first_start": 1791639647.621355,
+      "gpu": 0,
+      "diagnostic": 4,
+      "sampling": 30,
+      "total_forwards": 34,
+      "vae": 1,
+      "status": "complete_pending_judge_review",
+      "elapsed_seconds": 309.1113340854645
+    },
+    {
+      "task": "EXP-005/v2",
+      "stage": "G1",
+      "gpu": 0,
+      "first_start": 1791640164.3064444,
+      "sampling": 120,
+      "commit": 3,
+      "core_first_start": 1791639647.621355,
+      "total_forwards": 123,
+      "vae": 4,
+      "status": "complete_pending_judge_review",
+      "elapsed_seconds": 1068.665791273117
+    },
+    {
+      "task": "EXP-005/v2",
+      "stage": "L1",
+      "gpu": 0,
+      "first_start": 1791641549.131089,
+      "sampling": 120,
+      "commit": 2,
+      "diagnostic": 2,
+      "core_first_start": 1791639647.621355,
+      "total_forwards": 124,
+      "vae": 4,
+      "status": "complete_pending_judge_review",
+      "elapsed_seconds": 1007.9685852527618
+    }
+  ],
+  "further_GPU_authorized": false
+}

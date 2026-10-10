@@ -1,6 +1,6 @@
-# EXP-005 stage-one source manifest
+# EXP-005 source and evidence manifest
 
-SHA-256 values below are for the files read or produced by this CPU stage. They identify the exact frozen dependencies used by the tests; no weights or large cache files were copied here.
+The original v1 CPU manifest is preserved byte-for-byte in [previous_stage1/MANIFEST.md](stage2/previous_stage1/MANIFEST.md). SHA-256 values in the following table are for files read or produced by that CPU stage; no weights or large cache files were copied here.
 
 | Role | Source path (relative to GWM root) | SHA-256 |
 | --- | --- | --- |
@@ -18,4 +18,10 @@ SHA-256 values below are for the files read or produced by this CPU stage. They 
 | New interval entry | `submission/experiments/EXP-005_v3_sliding_window/interval_sw.py` | `56bbd6229a9da44e00b4535f510028ba77c1709d66aff8ab2bea507990de9c17` |
 | CPU contract tests | `submission/experiments/EXP-005_v3_sliding_window/test_contract.py` | `1902d88a07f727d3c1b0b757918833deb69ebb1b43fd751a04a7ff2c39638e87` |
 
-CPU test fixtures: frozen `H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_A.pt` (`675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572`) and `parking_D.pt` (`f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e`), loaded on CPU via `torch.load(weights_only=True)`; no new model checkpoint or generated video was produced. The accepted checkpoint and cache/endpoint paths remain documented in EXP-002/003. Stage two must create a separate input/checkpoint/noise hash manifest before any GPU execution.
+CPU test fixtures: frozen `H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_A.pt` (`675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572`) and `parking_D.pt` (`f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e`), loaded on CPU via `torch.load(weights_only=True)`; no new model checkpoint or generated video was produced in v1. The accepted checkpoint and cache/endpoint paths remain documented in EXP-002/003. At the v1 handoff, a separate input/checkpoint/noise hash manifest was required before any GPU execution; those v2 manifests are linked below.
+
+## v2 GPU stage manifests
+
+The separate SHA-bound source manifests are [G0](stage2/g0_source_manifest.json), [G1](stage2/g1_source_manifest.json) and [L1](stage2/l1_source_manifest.json). Each lists the exact input, released action LoRA, frozen runtime, runner, configuration and inherited evidence used for that stage. The corresponding [G0](stage2/g0_authorization.json), [G1](stage2/g1_authorization.json) and [L1](stage2/l1_authorization.json) authorizations bind the runner, configuration and manifest hashes. The 47-latent fixture and preservation checks are in [long_fixture_certificate.json](stage2/long_fixture_certificate.json) and [long_fixture_review.json](stage2/long_fixture_review.json).
+
+Raw GPU outputs remain in `H3-World/outputs/EXP-005_v3_sliding_window/{G0,G1,L1}/`; the per-stage `result.json` and `budget.json` are the authoritative machine measurements. The small JSON/log/image/video evidence is copied byte-for-byte to [artifacts/stage2](artifacts/stage2/) for the submission repository, with copied file hashes in `artifact_manifest_stage2.json`. The raw CPU KV and latent tensors remain in place and are not committed.

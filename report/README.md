@@ -8,8 +8,8 @@
 - [V2家族](v2/README.md)：[V2a RGB Anchor](v2/v2a_rgb_anchor/README.md)、[V2b Same-σ](v2/v2b_same_sigma_local_bidir/README.md)
 - **[V3家族与协议对照](v3/README.md)**：
   - [V3 Baseline：正式124帧参考](v3/v3_baseline/README.md)
-  - [V3-SW-G：Sliding Window + Global](v3/v3_sw_g/README.md)，优先候选
-  - [V3-SW-L：Sliding Window + Local](v3/v3_sw_l/README.md)，独立位置对照
+  - [V3-SW-G：Sliding Window + Global](v3/v3_sw_g/README.md)，158帧有限可行性通过
+  - [V3-SW-L：Sliding Window + Local](v3/v3_sw_l/README.md)，独立位置对照已归档，无已证实收益
 - [EXP-004：V3普通FM8步续写证据](v3/v3_baseline/8step_continuation/README.md)，首39帧借用30步，不代表全程FM8或AnyFlow。
 
 ## 直接展示
@@ -18,4 +18,8 @@
 
 [路线图](roadmap.md) · [比较边界](COMPARISON_PROTOCOL.md) · [指标](METRICS.md) · [讲稿](TALK_5MIN.md) · [下一步](02_next_steps/README.md)
 
-EXP-005当前仅授权CPU实现与验证；GPU阶段在单独任务书批准前不启动。普通FM减步、AnyFlow finite-map训练、DMD分别记录。当前单scene/seed与增量计时不能支持无限长稳定或完整公平E2E加速。
+EXP-005/v2已完成有限GPU验证，281forward/9VAE/0.662707GPU小时。SW-G优先保留，Local不升级；后续任务另行授权。普通FM减步、AnyFlow finite-map训练、DMD分别记录。当前单scene/seed与增量计时不能支持无限长稳定或完整公平E2E加速。
+
+## 新增158帧对照
+
+[SW-G A/D](../experiments/EXP-005_v3_sliding_window/artifacts/stage2/G1/G1_A_vs_D_158.mp4) · [Global/Local A](../experiments/EXP-005_v3_sliding_window/artifacts/stage2/L1/G1_vs_L1_A_158.mp4) · [Global/Local D](../experiments/EXP-005_v3_sliding_window/artifacts/stage2/L1/G1_vs_L1_D_158.mp4)。前124帧相同，C7同历史，C8各自历史；人物基本可辨，Local场景/亮度跳变更多。

@@ -1,0 +1,36 @@
+{
+  "task": "EXP-005/v2",
+  "stage": "G0",
+  "judge": "root",
+  "verdict": "PASS",
+  "approved": true,
+  "approved_next_stage": "G1",
+  "reviewed_at": "2026-10-10T21:46:49.612653+08:00",
+  "diagnostics": [
+    {
+      "state": "initial_noise",
+      "sigma": 1.0,
+      "max_abs": 0.0,
+      "relative_RMS": 0.0,
+      "allclose_1e-5": true
+    },
+    {
+      "state": "interpolated_half",
+      "sigma": 0.5,
+      "max_abs": 0.0,
+      "relative_RMS": 0.0,
+      "allclose_1e-5": true
+    }
+  ],
+  "endpoint_equal_independently_verified": true,
+  "all124_RGB_equal_independently_verified": true,
+  "decoded_video_frames": 124,
+  "fps": 24,
+  "total_forwards": 34,
+  "vae": 1,
+  "gpu_seconds": 309.1113340854645,
+  "gpu_hours": 0.08586425946818457,
+  "peak_allocated_gib": 25.597736835479736,
+  "generated_capability_extension": "none; baseline replay only",
+  "limitations": "G1 real eviction/action/quality still requires results"
+}

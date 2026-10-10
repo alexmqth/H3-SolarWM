@@ -1,0 +1,83 @@
+{
+  "task": "EXP-005/v2",
+  "certified_cpu": true,
+  "latent_stop": 47,
+  "source": {
+    "A": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_A.pt",
+      "sha256": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572"
+    },
+    "D": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_D.pt",
+      "sha256": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e"
+    }
+  },
+  "builder_sha256": "d43376e43d523b92fca70fd2045742500e23f4e8f3502b3882edd00d77d89fb6",
+  "torch_version": "2.10.0+cu128",
+  "history": "AA124 frozen EXP-003; actions A for latents 0:37 in both branches",
+  "current_actions": {
+    "A": "continue A from37",
+    "D": "switch to D from37"
+  },
+  "embedding_extension": "repeat saved final 10-row A/D span; exact equality verified for all37 source spans",
+  "video_origin": 786.0,
+  "action_origin": 585.0000000000001,
+  "action_video_lag": 200.9999999999999,
+  "positional_extension": "old coordinates byte-preserved; new video/action extend their original native grids with fixed lag",
+  "default_full_length_builder_equivalent": false,
+  "position_caveat": "new action temporal coordinates exceed old I0 origin; do not rebase I0/audio/text or claim default full-length builder equivalence",
+  "noise_extension_seed": 130005,
+  "noise_generator": "CPU torch.Generator, independent appended bfloat16 tensor",
+  "old_noise_sha256": "06227e8f825d76a113522daa4071d88b0d2c276cd82eb191f54c6c9914ccb124",
+  "extended_noise_sha256": "1b20c817593b815a16823e04303355be9d250dfe99ef0c8d107b4ddf5622821c",
+  "tail_noise_sha256": "9ed490160f992b9de8ca39b465bd530b14993beb5fd212f07810ccf8dae2fbf7",
+  "anchor_sha256": "fc127dbd0e5fd519298eae191f867fa0889a4bb9bbabd6f1adb5ede7cfe0f23b",
+  "audio_sha256": "1b0a8cdcbc61be98d06ee193c619b9439ef8529785eea8bd4d5393b2e0aa9a76",
+  "preeviction_regression": [
+    {
+      "stop": 12,
+      "packed_and_prompt_exact": true
+    },
+    {
+      "stop": 17,
+      "packed_and_prompt_exact": true
+    },
+    {
+      "stop": 22,
+      "packed_and_prompt_exact": true
+    },
+    {
+      "stop": 27,
+      "packed_and_prompt_exact": true
+    },
+    {
+      "stop": 32,
+      "packed_and_prompt_exact": true
+    },
+    {
+      "stop": 37,
+      "packed_and_prompt_exact": true
+    }
+  ],
+  "visible": {
+    "42": {
+      "prefix_rows": 1640,
+      "text_rows": 836,
+      "video_rows": 16380,
+      "position_sha256": "b662cd34e58a0af2a9d2a919b54a8a17a53aefc93a2137700b0112b7567b3615",
+      "A_prompt_sha256": "0f2693d852f41bc859e1f2b43baae7748ba3212b1189b7ca50a63fe32a560e32",
+      "D_prompt_sha256": "62ed087db2612e5f61ba3514a183ef084e58a2069779618a59e05a1c756ae08e"
+    },
+    "47": {
+      "prefix_rows": 1690,
+      "text_rows": 886,
+      "video_rows": 18330,
+      "position_sha256": "39ee122f8eb203941e7542143aec03a1954262cf5aa1de1edd0eb470d45de1da",
+      "A_prompt_sha256": "415481b773d9e3c2e2605988c0249ee3f58a4a9840067805c5c9dde775a88f01",
+      "D_prompt_sha256": "8e3f16fc9f140ba23f870bf70fcd174bda0eeb8211f1238e812446a59c922380"
+    }
+  },
+  "gpu_forwards": 0,
+  "fixture_path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-005_v3_sliding_window/inputs/long47.pt",
+  "fixture_sha256": "2d2e078599c3467293efeade48c59cba06072ad5c1849a87bf447290e17427ab"
+}

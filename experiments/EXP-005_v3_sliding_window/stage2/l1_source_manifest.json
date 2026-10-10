@@ -1,0 +1,163 @@
+{
+  "task": "EXP-005/v2",
+  "stage": "L1",
+  "sources": {
+    "long_fixture": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-005_v3_sliding_window/inputs/long47.pt",
+      "sha256": "2d2e078599c3467293efeade48c59cba06072ad5c1849a87bf447290e17427ab"
+    },
+    "long_fixture_metadata": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-005_v3_sliding_window/inputs/long47.json",
+      "sha256": "364ccdb172034c078b611de8c5c26052abbbe535bec3a361e5d629282d9f14ba"
+    },
+    "shared_cache_through37": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G1/cache_through37.pt",
+      "sha256": "fbb66c0aa4cd85416592e488444fb3133e265dd8f14f7bc21a3f6976c785b848"
+    },
+    "G1_A_cache_through42": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G1/A/cache_through42.pt",
+      "sha256": "e77008f40aac73d7c8d9a901f26cc154bc8b672e2ea6a7c324554744305583f3"
+    },
+    "G1_A_C8_endpoint": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G1/A/chunk_42_47.pt",
+      "sha256": "f0de707b206e9de9ae73dba68a547b9839bff0b401c60a847b26d3e347bd0068"
+    },
+    "C6_endpoint": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-003_native_cached_124/AA/chunk_32_37.pt",
+      "sha256": "f2cc4b1ac2e6a97aba239324eab2ced4879f00159b49623fe14c62fa5988c16f"
+    },
+    "prior_RGB_124": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-003_native_cached_124/AA/published_124.npy",
+      "sha256": "84fbbd2b8d4d72cd67e583542d2043f79634784dfe1d9de2779f4ac36ab171dd"
+    },
+    "baseline_C6_metrics": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-003_native_cached_124/artifacts/metrics/AA_chunk_32_37.json",
+      "sha256": "78f2ae334f238cd268892dd11a10d69a0e2c0656b0916c62b23abc7365bc02c6"
+    },
+    "released_lora": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/checkpoints/H3-World/step-10000.safetensors",
+      "sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526"
+    },
+    "interval_sw": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/interval_sw.py",
+      "sha256": "56bbd6229a9da44e00b4535f510028ba77c1709d66aff8ab2bea507990de9c17"
+    },
+    "interval_stage2": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/stage2/interval_stage2.py",
+      "sha256": "df215fa7109ac2c11432793d4fc58b38363b4ebeee9182466e879dd5b9c84875"
+    },
+    "chunk_plan": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/chunk_plan.py",
+      "sha256": "40e0cbfde20fcf3489e493f1c1dd6f5df76eacaa92229722f3fa10b9598b4e60"
+    },
+    "position_sw": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/position_sw.py",
+      "sha256": "c1d26591521d0efc4dcef656bd57550ab9132f3f53aa5cafdbd3bfa11b871f97"
+    },
+    "router": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py",
+      "sha256": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310"
+    },
+    "raw_KV": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_cached.py",
+      "sha256": "629f8f26d912c188d7d7122c6106ff742f5b2a633dab5881acbb1eb5f77c806e"
+    },
+    "infer": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/abot/infer.py",
+      "sha256": "ba6397fe2151a6f7b5d5ff3c3b425b1b9a6f0b8aaea6f51c6b7dca730c8f595a"
+    },
+    "h3_precision": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_precision.py",
+      "sha256": "ef037a952c6a1ed54c92e06300bcc8abb615424131edd74aef55abee8699cfc2"
+    },
+    "base_source_manifest": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-001_v2b_124/source_manifest_v3.json",
+      "sha256": "534d30144cd74d399a91e353dadf12a9ddf2b0d5e142847299ae7e8e1c068fff"
+    },
+    "g0_runner": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/stage2/g0_runner.py",
+      "sha256": "98d9c377f25f36fae87e9334ea0d671a7e734599d2f31d4e24a123eb8973bdea"
+    },
+    "g0_manifest": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/stage2/g0_source_manifest.json",
+      "sha256": "71e83b02af8a1cc094c6b4695829c0c95b73b2e25d6d642dc8c79679d91e2458"
+    },
+    "g0_result": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G0/result.json",
+      "sha256": "ed8e506a5993ee565a79494bb22fb7d37910f18fffe80ebf9cd53b0e0f52ac97"
+    },
+    "g0_budget": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G0/budget.json",
+      "sha256": "5e4afebed4d31497c1863d3c312d407aec23f91f20558f4d3c3c49b1c3255b8d"
+    },
+    "g0_review": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/stage2/g0_judge_review.json",
+      "sha256": "b0e08e8ad9271b33f67b8ff0195c5554ac184ec28e29d7275d2a0b7fe3b178e9"
+    },
+    "g1_runner": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/stage2/g1_runner.py",
+      "sha256": "e6aed1b050a31c34c8d07b8f3303c8aa3b17127590e65893c2c5dc76edebb1e4"
+    },
+    "g1_manifest": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/stage2/g1_source_manifest.json",
+      "sha256": "8c4a206a44f4b1f0ba5d71e425b374a8945e34aebf1e5df42f47574681415750"
+    },
+    "g1_result": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G1/result.json",
+      "sha256": "3f5e48a36cec89b833f5974f8b06965f541c4c6eda007f7227a46240db011e60"
+    },
+    "g1_budget": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G1/budget.json",
+      "sha256": "b9117f48f11f9dd1314659de670d02e9062b35a9b84e8b0e75097a7b24ecc4dd"
+    },
+    "g1_review": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/stage2/g1_judge_review.json",
+      "sha256": "d429f2f181d55ec3048addd631985b5d7a525cb615ef9821ef35e4f75cba0f16"
+    },
+    "long_fixture_review": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/stage2/long_fixture_review.json",
+      "sha256": "1b845cdf53d337d2d66235b4ff3c0175dad0f2f5275b3760c7f0560370bc280f"
+    },
+    "H3_dit": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py",
+      "sha256": "68e9cb9336590fae7c53f2fac83c09aaf8d03fba1776777383a2b924eee40e38"
+    },
+    "H3_pipeline": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py",
+      "sha256": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b"
+    },
+    "runner": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/stage2/l1_runner.py",
+      "sha256": "5d28308a2545476f647271a3d76acfc9a3ba2c03461489c32e1adc8740d6d7bf"
+    },
+    "config": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/stage2/l1_config.json",
+      "sha256": "c5f758c4404cb560fb4a5f3ca20b713d3adc05f1afb036f92261129c2342115f"
+    },
+    "C1_endpoint": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/11_causal_12_then5_selfhistory/states/first12_A.pt",
+      "sha256": "242a1db06bc3423fe21207af5d2ccf59c9f27f07c9d88f22ce9f77921f6b0eea"
+    },
+    "C2_endpoint": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-002_native_cached/AA/chunk_12_17.pt",
+      "sha256": "a9e4de472a9f715a30aae80753cc6a4c050d789d4900bc9a50b480fbb36bb715"
+    },
+    "C3_endpoint": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-002_native_cached/AA/chunk_17_22.pt",
+      "sha256": "58416cc576d7dcdf7ab6faf5d08159ca245f610ae28dc43a8a9b456d930ea9a0"
+    },
+    "C4_endpoint": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-003_native_cached_124/AA/chunk_22_27.pt",
+      "sha256": "4be95967493f1054e8cea5d5fee188e4e02e15d3e9fa8eff9687a5289f13e13e"
+    },
+    "C5_endpoint": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-003_native_cached_124/AA/chunk_27_32.pt",
+      "sha256": "c5e62bff3a2ee0803f1ae41af300c37c324a7808157cebbe183f7b9369330d24"
+    }
+  },
+  "source_history_tensor_sha256": "b952d2fcf92ec84d7975a8ffde29efb5687266f299e8b826957c62e35cd9ab17",
+  "core_first_start": 1791639647.621355,
+  "parent_G1_result_sha256": "3f5e48a36cec89b833f5974f8b06965f541c4c6eda007f7227a46240db011e60",
+  "long_fixture_certification_sha256": "364ccdb172034c078b611de8c5c26052abbbe535bec3a361e5d629282d9f14ba",
+  "created_utc": 1791641486.538711
+}

@@ -1,9 +1,15 @@
-# V3-SW-L — 独立研究候选
+# V3-SW-L — Sliding Window + Local RoPE
 
-**状态：CPU准备与验证；GPU生成能力未测试，未正式验收。**
+**EXP-005/v2已完成：工程/cache PASS，生成质量PARTIAL；当前无训练Local方向归档，不替代SW-G。** 正式V3 Baseline保持冻结。
 
-使用与SW-G相同的窗口与动作/时间/prefix协议，仅对可见video位置实施显式Sliding Local RoPE。冻结raw K/V不重算，不能声称与整段Local重算严格等价。
+保留SW-G的strict causal、persistent raw KV、最近5祖先、30步及全部原生条件，只改变video位置。C7/C8最老latent起点b=12/17；位置从Global `O+tau(j)`改为`O+tau(j-b)`，prefix保持Global，空间坐标不变。canonical Global metadata不表示历史隐藏状态来自Global；不等价于重算历史。此H3路径没有SolarWM camera PRoPE。
 
-当前任务为[EXP-005](../../../experiments/EXP-005_v3_sliding_window/README.md)。优先推进SW-G；SW-L不预设优于Global，不通过改prefix、时间或动作mask挽救结果。
+## 实际结果
 
-[阶段二GPU提案（未授权）](../../../experiments/EXP-005_v3_sliding_window/GPU_PLAN.md) · [未来FM8 / AnyFlow独立计划](../../../experiments/EXP-005_v3_sliding_window/FUTURE_ANYFLOW.md) · [V3总览](../README.md)
+- 同Global历史/动作/噪声开始，两条路径各到158帧；历史RGB不变，真实淘汰/全部50层精确indices/14,164,800,000 bytes KV检查通过。
+- A C7/C8 flow +1.120/+0.343，D −0.598/−1.269，动作方向信号仍在。
+- 人物可辨，但四段新增帧均有明显场景重排、亮度跳变或残影。相比Global没有动作/画质联合收益；不追加C9或调参。
+- 同G1-A C7历史、同C8 noisy state的Global/Local velocity relative RMS差异18.25%，历史不变。位置修改确实影响计算，不能称无损。
+- 单停车场seed13、158帧约6.58秒、零新训练。有限负结果不代表经过专门训练的Local路线永远无效。
+
+[Judge最终审核](../../../experiments/EXP-005_v3_sliding_window/judge/STAGE2_FINAL_REVIEW.md) · [完整协议](../../../experiments/EXP-005_v3_sliding_window/judge/STAGE2_PROTOCOL.md) · [A的Global/Local对比](../../../experiments/EXP-005_v3_sliding_window/artifacts/stage2/L1/G1_vs_L1_A_158.mp4) · [D对比](../../../experiments/EXP-005_v3_sliding_window/artifacts/stage2/L1/G1_vs_L1_D_158.mp4) · [V3总览](../README.md)

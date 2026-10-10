@@ -1,0 +1,21 @@
+{
+  "task": "EXP-005/v2",
+  "stage": "L1",
+  "gpu": 0,
+  "paths": ["A", "D"],
+  "seed": 13,
+  "partition": [12, 5, 5, 5, 5, 5, 5, 5],
+  "history_chunks": 5,
+  "steps": 30,
+  "flow_shift": 2.22,
+  "precision": "h3_fp32",
+  "max_sampling": 120,
+  "max_commit": 2,
+  "max_diagnostic": 2,
+  "max_forwards": 124,
+  "max_vae": 4,
+  "max_gpu_seconds": 2520,
+  "max_elapsed_seconds": 2520,
+  "max_allocated_gib": 44,
+  "output_root": "/home/qma/work/GWM/H3-World/outputs/EXP-005_v3_sliding_window/L1"
+}

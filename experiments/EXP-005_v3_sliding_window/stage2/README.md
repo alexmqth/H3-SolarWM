@@ -1,0 +1,15 @@
+# EXP-005/v2: finite GPU validation of V3 sliding-window candidates
+
+This directory keeps the authorized GPU-stage code, frozen inputs, budgets and reviews separate from the accepted [v1 CPU stage](previous_stage1/README.md). The model is Original H3 with the released action LoRA; there is **no new training, AnyFlow, or DMD**. Both candidates use native 30-step FM, Single I0, generated history, strict chunk causality and CPU persistent raw video KV. SW-G retains Global RoPE. SW-L changes video RoPE to a sliding local origin at read time, while storing canonical Global positions; this does not recompute historical hidden states.
+
+The 47-latent extension is [certified](long_fixture_review.json) to retain the original 37-latent conditions and extend action embeddings, time grid and noise explicitly. It is not claimed equivalent to rebuilding an arbitrary 158-frame full-length H3 packed input. All outputs cover the parking scene and seed 13 only.
+
+| Stage | Purpose | Frozen runner / authorization / input manifest | Result |
+| --- | --- | --- | --- |
+| G0 | Before-eviction regression against EXP-003 | [runner](g0_runner.py) · [authorization](g0_authorization.json) · [manifest](g0_source_manifest.json) | [result](G0_RESULT.md) · [Judge review](g0_judge_review.json) |
+| G1 | Real W5 eviction, SW-G A/D continuations to 158 RGB frames | [runner](g1_runner.py) · [authorization](g1_authorization.json) · [manifest](g1_source_manifest.json) | [result](G1_RESULT.md) · [Judge review](g1_judge_review.json) |
+| L1 | Matched SW-L position comparison and A/D continuations | [runner](l1_runner.py) · [authorization](l1_authorization.json) · [manifest](l1_source_manifest.json) | [Worker result](L1_RESULT.md) · [Judge review](l1_judge_review.json): engineering PASS, quality PARTIAL, no Local gain |
+
+The runnable Local entry is [interval_stage2.py](interval_stage2.py); the accepted v1 [Global entry](../interval_sw.py) was not overwritten. [make_comparison.py](make_comparison.py) uses saved MP4s only and checks full decode. Original output is under `H3-World/outputs/EXP-005_v3_sliding_window/{G0,G1,L1}/`; small result files, logs and MP4s are copied byte-for-byte to [archived evidence](../artifacts/stage2/) for GitHub access. Large raw KV/latent tensors stay external, with their paths and hashes in the source manifests. The overall resource ceiling and stop rules are in [next_plan.md](../../../../next_plan.md), and actual execution belongs in the root [Worker report](../../../../report.md).
+
+G0's exact 124-frame regression verifies the unchanged pre-eviction path. G1 provides a limited post-eviction action and visual feasibility result, with visible boundary jumps and ghosting. L1's fixed-state velocity diagnostic is a mechanism measurement; full L1 videos retain A/D flow signs but show worse temporal appearance and no demonstrated quality gain over G1. Neither establishes mature long-horizon quality, generalized scenes, or full end-to-end acceleration. The [Judge protocol note](../judge/STAGE2_PROTOCOL.md) specifies the conditioning extension, Local position transformation and comparison limits.

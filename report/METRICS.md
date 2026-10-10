@@ -62,3 +62,12 @@ EXP-003186forward/6VAE/0.436741GPU-hours。AA后3块sampling148.45/176.43/200.42
 ## EXP-004：原权重8步续写73帧（2026-10-10）
 
 AA第二/第三块flow +0.780621/+0.978349，sampling70.869/37.764秒；AD −1.509824/−0.732276，sampling40.524/42.510秒。32sampling+2commit=34forward，4VAE，0训练；466.01794 GPU秒（0.129449 GPU小时），峰值allocated25,682.07MiB。首39帧复用30步生成历史，本轮只统计续写成本。单次旧30步对比与质量缺陷见[8步证据](v3/v3_baseline/8step_continuation/README.md)，不作完整E2E速度比。
+
+
+## EXP-005/v2：Sliding Window有限GPU验证
+
+G0 34forward/1VAE/309.111s；G1 123/4/1068.666s；L1 124/4/1007.969s。总281forward、9VAE、0.662707GPU小时、0训练，单L40。峰值allocated26.621GiB。每份有效历史video KV固定14,164,800,000 bytes（13.19GiB）；G1/L1进程RSS峰值约91,512/104,275MiB，不能把KV容量当整个系统内存。
+
+Global A-C7/C8 flow +0.819/+0.768，D −1.575/−1.185；Local +1.120/+0.343、−0.598/−1.269。同历史固定C8 velocity相对RMS差异18.25%。SW-G有限可行性通过、quality PARTIAL；Local场景/亮度更不稳定，无已证实收益。C7同历史，C8各自历史，前124复用；不作全片E2E速度或跨条件质量排名。
+
+[逐块成本与独立审核](../experiments/EXP-005_v3_sliding_window/judge/STAGE2_FINAL_REVIEW.md)

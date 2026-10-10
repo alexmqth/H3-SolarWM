@@ -1,0 +1,100 @@
+{
+  "action": "D",
+  "index": 7,
+  "interval": [
+    42,
+    47
+  ],
+  "RGB_interval": [
+    141,
+    158
+  ],
+  "status": "complete_pending_judge_review",
+  "position_mode": "sliding_local",
+  "local_oldest_latent": 17,
+  "canonical_rope_note": "canonical Global RoPE tags do not imply Global hidden-state lineage",
+  "raw_KV_provenance": "G1_Global_C3-C6_plus_L1_D_C7",
+  "sampling_forwards": 30,
+  "commit_forwards": 0,
+  "vae_calls": 1,
+  "cache_before": {
+    "index": 7,
+    "ancestors": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "latent_spans": [
+      [
+        17,
+        22
+      ],
+      [
+        22,
+        27
+      ],
+      [
+        27,
+        32
+      ],
+      [
+        32,
+        37
+      ],
+      [
+        37,
+        42
+      ]
+    ],
+    "rows_per_layer": 9750,
+    "layer_count": 50,
+    "nbytes": 14164800000,
+    "commits": 350
+  },
+  "noise_sha256": "b7b0f26964193d47587a3f5248b772a81d2c93ff0f6df184a1d188cfdf37b53d",
+  "prompt_sha256": "8e3f16fc9f140ba23f870bf70fcd174bda0eeb8211f1238e812446a59c922380",
+  "position_sha256": "39ee122f8eb203941e7542143aec03a1954262cf5aa1de1edd0eb470d45de1da",
+  "history_sha256": "182ca86bb9f03d09c1f57b8469441094f398a4173a8ae49cf01e24889270cbd7",
+  "cpu_rss_mib_before": 104286.78125,
+  "peak_allocated_gib": 26.620508193969727,
+  "sampling_seconds": 203.9942813029993,
+  "cache_read_unchanged": true,
+  "endpoint_sha256": "85f52049656fb20baea3eac8b67f15e6c24edc5dbca5735c3aeca1b0088cb7c2",
+  "vae_seconds": 14.619594178002444,
+  "old_RGB_unchanged": true,
+  "boundary_gray_MAD": 10.301677703857422,
+  "inside_gray_MAD": 9.747300148010254,
+  "flow": {
+    "path": "/home/qma/work/GWM/H3-World/outputs/EXP-005_v3_sliding_window/L1/D/chunk_42_47.mp4",
+    "frames": 17,
+    "horizontal_flow_px": {
+      "mean": -1.2690576890017837,
+      "median": -0.9542178213596344,
+      "p05": -3.4137619137763977,
+      "p95": -0.11645178403705359,
+      "mean_abs": 1.269582104170695
+    },
+    "vertical_flow_px": {
+      "mean": -0.08391662908252329,
+      "median": -0.04719159658998251,
+      "p05": -0.48751477897167206,
+      "p95": 0.18249476328492165,
+      "mean_abs": 0.17048235179390758
+    },
+    "flow_magnitude_px": {
+      "mean": 1.4495759829878807,
+      "median": 0.9862455725669861,
+      "p05": 0.3539922907948494,
+      "p95": 3.9666797518730164,
+      "mean_abs": 1.4495759829878807
+    },
+    "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+  },
+  "published_RGB_sha256": "c0b973c955afd5a9404c4c913a03c62f6e7e806dd40204fb60a7c8cb4b6f3a6f",
+  "peak_reserved_gib": 26.994140625,
+  "cpu_rss_mib_after": 101030.45703125,
+  "cpu_peak_rss_mib": 104275.015625,
+  "chunk_wall_seconds": 234.62144419900142
+}

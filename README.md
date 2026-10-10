@@ -4,7 +4,7 @@
 
 **已验收正式参考：[V3 Original Feasibility Baseline](mainline/v3/v3_baseline/README.md)**，严格因果/persistent raw KV/Global RoPE，AA/AD124帧有限可行性。画质与连续性仍PARTIAL。
 
-**当前：[EXP-005 V3 Sliding Window准备](experiments/EXP-005_v3_sliding_window/README.md)**。SW-G（Global）优先，SW-L（Local）独立候选；本轮仅CPU，GPU阶段等待Judge批准，不覆盖Baseline。
+**当前：[EXP-005 V3 Sliding Window结果](experiments/EXP-005_v3_sliding_window/README.md)**。SW-G（Global）158帧有限可行性通过，画质PARTIAL；SW-L工程通过但无已证实收益，当前无训练路线归档。281forward/9VAE/0.662707GPU小时，Baseline保持冻结。
 
 - [汇报与视频](report/README.md) · [浏览器](report/index.html)
 - [V2家族](report/v2/README.md)：RGB Anchor / Same-σ

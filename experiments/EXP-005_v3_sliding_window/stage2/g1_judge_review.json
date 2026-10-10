@@ -1,0 +1,31 @@
+{
+  "task": "EXP-005/v2",
+  "stage": "G1",
+  "approved": true,
+  "verdict": "PASS_FINITE_FEASIBILITY_QUALITY_PARTIAL",
+  "approved_next_stage": "L1",
+  "independent_audit": "../judge/G1_audit.json",
+  "visual_evidence": "../judge/visual_notes.json",
+  "scope": "single parking scene seed13, same AA124 history, A continuation/D switch, C7-C8 through158 RGB",
+  "cache_correctness": "PASS: actual eviction, exact recent5 indices all50layers, immutable sampling cache and published RGB; KV14164800000 bytes",
+  "action": "PASS within tested scope; opposite A/D flow and scene motion, first-new-chunk switch response",
+  "visual_quality": "PARTIAL: boundary jumps, short A ghosting, sustained translucent trail in D C8; primary body/scene remain usable",
+  "gpu_seconds": 1068.665791273117,
+  "forwards": 123,
+  "vae": 4,
+  "peak_allocated_gib": 26.120702743530273,
+  "next_limits": {
+    "stage": "L1",
+    "forwards": 124,
+    "vae": 4,
+    "gpu_seconds": 2520,
+    "gpu_count": 1,
+    "C9_authorized": false
+  },
+  "limitations": [
+    "Not unlimited rollout validation",
+    "History video KV only is bounded",
+    "No full-system constant memory or speedup claim",
+    "Baseline frozen and not replaced"
+  ]
+}

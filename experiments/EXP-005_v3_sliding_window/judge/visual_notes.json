@@ -1,0 +1,70 @@
+{
+  "G1_A_C7": {
+    "reviewed_frames": "RGB122-140; all17 newframes plus two baseline boundary frames",
+    "basic_structure": "PASS_feasibility",
+    "observation": "single intact person and coherent garage; ordinary posture/limb-detail boundary change; no sustained disintegration or obvious persistent duplicate body",
+    "action_proxy": 0.819305766839534,
+    "direction": "continues prior A-direction scene motion",
+    "quality": "PARTIAL; not mature quality",
+    "decision": "continue scheduled C8 and D path"
+  },
+  "G1_A_C8": {
+    "reviewed_frames": "RGB139-157; all17 newframes plus boundary",
+    "basic_structure": "PASS_feasibility",
+    "observation": "single person and coherent garage; RGB141-144 boundary posture jump with short limb/color ghosting, then recovers; no sustained disintegration",
+    "action_proxy": 0.7675920355832204,
+    "direction": "A-direction scene motion retained",
+    "quality": "PARTIAL_boundary_ghosting",
+    "decision": "continue scheduled D path; no C9 needed to see recovery"
+  },
+  "G1_D_C7": {
+    "reviewed_frames": "RGB122-140; all17 newframes plus boundary",
+    "basic_structure": "PASS_feasibility",
+    "observation": "single intact person and coherent garage; immediate camera/posture discontinuity at action-switch boundary, otherwise structure maintained; no sustained disintegration",
+    "action_proxy": -1.5745033491402864,
+    "direction": "opposite scene-motion direction vs same-history A; switching response visible in first new chunk",
+    "quality": "PARTIAL_switch_boundary",
+    "decision": "continue scheduled D C8"
+  },
+  "G1_D_C8": {
+    "reviewed_frames": "RGB139-157; all17 newframes plus boundary",
+    "basic_structure": "PASS_feasibility",
+    "observation": "Primary person remains single/intact and garage coherent. Boundary posture jump and conspicuous translucent trailing silhouette persist through much of C8; ghosting is more sustained than A. No primary-body disappearance or scene collapse.",
+    "action_proxy": -1.185294617433101,
+    "direction": "D-direction maintained, opposite A",
+    "quality": "PARTIAL_persistent_ghosting",
+    "decision": "accept finite feasibility; run planned Local comparison; no C9 or tuning"
+  },
+  "L1_A_C7": {
+    "reviewed_frames": "RGB122-140; all17 newframes plus boundary",
+    "basic_structure": "PARTIAL_scene_instability",
+    "observation": "Person remains recognizable, but stronger scene/perspective jumps, duplicated garage geometry and exposure flicker than G1-A. Abrupt intra-chunk change at RGB136 with bright/green border artifact. No demonstrated visual gain.",
+    "action_proxy": 1.1203706490341574,
+    "quality": "PARTIAL_stronger_scene_discontinuity",
+    "decision": "continue bounded scheduled C8/D comparison, no tuning"
+  },
+  "L1_A_C8": {
+    "reviewed_frames": "all17 newframes plus two boundary frames",
+    "basic_structure": "PARTIAL_scene_instability",
+    "observation": "Recognizable person; repeated garage geometry persists, exposure/color flicker and abrupt intra-chunk scene changes around RGB141/153. No visual advantage over G.",
+    "action_proxy": 0.3429173973854631,
+    "quality": "PARTIAL_repeated_scene_flicker",
+    "decision": "archive independent candidate; no further untrained Local tuning"
+  },
+  "L1_D_C7": {
+    "reviewed_frames": "all17 newframes plus two boundary frames",
+    "basic_structure": "PARTIAL_scene_instability",
+    "observation": "D response visible and main body recognizable, but garage geometry reshuffles, prominent exposure flicker at RGB124/136; unstable background across chunk.",
+    "action_proxy": -0.5976813398301601,
+    "quality": "PARTIAL_repeated_scene_flicker",
+    "decision": "archive independent candidate; no further untrained Local tuning"
+  },
+  "L1_D_C8": {
+    "reviewed_frames": "all17 newframes plus two boundary frames",
+    "basic_structure": "PARTIAL_scene_instability",
+    "observation": "D scene-motion direction persists; subject recognizable with translucent/colored limb residue. Repeated scene/perspective discontinuities and exposure flash around RGB141/153. No stable quality gain.",
+    "action_proxy": -1.2690576890017837,
+    "quality": "PARTIAL_repeated_scene_flicker",
+    "decision": "archive independent candidate; no further untrained Local tuning"
+  }
+}

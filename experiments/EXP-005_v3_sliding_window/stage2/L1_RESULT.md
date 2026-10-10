@@ -1,0 +1,22 @@
+# EXP-005/v2 L1 — SW-L read-time Local RoPE, finite A/D continuation
+
+**Worker execution complete; Judge accepted execution and engineering evidence, with generation quality PARTIAL and no demonstrated Local gain.** L1 used the same certified 47-latent extension, released action LoRA, native 30-step FM and G1's clean-committed C6 Global cache. C7 A and D start from that same generated C6 history and newly appended noise. Each path then clean-commits its own Local C7 and generates Local C8 from its own history. The retained five-ancestor caches are `[1,2,3,4,5]` for C7 and `[2,3,4,5,6]` for C8 in all 50 layers. The shared G1 cache remained unchanged. Historical hidden states were **not** recomputed under Local positions.
+
+Before rollout, a read-only diagnostic applied Global and Local video positions to the **same** G1-A C7 cache, C8 noisy state, A condition and sigma 0.5. Velocity `max_abs=2.00334`, relative RMS difference `0.18251`; history was unchanged. This verifies a substantial position-dependent numerical effect at the fixed state. It does not establish improved action or image quality.
+
+| Path / new RGB | Global flow (px/frame) | Local flow (px/frame) | Global / Local boundary gray MAD | Global / Local inside gray MAD | Local sampling seconds |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| A C7, 124–140 | +0.819 | +1.120 | 7.74 / 9.79 | 4.92 / 9.57 | 176.9 |
+| D C7, 124–140 | −1.575 | −0.598 | 14.37 / 10.66 | 4.78 / 9.04 | 192.6 |
+| A C8, 141–157 | +0.768 | +0.343 | 7.57 / 10.64 | 4.64 / 9.69 | 185.4 |
+| D C8, 141–157 | −1.185 | −1.269 | 16.97 / 10.30 | 4.94 / 9.75 | 204.0 |
+
+C7 same-history flow separation `A−D` is **1.718 px/frame Local**, versus **2.394 Global**. C8 pairs use their own C7 histories and are not fixed-state counterfactuals. The positive A and negative D flow signs remain, but Local does not improve the C7 separation. Flow is a horizontal-motion proxy, not a stand-alone action or visual-quality verdict.
+
+All four Local new chunks retain a recognizable person and parking-garage scene. In the complete new-frame contact sheets, Local C7 shows repeated/reconfigured garage geometry, strong brightness change and colored edge artifacts. A-C8 keeps visible floor/clothing/leg artifacts; D-C8 retains transient colored/transparent residue and altered perspective. The Local inside-chunk MAD is about twice Global's across all four chunks. Some Local boundary MAD values decrease, but the full images do not support calling that an overall visual improvement. The old RGB prefix is unchanged at both boundaries, and all G1/L1 A/D 158-frame MP4s plus both labeled comparisons decode fully at 24 fps, 832×480 per original side.
+
+Actual L1 resource use: **120 sampling + 2 clean commits + 2 read-only diagnostics = 124 full forwards**, **4 VAE decodes**, **1007.969 s** occupied on GPU0, peak allocated **26.621 GiB**, reserved **26.994 GiB**, peak process RSS **104,275 MiB**. Each valid five-ancestor historical video raw KV is **14,164,800,000 bytes**; this does not bound the entire process. G1 and L1 occupied times include different diagnostics, commit and I/O work and are not a controlled end-to-end speed comparison. There was no training, AnyFlow, DMD, C9 or retry.
+
+Evidence: [A Global-vs-Local comparison](../artifacts/stage2/L1/G1_vs_L1_A_158.mp4), [D Global-vs-Local comparison](../artifacts/stage2/L1/G1_vs_L1_D_158.mp4), [A full rollout](../artifacts/stage2/L1/A/rollout_158.mp4), [D full rollout](../artifacts/stage2/L1/D/rollout_158.mp4), [machine-readable result](../artifacts/stage2/L1/result.json), [budget](../artifacts/stage2/L1/budget.json), [source manifest](l1_source_manifest.json), [authorization](l1_authorization.json), [runner](l1_runner.py), [protocol distinction](../judge/STAGE2_PROTOCOL.md), [Judge review](l1_judge_review.json). Per-chunk JSON, 17-frame MP4 and full new-frame contact sheets are archived under `artifacts/stage2/L1/A/` and `L1/D/`; large latent and KV tensors remain external.
+
+This result is limited to the parking scene, seed 13, A continuation and D switch after a shared AA124 prefix. Local RoPE is an independent candidate, not a modification of the accepted V3 Baseline or an equivalent history recomputation. **Worker and Judge assessment:** the fixed-state position effect is real, but Local does not provide a demonstrated action/visual benefit under this protocol; retain SW-G as the stronger finite continuation evidence. The untrained Local direction is archived without C9 or tuning.

@@ -1,6 +1,8 @@
 # EXP-005：阶段二有限GPU验证提案
 
-**状态：DRAFT / NOT AUTHORIZED。当前GPU额度=0。** 本文给出可审核的上限，不因EXP编号存在、CPU通过或用户提出研究方向而自动生效。Judge需单独记录批准阶段、代码/config/input hash、起始时间及预算后才可启动。优先G，L独立放行；本轮不训练。
+**历史阶段一提案；已被用户批准后的[EXP-005/v2任务书](taskbook_v2.md)及stage2分阶段授权取代。** 以下保留原拟议预算与门槛；当前执行和结果见[实验入口](README.md)。
+
+原v1状态：DRAFT / NOT AUTHORIZED，GPU额度=0。 本文给出可审核的上限，不因EXP编号存在、CPU通过或用户提出研究方向而自动生效。Judge需单独记录批准阶段、代码/config/input hash、起始时间及预算后才可启动。优先G，L独立放行；本轮不训练。
 
 ## 1. 固定协议与输入就绪条件
 

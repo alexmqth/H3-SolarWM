@@ -1,0 +1,586 @@
+{
+  "task": "EXP-005/v2",
+  "stage": "G1",
+  "status": "complete_pending_judge_review",
+  "source_manifest_sha256": "8c4a206a44f4b1f0ba5d71e425b374a8945e34aebf1e5df42f47574681415750",
+  "authorization_sha256": "785d0aeca4536e2f6d8093d47328328f165f3b12e7786f5b48d9960ba862ec84",
+  "runner_sha256": "e6aed1b050a31c34c8d07b8f3303c8aa3b17127590e65893c2c5dc76edebb1e4",
+  "config_sha256": "e42c6c66045e73672da6987c258ff2627315f6520900aab6841670815d3e0b91",
+  "precision": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e"
+    }
+  },
+  "sigmas": [
+    1.0,
+    0.9847047729492188,
+    0.9688279418945313,
+    0.9523355102539063,
+    0.935191162109375,
+    0.9173554077148437,
+    0.898785400390625,
+    0.8794351196289063,
+    0.8592540893554688,
+    0.8381876831054688,
+    0.8161763916015625,
+    0.7931553344726563,
+    0.7690530395507813,
+    0.7437918701171875,
+    0.717285888671875,
+    0.6894410400390625,
+    0.6601530151367188,
+    0.629306640625,
+    0.5967742309570313,
+    0.5624136352539062,
+    0.5260662841796875,
+    0.48755487060546876,
+    0.44668011474609376,
+    0.40321749877929686,
+    0.3569131774902344,
+    0.30747921752929686,
+    0.25458717346191406,
+    0.19786099243164063,
+    0.13686807250976563,
+    0.07110826873779297,
+    0.0
+  ],
+  "environment": {
+    "torch": "2.10.0+cu128",
+    "torch_cuda": "12.8",
+    "gpu_name": "NVIDIA L40",
+    "sdpa_flash_enabled": true,
+    "sdpa_math_enabled": true,
+    "sdpa_mem_efficient_enabled": true,
+    "sdpa_cudnn_enabled": true
+  },
+  "chunks": [
+    {
+      "action": "A",
+      "index": 6,
+      "interval": [
+        37,
+        42
+      ],
+      "RGB_interval": [
+        124,
+        141
+      ],
+      "status": "complete_pending_judge_review",
+      "sampling_forwards": 30,
+      "commit_forwards": 1,
+      "vae_calls": 1,
+      "cache_before": {
+        "index": 6,
+        "ancestors": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "latent_spans": [
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 300
+      },
+      "noise_sha256": "f0e32a2157d2b8817f4912285a316b0a75fb4351efa8177c3c8b61a9eb58f781",
+      "prompt_sha256": "0f2693d852f41bc859e1f2b43baae7748ba3212b1189b7ca50a63fe32a560e32",
+      "position_sha256": "b662cd34e58a0af2a9d2a919b54a8a17a53aefc93a2137700b0112b7567b3615",
+      "history_sha256": "5a7573788a6779abcdca23c47c11c7c54c98a68b30e0b7adde22c2464ca09752",
+      "cpu_rss_mib_before": 60426.40625,
+      "peak_allocated_gib": 25.632312297821045,
+      "sampling_seconds": 177.57206274300552,
+      "cache_read_unchanged": true,
+      "endpoint_sha256": "89dda02b99b8f092165696582a9044eb063eb999733641095c5c9348c4580c53",
+      "commit_seconds": 7.877806721997331,
+      "cache_after_commit": {
+        "index": 7,
+        "ancestors": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "latent_spans": [
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ],
+          [
+            37,
+            42
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 350
+      },
+      "cache_after_commit_sha256": "e77008f40aac73d7c8d9a901f26cc154bc8b672e2ea6a7c324554744305583f3",
+      "vae_seconds": 13.9068998760049,
+      "old_RGB_unchanged": true,
+      "boundary_gray_MAD": 7.739538192749023,
+      "inside_gray_MAD": 4.919917583465576,
+      "flow": {
+        "path": "/home/qma/work/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G1/A/chunk_37_42.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": 0.819305766839534,
+          "median": 0.6870938539505005,
+          "p05": -0.0273959431797266,
+          "p95": 2.4151245951652527,
+          "mean_abs": 0.8753242832608521
+        },
+        "vertical_flow_px": {
+          "mean": 0.21666160406311974,
+          "median": 0.18546180427074432,
+          "p05": -0.2428637109696865,
+          "p95": 0.7428682148456573,
+          "mean_abs": 0.2979389109532349
+        },
+        "flow_magnitude_px": {
+          "mean": 1.1168307587504387,
+          "median": 0.9834758043289185,
+          "p05": 0.3576359748840332,
+          "p95": 2.48626571893692,
+          "mean_abs": 1.1168307587504387
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "published_RGB_sha256": "b8a8a3bcb6c0fedff00a151141bc4ae8f8a64982f1cdb39d5a609ae09738ddbb",
+      "peak_reserved_gib": 26.1328125,
+      "cpu_rss_mib_after": 84545.30078125,
+      "cpu_peak_rss_mib": 87529.06640625,
+      "chunk_wall_seconds": 245.25971011700312
+    },
+    {
+      "action": "A",
+      "index": 7,
+      "interval": [
+        42,
+        47
+      ],
+      "RGB_interval": [
+        141,
+        158
+      ],
+      "status": "complete_pending_judge_review",
+      "sampling_forwards": 30,
+      "commit_forwards": 0,
+      "vae_calls": 1,
+      "cache_before": {
+        "index": 7,
+        "ancestors": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "latent_spans": [
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ],
+          [
+            37,
+            42
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 350
+      },
+      "noise_sha256": "b7b0f26964193d47587a3f5248b772a81d2c93ff0f6df184a1d188cfdf37b53d",
+      "prompt_sha256": "415481b773d9e3c2e2605988c0249ee3f58a4a9840067805c5c9dde775a88f01",
+      "position_sha256": "39ee122f8eb203941e7542143aec03a1954262cf5aa1de1edd0eb470d45de1da",
+      "history_sha256": "3bffdc87ae716efbdbbfd30b23c09f8dad152cbaf0a813d294a8f2c2ffdcaa3a",
+      "cpu_rss_mib_before": 88816.84375,
+      "peak_allocated_gib": 26.05990505218506,
+      "sampling_seconds": 208.56139960000291,
+      "cache_read_unchanged": true,
+      "endpoint_sha256": "f0de707b206e9de9ae73dba68a547b9839bff0b401c60a847b26d3e347bd0068",
+      "vae_seconds": 15.416009447006218,
+      "old_RGB_unchanged": true,
+      "boundary_gray_MAD": 7.567498207092285,
+      "inside_gray_MAD": 4.64257287979126,
+      "flow": {
+        "path": "/home/qma/work/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G1/A/chunk_42_47.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": 0.7675920355832204,
+          "median": 0.6041915118694305,
+          "p05": 0.050353800412267447,
+          "p95": 2.093947023153305,
+          "mean_abs": 0.7675920355832204
+        },
+        "vertical_flow_px": {
+          "mean": 0.11569397489074618,
+          "median": 0.10147976502776146,
+          "p05": -0.12258667219430208,
+          "p95": 0.3825652301311493,
+          "mean_abs": 0.16888785280752927
+        },
+        "flow_magnitude_px": {
+          "mean": 1.0024483827874064,
+          "median": 0.8577459454536438,
+          "p05": 0.08742348849773407,
+          "p95": 2.3198389410972595,
+          "mean_abs": 1.0024483827874064
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "published_RGB_sha256": "099cef60905273375d880e46aa4e1b7c5b15cafbfa300cd386d348fd56ef9e34",
+      "peak_reserved_gib": 26.54296875,
+      "cpu_rss_mib_after": 85380.30078125,
+      "cpu_peak_rss_mib": 88748.80859375,
+      "chunk_wall_seconds": 241.51930575699953
+    },
+    {
+      "action": "D",
+      "index": 6,
+      "interval": [
+        37,
+        42
+      ],
+      "RGB_interval": [
+        124,
+        141
+      ],
+      "status": "complete_pending_judge_review",
+      "sampling_forwards": 30,
+      "commit_forwards": 1,
+      "vae_calls": 1,
+      "cache_before": {
+        "index": 6,
+        "ancestors": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "latent_spans": [
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 300
+      },
+      "noise_sha256": "f0e32a2157d2b8817f4912285a316b0a75fb4351efa8177c3c8b61a9eb58f781",
+      "prompt_sha256": "62ed087db2612e5f61ba3514a183ef084e58a2069779618a59e05a1c756ae08e",
+      "position_sha256": "b662cd34e58a0af2a9d2a919b54a8a17a53aefc93a2137700b0112b7567b3615",
+      "history_sha256": "5a7573788a6779abcdca23c47c11c7c54c98a68b30e0b7adde22c2464ca09752",
+      "cpu_rss_mib_before": 88947.44140625,
+      "peak_allocated_gib": 26.120702743530273,
+      "sampling_seconds": 208.4896887549985,
+      "cache_read_unchanged": true,
+      "endpoint_sha256": "a0cf865f863782acd3853d01751179058a737d03c0d48e4675d748517ad6dc9b",
+      "commit_seconds": 7.5884161929934635,
+      "cache_after_commit": {
+        "index": 7,
+        "ancestors": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "latent_spans": [
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ],
+          [
+            37,
+            42
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 350
+      },
+      "cache_after_commit_sha256": "0ac120f440fc43fcfb8609257cf6a88423edacd953e02ccfbd2574b7282ff700",
+      "vae_seconds": 14.611651605999214,
+      "old_RGB_unchanged": true,
+      "boundary_gray_MAD": 14.367156982421875,
+      "inside_gray_MAD": 4.777026653289795,
+      "flow": {
+        "path": "/home/qma/work/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G1/D/chunk_37_42.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": -1.5745033491402864,
+          "median": -1.1973432898521423,
+          "p05": -3.3811073303222656,
+          "p95": -0.20273945480585098,
+          "mean_abs": 1.5745033491402864
+        },
+        "vertical_flow_px": {
+          "mean": 0.4506537832785398,
+          "median": 0.36510033905506134,
+          "p05": 0.0716011943295598,
+          "p95": 1.0227168947458267,
+          "mean_abs": 0.4506537832785398
+        },
+        "flow_magnitude_px": {
+          "mean": 1.827419145964086,
+          "median": 1.3506113290786743,
+          "p05": 0.2528532035648823,
+          "p95": 4.222067475318909,
+          "mean_abs": 1.827419145964086
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "published_RGB_sha256": "2355feef3460ef78e57161ed84ba7060a2c73c25bf84c206dfef0ff205db2acb",
+      "peak_reserved_gib": 26.54296875,
+      "cpu_rss_mib_after": 88398.109375,
+      "cpu_peak_rss_mib": 91512.07421875,
+      "chunk_wall_seconds": 273.35879049600044
+    },
+    {
+      "action": "D",
+      "index": 7,
+      "interval": [
+        42,
+        47
+      ],
+      "RGB_interval": [
+        141,
+        158
+      ],
+      "status": "complete_pending_judge_review",
+      "sampling_forwards": 30,
+      "commit_forwards": 0,
+      "vae_calls": 1,
+      "cache_before": {
+        "index": 7,
+        "ancestors": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "latent_spans": [
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ],
+          [
+            37,
+            42
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 350
+      },
+      "noise_sha256": "b7b0f26964193d47587a3f5248b772a81d2c93ff0f6df184a1d188cfdf37b53d",
+      "prompt_sha256": "8e3f16fc9f140ba23f870bf70fcd174bda0eeb8211f1238e812446a59c922380",
+      "position_sha256": "39ee122f8eb203941e7542143aec03a1954262cf5aa1de1edd0eb470d45de1da",
+      "history_sha256": "0da9fdb532d22ceb972cd3554d82e380edcdfea6c5fc6e3452f9bb9840694dcc",
+      "cpu_rss_mib_before": 90702.296875,
+      "peak_allocated_gib": 26.120702743530273,
+      "sampling_seconds": 202.27505317199393,
+      "cache_read_unchanged": true,
+      "endpoint_sha256": "31ed42742218ee3d4a9084df728582b99f825afd4581c0011b891178d8bd26cd",
+      "vae_seconds": 14.440583700001298,
+      "old_RGB_unchanged": true,
+      "boundary_gray_MAD": 16.96818733215332,
+      "inside_gray_MAD": 4.944150447845459,
+      "flow": {
+        "path": "/home/qma/work/GWM/H3-World/outputs/EXP-005_v3_sliding_window/G1/D/chunk_42_47.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": -1.185294617433101,
+          "median": -1.1938233971595764,
+          "p05": -2.300631046295166,
+          "p95": -0.1868745405226946,
+          "mean_abs": 1.185294617433101
+        },
+        "vertical_flow_px": {
+          "mean": 0.05656761961290613,
+          "median": 0.03594014048576355,
+          "p05": -0.0038754161214455962,
+          "p95": 0.15783087722957134,
+          "mean_abs": 0.05770730134099722
+        },
+        "flow_magnitude_px": {
+          "mean": 1.290444124955684,
+          "median": 1.3394511342048645,
+          "p05": 0.22155235894024372,
+          "p95": 2.3445171415805817,
+          "mean_abs": 1.290444124955684
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "published_RGB_sha256": "f9b154e1c51297b843adf4e46267d10fd8cdeae8a365be3a82c1fb47a81ad767",
+      "peak_reserved_gib": 26.54296875,
+      "cpu_rss_mib_after": 88398.1328125,
+      "cpu_peak_rss_mib": 91512.07421875,
+      "chunk_wall_seconds": 234.09805758100265
+    }
+  ],
+  "cache_transfer_note": "CPU KV transfer is included in sampling_seconds; not separately timed",
+  "shared_C6_commit_seconds": 17.52065803399455,
+  "shared_C6_commit_cache": {
+    "index": 6,
+    "ancestors": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "latent_spans": [
+      [
+        12,
+        17
+      ],
+      [
+        17,
+        22
+      ],
+      [
+        22,
+        27
+      ],
+      [
+        27,
+        32
+      ],
+      [
+        32,
+        37
+      ]
+    ],
+    "rows_per_layer": 9750,
+    "layer_count": 50,
+    "nbytes": 14164800000,
+    "commits": 300
+  },
+  "shared_C6_cache_sha256": "fbb66c0aa4cd85416592e488444fb3133e265dd8f14f7bc21a3f6976c785b848",
+  "shared_cache_unchanged": true,
+  "frozen_parameters_unchanged": true,
+  "peak_allocated_gib": 26.120702743530273,
+  "peak_reserved_gib": 26.54296875,
+  "cpu_peak_rss_mib": 91512.07421875
+}

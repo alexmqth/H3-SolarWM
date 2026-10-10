@@ -8,13 +8,13 @@
 | 新训练 | 无 | 无 | 无 |
 | Strict causal / Persistent raw KV | 是 / 是 | 保持 | 保持 |
 | 历史窗口 | 已验收范围最多5个祖先 | 固定最近5个祖先 | 固定最近5个祖先 |
-| 历史淘汰 | 124帧结束前未触发验证 | 实际启用、待GPU验证 | 同左 |
+| 历史淘汰 | 124帧结束前未触发验证 | 已验收C7/C8真实淘汰 | 同左 |
 | Video位置 | Global RoPE | Global RoPE | 显式Sliding Local RoPE |
-| 超过6块 | 未验收 | 待测试，优先 | 待测试，独立对照 |
+| 超过6块 | 未验收 | 158帧有限可行性通过 | 158帧工程通过、生成PARTIAL |
 | 定位 | 正式参考、124帧有限可行性 | 检查真实淘汰与KV容量 | 检查位置外推和适配风险 |
 
 - [V3 Baseline：124帧正式证据](v3_baseline/README.md)
 - [V3-SW-G：Sliding Window + Global RoPE](v3_sw_g/README.md)
 - [V3-SW-L：Sliding Window + Local RoPE](v3_sw_l/README.md)
 
-EXP-005当前只授权CPU实现与验证，GPU阶段等待独立Judge批准。CPU结构/数值检查不等于33B视频能力验收。后续V3-FM8和V3-AF另立任务，普通FM减步与AnyFlow finite-map训练分别评价。
+EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留；SW-L有动作响应但重复场景/亮度跳变更多，无已证实收益，当前无训练方向归档。正式Baseline不变。后续V3-FM8和V3-AF另立任务，普通FM减步与AnyFlow finite-map训练分别评价。
