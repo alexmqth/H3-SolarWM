@@ -1,0 +1,28 @@
+{
+  "task": "EXP-014/v1",
+  "stage": "T2",
+  "approved": true,
+  "approved_by": "Judge",
+  "approved_at": "2026-10-10T23:46:17.796471+00:00",
+  "config_sha256": "0e33ce856a01590f8ce8f8e9ec76a066ee809db1d3fed737f6e31e6c34ddfcd2",
+  "source_manifest_sha256": "35a1da00c8bfc5b2cb73ba05364056164a75187e5422af9262524e1b56a95ebf",
+  "code_manifest_sha256": "5afe075f4db7e5b6b107ffabbfcd1feb408dbccd173649b6548c74f876173331",
+  "scenes": [
+    "s1_7199292c",
+    "s2_9dc2e588",
+    "s3_b784d995"
+  ],
+  "gpu_assignment": {
+    "s1_7199292c": 0,
+    "s2_9dc2e588": 1,
+    "s3_b784d995": 2
+  },
+  "max_gpu_seconds_per_scene": 1350,
+  "max_gpu_seconds_T2_total": 4050,
+  "sampling_forwards_T2_total": 270,
+  "commit_forwards_T2_total": 3,
+  "vae_decodes_T2_total": 9,
+  "training_updates": 0,
+  "T1_ledger_sha256": "34d0e85a85d4df609fc1e8ca295a963aa30c136881d6901d9b4df8c0fb5edbaa",
+  "next_gate": "Review every remaining scene before accepting teacher targets; no additional scenes, seeds, retries, training or C3"
+}

@@ -1,6 +1,6 @@
 # EXP-014/v1 — 四训练初图的原生V3 FM30教师目标
 
-2026-10-11，Judge。**当前只放行P0 CPU准备；P1编码和T1/T2生成各需Judge marker。新训练更新始终为0。** 用户夜间研究授权内的独立任务。正式V3、FM8、AF2结果保持冻结。
+2026-10-11，Judge。**当前状态：P0与P1已验收，T1首图已验收；T2余三图已获Judge marker，可在空闲GPU0/1/2并行生成。新训练更新始终为0。** 用户夜间研究授权内的独立任务。正式V3、FM8、AF2结果保持冻结。
 
 ## Research Track / Parent / Question
 
@@ -54,3 +54,7 @@ Judge独立CPU预检和实际runtime摘要核对PASS。已签发EXP-014/judge/P1
 ## P1通过与T1放行
 
 四native fixture Judge独立CPU审计PASS，12text/4image编码实际110.214GPU秒、峰40.578GiB。已签发T1_APPROVED.json，仅首图s0_43866101、GPU0、91forward/3decode/1350GPU秒。T2仍待第一图完整视觉和缓存验收；训练0。
+
+## T1通过与T2放行
+
+首图全部73张唯一帧观察（39+17+17）、实际50层KV及完整视频核查PASS，人物/场景/动作分叉有限可行，quality PARTIAL。91forward/3decode/532.261GPU秒。T2_APPROVED.json授权余三固定图，各91forward/3decode/1350秒，GPU0/1/2实时空闲时执行；无训练，逐图验收。

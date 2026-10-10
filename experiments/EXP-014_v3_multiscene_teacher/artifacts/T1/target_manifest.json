@@ -1,0 +1,26 @@
+{
+  "task": "EXP-014/v1",
+  "scene": "s0_43866101",
+  "quality_status": "pending_judge",
+  "generated_history": true,
+  "gt_reset": false,
+  "teacher_C1_latent": {
+    "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s0_43866101/FM30/first12.pt",
+    "sha256": "15fc16ff0f2a1236c6984f75fc9c05fcc6f3aafcbfea45f50352cd52a32dfca4"
+  },
+  "teacher_C1_rgb": {
+    "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s0_43866101/FM30/published_39.npy",
+    "sha256": "c763ae096f53f2922d1cd37492f0555f50948bd2edd01cc3cbac44bb4bf17899"
+  },
+  "teacher_C2_endpoint": {
+    "AA": {
+      "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/G2/s0_43866101/FM30/AA/chunk_12_17.pt",
+      "sha256": "ad2aa23703b2d8ad0c1c8eba59fb509efc211722579e578056f455498f7a454f"
+    },
+    "AD": {
+      "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/G2/s0_43866101/FM30/AD/chunk_12_17.pt",
+      "sha256": "e728265b9c8e7777281e5b7f06685549591f97bc66859e89e386a007c5df3645"
+    }
+  },
+  "student_history_rule": "reuse frozen teacher C1 latent; rebuild sigma0 KV under each current student weight"
+}

@@ -1,8 +1,8 @@
 # 当前项目进展
 
-更新：2026-10-11 07:25 HKT，Judge。当前为可行性验证阶段，ROI优先；接受明确边界下的PARTIAL，持续结构失败的配置停止归档。
+更新：2026-10-11 07:49 HKT，Judge。当前为可行性验证阶段，ROI优先；接受明确边界下的PARTIAL，持续结构失败的配置停止归档。
 
-**EXP-013已验收：24 clips/6 episodes的CPU来源、动作与split审计通过，四张训练初图冻结。当前任务EXP-014：四train初图的native V3 FM30教师目标；编码/生成须按阶段marker放行，训练更新为0。** EXP-012当前AF8 step32在两场景无联合迁移收益，停止扩展；普通FM8保留低成本对照。持续监督至2026-10-11 09:00 HKT。[当前任务书](next_plan.md)。
+**当前任务EXP-014：四train初图的native V3 FM30教师目标。P0/P1与首图T1均验收，余三图T2在GPU0/1/2并行生成，逐图审核，新训练0。** EXP-013数据审计已验收；EXP-012当前AF8 step32在两场景无联合迁移收益，停止扩展。普通FM8保留低成本对照。持续监督至2026-10-11 09:00 HKT。[当前任务书](next_plan.md)。
 
 ## 正式参考和研究结论
 
@@ -88,3 +88,9 @@ P0独立预检与真实runtime摘要PASS；GPU0 P1编码四train图已启动，1
 ## EXP-014 P1验收/T1已启动（07:37 HKT）
 
 四native fixture独立CPU验收PASS，12text/4image encode实际110.213939GPU秒，峰40.577766GiB，无重试。首图s0_43866101的FM30 C1+AA/AD C2已在GPU0运行，91forward/3decode/1350秒上限；余三图T2未放行，新训练0。[P1审核](submission/experiments/EXP-014_v3_multiscene_teacher/judge/P1_REVIEW_AND_T1_RELEASE.md)。P0代码与编码授权已发布`2244dbcfb84feba79dd8c18846febf0e6c4f8272`，远端核对一致。
+
+EXP-014 P1归档与首图授权已发布`928286da635119ef61e7411af1ddb4c82be70321`，12文件、远端main摘要核对一致；5份P1原始副本逐字节相等，6个报告链接有效。
+
+## EXP-014首图T1验收/余三图运行（07:49 HKT）
+
+首图39+17+17全帧及原分辨率检查通过，AA/AD flow辅助+42.147/−27.459，人物/场景可辨，teacher有限可用/quality PARTIAL。实际50层index0、同C1/noise/Global位置、旧39RGB不变与视频核查PASS。91forward/3decode/532.260704GPU秒，峰38.181200GiB。余三固定图T2已获marker并在GPU0/1/2独立并行，逐图验收；0训练。[T1审核](submission/experiments/EXP-014_v3_multiscene_teacher/judge/T1_REVIEW_AND_T2_RELEASE.md)。
