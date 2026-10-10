@@ -1,0 +1,29 @@
+{
+  "task": "EXP-012/v1",
+  "checkpoint_step": 32,
+  "seed": 13,
+  "height": 480,
+  "width": 832,
+  "native_horizon_latents": 37,
+  "partition": [12, 5],
+  "steps_per_chunk": 8,
+  "flow_shift": 2.22,
+  "precision": "h3_fp32",
+  "max_history": 5,
+  "gpu_allocated_cap_gib": 44,
+  "minimum_free_disk_gib": 60,
+  "required_environment": {
+    "ABOT_VRAM_RESERVE_GIB": "18",
+    "DIFFSYNTH_MODEL_BASE_PATH": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/DiffSynth-Studio-h3-v2/models",
+    "DIFFSYNTH_SKIP_DOWNLOAD": "True",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "TOKENIZERS_PARALLELISM": "false",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "max_gpu_seconds": 1260,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "total_calls": {"sampling_forwards": 32, "commit_forwards": 2, "vae_decodes": 4},
+  "per_scene_calls": {"sampling_forwards": 16, "commit_forwards": 1, "vae_decodes": 2},
+  "scenes": ["industrial", "village"]
+}

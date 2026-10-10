@@ -1,0 +1,33 @@
+{
+  "task": "EXP-012/v1",
+  "config_sha256": "29fda46a6ac13af89166b107d061444402fcefaaba5ebd68e11a58d1c227b6af",
+  "source_manifest_sha256": "95bbdf91608b6b115a09b6b98e3953b99e53d2c59bc6dabd9cef307d7d7d5f7d",
+  "code_manifest_sha256": "4a8e4646ce9e543f3cba14a1765f0cb91e282ce9274be035057e44e3625db1e4",
+  "stage": "G1_industrial",
+  "scene": "industrial",
+  "approved": true,
+  "gpu": 0,
+  "issued_hkt": "2026-10-11T06:55:00+08:00",
+  "max_sampling_forwards": 16,
+  "max_commit_forwards": 1,
+  "max_vae_decodes": 2,
+  "total_task_gpu_seconds": 1260,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "required_environment": {
+    "ABOT_VRAM_RESERVE_GIB": "18",
+    "DIFFSYNTH_MODEL_BASE_PATH": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/DiffSynth-Studio-h3-v2/models",
+    "DIFFSYNTH_SKIP_DOWNLOAD": "True",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "TOKENIZERS_PARALLELISM": "false",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "shared_first12_sha256": "64fb660c1c4c7539b402697e3f5537b0ef2dfeaca123d06186759878fba79958",
+  "shared_rgb39_sha256": "86e4d258ae852892501913809d912f2939287e57849c3e842900a7f72f8c5ea2",
+  "additional_protocol_dependencies": {
+    "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/chunk_plan.py": "40e0cbfde20fcf3489e493f1c1dd6f5df76eacaa92229722f3fa10b9598b4e60",
+    "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-005_v3_sliding_window/position_sw.py": "c1d26591521d0efc4dcef656bd57550ab9132f3f53aa5cafdbd3bfa11b871f97"
+  },
+  "no_training": true,
+  "no_C3": true
+}
