@@ -78,3 +78,9 @@ EXP-012两固定其他场景、共同FM8 C1、native8NFE：工业AA/AD flow+28.1
 ## EXP-013数据准备验收
 
 24个39帧clip、936帧完整解码/原源二值动作独立核查PASS；4train episodes/16clip，2validation episodes/8clip，源和episode隔离。四初图按最早A固定，不按质量挑选。真实录屏有A+S/L/J组合，未来纯A/D teacher是反事实伪标签；旧Dual Anchor编码不能复用，现有clip没有C2 GT。独立AnyFlow训练仍为草案，新评估优先复用FM8参考，将新增预算控制为126forward/15decode。0GPU/0训练。[正式验收](submission/experiments/EXP-013_v3_multiscene_data_plan/judge/FINAL_REVIEW.md)。
+
+EXP-013数据审计与EXP-014任务书已发布`a216ca863bdb4de62ab7a9dc3bf467f46fe63449`，24文件；正常push及独立ls-remote确认一致。26个报告链接检查无缺失，归档数据与已独立审计摘要相同。EXP-014仅P0 CPU准备获批，尚无GPU marker。
+
+## EXP-014 P1编码运行（07:34 HKT）
+
+P0独立预检与真实runtime摘要PASS；GPU0 P1编码四train图已启动，12text/4image预算，600GPU秒，0denoiser/0训练。T1/T2未授权。代码清单SHA `5afe075f4db7e5b6b107ffabbfcd1feb408dbccd173649b6548c74f876173331`。[P0验收](submission/experiments/EXP-014_v3_multiscene_teacher/judge/P0_REVIEW_AND_P1_RELEASE.md)。

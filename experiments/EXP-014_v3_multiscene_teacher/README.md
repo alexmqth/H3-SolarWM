@@ -1,0 +1,43 @@
+# EXP-014 — 四张训练初图的原生 V3 FM30 教师目标
+
+当前只完成 P0 CPU 来源冻结与入口预检，[P0 Worker 报告](P0_REPORT.md)是本阶段证据。编码 P1、首图 T1、余三图 T2 都需要 Judge 各自发布 marker；GPU 运行后必须继续做实际 fixture/视频审计。新训练更新始终为0。[任务书](taskbook_v1.md)定义预算和停止条件。
+
+固定场景来自 [EXP-013 候选清单](../EXP-013_v3_multiscene_data_plan/candidate_manifest.json)，四图按 `s0_43866101`、`s1_7199292c`、`s2_9dc2e588`、`s3_b784d995` 排序。[config.json](config.json)、[source_manifest.json](source_manifest.json)、[code_manifest.json](code_manifest.json)绑定输入、源码及冻结 runtime；模型大权重和 endpoint 只保存在 `H3-World/outputs/EXP-014_v3_multiscene_teacher/`。
+
+P0 CPU 命令（已通过）：
+
+```bash
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 .venvs/h3world/bin/python submission/experiments/EXP-014_v3_multiscene_teacher/source_audit.py
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 .venvs/h3world/bin/python submission/experiments/EXP-014_v3_multiscene_teacher/encode_native.py --preflight
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 .venvs/h3world/bin/python submission/experiments/EXP-014_v3_multiscene_teacher/test_p0.py
+```
+
+`freeze_code.py` 在所有代码/config完成后运行，生成当前冻结清单；任何被冻结文件再改动都会使原 marker 失效，必须重冻并由 Judge 重新放行。
+
+以下是**待 marker 才能运行**的完整入口；所有命令从 GWM 根目录执行，选用实时空闲、非 GPU3/4 的物理卡。`common.setup_paths()` 也会在程序内设置相同的冻结模型根目录，防止独立进程错找离线模型。
+
+```bash
+mkdir -p H3-World/outputs/EXP-014_v3_multiscene_teacher
+EXP014_MODEL_ROOT="$PWD/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models"
+
+# Judge 的 P1_APPROVED.json 存在并通过哈希检查后：
+CUDA_VISIBLE_DEVICES=0 DIFFSYNTH_MODEL_BASE_PATH="$EXP014_MODEL_ROOT" \
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 \
+.venvs/h3world/bin/python -u submission/experiments/EXP-014_v3_multiscene_teacher/encode_native.py --encode --gpu 0 \
+> H3-World/outputs/EXP-014_v3_multiscene_teacher/P1.log 2>&1
+
+# P1 完成后只用 CPU 验证四 fixture；同时需 Judge 独立审计：
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 \
+.venvs/h3world/bin/python submission/experiments/EXP-014_v3_multiscene_teacher/audit_fixtures.py
+
+# Judge 的 T1_APPROVED.json 包含 scenes=["s0_43866101"] 后：
+CUDA_VISIBLE_DEVICES=0 DIFFSYNTH_MODEL_BASE_PATH="$EXP014_MODEL_ROOT" \
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 \
+.venvs/h3world/bin/python -u submission/experiments/EXP-014_v3_multiscene_teacher/run_teacher.py \
+--stage T1 --scene s0_43866101 --gpu 0 \
+> H3-World/outputs/EXP-014_v3_multiscene_teacher/T1_s0.log 2>&1
+```
+
+T2 marker 只能在 T1 的完整视频/动作/结构验收后发布。T2 三场景可用三张当时空闲卡并行，分别用 `--stage T2 --scene s1_7199292c`、`s2_9dc2e588`、`s3_b784d995`；每条命令的 `CUDA_VISIBLE_DEVICES`、`--gpu` 和日志文件必须各自对应，不能共用一个 GPU 设备或输出路径。08:40 HKT 后不得启动新的 teacher scene，09:00 HKT 后项目最多3卡且本任务入口停止。
+
+marker 至少包含 `task=EXP-014/v1`、对应 `stage`、`approved=true`、当前 config/source/code manifest SHA；T1/T2 还要包含确切 `scenes` 白名单。Worker 不创建 marker。代码先验拒绝不存在或不匹配的 marker，账本在每次昂贵调用前保存；若结果失败，保留原目录与日志而不覆盖重跑。

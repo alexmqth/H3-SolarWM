@@ -1,0 +1,30 @@
+{
+  "task": "EXP-014/v1",
+  "candidate_manifest_sha256": "b6af2b0208a5dcf83c02f76fa826e5a03ba52fa9bd83de357f9474b5efb257b6",
+  "seed": 13,
+  "height": 480,
+  "width": 832,
+  "num_frames": 124,
+  "latent_frames": 37,
+  "partition": [12, 5],
+  "flow_shift": 2.22,
+  "precision": "h3_fp32",
+  "max_history": 5,
+  "steps": 30,
+  "gpu_allocated_cap_gib": 44,
+  "minimum_free_disk_gib": 60,
+  "max_new_disk_gib": 40,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "no_new_scene_after_hkt": "2026-10-11T08:40:00+08:00",
+  "target_completion_hkt": "2026-10-11T08:50:00+08:00",
+  "p1": {"max_gpu_seconds": 600, "text_encoder_calls": 12, "image_vae_encodes": 4, "video_vae_encodes": 0, "sampling_forwards": 0, "commit_forwards": 0, "vae_decodes": 0},
+  "teacher_per_scene": {"max_gpu_seconds": 1350, "sampling_forwards": 90, "commit_forwards": 1, "vae_decodes": 3},
+  "teacher_total": {"max_gpu_seconds": 5400, "sampling_forwards": 360, "commit_forwards": 4, "vae_decodes": 12},
+  "t1_scene": "s0_43866101",
+  "scenes": {
+    "s0_43866101": {"sample_id": "43866101158a538d22c52ac5b2fa606b", "stem": "A_1245"},
+    "s1_7199292c": {"sample_id": "7199292ca430b478bfd0d83cf2e519d8", "stem": "A_1670"},
+    "s2_9dc2e588": {"sample_id": "9dc2e5882a294b8d68d6b2b31ff3ef65", "stem": "A_1410"},
+    "s3_b784d995": {"sample_id": "b784d995827f53977a8067e5b9dc4b5e", "stem": "A_1635"}
+  }
+}

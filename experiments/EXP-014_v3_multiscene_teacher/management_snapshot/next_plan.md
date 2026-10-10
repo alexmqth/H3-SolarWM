@@ -46,3 +46,7 @@ Judge检查全部39+17+17帧和关键原分辨率细节、动作分叉、人物�
 独立目录：代码/config/source hashes、CPU报告、marker、完整实际命令/环境/日志/原始账本、四fixture来源审计、C1与AA/AD端点和视频、逐scene人物/动作/边界检查、forward/commit/decode/总耗时/GPU峰/CPU KV bytes、可重建训练manifest（teacher C1 latent与C2 AA/AD endpoint）。大tensor仅原路径+SHA索引，Git只提交代码、日志、小证据与视频。
 
 本任务验收是“有来源且质量边界明确的教师目标准备”，不是AnyFlow训练完成。后续student应使用冻结teacher C1 latent并按当前student权重重建KV；从student自己C1采样属于另一个评估条件。不得因目标生成结束自动训练32update或启动DMD。最终所有失败样本与有效样本均记录，Judge决定下一任务。
+
+## P0通过与P1放行
+
+Judge独立CPU预检和实际runtime摘要核对PASS。已签发EXP-014/judge/P1_APPROVED.json，仅GPU0编码四图，12text+4image encode/600GPU秒；0denoiser/0decode/0训练。T1/T2仍未授权，四fixture需独立审核。
