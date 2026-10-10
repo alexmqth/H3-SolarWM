@@ -50,3 +50,7 @@ Judge检查全部39+17+17帧和关键原分辨率细节、动作分叉、人物�
 ## P0通过与P1放行
 
 Judge独立CPU预检和实际runtime摘要核对PASS。已签发EXP-014/judge/P1_APPROVED.json，仅GPU0编码四图，12text+4image encode/600GPU秒；0denoiser/0decode/0训练。T1/T2仍未授权，四fixture需独立审核。
+
+## P1通过与T1放行
+
+四native fixture Judge独立CPU审计PASS，12text/4image编码实际110.214GPU秒、峰40.578GiB。已签发T1_APPROVED.json，仅首图s0_43866101、GPU0、91forward/3decode/1350GPU秒。T2仍待第一图完整视觉和缓存验收；训练0。

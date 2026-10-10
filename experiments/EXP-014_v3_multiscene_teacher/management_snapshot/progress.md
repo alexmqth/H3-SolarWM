@@ -84,3 +84,7 @@ EXP-013数据审计与EXP-014任务书已发布`a216ca863bdb4de62ab7a9dc3bf467f4
 ## EXP-014 P1编码运行（07:34 HKT）
 
 P0独立预检与真实runtime摘要PASS；GPU0 P1编码四train图已启动，12text/4image预算，600GPU秒，0denoiser/0训练。T1/T2未授权。代码清单SHA `5afe075f4db7e5b6b107ffabbfcd1feb408dbccd173649b6548c74f876173331`。[P0验收](submission/experiments/EXP-014_v3_multiscene_teacher/judge/P0_REVIEW_AND_P1_RELEASE.md)。
+
+## EXP-014 P1验收/T1已启动（07:37 HKT）
+
+四native fixture独立CPU验收PASS，12text/4image encode实际110.213939GPU秒，峰40.577766GiB，无重试。首图s0_43866101的FM30 C1+AA/AD C2已在GPU0运行，91forward/3decode/1350秒上限；余三图T2未放行，新训练0。[P1审核](submission/experiments/EXP-014_v3_multiscene_teacher/judge/P1_REVIEW_AND_T1_RELEASE.md)。P0代码与编码授权已发布`2244dbcfb84feba79dd8c18846febf0e6c4f8272`，远端核对一致。

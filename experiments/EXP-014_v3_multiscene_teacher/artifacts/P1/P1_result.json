@@ -1,0 +1,61 @@
+{
+  "task": "EXP-014/v1",
+  "stage": "P1",
+  "status": "complete_pending_cpu_audit",
+  "gpu": 0,
+  "fixtures": {
+    "s0_43866101": {
+      "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/fixtures/s0_43866101.pt",
+      "sha256": "a0b6ce46676df740bbe884535341319a2dd363f8640eb3fbbb432f75d18b8e4e",
+      "bytes": 22326653,
+      "action_spans": 37,
+      "action_sentences": {
+        "A": "the man strafes left, camera follows him",
+        "D": "the man strafes right, camera follows him"
+      }
+    },
+    "s1_7199292c": {
+      "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/fixtures/s1_7199292c.pt",
+      "sha256": "2965f591b093f1eb4a64b23b4f31afd307766a08bb00123209967bd58e71dd38",
+      "bytes": 22675005,
+      "action_spans": 37,
+      "action_sentences": {
+        "A": "the man strafes left, camera follows him",
+        "D": "the man strafes right, camera follows him"
+      }
+    },
+    "s2_9dc2e588": {
+      "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/fixtures/s2_9dc2e588.pt",
+      "sha256": "28aa37f742f6bdb029fff08d75b9a380e3c77280466a52ff48552c4ab4f8a951",
+      "bytes": 22818493,
+      "action_spans": 37,
+      "action_sentences": {
+        "A": "the man strafes left, camera follows him",
+        "D": "the man strafes right, camera follows him"
+      }
+    },
+    "s3_b784d995": {
+      "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/fixtures/s3_b784d995.pt",
+      "sha256": "934570b5dd9d0625d1a97724f71a9f68cc730af3b4d0e2377061dcb0166d6a52",
+      "bytes": 22716029,
+      "action_spans": 37,
+      "action_sentences": {
+        "A": "the man strafes left, camera follows him",
+        "D": "the man strafes right, camera follows him"
+      }
+    }
+  },
+  "marker_sha256": "0c51f0c39efe5babd78edf071cbea10501b43c79122aa4f19e58e5c3aa74110a",
+  "source_manifest_sha256": "35a1da00c8bfc5b2cb73ba05364056164a75187e5422af9262524e1b56a95ebf",
+  "runner_sha256": "c64e84163164851f0e1206f8d6d05001d58aa3b46b374254cac46e62489c74b4",
+  "actual_calls": {
+    "text_encoder_calls": 12,
+    "image_vae_encodes": 4,
+    "video_vae_encodes": 0,
+    "sampling_forwards": 0,
+    "commit_forwards": 0,
+    "vae_decodes": 0
+  },
+  "elapsed_seconds": 110.21324023899797,
+  "peak_allocated_gib": 40.57776594161987
+}
