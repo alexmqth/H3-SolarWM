@@ -1,0 +1,61 @@
+{
+  "task": "EXP-011/v1",
+  "stage": "G2",
+  "scene": "village",
+  "method": "FM30",
+  "status": "complete_pending_visual_review",
+  "gpu": 0,
+  "row_file": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-011_v3_scene_transfer/G2/village/FM30/result.json",
+  "fixture_sha256": "eb7590213fb7f3971f3e6d345bce185ab8f9b6fba757f43a2123b65631478775",
+  "first_endpoint_sha256": "3da941ddd8ecd4d23414ddaef5ccf6006d24cc313fb1a4a5fac75837bebe92a2",
+  "first_published_sha256": "7c6650ce3671e5a87d823433ecd552a9bb58556434a4362fe9002b10f707381c",
+  "runner_sha256": "c27994825aa1a48364fdea885fc79fb7aaea7dcbdb8d261c762234331be5b669",
+  "sampling_forwards": 60,
+  "commit_forwards": 1,
+  "vae_decodes": 2,
+  "branches": {
+    "AA": {
+      "result_file": "H3-World/outputs/EXP-011_v3_scene_transfer/G2/village/FM30/AA/result.json",
+      "video_sha256": "7b1a853a79ce35a80e756f6f43903481868ff6a1c26a9829beac593ca05679a5"
+    },
+    "AD": {
+      "result_file": "H3-World/outputs/EXP-011_v3_scene_transfer/G2/village/FM30/AD/result.json",
+      "video_sha256": "da4b15c72310820a1f320f9acc508b136d76c0a5ca204c7a19c38dff11718440"
+    }
+  },
+  "precision": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac"
+    }
+  },
+  "commit_seconds": 15.291571702007786,
+  "cpu_raw_kv_bytes": 6799104000,
+  "cache_sha256": "3d536991e94c6db0f3aa9eebbb2498e11b6a94d9ded35b7586984370108ecc11",
+  "peak_allocated_gib": 25.908756256103516,
+  "wall_seconds": 365.9994637839991,
+  "peak_cpu_rss_mib": 78854.421875
+}

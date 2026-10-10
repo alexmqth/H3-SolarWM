@@ -34,4 +34,8 @@ EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留�
 
 ## 4NFE有限对照
 
-[V3 FM4 / AF4](v3_fm4_af4/README.md)：EXP-009完成共同FM8首39后的AA/AD73。普通FM4有限可行PASS、quality PARTIAL；AF4 AD C3持续人物结构失败，生成FAIL、当前配置归档。38forward/8VAE/.217303GPUh，零新训练，不扫2NFE。EXP-010全FM8+SW-G158已验收；EXP-011正做两初图迁移CPU准备。
+[V3 FM4 / AF4](v3_fm4_af4/README.md)：EXP-009完成共同FM8首39后的AA/AD73。普通FM4有限可行PASS、quality PARTIAL；AF4 AD C3持续人物结构失败，生成FAIL、当前配置归档。38forward/8VAE/.217303GPUh，零新训练，不扫2NFE。EXP-010全FM8+SW-G158已验收；EXP-011已验收两个固定其他场景FM30/FM8的AA/AD56短程可行性，quality PARTIAL。
+
+## 固定其他场景的短程迁移
+
+[EXP-011 工业/村落FM30与FM8对照](v3_scene_transfer/README.md)：四配置AA/AD56均有限可行PASS，村落FM8颗粒/重影更明显；0训练/0.514521GPUh。只覆盖固定两初图与短程，不作广泛泛化结论。

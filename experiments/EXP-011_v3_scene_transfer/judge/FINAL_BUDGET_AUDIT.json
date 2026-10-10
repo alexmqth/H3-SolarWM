@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "task": "EXP-011/v1",
+  "actual_counts": {
+    "sampling_forwards": 228,
+    "commit_forwards": 4,
+    "vae_decodes": 12,
+    "text_encoder_calls": 6,
+    "image_vae_encodes": 2,
+    "video_vae_encodes": 0
+  },
+  "denoiser_forwards": 232,
+  "inference_gpu_seconds": 1781.709742888008,
+  "p1_gpu_seconds_including_failed_startups": 70.56469767799234,
+  "total_gpu_hours": 0.5145206779350001,
+  "inference_peak_allocated_gib": 26.11929178237915,
+  "completed_inference_stages": [
+    "G1",
+    "G1",
+    "G1",
+    "G1",
+    "G2_industrial_FM30",
+    "G2_industrial_FM8",
+    "G2_village_FM30",
+    "G2_village_FM8"
+  ],
+  "budget_sha256": "30237d9fa764afdefe9bd139bb9e49f9133daccdd4ee251327a6f8da3b24ad48",
+  "scope": "Execution accounting only; visual capability reviewed separately"
+}

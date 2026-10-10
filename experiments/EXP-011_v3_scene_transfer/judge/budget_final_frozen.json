@@ -1,0 +1,1930 @@
+{
+  "task": "EXP-011/v1",
+  "p1_gpu_seconds": 70.56469767799234,
+  "inference_gpu_seconds": 1781.709742888008,
+  "text_encoder_calls": 6,
+  "image_vae_encodes": 2,
+  "video_vae_encodes": 0,
+  "sampling_forwards": 228,
+  "commit_forwards": 4,
+  "vae_decodes": 12,
+  "events": [
+    {
+      "event": "stage_start",
+      "stage": "P1",
+      "gpu": 0,
+      "at": "2026-10-10T21:53:19.790741+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "P1",
+      "gpu": 0,
+      "status": "failed_before_model_load",
+      "at": "2026-10-10T21:53:59.491529+00:00",
+      "accounting_note": "Conservative entire exec_command wall time 4.386365982s; no encode/model call; raw budget preserved in budget_attempt1_raw.json"
+    },
+    {
+      "event": "stage_start",
+      "stage": "P1",
+      "gpu": 0,
+      "at": "2026-10-10T21:56:42.337261+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "P1",
+      "gpu": 0,
+      "status": "failed",
+      "at": "2026-10-10T21:56:42.338752+00:00"
+    },
+    {
+      "event": "accounting_adjustment",
+      "stage": "P1",
+      "attempt": 2,
+      "extra_conservative_seconds": 4.279311356004285,
+      "total_attempt_seconds": 4.280806329,
+      "at": "2026-10-10T21:57:30.954352+00:00",
+      "note": "Charge entire exec_command wall time, preserving raw ledger in attempt2_archive; zero model encode calls."
+    },
+    {
+      "event": "stage_start",
+      "stage": "P1",
+      "gpu": 0,
+      "at": "2026-10-10T21:59:25.051860+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "image_vae_encodes",
+      "count": 1,
+      "at": "2026-10-10T21:59:27.773762+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 1,
+      "at": "2026-10-10T21:59:29.986457+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 2,
+      "at": "2026-10-10T21:59:55.158934+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 3,
+      "at": "2026-10-10T21:59:55.868305+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "image_vae_encodes",
+      "count": 2,
+      "at": "2026-10-10T22:00:18.758518+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 4,
+      "at": "2026-10-10T22:00:19.335705+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 5,
+      "at": "2026-10-10T22:00:25.816003+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "P1",
+      "field": "text_encoder_calls",
+      "count": 6,
+      "at": "2026-10-10T22:00:26.353563+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "P1",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:00:26.949384+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G1",
+      "gpu": 0,
+      "at": "2026-10-10T22:02:41.691362+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 1,
+      "at": "2026-10-10T22:02:47.529237+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 2,
+      "at": "2026-10-10T22:02:59.686530+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 3,
+      "at": "2026-10-10T22:03:04.764079+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 4,
+      "at": "2026-10-10T22:03:09.835148+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 5,
+      "at": "2026-10-10T22:03:14.899910+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 6,
+      "at": "2026-10-10T22:03:19.983886+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 7,
+      "at": "2026-10-10T22:03:25.138698+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 8,
+      "at": "2026-10-10T22:03:31.019701+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 9,
+      "at": "2026-10-10T22:03:36.886527+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 10,
+      "at": "2026-10-10T22:03:42.527406+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 11,
+      "at": "2026-10-10T22:03:48.710898+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 12,
+      "at": "2026-10-10T22:03:54.458028+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 13,
+      "at": "2026-10-10T22:03:59.947402+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 14,
+      "at": "2026-10-10T22:04:06.084628+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 15,
+      "at": "2026-10-10T22:04:11.901650+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 16,
+      "at": "2026-10-10T22:04:17.541616+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 17,
+      "at": "2026-10-10T22:04:23.662374+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 18,
+      "at": "2026-10-10T22:04:29.371046+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 19,
+      "at": "2026-10-10T22:04:35.339042+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 20,
+      "at": "2026-10-10T22:04:40.660681+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 21,
+      "at": "2026-10-10T22:04:45.845289+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 22,
+      "at": "2026-10-10T22:04:51.117842+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 23,
+      "at": "2026-10-10T22:04:56.486209+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 24,
+      "at": "2026-10-10T22:05:01.627010+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 25,
+      "at": "2026-10-10T22:05:06.782085+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 26,
+      "at": "2026-10-10T22:05:11.937702+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 27,
+      "at": "2026-10-10T22:05:17.085757+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 28,
+      "at": "2026-10-10T22:05:22.247137+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 29,
+      "at": "2026-10-10T22:05:27.420769+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 30,
+      "at": "2026-10-10T22:05:33.118118+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "vae_decodes",
+      "count": 1,
+      "at": "2026-10-10T22:05:51.555898+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G1",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:05:59.138409+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G1",
+      "gpu": 0,
+      "at": "2026-10-10T22:06:48.594058+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 31,
+      "at": "2026-10-10T22:06:54.354599+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 32,
+      "at": "2026-10-10T22:07:05.880056+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 33,
+      "at": "2026-10-10T22:07:10.974001+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 34,
+      "at": "2026-10-10T22:07:16.084319+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 35,
+      "at": "2026-10-10T22:07:21.212532+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 36,
+      "at": "2026-10-10T22:07:26.327892+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 37,
+      "at": "2026-10-10T22:07:31.621978+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 38,
+      "at": "2026-10-10T22:07:38.855506+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "vae_decodes",
+      "count": 2,
+      "at": "2026-10-10T22:07:59.298086+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G1",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:08:06.579480+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G1",
+      "gpu": 0,
+      "at": "2026-10-10T22:08:38.620317+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 39,
+      "at": "2026-10-10T22:08:44.818314+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 40,
+      "at": "2026-10-10T22:08:57.990746+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 41,
+      "at": "2026-10-10T22:09:04.047977+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 42,
+      "at": "2026-10-10T22:09:10.456321+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 43,
+      "at": "2026-10-10T22:09:16.831624+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 44,
+      "at": "2026-10-10T22:09:23.255475+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 45,
+      "at": "2026-10-10T22:09:29.748078+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 46,
+      "at": "2026-10-10T22:09:37.224853+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 47,
+      "at": "2026-10-10T22:09:45.056942+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 48,
+      "at": "2026-10-10T22:09:51.538062+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 49,
+      "at": "2026-10-10T22:09:59.677879+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 50,
+      "at": "2026-10-10T22:10:07.628967+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 51,
+      "at": "2026-10-10T22:10:14.808297+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 52,
+      "at": "2026-10-10T22:10:21.986827+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 53,
+      "at": "2026-10-10T22:10:30.110975+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 54,
+      "at": "2026-10-10T22:10:37.148493+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 55,
+      "at": "2026-10-10T22:10:45.169220+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 56,
+      "at": "2026-10-10T22:10:50.678351+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 57,
+      "at": "2026-10-10T22:10:56.056685+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 58,
+      "at": "2026-10-10T22:11:01.324564+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 59,
+      "at": "2026-10-10T22:11:06.585175+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 60,
+      "at": "2026-10-10T22:11:11.848194+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 61,
+      "at": "2026-10-10T22:11:18.012336+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 62,
+      "at": "2026-10-10T22:11:23.260016+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 63,
+      "at": "2026-10-10T22:11:28.523226+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 64,
+      "at": "2026-10-10T22:11:33.783107+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 65,
+      "at": "2026-10-10T22:11:39.044567+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 66,
+      "at": "2026-10-10T22:11:44.306411+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 67,
+      "at": "2026-10-10T22:11:49.573466+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 68,
+      "at": "2026-10-10T22:11:54.831164+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "vae_decodes",
+      "count": 3,
+      "at": "2026-10-10T22:12:14.365856+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G1",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:12:22.175890+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G1",
+      "gpu": 0,
+      "at": "2026-10-10T22:13:04.646995+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 69,
+      "at": "2026-10-10T22:13:10.371147+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 70,
+      "at": "2026-10-10T22:13:22.577485+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 71,
+      "at": "2026-10-10T22:13:28.097246+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 72,
+      "at": "2026-10-10T22:13:33.626000+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 73,
+      "at": "2026-10-10T22:13:39.157943+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 74,
+      "at": "2026-10-10T22:13:44.701810+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 75,
+      "at": "2026-10-10T22:13:50.295815+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "sampling_forwards",
+      "count": 76,
+      "at": "2026-10-10T22:13:56.540112+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G1",
+      "field": "vae_decodes",
+      "count": 4,
+      "at": "2026-10-10T22:14:15.535860+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G1",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:14:22.997091+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G2_industrial_FM30",
+      "gpu": 0,
+      "at": "2026-10-10T22:17:40.634713+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "commit_forwards",
+      "count": 1,
+      "at": "2026-10-10T22:17:46.646258+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 77,
+      "at": "2026-10-10T22:18:12.495452+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 78,
+      "at": "2026-10-10T22:18:23.788857+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 79,
+      "at": "2026-10-10T22:18:30.256346+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 80,
+      "at": "2026-10-10T22:18:35.694848+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 81,
+      "at": "2026-10-10T22:18:40.877356+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 82,
+      "at": "2026-10-10T22:18:45.820373+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 83,
+      "at": "2026-10-10T22:18:50.286260+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 84,
+      "at": "2026-10-10T22:18:54.784333+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 85,
+      "at": "2026-10-10T22:18:59.281331+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 86,
+      "at": "2026-10-10T22:19:03.751490+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 87,
+      "at": "2026-10-10T22:19:08.239095+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 88,
+      "at": "2026-10-10T22:19:13.156565+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 89,
+      "at": "2026-10-10T22:19:18.140394+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 90,
+      "at": "2026-10-10T22:19:22.989498+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 91,
+      "at": "2026-10-10T22:19:28.137924+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 92,
+      "at": "2026-10-10T22:19:33.072751+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 93,
+      "at": "2026-10-10T22:19:40.603804+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 94,
+      "at": "2026-10-10T22:19:49.664815+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 95,
+      "at": "2026-10-10T22:20:00.210695+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 96,
+      "at": "2026-10-10T22:20:07.757905+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 97,
+      "at": "2026-10-10T22:20:18.133304+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 98,
+      "at": "2026-10-10T22:20:27.239565+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 99,
+      "at": "2026-10-10T22:20:35.929649+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 100,
+      "at": "2026-10-10T22:20:42.640035+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 101,
+      "at": "2026-10-10T22:20:49.468568+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 102,
+      "at": "2026-10-10T22:20:56.355007+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 103,
+      "at": "2026-10-10T22:21:02.758341+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 104,
+      "at": "2026-10-10T22:21:09.331676+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 105,
+      "at": "2026-10-10T22:21:15.192723+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 106,
+      "at": "2026-10-10T22:21:21.217470+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "vae_decodes",
+      "count": 5,
+      "at": "2026-10-10T22:21:46.397783+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 107,
+      "at": "2026-10-10T22:21:57.728811+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 108,
+      "at": "2026-10-10T22:22:17.121064+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 109,
+      "at": "2026-10-10T22:22:23.698372+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 110,
+      "at": "2026-10-10T22:22:29.310558+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 111,
+      "at": "2026-10-10T22:22:35.423692+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 112,
+      "at": "2026-10-10T22:22:40.472406+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 113,
+      "at": "2026-10-10T22:22:46.362511+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 114,
+      "at": "2026-10-10T22:22:51.886287+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 115,
+      "at": "2026-10-10T22:22:57.139668+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 116,
+      "at": "2026-10-10T22:23:03.424762+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 117,
+      "at": "2026-10-10T22:23:09.312748+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 118,
+      "at": "2026-10-10T22:23:14.371743+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 119,
+      "at": "2026-10-10T22:23:19.667992+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 120,
+      "at": "2026-10-10T22:23:24.493601+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 121,
+      "at": "2026-10-10T22:23:29.526825+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 122,
+      "at": "2026-10-10T22:23:35.055546+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 123,
+      "at": "2026-10-10T22:23:40.260412+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 124,
+      "at": "2026-10-10T22:23:45.494042+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 125,
+      "at": "2026-10-10T22:23:51.244232+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 126,
+      "at": "2026-10-10T22:23:56.615382+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 127,
+      "at": "2026-10-10T22:24:02.357700+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 128,
+      "at": "2026-10-10T22:24:07.416697+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 129,
+      "at": "2026-10-10T22:24:12.986033+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 130,
+      "at": "2026-10-10T22:24:18.516920+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 131,
+      "at": "2026-10-10T22:24:23.888043+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 132,
+      "at": "2026-10-10T22:24:29.018706+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 133,
+      "at": "2026-10-10T22:24:34.726083+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 134,
+      "at": "2026-10-10T22:24:40.211029+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 135,
+      "at": "2026-10-10T22:24:45.850542+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "sampling_forwards",
+      "count": 136,
+      "at": "2026-10-10T22:24:51.029163+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM30",
+      "field": "vae_decodes",
+      "count": 6,
+      "at": "2026-10-10T22:25:14.784403+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G2_industrial_FM30",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:25:28.765452+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G2_industrial_FM8",
+      "gpu": 0,
+      "at": "2026-10-10T22:26:27.959192+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "commit_forwards",
+      "count": 2,
+      "at": "2026-10-10T22:26:33.991132+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 137,
+      "at": "2026-10-10T22:27:00.201127+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 138,
+      "at": "2026-10-10T22:27:04.961614+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 139,
+      "at": "2026-10-10T22:27:10.316799+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 140,
+      "at": "2026-10-10T22:27:15.426843+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 141,
+      "at": "2026-10-10T22:27:20.872065+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 142,
+      "at": "2026-10-10T22:27:27.436431+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 143,
+      "at": "2026-10-10T22:27:35.719266+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 144,
+      "at": "2026-10-10T22:27:41.228599+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "vae_decodes",
+      "count": 7,
+      "at": "2026-10-10T22:28:05.752534+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 145,
+      "at": "2026-10-10T22:28:14.799099+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 146,
+      "at": "2026-10-10T22:28:34.063091+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 147,
+      "at": "2026-10-10T22:28:38.423972+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 148,
+      "at": "2026-10-10T22:28:42.726923+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 149,
+      "at": "2026-10-10T22:28:47.035183+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 150,
+      "at": "2026-10-10T22:28:51.337156+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 151,
+      "at": "2026-10-10T22:28:55.634197+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "sampling_forwards",
+      "count": 152,
+      "at": "2026-10-10T22:28:59.950713+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_industrial_FM8",
+      "field": "vae_decodes",
+      "count": 8,
+      "at": "2026-10-10T22:29:24.064677+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G2_industrial_FM8",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:29:36.818128+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G2_village_FM30",
+      "gpu": 0,
+      "at": "2026-10-10T22:30:37.806290+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "commit_forwards",
+      "count": 3,
+      "at": "2026-10-10T22:30:43.734482+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 153,
+      "at": "2026-10-10T22:31:08.905820+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 154,
+      "at": "2026-10-10T22:31:13.465811+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 155,
+      "at": "2026-10-10T22:31:18.879297+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 156,
+      "at": "2026-10-10T22:31:24.202075+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 157,
+      "at": "2026-10-10T22:31:28.871544+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 158,
+      "at": "2026-10-10T22:31:34.235462+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 159,
+      "at": "2026-10-10T22:31:39.780033+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 160,
+      "at": "2026-10-10T22:31:44.201766+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 161,
+      "at": "2026-10-10T22:31:48.953816+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 162,
+      "at": "2026-10-10T22:31:53.919456+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 163,
+      "at": "2026-10-10T22:31:58.870434+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 164,
+      "at": "2026-10-10T22:32:03.900172+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 165,
+      "at": "2026-10-10T22:32:08.790777+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 166,
+      "at": "2026-10-10T22:32:13.306200+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 167,
+      "at": "2026-10-10T22:32:17.667580+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 168,
+      "at": "2026-10-10T22:32:22.809349+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 169,
+      "at": "2026-10-10T22:32:28.042532+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 170,
+      "at": "2026-10-10T22:32:32.433170+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 171,
+      "at": "2026-10-10T22:32:36.798070+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 172,
+      "at": "2026-10-10T22:32:41.162342+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 173,
+      "at": "2026-10-10T22:32:45.590216+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 174,
+      "at": "2026-10-10T22:32:50.001180+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 175,
+      "at": "2026-10-10T22:32:54.518349+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 176,
+      "at": "2026-10-10T22:32:59.049743+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 177,
+      "at": "2026-10-10T22:33:03.579662+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 178,
+      "at": "2026-10-10T22:33:07.975360+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 179,
+      "at": "2026-10-10T22:33:12.378909+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 180,
+      "at": "2026-10-10T22:33:16.917723+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 181,
+      "at": "2026-10-10T22:33:21.410775+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 182,
+      "at": "2026-10-10T22:33:25.926731+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "vae_decodes",
+      "count": 9,
+      "at": "2026-10-10T22:33:51.423634+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 183,
+      "at": "2026-10-10T22:34:00.391447+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 184,
+      "at": "2026-10-10T22:34:12.214207+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 185,
+      "at": "2026-10-10T22:34:16.599559+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 186,
+      "at": "2026-10-10T22:34:21.021617+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 187,
+      "at": "2026-10-10T22:34:25.195242+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 188,
+      "at": "2026-10-10T22:34:29.366147+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 189,
+      "at": "2026-10-10T22:34:33.587758+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 190,
+      "at": "2026-10-10T22:34:37.759998+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 191,
+      "at": "2026-10-10T22:34:41.978603+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 192,
+      "at": "2026-10-10T22:34:46.155412+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 193,
+      "at": "2026-10-10T22:34:50.340484+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 194,
+      "at": "2026-10-10T22:34:54.514859+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 195,
+      "at": "2026-10-10T22:34:58.692636+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 196,
+      "at": "2026-10-10T22:35:02.860982+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 197,
+      "at": "2026-10-10T22:35:07.035834+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 198,
+      "at": "2026-10-10T22:35:11.243307+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 199,
+      "at": "2026-10-10T22:35:15.631212+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 200,
+      "at": "2026-10-10T22:35:19.806170+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 201,
+      "at": "2026-10-10T22:35:23.984828+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 202,
+      "at": "2026-10-10T22:35:28.167025+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 203,
+      "at": "2026-10-10T22:35:32.344191+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 204,
+      "at": "2026-10-10T22:35:36.524569+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 205,
+      "at": "2026-10-10T22:35:40.704248+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 206,
+      "at": "2026-10-10T22:35:44.888100+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 207,
+      "at": "2026-10-10T22:35:49.081089+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 208,
+      "at": "2026-10-10T22:35:53.274327+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 209,
+      "at": "2026-10-10T22:35:57.461391+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 210,
+      "at": "2026-10-10T22:36:01.637685+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 211,
+      "at": "2026-10-10T22:36:05.818159+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "sampling_forwards",
+      "count": 212,
+      "at": "2026-10-10T22:36:09.991544+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM30",
+      "field": "vae_decodes",
+      "count": 10,
+      "at": "2026-10-10T22:36:36.091133+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G2_village_FM30",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:36:49.124295+00:00"
+    },
+    {
+      "event": "stage_start",
+      "stage": "G2_village_FM8",
+      "gpu": 0,
+      "at": "2026-10-10T22:37:43.355871+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "commit_forwards",
+      "count": 4,
+      "at": "2026-10-10T22:37:49.249898+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 213,
+      "at": "2026-10-10T22:38:15.563180+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 214,
+      "at": "2026-10-10T22:38:21.208629+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 215,
+      "at": "2026-10-10T22:38:25.983585+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 216,
+      "at": "2026-10-10T22:38:30.921324+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 217,
+      "at": "2026-10-10T22:38:35.577445+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 218,
+      "at": "2026-10-10T22:38:40.200673+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 219,
+      "at": "2026-10-10T22:38:44.876159+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 220,
+      "at": "2026-10-10T22:38:49.627179+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "vae_decodes",
+      "count": 11,
+      "at": "2026-10-10T22:39:15.999633+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 221,
+      "at": "2026-10-10T22:39:25.427071+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 222,
+      "at": "2026-10-10T22:39:36.743143+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 223,
+      "at": "2026-10-10T22:39:41.221909+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 224,
+      "at": "2026-10-10T22:39:45.368890+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 225,
+      "at": "2026-10-10T22:39:49.508262+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 226,
+      "at": "2026-10-10T22:39:53.633860+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 227,
+      "at": "2026-10-10T22:39:57.773333+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "sampling_forwards",
+      "count": 228,
+      "at": "2026-10-10T22:40:01.917724+00:00"
+    },
+    {
+      "event": "reserve",
+      "stage": "G2_village_FM8",
+      "field": "vae_decodes",
+      "count": 12,
+      "at": "2026-10-10T22:40:26.950403+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "G2_village_FM8",
+      "gpu": 0,
+      "status": "complete",
+      "at": "2026-10-10T22:40:39.419856+00:00"
+    }
+  ]
+}

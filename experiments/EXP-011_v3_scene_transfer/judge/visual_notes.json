@@ -34,5 +34,59 @@
     "first_window_feasibility": "PASS_LIMITED",
     "quality": "PARTIAL",
     "decision": "Continue planned own-history C2; no tuning to rescue ordinary quality defects"
+  },
+  "G2/industrial/FM30/AA": {
+    "reviewed": "All 17 new frames",
+    "person_scene": "Person remains single and recognizable; bridge, trees and industrial buildings retained",
+    "action": "Continued walking/sideways progression visible",
+    "defects": "Perspective/pose adjustment at boundary; body detail softness, no sustained structural collapse",
+    "quality": "PARTIAL",
+    "decision": "Continue authorized AD branch; final paired action verdict pending"
+  },
+  "G2/industrial/FM30/AD": {
+    "reviewed": "All 17 new frames and full-resolution AA/AD final pair",
+    "person_scene": "Recognizable person and industrial scene retained",
+    "action": "Opposite camera/scene progression and changed walking direction relative to AA are visible; switch response discernible",
+    "motion_proxy_scope": "Central ROI per-transition median horizontal flow summed over 16 C2 transitions, not parking mean-flow metric",
+    "flow_sum_AA": 26.700217187404633,
+    "flow_sum_AD": -43.98491448163986,
+    "defects": "Body/detail softness and camera/perspective transition, no sustained structural collapse",
+    "quality": "PARTIAL",
+    "decision": "Accept bounded industrial FM30 AA/AD56 feasibility after independent cache/old-RGB audit PASS; no C3"
+  },
+  "G2/industrial/FM8": {
+    "reviewed": "All 34 new AA/AD frames and full-resolution final pair",
+    "person_scene": "Single recognizable walking person, bridge, vegetation and industrial building maintained in both branches",
+    "action": "Opposite scene/camera progression between AA and AD, with different walking poses; switching response discernible",
+    "defects": "Soft/grainy vegetation and body detail, boundary perspective adjustment; no sustained body or scene collapse",
+    "motion_proxy_scope": "Central ROI per-transition median horizontal flow summed over 16 C2 transitions; auxiliary only",
+    "flow_sum_AA": 28.20128643512726,
+    "flow_sum_AD": -38.27028226852417,
+    "quality": "PARTIAL",
+    "decision": "Accept limited industrial FM8 AA/AD56 feasibility; independent real-cache, own-C1, old39-RGB and full video audit PASS. No C3"
+  },
+  "G2/village/FM30/AA": {
+    "reviewed": "All 17 new frames",
+    "person_scene": "Armored person remains recognizable near lower edge; village facade, trees and cobblestone maintained",
+    "action": "Continued lateral movement of scene and walking pose visible; paired direction verdict pending AD",
+    "defects": "Dark shadow, framing crops lower body, pose/detail softness; no sustained person or scene disintegration",
+    "quality": "PARTIAL",
+    "decision": "No visual stop condition; finish already-authorized AD then paired assessment"
+  },
+  "G2/village/FM30/AD": {
+    "reviewed": "All 17 new frames and full-resolution AA/AD final pair",
+    "person_scene": "Armored person and village scene maintained; tree occludes person early in C2, followed by clear reappearance",
+    "action": "AA/AD camera and scene progression differ in opposite directions, switch response discernible",
+    "defects": "Early foreground tree occlusion, lower-body framing crop, dark shadows and soft body detail; no sustained structural failure",
+    "quality": "PARTIAL",
+    "decision": "Accept limited village FM30 AA/AD56 feasibility following independent real-cache, own-C1, old39-RGB and full video audit PASS; no C3"
+  },
+  "G2/village/FM8": {
+    "reviewed": "All 34 new AA/AD frames, full-resolution AA frame47 and final AA/AD pair",
+    "person_scene": "Armored person, village building and cobblestone remain recognizable throughout; AA foreground foliage partly overlaps body",
+    "action": "AA and AD have opposite scene progression and different walking directions; switching response discernible",
+    "defects": "More grain/noisy texture and translucent edge/foliage ghosting than FM30; AA particularly soft, shadowed and partly foliage-covered. No persistent complete person disappearance or scene collapse",
+    "quality": "PARTIAL",
+    "decision": "Accept limited village FM8 AA/AD56 feasibility; independent real-cache, own-C1, old39-RGB and full-video audit PASS. No C3"
   }
 }
