@@ -1,6 +1,6 @@
-# 最新：V3可行性版本
+# 最新：V2c可行性版本
 
-[Original vs V3 AA124](../V3_efficient_causal/videos/Original_vs_candidate_AA_124.mp4) · [V2b vs V3 AA124](../V3_efficient_causal/videos/V2b_vs_candidate_AA_124.mp4) · [V3 AD124原片](../V3_efficient_causal/videos/AD_rollout_124.mp4)。保留AA瞬态明显人体形变与质量限制，详情见[V3](../V3_efficient_causal/README.md)。
+[Original vs V2c AA124](../v2/v2c_strict_causal_kv/videos/Original_vs_V2c_AA_124.mp4) · [V2b vs V2c AA124](../v2/v2c_strict_causal_kv/videos/V2b_vs_V2c_AA_124.mp4) · [V2c AD124原片](../v2/v2c_strict_causal_kv/videos/V2c_AD_124.mp4)。保留AA瞬态明显人体形变与质量限制，详情见[V2c](../v2/v2c_strict_causal_kv/README.md)。
 
 ---
 
@@ -8,7 +8,7 @@
 
 这里是当前正式标签的25条H.264/24fps视频。V2a与V2b各自对照V0、V1，再进行两支能力比较；它们不是先后升级或checkpoint继承。
 
-**最新124帧交付：** [持续A](Original_vs_V2b_A_124.mp4) / [持续D](Original_vs_V2b_D_124.mp4) / [A/D顺序总览248帧](Original_vs_V2b_AD_overview_248.mp4)。EXP-001 / v3已验收：单停车场、seed13，持续A/D六窗口124帧（5.17秒）具备可辨响应与基本人物/场景结构。保留AA RGB72→73姿态跳变、动作节奏不均和局部细节软化；DD后段靠近画面下边缘。AD/DA仅到73帧，DA第三块flow轻微反号；切换和泛化未通过。无persistent KV、无公平加速结论，V3仍计划中。
+**最新124帧交付：** [持续A](Original_vs_V2b_A_124.mp4) / [持续D](Original_vs_V2b_D_124.mp4) / [A/D顺序总览248帧](Original_vs_V2b_AD_overview_248.mp4)。EXP-001 / v3已验收：单停车场、seed13，持续A/D六窗口124帧（5.17秒）具备可辨响应与基本人物/场景结构。保留AA RGB72→73姿态跳变、动作节奏不均和局部细节软化；DD后段靠近画面下边缘。AD/DA仅到73帧，DA第三块flow轻微反号；切换和泛化未通过。无persistent KV、无公平加速结论，V2c已由EXP-002/003完成124帧有限可行性验收。
 
 **先看两支取舍：** [V2a vs V2b](V2a_vs_V2b.mp4)。左V2a：8步、clean commit/CPU KV、RGB+visual adapter；右V2b：30步、Same-σ局部双向重算、Single I0、无新增训练/无persistent hidden KV。仅比较共同前56帧，非单变量消融。
 
@@ -39,6 +39,6 @@
 
 V2b四路径在RGB39高亮第二块。Original/V1/V2a是124f源片裁前56f；完整原片仍在各版videos中。没有匹配RGB39切换的Original/V2a A→D或D→A视频，四路径是V2b内部证据，未伪造配对。
 
-V2a仅有124f视觉相对稳定证据，20秒失败；V2b新增持续A/D124f可行性证据，仍不能声称跨场景或10/20秒长期稳定。旧编号V2/V3片已移出report归档，本目录不混用旧标签。
+V2a仅有124f视觉相对稳定证据，20秒失败；V2b新增持续A/D124f可行性证据，仍不能声称跨场景或10/20秒长期稳定。旧编号V2/V2c片已移出report归档，本目录不混用旧标签。
 
 [并列路线与结论](../roadmap.md) · [公平性](../COMPARISON_PROTOCOL.md) · [首页](../README.md)

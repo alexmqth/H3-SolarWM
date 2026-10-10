@@ -1,4 +1,4 @@
-> **2026-10-10更新：** [V0–V3路线](mainline/README.md)与[新汇报视频](report/README.md)已整理。V2b是Original权重、Single I0/native时间、Same-σ、T2重算、C12→5自身history两块56f的局部正控；不是V2a续训，也不是strict causal/KV或完整AnyFlow/Stage2成功。下文旧“会议主片”始终指V2a，E1/E2指对应历史实验。
+> **2026-10-10更新：** 当前按[V2a / V2b / V2c三条并行路线](report/v2/README.md)组织。V2b持续A/D124帧已验收；V2c（原V3 Efficient Causal）完成严格因果/真实KV/动作/基本结构124帧可行性，另有8步续写73帧证据。下文历史问答保留当时实验语境，当前状态见[研究总览](REPORT.md)。
 
 # 面试题回答：在 H3-World 中验证 SolarWM 的因果少步生成
 

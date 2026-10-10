@@ -1,10 +1,12 @@
 # H3-World × SolarWM：因果化、动作信息流与少步探索
 
-**新增效率证据：** [EXP-004：V3原权重8步续写](report/V3_8step_continuation/README.md)，AA/AD至73帧有限可行性accepted；首39帧复用30步结果，AA拖影明显，零训练、0.129449 GPU小时。正式30步V3的124帧定义保留。
+**版本分类：** [V2a / V2b / V2c三条并行修复路线](report/v2/README.md)。原“V3 Efficient Causal”现归类为V2c；按版本家族与方法子目录查找。
+
+**新增效率证据：** [EXP-004：V2c原权重8步续写](report/v2/v2c_strict_causal_kv/8step_continuation/README.md)，AA/AD至73帧有限可行性accepted；首39帧复用30步结果，AA拖影明显，零训练、0.129449 GPU小时。正式30步V2c的124帧定义保留。
 
 **研究目标：** 将SolarWM的causal chunk、KV cache与少步方法迁入H3-World，检查长视频效率、画面连续性和action control能否同时保留。
 
-**最新：V3可行性版本已验收。** EXP-002/003以同一Original H3 + released LoRA、native Single I0/current-prefix协议，验证strict chunk-causal、真实persistent KV、同history A/D响应与AA/AD124帧自身历史。AA有短暂明显人体形变后恢复，画质与严格连续性仍有限制。单scene/seed、零新增训练；完整从零E2E、长期泛化及公平Original speedup未验证。 [版本与视频](report/V3_efficient_causal/README.md)。
+**最新：V2c可行性版本已验收。** EXP-002/003以同一Original H3 + released LoRA、native Single I0/current-prefix协议，验证strict chunk-causal、真实persistent KV、同history A/D响应与AA/AD124帧自身历史。AA有短暂明显人体形变后恢复，画质与严格连续性仍有限制。单scene/seed、零新增训练；完整从零E2E、长期泛化及公平Original speedup未验证。 [版本与视频](report/v2/v2c_strict_causal_kv/README.md)。
 
 ## 一分钟入口
 
@@ -13,7 +15,7 @@
 | 组会直接展示 | **[report/README.md](report/README.md)** / [浏览器本地演示页](report/index.html) |
 | 连续播放全部对比 | [比较画廊](report/00_comparison_gallery/README.md) |
 | 当前局部正结果 | [V2b四路径56f](report/00_comparison_gallery/V2b_four_paths_56.mp4) |
-| 核心模型/协议演进 | [mainline V0–V3](mainline/README.md) |
+| 核心模型/协议演进 | [mainline V0–V2c](mainline/README.md) |
 | 机制、训练、AnyFlow/DMD细节 | [Research Branches A/B/C](branches/README.md) |
 | 面试题回答与报告 | [INTERVIEW_ANSWER](INTERVIEW_ANSWER.md) / [REPORT](REPORT.md) |
 | 运行环境、权重、adapter | [REPRODUCE](REPRODUCE.md) / [checkpoints](checkpoints/README.md) |
@@ -26,15 +28,15 @@
 | V0 Original | A/D方向正控 | 124f基本完整 | 124f及已有长片参考 | 否 | 30整段；另存50步 | 无，released LoRA | Reference，非GT |
 | V1 Native causal | 显著下降 | 本代表停滞、过亮/背景退化；其他早期协议有重影 | 124f工程rollout | 是，CPU raw video KV | 8/chunk | 本代表无 | 工程可行，联合质量失败 |
 | V2a RGB-Anchor | A/D方向失败 | **124f人物结构相对稳定**；20s失败 | 124f视觉证据；243/481f负结果 | 是，clean commit的历史hidden KV | 8/chunk | visual adapter +已训action residual | Longer-horizon Visual Stability Demonstrated（仅124f scope） |
-| V2b Same-σ local bidir | 持续A/D在124f有可辨响应；切换仍有限制 | 124f人物/场景基本可用；边界与节奏有缺陷 | 单停车场、seed13、六块124f | **否**，每步重算全部可见历史 | 30/chunk | **无**，Original + released LoRA | Sustained A/D feasibility accepted；非V3 |
-| V3 Efficient causal | 同history A/D可辨；AA/AD续124f | 基本可用；AA瞬态明显形变后恢复，连续性PARTIAL | 单停车场seed13，六块124f | 是，strict chunk causal + raw KV | 30/chunk | 无，Original + released LoRA | Feasibility accepted；非成熟画质/公平E2E speedup |
+| V2b Same-σ local bidir | 持续A/D在124f有可辨响应；切换仍有限制 | 124f人物/场景基本可用；边界与节奏有缺陷 | 单停车场、seed13、六块124f | **否**，每步重算全部可见历史 | 30/chunk | **无**，Original + released LoRA | Sustained A/D feasibility accepted |
+| V2c Strict Causal KV | 同history A/D可辨；AA/AD续124f | 基本可用；AA瞬态明显形变后恢复，连续性PARTIAL | 单停车场seed13，六块124f | 是，strict chunk causal + raw KV | 30/chunk | 无，Original + released LoRA | Feasibility accepted；非成熟画质/公平E2E speedup |
 
-V2a与V2b共同研究生成历史/条件不匹配的修复，没有顺承关系。V2a为RGB联合视觉适配；V2b从Original恢复Single I0/native条件，Same-σ与局部双向重算，已扩展至持续A/D的124帧，切换仅有局部证据。V3已在同一native严格缓存配置中完成124帧可行性验收；质量限制与长期泛化仍需保留。
+V2a、V2b、V2c共同探索V1视觉/动作退化的修复，没有按字母排列的权重继承关系。V2a为RGB联合视觉适配；V2b从Original恢复Single I0/native条件，Same-σ与局部双向重算，已扩展至持续A/D的124帧，切换仅有局部证据。V2c已在同一native严格缓存配置中完成124帧可行性验收；质量限制与长期泛化仍需保留。
 
 ## 目录
 
 ```text
-mainline/             V0 → V1 → {V2a RGB, V2b Same-σ} → V3 Feasibility
+mainline/             V0 → V1 → V2/{V2a RGB, V2b Same-σ, V2c Strict Causal KV}
 branches/             A机制诊断 / B因果适配与动作恢复 / C AnyFlow与DMD探索
 report/               可独立复制的简洁汇报：核心源码、真实视频、版本说明、5分钟讲稿
 archive/              历史文档、旧导航、整理前索引、hash与视频制作/验收收据

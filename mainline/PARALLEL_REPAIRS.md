@@ -1,19 +1,13 @@
-# V2a / V2b：并列修复路线
+# V2a / V2b / V2c：并行修复路线
 
-| 维度 | V2a：RGB-Anchor Causal | V2b：Same-σ History / Local Bidir |
-|---|---|---|
-| 共同问题 | 因果rollout中生成历史/条件与原生模型行为不匹配 | 同一研究问题的另一条路线 |
-| 核心思路 | 修复图像条件协议，配合视觉适配 | 恢复原生条件和尽可能接近原生的局部联合去噪 |
-| 图像条件 | RGB-consistent dual anchor | Single I0 |
-| 历史 | 自己生成的clean endpoint经clean commit写入KV | 自己生成的history按当前σ临时加噪，每步重算 |
-| Attention | Strict chunk-causal video attention | 已可见history与当前video局部双向；未知未来移除 |
-| Persistent hidden KV | 支持，CPU raw video K/V | 不支持 |
-| 采样 | 8steps/chunk | 30steps/chunk |
-| 新增训练 | visual QKV + endpoint/boundary/replay；使用已训action residual | 无；Original + released action LoRA |
-| 视觉证据 | 124f人物/场景相对完整；20秒崩坏 | 56f中第二块人物结构基本完整 |
-| 动作证据 | A/D方向门槛失败 | AA/AD/DA/DD第二块方向正确 |
-| 主要不足 | 动作控制；更长时程也退化 | 历史重算成本、效率与长时可靠性未验证 |
+V2a、V2b、V2c是针对V1视觉与动作退化的三条并行研究路线。字母标识方案，不表示V2a → V2b → V2c的权重继承。V2b和V2c使用Original H3 + released action LoRA；V2a有自己的视觉适配。
 
-二者没有checkpoint继承，亦非单因素消融。V2a仅124f视觉证据，V2b仅56f第二块局部动作/结构。未来V3需真正统一严格因果、历史复用与能力，不是checkpoint拼接。
+| 路线 | 研究思想 | 主要优势 / 已验证范围 | 主要限制 |
+| --- | --- | --- | --- |
+| V2a：RGB Anchor | 通过视觉条件一致性和 adaptation 维持画面 | 124帧基本人物/场景结构，支持严格因果与KV | 动作控制失败；20秒后段退化 |
+| V2b：Same-σ | 保留可见历史与当前视频的联合双向去噪 | 持续A/D124帧动作与基本结构可用 | 计算昂贵，无persistent KV；切换和连续性有限 |
+| V2c：Strict Causal + Persistent KV | 原生条件、current-prefix与冻结历史KV实现严格因果生成 | AA/AD124帧动作、结构与真实KV复用可行；另有8步续写73帧证据 | 瞬态人体形变、连续性PARTIAL；8步首窗仍借用30步 |
 
-[能力比较视频](../report/00_comparison_gallery/V2a_vs_V2b.mp4) · [路线图](../report/roadmap.md)
+三者对照是方案能力比较。anchor、适配、拓扑、history与cache条件不同，不能作单因素归因。V2c从Original权重出发，研究经验可以相互参考，checkpoint不按字母递进。
+
+[版本分组](v2/README.md) · [路线图](../report/roadmap.md)

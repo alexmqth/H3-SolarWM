@@ -1,0 +1,64 @@
+# 主要指标：历史基线与EXP-001增量
+
+统一摘录原收据，保留作用范围。下面是共享主机单次记录，非统一offload/warmup多次均值，不能直接排名speedup。
+
+| 版本/动作 | 范围 | 时间s / scope | GPU peak GiB | CPU KV GiB | noisy+commit | flow x |
+|---|---|---:|---:|---:|---|---:|
+| V0 A | 124f全片 | 454.2 E2E | 38.99 | 0.00 | 30+0 | +1.0767 |
+| V0 D | 124f全片 | 450.4 E2E | 38.99 | 0.00 | 30+0 | -1.6019 |
+| V1 A | 124f全片 | 465.9 E2E | 39.01 | 13.19 | 64+8 | -0.0180 |
+| V1 D | 124f全片 | 400.9 E2E | 39.01 | 13.19 | 64+8 | -0.0258 |
+| V2a A | 124f全片 | 699.5 E2E | 39.00 | 13.19 | 64+8 | -0.7841 |
+| V2a D | 124f全片 | 715.9 E2E | 39.00 | 13.19 | 64+8 | -1.0075 |
+| V2b A→A | 第二块17f | 195.5 sampling | 25.42 | 0 | 30+0 | +2.1464 |
+| V2b A→D | 第二块17f | 195.3 sampling | 25.42 | 0 | 30+0 | -1.7519 |
+| V2b D→A | 第二块17f | 194.8 sampling | 25.42 | 0 | 30+0 | +2.6076 |
+| V2b D→D | 第二块17f | 194.6 sampling | 25.42 | 0 | 30+0 | -1.4143 |
+
+V2b复用首39帧，不把第二块sampling冒充全片E2E；有些诊断forward时间另记。CPU KV=0不表示CPU模型权重/状态为0。GPU为torch allocated峰值，不是整卡占用，也未分解为权重/KV/激活。
+
+8steps/chunk×8chunks=64 noisy forwards，再加8clean commits；Original30整段forwards每次序列更长。步数30/8不是端到端加速比。首块latent计时也不等于用户能看到首屏：原benchmark末尾统一decode。
+
+flow是Farneback中央裁剪水平位移proxy，A正/D负须与人物和场景一起看；不能评判W/S前后移动。V2b是17新RGB段，不能与124全段flow比较恢复百分比。MAD低可能只是画面模糊/静止，不是更高质量。未计算FVD/LPIPS/PSNR/VBench，Original也不是GT。
+
+原始收据：V0/V2a `meeting/source_metrics/rgb_visual/summary.json`；V1 `action_base_causal124_flow.json`与每运行cached.json；V2b `experiments/11_causal_12_then5_selfhistory/summary.json`。各版PROVENANCE保存选中运行完整指标/配置。
+
+[返回首页](README.md)
+
+## 原有连续性指标（不同评估帧段不作排名）
+
+| 版本/动作 | 帧段 | Frame RGB MAD | Boundary RGB MAD |
+|---|---|---:|---:|
+| V0 A | 124f | 4.5199 | 5.1423 |
+| V0 D | 124f | 4.4583 | 5.3894 |
+| V2a A | 124f | 3.1855 | 3.7871 |
+| V2a D | 124f | 3.0356 | 3.8874 |
+| V1 A/D | 124f | 未找到同口径原记录 | 未找到同口径原记录 |
+| V2b A→A | 当前17f / 38→39边界 | 5.8999 | 4.3836 |
+| V2b A→D | 当前17f / 38→39边界 | 5.2963 | 6.4871 |
+| V2b D→A | 当前17f / 38→39边界 | 6.6188 | 4.8508 |
+| V2b D→D | 当前17f / 38→39边界 | 3.9685 | 3.8542 |
+
+V0/V2a边界为旧chunk5协议的多个边界均值；V2b边界为38→39的一次转场。V1缺项没有填0，也没有把另一个checkpoint指标移植过来。本次未新增质量测量。
+
+## EXP-001：持续A/D 124帧可行性（2026-10-10）
+
+| 新RGB区间 | AA flow | DD flow | AA/DD sampling秒 |
+|---|---:|---:|---|
+| [56,73) | +0.3471 | −0.8786 | 252.98 / 248.99 |
+| [73,90) | +1.4767 | −0.8705 | 310.26 / 304.46 |
+| [90,107) | +0.6848 | −0.6107 | 377.53 / 373.25 |
+| [107,124) | +0.9867 | −1.2599 | 447.19 / 436.52 |
+
+全片flow Original A/D约+1.077/−1.602，V2b约+1.035/−1.050；非动作准确率。312新增forward、18 VAE、0训练、1.0291 GPU-hours；峰值allocated 26392.86MiB，CPU hidden KV=0。所有已发布RGB前缀保持不变。AA RGB72→73边界灰度MAD16.25且有可见跳变；DD后段人物接近画面边缘。精确逐块结果与完整预算见[实验指标](../experiments/EXP-001_v2b_124/metrics.json)。
+
+
+## 2026-10-10：V3可行性已验收
+
+**最新：V3可行性版本已验收。** EXP-002/003以同一Original H3 + released LoRA、native Single I0/current-prefix协议，验证strict chunk-causal、真实persistent KV、同history A/D响应与AA/AD124帧自身历史。AA有短暂明显人体形变后恢复，画质与严格连续性仍有限制。单scene/seed、零新增训练；完整从零E2E、长期泛化及公平Original speedup未验证。
+
+EXP-003186forward/6VAE/0.436741GPU-hours。AA后3块sampling148.45/176.43/200.42秒；AD148.94/176.66/199.43秒。cache最终18.131GB，记录新块peak26,876.70MiB；初始commit峰值数值缺项。更多成本/口径见[正式审核](../experiments/EXP-003_native_cached_124/judge/FINAL_REVIEW.md)。
+
+## EXP-004：原权重8步续写73帧（2026-10-10）
+
+AA第二/第三块flow +0.780621/+0.978349，sampling70.869/37.764秒；AD −1.509824/−0.732276，sampling40.524/42.510秒。32sampling+2commit=34forward，4VAE，0训练；466.01794 GPU秒（0.129449 GPU小时），峰值allocated25,682.07MiB。首39帧复用30步生成历史，本轮只统计续写成本。单次旧30步对比与质量缺陷见[8步证据](V3_8step_continuation/README.md)，不作完整E2E速度比。

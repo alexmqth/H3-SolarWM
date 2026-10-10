@@ -1,50 +1,31 @@
-# 研究主线：V2a / V2b是并列探索，V3已完成有限可行性统一
+# 研究路线：V1之后的三条V2并行方案
 
-V0建立原始能力，V1实现基本因果化并暴露动作/视觉退化。V2a和V2b都针对生成历史/条件协议与原生模型不匹配的问题，探索不同解法；**二者不是先后升级关系，也没有checkpoint继承关系**。
+V2a、V2b、V2c是针对V1视觉与动作退化的三条并行研究路线。字母标识方案，不表示V2a → V2b → V2c的权重继承。V2b和V2c使用Original H3 + released action LoRA；V2a有自己的视觉适配。
 
 ```mermaid
 flowchart TD
-    V0["V0 Original H3-World — Bidirectional Baseline"] --> V1["V1 Native Chunk-Causal — KV / visual & action degradation"]
-    V1 --> V2a["V2a RGB-Anchor — Visual Stability Repair"]
-    V1 --> V2b["V2b Same-σ / Local Bidir — Local Visual & Action Recovery"]
-    V0 -. "Restore native H3 protocol / Original weights" .-> V2b
-    V2a -. "visual repair + history reuse insights" .-> V3["V3 Efficient Causal — 124f Feasibility"]
-    V2b -. "local action / visual evidence" .-> V3
-    V3 --> AF["Future: AnyFlow Acceleration"]
-    AF --> DMD["Future: On-policy DMD"]
-    A["Branch A: causal mechanism diagnostics"] -.-> V3
-    B["Branch B: causal adaptation / action recovery"] -.-> V2a
-    C["Branch C: preliminary AnyFlow / DMD"] -. "past explorations, not V2b completion" .-> AF
-    classDef planned fill:#e5e7eb,stroke:#6b7280,color:#111827
-    class AF,DMD planned
+    V0["V0 Original H3-World"] --> V1["V1 Native Chunk-Causal：视觉/动作退化"]
+    V1 --> V2a["V2a RGB Anchor：视觉条件与adaptation"]
+    V1 --> V2b["V2b Same-σ：历史/当前联合双向去噪"]
+    V1 --> V2c["V2c Strict Causal + Persistent KV：原生条件与冻结历史KV"]
+    V2c --> E4["EXP-004：原权重8步续写73帧，有限可行性"]
+    E4 -. "下一研究建议，未启动" .-> N["首窗也用8步，验证自身历史"]
+    N -. "按证据决定" .-> AF["后续候选：少步适配 / AnyFlow"]
+    AF -.-> DMD["后续候选：On-policy DMD"]
 ```
 
-图中V1到两支表示研究问题的分叉；V0到V2b说明实际权重/协议来源。V2a与V2b之间没有继承箭头。指向V3的虚线表示研究经验；实际权重仍为Original + released action LoRA，EXP-002/003以同一配置验收。
+箭头表示研究问题和实验推进，不表示权重继承。V2c原名V3 Efficient Causal，本次按研究思想重新分类；未来V3定义尚未发布。AnyFlow/DMD历史探索和本轮普通FM减步需分别记录。
 
-| 维度 | V2a：RGB-Anchor Causal | V2b：Same-σ History / Local Bidir |
-|---|---|---|
-| 共同问题 | 因果rollout中生成历史/条件与原生模型行为不匹配 | 同一研究问题的另一条路线 |
-| 核心思路 | 修复图像条件协议，配合视觉适配 | 恢复原生条件和尽可能接近原生的局部联合去噪 |
-| 图像条件 | RGB-consistent dual anchor | Single I0 |
-| 历史 | 自己生成的clean endpoint经clean commit写入KV | 自己生成的history按当前σ临时加噪，每步重算 |
-| Attention | Strict chunk-causal video attention | 已可见history与当前video局部双向；未知未来移除 |
-| Persistent hidden KV | 支持，CPU raw video K/V | 不支持 |
-| 采样 | 8steps/chunk | 30steps/chunk |
-| 新增训练 | visual QKV + endpoint/boundary/replay；使用已训action residual | 无；Original + released action LoRA |
-| 视觉证据 | 124f人物/场景相对完整；20秒崩坏 | 持续A/D124f基本结构可用；有边界和节奏缺陷 |
-| 动作证据 | A/D方向门槛失败 | 四路径第二块正结果；持续A/D延伸124f，DA第三块有疑点 |
-| 主要不足 | 动作控制；更长时程也退化 | 历史重算成本、效率与长时可靠性未验证 |
+| 路线 | 研究思想 | 主要优势 / 已验证范围 | 主要限制 |
+| --- | --- | --- | --- |
+| V2a：RGB Anchor | 通过视觉条件一致性和 adaptation 维持画面 | 124帧基本人物/场景结构，支持严格因果与KV | 动作控制失败；20秒后段退化 |
+| V2b：Same-σ | 保留可见历史与当前视频的联合双向去噪 | 持续A/D124帧动作与基本结构可用 | 计算昂贵，无persistent KV；切换和连续性有限 |
+| V2c：Strict Causal + Persistent KV | 原生条件、current-prefix与冻结历史KV实现严格因果生成 | AA/AD124帧动作、结构与真实KV复用可行；另有8步续写73帧证据 | 瞬态人体形变、连续性PARTIAL；8步首窗仍借用30步 |
 
-## 证据范围必须分开
+## 当前判断与下一步
 
-**V2a — Longer-horizon Visual Stability Demonstrated：仅指124帧的相对视觉证据。** A/D仍失败，同checkpoint20秒视频严重退化，不能说已经解决长期崩坏。RGB anchor、visual adapter、endpoint/boundary监督与routing共同变化，不能把全部提升只归因anchor。
+EXP-002/003已验证V2c同一native Single I0/current-prefix/strict causal/真实KV配置的AA/AD124帧可行性。AA约RGB79–86有明显人体形变后恢复，画质和连续性仍PARTIAL。EXP-004只将新增块30步改8步，两条路径续到73帧，首39帧仍借用30步生成历史。
 
-**V2b — 持续A/D124帧可行性已验收，历史四路径正结果仍限56帧第二块。** 原生Single I0、native time、Same-σ和C12→5/T2联合协议在自身history下有效；新增持续A/D六块124f可行性结果，尚无跨场景结果，也不支持persistent hidden KV。
+下一步优先验证从首窗也用8步，判断直接减步能否独立成立。按有限预算、可行性和ROI推进，不为小幅指标收益反复实验，不因失败自动扩大训练。
 
-## V3可行性验收与后续范围
-
-EXP-002/003已验证native Single I0/current-prefix/strict causal/真实KV配置到AA/AD124帧；同history第二块有可辨动作响应。AA约79–86帧明显人体形变后恢复，保留质量与连续性限制。没有新训练、成熟画质、跨场景或公平Original完整E2E加速结论。
-
-下一阶段优先在冻结V3上验证有限预算的少步路线，不为局部缺陷无限加实验。AnyFlow/DMD仍是后续工作，历史preliminary探索不视为当前已完成。
-
-[V3正式版本](V3_efficient_causal/README.md) · [下一步](02_next_steps/README.md) · [首页](README.md)
+[V2三路线与视频](v2/README.md) · [下一步](02_next_steps/README.md) · [汇报首页](README.md)

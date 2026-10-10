@@ -1,36 +1,34 @@
-# 面试交付报告：因果化可行，但动作、长时稳定与效率尚未同时成立
+# H3-World因果世界模型：研究状态
 
-**摘要。** 在真实H3-World权重上，我们实现了chunk-wise causal attention、persistent raw video KV、clean commit、滑窗与CPU offload，完成124帧及更长rollout。直接因果化损害动作信息流；RGB联合视觉修复改善124帧结构，却没有恢复A/D，20秒仍失败。另一条并列路线V2b回到Original权重，在原生条件、Same-σ与C12→5可见窗口联合重算下，第二块动作与人物结构局部通过。完整长期控制与端到端加速尚未证明。
+## 研究路线
 
-## 方法理解与实现
+V0建立原始双向动作/视觉参考；V1引入严格分块因果与persistent raw KV，并暴露视觉与动作退化。V2a、V2b、V2c是对此问题的三条并行修复方案，字母不代表权重继承。
 
-SolarWM仓库Stage0.5使用普通FM适配双向teacher；Stage1把causal teacher forcing和AnyFlow有限区间映射结合，建立少步能力；Stage2在student自己的generated trajectory上用frozen teacher与trainable fake score提供DMD方向。H3-World额外有Single-Egress的Action–Video关系，直接收紧attention可能改变已训练的多层传播，不能只保留action接口就认为控制保真。
+| 方案 | 研究思想 | 现有优势 | 主要限制 |
+| --- | --- | --- | --- |
+| V2a RGB Anchor | 视觉条件一致性 + adaptation | 124帧基本结构 | 动作控制失败，20秒后段崩坏 |
+| V2b Same-σ | 保留历史/当前联合双向去噪 | 持续A/D124帧动作与基本结构 | 计算昂贵、无persistent KV，切换有限 |
+| V2c Strict Causal + Persistent KV | 原生条件 + 冻结历史KV | AA/AD124帧动作/结构/KV可行 | 瞬态形变，连续性PARTIAL |
 
-核心实现：[h3_cached.py](code/causal/h3_cached.py)、[原动作patch](code/diffsynth_h3_action.patch)、[AnyFlow](code/causal/anyflow.py)、[DMD-lite](code/causal/stage2_lite_dmd.py)。最新V2b实际冻结实现见[代码快照](report/V2b_same_sigma_local_bidir/code/README.md)。
+原V3 Efficient Causal现重分类为V2c。V2b/V2c均使用Original H3 + released action LoRA，V2c没有继承V2a训练adapter；版本分类不改变实验配置和结论。
 
-## 原型与研究路线
+## 实验与汇报
 
-V2a与V2b是同一问题的两种修复探索，无先后升级关系。未来V3目标是在strict causal、persistent KV下统一视觉与动作，不是简单拼接两套checkpoint。
+- EXP-001：V2b持续A/D124帧与Original对照，动作切换PARTIAL。
+- EXP-002：V2c共同历史下的动作响应、严格因果与真实KV，续到73帧。
+- EXP-003：同一V2c协议AA/AD124帧可行性，AA中段明显形变后恢复。
+- EXP-004：V2c原权重普通FM8步续写到73帧，0新增训练，0.129449 GPU小时。首39帧仍借用30步结果，AA拖影明显。
 
-[V0–V3详细版本](mainline/README.md)区分零训练native、ordinary FM/visual/action适配、AnyFlow和DMD。V2b不使用V2a visual adapter，T2在每sigma重算可见video/prefix hidden；它只保证跨窗口不读未知未来，不是strict chunk-causal attention，更不复用persistent hidden KV。
+[V2分组与视频](report/v2/README.md) · [主线定义](mainline/v2/README.md) · [浏览器演示](report/index.html) · [五分钟讲稿](report/TALK_5MIN.md)。
 
-## Demo、结果与测量
+## 系统与能力边界
 
-- [Original vs V1，124f](report/00_comparison_gallery/V1_vs_original.mp4)：A/D几乎静止，验证直接因果化的代价。
-- [V1 vs V2a，124f](report/00_comparison_gallery/V2a_vs_V1.mp4)：RGB+visual adapter等联合协议改变结构和运动；A仍方向错。
-- [V1 vs V2b，前56f](report/00_comparison_gallery/V2b_vs_V1.mp4)：恢复原生协议的并列路线，非单因素消融。
-- [V2b四路径，56f](report/00_comparison_gallery/V2b_four_paths_56.mp4)：39RGB自身首段后，当前A/D方向和人物结构局部通过。
-- [V2a vs V2b，共同前56f](report/00_comparison_gallery/V2a_vs_V2b.mp4)：跨协议比较，不能将改善只归因Same-σ。
-- [V2a完整20秒失败片](report/V2a_rgb_anchor/videos/V2a_long20s_failure.mp4)：不能宣称长期稳定已解决。
+核心实现见[causal KV](code/causal/h3_cached.py)、[AnyFlow探索](code/causal/anyflow.py)、[DMD-lite探索](code/causal/stage2_lite_dmd.py)。具体版本对应的真实冻结代码、输入和成本以实验目录的manifest为准。历史AnyFlow/Stage2训练与工程运行不代表当前基线已通过这些方法。
 
-[指标表](report/METRICS.md)保留E2E/sampling范围、峰值allocated、CPU KV、forward和flow；[公平性说明](report/COMPARISON_PROTOCOL.md)列明共同项与差异。当前不提供虚构FVD/LPIPS/VBench，也不把MAD当质量。历史单次硬件配置不同，不按30/8步数计算速度比。
+目前是单scene/seed、有限训练下的可行性验证。动作proxy只作辅助，画质/严格连续性有明确缺陷；不把不同运行时刻、不同首窗复用范围的增量计时称为公平完整E2E速度比。
 
-## 失败分析与技术判断
+## 下一研究决策
 
-AnyFlow16/64/128/136、真实ABot FM48、E2 FM+action及Stage2-lite均有实际工程/训练证据，未过对应联合质量门槛。[三个研究分支](branches/README.md)保留负结果与视频；不将其附会为V2b完成Stage1/Stage2。
+优先验证V2c首窗也用8步，检查直接减步是否能独立启动并续自己的历史。证据不足则及时停止；不为微小收益增加消融，也不默认靠更多训练挽救失败。AnyFlow、On-policy DMD与未来V3研究目标另行定义。
 
-最新[固定状态KV/路由审计](reports/stage1_anyflow/02_causal_diagnostics/action_routing_kv_audit/execution_20261010/README.md)先证明受控数值下cache/recompute逐层误差0，再隔离public prefix、strict video图、commit时间冻结和past-action直接访问。无persistent KV的R2动作差分对Original已失配，说明不能简单归因缓存bug；cosine仍不是视频质量结论。
-
-## 局限与下一步
-
-V2b只有单场景/seed、两块56帧，缺第三/第四块与跨场景；V3应先将局部能力迁回strict causal/KV，再AnyFlow减少步数，后on-policy DMD处理生成历史分布。没有在本次整理中启动这些实验。[5分钟讲稿](report/TALK_5MIN.md)、[roadmap](report/roadmap.md)、[完整旧报告归档](archive/legacy_reports/REPORT_before_reorganization.md)。
+[路线图](report/roadmap.md) · [比较口径](report/COMPARISON_PROTOCOL.md) · [历史报告](archive/legacy_reports/REPORT_before_reorganization.md)
