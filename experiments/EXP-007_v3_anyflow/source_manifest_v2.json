@@ -1,0 +1,57 @@
+{
+  "task": "EXP-007/v2",
+  "sources": {
+    "first12": {
+      "path": "submission/experiments/11_causal_12_then5_selfhistory/states/first12_A.pt",
+      "sha256": "242a1db06bc3423fe21207af5d2ccf59c9f27f07c9d88f22ce9f77921f6b0eea"
+    },
+    "second5": {
+      "path": "H3-World/outputs/EXP-002_native_cached/AA/chunk_12_17.pt",
+      "sha256": "a9e4de472a9f715a30aae80753cc6a4c050d789d4900bc9a50b480fbb36bb715"
+    },
+    "input_A": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_A.pt",
+      "sha256": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572"
+    },
+    "input_D": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_D.pt",
+      "sha256": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e"
+    },
+    "released_action_lora": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/checkpoints/H3-World/step-10000.safetensors",
+      "sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526"
+    },
+    "interval_student": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/interval_student.py",
+      "sha256": "2974f9336f713cd10ccc9b11e0c2270ec6b81b52166461c31f8fd066b365a356"
+    },
+    "taskbook": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/taskbook_v2.md",
+      "sha256": "25afca496ee81e1e80c17b9fe447eb1662c7926ddf8ab96328dc64e9f2ec1dc9"
+    },
+    "config": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/config_v2.json",
+      "sha256": "f23c127d8a0563f35b45558804f292270bc0d455eb04c8361bb4307c85ecd7da"
+    },
+    "runner": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/run_af1.py",
+      "sha256": "e9afa218278c287528fa6ea15d5ccbe5eebdb21cd440cfd536b8a4d40d07cc04"
+    },
+    "anyflow": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/anyflow.py",
+      "sha256": "27b6eb22d16b6047642269604f1ddf249d8ab602fa5c8593b240144c48abc805"
+    },
+    "pretrained_lora": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/pretrained_lora.py",
+      "sha256": "e7616f9820eb93032c34860c2873839b98ad7b1e25cabb9c3a33cfe51393117d"
+    },
+    "precision": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_precision.py",
+      "sha256": "ef037a952c6a1ed54c92e06300bcc8abb615424131edd74aef55abee8699cfc2"
+    },
+    "interval_sw": {
+      "path": "submission/experiments/EXP-005_v3_sliding_window/interval_sw.py",
+      "sha256": "56bbd6229a9da44e00b4535f510028ba77c1709d66aff8ab2bea507990de9c17"
+    }
+  }
+}

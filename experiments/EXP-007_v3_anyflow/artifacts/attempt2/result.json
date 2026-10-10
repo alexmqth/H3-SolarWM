@@ -1,0 +1,200 @@
+{
+  "task": "EXP-007/v2",
+  "status": "complete_pending_judge",
+  "gpu": 1,
+  "started": 1791655300.6226337,
+  "runner_sha256": "e9afa218278c287528fa6ea15d5ccbe5eebdb21cd440cfd536b8a4d40d07cc04",
+  "manifest_sha256": "1bf07c279dbf35fa977f980c3ae2954061b5ee8d227829b3ed6a060cad031ccd",
+  "source": {
+    "first12": {
+      "path": "submission/experiments/11_causal_12_then5_selfhistory/states/first12_A.pt",
+      "sha256": "242a1db06bc3423fe21207af5d2ccf59c9f27f07c9d88f22ce9f77921f6b0eea"
+    },
+    "second5": {
+      "path": "H3-World/outputs/EXP-002_native_cached/AA/chunk_12_17.pt",
+      "sha256": "a9e4de472a9f715a30aae80753cc6a4c050d789d4900bc9a50b480fbb36bb715"
+    },
+    "input_A": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_A.pt",
+      "sha256": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572"
+    },
+    "input_D": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_D.pt",
+      "sha256": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e"
+    },
+    "released_action_lora": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/checkpoints/H3-World/step-10000.safetensors",
+      "sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526"
+    },
+    "interval_student": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/interval_student.py",
+      "sha256": "2974f9336f713cd10ccc9b11e0c2270ec6b81b52166461c31f8fd066b365a356"
+    },
+    "taskbook": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/taskbook_v2.md",
+      "sha256": "25afca496ee81e1e80c17b9fe447eb1662c7926ddf8ab96328dc64e9f2ec1dc9"
+    },
+    "config": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/config_v2.json",
+      "sha256": "f23c127d8a0563f35b45558804f292270bc0d455eb04c8361bb4307c85ecd7da"
+    },
+    "runner": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/run_af1.py",
+      "sha256": "e9afa218278c287528fa6ea15d5ccbe5eebdb21cd440cfd536b8a4d40d07cc04"
+    },
+    "anyflow": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/anyflow.py",
+      "sha256": "27b6eb22d16b6047642269604f1ddf249d8ab602fa5c8593b240144c48abc805"
+    },
+    "pretrained_lora": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/pretrained_lora.py",
+      "sha256": "e7616f9820eb93032c34860c2873839b98ad7b1e25cabb9c3a33cfe51393117d"
+    },
+    "precision": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_precision.py",
+      "sha256": "ef037a952c6a1ed54c92e06300bcc8abb615424131edd74aef55abee8699cfc2"
+    },
+    "interval_sw": {
+      "path": "submission/experiments/EXP-005_v3_sliding_window/interval_sw.py",
+      "sha256": "56bbd6229a9da44e00b4535f510028ba77c1709d66aff8ab2bea507990de9c17"
+    }
+  },
+  "torch": "2.10.0+cu128",
+  "cuda_backend": "<function sdp_kernel at 0x73835dd1ab00>",
+  "precision": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97"
+    }
+  },
+  "base_parameter_count": 535,
+  "baseline_velocity_rms": 1.411486029624939,
+  "trainable_names": [
+    "blocks.42.attn.qkv_proj.lora_A",
+    "blocks.42.attn.qkv_proj.lora_B",
+    "blocks.43.attn.qkv_proj.lora_A",
+    "blocks.43.attn.qkv_proj.lora_B",
+    "blocks.44.attn.qkv_proj.lora_A",
+    "blocks.44.attn.qkv_proj.lora_B",
+    "blocks.45.attn.qkv_proj.lora_A",
+    "blocks.45.attn.qkv_proj.lora_B",
+    "blocks.46.attn.qkv_proj.lora_A",
+    "blocks.46.attn.qkv_proj.lora_B",
+    "blocks.47.attn.qkv_proj.lora_A",
+    "blocks.47.attn.qkv_proj.lora_B",
+    "blocks.48.attn.qkv_proj.lora_A",
+    "blocks.48.attn.qkv_proj.lora_B",
+    "blocks.49.attn.qkv_proj.lora_A",
+    "blocks.49.attn.qkv_proj.lora_B",
+    "anyflow_conditioner.delta.proj_in.weight",
+    "anyflow_conditioner.delta.proj_in.bias",
+    "anyflow_conditioner.delta.proj_out.weight",
+    "anyflow_conditioner.delta.proj_out.bias"
+  ],
+  "trainable_count": 17555328,
+  "qkv_indices": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "target_gate": 0.25,
+  "diagonal_max_abs": 0.0,
+  "diagonal_relative_rms": 0.0,
+  "diagonal_allclose_1e5": true,
+  "off_diagonal_finite": true,
+  "off_diagonal_relative_rms": 0.1398400217294693,
+  "initial_checkpoint": {
+    "trainer_state.pt": "4bc2e22b54dd787e133b0b839e89d209a02d9a3ac7eca9fa13c0eb69d1b6abc8",
+    "target_time.pt": "9bb660d6015319e5c14223fbe662915efe903965eaee509794ccfba7879cac42",
+    "qkv.pt": "356e8fe111907ae5e293df6e66d6f364750976549457a2ee4ab2bb4429a9585e"
+  },
+  "samples": [
+    {
+      "sigma": 0.7709710597991943,
+      "target_sigma": 0.7709710597991943,
+      "raw_loss": 0.1293669492006302,
+      "weight": 1.1033910512924194,
+      "finite_difference_norm": 1.5314172506332397,
+      "model_evaluations": 4,
+      "sample_type": "diffusion",
+      "adaptive_scale": 1.0,
+      "weighted_loss": 0.1427423357963562
+    },
+    {
+      "sigma": 0.06225680932402611,
+      "target_sigma": 0.06225680932402611,
+      "raw_loss": 0.5041567087173462,
+      "weight": 0.3226073980331421,
+      "finite_difference_norm": 4.289471626281738,
+      "model_evaluations": 4,
+      "sample_type": "diffusion",
+      "adaptive_scale": 1.0,
+      "weighted_loss": 0.16264468431472778
+    },
+    {
+      "sigma": 0.8637738823890686,
+      "target_sigma": 0.0,
+      "raw_loss": 9.922815322875977,
+      "weight": 0.6910346150398254,
+      "finite_difference_norm": 1.528316855430603,
+      "model_evaluations": 4,
+      "sample_type": "endpoint",
+      "adaptive_scale": 0.03192254528403282,
+      "weighted_loss": 0.21889318525791168
+    },
+    {
+      "sigma": 0.15186858177185059,
+      "target_sigma": 0.06327559053897858,
+      "raw_loss": 0.4100668430328369,
+      "weight": 0.7694710493087769,
+      "finite_difference_norm": 1.8216924667358398,
+      "model_evaluations": 4,
+      "sample_type": "flow_map",
+      "adaptive_scale": 0.772445023059845,
+      "weighted_loss": 0.24373310804367065
+    }
+  ],
+  "grad_norm_target": 0.14326496422290802,
+  "grad_norm_qkv": 8.203888864954934e-05,
+  "grad_clip_pre_norm": 0.1432649940252304,
+  "qkv_parameters_changed": true,
+  "target_parameters_changed": true,
+  "step1_checkpoint": {
+    "trainer_state.pt": "b9b56463ed7a51c7f8d449a2559bd05365aba22cef605967d89e6ac82ac084e9",
+    "target_time.pt": "d835bc9967b62bd12c9106a03cb403a311acc4263ee66640bbe7db138741c965",
+    "qkv.pt": "b64fcffff56a2da9c8769f38b0dbc20c21e941c2c9449ee7f8b5281d584e46f5"
+  },
+  "recomputed_KV_differs": true,
+  "frozen_parameter_versions_unchanged": true,
+  "peak_allocated_gib": 26.631452083587646,
+  "peak_reserved_gib": 27.1015625,
+  "seconds": 177.96912026405334
+}

@@ -1,0 +1,13 @@
+[preflight] diffsynth resolved from the v2 checkout: ok /home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-04/stage1_local_topology/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+[preflight] directed attention mask present: ok 
+[preflight] packed-sequence builder is the per-latent version: ok 
+Traceback (most recent call last):
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-007_v3_anyflow/run_af1.py", line 369, in <module>
+    main()
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-007_v3_anyflow/run_af1.py", line 361, in main
+    run(args.gpu, ledger, manifest)
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-007_v3_anyflow/run_af1.py", line 122, in run
+    started=time.time(), runner_sha256=sha(__file__),
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-007_v3_anyflow/run_af1.py", line 52, in sha
+    with path.open("rb") as stream:
+AttributeError: 'str' object has no attribute 'open'
