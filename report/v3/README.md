@@ -39,3 +39,7 @@ EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留�
 ## 固定其他场景的短程迁移
 
 [EXP-011 工业/村落FM30与FM8对照](v3_scene_transfer/README.md)：四配置AA/AD56均有限可行PASS，村落FM8颗粒/重影更明显；0训练/0.514521GPUh。只覆盖固定两初图与短程，不作广泛泛化结论。
+
+## 冻结AF8迁移负结果
+
+[EXP-012](v3_anyflow/README.md)：共同FM8首窗、匹配8NFE，工业D切换PARTIAL，村落AA后半C2结构FAIL；协议/真实cache通过但无联合迁移收益。34forward/4decode/.098445GPUh，零训练。当前checkpoint停止扩展，普通FM8优先。

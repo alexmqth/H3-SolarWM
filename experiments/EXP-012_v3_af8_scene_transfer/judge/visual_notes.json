@@ -1,0 +1,40 @@
+{
+  "industrial/AA": {
+    "reviewed": "All 17 new frames",
+    "person_scene": "Single person, bridge, trees and industrial building retained; walking pose varies through C2",
+    "action": "Continued scene/camera progression visible; paired switch verdict pending AD",
+    "defects": "Soft body/vegetation detail, slight silhouette ghosting; no sustained structural collapse",
+    "quality": "PARTIAL",
+    "decision": "Finish authorized AD; compare with frozen FM8 before claiming any benefit"
+  },
+  "industrial/AD": {
+    "reviewed": "All 17 new frames and full-resolution FM8/AF8 AA/AD final grid",
+    "person_scene": "Person and industrial scene remain recognizable; bridge and vegetation alter geometry modestly",
+    "action": "AA/AD poses and scene trajectories differ, but AD has no clear sustained opposite progression over this one C2; visual switching weaker than matched FM8",
+    "motion_proxy_scope": "Central ROI per-transition median horizontal flow summed over 16 C2 transitions, auxiliary only",
+    "AF8_flow_sum_AA": 28.135520577430725,
+    "AF8_flow_sum_AD": 11.069926336407661,
+    "FM8_flow_sum_AA": 28.20128643512726,
+    "FM8_flow_sum_AD": -38.27028226852417,
+    "quality": "PARTIAL",
+    "switch_response": "PARTIAL_NOT_VERIFIED_REVERSAL",
+    "joint_superiority_to_FM8": "NOT_DEMONSTRATED",
+    "decision": "Accept protocol correctness and usable visual continuation, not a complete action-switch pass. No C3 or tuning; allow the second predeclared scene as bounded independent transfer evidence."
+  },
+  "village/AA": {
+    "reviewed": "All 17 new frames, full-resolution FM8/AF8 frame47 and final four-panel comparison",
+    "person_scene": "Village background remains recognizable, but AA late C2 person/foreground silhouette breaks into broad branching translucent streaks intertwined with foliage",
+    "action": "Continued A scene progression remains apparent; direction alone does not establish joint feasibility",
+    "defects": "Sustained late-segment person/foreground fragmentation and extensive ghosting substantially worse than matched FM8, not explained by ordinary intact-tree occlusion",
+    "visual_structure": "FAIL_LATE_C2_PERSON_FOREGROUND",
+    "decision": "Do not accept village AA structural preservation; freeze negative evidence, no C3 or tuning"
+  },
+  "village/AD": {
+    "reviewed": "All 17 new frames and full-resolution final FM8/AF8 comparison",
+    "person_scene": "Armored figure, village roofs/wall and cobblestone remain recognizable",
+    "action": "Opposite scene progression and D response discernible; AF8 ROI flow sum -68.62747 vs AA +70.32826, auxiliary only",
+    "defects": "Dark detail/softness and stronger boundary change; no sustained AA-like fragmentation",
+    "quality": "PARTIAL",
+    "decision": "Limited AD feasibility; does not override the paired AA visual failure or industrial weak switching"
+  }
+}

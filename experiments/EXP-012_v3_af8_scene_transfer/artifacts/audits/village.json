@@ -1,0 +1,73 @@
+{
+  "task": "EXP-012/v1",
+  "scene": "village",
+  "cpu_protocol_audit": "PASS",
+  "visual_assessment": "SEPARATE",
+  "row_sha256": "59d95ab370be9ec854cb9a5bc32847eb561239bc5bc46ad37af54d8e4d4189e8",
+  "cache_sha256": "2982ceca0ffb5d93c8ce0ecbc7e1f6a6f88e1b103c94ccc65f1dbc858e1397d3",
+  "cpu_raw_kv_bytes": 6799104000,
+  "commit_forwards": 1,
+  "sampling_forwards": 16,
+  "vae_decodes": 2,
+  "wall_seconds": 180.99649946400314,
+  "peak_allocated_gib": 26.229721546173096,
+  "AA_AD_new_rgb_abs_diff_mean": 21.713117599487305,
+  "baseline_FM8_flow_sum": {
+    "AA": 87.82409715652466,
+    "AD": -44.22896659374237
+  },
+  "branches": {
+    "AA": {
+      "result_sha256": "2afcdd7ef2fd1590a1b9c07723f9b331620bbae1fb32dc880ae0f7f656e834c4",
+      "endpoint_sha256": "bfb9c21b0249966aa1986b9b37a72a4395f0398f7d8ed7360d1706a9b4d73bb1",
+      "video_sha256": "bb96efb8be0aa5544baed8eb339af74d8cdb6dada2a419c0c9dbad9df9ccb19c",
+      "first39_rgb_exactly_unchanged": true,
+      "full_video": {
+        "frames": 56,
+        "fps": 24,
+        "width": 832,
+        "height": 480
+      },
+      "new_video": {
+        "frames": 17,
+        "fps": 24,
+        "width": 832,
+        "height": 480
+      },
+      "sampling_seconds": 37.71113587300351,
+      "decode_seconds": 6.575940126000205,
+      "motion": {
+        "boundary_mad_38_39": 12.397157669067383,
+        "within_c2_mad_mean": 8.13361644744873,
+        "within_c2_mad_max": 11.043488502502441,
+        "central_median_horizontal_flow_sum_c2": 70.32825517654419
+      }
+    },
+    "AD": {
+      "result_sha256": "7c96b2f05e3c465df338ddcc7824ef7af905003d88f0f74b2f346d805b5a24dd",
+      "endpoint_sha256": "c09bfc793bf95297f313445b2f835d23c390173e84bed66d47c5d7086e1db3df",
+      "video_sha256": "a215bd3f363b5b04936fde6d19d2e6ee0d11aec90799ad3083c27ff7ce1ce23d",
+      "first39_rgb_exactly_unchanged": true,
+      "full_video": {
+        "frames": 56,
+        "fps": 24,
+        "width": 832,
+        "height": 480
+      },
+      "new_video": {
+        "frames": 17,
+        "fps": 24,
+        "width": 832,
+        "height": 480
+      },
+      "sampling_seconds": 49.23705006399541,
+      "decode_seconds": 7.100215787009802,
+      "motion": {
+        "boundary_mad_38_39": 18.191499710083008,
+        "within_c2_mad_mean": 8.825630903244019,
+        "within_c2_mad_max": 12.034252166748047,
+        "central_median_horizontal_flow_sum_c2": -68.62747132778168
+      }
+    }
+  }
+}
