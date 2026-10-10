@@ -1,0 +1,68 @@
+{
+  "status": "proposal_only_no_gpu_authorization",
+  "task": "EXP-013/v1",
+  "source_candidates": "candidate_manifest.json",
+  "source_audit": "source_split_action_audit.json",
+  "version": "V3 Original Feasibility Baseline",
+  "model": "Original H3-World 33B + released action LoRA; frozen for teacher",
+  "native_conditioning": {
+    "image": "one native process_image=True RGB I0 anchor from each selected PNG",
+    "text": "annotation_pilot.caption.scene_static; no future narrative",
+    "action": "synthetic counterfactual A and D, each spanning native latent action rows",
+    "audio": "native audio noise, no extra audio condition",
+    "seed": 13,
+    "resolution": [832, 480],
+    "fps": 24,
+    "full_packed_rgb_frames": 124,
+    "full_packed_latents": 37,
+    "visible_latents_C1_C2": [12, 17],
+    "future_action_rows": "physically trim beyond visible chunk before each DiT call",
+    "routing": "own-action Single-Egress + action feedback + current non-action prefix feedback",
+    "attention": "strict chunk-causal video, Global RoPE, native video sigma/audio=1000",
+    "cache": "50-layer CPU raw KV; clean sigma=0 commit; each model rebuilds its own cache",
+    "history": "student or teacher generated; no GT reset"
+  },
+  "proposed_encoding": {
+    "candidates_K": 4,
+    "text_encoder_forwards": 12,
+    "image_VAE_encodes": 4,
+    "video_VAE_encodes": 0,
+    "input_noise": "new full37 native initial video/audio noise per scene from seed13"
+  },
+  "proposed_frozen_teacher": {
+    "C1": "FM30 under action A for 12 latent / 39 RGB frames",
+    "C2": "fork A and D on same generated clean C1; each FM30 for 5 latent / 17 new RGB frames",
+    "denoiser_forwards_per_scene": 91,
+    "denoiser_forwards_K4": 364,
+    "VAE_decodes_per_scene": 3,
+    "VAE_decodes_K4": 12,
+    "training_target": "teacher generated C2 endpoint for A/D; never relabel real ABot clip as pure A/D"
+  },
+  "proposed_student": {
+    "initialization": "new V3-initialized target-time + tail8 rank8 QKV student, independent of AF2 step32",
+    "velocity_convention": "noise-clean",
+    "objective": "TF-AnyFlow finite map: 2 diagonal/FM + 1 endpoint + 1 general interval per logical batch4",
+    "logical_batch": 4,
+    "physical_batch": 1,
+    "episode_balance": "one sample from each of four train episodes per update; eight-step Latin schedule balances A/D and the four sample types",
+    "training_C1_latent_source": "immutable frozen V3 FM30 teacher-generated C1 endpoint for that episode; do not resample student C1 each update",
+    "history": "commit the same frozen teacher C1 latent with the current student weights to rebuild that episode's sigma=0 raw KV after every optimizer update; detach",
+    "sampling": "8NFE native shifted grid, shift=2.22",
+    "checkpoint": "one fixed final checkpoint only; no validation checkpoint selection"
+  },
+  "fixed_validation": {
+    "episode_ids": [
+      "118eb5d8b75e1b8ac23a4e9ae77af9a9",
+      "dfec8ed3237860eba14d67c089ecd041"
+    ],
+    "label": "previously observed regression set, not blind held-out test",
+    "additional_regression": "frozen parking lot single-scene reference; source episode relationship to ABot not proven",
+    "fm8_reference": "reuse matched EXP-011 industrial/village C1+C2 and EXP-006 parking C1+C2 after source/noise/protocol SHA checks; do not rerun without a documented mismatch",
+    "proposed_new_af8_evaluation_budget_three_scenes": {"denoiser_forwards": 126, "VAE_decodes": 15},
+    "comparisons": [
+      "FM8 vs AnyFlow8 on a shared frozen C1 generated history, each model's own KV",
+      "FM8 vs AnyFlow8 from each model's own C1 through C2"
+    ],
+    "video_gate": "actual action direction and subject/environment structure, not finite-map loss alone"
+  }
+}

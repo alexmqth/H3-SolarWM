@@ -1,0 +1,465 @@
+{
+  "task": "EXP-013/v1",
+  "clips": 24,
+  "episodes": 6,
+  "train_episodes": [
+    "43866101158a538d22c52ac5b2fa606b",
+    "7199292ca430b478bfd0d83cf2e519d8",
+    "9dc2e5882a294b8d68d6b2b31ff3ef65",
+    "b784d995827f53977a8067e5b9dc4b5e"
+  ],
+  "validation_episodes": [
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9",
+    "dfec8ed3237860eba14d67c089ecd041"
+  ],
+  "fixed_observed_validation_episodes": [
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9",
+    "dfec8ed3237860eba14d67c089ecd041"
+  ],
+  "validation_exactly_fixed": true,
+  "episode_split_disjoint": true,
+  "source_video_hash_split_disjoint": true,
+  "source_annotations_hash_split_disjoint": true,
+  "within_episode_source_frame_overlap": [],
+  "sources": {
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9": {
+      "episode_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9",
+      "split": [
+        "validation"
+      ],
+      "source_video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/11/118eb5d8b75e1b8ac23a4e9ae77af9a9/video.mp4",
+      "source_video_sha256": "100199334fb037922b8e804192592cbf1cbd3090dc3fd248d17c8dc75d3888a8",
+      "annotations": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/11/118eb5d8b75e1b8ac23a4e9ae77af9a9/annotations.tar",
+      "annotations_sha256": "211fccd0ec8c28e18cbc1f36eee4332e51aaca1d3be0b67bf6d1e91976aaf54d",
+      "source_fps": 30.0,
+      "source_frames": 1800,
+      "source_control_scheme": "WASD_QE_locomotion_IJKL_rotation",
+      "source_video_probe": {
+        "codec": "h264",
+        "fps": 30.0,
+        "reported_frames": 1800,
+        "width_height": [
+          1920,
+          1080
+        ],
+        "duration_seconds": 60.0
+      },
+      "source_annotation_matches_pilot_sha256": true,
+      "source_caption_scene_static_sha256": "0efe6bb7e6b5328959ac7c3fa2dad97166281ec2ee5082107f722a45165f5a4d",
+      "clip_count": 4
+    },
+    "43866101158a538d22c52ac5b2fa606b": {
+      "episode_id": "43866101158a538d22c52ac5b2fa606b",
+      "split": [
+        "train"
+      ],
+      "source_video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/43/43866101158a538d22c52ac5b2fa606b/video.mp4",
+      "source_video_sha256": "dec114fa16e82a0af3e66d6a248261c9d99e01b3ff6085b6c7344f38a1f2ec3f",
+      "annotations": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/43/43866101158a538d22c52ac5b2fa606b/annotations.tar",
+      "annotations_sha256": "8af5ccc92f5e3a896a2836589aac5b563eac9c6e86572e556d848289c37687d3",
+      "source_fps": 30.0,
+      "source_frames": 1800,
+      "source_control_scheme": "WASD_QE_locomotion_IJKL_rotation",
+      "source_video_probe": {
+        "codec": "h264",
+        "fps": 30.0,
+        "reported_frames": 1800,
+        "width_height": [
+          1920,
+          1080
+        ],
+        "duration_seconds": 60.0
+      },
+      "source_annotation_matches_pilot_sha256": true,
+      "source_caption_scene_static_sha256": "763144cae24bd962cfeed8b35a8366e8215556e46ef5df5f45cb5777ce3a74da",
+      "clip_count": 4
+    },
+    "7199292ca430b478bfd0d83cf2e519d8": {
+      "episode_id": "7199292ca430b478bfd0d83cf2e519d8",
+      "split": [
+        "train"
+      ],
+      "source_video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/71/7199292ca430b478bfd0d83cf2e519d8/video.mp4",
+      "source_video_sha256": "bc0c6dd4ed0a010b2f4cdafc290698c9baa4f6e70efb7a3c983c8de155fd977c",
+      "annotations": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/71/7199292ca430b478bfd0d83cf2e519d8/annotations.tar",
+      "annotations_sha256": "7c1b2864f7511fa5701a0e2bfe1e99e9e4b7095574836fe0977d3a0de095d070",
+      "source_fps": 30.0,
+      "source_frames": 1800,
+      "source_control_scheme": "WASD_QE_locomotion_IJKL_rotation",
+      "source_video_probe": {
+        "codec": "h264",
+        "fps": 30.0,
+        "reported_frames": 1800,
+        "width_height": [
+          1920,
+          1080
+        ],
+        "duration_seconds": 60.0
+      },
+      "source_annotation_matches_pilot_sha256": true,
+      "source_caption_scene_static_sha256": "c662db1af089f47d74996d6d225eeedac45548a7bf0e5db21ff8d1c6d6e3f05f",
+      "clip_count": 4
+    },
+    "9dc2e5882a294b8d68d6b2b31ff3ef65": {
+      "episode_id": "9dc2e5882a294b8d68d6b2b31ff3ef65",
+      "split": [
+        "train"
+      ],
+      "source_video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/9d/9dc2e5882a294b8d68d6b2b31ff3ef65/video.mp4",
+      "source_video_sha256": "dc8e35dcb91b351d119efa1c99131fd15906e7bb5617098e7e691fe552d0ff0c",
+      "annotations": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/9d/9dc2e5882a294b8d68d6b2b31ff3ef65/annotations.tar",
+      "annotations_sha256": "9bcfe65eed7929a0113997a32ef5db8d85f93f00f78ce162b150a73ecc6af3eb",
+      "source_fps": 30.0,
+      "source_frames": 1800,
+      "source_control_scheme": "WASD_QE_locomotion_IJKL_rotation",
+      "source_video_probe": {
+        "codec": "h264",
+        "fps": 30.0,
+        "reported_frames": 1800,
+        "width_height": [
+          1920,
+          1080
+        ],
+        "duration_seconds": 60.0
+      },
+      "source_annotation_matches_pilot_sha256": true,
+      "source_caption_scene_static_sha256": "6c19c6f530349edccf41d99d86705a8fb9e8b15e5904d920330b68b38789dbba",
+      "clip_count": 4
+    },
+    "b784d995827f53977a8067e5b9dc4b5e": {
+      "episode_id": "b784d995827f53977a8067e5b9dc4b5e",
+      "split": [
+        "train"
+      ],
+      "source_video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/b7/b784d995827f53977a8067e5b9dc4b5e/video.mp4",
+      "source_video_sha256": "44c7f63e3096c06c26e72ea8b727f70cb7189418732f989c13b218646ad32b5d",
+      "annotations": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/b7/b784d995827f53977a8067e5b9dc4b5e/annotations.tar",
+      "annotations_sha256": "153ee1e09fe10e7c38ece65f53b7d75e1b8cbd3d361d88d065f4b0df21d7eeb0",
+      "source_fps": 30.0,
+      "source_frames": 1800,
+      "source_control_scheme": "WASD_QE_locomotion_IJKL_rotation",
+      "source_video_probe": {
+        "codec": "h264",
+        "fps": 30.0,
+        "reported_frames": 1800,
+        "width_height": [
+          1920,
+          1080
+        ],
+        "duration_seconds": 60.0
+      },
+      "source_annotation_matches_pilot_sha256": true,
+      "source_caption_scene_static_sha256": "7865ffa53c0b97aac0c998bad2bca4e204c43f8ad1345399dd914377fc9a73ee",
+      "clip_count": 4
+    },
+    "dfec8ed3237860eba14d67c089ecd041": {
+      "episode_id": "dfec8ed3237860eba14d67c089ecd041",
+      "split": [
+        "validation"
+      ],
+      "source_video": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/df/dfec8ed3237860eba14d67c089ecd041/video.mp4",
+      "source_video_sha256": "6e4050d896166a9aebee3b62de22b4c7e96da3ede1cf7274c5c9e17c19a38432",
+      "annotations": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/df/dfec8ed3237860eba14d67c089ecd041/annotations.tar",
+      "annotations_sha256": "46f04a7d22240d8e02c793357d2c6c6c1971cebb91d91ca3fb1787ccb383e262",
+      "source_fps": 30.0,
+      "source_frames": 1800,
+      "source_control_scheme": "WASD_QE_locomotion_IJKL_rotation",
+      "source_video_probe": {
+        "codec": "h264",
+        "fps": 30.0,
+        "reported_frames": 1800,
+        "width_height": [
+          1920,
+          1080
+        ],
+        "duration_seconds": 60.0
+      },
+      "source_annotation_matches_pilot_sha256": true,
+      "source_caption_scene_static_sha256": "00f97d2d1d6d85494014c29c3e9433b630c032624fccb4dfe487eb8c552c1fda",
+      "clip_count": 4
+    }
+  },
+  "clip_check_failures": [],
+  "manifest_lineage": {
+    "file_sha256": {
+      "clips.jsonl": "c3962dade7f0f3eecee4c1906e212ff5e0624f3f6463aaa0291c71aa00b090a1",
+      "annotation_pilot.json": "630ff11d75e548592c7e9c717ac3329ea84db7f4e543faa95b83be61065ff8c5",
+      "preparation.json": "5ba9b589a81ff6dc7fa76e817bb67e06b3bea002b283398e981b515a7db50d54",
+      "encoding.json": "ba7a98167b84159872362d304157aca292c0e4bf510f9f0aa360c1635360e1bc",
+      "encoded_manifest.json": "ffa190e91f03d9211429def3f25bdc4e2de34c21688c937914a2ea7f2180341e",
+      "source_metadata/metadata.jsonl": "a8a05b7ead0b4b2a04bb0f0592918cd9bb28894c5afa1328aa17a7e5012b90b8"
+    },
+    "all_episodes_in_source_metadata": true,
+    "preparation_download_ids_match": true,
+    "preparation_clip_ids_match": true,
+    "encoding_clip_ids_match": true,
+    "old_encoded_clip_ids_match": true,
+    "encoding_anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2"
+  },
+  "source_video_first_frame_spotchecks": {
+    "b784d995827f53977a8067e5b9dc4b5e_A_1750": {
+      "MAD_by_source_frame_shift": {
+        "-1": 4.9294328689575195,
+        "0": 3.0047149658203125,
+        "1": 3.6151299476623535
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "b784d995827f53977a8067e5b9dc4b5e_D_1205": {
+      "MAD_by_source_frame_shift": {
+        "-1": 3.4956939220428467,
+        "0": 2.79909348487854,
+        "1": 3.9427742958068848
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "b784d995827f53977a8067e5b9dc4b5e_A_1635": {
+      "MAD_by_source_frame_shift": {
+        "-1": 5.822652816772461,
+        "0": 3.240018129348755,
+        "1": 4.243192672729492
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "b784d995827f53977a8067e5b9dc4b5e_D_1155": {
+      "MAD_by_source_frame_shift": {
+        "-1": 3.190528154373169,
+        "0": 2.8342630863189697,
+        "1": 4.248035907745361
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "7199292ca430b478bfd0d83cf2e519d8_A_1720": {
+      "MAD_by_source_frame_shift": {
+        "-1": 9.408734321594238,
+        "0": 6.418862819671631,
+        "1": 6.33739709854126
+      },
+      "best_shift": "1",
+      "source_frame_exact_best": false
+    },
+    "7199292ca430b478bfd0d83cf2e519d8_D_0750": {
+      "MAD_by_source_frame_shift": {
+        "-1": 6.34575891494751,
+        "0": 5.697042942047119,
+        "1": 8.193270683288574
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "7199292ca430b478bfd0d83cf2e519d8_A_1670": {
+      "MAD_by_source_frame_shift": {
+        "-1": 8.215958595275879,
+        "0": 6.6431732177734375,
+        "1": 5.5835652351379395
+      },
+      "best_shift": "1",
+      "source_frame_exact_best": false
+    },
+    "7199292ca430b478bfd0d83cf2e519d8_D_0700": {
+      "MAD_by_source_frame_shift": {
+        "-1": 5.021690368652344,
+        "0": 5.798764705657959,
+        "1": 8.506258964538574
+      },
+      "best_shift": "-1",
+      "source_frame_exact_best": false
+    },
+    "43866101158a538d22c52ac5b2fa606b_A_1295": {
+      "MAD_by_source_frame_shift": {
+        "-1": 7.446070194244385,
+        "0": 4.877652645111084,
+        "1": 9.360136032104492
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "43866101158a538d22c52ac5b2fa606b_D_1605": {
+      "MAD_by_source_frame_shift": {
+        "-1": 3.774721145629883,
+        "0": 3.0985159873962402,
+        "1": 5.677415370941162
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "43866101158a538d22c52ac5b2fa606b_A_1245": {
+      "MAD_by_source_frame_shift": {
+        "-1": 8.73568344116211,
+        "0": 5.224921703338623,
+        "1": 11.478551864624023
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "43866101158a538d22c52ac5b2fa606b_D_1555": {
+      "MAD_by_source_frame_shift": {
+        "-1": 3.1070938110351562,
+        "0": 3.0940887928009033,
+        "1": 4.210219860076904
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "9dc2e5882a294b8d68d6b2b31ff3ef65_A_1460": {
+      "MAD_by_source_frame_shift": {
+        "-1": 13.788350105285645,
+        "0": 5.388034343719482,
+        "1": 12.63810920715332
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "9dc2e5882a294b8d68d6b2b31ff3ef65_D_1750": {
+      "MAD_by_source_frame_shift": {
+        "-1": 13.963756561279297,
+        "0": 5.698142051696777,
+        "1": 14.925507545471191
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410": {
+      "MAD_by_source_frame_shift": {
+        "-1": 13.896615028381348,
+        "0": 5.175166130065918,
+        "1": 12.654426574707031
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "9dc2e5882a294b8d68d6b2b31ff3ef65_D_1555": {
+      "MAD_by_source_frame_shift": {
+        "-1": 7.518555641174316,
+        "0": 6.523138046264648,
+        "1": 13.483772277832031
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1140": {
+      "MAD_by_source_frame_shift": {
+        "-1": 18.648033142089844,
+        "0": 9.700785636901855,
+        "1": 20.0960636138916
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1750": {
+      "MAD_by_source_frame_shift": {
+        "-1": 16.870534896850586,
+        "0": 12.043137550354004,
+        "1": 20.94956398010254
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9_A_1090": {
+      "MAD_by_source_frame_shift": {
+        "-1": 25.42461395263672,
+        "0": 9.919580459594727,
+        "1": 21.681547164916992
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9_D_1015": {
+      "MAD_by_source_frame_shift": {
+        "-1": 13.431939125061035,
+        "0": 9.504030227661133,
+        "1": 19.420635223388672
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "dfec8ed3237860eba14d67c089ecd041_A_1080": {
+      "MAD_by_source_frame_shift": {
+        "-1": 13.690540313720703,
+        "0": 4.785898208618164,
+        "1": 13.237883567810059
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "dfec8ed3237860eba14d67c089ecd041_D_1750": {
+      "MAD_by_source_frame_shift": {
+        "-1": 19.193552017211914,
+        "0": 6.2741618156433105,
+        "1": 18.96936798095703
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "dfec8ed3237860eba14d67c089ecd041_A_1030": {
+      "MAD_by_source_frame_shift": {
+        "-1": 10.281347274780273,
+        "0": 4.286087512969971,
+        "1": 12.48099136352539
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    },
+    "dfec8ed3237860eba14d67c089ecd041_D_1700": {
+      "MAD_by_source_frame_shift": {
+        "-1": 21.306325912475586,
+        "0": 5.751186847686768,
+        "1": 16.736753463745117
+      },
+      "best_shift": "0",
+      "source_frame_exact_best": true
+    }
+  },
+  "ambiguous_pixel_shift_exact_ffmpeg_rebuilds": [
+    {
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_A_1720",
+      "rebuild_sha256": "64778a407a1c9956a19639e3d962170a03ac7321218d0240e0d2c8a4b1092139",
+      "existing_sha256": "64778a407a1c9956a19639e3d962170a03ac7321218d0240e0d2c8a4b1092139",
+      "exact_byte_match": true,
+      "producer_filter": "select='between(n\\,1720\\,1767)*not(eq(mod(n-1720\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+      "encoder": "libx264 crf14 preset=veryfast yuv420p"
+    },
+    {
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_A_1670",
+      "rebuild_sha256": "0ec833354e65f174f85705b6cf0f23b521640b0956705a811950780ceadc8173",
+      "existing_sha256": "0ec833354e65f174f85705b6cf0f23b521640b0956705a811950780ceadc8173",
+      "exact_byte_match": true,
+      "producer_filter": "select='between(n\\,1670\\,1717)*not(eq(mod(n-1670\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+      "encoder": "libx264 crf14 preset=veryfast yuv420p"
+    },
+    {
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_D_0700",
+      "rebuild_sha256": "e13f900c6c0096b4bf2dbf19f283e6498fa864fdaf3b4ab37821fb80b23822f8",
+      "existing_sha256": "e13f900c6c0096b4bf2dbf19f283e6498fa864fdaf3b4ab37821fb80b23822f8",
+      "exact_byte_match": true,
+      "producer_filter": "select='between(n\\,700\\,747)*not(eq(mod(n-700\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+      "encoder": "libx264 crf14 preset=veryfast yuv420p"
+    }
+  ],
+  "action_column_names": [
+    "W",
+    "A",
+    "S",
+    "D",
+    "Q",
+    "E",
+    "I",
+    "J",
+    "K",
+    "L",
+    "Space",
+    "d_pitch",
+    "d_yaw",
+    "d_roll",
+    "d_x_right",
+    "d_y_down",
+    "d_z_fwd"
+  ],
+  "old_encoded_anchor_protocol": "global_retimed_rgb_prefix_last_image_dual_v2",
+  "old_encoded_suitable_for_V3_Single_I0": false,
+  "existing_39RGB_12latent_covers_only_C1": true
+}
