@@ -1,0 +1,23 @@
+{
+  "task": "EXP-011/v1",
+  "seed": 13,
+  "height": 480,
+  "width": 832,
+  "num_frames": 124,
+  "latent_frames": 37,
+  "partition": [12, 5],
+  "flow_shift": 2.22,
+  "precision": "h3_fp32",
+  "max_history": 5,
+  "gpu_allocated_cap_gib": 44,
+  "minimum_free_disk_gib": 60,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "p1": {"max_gpu_seconds": 900, "text_encoder_calls": 6, "image_vae_encodes": 2, "video_vae_encodes": 0, "denoiser_forwards": 0, "vae_decodes": 0},
+  "g1": {"max_gpu_seconds": 4500, "sampling_forwards": 76, "commit_forwards": 0, "vae_decodes": 4},
+  "g2": {"max_gpu_seconds": 4500, "sampling_forwards": 152, "commit_forwards": 4, "vae_decodes": 8},
+  "inference_total": {"max_gpu_seconds": 4500, "sampling_forwards": 228, "commit_forwards": 4, "vae_decodes": 12},
+  "scenes": {
+    "industrial": {"sample_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9", "stem": "A_1140"},
+    "village": {"sample_id": "dfec8ed3237860eba14d67c089ecd041", "stem": "D_1750"}
+  }
+}

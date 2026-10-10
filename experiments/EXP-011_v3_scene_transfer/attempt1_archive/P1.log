@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-011_v3_scene_transfer/encode_native.py", line 200, in <module>
+    encode(args.gpu)
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-011_v3_scene_transfer/encode_native.py", line 91, in encode
+    "runner_sha256": sha(__file__), "fixtures": {}}
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-011_v3_scene_transfer/common.py", line 25, in sha
+    with path.open("rb") as stream:
+AttributeError: 'str' object has no attribute 'open'

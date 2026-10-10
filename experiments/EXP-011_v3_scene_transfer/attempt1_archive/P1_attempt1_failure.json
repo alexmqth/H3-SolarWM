@@ -1,0 +1,21 @@
+{
+  "task": "EXP-011/v1",
+  "stage": "P1",
+  "attempt": 1,
+  "status": "failed_before_model_load",
+  "exception": "AttributeError: 'str' object has no attribute 'open'",
+  "site": "common.sha(__file__) before P1_result initialization",
+  "command": "CUDA_VISIBLE_DEVICES=0 ... python -u encode_native.py --encode --gpu 0",
+  "wall_seconds": 4.386365982,
+  "conservative_gpu_seconds_charged": 4.386365982,
+  "text_encoder_calls": 0,
+  "image_vae_encodes": 0,
+  "video_vae_encodes": 0,
+  "denoiser_forwards": 0,
+  "vae_decodes": 0,
+  "fixture_files": 0,
+  "log": "P1.log",
+  "budget_raw": "budget_attempt1_raw.json",
+  "budget_amended": "budget.json",
+  "retry_authorized": false
+}

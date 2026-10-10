@@ -1,0 +1,31 @@
+{
+  "task": "EXP-011/v1",
+  "at_hkt": "2026-10-11T05:52:47.151681+08:00",
+  "config_sha256": "6b9c203d0ad92379885ddb36d43fedc7425c6a2697a1dc154d0858cfcdf1b1e6",
+  "source_manifest_sha256": "6e3f36d3e58e55924384f91666ac747d21e3876e08d915b07653fb0f099aa11e",
+  "code_manifest_sha256": "950bde5ce11460a8bbf183a74829302ced44f5b135fe891302178d27b253b4a4",
+  "status": "PASS_P0_CPU",
+  "independent_commands": [
+    {
+      "command": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 .venvs/h3world/bin/python submission/experiments/EXP-011_v3_scene_transfer/encode_native.py --preflight",
+      "result": "PASS",
+      "gpu_calls": 0
+    },
+    {
+      "command": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 .venvs/h3world/bin/python submission/experiments/EXP-011_v3_scene_transfer/test_p0.py",
+      "result": "PASS after final code freeze",
+      "gpu_calls": 0
+    }
+  ],
+  "code_files_verified": 26,
+  "reviewed": [
+    "Fixed PNG hashes and validation split provenance",
+    "No old Dual Anchor encoded tensors used",
+    "Native full37/Single I0 unit chain and A/D action-only replacement",
+    "Encoding loads text encoder and VAE without DiT",
+    "Prepaid 6 text/2 image encode budgets, deadline/disk guard",
+    "FP32 noise hash and live KV mutation signature fixes",
+    "Separate P1/G1/G2 release gates"
+  ],
+  "preparation_note": "An intermediate independent test saw a manifest mismatch while Worker was still modifying common.py; final frozen test PASS. No GPU attempt."
+}

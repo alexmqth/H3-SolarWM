@@ -1,0 +1,27 @@
+{
+  "task": "EXP-011/v1",
+  "at_hkt": "2026-10-11T05:56:27.135088+08:00",
+  "config_sha256": "6b9c203d0ad92379885ddb36d43fedc7425c6a2697a1dc154d0858cfcdf1b1e6",
+  "source_manifest_sha256": "6e3f36d3e58e55924384f91666ac747d21e3876e08d915b07653fb0f099aa11e",
+  "code_manifest_sha256": "11363412837dfdca85a611761fc1a59b730cb2c541117942fbbcf14f24866976",
+  "stage": "P1",
+  "approved": true,
+  "gpu": 0,
+  "max_gpu_seconds": 900,
+  "text_encoder_calls": 6,
+  "image_vae_encodes": 2,
+  "video_vae_encodes": 0,
+  "denoiser_forwards": 0,
+  "vae_decodes": 0,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "conditions": [
+    "Check GPU0 is genuinely idle immediately before launch",
+    "Do not change frozen code/config/input",
+    "No automatic retry",
+    "Run CPU fixture audit and stop; G1/G2 not authorized"
+  ],
+  "attempt": 2,
+  "retry_authorized": true,
+  "prior_attempt_gpu_seconds": 4.386365982,
+  "retry_limit": 1
+}
