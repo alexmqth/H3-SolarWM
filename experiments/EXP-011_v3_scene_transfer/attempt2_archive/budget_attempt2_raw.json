@@ -1,0 +1,40 @@
+{
+  "task": "EXP-011/v1",
+  "p1_gpu_seconds": 4.387860954995715,
+  "inference_gpu_seconds": 0.0,
+  "text_encoder_calls": 0,
+  "image_vae_encodes": 0,
+  "video_vae_encodes": 0,
+  "sampling_forwards": 0,
+  "commit_forwards": 0,
+  "vae_decodes": 0,
+  "events": [
+    {
+      "event": "stage_start",
+      "stage": "P1",
+      "gpu": 0,
+      "at": "2026-10-10T21:53:19.790741+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "P1",
+      "gpu": 0,
+      "status": "failed_before_model_load",
+      "at": "2026-10-10T21:53:59.491529+00:00",
+      "accounting_note": "Conservative entire exec_command wall time 4.386365982s; no encode/model call; raw budget preserved in budget_attempt1_raw.json"
+    },
+    {
+      "event": "stage_start",
+      "stage": "P1",
+      "gpu": 0,
+      "at": "2026-10-10T21:56:42.337261+00:00"
+    },
+    {
+      "event": "stage_stop",
+      "stage": "P1",
+      "gpu": 0,
+      "status": "failed",
+      "at": "2026-10-10T21:56:42.338752+00:00"
+    }
+  ]
+}

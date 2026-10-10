@@ -1,6 +1,6 @@
 {
   "task": "EXP-011/v1",
-  "at_hkt": "2026-10-11T05:59:08.481630+08:00",
+  "at_hkt": "2026-10-11T05:56:27.135088+08:00",
   "config_sha256": "6b9c203d0ad92379885ddb36d43fedc7425c6a2697a1dc154d0858cfcdf1b1e6",
   "source_manifest_sha256": "6e3f36d3e58e55924384f91666ac747d21e3876e08d915b07653fb0f099aa11e",
   "code_manifest_sha256": "11363412837dfdca85a611761fc1a59b730cb2c541117942fbbcf14f24866976",
@@ -20,14 +20,8 @@
     "No automatic retry",
     "Run CPU fixture audit and stop; G1/G2 not authorized"
   ],
-  "attempt": 3,
+  "attempt": 2,
   "retry_authorized": true,
-  "prior_attempt_gpu_seconds": 8.667172311,
-  "retry_limit": 2,
-  "required_environment": {
-    "DIFFSYNTH_MODEL_BASE_PATH": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models",
-    "DIFFSYNTH_SKIP_DOWNLOAD": "True",
-    "CUDA_VISIBLE_DEVICES": "0"
-  },
-  "environment_fix": "Explicit pre-existing frozen model root; no code or weights changed"
+  "prior_attempt_gpu_seconds": 4.386365982,
+  "retry_limit": 1
 }

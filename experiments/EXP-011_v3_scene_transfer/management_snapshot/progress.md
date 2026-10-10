@@ -2,7 +2,7 @@
 
 更新：2026-10-11 05:42 HKT，Judge。当前为可行性验证阶段，ROI优先；接受明确边界下的PARTIAL，持续结构失败的配置停止归档。
 
-**当前唯一执行任务：EXP-011/v1，两个固定 ABot 初图的 V3 FM30 / FM8 短程迁移，P0独立CPU审核通过，P1输入编码已放行；G1/G2未放行。EXP-010 已验收：全 FM8 + SW-G 的 A继续/D晚切换各158帧有限可行PASS，画质PARTIAL、首切换块响应PARTIAL。** 任务书见[next_plan.md](next_plan.md)，Worker执行见[report.md](report.md)。用户授权持续监督到2026-10-11 09:00 HKT，尚未到期。
+**当前唯一执行任务：EXP-011/v1，两个固定 ABot 初图的 V3 FM30 / FM8 短程迁移，P1输入编码已验收，G1四个新首窗已放行；G2未放行。EXP-010 已验收：全 FM8 + SW-G 的 A继续/D晚切换各158帧有限可行PASS，画质PARTIAL、首切换块响应PARTIAL。** 任务书见[next_plan.md](next_plan.md)，Worker执行见[report.md](report.md)。用户授权持续监督到2026-10-11 09:00 HKT，尚未到期。
 
 ## 正式参考和研究结论
 
@@ -57,7 +57,7 @@ EXP-009固定普通FM4 vs AF2 step32 AF4，共同FM8首39，各自KV和C3历史�
 
 EXP-010完整验收：自有全FM8 AA73续到AA124，再C7/C8 A继续/D晚切换到158；C7 flow A+.439/D+.034，C8 A+.587/D−.858。人物/车库可用，透明腿残影与场景边界变化；D首切换块弱，次块响应更清楚。真实50层KV indices1–5再2–6，恒定14,164,800,000 bytes，旧RGB不改写。新增62forward/7VAE/0训练/1137.108658秒=.315863516GPUh，峰26.59566GiB。仅停车场seed13、158帧6.58秒、冻结long47位置，不宣称无限长度或公平E2E速度。[正式审核](submission/experiments/EXP-010_v3_fm8_sw158/judge/FINAL_REVIEW.md)。
 
-EXP-011：P0已审核，P1仅6text/2image encode已放行；G1/G2待审。任务为：固定现有validation中的户外工业与中世纪村落两张初图，重新构建native Single I0，比较V3 FM30/FM8首39及各自AA/AD到56；不复用旧Dual Anchor编码、不称绝对未见或现实世界数据。预处理、首窗、续写各需Judge放行。总上限232forward/12decode/0训练，编码≤.25GPUh、推理≤1.25GPUh，09:00截止；失败配置停止续写，不挑图/调参/扫seed。详见[next_plan.md](next_plan.md)。
+EXP-011：P1 6text/2image encode及独立CPU输入审计已通过，含失败启动70.565秒；G1四个首窗已放行，G2待审。任务为：固定现有validation中的户外工业与中世纪村落两张初图，重新构建native Single I0，比较V3 FM30/FM8首39及各自AA/AD到56；不复用旧Dual Anchor编码、不称绝对未见或现实世界数据。预处理、首窗、续写各需Judge放行。总上限232forward/12decode/0训练，编码≤.25GPUh、推理≤1.25GPUh，09:00截止；失败配置停止续写，不挑图/调参/扫seed。详见[next_plan.md](next_plan.md)。
 
 ## 资源与协作规则
 

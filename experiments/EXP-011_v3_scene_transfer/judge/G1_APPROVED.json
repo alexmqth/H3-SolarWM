@@ -1,0 +1,36 @@
+{
+  "task": "EXP-011/v1",
+  "stage": "G1",
+  "approved": true,
+  "at_hkt": "2026-10-11T06:02:12.919744+08:00",
+  "gpu": 0,
+  "config_sha256": "6b9c203d0ad92379885ddb36d43fedc7425c6a2697a1dc154d0858cfcdf1b1e6",
+  "source_manifest_sha256": "6e3f36d3e58e55924384f91666ac747d21e3876e08d915b07653fb0f099aa11e",
+  "code_manifest_sha256": "11363412837dfdca85a611761fc1a59b730cb2c541117942fbbcf14f24866976",
+  "P1_result_sha256": "dca4deba40a283951ee6935cf8d97e241116ea9b307aa3c0b159698f4170be2e",
+  "fixture_sha256": {
+    "industrial": "9f404c910c31e68b319cf6029d7d59fa48229d9db14df395a2890cc32057107d",
+    "village": "eb7590213fb7f3971f3e6d345bce185ab8f9b6fba757f43a2123b65631478775"
+  },
+  "sampling_forwards": 76,
+  "commit_forwards": 0,
+  "vae_decodes": 4,
+  "max_inference_gpu_seconds_total": 4500,
+  "required_environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "ABOT_VRAM_RESERVE_GIB": "18",
+    "DIFFSYNTH_MODEL_BASE_PATH": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/DiffSynth-Studio-h3-v2/models",
+    "DIFFSYNTH_SKIP_DOWNLOAD": "True",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "TOKENIZERS_PARALLELISM": "false",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "conditions": [
+    "Confirm real idle GPU immediately before each launch",
+    "Four G1 runs only: industrial/village x FM30/FM8",
+    "Keep input/code/config unchanged",
+    "No automatic retries",
+    "Inspect all 39 frames before G2; G2 not authorized"
+  ]
+}

@@ -72,3 +72,19 @@ G1四个首窗、G2续写尚无GPU授权；P1成功不等于生成能力通过�
 ## P1首发失败与一次修复重跑授权（05:56 HKT）
 
 首发在模型加载前因sha字符串路径类型失败，0模型调用；保守计费4.386365982秒，原始日志/账本/首发源码与marker已归档并核对哈希。修复统一Path(path)，初始化纳入异常处理，独立test_p0通过。Judge批准P1 attempt2一次重跑，仍6text/2image encode、900秒累计预算、0去噪/0decode；失败成本不重置。代码manifest现为11363412837dfdca85a611761fc1a59b730cb2c541117942fbbcf14f24866976，无协议变动。G1/G2仍未授权。
+
+# EXP-011 P1模型目录修正与attempt3授权
+
+2026-10-11 06:00 HKT。attempt2因独立P1没有import infer所设置的模型根目录而解析出空权重列表，0模型调用，已终止；其日志/result/预算和marker原样存attempt2_archive。累计P1账本8.667172311秒，所有模型调用计数仍0。账本包括Worker明确标注的保守失败启动开销，原始账本保留。
+
+Judge CPU使用相同ModelConfig、禁止下载、显式DIFFSYNTH_MODEL_BASE_PATH核查通过：14个已存在文本权重分片、1个VAE文件、processor目录正确指向既有H3模型。证据P1_MODEL_PATH_CPU_CHECK.json。
+
+批准attempt3一次编码启动，命令环境必须按P1_APPROVED.json显式指定冻结模型根。代码manifest不变（11363412837dfdca85a611761fc1a59b730cb2c541117942fbbcf14f24866976），同6text/2image encode、0denoiser/0decode、累计900秒；不重置失败账本、不改图/文本/协议。G1/G2仍未授权。此修复只处理资源解析，不能作为模型能力证据。
+
+# EXP-011 P1验收与G1首窗放行
+
+2026-10-11 06:02 HKT。P1输入编码接受，生成能力未评估。Judge独立CPU审计确认新两fixture来源、原生CPU噪声逐值重建、Single I0、A/D非动作条件和所有保留Global坐标；Worker检查own-action mask及未来action删除通过。真实6text/2image encode、0denoiser/0decode，含两次失败启动累计70.564697678秒，allocated峰40.576426GiB。失败与修复证据保留，输入/模型协议没有改变。
+
+现在批准GPU0顺序执行industrial/village × FM30/FM8四个G1首窗，合计最多76 sampling forward、0commit、4VAE decode，沿用推理累计4500秒与09:00截止。启动环境按G1_APPROVED.json，尤其ABOT_VRAM_RESERVE_GIB=18保持已验收推理offload设置，显式模型根禁止下载。每个首窗从各场景相同seed13噪声独立生成，全部39帧需审查，严重结构崩溃的配置不继续G2。无自动重试、无新训练。
+
+G2仍未放行；P1工程成功不代表画质/动作迁移通过。正式V3结果保持冻结。

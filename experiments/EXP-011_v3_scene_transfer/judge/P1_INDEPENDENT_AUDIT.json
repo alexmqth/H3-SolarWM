@@ -1,0 +1,26 @@
+{
+  "task": "EXP-011/v1",
+  "independent_P1_audit": "PASS",
+  "gpu_calls_by_audit": 0,
+  "p1_gpu_seconds_including_failed_starts": 70.56469767799234,
+  "actual_text_calls": 6,
+  "actual_image_vae_encodes": 2,
+  "denoiser_forwards": 0,
+  "vae_decodes": 0,
+  "fixtures": {
+    "industrial": {
+      "fixture_sha256": "9f404c910c31e68b319cf6029d7d59fa48229d9db14df395a2890cc32057107d",
+      "native_cpu_noise_reconstruction": "EXACT",
+      "single_i0_anchor_rows": 390,
+      "global_positions_preserved": true,
+      "nonaction_prompt_unchanged_A_D": true
+    },
+    "village": {
+      "fixture_sha256": "eb7590213fb7f3971f3e6d345bce185ab8f9b6fba757f43a2123b65631478775",
+      "native_cpu_noise_reconstruction": "EXACT",
+      "single_i0_anchor_rows": 390,
+      "global_positions_preserved": true,
+      "nonaction_prompt_unchanged_A_D": true
+    }
+  }
+}

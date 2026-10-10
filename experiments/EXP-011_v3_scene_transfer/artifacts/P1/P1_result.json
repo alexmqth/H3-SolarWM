@@ -1,0 +1,41 @@
+{
+  "task": "EXP-011/v1",
+  "stage": "P1",
+  "status": "complete_pending_cpu_audit",
+  "gpu": 0,
+  "fixtures": {
+    "industrial": {
+      "path": "H3-World/outputs/EXP-011_v3_scene_transfer/fixtures/industrial.pt",
+      "sha256": "9f404c910c31e68b319cf6029d7d59fa48229d9db14df395a2890cc32057107d",
+      "bytes": 22121707,
+      "action_spans": 37,
+      "action_sentences": {
+        "A": "the man strafes left, camera follows him",
+        "D": "the man strafes right, camera follows him"
+      }
+    },
+    "village": {
+      "path": "H3-World/outputs/EXP-011_v3_scene_transfer/fixtures/village.pt",
+      "sha256": "eb7590213fb7f3971f3e6d345bce185ab8f9b6fba757f43a2123b65631478775",
+      "bytes": 22633909,
+      "action_spans": 37,
+      "action_sentences": {
+        "A": "the man strafes left, camera follows him",
+        "D": "the man strafes right, camera follows him"
+      }
+    }
+  },
+  "marker_sha256": "3a95111762e8041a89060d5cb3a8e4807464d0afe2ab05ffbba1045e22cd3bc0",
+  "source_manifest_sha256": "6e3f36d3e58e55924384f91666ac747d21e3876e08d915b07653fb0f099aa11e",
+  "runner_sha256": "7231cfdfc6f652746e48a8d0d08631c1a6007f94b5bd5d8979e7e8b94c566570",
+  "actual_calls": {
+    "text_encoder_calls": 6,
+    "image_vae_encodes": 2,
+    "video_vae_encodes": 0,
+    "sampling_forwards": 0,
+    "commit_forwards": 0,
+    "vae_decodes": 0
+  },
+  "elapsed_seconds": 61.89657372099464,
+  "peak_allocated_gib": 40.57642602920532
+}

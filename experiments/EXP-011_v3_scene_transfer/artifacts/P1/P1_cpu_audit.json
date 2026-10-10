@@ -1,0 +1,49 @@
+{
+  "task": "EXP-011/v1",
+  "stage": "P1_cpu_audit",
+  "status": "PASS",
+  "fixture_sha256": {
+    "industrial": "9f404c910c31e68b319cf6029d7d59fa48229d9db14df395a2890cc32057107d",
+    "village": "eb7590213fb7f3971f3e6d345bce185ab8f9b6fba757f43a2123b65631478775"
+  },
+  "scenes": {
+    "industrial": {
+      "source_png_sha256": "5e6bd9a2c137e8df3b86cab99bb1861f7e226b172fb9316be2069d3ba02b2774",
+      "single_i0": true,
+      "same_nonaction_prompt": true,
+      "same_noise_and_layout_for_A_D": true,
+      "visibility": {
+        "12": {
+          "future_actions_removed": 25,
+          "current_video_own_action_only": true,
+          "position_layout_A_equals_D": true
+        },
+        "17": {
+          "future_actions_removed": 20,
+          "current_video_own_action_only": true,
+          "position_layout_A_equals_D": true
+        }
+      }
+    },
+    "village": {
+      "source_png_sha256": "961f3492d3a7517a151ffec97da4a2fbeee5460e3ead9d0d91787c29ce2ed880",
+      "single_i0": true,
+      "same_nonaction_prompt": true,
+      "same_noise_and_layout_for_A_D": true,
+      "visibility": {
+        "12": {
+          "future_actions_removed": 25,
+          "current_video_own_action_only": true,
+          "position_layout_A_equals_D": true
+        },
+        "17": {
+          "future_actions_removed": 20,
+          "current_video_own_action_only": true,
+          "position_layout_A_equals_D": true
+        }
+      }
+    }
+  },
+  "gpu_calls": 0,
+  "same_initial_video_audio_noise_between_scenes": true
+}

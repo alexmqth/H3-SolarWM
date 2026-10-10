@@ -1,0 +1,27 @@
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: []
+Traceback (most recent call last):
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-011_v3_scene_transfer/encode_native.py", line 202, in <module>
+    encode(args.gpu)
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-011_v3_scene_transfer/encode_native.py", line 97, in encode
+    pipe = load_encoding_pipeline()
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-011_v3_scene_transfer/encode_native.py", line 54, in load_encoding_pipeline
+    pipe = MiniMaxH3Pipeline.from_pretrained(
+  File "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py", line 61, in from_pretrained
+    model_pool = pipe.download_and_load_models(model_configs, vram_limit)
+  File "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/diffusion/base_pipeline.py", line 304, in download_and_load_models
+    model_pool.auto_load_model(
+  File "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/model_loader.py", line 98, in auto_load_model
+    raise ValueError(f"Cannot detect the model type. File: {path}. Model hash: {model_hash}")
+ValueError: Cannot detect the model type. File: []. Model hash: d41d8cd98f00b204e9800998ecf8427e
