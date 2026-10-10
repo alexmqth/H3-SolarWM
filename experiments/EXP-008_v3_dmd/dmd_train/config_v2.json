@@ -1,0 +1,23 @@
+{
+  "task": "EXP-008/v2-DMD-TRAIN",
+  "status": "CPU_PREPARATION_ONLY",
+  "physical_gpu_ids": [0, 2, 5],
+  "first_cycle": 2,
+  "last_cycle": 8,
+  "training_noise_seed": 170008,
+  "score_noise_seed": 170108,
+  "score_sigma": 0.6,
+  "student_lr": 0.0001,
+  "fake_lr": 0.0001,
+  "grad_clip_norm": 1.0,
+  "rank": 8,
+  "max_forwards": 99,
+  "max_backward": 14,
+  "max_updates": 14,
+  "max_vae": 0,
+  "max_wall_minutes": 45,
+  "max_three_gpu_hours": 2.25,
+  "max_allocated_gib_per_gpu": 44,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "output_root": "H3-World/outputs/EXP-008_v3_dmd_train_v2"
+}

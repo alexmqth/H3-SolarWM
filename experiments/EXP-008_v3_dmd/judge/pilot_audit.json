@@ -1,0 +1,51 @@
+{
+  "task": "EXP-008/v1-DMD-PILOT",
+  "pass_all": true,
+  "checks": {
+    "manifest_and_all_sources_unchanged": true,
+    "budget_and_three_card_accounting": true,
+    "exact_role_sequence": true,
+    "eight_continuous_maps_and_matched_scores": true,
+    "all_map_and_parameter_gradients_finite_positive": true,
+    "fake_updates_and_cache_rebuilds": true,
+    "student_groups_changed": true,
+    "finite_dmd_direction_and_memory": true,
+    "paired_checkpoint_hashes": true,
+    "checkpoint_metadata_and_finite_tensors": true,
+    "optimizer_and_rng": true,
+    "saved_student_really_differs_from_parent": true
+  },
+  "wall_seconds": 254.89862394332886,
+  "gpu_hours": 0.21241551995277405,
+  "peak_allocated_gib_by_role": {
+    "teacher": 25.070041179656982,
+    "fake": 25.879170417785645,
+    "student": 27.96513271331787
+  },
+  "checkpoint_files": {
+    "trainer_state.pt": "df06435cbefaa1bb91366fc0db5645a945ee36ed62c3db50252af53c810e0ead",
+    "fake_qkv.pt": "5e2410b75dbb03dd1c4aa1db361fbf8356f74c37e803367273dc99dfa8b0036f",
+    "student_target.pt": "ef4fdde520e22cd754e396899c106b7519ecef9d3580af8f9c286d7f0dd33c87",
+    "student_qkv.pt": "ae9a201e41e11c1fb913f54cc4eb75913cca971bfe16d6068b986a53de99fd90"
+  },
+  "velocity_grad_norms": [
+    2.5101349820033647e-05,
+    2.567974297562614e-05,
+    5.050817890150938e-06,
+    4.98339659316116e-06,
+    5.141389920026995e-06,
+    6.450350610975875e-06,
+    6.5427338995505124e-06,
+    9.565279469825327e-06
+  ],
+  "direction_stats": {
+    "direction_rms": 0.01718812622129917,
+    "per_sample_normalizer": [
+      0.138744056224823
+    ],
+    "active_elements": 187200,
+    "normalized": true,
+    "convention": "fake_x0-real_x0 = sigma*(real_velocity-fake_velocity)"
+  },
+  "scope": "One real-model DMD cycle engineering only. No VAE/video/quality claim; base and cache immutability rely on reviewed runtime assertions."
+}

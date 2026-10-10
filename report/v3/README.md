@@ -27,3 +27,7 @@ EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留�
 ## AnyFlow研究进展
 
 [V3-AF](v3_anyflow/README.md)：累计32次finite-map训练和8NFE AA/AD73续写有限可行性通过，quality PARTIAL；共同FM8首窗，尚无整体优于FM8的证据。正式V3 Baseline冻结，后续独立DMD pilot。
+
+## DMD研究进展
+
+[V3-DMD](v3_dmd/README.md)：真实33B单cycle完整8map反向工程通过，17forward/3backward/3update/0VAE，三卡0.212416GPUh；尚无DMD视频或质量收益结论，正准备有限延续。

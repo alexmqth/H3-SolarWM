@@ -1,0 +1,281 @@
+{
+  "task": "EXP-008/v1-DMD-PILOT",
+  "physical_gpu_ids": [
+    0,
+    2,
+    5
+  ],
+  "start": 1791661188.2760224,
+  "forwards": 17,
+  "backward": 3,
+  "updates": 3,
+  "vae": 0,
+  "events": [
+    {
+      "kind": "forward",
+      "role": "teacher",
+      "detail": {
+        "index": 0,
+        "sigma": 0.0,
+        "r": null,
+        "commit": true,
+        "grad": false
+      },
+      "ordinal": 1,
+      "time": 1791661201.5451233
+    },
+    {
+      "kind": "forward",
+      "role": "fake",
+      "detail": {
+        "index": 0,
+        "sigma": 0.0,
+        "r": null,
+        "commit": true,
+        "grad": false
+      },
+      "ordinal": 2,
+      "time": 1791661216.8744555
+    },
+    {
+      "kind": "forward",
+      "role": "student",
+      "detail": {
+        "index": 0,
+        "sigma": 0.0,
+        "r": 0,
+        "commit": true,
+        "grad": false
+      },
+      "ordinal": 3,
+      "time": 1791661231.2410655
+    },
+    {
+      "kind": "forward",
+      "role": "student",
+      "detail": {
+        "index": 1,
+        "sigma": 1.0,
+        "r": 0.9395404663085938,
+        "commit": false,
+        "grad": true
+      },
+      "ordinal": 4,
+      "time": 1791661246.359916
+    },
+    {
+      "kind": "forward",
+      "role": "student",
+      "detail": {
+        "index": 1,
+        "sigma": 0.9395404663085938,
+        "r": 0.8694517211914062,
+        "commit": false,
+        "grad": true
+      },
+      "ordinal": 5,
+      "time": 1791661252.2265348
+    },
+    {
+      "kind": "forward",
+      "role": "student",
+      "detail": {
+        "index": 1,
+        "sigma": 0.8694517211914062,
+        "r": 0.7872340698242187,
+        "commit": false,
+        "grad": true
+      },
+      "ordinal": 6,
+      "time": 1791661258.0912185
+    },
+    {
+      "kind": "forward",
+      "role": "student",
+      "detail": {
+        "index": 1,
+        "sigma": 0.7872340698242187,
+        "r": 0.6894410400390625,
+        "commit": false,
+        "grad": true
+      },
+      "ordinal": 7,
+      "time": 1791661263.9906647
+    },
+    {
+      "kind": "forward",
+      "role": "student",
+      "detail": {
+        "index": 1,
+        "sigma": 0.6894410400390625,
+        "r": 0.5711835327148438,
+        "commit": false,
+        "grad": true
+      },
+      "ordinal": 8,
+      "time": 1791661269.8998697
+    },
+    {
+      "kind": "forward",
+      "role": "student",
+      "detail": {
+        "index": 1,
+        "sigma": 0.5711835327148438,
+        "r": 0.4252873229980469,
+        "commit": false,
+        "grad": true
+      },
+      "ordinal": 9,
+      "time": 1791661275.8295345
+    },
+    {
+      "kind": "forward",
+      "role": "student",
+      "detail": {
+        "index": 1,
+        "sigma": 0.4252873229980469,
+        "r": 0.24078089904785155,
+        "commit": false,
+        "grad": true
+      },
+      "ordinal": 10,
+      "time": 1791661281.9968972
+    },
+    {
+      "kind": "forward",
+      "role": "student",
+      "detail": {
+        "index": 1,
+        "sigma": 0.24078089904785155,
+        "r": 0.0,
+        "commit": false,
+        "grad": true
+      },
+      "ordinal": 11,
+      "time": 1791661287.8920946
+    },
+    {
+      "kind": "forward",
+      "role": "fake",
+      "detail": {
+        "index": 1,
+        "sigma": 0.6,
+        "r": null,
+        "commit": false,
+        "grad": true
+      },
+      "ordinal": 12,
+      "time": 1791661293.900042
+    },
+    {
+      "kind": "backward",
+      "role": "fake",
+      "detail": 1,
+      "ordinal": 1,
+      "time": 1791661298.9947264
+    },
+    {
+      "kind": "update",
+      "role": "fake",
+      "detail": 1,
+      "ordinal": 1,
+      "time": 1791661300.5054793
+    },
+    {
+      "kind": "forward",
+      "role": "fake",
+      "detail": {
+        "index": 0,
+        "sigma": 0.0,
+        "r": null,
+        "commit": true,
+        "grad": false
+      },
+      "ordinal": 13,
+      "time": 1791661300.9518108
+    },
+    {
+      "kind": "forward",
+      "role": "fake",
+      "detail": {
+        "index": 1,
+        "sigma": 0.6,
+        "r": null,
+        "commit": false,
+        "grad": true
+      },
+      "ordinal": 14,
+      "time": 1791661309.7839751
+    },
+    {
+      "kind": "backward",
+      "role": "fake",
+      "detail": 2,
+      "ordinal": 2,
+      "time": 1791661314.8969402
+    },
+    {
+      "kind": "update",
+      "role": "fake",
+      "detail": 2,
+      "ordinal": 2,
+      "time": 1791661316.386838
+    },
+    {
+      "kind": "forward",
+      "role": "fake",
+      "detail": {
+        "index": 0,
+        "sigma": 0.0,
+        "r": null,
+        "commit": true,
+        "grad": false
+      },
+      "ordinal": 15,
+      "time": 1791661316.8039267
+    },
+    {
+      "kind": "forward",
+      "role": "teacher",
+      "detail": {
+        "index": 1,
+        "sigma": 0.6,
+        "r": null,
+        "commit": false,
+        "grad": false
+      },
+      "ordinal": 16,
+      "time": 1791661325.6738126
+    },
+    {
+      "kind": "forward",
+      "role": "fake",
+      "detail": {
+        "index": 1,
+        "sigma": 0.6,
+        "r": null,
+        "commit": false,
+        "grad": false
+      },
+      "ordinal": 17,
+      "time": 1791661329.7877479
+    },
+    {
+      "kind": "backward",
+      "role": "student",
+      "detail": "DMD full 8-map",
+      "ordinal": 3,
+      "time": 1791661334.0857186
+    },
+    {
+      "kind": "update",
+      "role": "student",
+      "detail": "DMD full 8-map",
+      "ordinal": 3,
+      "time": 1791661437.901908
+    }
+  ],
+  "end": 1791661443.1746464,
+  "wall_seconds": 254.89862394332886,
+  "conservative_three_gpu_hours": 0.21241551995277405
+}

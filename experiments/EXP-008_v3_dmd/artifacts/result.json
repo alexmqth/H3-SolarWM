@@ -1,0 +1,104 @@
+{
+  "task": "EXP-008/v1-DMD-PILOT",
+  "status": "complete_pending_judge",
+  "physical_gpu_ids": [
+    0,
+    2,
+    5
+  ],
+  "af2_step": 32,
+  "source_manifest_sha256": "2bb576217bf285795190d4141af8b51c2209af9a293405b5185adc3af65180ff",
+  "runner_sha256": "100015018719ed29bb20b114fea0e55a29cb6859385a26dfb79f6a80a0a200dc",
+  "calls": [],
+  "backward_roles": [],
+  "update_roles": [],
+  "rng_initial": {
+    "seed": 170008,
+    "cpu_sha256": "098e8b805d571f6fb1ba04f8cf6aaee9c9d82788114e02d142a76ee7a1e12a7b",
+    "cuda_sha256": [
+      "116fd12083eab23a311b501588db46c41e7086beb905a3fe7297372034850d9a",
+      "116fd12083eab23a311b501588db46c41e7086beb905a3fe7297372034850d9a",
+      "116fd12083eab23a311b501588db46c41e7086beb905a3fe7297372034850d9a"
+    ]
+  },
+  "actual_dmd_import": {
+    "path": "H3-World/outputs/2026-10-09-04/stage1_local_topology/runtime/code/causal/dmd.py",
+    "sha256": "11b21eb9c7f6fa1139b007ba62e71873cdd56110fe3d97a49d09010fc4819b32"
+  },
+  "role_model_loaded": {
+    "teacher": {
+      "device": "cuda:0",
+      "precision": "h3_fp32",
+      "has_target": false
+    },
+    "fake": {
+      "device": "cuda:1",
+      "precision": "h3_fp32",
+      "has_target": false
+    },
+    "student": {
+      "device": "cuda:2",
+      "precision": "h3_fp32",
+      "has_target": true
+    }
+  },
+  "student_eight_map_graph_live": true,
+  "fake_warmups": [
+    {
+      "index": 1,
+      "loss": 0.11060620099306107,
+      "cache_rebuilt": true,
+      "cache_read_unchanged": true,
+      "grad_norm": 0.00013417225272860378,
+      "clip_pre_norm": 0.00013417225272860378,
+      "parameters_changed": true
+    },
+    {
+      "index": 2,
+      "loss": 0.10823383927345276,
+      "cache_rebuilt": true,
+      "cache_read_unchanged": true,
+      "grad_norm": 0.0001226107415277511,
+      "clip_pre_norm": 0.0001226107415277511,
+      "parameters_changed": true
+    }
+  ],
+  "dmd_loss": 0.00014771585119888186,
+  "direction_stats": {
+    "direction_rms": 0.01718812622129917,
+    "per_sample_normalizer": [
+      0.138744056224823
+    ],
+    "active_elements": 187200,
+    "normalized": true,
+    "convention": "fake_x0-real_x0 = sigma*(real_velocity-fake_velocity)"
+  },
+  "velocity_grad_norms": [
+    2.5101349820033647e-05,
+    2.567974297562614e-05,
+    5.050817890150938e-06,
+    4.98339659316116e-06,
+    5.141389920026995e-06,
+    6.450350610975875e-06,
+    6.5427338995505124e-06,
+    9.565279469825327e-06
+  ],
+  "student_clip_pre_norm": 0.0034630517475306988,
+  "student_qkv_parameters_changed": true,
+  "student_target_parameters_changed": true,
+  "student_target_grad_norm": 0.00346300913952291,
+  "student_qkv_grad_norm": 1.7246962670469657e-05,
+  "checkpoint_files": {
+    "trainer_state.pt": "df06435cbefaa1bb91366fc0db5645a945ee36ed62c3db50252af53c810e0ead",
+    "fake_qkv.pt": "5e2410b75dbb03dd1c4aa1db361fbf8356f74c37e803367273dc99dfa8b0036f",
+    "student_target.pt": "ef4fdde520e22cd754e396899c106b7519ecef9d3580af8f9c286d7f0dd33c87",
+    "student_qkv.pt": "ae9a201e41e11c1fb913f54cc4eb75913cca971bfe16d6068b986a53de99fd90"
+  },
+  "wall_seconds": 246.33156561851501,
+  "conservative_three_gpu_hours": 0.20527630468209584,
+  "peak_allocated_gib_by_role": {
+    "teacher": 25.070041179656982,
+    "fake": 25.879170417785645,
+    "student": 27.96513271331787
+  }
+}
