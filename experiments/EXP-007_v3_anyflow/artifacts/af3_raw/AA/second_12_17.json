@@ -1,0 +1,138 @@
+{
+  "task": "EXP-007/v3-AF3",
+  "status": "complete_pending_visual_review",
+  "stage": "second",
+  "path": "AA",
+  "interval": [
+    12,
+    17
+  ],
+  "index": 1,
+  "gpu": 0,
+  "checkpoint_step": 32,
+  "checkpoint_manifest_sha256": "7aa18960e1f26177270f79829c1ee4398403525272c1ba771957eba1dfbd6271",
+  "runner_sha256": "0c5d731d7d61077a15ea484d3c71e46554bdc7b3c9ad888c5a19645d889799f7",
+  "sampling_forwards": 8,
+  "commit_forwards": 1,
+  "vae_calls": 1,
+  "fm8_first_sha256": "587fc19007ded256b356f44f26f42c6c943d51b5c186075d2c21bd02f74da232",
+  "first_tensor_sha256": "4c373976c4d70948694606626d3d340301f0cdb8d47e04a4d45c700ed1b3ab6c",
+  "prompt_sha256": "293753da0e591f867aa141dbde3ed23639c0f0254ce7e019e42a704aa0bd9cd4",
+  "precision": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97"
+    }
+  },
+  "source_cache_sha256": "77ef62ac5125b107f183d54684653a6b4e73f5fd0539383a8d7aa9ff20958db8",
+  "cache_before": {
+    "index": 1,
+    "layer_count": 50,
+    "entries": [
+      [
+        0,
+        4680
+      ]
+    ],
+    "nbytes": 6799104000,
+    "commits": 50
+  },
+  "prior_RGB_sha256": "f8649fb414e90a6c954ee6642e9f70f525fa435acd518fe01c9d5007a1ef0b38",
+  "history_tensor_sha256": "4c373976c4d70948694606626d3d340301f0cdb8d47e04a4d45c700ed1b3ab6c",
+  "noise_sha256": "9571b2309b5e8a593acc49c88231a1e8b6f0ecadb8680023bd750308a8dcab74",
+  "model_ready_seconds": 15.159913947994937,
+  "sigmas": [
+    1.0,
+    0.9395404663085938,
+    0.8694517211914062,
+    0.7872340698242187,
+    0.6894410400390625,
+    0.5711835327148438,
+    0.4252873229980469,
+    0.24078089904785155,
+    0.0
+  ],
+  "step_completed": 8,
+  "sampling_seconds": 40.57329002999904,
+  "history_cache_read_unchanged": true,
+  "endpoint_sha256": "69da05fa50df9378a55681d7e9165f33468cc206d15a3a0b68b2713b90148002",
+  "commit_seconds": 6.362785496996366,
+  "cache_after": {
+    "index": 2,
+    "layer_count": 50,
+    "entries": [
+      [
+        0,
+        4680
+      ],
+      [
+        1,
+        1950
+      ]
+    ],
+    "nbytes": 9632064000,
+    "commits": 100
+  },
+  "cache_after_sha256": "4b7a8aea3630a0b99ccaec2c91021de66cfb0958764a9e036565613fc6f33b73",
+  "source_cache_file_unchanged": true,
+  "old_RGB_unchanged": true,
+  "decode_seconds": 7.628443069996138,
+  "published_file_sha256": "f632d2c72a4eac4bda52aea72449eaed4b0a1eab9c8aa3a8bc1a7c5d7097a4c7",
+  "published_RGB_sha256": "fe8f2f575a6c96a4fadca283fd373edc24437d43d1ea08727db927bdce382335",
+  "video_sha256": "caa69baef28464b660524a1d661bb9839bccb9e2da3e355c0431d7316fb78d4e",
+  "flow": {
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-007_v3_anyflow_af3/AA/chunk_12_17.mp4",
+    "frames": 17,
+    "horizontal_flow_px": {
+      "mean": 0.6501739085651934,
+      "median": 0.533010333776474,
+      "p05": 0.1465699765831232,
+      "p95": 1.5842895209789276,
+      "mean_abs": 0.6501739085651934
+    },
+    "vertical_flow_px": {
+      "mean": 0.0556613658554852,
+      "median": 0.06391473300755024,
+      "p05": -0.20694656297564507,
+      "p95": 0.287931140512228,
+      "mean_abs": 0.14301610086113214
+    },
+    "flow_magnitude_px": {
+      "mean": 0.9165232358500361,
+      "median": 0.7460065484046936,
+      "p05": 0.1934286691248417,
+      "p95": 2.040652871131897,
+      "mean_abs": 0.9165232358500361
+    },
+    "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+  },
+  "boundary_gray_MAD": 4.316150665283203,
+  "inside_gray_MAD": 3.7397472858428955,
+  "peak_allocated_gib": 25.96970510482788,
+  "peak_reserved_gib": 26.798828125,
+  "peak_cpu_rss_mib": 80637.5859375,
+  "seconds": 112.82234507099929
+}

@@ -1,0 +1,78 @@
+{
+  "task": "EXP-007/v3-AF3",
+  "checkpoint_step": 32,
+  "sources": {
+    "runner": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/run_af3.py",
+      "sha256": "0c5d731d7d61077a15ea484d3c71e46554bdc7b3c9ad888c5a19645d889799f7"
+    },
+    "config": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/config_v3_af3.json",
+      "sha256": "e995a761d9af7d854e45860635d4c2309a5c0e751368a628f81d06a7326b13b1"
+    },
+    "student_entry": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/interval_student.py",
+      "sha256": "2974f9336f713cd10ccc9b11e0c2270ec6b81b52166461c31f8fd066b365a356"
+    },
+    "fm8_helpers": {
+      "path": "submission/experiments/EXP-006_v3_fm8_full/run_fm8.py",
+      "sha256": "e56437a6bda08ae1f02687c05a3a1df4bf852a718c621c7a011bb9bab8bd27cb"
+    },
+    "benchmark_writer": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/benchmark.py",
+      "sha256": "f7cf78f3af07877dee03176ea23bf422390ba9c33af183ccfae3ac23984aa7a4"
+    },
+    "action_flow": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/evaluate_action_control.py",
+      "sha256": "1f378333c207b2b2946e6bf762b3edbd32b6f01d6370ed854976329f51a1cf59"
+    },
+    "rollout_contract": {
+      "path": "submission/experiments/EXP-001_v2b_124/rollout_contract.py",
+      "sha256": "79b6e672cf8d97ba57f3d62e876a0e0bd901f78654cb2c1f9766818378ef2377"
+    },
+    "af2_result": {
+      "path": "H3-World/outputs/EXP-007_v3_anyflow_af2/result.json",
+      "sha256": "e6b64d29a5a04e76548f6d7e3576a910b54216031f10b4ac92cca7c25a626636"
+    },
+    "af2_qkv": {
+      "path": "H3-World/outputs/EXP-007_v3_anyflow_af2/step_32/qkv.pt",
+      "sha256": "07c8e5e68d1c947e60217e326ca8dd4c00222a555542b286dfc03514e27e916e"
+    },
+    "af2_target": {
+      "path": "H3-World/outputs/EXP-007_v3_anyflow_af2/step_32/target_time.pt",
+      "sha256": "ceb7d62324834a5b2be9fd6a47bfe4b5a9d810e49d1bb33889af0fb788940f70"
+    },
+    "af2_state": {
+      "path": "H3-World/outputs/EXP-007_v3_anyflow_af2/step_32/trainer_state.pt",
+      "sha256": "2fda88175634075b1b4feda209337ff1281e4007ce25dc540eb1992704c523b1"
+    },
+    "fm8_first": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/first12.pt",
+      "sha256": "587fc19007ded256b356f44f26f42c6c943d51b5c186075d2c21bd02f74da232"
+    },
+    "fm8_rgb39": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/published_39.npy",
+      "sha256": "2ed8018d064e74dda02239f5f115afe7beed01dcd9bcb23ec3f219ff54a0e51e"
+    },
+    "input_A": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_A.pt",
+      "sha256": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572"
+    },
+    "input_D": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_D.pt",
+      "sha256": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e"
+    },
+    "released_lora": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/checkpoints/H3-World/step-10000.safetensors",
+      "sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526"
+    },
+    "anyflow": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/anyflow.py",
+      "sha256": "27b6eb22d16b6047642269604f1ddf249d8ab602fa5c8593b240144c48abc805"
+    },
+    "prefix_feedback": {
+      "path": "submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py",
+      "sha256": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310"
+    }
+  }
+}

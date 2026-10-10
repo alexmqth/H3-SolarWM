@@ -26,4 +26,4 @@ EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留�
 
 ## AnyFlow研究进展
 
-[V3-AF](v3_anyflow/README.md)：CPU与真实33B单次训练工程通过，正在推进有限训练；生成能力尚未测试，未升级为正式能力版本。
+[V3-AF](v3_anyflow/README.md)：累计32次finite-map训练和8NFE AA/AD73续写有限可行性通过，quality PARTIAL；共同FM8首窗，尚无整体优于FM8的证据。正式V3 Baseline冻结，后续独立DMD pilot。

@@ -1,0 +1,54 @@
+{
+  "task": "EXP-007/v3-AF2",
+  "pass_all": true,
+  "checks": {
+    "complete_update_sequence": true,
+    "terminal_status_matches_steps": true,
+    "exact_outer_calls": true,
+    "time_budget": true,
+    "per_step_actions_cache_and_counts": true,
+    "finite_positive_group_gradients": true,
+    "sample_classes_and_losses": true,
+    "memory_cap": true,
+    "manifest_and_sources_unchanged": true,
+    "resume_step1_verified": true,
+    "unique_final_checkpoint": true,
+    "step8_file_hashes": true,
+    "step8_metadata": true,
+    "step8_paired_weights": true,
+    "step8_optimizer_and_rng": true,
+    "step32_file_hashes": true,
+    "step32_metadata": true,
+    "step32_paired_weights": true,
+    "step32_optimizer_and_rng": true
+  },
+  "last_complete_step": 32,
+  "forwards": 527,
+  "backward": 124,
+  "updates": 31,
+  "gpu_seconds": 4287.86070561409,
+  "gpu_hours": 1.191072418226136,
+  "peak_allocated_gib": 26.767441272735596,
+  "checkpoint_receipts": [
+    {
+      "step": 8,
+      "path": "H3-World/outputs/EXP-007_v3_anyflow_af2/step_08",
+      "files": {
+        "trainer_state.pt": "5f73e7894d4e809586d7c34ad99ba7b12a28859758051db8cdc08713c99cc8c6",
+        "target_time.pt": "a76c799df56cff198570eb65451b6af8b52dd48c02c4a9ea975ab4d9faa44263",
+        "qkv.pt": "1d1a5126a85b0abdfc1cdb16891ba70901f0e0bb1af338ac326f75f2644d1751"
+      }
+    },
+    {
+      "step": 32,
+      "path": "H3-World/outputs/EXP-007_v3_anyflow_af2/step_32",
+      "files": {
+        "trainer_state.pt": "2fda88175634075b1b4feda209337ff1281e4007ce25dc540eb1992704c523b1",
+        "target_time.pt": "ceb7d62324834a5b2be9fd6a47bfe4b5a9d810e49d1bb33889af0fb788940f70",
+        "qkv.pt": "07c8e5e68d1c947e60217e326ca8dd4c00222a555542b286dfc03514e27e916e"
+      }
+    }
+  ],
+  "scope": "Terminal training engineering evidence only; video ability requires AF3 visual review",
+  "counting": "Explicit outer forwards and backwards; internal gradient-checkpoint recomputation is not sampling NFE"
+}

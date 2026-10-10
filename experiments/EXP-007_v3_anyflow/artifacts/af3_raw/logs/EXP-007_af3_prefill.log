@@ -1,0 +1,11 @@
+[preflight] diffsynth resolved from the v2 checkout: ok /home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-04/stage1_local_topology/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+[preflight] directed attention mask present: ok 
+[preflight] packed-sequence builder is the per-latent version: ok 
+Traceback (most recent call last):
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-007_v3_anyflow/run_af3.py", line 416, in <module>
+    if __name__=="__main__":main()
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-007_v3_anyflow/run_af3.py", line 405, in main
+    run(args.stage,args.path,args.gpu,ledger,manifest)
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-007_v3_anyflow/run_af3.py", line 152, in run
+    from benchmark import write_video
+ModuleNotFoundError: No module named 'benchmark'

@@ -23,3 +23,7 @@ EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留�
 ## 全程普通FM8
 
 [EXP-006 V3-FM8](v3_fm8/README.md)已验收：新8步首39+AA/AD73，有限可行性通过、quality PARTIAL。43forward/5VAE/0.136905GPU小时，零新训练。下一项为独立V3-AF，普通减步与finite-map训练分别记录。
+
+## AnyFlow候选
+
+[EXP-007审核](../../experiments/EXP-007_v3_anyflow/judge/AF3_REVIEW.md)：累计32updates后的8NFE AA/AD73续写有限可行性通过，quality PARTIAL；共同FM8首39，C2匹配历史、C3各自历史，尚无整体优于FM8的证据。正式Baseline不变。[报告与视频](../../report/v3/v3_anyflow/README.md)。

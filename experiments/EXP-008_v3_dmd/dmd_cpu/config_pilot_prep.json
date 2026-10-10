@@ -1,0 +1,22 @@
+{
+  "task": "EXP-008/v1-DMD-PILOT",
+  "status": "PILOT_READY_SEPARATE_AUTHORIZATION_REQUIRED",
+  "physical_gpu_ids": [0, 2, 5],
+  "training_noise_seed": 170008,
+  "score_noise_seed": 170108,
+  "action_path": "AA",
+  "score_sigma": 0.6,
+  "student_lr": 0.0001,
+  "fake_lr": 0.0001,
+  "grad_clip_norm": 1.0,
+  "rank": 8,
+  "max_forwards": 17,
+  "max_backward": 3,
+  "max_updates": 3,
+  "max_vae": 0,
+  "max_wall_minutes": 30,
+  "max_three_gpu_hours": 1.5,
+  "max_allocated_gib_per_gpu": 44,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "output_root": "H3-World/outputs/EXP-008_v3_dmd_pilot"
+}

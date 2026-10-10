@@ -1,0 +1,41 @@
+{
+  "task": "EXP-007/v3-AF3",
+  "approved": true,
+  "checkpoint_step": 32,
+  "issued_hkt": "2026-10-11T03:22:04.069638+08:00",
+  "af2_checkpoint": {
+    "step": 32,
+    "path": "H3-World/outputs/EXP-007_v3_anyflow_af2/step_32",
+    "files": {
+      "trainer_state.pt": "2fda88175634075b1b4feda209337ff1281e4007ce25dc540eb1992704c523b1",
+      "target_time.pt": "ceb7d62324834a5b2be9fd6a47bfe4b5a9d810e49d1bb33889af0fb788940f70",
+      "qkv.pt": "07c8e5e68d1c947e60217e326ca8dd4c00222a555542b286dfc03514e27e916e"
+    }
+  },
+  "max_forwards": 35,
+  "max_sampling": 32,
+  "max_commits": 3,
+  "max_vae": 4,
+  "max_updates": 0,
+  "max_gpu_hours": 0.35,
+  "max_allocated_gib": 44,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "stage_order": [
+    "prefill",
+    "AA second",
+    "AD second",
+    "AA third",
+    "AD third"
+  ],
+  "judge_review": "judge/AF2_REVIEW.md",
+  "retry_authorization": {
+    "attempt": 2,
+    "issued_hkt": "2026-10-11T03:24:32.748705+08:00",
+    "reason": "attempt1 missing frozen code/causal import path, failed before model forward",
+    "failed_gpu_seconds": 3.5606794357299805,
+    "cpu_preflight": "Judge independently CPU_PASS, 0 GPU calls",
+    "source_manifest_sha256": "7aa18960e1f26177270f79829c1ee4398403525272c1ba771957eba1dfbd6271",
+    "cumulative_budget_unchanged": true,
+    "further_automatic_retry": false
+  }
+}

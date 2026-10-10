@@ -1,0 +1,88 @@
+{
+  "task": "EXP-007/v3-AF3",
+  "archive_scope": "small JSON, MP4 and stdout copies; original latents/KV and 33B weights remain outside submission",
+  "archived_files": {
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/AA/rollout_73.mp4": {
+      "bytes": 985740,
+      "sha256": "d16f64fe6846c6728056e732fdf528deb31d26d6b072df7c50d81a8148868edc"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/AA/second_12_17.json": {
+      "bytes": 5324,
+      "sha256": "1a82db168693ca53fac611c3b0e9cf2e51d1c7f8dd5075a7c44745b0cf189b01"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/AA/third_17_22.json": {
+      "bytes": 5021,
+      "sha256": "61dfa385ab4c7be5d1f122fbf7a5c6fbfcb57d3ef6c7a8ae75c9cd09fc9699dd"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/AD/rollout_73.mp4": {
+      "bytes": 971158,
+      "sha256": "e82317bc78cae072cb4b96fbe98f85f5c3399c67d8f38b4efaa4f8bf7dd12325"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/AD/second_12_17.json": {
+      "bytes": 5332,
+      "sha256": "954663b4ae49115756ffc02d40b7f335a521579ec24f4ba2f7f619020816c665"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/AD/third_17_22.json": {
+      "bytes": 5037,
+      "sha256": "0e225b4c1c23cfe98a0862e0a8853e55e31f0f276091b3b708d4194a71597ebf"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/budget.json": {
+      "bytes": 1305,
+      "sha256": "dd2d8afae9d0b21598aa5ba0e619103523d00ad433d6e6dbfb47d6de9c033bdb"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/logs/EXP-007_af3_AA_second.log": {
+      "bytes": 14364,
+      "sha256": "3a3348b0a4c0a4a7d9ce22cfc9cd3e1248bb5c48536d6e7e6e5171e38d40adee"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/logs/EXP-007_af3_AA_third.log": {
+      "bytes": 14356,
+      "sha256": "59c6112eeeb847fb0645e127a585a4b8d3f5b25358f18fecccd57ebfbaad7725"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/logs/EXP-007_af3_AD_second.log": {
+      "bytes": 14364,
+      "sha256": "18001d51fd45462df893eeb1d7a78f9f2e45761341ccef5b4c2f9b27fab8e0da"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/logs/EXP-007_af3_AD_third.log": {
+      "bytes": 14356,
+      "sha256": "847f96c45e977c1cc068c85aadc3c5e4ebb018e53599e6ca3462306b5765d018"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/logs/EXP-007_af3_prefill.log": {
+      "bytes": 889,
+      "sha256": "29cf40966823d2f23c600a170bd018dfcab64ea038b6167b1cd0fe403be67526"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/logs/EXP-007_af3_prefill_attempt2.log": {
+      "bytes": 14220,
+      "sha256": "abcb18bf4603b5634cd33b92bd3b2feec1b52f71ed2661b7a4d50bd685f8bd61"
+    },
+    "submission/experiments/EXP-007_v3_anyflow/artifacts/af3_raw/prefill_0_12.json": {
+      "bytes": 3126,
+      "sha256": "7685d7e562e58a9d4e432e6e96005bb8dbb03e57fb1129e80a9900bbc1e4ba1f"
+    }
+  },
+  "external_dependencies": {
+    "af2_qkv": {
+      "path": "H3-World/outputs/EXP-007_v3_anyflow_af2/step_32/qkv.pt",
+      "sha256": "07c8e5e68d1c947e60217e326ca8dd4c00222a555542b286dfc03514e27e916e"
+    },
+    "af2_target": {
+      "path": "H3-World/outputs/EXP-007_v3_anyflow_af2/step_32/target_time.pt",
+      "sha256": "ceb7d62324834a5b2be9fd6a47bfe4b5a9d810e49d1bb33889af0fb788940f70"
+    },
+    "af2_state": {
+      "path": "H3-World/outputs/EXP-007_v3_anyflow_af2/step_32/trainer_state.pt",
+      "sha256": "2fda88175634075b1b4feda209337ff1281e4007ce25dc540eb1992704c523b1"
+    },
+    "fm8_first": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/first12.pt",
+      "sha256": "587fc19007ded256b356f44f26f42c6c943d51b5c186075d2c21bd02f74da232"
+    },
+    "fm8_rgb39": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/published_39.npy",
+      "sha256": "2ed8018d064e74dda02239f5f115afe7beed01dcd9bcb23ec3f219ff54a0e51e"
+    },
+    "released_lora": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/checkpoints/H3-World/step-10000.safetensors",
+      "sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526"
+    }
+  }
+}

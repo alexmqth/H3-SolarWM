@@ -1,0 +1,170 @@
+{
+  "status": "CPU_PASS",
+  "scope": "random tiny actual H3; CPU DMD preparation only",
+  "gpu_forwards": 0,
+  "seconds": 2.6129163570003584,
+  "torch": "2.10.0+cu128",
+  "fake_loss": 2.3031005859375,
+  "generator_loss": 3.215460883665422e-11,
+  "direction_stats": {
+    "direction_rms": 8.018341759452596e-06,
+    "per_sample_normalizer": [
+      0.728691816329956
+    ],
+    "active_elements": 1920,
+    "normalized": true,
+    "convention": "fake_x0-real_x0 = sigma*(real_velocity-fake_velocity)"
+  },
+  "checks": {
+    "independent_roles_and_fake_has_no_target_module": true,
+    "each_role_owns_detached_history_KV": true,
+    "fake_update_changes_own_rebuilt_KV": true,
+    "fake_FM_backward_isolated_from_generator_and_teacher": true,
+    "matched_scores_and_noise_minus_clean_direction": true,
+    "all_eight_actual_maps_receive_generator_gradient": true,
+    "map_velocity_grad_norms": [
+      1.703737062541677e-08,
+      1.888715139841679e-08,
+      2.1042957598638168e-08,
+      2.3586412822851344e-08,
+      2.6651720830273007e-08,
+      3.0500956427204073e-08,
+      3.574901441538714e-08,
+      4.406644649179725e-08
+    ],
+    "target_grad_norm": 1.3056272942052793e-07,
+    "student_qkv_grad_norm": 3.7087929924308227e-09,
+    "generator_backward_isolated_from_scores": true,
+    "generator_history_immutable_and_all_base_weights_frozen": true,
+    "disconnected_endpoint_rejected": true
+  },
+  "calls": [
+    {
+      "role": "teacher",
+      "index": 0,
+      "sigma": 0.0,
+      "r": null,
+      "commit": true,
+      "grad": false
+    },
+    {
+      "role": "fake",
+      "index": 0,
+      "sigma": 0.0,
+      "r": null,
+      "commit": true,
+      "grad": false
+    },
+    {
+      "role": "student",
+      "index": 0,
+      "sigma": 0.0,
+      "r": 0.0,
+      "commit": true,
+      "grad": false
+    },
+    {
+      "role": "student",
+      "index": 1,
+      "sigma": 1.0,
+      "r": 0.939540445804596,
+      "commit": false,
+      "grad": true
+    },
+    {
+      "role": "student",
+      "index": 1,
+      "sigma": 0.939540445804596,
+      "r": 0.8694517016410828,
+      "commit": false,
+      "grad": true
+    },
+    {
+      "role": "student",
+      "index": 1,
+      "sigma": 0.8694517016410828,
+      "r": 0.7872340679168701,
+      "commit": false,
+      "grad": true
+    },
+    {
+      "role": "student",
+      "index": 1,
+      "sigma": 0.7872340679168701,
+      "r": 0.6894410252571106,
+      "commit": false,
+      "grad": true
+    },
+    {
+      "role": "student",
+      "index": 1,
+      "sigma": 0.6894410252571106,
+      "r": 0.5711835026741028,
+      "commit": false,
+      "grad": true
+    },
+    {
+      "role": "student",
+      "index": 1,
+      "sigma": 0.5711835026741028,
+      "r": 0.4252873361110687,
+      "commit": false,
+      "grad": true
+    },
+    {
+      "role": "student",
+      "index": 1,
+      "sigma": 0.4252873361110687,
+      "r": 0.24078090488910675,
+      "commit": false,
+      "grad": true
+    },
+    {
+      "role": "student",
+      "index": 1,
+      "sigma": 0.24078090488910675,
+      "r": 0.0,
+      "commit": false,
+      "grad": true
+    },
+    {
+      "role": "fake",
+      "index": 1,
+      "sigma": 0.6,
+      "r": null,
+      "commit": false,
+      "grad": true
+    },
+    {
+      "role": "fake",
+      "index": 0,
+      "sigma": 0.0,
+      "r": null,
+      "commit": true,
+      "grad": false
+    },
+    {
+      "role": "teacher",
+      "index": 1,
+      "sigma": 0.6,
+      "r": null,
+      "commit": false,
+      "grad": false
+    },
+    {
+      "role": "fake",
+      "index": 1,
+      "sigma": 0.6,
+      "r": null,
+      "commit": false,
+      "grad": false
+    }
+  ],
+  "sources": {
+    "submission/experiments/EXP-007_v3_anyflow/dmd_cpu/check_protocol.py": "0cbd6da117f4f4f93d92597b2dcf17659551be0663c84768b2d6f159c8813321",
+    "H3-World/code/causal/dmd.py": "11b21eb9c7f6fa1139b007ba62e71873cdd56110fe3d97a49d09010fc4819b32",
+    "submission/experiments/EXP-007_v3_anyflow/interval_student.py": "2974f9336f713cd10ccc9b11e0c2270ec6b81b52166461c31f8fd066b365a356",
+    "submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/anyflow.py": "27b6eb22d16b6047642269604f1ddf249d8ab602fa5c8593b240144c48abc805"
+  }
+}
