@@ -1,0 +1,90 @@
+{
+  "task": "EXP-008/v2-DMD8-EVAL",
+  "checkpoint_cycle": 8,
+  "sources": {
+    "runner": {
+      "path": "submission/experiments/EXP-008_v3_dmd/dmd_eval/run_eval.py",
+      "sha256": "d0ef6945ef860770ac5fe8a882cde28154899fcaf66158c2899609b762a3c5fe"
+    },
+    "config": {
+      "path": "submission/experiments/EXP-008_v3_dmd/dmd_eval/config_eval.json",
+      "sha256": "ceaed9f154e7c75109791e953a30a866eb72f998e4a8d5b4fe4cceb34cae34af"
+    },
+    "taskbook": {
+      "path": "submission/experiments/EXP-008_v3_dmd/taskbook_v2.md",
+      "sha256": "5901a780b1d944ab0645a4a77a96bc2ed4f84732193a051a6fa9829c4ac52b07"
+    },
+    "student_entry": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/interval_student.py",
+      "sha256": "2974f9336f713cd10ccc9b11e0c2270ec6b81b52166461c31f8fd066b365a356"
+    },
+    "fm8_helpers": {
+      "path": "submission/experiments/EXP-006_v3_fm8_full/run_fm8.py",
+      "sha256": "e56437a6bda08ae1f02687c05a3a1df4bf852a718c621c7a011bb9bab8bd27cb"
+    },
+    "benchmark_writer": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/benchmark.py",
+      "sha256": "f7cf78f3af07877dee03176ea23bf422390ba9c33af183ccfae3ac23984aa7a4"
+    },
+    "action_flow": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/evaluate_action_control.py",
+      "sha256": "1f378333c207b2b2946e6bf762b3edbd32b6f01d6370ed854976329f51a1cf59"
+    },
+    "rollout_contract": {
+      "path": "submission/experiments/EXP-001_v2b_124/rollout_contract.py",
+      "sha256": "79b6e672cf8d97ba57f3d62e876a0e0bd901f78654cb2c1f9766818378ef2377"
+    },
+    "train_runner": {
+      "path": "submission/experiments/EXP-008_v3_dmd/dmd_train/run_v2.py",
+      "sha256": "7a31a3b0238db78e9d7414ee416ec4a11f5e27416a252a68a667ad93e7f0fe78"
+    },
+    "train_result": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/result.json",
+      "sha256": "1c8104b704ef8cda248789c8cee48668b3149b97c6070b0f2b5fe10f2a282428"
+    },
+    "train_budget": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/budget.json",
+      "sha256": "7a094a8e1387970da9b37d43f80692757fdd620f74a1397619c179e03352dcd3"
+    },
+    "dmd_qkv": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_08/student_qkv.pt",
+      "sha256": "49534764770bd2cdc182624bd6f1c947daed1406824cc201b52d01897015bc06"
+    },
+    "dmd_target": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_08/student_target.pt",
+      "sha256": "ad5bce068b92653d1b84946fef1377d3ed264e9b9c0f0cb320f9aec40efb6130"
+    },
+    "dmd_state": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_08/trainer_state.pt",
+      "sha256": "f83524a2da23821b0bb4040a660b5dfeaf79328f97a2cb23d8b5e51f494f0d3f"
+    },
+    "fm8_first": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/first12.pt",
+      "sha256": "587fc19007ded256b356f44f26f42c6c943d51b5c186075d2c21bd02f74da232"
+    },
+    "fm8_rgb39": {
+      "path": "H3-World/outputs/EXP-006_v3_fm8_full/published_39.npy",
+      "sha256": "2ed8018d064e74dda02239f5f115afe7beed01dcd9bcb23ec3f219ff54a0e51e"
+    },
+    "input_A": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_A.pt",
+      "sha256": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572"
+    },
+    "input_D": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_D.pt",
+      "sha256": "f85db42ad83cbe1ce00612bc29ee41d6a1398be05d3a96c53cd3615925187d0e"
+    },
+    "released_lora": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/checkpoints/H3-World/step-10000.safetensors",
+      "sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526"
+    },
+    "anyflow": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/anyflow.py",
+      "sha256": "27b6eb22d16b6047642269604f1ddf249d8ab602fa5c8593b240144c48abc805"
+    },
+    "prefix_feedback": {
+      "path": "submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py",
+      "sha256": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310"
+    }
+  }
+}

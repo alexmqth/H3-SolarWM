@@ -30,4 +30,4 @@ EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留�
 
 ## DMD研究进展
 
-[V3-DMD](v3_dmd/README.md)：真实33B单cycle完整8map反向工程通过，17forward/3backward/3update/0VAE，三卡0.212416GPUh；尚无DMD视频或质量收益结论，正准备有限延续。
+[V3-DMD](v3_dmd/README.md)：真实33B单cycle完整8map反向工程通过，17forward/3backward/3update/0VAE，三卡0.212416GPUh；后续累计8cycle训练工程已通过，正在评估最终视频，尚无质量收益结论。

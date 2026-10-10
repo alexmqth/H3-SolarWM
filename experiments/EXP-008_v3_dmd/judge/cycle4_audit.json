@@ -1,0 +1,30 @@
+{
+  "scope": "cycle4 intermediate checkpoint; training still active",
+  "pass_all": true,
+  "checks": {
+    "files": true,
+    "metadata": true,
+    "optimizer_steps": true,
+    "cycle2_noise_replay": true,
+    "cycle3_noise_replay": true,
+    "cycle4_noise_replay": true,
+    "checkpoint_noise_rng": true,
+    "cuda_rng_present": true
+  },
+  "receipt": {
+    "cycle": 4,
+    "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_04",
+    "files": {
+      "trainer_state.pt": "aa2f12a735e19a1e2e31aea753fc131d0d5e08803d32c8d30407fee18f6b1231",
+      "fake_qkv.pt": "6fca18877715f3b4b114e2015146b4466faf3b573c0d6cf13ab0a743270901e9",
+      "student_target.pt": "1cd66226baf0530e71e888d3cc9809ddf5ba21f321516cdc7839994c6eb1baf0",
+      "student_qkv.pt": "562f033da4d50036baae60776719c7272215c51e0b6385c04b65c57388c6cd89"
+    },
+    "student_optimizer_steps": [
+      4
+    ],
+    "fake_optimizer_steps": [
+      5
+    ]
+  }
+}

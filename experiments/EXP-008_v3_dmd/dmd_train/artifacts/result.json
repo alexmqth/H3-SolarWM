@@ -1,0 +1,424 @@
+{
+  "task": "EXP-008/v2-DMD-TRAIN",
+  "status": "complete_8_pending_judge",
+  "physical_gpu_ids": [
+    0,
+    2,
+    5
+  ],
+  "af2_step": 32,
+  "parent_cycle": 1,
+  "last_complete_cycle": 8,
+  "source_manifest_sha256": "a7594031c0cae5a6e79653394b04bad8c01c88fdd07d922aa46c64c62416a0ac",
+  "runner_sha256": "7a31a3b0238db78e9d7414ee416ec4a11f5e27416a252a68a667ad93e7f0fe78",
+  "cycles": [
+    {
+      "cycle": 2,
+      "path": "AD",
+      "action": "D",
+      "status": "complete",
+      "forwards_before": 1,
+      "training_noise_sha256": "a71be85ff9aa1a51a51a20815ecc7525613ed7c301142ddcb549cb3daa5a0783",
+      "fake_loss": 0.15461228787899017,
+      "dmd_loss": 9.394628432346508e-05,
+      "direction_stats": {
+        "direction_rms": 0.013707390986382961,
+        "per_sample_normalizer": [
+          0.17131832242012024
+        ],
+        "active_elements": 187200,
+        "normalized": true,
+        "convention": "fake_x0-real_x0 = sigma*(real_velocity-fake_velocity)"
+      },
+      "fake_grad_norm": 0.00018275286129210144,
+      "student_target_grad_norm": 0.13573329150676727,
+      "student_qkv_grad_norm": 9.369531471747905e-05,
+      "velocity_grad_norms": [
+        9.945467172656208e-05,
+        9.180526103591546e-05,
+        1.364167474093847e-05,
+        1.2834820154239424e-05,
+        5.370342023525154e-06,
+        6.076659246900817e-06,
+        5.9751118897111155e-06,
+        7.628232197021134e-06
+      ],
+      "fake_clip_pre_norm": 0.00018275286129210144,
+      "student_clip_pre_norm": 0.13573330640792847,
+      "fake_changed": true,
+      "student_qkv_changed": true,
+      "student_target_changed": true,
+      "forwards": 14,
+      "teacher_cache_reused_unchanged": true,
+      "student_cache_rebuilt_and_read_unchanged": true,
+      "fake_cache_rebuilt_after_update_and_read_unchanged": true,
+      "base_weights_frozen": true,
+      "peak_allocated_gib_by_role": {
+        "teacher": 25.07593059539795,
+        "fake": 25.88505983352661,
+        "student": 28.10181951522827
+      },
+      "seconds": 211.64102411270142
+    },
+    {
+      "cycle": 3,
+      "path": "AA",
+      "action": "A",
+      "status": "complete",
+      "forwards_before": 15,
+      "training_noise_sha256": "f3f1b4b7565b3e4e4a004919bc4784e7439d17fabd60f89b52ee926fe12e02df",
+      "fake_loss": 0.41084572672843933,
+      "dmd_loss": 3.9934529922902584e-05,
+      "direction_stats": {
+        "direction_rms": 0.008936949074268341,
+        "per_sample_normalizer": [
+          0.2916868329048157
+        ],
+        "active_elements": 187200,
+        "normalized": true,
+        "convention": "fake_x0-real_x0 = sigma*(real_velocity-fake_velocity)"
+      },
+      "fake_grad_norm": 0.0008008815348148346,
+      "student_target_grad_norm": 0.0604884959757328,
+      "student_qkv_grad_norm": 2.1652496798196808e-05,
+      "velocity_grad_norms": [
+        5.208656148170121e-06,
+        3.6216817989043193e-06,
+        3.5520815799827687e-06,
+        3.608026872825576e-06,
+        3.3222859201487154e-06,
+        3.530879212121363e-06,
+        4.146840637986315e-06,
+        4.9734576350601856e-06
+      ],
+      "fake_clip_pre_norm": 0.0008008815348148346,
+      "student_clip_pre_norm": 0.0604884997010231,
+      "fake_changed": true,
+      "student_qkv_changed": true,
+      "student_target_changed": true,
+      "forwards": 14,
+      "teacher_cache_reused_unchanged": true,
+      "student_cache_rebuilt_and_read_unchanged": true,
+      "fake_cache_rebuilt_after_update_and_read_unchanged": true,
+      "base_weights_frozen": true,
+      "peak_allocated_gib_by_role": {
+        "teacher": 25.07593059539795,
+        "fake": 25.88505983352661,
+        "student": 28.10181951522827
+      },
+      "seconds": 234.71505331993103
+    },
+    {
+      "cycle": 4,
+      "path": "AD",
+      "action": "D",
+      "status": "complete",
+      "forwards_before": 29,
+      "training_noise_sha256": "57735156fd8bc18830e6817ffa206225b65294a0c747fc41b95f48a8cff18b37",
+      "fake_loss": 31.534513473510742,
+      "dmd_loss": 3.3920794066943927e-06,
+      "direction_stats": {
+        "direction_rms": 0.0026046414859592915,
+        "per_sample_normalizer": [
+          2.624777317047119
+        ],
+        "active_elements": 187200,
+        "normalized": true,
+        "convention": "fake_x0-real_x0 = sigma*(real_velocity-fake_velocity)"
+      },
+      "fake_grad_norm": 0.19136732816696167,
+      "student_target_grad_norm": 0.00805626716464758,
+      "student_qkv_grad_norm": 1.554579398543865e-06,
+      "velocity_grad_norms": [
+        4.266240011929767e-06,
+        4.111445832677418e-06,
+        3.6611804716812912e-06,
+        3.463130269665271e-06,
+        3.2926798212429276e-06,
+        2.9588713914563414e-06,
+        2.297475020895945e-06,
+        1.449496267014183e-06
+      ],
+      "fake_clip_pre_norm": 0.19136732816696167,
+      "student_clip_pre_norm": 0.00805626716464758,
+      "fake_changed": true,
+      "student_qkv_changed": true,
+      "student_target_changed": true,
+      "forwards": 14,
+      "teacher_cache_reused_unchanged": true,
+      "student_cache_rebuilt_and_read_unchanged": true,
+      "fake_cache_rebuilt_after_update_and_read_unchanged": true,
+      "base_weights_frozen": true,
+      "peak_allocated_gib_by_role": {
+        "teacher": 25.07593059539795,
+        "fake": 25.88505983352661,
+        "student": 28.10181951522827
+      },
+      "seconds": 230.50413346290588
+    },
+    {
+      "cycle": 5,
+      "path": "AA",
+      "action": "A",
+      "status": "complete",
+      "forwards_before": 43,
+      "training_noise_sha256": "e80b06dd8796a77612f557d3854a778de08b070fcd04584e2a5ff13746676892",
+      "fake_loss": 2.815478801727295,
+      "dmd_loss": 4.74911894343677e-06,
+      "direction_stats": {
+        "direction_rms": 0.003081921022385359,
+        "per_sample_normalizer": [
+          0.80021733045578
+        ],
+        "active_elements": 187200,
+        "normalized": true,
+        "convention": "fake_x0-real_x0 = sigma*(real_velocity-fake_velocity)"
+      },
+      "fake_grad_norm": 0.001812189701013267,
+      "student_target_grad_norm": 0.0004428527317941189,
+      "student_qkv_grad_norm": 4.9554024883491365e-08,
+      "velocity_grad_norms": [
+        4.496932319852931e-07,
+        5.209556093177525e-07,
+        6.101346912146255e-07,
+        7.237566137519025e-07,
+        8.714435466572468e-07,
+        1.0676745887394645e-06,
+        1.3351767620406463e-06,
+        1.7151046449725982e-06
+      ],
+      "fake_clip_pre_norm": 0.0018121895845979452,
+      "student_clip_pre_norm": 0.00044285276089794934,
+      "fake_changed": true,
+      "student_qkv_changed": true,
+      "student_target_changed": true,
+      "forwards": 14,
+      "teacher_cache_reused_unchanged": true,
+      "student_cache_rebuilt_and_read_unchanged": true,
+      "fake_cache_rebuilt_after_update_and_read_unchanged": true,
+      "base_weights_frozen": true,
+      "peak_allocated_gib_by_role": {
+        "teacher": 25.07593059539795,
+        "fake": 25.88505983352661,
+        "student": 28.10181951522827
+      },
+      "seconds": 236.64338326454163
+    },
+    {
+      "cycle": 6,
+      "path": "AD",
+      "action": "D",
+      "status": "complete",
+      "forwards_before": 57,
+      "training_noise_sha256": "e124cacaa3b58406a70945a4b15b37b1768d8fa015f2ed0edc807d1835162058",
+      "fake_loss": 2.530956268310547,
+      "dmd_loss": 5.089995283924509e-06,
+      "direction_stats": {
+        "direction_rms": 0.00319060985930264,
+        "per_sample_normalizer": [
+          0.7615782022476196
+        ],
+        "active_elements": 187200,
+        "normalized": true,
+        "convention": "fake_x0-real_x0 = sigma*(real_velocity-fake_velocity)"
+      },
+      "fake_grad_norm": 0.0012791685294359922,
+      "student_target_grad_norm": 5.040037285652943e-05,
+      "student_qkv_grad_norm": 1.2316025532754793e-08,
+      "velocity_grad_norms": [
+        4.480955624330818e-07,
+        5.195697099225072e-07,
+        6.095038429521082e-07,
+        7.248766564771358e-07,
+        8.762569905229611e-07,
+        1.080327251656854e-06,
+        1.3643951888298034e-06,
+        1.775590476427169e-06
+      ],
+      "fake_clip_pre_norm": 0.0012791685294359922,
+      "student_clip_pre_norm": 5.040037649450824e-05,
+      "fake_changed": true,
+      "student_qkv_changed": true,
+      "student_target_changed": true,
+      "forwards": 14,
+      "teacher_cache_reused_unchanged": true,
+      "student_cache_rebuilt_and_read_unchanged": true,
+      "fake_cache_rebuilt_after_update_and_read_unchanged": true,
+      "base_weights_frozen": true,
+      "peak_allocated_gib_by_role": {
+        "teacher": 25.07593059539795,
+        "fake": 25.88505983352661,
+        "student": 28.10181951522827
+      },
+      "seconds": 243.92506074905396
+    },
+    {
+      "cycle": 7,
+      "path": "AA",
+      "action": "A",
+      "status": "complete",
+      "forwards_before": 71,
+      "training_noise_sha256": "cde1564bc6744c69c1170ab3f15c70b80f76215e36bf31904184137ea2ea8a75",
+      "fake_loss": 2.5154175758361816,
+      "dmd_loss": 5.0544576879474334e-06,
+      "direction_stats": {
+        "direction_rms": 0.0031794521491974592,
+        "per_sample_normalizer": [
+          0.7611191868782043
+        ],
+        "active_elements": 187200,
+        "normalized": true,
+        "convention": "fake_x0-real_x0 = sigma*(real_velocity-fake_velocity)"
+      },
+      "fake_grad_norm": 0.0013575803022831678,
+      "student_target_grad_norm": 3.196675606886856e-05,
+      "student_qkv_grad_norm": 7.3381749565726295e-09,
+      "velocity_grad_norms": [
+        4.442024703621428e-07,
+        5.15079648266692e-07,
+        6.043433700142486e-07,
+        7.189661914708267e-07,
+        8.695481028553331e-07,
+        1.072852683137171e-06,
+        1.3566151437771623e-06,
+        1.7693811287244898e-06
+      ],
+      "fake_clip_pre_norm": 0.0013575803022831678,
+      "student_clip_pre_norm": 3.196675606886856e-05,
+      "fake_changed": true,
+      "student_qkv_changed": true,
+      "student_target_changed": true,
+      "forwards": 14,
+      "teacher_cache_reused_unchanged": true,
+      "student_cache_rebuilt_and_read_unchanged": true,
+      "fake_cache_rebuilt_after_update_and_read_unchanged": true,
+      "base_weights_frozen": true,
+      "peak_allocated_gib_by_role": {
+        "teacher": 25.07593059539795,
+        "fake": 25.88505983352661,
+        "student": 28.10181951522827
+      },
+      "seconds": 242.49400115013123
+    },
+    {
+      "cycle": 8,
+      "path": "AD",
+      "action": "D",
+      "status": "complete",
+      "forwards_before": 85,
+      "training_noise_sha256": "97d258d4fe4dbaee605c5e8f213cb2747ee7acf0ddddb057128340350bdf8ec0",
+      "fake_loss": 2.532548189163208,
+      "dmd_loss": 5.058224815002177e-06,
+      "direction_stats": {
+        "direction_rms": 0.0031806365586817265,
+        "per_sample_normalizer": [
+          0.7605032920837402
+        ],
+        "active_elements": 187200,
+        "normalized": true,
+        "convention": "fake_x0-real_x0 = sigma*(real_velocity-fake_velocity)"
+      },
+      "fake_grad_norm": 0.0014006723649799824,
+      "student_target_grad_norm": 3.147146708215587e-05,
+      "student_qkv_grad_norm": 7.690258208015166e-09,
+      "velocity_grad_norms": [
+        4.4380516328601516e-07,
+        5.14606313117838e-07,
+        6.037930120328383e-07,
+        7.183411980804522e-07,
+        8.688694492775539e-07,
+        1.0721926173573593e-06,
+        1.356205643787689e-06,
+        1.7700403986964375e-06
+      ],
+      "fake_clip_pre_norm": 0.0014006723649799824,
+      "student_clip_pre_norm": 3.147146708215587e-05,
+      "fake_changed": true,
+      "student_qkv_changed": true,
+      "student_target_changed": true,
+      "forwards": 14,
+      "teacher_cache_reused_unchanged": true,
+      "student_cache_rebuilt_and_read_unchanged": true,
+      "fake_cache_rebuilt_after_update_and_read_unchanged": true,
+      "base_weights_frozen": true,
+      "peak_allocated_gib_by_role": {
+        "teacher": 25.07593059539795,
+        "fake": 25.88505983352661,
+        "student": 28.10181951522827
+      },
+      "seconds": 239.51748943328857
+    }
+  ],
+  "checkpoint_paths": [
+    {
+      "cycle": 4,
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_04",
+      "files": {
+        "trainer_state.pt": "aa2f12a735e19a1e2e31aea753fc131d0d5e08803d32c8d30407fee18f6b1231",
+        "fake_qkv.pt": "6fca18877715f3b4b114e2015146b4466faf3b573c0d6cf13ab0a743270901e9",
+        "student_target.pt": "1cd66226baf0530e71e888d3cc9809ddf5ba21f321516cdc7839994c6eb1baf0",
+        "student_qkv.pt": "562f033da4d50036baae60776719c7272215c51e0b6385c04b65c57388c6cd89"
+      },
+      "student_optimizer_steps": [
+        4
+      ],
+      "fake_optimizer_steps": [
+        5
+      ]
+    },
+    {
+      "cycle": 8,
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_08",
+      "files": {
+        "trainer_state.pt": "f83524a2da23821b0bb4040a660b5dfeaf79328f97a2cb23d8b5e51f494f0d3f",
+        "fake_qkv.pt": "e2d9b5f09ab2d0087eeebfbeac59b3b0bec9bd1a2ae3fba201a5ab1852dc1ef2",
+        "student_target.pt": "ad5bce068b92653d1b84946fef1377d3ed264e9b9c0f0cb320f9aec40efb6130",
+        "student_qkv.pt": "49534764770bd2cdc182624bd6f1c947daed1406824cc201b52d01897015bc06"
+      },
+      "student_optimizer_steps": [
+        8
+      ],
+      "fake_optimizer_steps": [
+        9
+      ]
+    }
+  ],
+  "actual_dmd_import": {
+    "path": "H3-World/outputs/2026-10-09-04/stage1_local_topology/runtime/code/causal/dmd.py",
+    "sha256": "11b21eb9c7f6fa1139b007ba62e71873cdd56110fe3d97a49d09010fc4819b32"
+  },
+  "role_model_loaded": {
+    "teacher": {
+      "device": "cuda:0",
+      "precision": "h3_fp32",
+      "has_target": false
+    },
+    "fake": {
+      "device": "cuda:1",
+      "precision": "h3_fp32",
+      "has_target": false
+    },
+    "student": {
+      "device": "cuda:2",
+      "precision": "h3_fp32",
+      "has_target": true
+    }
+  },
+  "restored_rng": {
+    "cpu_sha256": "a6e12af8b3c6f10e1fb88df6618098c7e43f71411014854ab1109083208e435e",
+    "cuda_sha256": [
+      "116fd12083eab23a311b501588db46c41e7086beb905a3fe7297372034850d9a",
+      "41ffe4729ae2a89b796ec8a739e9f3d3d11d8c73a3faa0a7145d5c3f2e16c6b7",
+      "41ffe4729ae2a89b796ec8a739e9f3d3d11d8c73a3faa0a7145d5c3f2e16c6b7"
+    ],
+    "train_noise_sha256": "e412e3622eaeed8b03b96387fdee9f5721f92f82ea5a4e0ba7249a130fb58d0f",
+    "score_noise_sha256": "2792b8e0a6ef39f8c50c37f18edc10abfdaae15aeeb278d2625d1180829e1285"
+  },
+  "wall_seconds": 1665.3659029006958,
+  "conservative_three_gpu_hours": 1.3878049190839132,
+  "peak_allocated_gib_by_role": {
+    "teacher": 25.07593059539795,
+    "fake": 25.88505983352661,
+    "student": 28.10181951522827
+  }
+}

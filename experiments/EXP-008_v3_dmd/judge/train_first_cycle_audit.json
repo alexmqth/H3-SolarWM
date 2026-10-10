@@ -1,0 +1,22 @@
+{
+  "scope": "First completed continuation cycle only; process remains running",
+  "pass_all": true,
+  "checks": {
+    "cpu_rng": true,
+    "cuda_rng": true,
+    "train_rng": true,
+    "score_rng": true,
+    "first_noise_exact_replay": true,
+    "D_action": true,
+    "all_eight_gradients": true,
+    "calls": true,
+    "cache_and_base": true
+  },
+  "cycle": 2,
+  "seconds": 211.64102411270142,
+  "peak_allocated_gib_by_role": {
+    "teacher": 25.07593059539795,
+    "fake": 25.88505983352661,
+    "student": 28.10181951522827
+  }
+}

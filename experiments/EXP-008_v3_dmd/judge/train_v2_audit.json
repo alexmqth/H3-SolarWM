@@ -1,0 +1,97 @@
+{
+  "task": "EXP-008/v2-DMD-TRAIN",
+  "pass_all": true,
+  "checks": {
+    "sources_unchanged": true,
+    "complete_cycle_order_and_budget": true,
+    "actual_all_rng_restoration": true,
+    "cycle2_action_and_exact_calls": true,
+    "cycle2_map_and_score_protocol": true,
+    "cycle2_cache_and_base": true,
+    "cycle2_gradients_and_updates": true,
+    "cycle2_independent_noise_replay": true,
+    "cycle3_action_and_exact_calls": true,
+    "cycle3_map_and_score_protocol": true,
+    "cycle3_cache_and_base": true,
+    "cycle3_gradients_and_updates": true,
+    "cycle3_independent_noise_replay": true,
+    "cycle4_action_and_exact_calls": true,
+    "cycle4_map_and_score_protocol": true,
+    "cycle4_cache_and_base": true,
+    "cycle4_gradients_and_updates": true,
+    "cycle4_independent_noise_replay": true,
+    "cycle5_action_and_exact_calls": true,
+    "cycle5_map_and_score_protocol": true,
+    "cycle5_cache_and_base": true,
+    "cycle5_gradients_and_updates": true,
+    "cycle5_independent_noise_replay": true,
+    "cycle6_action_and_exact_calls": true,
+    "cycle6_map_and_score_protocol": true,
+    "cycle6_cache_and_base": true,
+    "cycle6_gradients_and_updates": true,
+    "cycle6_independent_noise_replay": true,
+    "cycle7_action_and_exact_calls": true,
+    "cycle7_map_and_score_protocol": true,
+    "cycle7_cache_and_base": true,
+    "cycle7_gradients_and_updates": true,
+    "cycle7_independent_noise_replay": true,
+    "cycle8_action_and_exact_calls": true,
+    "cycle8_map_and_score_protocol": true,
+    "cycle8_cache_and_base": true,
+    "cycle8_gradients_and_updates": true,
+    "cycle8_independent_noise_replay": true,
+    "final_checkpoint_present": true,
+    "checkpoint4_hashes": true,
+    "checkpoint4_metadata": true,
+    "checkpoint4_optimizer_and_noise_rng": true,
+    "checkpoint8_hashes": true,
+    "checkpoint8_metadata": true,
+    "checkpoint8_optimizer_and_noise_rng": true
+  },
+  "last_complete_cycle": 8,
+  "forwards": 99,
+  "backward": 14,
+  "updates": 14,
+  "wall_seconds": 1673.6409738063812,
+  "gpu_hours": 1.3947008115053177,
+  "peak_allocated_gib_by_role": {
+    "teacher": 25.07593059539795,
+    "fake": 25.88505983352661,
+    "student": 28.10181951522827
+  },
+  "checkpoint_receipts": [
+    {
+      "cycle": 4,
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_04",
+      "files": {
+        "trainer_state.pt": "aa2f12a735e19a1e2e31aea753fc131d0d5e08803d32c8d30407fee18f6b1231",
+        "fake_qkv.pt": "6fca18877715f3b4b114e2015146b4466faf3b573c0d6cf13ab0a743270901e9",
+        "student_target.pt": "1cd66226baf0530e71e888d3cc9809ddf5ba21f321516cdc7839994c6eb1baf0",
+        "student_qkv.pt": "562f033da4d50036baae60776719c7272215c51e0b6385c04b65c57388c6cd89"
+      },
+      "student_optimizer_steps": [
+        4
+      ],
+      "fake_optimizer_steps": [
+        5
+      ]
+    },
+    {
+      "cycle": 8,
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_08",
+      "files": {
+        "trainer_state.pt": "f83524a2da23821b0bb4040a660b5dfeaf79328f97a2cb23d8b5e51f494f0d3f",
+        "fake_qkv.pt": "e2d9b5f09ab2d0087eeebfbeac59b3b0bec9bd1a2ae3fba201a5ab1852dc1ef2",
+        "student_target.pt": "ad5bce068b92653d1b84946fef1377d3ed264e9b9c0f0cb320f9aec40efb6130",
+        "student_qkv.pt": "49534764770bd2cdc182624bd6f1c947daed1406824cc201b52d01897015bc06"
+      },
+      "student_optimizer_steps": [
+        8
+      ],
+      "fake_optimizer_steps": [
+        9
+      ]
+    }
+  ],
+  "scope": "Bounded training engineering only; video quality requires separate matched evaluation."
+}

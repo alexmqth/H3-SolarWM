@@ -11,4 +11,4 @@ CPU 核查：
 
 进程PID849858已正常退出。实际17forward/3backward/3update，wall254.899秒，保守三卡0.212416 GPU小时，三卡allocated峰值25.070/25.879/27.965GiB，8-map梯度均非零。[小证据和原日志](artifacts/)已归档；四个配套checkpoint原件留在`H3-World/outputs/EXP-008_v3_dmd_pilot/cycle_01/`。本结果不授权自动扩训练或声称视频质量改善。
 
-v2有限延续训练已有[CPU准备报告](dmd_train/CPU_PREP.md)与独立[任务书](taskbook_v2.md)：目标从cycle1恢复，新增最多7cycle到累计8。该入口已通过29项来源和优化器/RNG恢复预检；Judge已签发[TRAIN放行](TRAIN_RELEASE_V2.md)，GPU0/2/5进程PID1017778开始运行；99forward/14backward/14update/45min/2.25GPUh上限。视频阶段仍需独立放行。
+v2有限延续训练已按独立[任务书](taskbook_v2.md)和[TRAIN放行](TRAIN_RELEASE_V2.md)完成：从pilot cycle1恢复，新增7轮到累计cycle8，99forward/14backward/14update/0VAE，1673.641秒，cycle4/8配套checkpoint保存。详见[Worker报告](worker_report_v2.md)及[CPU准备](dmd_train/CPU_PREP.md)。fake loss在cycle4跃升、后续student梯度明显变小；Judge最终训练审核已通过，见[TRAIN V2审核](judge/TRAIN_V2_REVIEW.md)。最终cycle8视频已[独立放行](EVAL_RELEASE.md)，先检查AA/AD C2，若持续崩溃则停止C3；尚无DMD生成能力结论。
