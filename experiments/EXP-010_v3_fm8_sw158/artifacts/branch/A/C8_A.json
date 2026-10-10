@@ -1,0 +1,142 @@
+{
+  "task": "EXP-010/v1-FM8-SWG",
+  "status": "complete_pending_visual_review",
+  "stage": "C8",
+  "action": "A",
+  "index": 7,
+  "interval": [
+    42,
+    47
+  ],
+  "gpu": 0,
+  "source_manifest_sha256": "c5be2dd41bb6b755f84ea5dea7580c0734f803177e8f57217a34380a666d41b1",
+  "runner_sha256": "06cacdf66ae02b0fdf0c8c6b66b29faaedb616c5fd78311fab06e1f255658d5a",
+  "sampling_forwards": 8,
+  "commit_forwards": 0,
+  "vae_calls": 1,
+  "source_published_sha256": "cb9049f19a90d2641954c3ced939879d02cb6be33d88645f246bd67e30774340",
+  "prior_RGB_sha256": "2cb4fdf90f915edc1e58c7309acea21117d6dfe9b6728f3e4f092b9ec09b6f01",
+  "initial_noise_sha256": "b7b0f26964193d47587a3f5248b772a81d2c93ff0f6df184a1d188cfdf37b53d",
+  "source_cache_sha256": "bbff500dcf4379bab1dd44c9ded3a87d2f1ef9fb2c602c99f1358e22b4908455",
+  "history_tensor_sha256": "435d049cf20499c0b5edb3ece06a40e1c399e2e63bd3bb987f0e24e58702c0f7",
+  "prompt_sha256": "415481b773d9e3c2e2605988c0249ee3f58a4a9840067805c5c9dde775a88f01",
+  "cache_before": {
+    "index": 7,
+    "ancestors": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "latent_spans": [
+      [
+        17,
+        22
+      ],
+      [
+        22,
+        27
+      ],
+      [
+        27,
+        32
+      ],
+      [
+        32,
+        37
+      ],
+      [
+        37,
+        42
+      ]
+    ],
+    "rows_per_layer": 9750,
+    "layer_count": 50,
+    "nbytes": 14164800000,
+    "commits": 350
+  },
+  "precision": {
+    "profile": "h3_fp32",
+    "native_fp32_weights_restored": true,
+    "boundary_owners": [
+      "video_patch_proj",
+      "audio_patch_proj",
+      "time_embedder.proj_in",
+      "time_embedder.proj_out",
+      "final_layer.video_out",
+      "final_layer.audio_out"
+    ],
+    "interpolated_inputs": "float32",
+    "time_condition": "float32",
+    "transformer_stack": "unchanged loaded dtype",
+    "native_tensor_sha256": {
+      "video_patch_proj.bias": "e022b31f38e18f2ad4f0eaa99679d22b39ef70375ba16a47783a9f6ceed47cb1",
+      "audio_patch_proj.bias": "db724caaa45a0a1a69786ab4cc2a0bb8f4c5e525f90e3b8cf64b65a97165e420",
+      "video_patch_proj.weight": "26ff2714f21c25539a4f80040735274cc72e3c4a9da82769925df6a1102a301d",
+      "time_embedder.proj_in.weight": "4c50eabe3c434dc05422e6501cdf7baa5cecbb1a7706ae9599c7a5b0e34e2913",
+      "audio_patch_proj.weight": "902248bff928268be54c81aa1550cdb74af2f8a6ee49de1981dad9648d3acec3",
+      "time_embedder.proj_in.bias": "64763a5e39cb078eb0d8c5be5d56ad36cac3dec37be93a87e106d82ea6c071b7",
+      "time_embedder.proj_out.bias": "096a3c7539f0248698cc65376c8da260e7365bf4ccef847c09bb9a36782a743c",
+      "time_embedder.proj_out.weight": "697819dd9413e0fec3a50987a964f1fd5db568ca545267414238f452294a8154",
+      "final_layer.audio_out.weight": "dc76ceb824c197e8543221de8cf173c79caf0d939e03d8315dee434770ad2fa6",
+      "final_layer.video_out.weight": "8c93408b8463d037c658766c82995ec2a401076da5a4d4c245f22ab5ed4c2b97",
+      "final_layer.audio_out.bias": "8bdd499c99a9ffde27694b8a0a8c63cc44697abe9d2c3d56f232e1639b0f58ac",
+      "final_layer.video_out.bias": "5b15b024d02977f8ddc7e3a901b5a1fa10101430c1abf2e91ea78698c921a38e"
+    }
+  },
+  "sigmas": [
+    1.0,
+    0.9395404663085938,
+    0.8694517211914062,
+    0.7872340698242187,
+    0.6894410400390625,
+    0.5711835327148438,
+    0.4252873229980469,
+    0.24078089904785155,
+    0.0
+  ],
+  "model_ready_seconds": 27.62092257999757,
+  "step_completed": 8,
+  "sampling_seconds": 48.9612587859956,
+  "cache_read_unchanged": true,
+  "endpoint_sha256": "060c4681851b7040b527f4de6988beeac8862452a18e1ff84d6ffd0912acfbbc",
+  "source_cache_unchanged": true,
+  "decode_seconds": 13.325784350003232,
+  "old_RGB_unchanged": true,
+  "published_file_sha256": "1bbb604e449509bd2c0c9686d091ea365d88fdc7bdb939a880aaa1fc91b0f118",
+  "published_RGB_sha256": "3eb10ab67587670b48ade17b100d32d31c4d120df9a1a0f50da260483b8e2be3",
+  "video_sha256": "78da2c8e3344887800da51831cc9b368a0472aa3d249c68bee111b06d1b9ae50",
+  "flow": {
+    "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-010_v3_fm8_sw158/A/chunk_42_47.mp4",
+    "frames": 17,
+    "horizontal_flow_px": {
+      "mean": 0.5866351216100156,
+      "median": 0.6115908920764923,
+      "p05": 0.14125453494489193,
+      "p95": 0.9752882719039917,
+      "mean_abs": 0.5866351216100156
+    },
+    "vertical_flow_px": {
+      "mean": 0.026866763917496428,
+      "median": 0.026217720471322536,
+      "p05": -0.09017699025571346,
+      "p95": 0.1428192649036646,
+      "mean_abs": 0.06453529800637625
+    },
+    "flow_magnitude_px": {
+      "mean": 0.7555328197777271,
+      "median": 0.7791160643100739,
+      "p05": 0.1980382651090622,
+      "p95": 1.3583372831344604,
+      "mean_abs": 0.7555328197777271
+    },
+    "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+  },
+  "boundary_gray_MAD": 10.650903701782227,
+  "inside_gray_MAD": 3.796104907989502,
+  "peak_allocated_gib": 26.59565782546997,
+  "peak_reserved_gib": 26.970703125,
+  "peak_cpu_rss_mib": 85202.3125,
+  "seconds": 116.07873744000244
+}

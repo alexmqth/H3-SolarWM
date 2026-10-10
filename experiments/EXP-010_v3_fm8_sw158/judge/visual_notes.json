@@ -22,5 +22,41 @@
     "defects": "More pronounced scene/perspective discontinuity, trailing legs; no persistent disappearance or noise collapse",
     "quality": "PARTIAL",
     "decision": "Visual evidence allows planned late-switch branch, pending CPU cache audit"
+  },
+  "A/C7": {
+    "reviewed": "All 17 new frames",
+    "person_scene": "Recognizable throughout after first eviction",
+    "action": "Continued A motion visible",
+    "horizontal_flow_mean": 0.43882160575594753,
+    "defects": "Boundary viewpoint change and trailing translucent legs",
+    "quality": "PARTIAL",
+    "decision": "Continue authorized C8"
+  },
+  "D/C7": {
+    "reviewed": "All 17 new frames",
+    "person_scene": "Recognizable person and garage throughout",
+    "action": "Pose differs from A branch, but horizontal movement weak/ambiguous; mean +.03414 does not establish D direction",
+    "defects": "Transparent trailing legs and boundary shift, no catastrophic collapse",
+    "quality": "PARTIAL",
+    "action_switch": "PARTIAL_WEAK_FIRST_BLOCK",
+    "decision": "Complete approved C8 to assess persistence/delayed response; no extra tuning"
+  },
+  "A/C8": {
+    "reviewed": "All 17 new frames; terminal full resolution retained for inspection",
+    "person_scene": "Person and garage recognizable throughout",
+    "horizontal_flow_mean": 0.5866351216100156,
+    "quality": "PARTIAL",
+    "action": "Continued A motion visible",
+    "defects": "Persistent translucent trailing legs and boundary perspective discontinuity",
+    "decision": "Complete planned scope; no C9 or tuning"
+  },
+  "D/C8": {
+    "reviewed": "All 17 new frames; terminal full resolution retained for inspection",
+    "person_scene": "Person and garage recognizable throughout",
+    "horizontal_flow_mean": -0.858093086630106,
+    "quality": "PARTIAL",
+    "action": "Opposite horizontal progression clearer in second D block; first D block was weak/ambiguous",
+    "defects": "Pose and scene geometry jump at boundary; less severe trailing than A in this block",
+    "decision": "Complete planned scope; no C9 or tuning"
   }
 }

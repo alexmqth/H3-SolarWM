@@ -1,0 +1,733 @@
+{
+  "task": "EXP-010/v1-FM8-SWG",
+  "through": "branch",
+  "independent_execution_audit": "PASS",
+  "visual_assessment": "SEPARATE",
+  "forwards": 62,
+  "sampling": 56,
+  "commits": 6,
+  "vae": 7,
+  "updates": 0,
+  "gpu_seconds": 1137.1086580753326,
+  "gpu_hours": 0.31586351613203684,
+  "max_allocated_gib": 26.59565782546997,
+  "full_cache_tensor_validation": "C6 after first eviction; both C7 after second eviction",
+  "rows": {
+    "shared/commit_c3": {
+      "sampling_seconds": null,
+      "commit_seconds": 13.00991446000262,
+      "decode_seconds": null,
+      "seconds": 59.68958545400528,
+      "flow": null,
+      "boundary_gray_MAD": null,
+      "inside_gray_MAD": null,
+      "cache_before": {
+        "index": 2,
+        "ancestors": [
+          0,
+          1
+        ],
+        "latent_spans": [
+          [
+            0,
+            12
+          ],
+          [
+            12,
+            17
+          ]
+        ],
+        "rows_per_layer": 6630,
+        "layer_count": 50,
+        "nbytes": 9632064000,
+        "commits": 100
+      },
+      "cache_after": {
+        "index": 3,
+        "ancestors": [
+          0,
+          1,
+          2
+        ],
+        "latent_spans": [
+          [
+            0,
+            12
+          ],
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ]
+        ],
+        "rows_per_layer": 8580,
+        "layer_count": 50,
+        "nbytes": 12465024000,
+        "commits": 150
+      },
+      "peak_allocated_gib": 26.27584981918335
+    },
+    "shared/C4": {
+      "sampling_seconds": 45.68701438500284,
+      "commit_seconds": 6.586260846997902,
+      "decode_seconds": 8.029005616001086,
+      "seconds": 137.78992358400137,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-010_v3_fm8_sw158/shared/chunk_22_27.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": 0.8356412313878536,
+          "median": 0.8835895955562592,
+          "p05": 0.45561274886131287,
+          "p95": 1.2417410612106323,
+          "mean_abs": 0.8356412313878536
+        },
+        "vertical_flow_px": {
+          "mean": -0.08637293192441575,
+          "median": -0.06810498610138893,
+          "p05": -0.31988605111837387,
+          "p95": 0.061736431904137135,
+          "mean_abs": 0.11745634747785516
+        },
+        "flow_magnitude_px": {
+          "mean": 1.0203679464757442,
+          "median": 0.9755077362060547,
+          "p05": 0.6059294939041138,
+          "p95": 1.4904080927371979,
+          "mean_abs": 1.0203679464757442
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary_gray_MAD": 9.034728050231934,
+      "inside_gray_MAD": 3.4553842544555664,
+      "cache_before": {
+        "index": 3,
+        "ancestors": [
+          0,
+          1,
+          2
+        ],
+        "latent_spans": [
+          [
+            0,
+            12
+          ],
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ]
+        ],
+        "rows_per_layer": 8580,
+        "layer_count": 50,
+        "nbytes": 12465024000,
+        "commits": 150
+      },
+      "cache_after": {
+        "index": 4,
+        "ancestors": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "latent_spans": [
+          [
+            0,
+            12
+          ],
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ]
+        ],
+        "rows_per_layer": 10530,
+        "layer_count": 50,
+        "nbytes": 15297984000,
+        "commits": 200
+      },
+      "peak_allocated_gib": 26.45499277114868
+    },
+    "shared/C5": {
+      "sampling_seconds": 48.834374227997614,
+      "commit_seconds": 7.3411360870013596,
+      "decode_seconds": 9.702683609000815,
+      "seconds": 159.2753494569988,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-010_v3_fm8_sw158/shared/chunk_27_32.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": 0.7318702824413776,
+          "median": 0.4999545216560364,
+          "p05": 0.14594782888889313,
+          "p95": 1.7540417909622192,
+          "mean_abs": 0.7318702824413776
+        },
+        "vertical_flow_px": {
+          "mean": -0.01593975178548135,
+          "median": 0.007287258980795741,
+          "p05": -0.24744977429509163,
+          "p95": 0.13711368665099144,
+          "mean_abs": 0.08561105825356208
+        },
+        "flow_magnitude_px": {
+          "mean": 0.9908785987645388,
+          "median": 0.7648703753948212,
+          "p05": 0.22188514471054077,
+          "p95": 2.2609291672706604,
+          "mean_abs": 0.9908785987645388
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary_gray_MAD": 5.175187587738037,
+      "inside_gray_MAD": 4.268792152404785,
+      "cache_before": {
+        "index": 4,
+        "ancestors": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "latent_spans": [
+          [
+            0,
+            12
+          ],
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ]
+        ],
+        "rows_per_layer": 10530,
+        "layer_count": 50,
+        "nbytes": 15297984000,
+        "commits": 200
+      },
+      "cache_after": {
+        "index": 5,
+        "ancestors": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "latent_spans": [
+          [
+            0,
+            12
+          ],
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ]
+        ],
+        "rows_per_layer": 12480,
+        "layer_count": 50,
+        "nbytes": 18130944000,
+        "commits": 250
+      },
+      "peak_allocated_gib": 26.41791343688965
+    },
+    "shared/C6": {
+      "sampling_seconds": 52.85745753000083,
+      "commit_seconds": 7.558948138997948,
+      "decode_seconds": 10.931502054001612,
+      "seconds": 157.4703012550017,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-010_v3_fm8_sw158/shared/chunk_32_37.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": 0.6603006790392101,
+          "median": 0.8189280033111572,
+          "p05": -0.32434104941785336,
+          "p95": 1.125311702489853,
+          "mean_abs": 0.8517796318046749
+        },
+        "vertical_flow_px": {
+          "mean": 0.09194113386183744,
+          "median": 0.07267564162611961,
+          "p05": -0.015303425956517458,
+          "p95": 0.2170473225414753,
+          "mean_abs": 0.09752557580213761
+        },
+        "flow_magnitude_px": {
+          "mean": 1.0993669740855694,
+          "median": 0.973420113325119,
+          "p05": 0.4193447083234787,
+          "p95": 1.9473157823085785,
+          "mean_abs": 1.0993669740855694
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary_gray_MAD": 3.711453437805176,
+      "inside_gray_MAD": 3.817889451980591,
+      "cache_before": {
+        "index": 5,
+        "ancestors": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "latent_spans": [
+          [
+            0,
+            12
+          ],
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ]
+        ],
+        "rows_per_layer": 12480,
+        "layer_count": 50,
+        "nbytes": 18130944000,
+        "commits": 250
+      },
+      "cache_after": {
+        "index": 6,
+        "ancestors": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "latent_spans": [
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 300
+      },
+      "peak_allocated_gib": 25.609047889709473
+    },
+    "A/C7": {
+      "sampling_seconds": 47.833177809996414,
+      "commit_seconds": 7.093605119000131,
+      "decode_seconds": 11.806853977999708,
+      "seconds": 147.27600086099847,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-010_v3_fm8_sw158/A/chunk_37_42.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": 0.43882160575594753,
+          "median": 0.1886342465877533,
+          "p05": 0.053219187539070845,
+          "p95": 1.3462733328342438,
+          "mean_abs": 0.43882160575594753
+        },
+        "vertical_flow_px": {
+          "mean": 0.07471321686170995,
+          "median": 0.028477833606302738,
+          "p05": -0.06457100063562393,
+          "p95": 0.28831567615270615,
+          "mean_abs": 0.10652940906584263
+        },
+        "flow_magnitude_px": {
+          "mean": 0.6596377049572766,
+          "median": 0.38155119121074677,
+          "p05": 0.12466372735798359,
+          "p95": 1.8266015946865082,
+          "mean_abs": 0.6596377049572766
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary_gray_MAD": 12.3015775680542,
+      "inside_gray_MAD": 3.56184983253479,
+      "cache_before": {
+        "index": 6,
+        "ancestors": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "latent_spans": [
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 300
+      },
+      "cache_after": {
+        "index": 7,
+        "ancestors": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "latent_spans": [
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ],
+          [
+            37,
+            42
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 350
+      },
+      "peak_allocated_gib": 26.58574104309082
+    },
+    "A/C8": {
+      "sampling_seconds": 48.9612587859956,
+      "commit_seconds": null,
+      "decode_seconds": 13.325784350003232,
+      "seconds": 116.07873744000244,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-010_v3_fm8_sw158/A/chunk_42_47.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": 0.5866351216100156,
+          "median": 0.6115908920764923,
+          "p05": 0.14125453494489193,
+          "p95": 0.9752882719039917,
+          "mean_abs": 0.5866351216100156
+        },
+        "vertical_flow_px": {
+          "mean": 0.026866763917496428,
+          "median": 0.026217720471322536,
+          "p05": -0.09017699025571346,
+          "p95": 0.1428192649036646,
+          "mean_abs": 0.06453529800637625
+        },
+        "flow_magnitude_px": {
+          "mean": 0.7555328197777271,
+          "median": 0.7791160643100739,
+          "p05": 0.1980382651090622,
+          "p95": 1.3583372831344604,
+          "mean_abs": 0.7555328197777271
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary_gray_MAD": 10.650903701782227,
+      "inside_gray_MAD": 3.796104907989502,
+      "cache_before": {
+        "index": 7,
+        "ancestors": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "latent_spans": [
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ],
+          [
+            37,
+            42
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 350
+      },
+      "cache_after": null,
+      "peak_allocated_gib": 26.59565782546997
+    },
+    "D/C7": {
+      "sampling_seconds": 48.543304747996444,
+      "commit_seconds": 7.1833621410041815,
+      "decode_seconds": 11.813980479993916,
+      "seconds": 146.7545159959991,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-010_v3_fm8_sw158/D/chunk_37_42.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": 0.034137912560254335,
+          "median": 0.03592170216143131,
+          "p05": -0.167488481849432,
+          "p95": 0.19303814694285393,
+          "mean_abs": 0.09936762263532728
+        },
+        "vertical_flow_px": {
+          "mean": 0.10594226678949781,
+          "median": 0.0662999227643013,
+          "p05": -0.062731116078794,
+          "p95": 0.36189084500074387,
+          "mean_abs": 0.12465040132519789
+        },
+        "flow_magnitude_px": {
+          "mean": 0.45974547788500786,
+          "median": 0.23601995408535004,
+          "p05": 0.0918287206441164,
+          "p95": 1.5356092751026154,
+          "mean_abs": 0.45974547788500786
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary_gray_MAD": 12.588213920593262,
+      "inside_gray_MAD": 3.2751221656799316,
+      "cache_before": {
+        "index": 6,
+        "ancestors": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "latent_spans": [
+          [
+            12,
+            17
+          ],
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 300
+      },
+      "cache_after": {
+        "index": 7,
+        "ancestors": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "latent_spans": [
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ],
+          [
+            37,
+            42
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 350
+      },
+      "peak_allocated_gib": 26.58574104309082
+    },
+    "D/C8": {
+      "sampling_seconds": 60.40591424900049,
+      "commit_seconds": null,
+      "decode_seconds": 13.604055561998393,
+      "seconds": 131.14715202900697,
+      "flow": {
+        "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/EXP-010_v3_fm8_sw158/D/chunk_42_47.mp4",
+        "frames": 17,
+        "horizontal_flow_px": {
+          "mean": -0.858093086630106,
+          "median": -0.8187770247459412,
+          "p05": -1.4418164789676666,
+          "p95": -0.42330580949783325,
+          "mean_abs": 0.858093086630106
+        },
+        "vertical_flow_px": {
+          "mean": 0.035007973288884386,
+          "median": 0.023005617316812277,
+          "p05": -0.06327189691364765,
+          "p95": 0.14016862586140633,
+          "mean_abs": 0.06962494578328915
+        },
+        "flow_magnitude_px": {
+          "mean": 1.0041953343898058,
+          "median": 0.9663341641426086,
+          "p05": 0.4738497957587242,
+          "p95": 1.6360514163970947,
+          "mean_abs": 1.0041953343898058
+        },
+        "direction_note": "positive horizontal flow means image content moves toward increasing pixel x; negative means decreasing pixel x. This is a motion proxy, not a strict action-accuracy score."
+      },
+      "boundary_gray_MAD": 12.449899673461914,
+      "inside_gray_MAD": 3.7705066204071045,
+      "cache_before": {
+        "index": 7,
+        "ancestors": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "latent_spans": [
+          [
+            17,
+            22
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            32,
+            37
+          ],
+          [
+            37,
+            42
+          ]
+        ],
+        "rows_per_layer": 9750,
+        "layer_count": 50,
+        "nbytes": 14164800000,
+        "commits": 350
+      },
+      "cache_after": null,
+      "peak_allocated_gib": 26.59565782546997
+    }
+  }
+}
