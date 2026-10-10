@@ -53,12 +53,12 @@ V0/V2a边界为旧chunk5协议的多个边界均值；V2b边界为38→39的一�
 全片flow Original A/D约+1.077/−1.602，V2b约+1.035/−1.050；非动作准确率。312新增forward、18 VAE、0训练、1.0291 GPU-hours；峰值allocated 26392.86MiB，CPU hidden KV=0。所有已发布RGB前缀保持不变。AA RGB72→73边界灰度MAD16.25且有可见跳变；DD后段人物接近画面边缘。精确逐块结果与完整预算见[实验指标](../experiments/EXP-001_v2b_124/metrics.json)。
 
 
-## 2026-10-10：V2c可行性已验收
+## 2026-10-10：V3 Baseline可行性已验收
 
-**最新：V2c可行性版本已验收。** EXP-002/003以同一Original H3 + released LoRA、native Single I0/current-prefix协议，验证strict chunk-causal、真实persistent KV、同history A/D响应与AA/AD124帧自身历史。AA有短暂明显人体形变后恢复，画质与严格连续性仍有限制。单scene/seed、零新增训练；完整从零E2E、长期泛化及公平Original speedup未验证。
+**最新：V3 Baseline可行性版本已验收。** EXP-002/003以同一Original H3 + released LoRA、native Single I0/current-prefix协议，验证strict chunk-causal、真实persistent KV、同history A/D响应与AA/AD124帧自身历史。AA有短暂明显人体形变后恢复，画质与严格连续性仍有限制。单scene/seed、零新增训练；完整从零E2E、长期泛化及公平Original speedup未验证。
 
 EXP-003186forward/6VAE/0.436741GPU-hours。AA后3块sampling148.45/176.43/200.42秒；AD148.94/176.66/199.43秒。cache最终18.131GB，记录新块peak26,876.70MiB；初始commit峰值数值缺项。更多成本/口径见[正式审核](../experiments/EXP-003_native_cached_124/judge/FINAL_REVIEW.md)。
 
 ## EXP-004：原权重8步续写73帧（2026-10-10）
 
-AA第二/第三块flow +0.780621/+0.978349，sampling70.869/37.764秒；AD −1.509824/−0.732276，sampling40.524/42.510秒。32sampling+2commit=34forward，4VAE，0训练；466.01794 GPU秒（0.129449 GPU小时），峰值allocated25,682.07MiB。首39帧复用30步生成历史，本轮只统计续写成本。单次旧30步对比与质量缺陷见[8步证据](v2/v2c_strict_causal_kv/8step_continuation/README.md)，不作完整E2E速度比。
+AA第二/第三块flow +0.780621/+0.978349，sampling70.869/37.764秒；AD −1.509824/−0.732276，sampling40.524/42.510秒。32sampling+2commit=34forward，4VAE，0训练；466.01794 GPU秒（0.129449 GPU小时），峰值allocated25,682.07MiB。首39帧复用30步生成历史，本轮只统计续写成本。单次旧30步对比与质量缺陷见[8步证据](v3/v3_baseline/8step_continuation/README.md)，不作完整E2E速度比。

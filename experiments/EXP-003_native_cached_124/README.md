@@ -1,8 +1,8 @@
-# EXP-003：V2c Strict Causal KV · 124帧验证
+# EXP-003：V3 Baseline Strict Causal KV · 124帧验证
 
-**当前研究分类：V2c Strict Causal + Persistent KV。** 原Efficient Causal路线曾称V3；历史任务/报告/指标/源码保留原称，现行分类见[V2家族](../../report/v2/README.md)。
+**当前研究分类：V3 Baseline Strict Causal + Persistent KV。** 原Efficient Causal路线曾称V3；历史任务/报告/指标/源码保留原称，现行分类见[V2家族](../../report/v2/README.md)。
 
-**Judge accepted：同一严格缓存协议的124帧可行性通过，发布为V2c可行性版本。** [正式审核](judge/FINAL_REVIEW.md)。 本轮从 [EXP-002 已验收的73帧候选](../EXP-002_native_cached/README.md)继续，不重建祖先 KV：AA/AD 各加载自己的 `first12_A + second5 + third5` 生成 endpoint 与 `cache_through17`，先将第三块在原生条件下 sigma=0 clean commit 一次，然后依次生成 `[22,27)`、`[27,32)`、`[32,37)`，得到90、107、124 RGB帧。Original H3 + released action LoRA、Single I0、current-prefix own-action 路由、全局位置、30-step/chunk、shift 2.22、固定 audio、CPU raw KV 和 seed 13 均保持不变。没有训练、GT reset、AnyFlow、DMD 或最后块多余 commit。
+**Judge accepted：同一严格缓存协议的124帧可行性通过，发布为V3 Baseline可行性版本。** [正式审核](judge/FINAL_REVIEW.md)。 本轮从 [EXP-002 已验收的73帧候选](../EXP-002_native_cached/README.md)继续，不重建祖先 KV：AA/AD 各加载自己的 `first12_A + second5 + third5` 生成 endpoint 与 `cache_through17`，先将第三块在原生条件下 sigma=0 clean commit 一次，然后依次生成 `[22,27)`、`[27,32)`、`[32,37)`，得到90、107、124 RGB帧。Original H3 + released action LoRA、Single I0、current-prefix own-action 路由、全局位置、30-step/chunk、shift 2.22、固定 audio、CPU raw KV 和 seed 13 均保持不变。没有训练、GT reset、AnyFlow、DMD 或最后块多余 commit。
 
 | 新增 RGB | AA 水平 flow | AD 水平 flow | AA/AD 边界灰度 MAD | 视觉观察 |
 | --- | ---: | ---: | ---: | --- |
@@ -27,4 +27,4 @@ Original A→D 匹配视频不存在，本轮没有用 Original 持续 D 冒充�
 
 任务实际 **180 sampling + 6 clean commit = 186 denoiser forwards**，6次VAE，0训练更新，GPU 0 顺序运行两条路径，合计 **1572.27 GPU-seconds / 0.43674 GPU-hours**。记录到的新块 allocated 峰值 **26,876.70 MiB**；初始第三块 commit 只通过44GiB上限断言，精确峰值未保存。CPU KV 随历史增长至最后块采样前的 **18.131 GB**。逐块计时和与V2b的观察成本见 [效率表](efficiency_table.md) 与 [原始指标](metrics.json)；GPU transfer 是 sampling 的组成部分，不应重复相加。完整从零 E2E/首屏延迟未测，不能声明已经达到交互实时速度。
 
-大 cache、latent endpoint 和未压缩RGB保留在外部 `H3-World/outputs/EXP-003_native_cached_124/`，通过 [来源与产物 manifest](MANIFEST.md)追溯，不复制进Git。正式任务书见 [taskbook_v1.md](taskbook_v1.md)；本轮已形成正式V2c可行性版本，保留上述视觉失败片段与效率范围。
+大 cache、latent endpoint 和未压缩RGB保留在外部 `H3-World/outputs/EXP-003_native_cached_124/`，通过 [来源与产物 manifest](MANIFEST.md)追溯，不复制进Git。正式任务书见 [taskbook_v1.md](taskbook_v1.md)；本轮已形成正式V3 Baseline可行性版本，保留上述视觉失败片段与效率范围。

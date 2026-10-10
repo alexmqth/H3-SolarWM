@@ -1,9 +1,7 @@
-# 下一步：检验全程8步能否独立成立
+# 下一步：V3 Sliding Window分阶段验证
 
-正式[V2c 30步基线](../v2/v2c_strict_causal_kv/README.md)已完成AA/AD124帧可行性。后续[EXP-004](../v2/v2c_strict_causal_kv/8step_continuation/README.md)又在原权重上验证8步续写到73帧：同历史动作响应可辨、自身历史下基本人物/场景可用，零新增训练，0.129449 GPU小时。AA肢体拖影明显，质量仍有限制。
+V3 Baseline继续作为正式124帧参考。EXP-005先完成CPU实现与正确性验证，再提交有限GPU任务书，等待Judge批准。
 
-EXP-004已收口，GPU释放。下一项建议先让首窗也用8步，再检查自己的8步历史；优先回答少步系统是否能独立启动，而不是优化微小flow或画质差异。以短窗可用再延伸的有限预算推进；严重结构失败就停止，不扫描步数/shift/gain，也不自动新增训练。
+优先SW-G：首淘汰前复现冻结V3，随后第7/8块验证真实淘汰、最近5个具体祖先indices、KV容量、动作/切换、完整画面与逐块成本。SW-L保持相同窗口，仅改变video位置协议，独立判断；不能通过悄悄改prefix/time/action mask修复。
 
-这仍是普通FM少步基线。只有直接减步出现稳定且可修复的瓶颈时，再单独设计有限少步适配或AnyFlow任务。AnyFlow/DMD、完整首屏/E2E、长期泛化仍未通过；已有增量计时不能替代这些证据。
-
-下一GPU实验需根next_plan.md另立任务；当前没有EXP-005运行授权。
+[任务入口](../../experiments/EXP-005_v3_sliding_window/README.md) · [GPU提案](../../experiments/EXP-005_v3_sliding_window/GPU_PLAN.md) · [后续V3-FM8 / V3-AF独立设计](../../experiments/EXP-005_v3_sliding_window/FUTURE_ANYFLOW.md)。当前不启动GPU或训练。

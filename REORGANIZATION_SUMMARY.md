@@ -1,6 +1,6 @@
 # 当前目录与分类整理记录
 
-2026-10-10按用户要求，将原V3 Efficient Causal归为V2c Strict Causal + Persistent KV。V2a、V2b、V2c是回应V1视觉与动作退化的三条并行路线；没有按字母排列的权重继承关系。
+2026-10-10按用户最新决定，恢复 **V3 Original Feasibility Baseline**，并新增独立候选V3-SW-G、V3-SW-L。此前V2c分类保留在历史档案；本次不改变冻结实验结果。
 
 ## 当前结构
 
@@ -8,23 +8,24 @@
 report/
 ├── V0_original/
 ├── V1_native_causal/
-└── v2/
-    ├── v2a_rgb_anchor/
-    ├── v2b_same_sigma_local_bidir/
-    └── v2c_strict_causal_kv/
-        ├── videos/
-        ├── 73frame_evidence/
-        └── 8step_continuation/
+├── v2/
+│   ├── v2a_rgb_anchor/
+│   └── v2b_same_sigma_local_bidir/
+└── v3/
+    ├── v3_baseline/          # 正式参考，含73帧、124帧与8步续写证据
+    ├── v3_sw_g/              # Global滑窗候选
+    └── v3_sw_l/              # Local滑窗候选
 ```
 
-mainline采用同样的v2家族分组。未来有变体的版本继续采用`report/vN/vNa_<method>/`，各级README提供导航。当前没有另行定义未来V3。
+mainline采用相同家族分组。后续版本如有变体，继续使用`vN/<variant>/`二级组织，实验原始证据仍按稳定EXP编号归档。
 
-## 实验与历史记录
+## 兼容与证据保护
 
-EXP-002/003保持稳定的中性目录，现行标题和分类为V2c；EXP-004规范目录改为`experiments/EXP-004_v2c_8step/`，旧路径是相对符号链接，保持冻结脚本可访问。EXP编号、任务书修订号、原始协议、日志和证据不因研究分类改变。
+- `mainline/V3_efficient_causal`指向`mainline/v3/v3_baseline`。
+- EXP-004正式目录恢复`experiments/EXP-004_v3_8step/`；旧`EXP-004_v2c_8step`为反向兼容链接。
+- 展示文件名恢复V3 Baseline。两段8步展示片复用实验目录原V3标题的冻结文件；此前CPU重标的V2c片保存在本次档案，不再次编码。
+- 保留原始报告、任务书、代码、日志、视频和指标；只调整当前分类说明和导航。根目录继续保留六份Markdown。
 
-两段8步展示视频仅通过CPU更新顶部V3文字为V2c，原比较视频保留在实验目录。其他移动的视频/源码逐字节保持；不新增模型推理、训练或实验消融。
+[V3导航](report/v3/README.md) · [本次迁移与核验](archive/v3_baseline_restore_20261010/README.md) · [此前V2c迁移原文](archive/taxonomy_v2c_20261010/README.md)。
 
-[新V2导航](report/v2/README.md) · [迁移清单与核验](archive/taxonomy_v2c_20261010/README.md) · [本次之前的整理报告原文](archive/taxonomy_v2c_20261010/before_documents/submission/REORGANIZATION_SUMMARY.md)。
-
-更早编号曾将Same-σ路线称为旧V3，它对应现V2b；近期Efficient Causal所用旧V3则对应现V2c。历史原文必须结合协议与日期阅读，不能做全局编号替换。
+更早历史曾用旧V3指代Same-σ路线，需结合日期与协议阅读；本次正式V3 Baseline仅指EXP-002/003的strict causal/persistent KV版本。

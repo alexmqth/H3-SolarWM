@@ -1,10 +1,10 @@
 # V2b · Same-σ History / C12→5 H3-World
 
-**分类：V2家族的并行修复路线。** 与V2a/V2b/V2c其余方案共同研究V1的视觉与动作退化，字母不表示checkpoint继承。[V2家族导航](../README.md)。
+**分类：V2家族的并行修复路线。** 与V2a/V2b另一方案共同研究V1的视觉与动作退化，字母不表示checkpoint继承。[V2家族导航](../README.md)。
 
 ## 1. Version Name / Research Objective
 
-持续动作多窗口可行性基线：EXP-001 / v3已验收：单停车场、seed13，持续A/D六窗口124帧（5.17秒）具备可辨响应与基本人物/场景结构。保留AA RGB72→73姿态跳变、动作节奏不均和局部细节软化；DD后段靠近画面下边缘。AD/DA仅到73帧，DA第三块flow轻微反号；切换和泛化未通过。无persistent KV、无公平加速结论，V2c已由EXP-002/003完成124帧有限可行性验收。
+持续动作多窗口可行性基线：EXP-001 / v3已验收：单停车场、seed13，持续A/D六窗口124帧（5.17秒）具备可辨响应与基本人物/场景结构。保留AA RGB72→73姿态跳变、动作节奏不均和局部细节软化；DD后段靠近画面下边缘。AD/DA仅到73帧，DA第三块flow轻微反号；切换和泛化未通过。无persistent KV、无公平加速结论，V3 Baseline已由EXP-002/003完成124帧有限可行性验收。
 
 ## 2. Parent Version / Baseline
 
@@ -48,7 +48,7 @@ Single I0、native action/time、固定全局RoPE；首12后续5；历史按当�
 
 ## 8. What Still Failed
 
-EXP-001 / v3已验收：单停车场、seed13，持续A/D六窗口124帧（5.17秒）具备可辨响应与基本人物/场景结构。保留AA RGB72→73姿态跳变、动作节奏不均和局部细节软化；DD后段靠近画面下边缘。AD/DA仅到73帧，DA第三块flow轻微反号；切换和泛化未通过。无persistent KV、无公平加速结论，V2c已由EXP-002/003完成124帧有限可行性验收。
+EXP-001 / v3已验收：单停车场、seed13，持续A/D六窗口124帧（5.17秒）具备可辨响应与基本人物/场景结构。保留AA RGB72→73姿态跳变、动作节奏不均和局部细节软化；DD后段靠近画面下边缘。AD/DA仅到73帧，DA第三块flow轻微反号；切换和泛化未通过。无persistent KV、无公平加速结论，V3 Baseline已由EXP-002/003完成124帧有限可行性验收。
 
 ## 9. Lessons Learned
 

@@ -1,6 +1,6 @@
 # V2a · RGB-Anchor Causal H3-World
 
-**分类：V2家族的并行修复路线。** 与V2a/V2b/V2c其余方案共同研究V1的视觉与动作退化，字母不表示checkpoint继承。[V2家族导航](../README.md)。
+**分类：V2家族的并行修复路线。** 与V2a/V2b另一方案共同研究V1的视觉与动作退化，字母不表示checkpoint继承。[V2家族导航](../README.md)。
 
 ## 1. Version Name / Research Objective
 

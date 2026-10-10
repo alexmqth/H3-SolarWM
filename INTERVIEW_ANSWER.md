@@ -1,4 +1,4 @@
-> **2026-10-10更新：** 当前按[V2a / V2b / V2c三条并行路线](report/v2/README.md)组织。V2b持续A/D124帧已验收；V2c（原V3 Efficient Causal）完成严格因果/真实KV/动作/基本结构124帧可行性，另有8步续写73帧证据。下文历史问答保留当时实验语境，当前状态见[研究总览](REPORT.md)。
+> **2026-10-10更新：** 当前正式参考为[V3 Original Feasibility Baseline](report/v3/v3_baseline/README.md)：严格因果、persistent KV、30步Global RoPE，124帧有限可行性已验收。新增[SW-G/SW-L独立候选](report/v3/README.md)，EXP-005只做CPU准备与GPU提案。下文历史问答保留当时语境，旧AnyFlow产物不代表V3-AF完成；当前状态见[研究总览](REPORT.md)。
 
 # 面试题回答：在 H3-World 中验证 SolarWM 的因果少步生成
 

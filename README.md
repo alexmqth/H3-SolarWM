@@ -1,53 +1,15 @@
-# H3-World × SolarWM：因果化、动作信息流与少步探索
+# H3-SolarWM：因果世界模型研究
 
-**版本分类：** [V2a / V2b / V2c三条并行修复路线](report/v2/README.md)。原“V3 Efficient Causal”现归类为V2c；按版本家族与方法子目录查找。
+目标：在H3-World上统一动作控制、基本视觉稳定和高效因果推理，再研究少步生成与On-policy DMD。
 
-**新增效率证据：** [EXP-004：V2c原权重8步续写](report/v2/v2c_strict_causal_kv/8step_continuation/README.md)，AA/AD至73帧有限可行性accepted；首39帧复用30步结果，AA拖影明显，零训练、0.129449 GPU小时。正式30步V2c的124帧定义保留。
+**已验收正式参考：[V3 Original Feasibility Baseline](mainline/v3/v3_baseline/README.md)**，严格因果/persistent raw KV/Global RoPE，AA/AD124帧有限可行性。画质与连续性仍PARTIAL。
 
-**研究目标：** 将SolarWM的causal chunk、KV cache与少步方法迁入H3-World，检查长视频效率、画面连续性和action control能否同时保留。
+**当前：[EXP-005 V3 Sliding Window准备](experiments/EXP-005_v3_sliding_window/README.md)**。SW-G（Global）优先，SW-L（Local）独立候选；本轮仅CPU，GPU阶段等待Judge批准，不覆盖Baseline。
 
-**最新：V2c可行性版本已验收。** EXP-002/003以同一Original H3 + released LoRA、native Single I0/current-prefix协议，验证strict chunk-causal、真实persistent KV、同history A/D响应与AA/AD124帧自身历史。AA有短暂明显人体形变后恢复，画质与严格连续性仍有限制。单scene/seed、零新增训练；完整从零E2E、长期泛化及公平Original speedup未验证。 [版本与视频](report/v2/v2c_strict_causal_kv/README.md)。
+- [汇报与视频](report/README.md) · [浏览器](report/index.html)
+- [V2家族](report/v2/README.md)：RGB Anchor / Same-σ
+- [V3家族](report/v3/README.md)：Baseline / SW-G / SW-L
+- [主线定义](mainline/README.md) · [研究总览](REPORT.md)
+- [复现与依赖](REPRODUCE.md) · [研究分支](branches/README.md)
 
-## 一分钟入口
-
-| 使用场景 | 入口 |
-|---|---|
-| 组会直接展示 | **[report/README.md](report/README.md)** / [浏览器本地演示页](report/index.html) |
-| 连续播放全部对比 | [比较画廊](report/00_comparison_gallery/README.md) |
-| 当前局部正结果 | [V2b四路径56f](report/00_comparison_gallery/V2b_four_paths_56.mp4) |
-| 核心模型/协议演进 | [mainline V0–V2c](mainline/README.md) |
-| 机制、训练、AnyFlow/DMD细节 | [Research Branches A/B/C](branches/README.md) |
-| 面试题回答与报告 | [INTERVIEW_ANSWER](INTERVIEW_ANSWER.md) / [REPORT](REPORT.md) |
-| 运行环境、权重、adapter | [REPRODUCE](REPRODUCE.md) / [checkpoints](checkpoints/README.md) |
-| 本次移动/复制/视频/验收 | [REORGANIZATION_SUMMARY](REORGANIZATION_SUMMARY.md) |
-
-## 版本比较
-
-| 版本 | Action fidelity | Visual stability | 已验证范围 | Persistent KV | 采样 | 新增训练 | 当前结论 |
-|---|---|---|---|---|---|---|---|
-| V0 Original | A/D方向正控 | 124f基本完整 | 124f及已有长片参考 | 否 | 30整段；另存50步 | 无，released LoRA | Reference，非GT |
-| V1 Native causal | 显著下降 | 本代表停滞、过亮/背景退化；其他早期协议有重影 | 124f工程rollout | 是，CPU raw video KV | 8/chunk | 本代表无 | 工程可行，联合质量失败 |
-| V2a RGB-Anchor | A/D方向失败 | **124f人物结构相对稳定**；20s失败 | 124f视觉证据；243/481f负结果 | 是，clean commit的历史hidden KV | 8/chunk | visual adapter +已训action residual | Longer-horizon Visual Stability Demonstrated（仅124f scope） |
-| V2b Same-σ local bidir | 持续A/D在124f有可辨响应；切换仍有限制 | 124f人物/场景基本可用；边界与节奏有缺陷 | 单停车场、seed13、六块124f | **否**，每步重算全部可见历史 | 30/chunk | **无**，Original + released LoRA | Sustained A/D feasibility accepted |
-| V2c Strict Causal KV | 同history A/D可辨；AA/AD续124f | 基本可用；AA瞬态明显形变后恢复，连续性PARTIAL | 单停车场seed13，六块124f | 是，strict chunk causal + raw KV | 30/chunk | 无，Original + released LoRA | Feasibility accepted；非成熟画质/公平E2E speedup |
-
-V2a、V2b、V2c共同探索V1视觉/动作退化的修复，没有按字母排列的权重继承关系。V2a为RGB联合视觉适配；V2b从Original恢复Single I0/native条件，Same-σ与局部双向重算，已扩展至持续A/D的124帧，切换仅有局部证据。V2c已在同一native严格缓存配置中完成124帧可行性验收；质量限制与长期泛化仍需保留。
-
-## 目录
-
-```text
-mainline/             V0 → V1 → V2/{V2a RGB, V2b Same-σ, V2c Strict Causal KV}
-branches/             A机制诊断 / B因果适配与动作恢复 / C AnyFlow与DMD探索
-report/               可独立复制的简洁汇报：核心源码、真实视频、版本说明、5分钟讲稿
-archive/              历史文档、旧导航、整理前索引、hash与视频制作/验收收据
-code/ checkpoints/    现有运行实现与小adapter；保持原路径
-experiments/ reports/  原始实验说明、冻结源码、指标/日志/视频；按新分支索引，原路径保留
-meeting/              原会议包与旧主片；作为历史证据保留，最新展示使用report/
-docs/ scripts/ tests/  原长文档、运行脚本与测试；未修改生产模型实现
-```
-
-旧`reports/stage1_anyflow`是历史文件夹名，含FM、诊断等多个目标，不等于全是AnyFlow。旧结果与measurement不搬乱；新分支逐项建立链接和manifest，减少对原运行脚本的路径破坏。原始大checkpoint和latent仍在外部outputs，由来源清单关联。
-
-**计数口径：** 8steps/chunk×8chunks=64 noisy forwards + 8 commits，不是全视频8次。KV复用不等于AnyFlow少步训练，DMD-lite不等于完整Stage2。耗时为共享硬件单次记录，无warmup均值或公平speedup结论；flow/cosine/MAD均不能单独代替动作与画质评审。
-
-底座与released LoRA不在仓库内，见复现文档。EXP-001新增V2b受控推理，0训练；此前整理记录保持历史口径。
+原“V2c”分类按用户最新决定恢复为V3 Baseline，历史迁移记录保留。EXP-004普通FM8步续写只验证到73帧，首窗仍借用30步结果，不能视为AnyFlow训练完成。
