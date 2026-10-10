@@ -1,0 +1,24 @@
+{
+  "task": "EXP-009/v1-FM4-AF4",
+  "approved": true,
+  "checkpoint_step": 32,
+  "source_manifest_sha256": "be0c304247884872c26c11f920eaabe42331eef3499c7837d6dbedd50e1ef102",
+  "allowed_models": [
+    "fm4",
+    "af4"
+  ],
+  "allowed_stages": [
+    "prefill",
+    "second",
+    "third"
+  ],
+  "gpu": 0,
+  "max_forwards": 38,
+  "max_vae": 8,
+  "total_task_max_forwards": 38,
+  "total_task_max_vae": 8,
+  "total_task_gpu_hours": 0.6,
+  "max_allocated_gib": 44,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "conditions": "C2 reviewed. C3 requires separate marker, total budget unchanged. No retry, training or parameter sweep."
+}

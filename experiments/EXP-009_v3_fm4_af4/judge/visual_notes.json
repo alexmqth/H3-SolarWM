@@ -1,0 +1,64 @@
+{
+  "fm4/AA/C2": {
+    "reviewed": "All 17 new frames, contact sheet",
+    "person_scene": "Recognizable person and parking structure throughout",
+    "defects": "Translucent trailing legs and boundary pose/perspective shift; no persistent full-scene collapse",
+    "decision": "Continue existing C2 task; final C3 release pending both models C2",
+    "quality": "PARTIAL",
+    "horizontal_flow_mean": 0.7061017379164696
+  },
+  "fm4/AD/C2": {
+    "reviewed": "All 17 new frames, contact sheet",
+    "person_scene": "Recognizable throughout",
+    "action": "D response visible but modest displacement; horizontal proxy negative",
+    "defects": "Boundary pose/view change, semi-transparent trailing legs; no catastrophic collapse",
+    "quality": "PARTIAL",
+    "horizontal_flow_mean": -0.1897313678637147
+  },
+  "af4/AA/C2": {
+    "reviewed": "All 17 new frames, contact sheet",
+    "person_scene": "Recognizable throughout",
+    "action": "A motion visible, positive proxy",
+    "defects": "Transparent trailing leg/arm silhouettes; pose/perspective boundary change. No clear overall advantage over FM4 in C2.",
+    "quality": "PARTIAL",
+    "horizontal_flow_mean": 0.48918876983225346
+  },
+  "af4/AD/C2": {
+    "reviewed": "All 17 new frames and full-resolution final frame",
+    "person_scene": "Person recognizable; garage surfaces increasingly warped/overlaid",
+    "action": "Weak/ambiguous D switch; horizontal proxy +0.1617, unlike FM4 D negative. Proxy not sufficient alone.",
+    "defects": "Persistent translucent body and scene texture deformation more marked than FM4. No full-frame noise collapse.",
+    "quality": "PARTIAL_WITH_DEGRADATION",
+    "decision": "Continue only planned C3 for cumulative assessment, no extra runs"
+  },
+  "fm4/AA/C3": {
+    "reviewed": "All 17 new frames",
+    "person_scene": "Recognizable throughout",
+    "action": "A motion remains visible, modest; horizontal mean +.3364",
+    "defects": "Persistent trailing legs/transparency and boundary viewpoint change",
+    "quality": "PARTIAL"
+  },
+  "fm4/AD/C3": {
+    "reviewed": "All 17 new frames",
+    "person_scene": "Recognizable throughout",
+    "action": "D direction visible; horizontal mean -.6181",
+    "defects": "Boundary position/pose reset; legs ghosted, no persistent collapse",
+    "quality": "PARTIAL"
+  },
+  "af4/AA/C3": {
+    "reviewed": "All 17 new frames",
+    "person_scene": "Person outline remains identifiable but persistently translucent, garage textures deform",
+    "action": "A proxy +.2681, motion present",
+    "defects": "Persistent translucent upper/lower body and heavy trailing overlay; visually worse than FM4 C3",
+    "quality": "PARTIAL_WITH_DEGRADATION",
+    "decision": "No AF4 superiority; no further step sweep or training under this task"
+  },
+  "af4/AD/C3": {
+    "reviewed": "All 17 new frames and full-resolution last frame",
+    "person_scene": "Person loses coherent structure after first frame; large translucent displaced fragments dominate foreground. Background garage remains partially recognizable.",
+    "action": "D motion unconvincing; horizontal proxy -.00749 near zero",
+    "defects": "Persistent body disintegration and large ghosted foreground, stronger than ordinary local defects",
+    "quality": "FAIL",
+    "decision": "AF4 joint AA/AD finite feasibility not accepted; stop tested AF4 configuration, no more training or NFE sweep"
+  }
+}

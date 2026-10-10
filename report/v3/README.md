@@ -17,12 +17,12 @@
 - [V3-SW-G：Sliding Window + Global RoPE](v3_sw_g/README.md)
 - [V3-SW-L：Sliding Window + Local RoPE](v3_sw_l/README.md)
 
-EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留；SW-L有动作响应但重复场景/亮度跳变更多，无已证实收益，当前无训练方向归档。正式Baseline不变。后续V3-FM8和V3-AF另立任务，普通FM减步与AnyFlow finite-map训练分别评价。
+EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留；SW-L有动作响应但重复场景/亮度跳变更多，无已证实收益，当前无训练方向归档。正式Baseline不变。普通FM减步与AnyFlow finite-map训练已分别完成有限验证，见下方各自证据。
 
 
 ## 全程普通FM8
 
-[EXP-006 V3-FM8](v3_fm8/README.md)已验收：新8步首39+AA/AD73，有限可行性通过、quality PARTIAL。43forward/5VAE/0.136905GPU小时，零新训练。下一项为独立V3-AF，普通减步与finite-map训练分别记录。
+[EXP-006 V3-FM8](v3_fm8/README.md)已验收：新8步首39+AA/AD73，有限可行性通过、quality PARTIAL。43forward/5VAE/0.136905GPU小时，零新训练。普通减步与finite-map训练分别记录；未测试73帧之外的全程FM8。
 
 ## AnyFlow研究进展
 
@@ -31,3 +31,7 @@ EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留�
 ## DMD研究进展
 
 [V3-DMD](v3_dmd/README.md)：真实33B单cycle完整8map反向工程通过，17forward/3backward/3update/0VAE，三卡0.212416GPUh；累计8cycle训练工程通过，但最终AA C2全17新增帧彩噪，生成FAIL、当前配置归档；AD中断未评估，C3未执行。整个EXP-008约1.66409GPUh。
+
+## 4NFE有限对照
+
+[V3 FM4 / AF4](v3_fm4_af4/README.md)：EXP-009完成共同FM8首39后的AA/AD73。普通FM4有限可行PASS、quality PARTIAL；AF4 AD C3持续人物结构失败，生成FAIL、当前配置归档。38forward/8VAE/.217303GPUh，零新训练，不扫2NFE。下一EXP-010准备全程FM8与SW-G的124/158帧联合验证。

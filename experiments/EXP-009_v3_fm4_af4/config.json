@@ -1,0 +1,19 @@
+{
+  "task": "EXP-009/v1-FM4-AF4",
+  "gpu": 0,
+  "models": ["fm4", "af4"],
+  "checkpoint": "EXP-007/v3-AF2-step32",
+  "seed": 13,
+  "partition": [12, 5, 5],
+  "steps_per_chunk": 4,
+  "flow_shift": 2.22,
+  "max_forwards": 38,
+  "max_sampling": 32,
+  "max_commits": 6,
+  "max_vae": 8,
+  "max_gpu_hours": 0.60,
+  "max_elapsed_minutes": 120,
+  "max_allocated_gib": 44,
+  "deadline_hkt": "2026-10-11T09:00:00+08:00",
+  "output_root": "H3-World/outputs/EXP-009_v3_fm4_af4"
+}
