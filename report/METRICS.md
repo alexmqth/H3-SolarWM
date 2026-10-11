@@ -61,7 +61,7 @@ EXP-003186forward/6VAE/0.436741GPU-hours。AA后3块sampling148.45/176.43/200.42
 
 ## EXP-004：原权重8步续写73帧（2026-10-10）
 
-AA第二/第三块flow +0.780621/+0.978349，sampling70.869/37.764秒；AD −1.509824/−0.732276，sampling40.524/42.510秒。32sampling+2commit=34forward，4VAE，0训练；466.01794 GPU秒（0.129449 GPU小时），峰值allocated25,682.07MiB。首39帧复用30步生成历史，本轮只统计续写成本。单次旧30步对比与质量缺陷见[8步证据](v3/v3_baseline/8step_continuation/README.md)，不作完整E2E速度比。
+AA第二/第三块flow +0.780621/+0.978349，sampling70.869/37.764秒；AD −1.509824/−0.732276，sampling40.524/42.510秒。32sampling+2commit=34forward，4VAE，0训练；466.01794 GPU秒（0.129449 GPU小时），峰值allocated25,682.07MiB。首39帧复用30步生成历史，本轮只统计续写成本。单次旧30步对比与质量缺陷见[8步证据](v3/fm2anyflow/fm8_continuation/README.md)，不作完整E2E速度比。
 
 
 ## EXP-005/v2：Sliding Window有限GPU验证

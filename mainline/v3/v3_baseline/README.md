@@ -51,18 +51,14 @@ EXP-003实际186forward/6VAE/0训练，0.436741GPU-hours；EXP-002+003合计310�
 
 **不是全帧高质量：** AA约RGB79–86明显人体形变/游离肢体残影，第五、六块恢复；AA边界姿态跳变，AD91–92附近短暂姿态/肢体异常；动作僵硬、局部细节软化。严格连续性与画质成熟度PARTIAL，不能说追平V2b。没有跨scene/seed、10/20秒、其它动作序列或公平Original整体加速证明。
 
-## 9. Lessons / Next Decision
+## 9. 后续状态
 
-EXP-004已补充原权重8步续写73帧的有限正证据；首39帧复用30步。当前优先EXP-005 Sliding Window：先Global真实淘汰，再独立Local位置对照；全程FM8/AnyFlow作为后续独立设计，不为几帧缺陷无限追加训练或消融。
+滑窗、FM减步与AnyFlow有限验证均已完成，见[V3总览](../README.md)；正式30步124帧协议不变。
 
 ## 10. Source / Checkpoint / References
 
 [EXP-002证据](../../../experiments/EXP-002_native_cached/README.md) · [EXP-003源码/配置/manifest](../../../experiments/EXP-003_native_cached_124/README.md) · [正式审核](../../../experiments/EXP-003_native_cached_124/judge/FINAL_REVIEW.md)。正式EXP-003目录为`EXP-003_native_cached_124`；详见[来源和命令](../../../experiments/EXP-003_native_cached_124/MANIFEST.md)。大型权重、latent和KV不提交Git。
 
-## 11. 后续效率证据：EXP-004
+## 11. 后续独立研究
 
-[原权重8步续写AA/AD73帧](../../../report/v3/v3_baseline/8step_continuation/README.md)已获得有限正信号，零训练。首39帧仍借用30步生成结果，AA后段拖影明显；本增量证据不改变本页30步124帧版本定义。8步全程初始化、124帧与完整E2E未测，解除30步前缀依赖列为后续V3-FM8计划，当前优先Sliding Window。
-
-## 12. Sliding Window候选
-
-[SW-G](../v3_sw_g/README.md)保持Global位置，优先验证真实淘汰；[SW-L](../v3_sw_l/README.md)仅改变video位置协议，独立验收。当前EXP-005只有CPU工作授权；8步续写结果仍为EXP-004的有限增量证据。
+[Sliding Window](../sliding_windows/README.md) · [FM → AnyFlow](../fm2anyflow/README.md) · [V4 SGF / DMD](../../v4/README.md)。名称解释及视频见[正式基线报告](../../../report/v3/v3_baseline/README.md)和[缩写表](../../../report/GLOSSARY.md)。

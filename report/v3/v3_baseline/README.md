@@ -1,4 +1,14 @@
-# V3 Original Feasibility Baseline
+# V3 Baseline：正式因果缓存参考
+
+## 名称与目的
+
+**名称解释：** Baseline 是后续实验使用的基础参考；KV 是 attention Key/Value（键和值）缓存，RoPE 是旋转位置编码。
+
+**本次目的：** 验证 Original H3 能否在严格因果、复用历史 KV 的条件下，同时保留动作控制和基本人物结构。固定每块30步、124帧，为滑窗和少步路线提供对照。
+
+[其他缩写与计数](../../GLOSSARY.md) · [汇报总览](../../README.md)
+
+## 实验结果与证据
 
 **2026-10-10，Judge正式验收。** 单停车场、seed13，AA/AD自身历史六块124帧（24fps，5.17秒）。同一个权重和推理协议同时具备strict chunk-causal、真实persistent KV、可辨动作响应与基本可用的多窗口人物/场景。画质和严格连续性仍有明显限制。
 
@@ -51,18 +61,17 @@ EXP-003实际186forward/6VAE/0训练，0.436741GPU-hours；EXP-002+003合计310�
 
 **不是全帧高质量：** AA约RGB79–86明显人体形变/游离肢体残影，第五、六块恢复；AA边界姿态跳变，AD91–92附近短暂姿态/肢体异常；动作僵硬、局部细节软化。严格连续性与画质成熟度PARTIAL，不能说追平V2b。没有跨scene/seed、10/20秒、其它动作序列或公平Original整体加速证明。
 
-## 9. Lessons / Next Decision
+## 9. 后续研究状态
 
-EXP-004已补充原权重8步续写73帧的有限正证据；首39帧复用30步。当前优先EXP-005 Sliding Window：先Global真实淘汰，再独立Local位置对照；全程FM8/AnyFlow作为后续独立设计，不为几帧缺陷无限追加训练或消融。
+Sliding Window已完成EXP-005；普通FM8/4与AnyFlow8/4分别完成有限验证，详见[V3研究总览](../README.md)。它们是独立候选，不修改本页正式30步124帧基线。
 
 ## 10. Source / Checkpoint / References
 
 [EXP-002证据](../../../experiments/EXP-002_native_cached/README.md) · [EXP-003源码/配置/manifest](../../../experiments/EXP-003_native_cached_124/README.md) · [正式审核](../../../experiments/EXP-003_native_cached_124/judge/FINAL_REVIEW.md)。正式EXP-003目录为`EXP-003_native_cached_124`；详见[来源和命令](../../../experiments/EXP-003_native_cached_124/MANIFEST.md)。大型权重、latent和KV不提交Git。
 
-## 11. 后续效率证据：EXP-004
+## 11. 后续结果入口
 
-[原权重8步续写AA/AD73帧](8step_continuation/README.md)已获得有限正信号，零训练。首39帧仍借用30步生成结果，AA后段拖影明显；本增量证据不改变本页30步124帧版本定义。8步全程初始化、124帧与完整E2E未测，解除30步前缀依赖列为后续V3-FM8计划，当前优先Sliding Window。
-
-## 12. Sliding Window候选
-
-[SW-G](../v3_sw_g/README.md)保持Global位置，优先验证真实淘汰；[SW-L](../v3_sw_l/README.md)仅改变video位置协议，独立验收。当前EXP-005只有CPU工作授权；8步续写结果仍为EXP-004的有限增量证据。
+- [FM8续写：EXP-004](../fm2anyflow/fm8_continuation/README.md)：共同30步首窗后8步续到73帧。
+- [全程FM8：EXP-006/010](../fm2anyflow/fm8/README.md)：新8步首窗、73帧及Global滑窗158帧。
+- [Global / Local滑窗：EXP-005](../sliding_windows/README.md)：真实淘汰和位置协议对照。
+- [AnyFlow训练与评估](../fm2anyflow/anyflow/README.md)：有限训练及迁移结果。

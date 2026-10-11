@@ -1,18 +1,19 @@
 # H3-SolarWM：因果世界模型研究
 
-目标：在H3-World上统一动作控制、基本视觉稳定和高效因果推理，再研究少步生成与On-policy DMD。
+**已验收正式参考：[V3 Baseline](mainline/v3/v3_baseline/README.md)**，严格因果、持久KV、Global RoPE，30步124帧有限可行。画质与连续性仍PARTIAL。
 
-**已验收正式参考：[V3 Original Feasibility Baseline](mainline/v3/v3_baseline/README.md)**，严格因果/persistent raw KV/Global RoPE，AA/AD124帧有限可行性。画质与连续性仍PARTIAL。
+## 按研究方向看报告和视频
 
-**当前：[EXP-005 V3 Sliding Window结果](experiments/EXP-005_v3_sliding_window/README.md)**。SW-G（Global）158帧有限可行性通过，画质PARTIAL；SW-L工程通过但无已证实收益，当前无训练路线归档。281forward/9VAE/0.662707GPU小时，Baseline保持冻结。
+- [V2：RGB Anchor / Same-σ](report/v2/README.md)：视觉与动作修复路线。
+- [V3 Baseline](report/v3/v3_baseline/README.md)：正式124帧参考。
+- [V3 Sliding Window](report/v3/sliding_windows/README.md)：Global / Local位置编码；Global158帧有限可行，当前Local无联合收益。
+- [V3 FM → AnyFlow](report/v3/fm2anyflow/README.md)：普通FM30/8/4、AnyFlow8/4、场景迁移和训练数据准备。FM8是每块8步普通采样。
+- [V4 SGF / DMD](report/v4/README.md)：训练工程通过，当前DMD配置生成失败；早期旧协议尝试单列。
 
-- [汇报与视频](report/README.md) · [浏览器](report/index.html)
-- [V2家族](report/v2/README.md)：RGB Anchor / Same-σ
-- [V3家族](report/v3/README.md)：Baseline / SW-G / SW-L
-- [主线定义](mainline/README.md) · [研究总览](REPORT.md)
-- [复现与依赖](REPRODUCE.md) · [研究分支](branches/README.md)
+[完整报告导航](report/README.md) · [按路线播放视频](report/index.html) · [缩写与数字含义](report/GLOSSARY.md) · [主线定义](mainline/README.md) · [复现](REPRODUCE.md)
 
-原“V2c”分类按用户最新决定恢复为V3 Baseline，历史迁移记录保留。EXP-004普通FM8步续写只验证到73帧，首窗仍借用30步结果，不能视为AnyFlow训练完成。
+## 当前状态
 
+截至2026-10-11 09:00获批研究已收口。EXP-015/016完成真实数据和VAE验证；EXP-017固定动作位置布局仅通过CPU验收，实际模型/生成尚未测试。[下一阶段草案](report/02_next_steps/README.md)建议先做实际模型回归与真实混合动作的FM30/FM8局部续写，尚未启动。
 
-**新增EXP-006：[全程V3-FM8](report/v3/v3_fm8/README.md)** 已验收新首39+AA/AD73有限可行性，quality PARTIAL，0.136905GPU小时、零训练。当前转入独立V3-AF初始化/单步训练准备，尚无AnyFlow能力验收。
+`report/`保存易读说明和代表性视频，`experiments/`保存任务原始证据。V4是研究分类，当前无已验收V4生成模型；原EXP目录、checkpoint与冻结结果保留。根目录progress.md和next_plan.md分别管理正式状态与执行授权。

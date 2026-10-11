@@ -1,5 +1,7 @@
 # 三个研究分支：已做什么，失败说明什么
 
+本页记录早期分支证据。当前V3的[FM/AnyFlow](../v3/fm2anyflow/README.md)和[V4 SGF/DMD](../v4/README.md)分别有新协议结果；旧Stage2-lite也已在V4档案单列。
+
 | 分支 | 完成的工作 | 状态与结论 |
 |---|---|---|
 | A Causal Mechanism Diagnostics | 5/7/12分块，clean/N，I0/anchor，action/public prefix，KV/time/RoPE/VAE | 实现与固定状态诊断通过；Original动作传播在strict图中改变，非单纯cache错误。默认数值路径和受控零误差路径明确分开 |

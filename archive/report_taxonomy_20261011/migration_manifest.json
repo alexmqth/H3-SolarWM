@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-11",
+  "purpose": "V3 Sliding Window / FM-to-AnyFlow; V4 SGF/DMD report taxonomy",
+  "moves": {
+    "report/v3/v3_sw_g": "report/v3/sliding_windows/global",
+    "report/v3/v3_sw_l": "report/v3/sliding_windows/local",
+    "report/v3/v3_fm8": "report/v3/fm2anyflow/fm8",
+    "report/v3/v3_anyflow": "report/v3/fm2anyflow/anyflow",
+    "report/v3/v3_fm4_af4": "report/v3/fm2anyflow/fm4_vs_af4",
+    "report/v3/v3_scene_transfer": "report/v3/fm2anyflow/scene_transfer",
+    "report/v3/v3_teacher_targets": "report/v3/fm2anyflow/data_preparation/teacher_generated_targets",
+    "report/v3/v3_real_data": "report/v3/fm2anyflow/data_preparation/real_data",
+    "report/v3/v3_baseline/8step_continuation": "report/v3/fm2anyflow/fm8_continuation",
+    "report/v3/v3_dmd": "report/v4/dmd",
+    "mainline/v3/v3_sw_g": "mainline/v3/sliding_windows/global",
+    "mainline/v3/v3_sw_l": "mainline/v3/sliding_windows/local",
+    "mainline/v3/v3_fm8": "mainline/v3/fm2anyflow/fm8"
+  },
+  "files": [
+    {
+      "old": "report/v3/v3_sw_g/README.md",
+      "new": "report/v3/sliding_windows/global/README.md",
+      "sha256_before": "3519c5adef6cce3be5dbe1ef6e0bc34361fbecc2fe8b925d81337aad898b6586",
+      "bytes": 2077
+    },
+    {
+      "old": "report/v3/v3_sw_l/README.md",
+      "new": "report/v3/sliding_windows/local/README.md",
+      "sha256_before": "e3fd26a7e8f1ea4b30577c992e26ca962163b12fcce8bf3ba541540138b5bcfb",
+      "bytes": 1706
+    },
+    {
+      "old": "report/v3/v3_fm8/README.md",
+      "new": "report/v3/fm2anyflow/fm8/README.md",
+      "sha256_before": "4f63cef769d0c5b9846e3433360589b5da7a89fc9652d6d23d430befeaabe99c",
+      "bytes": 3067
+    },
+    {
+      "old": "report/v3/v3_anyflow/README.md",
+      "new": "report/v3/fm2anyflow/anyflow/README.md",
+      "sha256_before": "ae214bd2afd5baf61140f0aa3ad3406c38b35ecd568c8f73d4d250cb2b1300e9",
+      "bytes": 3792
+    },
+    {
+      "old": "report/v3/v3_fm4_af4/README.md",
+      "new": "report/v3/fm2anyflow/fm4_vs_af4/README.md",
+      "sha256_before": "00dcd657501475252afe647b2a22ecc2dcedbe076d953aee33817bbed5eef4e6",
+      "bytes": 2352
+    },
+    {
+      "old": "report/v3/v3_scene_transfer/README.md",
+      "new": "report/v3/fm2anyflow/scene_transfer/README.md",
+      "sha256_before": "dad1863e67335b8c120e7f42e9d90edf261b088b563079bb9e0f0a3ac32b14b2",
+      "bytes": 2221
+    },
+    {
+      "old": "report/v3/v3_teacher_targets/README.md",
+      "new": "report/v3/fm2anyflow/data_preparation/teacher_generated_targets/README.md",
+      "sha256_before": "87af3763aa91f2ce1020b070d59c57f1eae91eb3543faaf96f5bf88b4a07fd36",
+      "bytes": 2632
+    },
+    {
+      "old": "report/v3/v3_teacher_targets/video_manifest.json",
+      "new": "report/v3/fm2anyflow/data_preparation/teacher_generated_targets/video_manifest.json",
+      "sha256_before": "021cc9e821881193ea089da9b5adb075849eee306dcded07f5b355053fe4cf14",
+      "bytes": 1035
+    },
+    {
+      "old": "report/v3/v3_teacher_targets/videos/s0_AA_vs_AD_56.mp4",
+      "new": "report/v3/fm2anyflow/data_preparation/teacher_generated_targets/videos/s0_AA_vs_AD_56.mp4",
+      "sha256_before": "98899cdfd44eaf3c396cf973d1cfb7a32e7392c886e1af08bac97de475e48c07",
+      "bytes": 2219009
+    },
+    {
+      "old": "report/v3/v3_teacher_targets/videos/s1_AA_vs_AD_56.mp4",
+      "new": "report/v3/fm2anyflow/data_preparation/teacher_generated_targets/videos/s1_AA_vs_AD_56.mp4",
+      "sha256_before": "a621c099d80c74c8adb400d964cc4f4711822a2b8884d5a17cfead36bd876ad0",
+      "bytes": 3628989
+    },
+    {
+      "old": "report/v3/v3_teacher_targets/videos/s2_AA_vs_AD_56.mp4",
+      "new": "report/v3/fm2anyflow/data_preparation/teacher_generated_targets/videos/s2_AA_vs_AD_56.mp4",
+      "sha256_before": "b08ee28ece441f75e00835c0ef54168cf27bea01afe8097eea12722c73a718c6",
+      "bytes": 2560892
+    },
+    {
+      "old": "report/v3/v3_teacher_targets/videos/s3_AA_vs_AD_56.mp4",
+      "new": "report/v3/fm2anyflow/data_preparation/teacher_generated_targets/videos/s3_AA_vs_AD_56.mp4",
+      "sha256_before": "f4badd8b4cb5222d954d024f7e167168934223fe26d0a8adae6d2d3057d47c36",
+      "bytes": 1221228
+    },
+    {
+      "old": "report/v3/v3_real_data/README.md",
+      "new": "report/v3/fm2anyflow/data_preparation/real_data/README.md",
+      "sha256_before": "aa1eba6d6f9dfb3945d60e73206a24bbe339d88a3b8c9fd787f33387ed7c8881",
+      "bytes": 2327
+    },
+    {
+      "old": "report/v3/v3_baseline/8step_continuation/README.md",
+      "new": "report/v3/fm2anyflow/fm8_continuation/README.md",
+      "sha256_before": "3010ae55451cde418ec65b0f60331e84a7817470c60ec6519f3d22b884983f5b",
+      "bytes": 2791
+    },
+    {
+      "old": "report/v3/v3_baseline/8step_continuation/videos/V3_Baseline_30_vs_8_AA_73.mp4",
+      "new": "report/v3/fm2anyflow/fm8_continuation/videos/V3_Baseline_30_vs_8_AA_73.mp4",
+      "sha256_before": "89410c7a3bd0a5fd41031e912fa1d85455d70e6cfdb7b036f0e4b0304947cc11",
+      "bytes": 1470670
+    },
+    {
+      "old": "report/v3/v3_baseline/8step_continuation/videos/V3_Baseline_30_vs_8_AD_73.mp4",
+      "new": "report/v3/fm2anyflow/fm8_continuation/videos/V3_Baseline_30_vs_8_AD_73.mp4",
+      "sha256_before": "d526aca09732194abd6648276fb07e2b5b516a6f39ea69b175b98c48d8d1915a",
+      "bytes": 1349079
+    },
+    {
+      "old": "report/v3/v3_dmd/README.md",
+      "new": "report/v4/dmd/README.md",
+      "sha256_before": "f1b479e214b014626275ec179cbaf554a08d89fcfcee7c8d50863da23e179ec0",
+      "bytes": 2343
+    },
+    {
+      "old": "mainline/v3/v3_sw_g/README.md",
+      "new": "mainline/v3/sliding_windows/global/README.md",
+      "sha256_before": "3519c5adef6cce3be5dbe1ef6e0bc34361fbecc2fe8b925d81337aad898b6586",
+      "bytes": 2077
+    },
+    {
+      "old": "mainline/v3/v3_sw_l/README.md",
+      "new": "mainline/v3/sliding_windows/local/README.md",
+      "sha256_before": "e3fd26a7e8f1ea4b30577c992e26ca962163b12fcce8bf3ba541540138b5bcfb",
+      "bytes": 1706
+    },
+    {
+      "old": "mainline/v3/v3_fm8/README.md",
+      "new": "mainline/v3/fm2anyflow/fm8/README.md",
+      "sha256_before": "4f63cef769d0c5b9846e3433360589b5da7a89fc9652d6d23d430befeaabe99c",
+      "bytes": 3067
+    }
+  ]
+}

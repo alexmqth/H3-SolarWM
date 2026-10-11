@@ -1,4 +1,14 @@
-# V3 Baseline / EXP-002：73帧严格缓存证据
+# V3 Baseline：早期73帧证据
+
+## 名称与目的
+
+**名称解释：** 73是输出RGB帧数；AA为持续A，AD为从A切换D；KV为历史注意力键和值缓存。
+
+**本次目的：** 记录正式124帧验收之前的原生条件与缓存可行性证据，帮助追溯基线来源。
+
+[其他缩写与计数](../../../GLOSSARY.md) · [汇报总览](../../../README.md)
+
+## 实验结果与证据
 
 EXP-002/v1已获Judge验收，本页保留该阶段73帧证据；后续EXP-003已完成124帧验收，见[分支主页](../README.md)。Original H3 + released action LoRA；native Single I0、12→5→5、30steps/chunk、private current-prefix、sigma0提交的persistent raw video KV，零新增训练。
 
