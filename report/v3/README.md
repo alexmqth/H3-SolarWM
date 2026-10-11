@@ -18,7 +18,7 @@ v3/
     ├── fm8_continuation/        # EXP-004：30 步首窗后的 8 步续写
     ├── fm8/                     # EXP-006/010：全程 8 步及 158 帧滑窗
     ├── fm4_vs_af4/              # EXP-009：普通 4 步与 AnyFlow 4 次求值
-    ├── anyflow/                 # EXP-007/012：AF-8NFE 训练与迁移
+    ├── anyflow/                 # EXP-007/012：AF-train-32updates + AF-8NFE 评估与迁移
     ├── scene_transfer/          # EXP-011：FM-30NFE / FM-8NFE 工业、村落对照
     └── data_preparation/
         ├── teacher_generated_targets/  # EXP-014：模型生成的候选监督视频

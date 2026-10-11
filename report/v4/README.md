@@ -6,7 +6,7 @@
 
 | 尝试 | 实际范围 | 结果 | 入口 |
 | --- | --- | --- | --- |
-| V4-DMD / EXP-008 | V3 因果协议，学生继承 EXP-007 AF AF-train-32updates；真实33B三角色，累计8个student cycle；固定C1/current-block on-policy | 训练工程通过；最终AA C2全部17新增帧彩噪，生成FAIL，当前配置归档 | [报告、三列比较与失败原片](dmd/README.md) |
+| V4-DMD / EXP-008 | V3 因果协议，学生继承 EXP-007 AF-train-32updates；真实33B三角色，累计8个student cycle；固定C1/current-block on-policy | 训练工程通过；最终AA C2全部17新增帧彩噪，生成FAIL，当前配置归档 | [报告、三列比较与失败原片](dmd/README.md) |
 | 早期 Stage2-lite / 旧 Breakthrough03 | 旧 anchor/adapter 协议下的 critic / DMD 工程探索 | 链路可运行；视觉与动作未同时通过 | [旧协议报告与视频](dmd/legacy_stage2_lite/README.md) |
 
 EXP-008 使用冻结 V3 causal teacher；只对固定首块后的当前块做 on-policy 训练，未完成完整 SolarWM Stage2 长程自回归协议复现。早期 Stage2-lite 采用另一套条件与权重，也不能作为 V3/V4 当前协议的成功证据。
