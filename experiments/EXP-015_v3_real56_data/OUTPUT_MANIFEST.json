@@ -1,0 +1,1628 @@
+{
+  "task": "EXP-015/v1",
+  "scene_count": 4,
+  "rgb_frames_total": 224,
+  "GPU_calls": 0,
+  "model_encodes": 0,
+  "training_updates": 0,
+  "ffmpeg_version": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+  "code_sha256": "1820c848b79ae81eb78d91d8a7aafd9bde9bebe7538cf88f76d7629a67550675",
+  "config_sha256": "259f05bc44e9f406feb57b2afbec39a409cfacd0941458b076ce0d0dd276b8b1",
+  "candidate_manifest_sha256": "b6af2b0208a5dcf83c02f76fa826e5a03ba52fa9bd83de357f9474b5efb257b6",
+  "wall_seconds": 15.880317739996826,
+  "new_bytes": 2174976,
+  "scenes": [
+    {
+      "episode_id": "43866101158a538d22c52ac5b2fa606b",
+      "scene": "43866101",
+      "split": "train",
+      "src_start": 1245,
+      "source_frame_indices": [
+        1245,
+        1246,
+        1247,
+        1248,
+        1250,
+        1251,
+        1252,
+        1253,
+        1255,
+        1256,
+        1257,
+        1258,
+        1260,
+        1261,
+        1262,
+        1263,
+        1265,
+        1266,
+        1267,
+        1268,
+        1270,
+        1271,
+        1272,
+        1273,
+        1275,
+        1276,
+        1277,
+        1278,
+        1280,
+        1281,
+        1282,
+        1283,
+        1285,
+        1286,
+        1287,
+        1288,
+        1290,
+        1291,
+        1292,
+        1293,
+        1295,
+        1296,
+        1297,
+        1298,
+        1300,
+        1301,
+        1302,
+        1303,
+        1305,
+        1306,
+        1307,
+        1308,
+        1310,
+        1311,
+        1312,
+        1313
+      ],
+      "source_video_sha256": "dec114fa16e82a0af3e66d6a248261c9d99e01b3ff6085b6c7344f38a1f2ec3f",
+      "annotations_sha256": "8af5ccc92f5e3a896a2836589aac5b563eac9c6e86572e556d848289c37687d3",
+      "old_clip_id": "43866101158a538d22c52ac5b2fa606b_A_1245",
+      "old39_video_sha256": "f3461ba2337c910d82148fe5111e4129868da746a8a530508932ac19a4dda136",
+      "old39_I0_sha256": "cc83e80102e7fe48a2d57fb25a548966f881a08af22243e1b386ea69dbc5118a",
+      "old39_action_sha256": "7790f3a77f8257f6bbaeff44feb83e227d8b05c349a90a438ea71344de22777f",
+      "static_prompt_sha256": "763144cae24bd962cfeed8b35a8366e8215556e46ef5df5f45cb5777ce3a74da",
+      "ffmpeg_command": [
+        "/home/lpeng/code/mq_PubDataset/GWM/.venvs/h3world/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+        "-y",
+        "-v",
+        "error",
+        "-threads",
+        "2",
+        "-i",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/43/43866101158a538d22c52ac5b2fa606b/video.mp4",
+        "-vf",
+        "select='between(n\\,1245\\,1313)*not(eq(mod(n-1245\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+        "-r",
+        "24",
+        "-frames:v",
+        "56",
+        "-c:v",
+        "libx264",
+        "-threads:v",
+        "2",
+        "-crf",
+        "14",
+        "-preset",
+        "veryfast",
+        "-pix_fmt",
+        "yuv420p",
+        "-an",
+        "-movflags",
+        "+faststart",
+        "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/43866101/real56.partial.mp4"
+      ],
+      "ffmpeg_filter": "select='between(n\\,1245\\,1313)*not(eq(mod(n-1245\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+      "video_probe": {
+        "frames": 56,
+        "resolution": [
+          832,
+          480
+        ],
+        "fps": 24,
+        "unique_pts": 56,
+        "first_last_pts": [
+          0,
+          28160
+        ]
+      },
+      "I0_new_vs_old_MAD": 0.2807708978652954,
+      "I0_new_sha_equals_old": false,
+      "new_vs_old39_RGB_MAD_mean": 1.2456866915409381,
+      "new_vs_old39_RGB_MAD_max": 1.8992680311203003,
+      "new_vs_old39_RGB_MAD_per_frame": [
+        0.2807708978652954,
+        0.8362070918083191,
+        0.7523220777511597,
+        0.9351520538330078,
+        0.504612386226654,
+        0.8170222640037537,
+        0.9277468919754028,
+        0.7008981108665466,
+        1.1600068807601929,
+        1.0548802614212036,
+        1.1760892868041992,
+        0.8816155791282654,
+        1.3304837942123413,
+        1.1653529405593872,
+        1.1968908309936523,
+        1.008341670036316,
+        1.338768720626831,
+        1.2351254224777222,
+        1.223259687423706,
+        1.1186223030090332,
+        1.3285682201385498,
+        1.2772611379623413,
+        1.1843817234039307,
+        1.3154380321502686,
+        1.3935363292694092,
+        1.2275933027267456,
+        1.3171850442886353,
+        1.2828984260559082,
+        1.5791165828704834,
+        1.4873055219650269,
+        1.4410648345947266,
+        1.403929591178894,
+        1.775132656097412,
+        1.7734858989715576,
+        1.8881585597991943,
+        1.8880400657653809,
+        1.7985150814056396,
+        1.6767327785491943,
+        1.8992680311203003
+      ],
+      "raw_action_shape": [
+        56,
+        17
+      ],
+      "raw_action_dtype": "float32",
+      "raw_prefix39_max_abs_error": 0.0,
+      "episode_translation_scale": 0.04559597996330234,
+      "frame_key_combinations": {
+        "A+S+L": 56
+      },
+      "key_counts": {
+        "W": 0,
+        "A": 56,
+        "S": 56,
+        "D": 0,
+        "Q": 0,
+        "E": 0,
+        "I": 0,
+        "J": 0,
+        "K": 0,
+        "L": 56,
+        "Space": 0
+      },
+      "unsupported_Q_E_Space_counts": {
+        "Q": 0,
+        "E": 0,
+        "Space": 0
+      },
+      "continuous_min_max": [
+        [
+          -0.00801257137209177,
+          0.00512313935905695
+        ],
+        [
+          -0.849477231502533,
+          0.0
+        ],
+        [
+          0.0,
+          0.21644653379917145
+        ],
+        [
+          -3.0396957397460938,
+          0.0
+        ],
+        [
+          -0.6469596028327942,
+          0.0
+        ],
+        [
+          -1.7644635438919067,
+          0.00821775384247303
+        ]
+      ],
+      "native_frame_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ]
+      ],
+      "native_span_widths": [
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4
+      ],
+      "first12_span_end_RGB": 39,
+      "C2_spans": [
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ]
+      ],
+      "manual_pool_max_abs_error": 0.0,
+      "pooled_prefix12_equal_old39": true,
+      "keys9_columns": [
+        "W",
+        "A",
+        "S",
+        "D",
+        "I",
+        "J",
+        "K",
+        "L",
+        "F"
+      ],
+      "keys9_F_from_yaw_not_Space": true,
+      "keys9_bounded_vs_global_different_spans": [],
+      "opposing_key_conflicts_purified_in_text": [],
+      "short_span_rate_neighbor_map": {
+        "0": 1,
+        "5": 6,
+        "10": 11,
+        "15": 16
+      },
+      "C1_future_raw_mutation_preserves_pooled_keys_and_script": true,
+      "script_C1": [
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly"
+      ],
+      "script_C2": [
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly",
+        "the man walks backward and strafes left, camera pans right slowly"
+      ],
+      "output_files": {
+        "real56.mp4": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/43866101/real56.mp4",
+          "sha256": "e32b6156c2d73df7ddd34cfda0fee98d7184a1be293bdd2747583941d06fb9a7",
+          "bytes": 1581683
+        },
+        "I0.png": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/43866101/I0.png",
+          "sha256": "abd1f2884d3e802bc1b83da0e11912099b1c8671f8feb8bca8cebed369b43884",
+          "bytes": 468274
+        },
+        "raw56.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/43866101/raw56.npy",
+          "sha256": "c0c5b268edd466c56aa7756e54f761fc32b7bdf14ba1f112514b36e7ee6fd96a",
+          "bytes": 3936
+        },
+        "pooled17.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/43866101/pooled17.npy",
+          "sha256": "77aae47ef61cf4f44d21b50ce2066bd8788a43203e328340f91bb7d816529003",
+          "bytes": 1284
+        },
+        "keys9_17.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/43866101/keys9_17.npy",
+          "sha256": "15d3ea8f1c0c7dff339f3296c90b4590400b4e1eccbaa344572d24c10df2e706",
+          "bytes": 740
+        },
+        "action_script17.json": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/43866101/action_script17.json",
+          "sha256": "09d8e616b77e573d5ac66506a2d2fcf190c8f308b82b7c5680f9b0a9d69e4040",
+          "bytes": 1210
+        }
+      }
+    },
+    {
+      "episode_id": "7199292ca430b478bfd0d83cf2e519d8",
+      "scene": "7199292c",
+      "split": "train",
+      "src_start": 1670,
+      "source_frame_indices": [
+        1670,
+        1671,
+        1672,
+        1673,
+        1675,
+        1676,
+        1677,
+        1678,
+        1680,
+        1681,
+        1682,
+        1683,
+        1685,
+        1686,
+        1687,
+        1688,
+        1690,
+        1691,
+        1692,
+        1693,
+        1695,
+        1696,
+        1697,
+        1698,
+        1700,
+        1701,
+        1702,
+        1703,
+        1705,
+        1706,
+        1707,
+        1708,
+        1710,
+        1711,
+        1712,
+        1713,
+        1715,
+        1716,
+        1717,
+        1718,
+        1720,
+        1721,
+        1722,
+        1723,
+        1725,
+        1726,
+        1727,
+        1728,
+        1730,
+        1731,
+        1732,
+        1733,
+        1735,
+        1736,
+        1737,
+        1738
+      ],
+      "source_video_sha256": "bc0c6dd4ed0a010b2f4cdafc290698c9baa4f6e70efb7a3c983c8de155fd977c",
+      "annotations_sha256": "7c1b2864f7511fa5701a0e2bfe1e99e9e4b7095574836fe0977d3a0de095d070",
+      "old_clip_id": "7199292ca430b478bfd0d83cf2e519d8_A_1670",
+      "old39_video_sha256": "0ec833354e65f174f85705b6cf0f23b521640b0956705a811950780ceadc8173",
+      "old39_I0_sha256": "77a582f263bf6635d08f14af7d2de9585d6d19a6c0564a74ae2153c59b17114d",
+      "old39_action_sha256": "311b75b440686f5e93d9a09bfca123ce9f416151ae99019ecc27fe2fb0282b58",
+      "static_prompt_sha256": "c662db1af089f47d74996d6d225eeedac45548a7bf0e5db21ff8d1c6d6e3f05f",
+      "ffmpeg_command": [
+        "/home/lpeng/code/mq_PubDataset/GWM/.venvs/h3world/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+        "-y",
+        "-v",
+        "error",
+        "-threads",
+        "2",
+        "-i",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/71/7199292ca430b478bfd0d83cf2e519d8/video.mp4",
+        "-vf",
+        "select='between(n\\,1670\\,1738)*not(eq(mod(n-1670\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+        "-r",
+        "24",
+        "-frames:v",
+        "56",
+        "-c:v",
+        "libx264",
+        "-threads:v",
+        "2",
+        "-crf",
+        "14",
+        "-preset",
+        "veryfast",
+        "-pix_fmt",
+        "yuv420p",
+        "-an",
+        "-movflags",
+        "+faststart",
+        "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/7199292c/real56.partial.mp4"
+      ],
+      "ffmpeg_filter": "select='between(n\\,1670\\,1738)*not(eq(mod(n-1670\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+      "video_probe": {
+        "frames": 56,
+        "resolution": [
+          832,
+          480
+        ],
+        "fps": 24,
+        "unique_pts": 56,
+        "first_last_pts": [
+          0,
+          28160
+        ]
+      },
+      "I0_new_vs_old_MAD": 0.031138988211750984,
+      "I0_new_sha_equals_old": false,
+      "new_vs_old39_RGB_MAD_mean": 1.3732679402694488,
+      "new_vs_old39_RGB_MAD_max": 2.0573909282684326,
+      "new_vs_old39_RGB_MAD_per_frame": [
+        0.031138988211750984,
+        0.16388387978076935,
+        0.0768229141831398,
+        0.19871127605438232,
+        0.058375902473926544,
+        0.35309329628944397,
+        0.2575579285621643,
+        0.4195195734500885,
+        0.15138137340545654,
+        0.7649731040000916,
+        0.7569920420646667,
+        1.0215786695480347,
+        0.5431223511695862,
+        1.4418628215789795,
+        1.6971487998962402,
+        1.8246703147888184,
+        1.8236687183380127,
+        1.8039613962173462,
+        1.9391309022903442,
+        1.9397344589233398,
+        1.935344934463501,
+        1.8869190216064453,
+        2.016180992126465,
+        1.9893462657928467,
+        1.9654521942138672,
+        1.9016033411026,
+        1.997616171836853,
+        1.9997721910476685,
+        1.9116519689559937,
+        1.9427576065063477,
+        1.9784889221191406,
+        2.0573909282684326,
+        1.9029229879379272,
+        1.7099575996398926,
+        1.7972264289855957,
+        1.7260416746139526,
+        1.7894080877304077,
+        1.8022427558898926,
+        1.9797968864440918
+      ],
+      "raw_action_shape": [
+        56,
+        17
+      ],
+      "raw_action_dtype": "float32",
+      "raw_prefix39_max_abs_error": 0.0,
+      "episode_translation_scale": 0.04306871446611775,
+      "frame_key_combinations": {
+        "A+S": 56
+      },
+      "key_counts": {
+        "W": 0,
+        "A": 56,
+        "S": 56,
+        "D": 0,
+        "Q": 0,
+        "E": 0,
+        "I": 0,
+        "J": 0,
+        "K": 0,
+        "L": 0,
+        "Space": 0
+      },
+      "unsupported_Q_E_Space_counts": {
+        "Q": 0,
+        "E": 0,
+        "Space": 0
+      },
+      "continuous_min_max": [
+        [
+          0.0,
+          0.031413622200489044
+        ],
+        [
+          -0.07314536720514297,
+          0.1772790402173996
+        ],
+        [
+          -0.017194388434290886,
+          0.0
+        ],
+        [
+          -1.6198689937591553,
+          0.0
+        ],
+        [
+          -0.10973402112722397,
+          0.13516183197498322
+        ],
+        [
+          -1.4365960359573364,
+          0.0
+        ]
+      ],
+      "native_frame_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ]
+      ],
+      "native_span_widths": [
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4
+      ],
+      "first12_span_end_RGB": 39,
+      "C2_spans": [
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ]
+      ],
+      "manual_pool_max_abs_error": 0.0,
+      "pooled_prefix12_equal_old39": true,
+      "keys9_columns": [
+        "W",
+        "A",
+        "S",
+        "D",
+        "I",
+        "J",
+        "K",
+        "L",
+        "F"
+      ],
+      "keys9_F_from_yaw_not_Space": true,
+      "keys9_bounded_vs_global_different_spans": [],
+      "opposing_key_conflicts_purified_in_text": [],
+      "short_span_rate_neighbor_map": {
+        "0": 1,
+        "5": 6,
+        "10": 11,
+        "15": 16
+      },
+      "C1_future_raw_mutation_preserves_pooled_keys_and_script": true,
+      "script_C1": [
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him"
+      ],
+      "script_C2": [
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him"
+      ],
+      "output_files": {
+        "real56.mp4": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/7199292c/real56.mp4",
+          "sha256": "0a1b172c9ff81aea09d7a491ded596c62d40a2f722338e596916ce917a990584",
+          "bytes": 1693459
+        },
+        "I0.png": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/7199292c/I0.png",
+          "sha256": "d10113166a775863c958cf99d239947f6cf21a1cefcd4ddcfe7a7de4344011de",
+          "bytes": 548167
+        },
+        "raw56.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/7199292c/raw56.npy",
+          "sha256": "94f3294737d27cedfa594e3fa5ceb324927afb924339c0a5d80ba68d6f5a6f42",
+          "bytes": 3936
+        },
+        "pooled17.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/7199292c/pooled17.npy",
+          "sha256": "4d3dac5efdad1c5e6498534523614a193d4f019ff53dd96d73e96b521f1b51a5",
+          "bytes": 1284
+        },
+        "keys9_17.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/7199292c/keys9_17.npy",
+          "sha256": "96cb7d23c4a43f241d5450f440e72b6966c41d04af6ad4a428e3fa6fbfd64a65",
+          "bytes": 740
+        },
+        "action_script17.json": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/7199292c/action_script17.json",
+          "sha256": "c98cf9fb9077598eac8e455a9fa15bf37499b2b606106e22145871ab8c6818c5",
+          "bytes": 1108
+        }
+      }
+    },
+    {
+      "episode_id": "9dc2e5882a294b8d68d6b2b31ff3ef65",
+      "scene": "9dc2e588",
+      "split": "train",
+      "src_start": 1410,
+      "source_frame_indices": [
+        1410,
+        1411,
+        1412,
+        1413,
+        1415,
+        1416,
+        1417,
+        1418,
+        1420,
+        1421,
+        1422,
+        1423,
+        1425,
+        1426,
+        1427,
+        1428,
+        1430,
+        1431,
+        1432,
+        1433,
+        1435,
+        1436,
+        1437,
+        1438,
+        1440,
+        1441,
+        1442,
+        1443,
+        1445,
+        1446,
+        1447,
+        1448,
+        1450,
+        1451,
+        1452,
+        1453,
+        1455,
+        1456,
+        1457,
+        1458,
+        1460,
+        1461,
+        1462,
+        1463,
+        1465,
+        1466,
+        1467,
+        1468,
+        1470,
+        1471,
+        1472,
+        1473,
+        1475,
+        1476,
+        1477,
+        1478
+      ],
+      "source_video_sha256": "dc8e35dcb91b351d119efa1c99131fd15906e7bb5617098e7e691fe552d0ff0c",
+      "annotations_sha256": "9bcfe65eed7929a0113997a32ef5db8d85f93f00f78ce162b150a73ecc6af3eb",
+      "old_clip_id": "9dc2e5882a294b8d68d6b2b31ff3ef65_A_1410",
+      "old39_video_sha256": "28b9558c2deb145dce2c2b291c0259adc6a8262212cebd0bdaa5f6486b2eee4d",
+      "old39_I0_sha256": "e808b2834799d0109419e61f8ae5f26d30ab13181b87d6bba1ce5443daf8283d",
+      "old39_action_sha256": "e6369814d10fab8d70a896f29dcbc9d770cb769c36473a4817eca4b143fe8084",
+      "static_prompt_sha256": "6c19c6f530349edccf41d99d86705a8fb9e8b15e5904d920330b68b38789dbba",
+      "ffmpeg_command": [
+        "/home/lpeng/code/mq_PubDataset/GWM/.venvs/h3world/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+        "-y",
+        "-v",
+        "error",
+        "-threads",
+        "2",
+        "-i",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/9d/9dc2e5882a294b8d68d6b2b31ff3ef65/video.mp4",
+        "-vf",
+        "select='between(n\\,1410\\,1478)*not(eq(mod(n-1410\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+        "-r",
+        "24",
+        "-frames:v",
+        "56",
+        "-c:v",
+        "libx264",
+        "-threads:v",
+        "2",
+        "-crf",
+        "14",
+        "-preset",
+        "veryfast",
+        "-pix_fmt",
+        "yuv420p",
+        "-an",
+        "-movflags",
+        "+faststart",
+        "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/9dc2e588/real56.partial.mp4"
+      ],
+      "ffmpeg_filter": "select='between(n\\,1410\\,1478)*not(eq(mod(n-1410\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+      "video_probe": {
+        "frames": 56,
+        "resolution": [
+          832,
+          480
+        ],
+        "fps": 24,
+        "unique_pts": 56,
+        "first_last_pts": [
+          0,
+          28160
+        ]
+      },
+      "I0_new_vs_old_MAD": 0.5507245063781738,
+      "I0_new_sha_equals_old": false,
+      "new_vs_old39_RGB_MAD_mean": 1.8740386030612848,
+      "new_vs_old39_RGB_MAD_max": 2.1944077014923096,
+      "new_vs_old39_RGB_MAD_per_frame": [
+        0.5507245063781738,
+        1.0231853723526,
+        1.2995333671569824,
+        0.8644130825996399,
+        1.479312777519226,
+        1.2465695142745972,
+        1.741855263710022,
+        1.837287187576294,
+        1.8278930187225342,
+        1.8171716928482056,
+        1.8171123266220093,
+        1.9391976594924927,
+        2.043170690536499,
+        2.165149211883545,
+        2.1323115825653076,
+        2.075995683670044,
+        2.0665981769561768,
+        2.161170482635498,
+        2.1309120655059814,
+        2.094688892364502,
+        2.083237409591675,
+        2.1427316665649414,
+        2.1944077014923096,
+        2.0781166553497314,
+        2.0050172805786133,
+        1.9399138689041138,
+        2.0223515033721924,
+        2.175790548324585,
+        1.946237325668335,
+        1.98811936378479,
+        2.1079885959625244,
+        1.9603407382965088,
+        1.8980827331542969,
+        1.816068172454834,
+        1.9400523900985718,
+        2.075390577316284,
+        2.1079092025756836,
+        2.1647844314575195,
+        2.1267127990722656
+      ],
+      "raw_action_shape": [
+        56,
+        17
+      ],
+      "raw_action_dtype": "float32",
+      "raw_prefix39_max_abs_error": 0.0,
+      "episode_translation_scale": 0.07207959176246499,
+      "frame_key_combinations": {
+        "A+S+J": 56
+      },
+      "key_counts": {
+        "W": 0,
+        "A": 56,
+        "S": 56,
+        "D": 0,
+        "Q": 0,
+        "E": 0,
+        "I": 0,
+        "J": 56,
+        "K": 0,
+        "L": 0,
+        "Space": 0
+      },
+      "unsupported_Q_E_Space_counts": {
+        "Q": 0,
+        "E": 0,
+        "Space": 0
+      },
+      "continuous_min_max": [
+        [
+          -0.2774200439453125,
+          0.0
+        ],
+        [
+          0.0,
+          1.6229616403579712
+        ],
+        [
+          0.0,
+          0.38006970286369324
+        ],
+        [
+          0.0,
+          1.33334219455719
+        ],
+        [
+          0.0,
+          0.5280961990356445
+        ],
+        [
+          0.0,
+          0.18805742263793945
+        ]
+      ],
+      "native_frame_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ]
+      ],
+      "native_span_widths": [
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4
+      ],
+      "first12_span_end_RGB": 39,
+      "C2_spans": [
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ]
+      ],
+      "manual_pool_max_abs_error": 0.0,
+      "pooled_prefix12_equal_old39": true,
+      "keys9_columns": [
+        "W",
+        "A",
+        "S",
+        "D",
+        "I",
+        "J",
+        "K",
+        "L",
+        "F"
+      ],
+      "keys9_F_from_yaw_not_Space": true,
+      "keys9_bounded_vs_global_different_spans": [],
+      "opposing_key_conflicts_purified_in_text": [],
+      "short_span_rate_neighbor_map": {
+        "0": 1,
+        "5": 6,
+        "10": 11,
+        "15": 16
+      },
+      "C1_future_raw_mutation_preserves_pooled_keys_and_script": true,
+      "script_C1": [
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left sharply"
+      ],
+      "script_C2": [
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left sharply",
+        "the man walks backward and strafes left, camera pans left slowly",
+        "the man walks backward and strafes left, camera pans left slowly"
+      ],
+      "output_files": {
+        "real56.mp4": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/9dc2e588/real56.mp4",
+          "sha256": "2d44e505e963adbc8e67ccee853e6bfa3038246d77027460454f36cbcd61f2f7",
+          "bytes": 1730322
+        },
+        "I0.png": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/9dc2e588/I0.png",
+          "sha256": "57b71aefdffb400b8179fd5e076bb1070921c32d5cf7120a94c7836f7da69e4d",
+          "bytes": 475779
+        },
+        "raw56.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/9dc2e588/raw56.npy",
+          "sha256": "f00bd4e885b298f257cc1631090ecffb9e8d9c668834ca5638b96e9677f05ef1",
+          "bytes": 3936
+        },
+        "pooled17.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/9dc2e588/pooled17.npy",
+          "sha256": "a605125983b5abb41ceaddcace2647203a5b6555c166267df7c44b892c722ab7",
+          "bytes": 1284
+        },
+        "keys9_17.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/9dc2e588/keys9_17.npy",
+          "sha256": "d91916841391accc7419ea589bb327aa2e10ce4afe1db6ee61f1013a352a57aa",
+          "bytes": 740
+        },
+        "action_script17.json": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/9dc2e588/action_script17.json",
+          "sha256": "1a0d39050cb7cb35ea25f550f40a9a6ed78f3672d94822f119d38d002f38622e",
+          "bytes": 1204
+        }
+      }
+    },
+    {
+      "episode_id": "b784d995827f53977a8067e5b9dc4b5e",
+      "scene": "b784d995",
+      "split": "train",
+      "src_start": 1635,
+      "source_frame_indices": [
+        1635,
+        1636,
+        1637,
+        1638,
+        1640,
+        1641,
+        1642,
+        1643,
+        1645,
+        1646,
+        1647,
+        1648,
+        1650,
+        1651,
+        1652,
+        1653,
+        1655,
+        1656,
+        1657,
+        1658,
+        1660,
+        1661,
+        1662,
+        1663,
+        1665,
+        1666,
+        1667,
+        1668,
+        1670,
+        1671,
+        1672,
+        1673,
+        1675,
+        1676,
+        1677,
+        1678,
+        1680,
+        1681,
+        1682,
+        1683,
+        1685,
+        1686,
+        1687,
+        1688,
+        1690,
+        1691,
+        1692,
+        1693,
+        1695,
+        1696,
+        1697,
+        1698,
+        1700,
+        1701,
+        1702,
+        1703
+      ],
+      "source_video_sha256": "44c7f63e3096c06c26e72ea8b727f70cb7189418732f989c13b218646ad32b5d",
+      "annotations_sha256": "153ee1e09fe10e7c38ece65f53b7d75e1b8cbd3d361d88d065f4b0df21d7eeb0",
+      "old_clip_id": "b784d995827f53977a8067e5b9dc4b5e_A_1635",
+      "old39_video_sha256": "6c523add7078383bbde5f745efc8eecb697403fc36d3acd1c671e2e27bcd4f79",
+      "old39_I0_sha256": "e5295656bf7152d34f0fc753e4e34ccbffcbf981b20d5d6c6f5b5d44a7dfe186",
+      "old39_action_sha256": "5a18c2369ccfd0ed3a7acc2136ae7fd636b26f5af5c43165904c4579a453fe9f",
+      "static_prompt_sha256": "7865ffa53c0b97aac0c998bad2bca4e204c43f8ad1345399dd914377fc9a73ee",
+      "ffmpeg_command": [
+        "/home/lpeng/code/mq_PubDataset/GWM/.venvs/h3world/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+        "-y",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-filter_threads",
+        "1",
+        "-i",
+        "/home/lpeng/code/mq_PubDataset/GWM/H3-World/data/abot_bridge/raw/data/b7/b784d995827f53977a8067e5b9dc4b5e/video.mp4",
+        "-vf",
+        "select='between(n\\,1635\\,1703)*not(eq(mod(n-1635\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+        "-r",
+        "24",
+        "-frames:v",
+        "56",
+        "-c:v",
+        "libx264",
+        "-threads:v",
+        "1",
+        "-crf",
+        "14",
+        "-preset",
+        "veryfast",
+        "-pix_fmt",
+        "yuv420p",
+        "-an",
+        "-movflags",
+        "+faststart",
+        "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/b784d995/real56.partial.mp4"
+      ],
+      "ffmpeg_filter": "select='between(n\\,1635\\,1703)*not(eq(mod(n-1635\\,5)\\,4))',setpts=N/24/TB,scale=-2:480,crop=832:480",
+      "video_probe": {
+        "frames": 56,
+        "resolution": [
+          832,
+          480
+        ],
+        "fps": 24,
+        "unique_pts": 56,
+        "first_last_pts": [
+          0,
+          28160
+        ]
+      },
+      "I0_new_vs_old_MAD": 0.30438032746315,
+      "I0_new_sha_equals_old": false,
+      "new_vs_old39_RGB_MAD_mean": 1.0121042384551122,
+      "new_vs_old39_RGB_MAD_max": 1.569604754447937,
+      "new_vs_old39_RGB_MAD_per_frame": [
+        0.30438032746315,
+        0.7101137042045593,
+        0.6823884844779968,
+        0.8296841382980347,
+        0.5574777722358704,
+        0.8521467447280884,
+        0.8202732801437378,
+        0.9499040246009827,
+        0.7263070940971375,
+        0.9190329313278198,
+        0.917773425579071,
+        1.0192959308624268,
+        0.8406934142112732,
+        0.9922358989715576,
+        0.957185685634613,
+        1.0360510349273682,
+        0.9075412154197693,
+        1.013440728187561,
+        0.9779205322265625,
+        1.069991111755371,
+        0.8948509097099304,
+        1.0166925191879272,
+        1.0022711753845215,
+        1.0958316326141357,
+        0.9489842057228088,
+        1.0504481792449951,
+        1.0375192165374756,
+        1.0931106805801392,
+        1.0052075386047363,
+        1.1684937477111816,
+        1.159064531326294,
+        1.275977373123169,
+        1.115739345550537,
+        1.3146826028823853,
+        1.332002878189087,
+        1.4473974704742432,
+        1.3875058889389038,
+        1.4728431701660156,
+        1.569604754447937
+      ],
+      "raw_action_shape": [
+        56,
+        17
+      ],
+      "raw_action_dtype": "float32",
+      "raw_prefix39_max_abs_error": 0.0,
+      "episode_translation_scale": 0.04614502987257927,
+      "frame_key_combinations": {
+        "A": 40,
+        "W": 8,
+        "none": 8
+      },
+      "key_counts": {
+        "W": 8,
+        "A": 40,
+        "S": 0,
+        "D": 0,
+        "Q": 0,
+        "E": 0,
+        "I": 0,
+        "J": 0,
+        "K": 0,
+        "L": 0,
+        "Space": 0
+      },
+      "unsupported_Q_E_Space_counts": {
+        "Q": 0,
+        "E": 0,
+        "Space": 0
+      },
+      "continuous_min_max": [
+        [
+          -0.012312715873122215,
+          0.04176175966858864
+        ],
+        [
+          -0.07099474966526031,
+          0.04887577146291733
+        ],
+        [
+          -0.04735385999083519,
+          0.04570959508419037
+        ],
+        [
+          -1.921052098274231,
+          0.0
+        ],
+        [
+          -0.14701689779758453,
+          0.0
+        ],
+        [
+          0.0,
+          0.09428153187036514
+        ]
+      ],
+      "native_frame_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ]
+      ],
+      "native_span_widths": [
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4,
+        4,
+        4,
+        4,
+        1,
+        4
+      ],
+      "first12_span_end_RGB": 39,
+      "C2_spans": [
+        [
+          39,
+          43
+        ],
+        [
+          43,
+          47
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          56
+        ]
+      ],
+      "manual_pool_max_abs_error": 0.0,
+      "pooled_prefix12_equal_old39": true,
+      "keys9_columns": [
+        "W",
+        "A",
+        "S",
+        "D",
+        "I",
+        "J",
+        "K",
+        "L",
+        "F"
+      ],
+      "keys9_F_from_yaw_not_Space": true,
+      "keys9_bounded_vs_global_different_spans": [],
+      "opposing_key_conflicts_purified_in_text": [],
+      "short_span_rate_neighbor_map": {
+        "0": 1,
+        "5": 6,
+        "10": 11,
+        "15": 16
+      },
+      "C1_future_raw_mutation_preserves_pooled_keys_and_script": true,
+      "script_C1": [
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him",
+        "the man strafes left, camera follows him"
+      ],
+      "script_C2": [
+        "the man strafes left, camera follows him",
+        "the man stands still, camera holds steady",
+        "the man walks forward, camera follows him",
+        "the man walks forward, camera follows him",
+        "the man walks forward, camera follows him"
+      ],
+      "output_files": {
+        "real56.mp4": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/b784d995/real56.mp4",
+          "sha256": "45c96052aea7c1f5c1b5213a7ac8d1c323ea0bd1de881ac6941addec04d86093",
+          "bytes": 1506462
+        },
+        "I0.png": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/b784d995/I0.png",
+          "sha256": "364895dfefe9a22d15dd180f0ef16d66b78373f68d0639b6bc5669902f890811",
+          "bytes": 380454
+        },
+        "raw56.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/b784d995/raw56.npy",
+          "sha256": "39532969a1356ca927e4b2c12e5501dafee4c00ec92a2181936e3cf19e05c647",
+          "bytes": 3936
+        },
+        "pooled17.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/b784d995/pooled17.npy",
+          "sha256": "2a05ed7be1b35b44cb730efd21c36350a18c7d06f79fba35beade2b00560c277",
+          "bytes": 1284
+        },
+        "keys9_17.npy": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/b784d995/keys9_17.npy",
+          "sha256": "beac67da9c130dc96f9dd8ce0d20d71f8309bb6bf0302ec61feb47fea0247cc3",
+          "bytes": 740
+        },
+        "action_script17.json": {
+          "path": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-015_v3_real56_data/artifacts/b784d995/action_script17.json",
+          "sha256": "8f3c7cdcd98c6ea731d89fc28ff63e252151516cc1dff48fd67f6c0a6b51dede",
+          "bytes": 789
+        }
+      }
+    }
+  ]
+}

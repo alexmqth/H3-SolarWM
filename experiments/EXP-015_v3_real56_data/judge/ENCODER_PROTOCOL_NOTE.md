@@ -1,0 +1,11 @@
+# 后续真实视频编码需要验证的一个边界
+
+2026-10-11，Judge，CPU源码检查；不是GPU验证或授权。
+
+冻结runtime的`diffsynth/models/minimax_h3_video_vae.py`（SHA ff1eea77a85b76a98bbb87c622e7c313996c4348ca14c8e8aa433f27c22ee1d7）中，`MiniMaxH3VideoVAE`默认causal_encoder=True、use_t_isolated_gn=True、clip_length=17、token_drop=3。编码按17RGB分段，不足段重复末帧填充，末尾丢3token；encoder卷积是单向时间padding，GroupNorm按每个时间独立处理，processor按逐帧归一化。39RGB得到12latent，56RGB得到17latent。
+
+这支持前39RGB对应前12latent不受第40帧以后影响的预期，但不能代替真实模型/dtype验证。后续若开展native视频编码，固定同一新56帧视频，分别编码完整56和其前39；检查实际encoder flag、归一化类型和第一12latent数值差异。可追加一份只改变尾17RGB的输入以定位疑点，但仅在首个比较存在无法解释的差异时另定预算，不默认多跑。
+
+不要用旧39clip与新56clip的编码比较来判断未来泄漏：重新x264编码已经可能改变前39RGB像素。后续image anchor应来自新56clip的I0，process_image=True；视频GT用process_image=False，二者用途分别记录，禁止替换为旧Dual Anchor。
+
+`real_transition_data.py`有可见窗口内camera F平滑参考，但默认窗口12/24/36/37属于旧方案；本任务12+5必须显式stops=(12,17)。当前action_script在第12latent边界本身是4帧span，未跨入C2平滑；仍以真实标签扰动检查为准。F是观察camera yaw派生的标签，不是原记录键盘F，也不提供反事实D视频真值。

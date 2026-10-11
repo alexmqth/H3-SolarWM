@@ -1,0 +1,15 @@
+{
+  "status": "CONFIRMED_LAYOUT_RISK",
+  "scope": "Synthetic action lengths, actual frozen CPU builder and visible_inputs; no tokenizer/model generation claim",
+  "future_change": "one extra token in each action span12..36; all visible content identical",
+  "visible_prompt_equal": true,
+  "visible_sequence_length_equal": true,
+  "visible_video_temporal_coordinate_shift": 25,
+  "head_coordinates_unchanged": true,
+  "conclusion": "Removing future rows does not remove dependence on total future text length. Existing equal-length A/D frozen evidence is not invalidated; mixed-action training requires an explicit content-independent layout gate. No protocol edits performed.",
+  "source_sha256": {
+    "H3-World/outputs/2026-10-09-04/stage1_local_topology/runtime/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/local_topology.py": "ab09f33c4e847adc3d67f14c6de26cd3bd963402b79114875104816abd4a2f93"
+  },
+  "gpu_calls": 0
+}
