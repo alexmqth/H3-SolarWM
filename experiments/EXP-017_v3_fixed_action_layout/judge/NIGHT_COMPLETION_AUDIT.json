@@ -1,0 +1,34 @@
+{
+  "status": "NIGHT_SUPERVISION_COMPLETION_AUDIT_PASS",
+  "observed_at_hkt": "2026-10-11T09:01:09.312848+08:00",
+  "deadline_reached": true,
+  "project_GPU_processes": 0,
+  "daytime_project_GPU_cap": 3,
+  "remaining_GPU_processes": [
+    "GPU-7e381804-eff9-a1a6-bae4-6763348ef2d6, 1800454, VLLM::Worker, 41796 MiB",
+    "GPU-9c9f5489-60bf-8008-64e1-fb0de162290f, 1800455, VLLM::Worker, 42210 MiB"
+  ],
+  "root_markdown_files": [
+    "README.md",
+    "archive.md",
+    "guideline.md",
+    "next_plan.md",
+    "progress.md",
+    "report.md"
+  ],
+  "evidence": {
+    "V3_sliding_window_completed": "submission/experiments/EXP-005_v3_sliding_window/judge/STAGE2_FINAL_REVIEW.md",
+    "FM8_full_generation": "submission/experiments/EXP-006_v3_fm8_full/judge/FINAL_REVIEW.md",
+    "FM8_long_sliding": "submission/experiments/EXP-010_v3_fm8_sw158/judge/FINAL_REVIEW.md",
+    "FM8_scene_transfer": "submission/experiments/EXP-011_v3_scene_transfer/judge/FINAL_REVIEW.md",
+    "AnyFlow_training_and_bounded_evaluation": "submission/experiments/EXP-007_v3_anyflow/judge/AF3_REVIEW.md",
+    "DMD_training_negative_result_archived": "submission/experiments/EXP-008_v3_dmd/judge/FINAL_REVIEW.md",
+    "teacher_preparation_closed": "submission/experiments/EXP-014_v3_multiscene_teacher/judge/FINAL_REVIEW.md",
+    "real_data_closed": "submission/experiments/EXP-015_v3_real56_data/judge/FINAL_REVIEW.md",
+    "VAE_closed": "submission/experiments/EXP-016_v3_real56_vae/judge/FINAL_REVIEW.md",
+    "fixed_layout_CPU_closed": "submission/experiments/EXP-017_v3_fixed_action_layout/judge/FINAL_REVIEW.md"
+  },
+  "worker_followup": "09:00 finish/handoff sent; no new model execution authorized",
+  "active_experiment_execution": "none; EXP017 CPU accepted, next GPU proposal only",
+  "scope": "Night supervision and bounded mainline/AnyFlow/DMD research completed; no claim that all model capability limitations are solved"
+}

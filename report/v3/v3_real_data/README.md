@@ -21,3 +21,7 @@
 原生packed位置依赖总文本长度，未来动作句长变化即使被裁剪仍可能影响历史位置。CPU已复现该风险；完整训练输入需要固定位置合同和实际模型回归，不能直接宣称训练ready。
 
 [V3总览](../README.md) · [EXP-015 Judge验收](../../../experiments/EXP-015_v3_real56_data/judge/FINAL_REVIEW.md) · [EXP-016 Judge验收](../../../experiments/EXP-016_v3_real56_vae/judge/FINAL_REVIEW.md)
+
+## 固定布局CPU候选
+
+[EXP-017](../../../experiments/EXP-017_v3_fixed_action_layout/README.md)已通过canonical A/D回归及未来变长文本隔离的CPU检查；0GPU/训练，真实text encoder/DiT/KV数值/视频未测。[Judge最终验收](../../../experiments/EXP-017_v3_fixed_action_layout/judge/FINAL_REVIEW.md)与[下一阶段草案](../../../experiments/EXP-017_v3_fixed_action_layout/judge/NEXT_STAGE_DRAFT.md)分别记录证据和未授权预算。
