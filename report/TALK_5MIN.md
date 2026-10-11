@@ -18,7 +18,7 @@ Original H3具备动作与视觉基础。V1迁入chunk-causal attention和persis
 
 [Sliding Window](v3/sliding_windows/README.md)解决历史video KV增长：Global最近5祖先淘汰后158帧有限可行；Local未显示联合收益，当前无训练方向归档。
 
-[FM → AnyFlow](v3/fm2anyflow/README.md)解决采样成本：FM8（每块8步普通流匹配采样）已测新首窗与滑窗158帧；AF8（AnyFlow每块8次求值）停车场有限可行，但迁移无整体优势，AF4当前配置失败。[V4 SGF / DMD](v4/README.md)训练工程通过，最终新帧彩噪，当前配置停止。
+[FM → AnyFlow](v3/fm2anyflow/README.md)解决采样成本：FM-8NFE（每块8步普通流匹配采样）已测新首窗与滑窗158帧；AF-8NFE（AnyFlow每块8次求值）停车场有限可行，但迁移无整体优势，AF-4NFE当前配置失败。[V4 SGF / DMD](v4/README.md)训练工程通过，最终新帧彩噪，当前配置停止。
 
 ## 4:25–5:00：下一步与停止条件
 

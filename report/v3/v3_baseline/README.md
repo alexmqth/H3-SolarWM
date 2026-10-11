@@ -63,7 +63,7 @@ EXP-003实际186forward/6VAE/0训练，0.436741GPU-hours；EXP-002+003合计310�
 
 ## 9. 后续研究状态
 
-Sliding Window已完成EXP-005；普通FM8/4与AnyFlow8/4分别完成有限验证，详见[V3研究总览](../README.md)。它们是独立候选，不修改本页正式30步124帧基线。
+Sliding Window已完成EXP-005；普通FM-8NFE/4与AnyFlow8/4分别完成有限验证，详见[V3研究总览](../README.md)。它们是独立候选，不修改本页正式30步124帧基线。
 
 ## 10. Source / Checkpoint / References
 
@@ -71,7 +71,7 @@ Sliding Window已完成EXP-005；普通FM8/4与AnyFlow8/4分别完成有限验�
 
 ## 11. 后续结果入口
 
-- [FM8续写：EXP-004](../fm2anyflow/fm8_continuation/README.md)：共同30步首窗后8步续到73帧。
-- [全程FM8：EXP-006/010](../fm2anyflow/fm8/README.md)：新8步首窗、73帧及Global滑窗158帧。
+- [FM-8NFE续写：EXP-004](../fm2anyflow/fm8_continuation/README.md)：共同30步首窗后8步续到73帧。
+- [全程FM-8NFE：EXP-006/010](../fm2anyflow/fm8/README.md)：新8步首窗、73帧及Global滑窗158帧。
 - [Global / Local滑窗：EXP-005](../sliding_windows/README.md)：真实淘汰和位置协议对照。
 - [AnyFlow训练与评估](../fm2anyflow/anyflow/README.md)：有限训练及迁移结果。

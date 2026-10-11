@@ -1,4 +1,4 @@
-# EXP-014 — 四张训练初图的原生 V3 FM30 教师目标
+# EXP-014 — 四张训练初图的原生 V3 FM-30NFE 教师目标
 
 P0 来源冻结、P1 四图原生输入和 T1 首图教师目标均已完成并经 Judge 分阶段验收。T2 三图中，`s2_9dc2e588` 完成 AA/AD，协议PASS但D反转未证实；`s1_7199292c`、`s3_b784d995` 的AD进程曾收到SIGTERM，原始失败记录保留。v2按新marker**仅补齐这两条AD**，两图均协议PASS；`s1` D反向较清楚但A持续性弱，`s3` 两路几乎同向，动作目标不通过。详见[恢复GPU报告与并排视频](RECOVERY_V2_GPU_REPORT.md)、[T2中断报告](T2_WORKER_REPORT.md)和[v2恢复CPU准备](RECOVERY_V2_CPU_REPORT.md)。此前阶段见[P0](P0_REPORT.md)、[P1](P1_WORKER_REPORT.md)、[T1](T1_WORKER_REPORT.md)报告。每个 GPU 阶段都有 Judge 单独签发的 marker；新训练更新始终为0。预算与停止条件见[v1任务书](taskbook_v1.md)及[v2恢复任务书](taskbook_v2_recovery.md)。
 

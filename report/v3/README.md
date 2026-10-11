@@ -6,7 +6,7 @@ V3 的共同基础是 **Strict Causal（严格因果）+ Persistent KV（持久�
 | --- | --- | --- | --- |
 | [V3 Baseline](v3_baseline/README.md) | 因果生成能否同时保留动作、人物结构与历史 KV 复用？ | 124 帧有限可行；画质与连续性 PARTIAL | `v3_baseline/videos/` |
 | [Sliding Window](sliding_windows/README.md) | 长视频的历史 KV 能否固定容量？Global / Local 位置如何影响生成？ | Global 158 帧有限可行；当前无训练 Local 没有联合收益 | `sliding_windows/global/videos/`、`local/videos/` |
-| [FM → AnyFlow](fm2anyflow/README.md) | 能否降低每块采样成本？直接减步与专门少步训练分别有什么收益？ | FM8 有限可用；AF8 未显示整体替代收益，AF4 当前配置失败 | 各尝试的 `videos/` |
+| [FM → AnyFlow](fm2anyflow/README.md) | 能否降低每块采样成本？直接减步与专门少步训练分别有什么收益？ | FM-8NFE 有限可用；AF-8NFE 未显示整体替代收益，AF-4NFE 当前配置失败 | 各尝试的 `videos/` |
 
 ```text
 v3/
@@ -18,8 +18,8 @@ v3/
     ├── fm8_continuation/        # EXP-004：30 步首窗后的 8 步续写
     ├── fm8/                     # EXP-006/010：全程 8 步及 158 帧滑窗
     ├── fm4_vs_af4/              # EXP-009：普通 4 步与 AnyFlow 4 次求值
-    ├── anyflow/                 # EXP-007/012：AF8 训练与迁移
-    ├── scene_transfer/          # EXP-011：FM30 / FM8 工业、村落对照
+    ├── anyflow/                 # EXP-007/012：AF-8NFE 训练与迁移
+    ├── scene_transfer/          # EXP-011：FM-30NFE / FM-8NFE 工业、村落对照
     └── data_preparation/
         ├── teacher_generated_targets/  # EXP-014：模型生成的候选监督视频
         └── real_data/                  # EXP-015/016/017：录屏、VAE、CPU 布局

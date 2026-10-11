@@ -9,6 +9,6 @@
 
 二者均为 EXP-005 的 30 步、同源 AA124 历史扩展；C7 同历史与噪声，C8 各自闭环。Global 在首次淘汰前复现冻结 V3。Local 重新定位历史 raw K 时，历史隐藏状态仍来自过去的计算，**不等价于按新位置重算全部历史**；不能视为无损优化。
 
-仅历史 video KV 容量已验证有界；158 帧不能证明无限长质量稳定或整个系统内存恒定。全程普通 8 步与 Global 滑窗的组合证据放在 [FM8 / EXP-010](../fm2anyflow/fm8/README.md)。
+仅历史 video KV 容量已验证有界；158 帧不能证明无限长质量稳定或整个系统内存恒定。全程普通 8 步与 Global 滑窗的组合证据放在 [FM-8NFE / EXP-010](../fm2anyflow/fm8/README.md)。
 
 [缩写表：RoPE、KV、prefix、chunk](../../GLOSSARY.md) · [返回 V3](../README.md)

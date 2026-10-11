@@ -1,4 +1,4 @@
-# V3 场景迁移：FM30 / FM8 对照
+# V3 场景迁移：FM-30NFE / FM-8NFE 对照
 
 ## 名称与目的
 
@@ -10,13 +10,13 @@
 
 ## 实验结果与证据
 
-**FM30与全程普通FM8均完成工业/村落首39帧和各自AA/AD56帧，有限可行PASS，quality PARTIAL。** 零新增训练，原始Single I0、native timestep、strict causal + persistent raw KV、Global位置与动作协议保持。FM30是causal V3。
+**FM-30NFE与全程普通FM-8NFE均完成工业/村落首39帧和各自AA/AD56帧，有限可行PASS，quality PARTIAL。** 零新增训练，原始Single I0、native timestep、strict causal + persistent raw KV、Global位置与动作协议保持。FM-30NFE是causal V3。
 
-工业场景两方法人物和建筑可用、动作分叉可辨。村落FM30有树木遮挡后重现，FM8仍有动作响应，但人物/植被重影和颗粒更明显。有限可行不代表质量相同。固定两初图/单seed/56帧不能推广为广泛或长时泛化。
+工业场景两方法人物和建筑可用、动作分叉可辨。村落FM-30NFE有树木遮挡后重现，FM-8NFE仍有动作响应，但人物/植被重影和颗粒更明显。有限可行不代表质量相同。固定两初图/单seed/56帧不能推广为广泛或长时泛化。
 
 G1首窗为匹配输入的步数比较；G2各方法使用自身生成C1，属于闭环比较。AA/AD在同方法内使用相同C1与噪声。
 
-| 场景 | 持续A：FM30 / FM8 | A→D：FM30 / FM8 | FM30动作反事实 | FM8动作反事实 |
+| 场景 | 持续A：FM-30NFE / FM-8NFE | A→D：FM-30NFE / FM-8NFE | FM-30NFE动作反事实 | FM-8NFE动作反事实 |
 | --- | --- | --- | --- | --- |
 | 工业 | [AA56](videos/industrial_AA_FM30_vs_FM8_56.mp4) | [AD56](videos/industrial_AD_FM30_vs_FM8_56.mp4) | [AA/AD](videos/industrial_FM30_AA_vs_AD_56.mp4) | [AA/AD](videos/industrial_FM8_AA_vs_AD_56.mp4) |
 | 村落 | [AA56](videos/village_AA_FM30_vs_FM8_56.mp4) | [AD56](videos/village_AD_FM30_vs_FM8_56.mp4) | [AA/AD](videos/village_FM30_AA_vs_AD_56.mp4) | [AA/AD](videos/village_FM8_AA_vs_AD_56.mp4) |

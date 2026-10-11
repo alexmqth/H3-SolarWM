@@ -1,4 +1,4 @@
-# EXP-006/v1 — V3 普通 FM8 从首块开始
+# EXP-006/v1 — V3 普通 FM-8NFE 从首块开始
 
 任务书：[冻结EXP-006任务书](taskbook_v1.md)；执行：[worker 报告](worker_report.md)、[机器指标](worker_metrics.json)、[Judge 验收](judge/final_review.json)。固定 Original H3 + released action LoRA；Single I0、native 时间、current-prefix strict causal、Global RoPE、persistent CPU raw KV、12+5+5 latent、seed13、原生 shift2.22。首块 39 帧由本轮 **8-step** 新生成，没有借用旧 30-step 首块。无训练、AnyFlow 或 DMD。
 
