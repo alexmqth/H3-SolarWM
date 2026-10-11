@@ -1,0 +1,84 @@
+{
+  "task": "EXP-016/v1",
+  "status": "PASS_CPU_ARTIFACTS",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "GPU_calls": 0,
+  "scenes": [
+    {
+      "scene": "43866101",
+      "prefix_exact_from_saved_tensors": true,
+      "tensor_dtypes": {
+        "I0": "torch.float32",
+        "full": "torch.float32",
+        "prefix": "torch.float32"
+      },
+      "reconstruction_frames": 56,
+      "comparison_frames": 56,
+      "paired_right_vs_reconstruction_encoded_MAD": 1.8710020780563354,
+      "MAD_mean_pre_encoding": 5.165240415505001,
+      "PSNR_mean_pre_encoding": 29.736172888656164,
+      "contact_sheet": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-016_v3_real56_vae/43866101_boundary_contact_sheet.jpg",
+      "contact_sheet_sha256": "72254e498dc07779bc0f819cb9742209bef7d58b96640f02e06f72db7d865a91"
+    },
+    {
+      "scene": "7199292c",
+      "prefix_exact_from_saved_tensors": true,
+      "tensor_dtypes": {
+        "I0": "torch.float32",
+        "full": "torch.float32",
+        "prefix": "torch.float32"
+      },
+      "reconstruction_frames": 56,
+      "comparison_frames": 56,
+      "paired_right_vs_reconstruction_encoded_MAD": 1.7945568561553955,
+      "MAD_mean_pre_encoding": 5.889408963067191,
+      "PSNR_mean_pre_encoding": 29.46949624266502,
+      "contact_sheet": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-016_v3_real56_vae/7199292c_boundary_contact_sheet.jpg",
+      "contact_sheet_sha256": "a12bf0faac796ca197087fb1b034b80cf2a65fca3ab6efc4708b1d73eb318a52"
+    },
+    {
+      "scene": "9dc2e588",
+      "prefix_exact_from_saved_tensors": true,
+      "tensor_dtypes": {
+        "I0": "torch.float32",
+        "full": "torch.float32",
+        "prefix": "torch.float32"
+      },
+      "reconstruction_frames": 56,
+      "comparison_frames": 56,
+      "paired_right_vs_reconstruction_encoded_MAD": 1.8118400573730469,
+      "MAD_mean_pre_encoding": 5.791623524257115,
+      "PSNR_mean_pre_encoding": 29.25092856837768,
+      "contact_sheet": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-016_v3_real56_vae/9dc2e588_boundary_contact_sheet.jpg",
+      "contact_sheet_sha256": "3e8f4b28a7f149522716ef56ac086b76a1bb6bfabf74c427413dfa3f6656ed1d"
+    },
+    {
+      "scene": "b784d995",
+      "prefix_exact_from_saved_tensors": true,
+      "tensor_dtypes": {
+        "I0": "torch.float32",
+        "full": "torch.float32",
+        "prefix": "torch.float32"
+      },
+      "reconstruction_frames": 56,
+      "comparison_frames": 56,
+      "paired_right_vs_reconstruction_encoded_MAD": 1.2271499633789062,
+      "MAD_mean_pre_encoding": 3.5626677104404996,
+      "PSNR_mean_pre_encoding": 34.8941171923824,
+      "contact_sheet": "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-016_v3_real56_vae/b784d995_boundary_contact_sheet.jpg",
+      "contact_sheet_sha256": "86223c64e967085fe2814dd54d3108b4cbecb57e1190647b4af6d881e536a999"
+    }
+  ],
+  "ledger_counts": {
+    "image_encode": 4,
+    "video_encode": 8,
+    "video_decode": 4
+  },
+  "gpu_wall_seconds": 77.7218148259999,
+  "peak_allocated_gib": 7.5039591789245605
+}

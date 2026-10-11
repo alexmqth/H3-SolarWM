@@ -1,0 +1,58 @@
+{
+  "status": "PASS_ENCODING_PROTOCOL_AND_FILES",
+  "task": "EXP-016/v1",
+  "GPU_calls_by_this_audit": 0,
+  "counts": {
+    "image_encode": 4,
+    "video_encode": 8,
+    "video_decode": 4,
+    "model_loads": 1
+  },
+  "gpu_wall_seconds": 77.7218148259999,
+  "gpu_hours": 0.021589393007222193,
+  "peak_allocated_gib": 7.5039591789245605,
+  "budget_sha256": "1cc1cb3bab6c11bbdad8b02ddbeb2123cc260192b9cd0d06d0ce1640ca08790b",
+  "checks": [
+    {
+      "scene": "43866101",
+      "prefix_saved_tensors_bit_exact": true,
+      "latent_dtype": "torch.float32",
+      "saved_files_sha_pass": true,
+      "reconstruction_full_decode_frames": 56,
+      "comparison_full_decode_frames": 56,
+      "MAD_mean_before_mp4": 5.165240415505001,
+      "PSNR_mean_before_mp4": 29.736172888656164
+    },
+    {
+      "scene": "7199292c",
+      "prefix_saved_tensors_bit_exact": true,
+      "latent_dtype": "torch.float32",
+      "saved_files_sha_pass": true,
+      "reconstruction_full_decode_frames": 56,
+      "comparison_full_decode_frames": 56,
+      "MAD_mean_before_mp4": 5.889408963067191,
+      "PSNR_mean_before_mp4": 29.46949624266502
+    },
+    {
+      "scene": "9dc2e588",
+      "prefix_saved_tensors_bit_exact": true,
+      "latent_dtype": "torch.float32",
+      "saved_files_sha_pass": true,
+      "reconstruction_full_decode_frames": 56,
+      "comparison_full_decode_frames": 56,
+      "MAD_mean_before_mp4": 5.791623524257115,
+      "PSNR_mean_before_mp4": 29.25092856837768
+    },
+    {
+      "scene": "b784d995",
+      "prefix_saved_tensors_bit_exact": true,
+      "latent_dtype": "torch.float32",
+      "saved_files_sha_pass": true,
+      "reconstruction_full_decode_frames": 56,
+      "comparison_full_decode_frames": 56,
+      "MAD_mean_before_mp4": 3.5626677104404996,
+      "PSNR_mean_before_mp4": 34.8941171923824
+    }
+  ],
+  "visual_acceptance": "separate Judge review; no generation/training claim"
+}

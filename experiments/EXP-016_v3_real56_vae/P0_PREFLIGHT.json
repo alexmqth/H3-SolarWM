@@ -1,0 +1,66 @@
+{
+  "task": "EXP-016/v1",
+  "status": "PASS_CPU",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "GPU_calls": 0,
+  "model_loads": 0,
+  "torch": "2.10.0+cu128",
+  "source_checks": [
+    {
+      "scene": "43866101",
+      "decoded_frames": 56,
+      "input_min": 0.0,
+      "input_max": 0.9921569228172302,
+      "prefix_exact_same_source": true,
+      "native_latent_lengths": [
+        12,
+        17
+      ]
+    },
+    {
+      "scene": "7199292c",
+      "decoded_frames": 56,
+      "input_min": 0.0,
+      "input_max": 0.9490196704864502,
+      "prefix_exact_same_source": true,
+      "native_latent_lengths": [
+        12,
+        17
+      ]
+    },
+    {
+      "scene": "9dc2e588",
+      "decoded_frames": 56,
+      "input_min": 0.0,
+      "input_max": 1.0,
+      "prefix_exact_same_source": true,
+      "native_latent_lengths": [
+        12,
+        17
+      ]
+    },
+    {
+      "scene": "b784d995",
+      "decoded_frames": 56,
+      "input_min": 0.0,
+      "input_max": 0.5411764979362488,
+      "prefix_exact_same_source": true,
+      "native_latent_lengths": [
+        12,
+        17
+      ]
+    }
+  ],
+  "runtime_vae_source_sha256": "ff1eea77a85b76a98bbb87c622e7c313996c4348ca14c8e8aa433f27c22ee1d7",
+  "runtime_flags_from_constructor": {
+    "causal_encoder": true,
+    "use_t_isolated_gn": true,
+    "clip_length": 17,
+    "token_drop": 3
+  }
+}

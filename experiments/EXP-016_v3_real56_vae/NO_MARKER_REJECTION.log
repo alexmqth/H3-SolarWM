@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-016_v3_real56_vae/run_vae.py", line 290, in <module>
+    preflight() if args.preflight else run()
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-016_v3_real56_vae/run_vae.py", line 242, in run
+    require_marker()  # must precede any CUDA or model import
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-016_v3_real56_vae/common.py", line 103, in require_marker
+    raise PermissionError(f"Judge marker missing: {marker_path}")
+PermissionError: Judge marker missing: /home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-016_v3_real56_vae/judge/P1_APPROVED.json

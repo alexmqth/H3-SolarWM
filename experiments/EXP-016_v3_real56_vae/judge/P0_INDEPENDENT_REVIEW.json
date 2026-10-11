@@ -1,0 +1,24 @@
+{
+  "status": "PASS_P0_SOURCE_AND_CODE_REVIEW",
+  "runtime_modules": {
+    "diffsynth.models.minimax_h3_video_vae": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_video_vae.py",
+      "sha256": "ff1eea77a85b76a98bbb87c622e7c313996c4348ca14c8e8aa433f27c22ee1d7"
+    },
+    "diffsynth.pipelines.minimax_h3_audio_video": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py",
+      "sha256": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b"
+    },
+    "diffsynth.diffusion.base_pipeline": {
+      "path": "/home/lpeng/code/mq_PubDataset/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/diffusion/base_pipeline.py",
+      "sha256": "0a1a966332cecf221558db961a38f3f194b204e003443f9f9ef8d2a250727676"
+    }
+  },
+  "frozen_sources_match": true,
+  "GPU_calls": 0,
+  "output_directory_absent_before_authorization": true,
+  "input_range_and_full_decode_evidence": "EXP015 independent audit plus P0 actual native preprocess CPU tensors",
+  "GPU_scope": "VAE-only; no text/DiT/audioVAE/processor; 4 image encode/8 video encode/4 decode",
+  "budget_seconds": 600,
+  "cutoff_hkt": "2026-10-11T08:57:00+08:00"
+}

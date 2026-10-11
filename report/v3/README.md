@@ -47,3 +47,7 @@ EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留�
 ## 冻结AF8迁移负结果
 
 [EXP-012](v3_anyflow/README.md)：共同FM8首窗、匹配8NFE，工业D切换PARTIAL，村落AA后半C2结构FAIL；协议/真实cache通过但无联合迁移收益。34forward/4decode/.098445GPUh，零训练。当前checkpoint停止扩展，普通FM8优先。
+
+## 真实转移数据准备
+
+[EXP-015/016真实56帧与VAE重建](v3_real_data/README.md)：数据/动作与VAE前缀验证已验收，0训练；变长action packed未来隔离待独立协议回归。
