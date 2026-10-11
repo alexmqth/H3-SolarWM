@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "python": "/home/qma/work/GWM/.venvs/h3world/bin/python",
+  "prefix": "/home/qma/work/GWM/.venvs/h3world",
+  "torch": "2.10.0+cu128",
+  "transformers": "4.57.3",
+  "latest_CPU_candidate": "four scenes passed; actual model generation not tested",
+  "frozen_sources_hash_verified": [
+    "runner",
+    "config",
+    "taskbook",
+    "parking_A",
+    "parking_D",
+    "released_action_lora",
+    "accepted_interval",
+    "accepted_current_prefix",
+    "raw_cache",
+    "precision",
+    "visible_inputs",
+    "schedule_helper",
+    "flow_scheduler",
+    "h3_dit",
+    "h3_pipeline",
+    "infer_loader",
+    "video_writer",
+    "flow_metric",
+    "rollout_contract",
+    "frozen_8step_schedule"
+  ],
+  "broken_symlinks": [],
+  "foreign_owned_paths": [],
+  "report_links_checked": 610,
+  "broken_report_links": [],
+  "videos": [
+    {
+      "path": "submission/report/v3/v3_baseline/videos/V3_Baseline_AA_124.mp4",
+      "frames": 124,
+      "decoded_first_frame": true
+    },
+    {
+      "path": "submission/report/v3/fm2anyflow/fm8/videos/A_SWG30_vs_FM8_SWG8_158.mp4",
+      "frames": 158,
+      "decoded_first_frame": true
+    },
+    {
+      "path": "submission/report/v4/dmd/videos/AA_FM8_AF8_DMD8_cycle8_collapse_56.mp4",
+      "frames": 56,
+      "decoded_first_frame": true
+    }
+  ],
+  "model_forward_calls": 0,
+  "gpu_calls": 0
+}

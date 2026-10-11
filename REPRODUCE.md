@@ -1,5 +1,7 @@
 > **展示材料整理（2026-10-10）：** 现有运行路径、权重和adapter接口保持原样。新[report](report/README.md)可单独复制汇报，其中code是阅读快照，不是独立33B环境；[素材制作与完整性验收](archive/reorganization_20261010/README.md)只使用CPU/PyAV，不运行模型。
 
+2026-10-12迁移更新：从`/home/qma/work/GWM`实体目录运行，先`source env.sh`。历史绝对路径需按[迁移记录](archive/qma_migration_20261012/README.md)映射，部分大型KV/旧optimizer缓存已清理，重跑相关步骤需重新生成；冻结原始记录保持不变。
+
 # 最终复现说明
 
 本包不包含33B底座、发布的H3-World基础LoRA或原始数据。**最小验收不启动E2、AnyFlow或DMD训练**：重建环境/源码，检查KV，运行随机小H3类的训练smoke，使用真实底座与包内旧RGB adapters生成39帧并输出指标。

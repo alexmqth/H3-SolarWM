@@ -1,5 +1,7 @@
 # H3-SolarWM：因果世界模型研究
 
+**服务器实体目录已迁移到`/home/qma/work/GWM`，模型位于其`models/`，统一使用qma账号。** [迁移、旧实验清理和运行入口](archive/qma_migration_20261012/README.md)。
+
 **已验收正式参考：[V3 Baseline](mainline/v3/v3_baseline/README.md)**，严格因果、持久KV、Global RoPE，30步124帧有限可行。画质与连续性仍PARTIAL。
 
 ## 按研究方向看报告和视频
