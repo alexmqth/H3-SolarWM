@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-014_v3_multiscene_teacher/recover_ad.py", line 311, in <module>
+    main()
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-014_v3_multiscene_teacher/recover_ad.py", line 305, in main
+    run(args.scene, args.gpu)
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-014_v3_multiscene_teacher/recover_ad.py", line 200, in run
+    require_recovery_marker(scene)
+  File "/home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-014_v3_multiscene_teacher/recover_ad.py", line 64, in require_recovery_marker
+    raise PermissionError(f"Judge recovery marker missing: {path}")
+PermissionError: Judge recovery marker missing: /home/lpeng/code/mq_PubDataset/GWM/submission/experiments/EXP-014_v3_multiscene_teacher/judge/RECOVERY_APPROVED.json

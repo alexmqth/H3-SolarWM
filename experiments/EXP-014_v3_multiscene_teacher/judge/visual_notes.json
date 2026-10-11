@@ -114,6 +114,282 @@
         "AA": 42.14728087186813,
         "AD": -27.459496080875397
       }
+    },
+    "s1_7199292c": {
+      "C1": {
+        "frames_reviewed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "original_resolution_frames": [
+          38
+        ],
+        "structure": "PASS_FINITE_FEASIBILITY",
+        "quality": "PARTIAL",
+        "observations": "人物全39帧持续可辨，草地/道路/栅栏/树林保留，步态和位置变化可见；草遮挡腿部、软纹理、局部轮廓残影，未见持续结构失败。",
+        "action": "Only A first window; paired control assessment awaits C2"
+      },
+      "AA_C2": {
+        "frames_reviewed": [
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55
+        ],
+        "structure": "PASS_FINITE_FEASIBILITY",
+        "quality": "PARTIAL",
+        "observations": "17帧人物持续可辨，步态和背景位移存在，草地/道路/栅栏保留；纹理软、边界视角调整，无持续大片人物瓦解。",
+        "action": "Pairwise direction assessment awaits AD"
+      },
+      "AD_C2": {
+        "status": "NOT_EVALUATED",
+        "reason": "Process terminated before endpoint/video; not a visual generation failure"
+      }
+    },
+    "s2_9dc2e588": {
+      "C1": {
+        "frames_reviewed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "original_resolution_frames": [
+          38
+        ],
+        "structure": "PASS_FINITE_FEASIBILITY",
+        "quality": "PARTIAL",
+        "observations": "人物在工业道路行走，身体/四肢、道路/厂房保持，阴影存在；细节软、轻姿态变化，无持续主体消失。",
+        "action": "Only A first window; paired control assessment awaits C2"
+      },
+      "AA_C2": {
+        "frames_reviewed": [
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55
+        ],
+        "structure": "PASS_FINITE_FEASIBILITY",
+        "quality": "PARTIAL",
+        "observations": "人物/工厂/道路可辨，C2前段有明显透视/相机尺度调整，后段人物较小但持续存在；道路斜向几何变化、质量PARTIAL，无全景崩溃。",
+        "action": "Pairwise direction assessment awaits AD",
+        "original_resolution_frames": [
+          55
+        ]
+      },
+      "AD_C2": {
+        "frames_reviewed": [
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55
+        ],
+        "original_resolution_frames": [
+          55
+        ],
+        "structure": "PASS_FINITE_FEASIBILITY",
+        "quality": "PARTIAL",
+        "action_switch": "PARTIAL_NOT_CONFIRMED",
+        "observations": "AD与AA都表现人物持续行走、背景主要同向位移，未见清楚D反向响应；成对原分辨率末帧外观和步态接近但非完全相同。人物/道路/厂房保持可辨，前段透视/尺度变动。协议正确不等于动作通过。"
+      },
+      "auxiliary_flow": {
+        "metric": "central ROI median horizontal flow sum over16 C2 transitions",
+        "AA": 68.3849293589592,
+        "AD": 50.07415935397148
+      },
+      "teacher_target_decision": "STRUCTURE_USABLE_ACTION_SWITCH_PARTIAL_NOT_ACCEPTED_AS_CORRECT_AD_SUPERVISION"
+    },
+    "s3_b784d995": {
+      "C1": {
+        "frames_reviewed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "original_resolution_frames": [
+          38
+        ],
+        "structure": "PASS_FINITE_FEASIBILITY",
+        "quality": "PARTIAL",
+        "observations": "夜色草地人物全39帧可辨，原分辨率38帧可见上身/头部，腿部部分草遮挡，画面明显偏暗，细节判断受限；无全景噪声或大块透明碎片。",
+        "action": "Only A first window; paired control assessment awaits C2"
+      },
+      "AA_C2": {
+        "frames_reviewed": [
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55
+        ],
+        "structure": "PASS_FINITE_FEASIBILITY",
+        "quality": "PARTIAL",
+        "observations": "夜色草地人物仍可辨，身体轮廓偏暗、下肢与草丛混合；背景和路径有移动，暗部限制精细结构判断，未见整帧彩噪或持续大片碎片。",
+        "action": "Pairwise direction assessment awaits AD"
+      },
+      "AD_C2": {
+        "status": "NOT_EVALUATED",
+        "reason": "Process terminated before endpoint/video; not a visual generation failure"
+      }
     }
   }
 }

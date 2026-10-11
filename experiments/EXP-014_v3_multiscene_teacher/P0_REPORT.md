@@ -10,7 +10,7 @@
 
 ## 实现与资源保护
 
-本目录新建独立 [编码入口](encode_native.py)、[教师入口](run_teacher.py)、[来源核查](source_audit.py)、[P1 fixture 审计](audit_fixtures.py)、[资源/marker/账本](common.py)、[冻结配置](config.json)和 [代码清单](code_manifest.json)；EXP-011 原有代码、结果与 checkpoint 未修改。`common.setup_paths()` 明确设置冻结 DiffSynth 模型目录 `DIFFSYNTH_MODEL_BASE_PATH`，针对 EXP-011 曾发生的离线模型根目录错误。CPU import preflight 实际解析的 editable DiffSynth 位于旧 `2026-10-09-04` 快照，但关键 DiT 与 pipeline 文件与本轮冻结 `2026-10-09-22` 对应文件 SHA 完全相同；冻结清单另外检查后者路径。若实际 GPU 运行时模块哈希发生差异应停止，而不能仅凭模块名继续。
+本目录新建独立 [编码入口](encode_native.py)、[教师入口](run_teacher.py)、[来源核查](source_audit.py)、[P1 fixture 审计](audit_fixtures.py)、[资源/marker/账本](common.py)、[冻结配置](config.json)和 [代码清单](code_manifest.json)；EXP-011 原有代码、结果与 checkpoint 未修改。`common.setup_paths()` 明确设置冻结 DiffSynth 模型目录 `DIFFSYNTH_MODEL_BASE_PATH`，针对 EXP-011 曾发生的离线模型根目录错误。CPU import preflight 实际解析的 editable DiffSynth 位于旧 `2026-10-09-04` 快照，但关键 DiT 与 pipeline 文件与本轮冻结 `2026-10-09-22` 对应文件 SHA 完全相同；冻结清单另外检查后者路径。T1 日志的模型文件也解析到旧快照，但 [29个 `.safetensors` 的 inode 审计](model_alias_audit.json)确认两路径为同一设备上的相同硬链接，总计144,016,376,436 bytes，并非另一个权重版本。若实际 GPU 运行时模块或模型文件身份发生差异应停止，而不能仅凭模块名继续。
 
 P1 使用独立账本；T1/T2 每 scene 使用独立锁和账本，可在 T1 放行、T2 marker 到位后把三图分配到不同空闲卡，输出文件按 scene 隔离。所有昂贵调用**先 reserve 写入账本再执行**；即使调用失败也计费。每 scene 硬上限90 sampling/1 commit/3 decode/1350 GPU秒；P1 为12 text/4 image/600 GPU秒；四 scene 乘法给出5400 teacher GPU秒总上限。剩余磁盘≥60 GiB、相对首次启动增长<40 GiB、allocated 峰≤44 GiB/卡；08:40 HKT后不启动新 teacher scene，09:00后拒绝继续。GPU3/4 按任务书保留给他人，不被本入口使用。P1/T1/T2 需分别由 Judge 提供绑定 config/source/code SHA 且列明 scene 的 marker；缺 marker 时在任何 CUDA/33B 加载前拒绝。
 

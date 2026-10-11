@@ -1,6 +1,6 @@
 # EXP-014 — 四张训练初图的原生 V3 FM30 教师目标
 
-当前只完成 P0 CPU 来源冻结与入口预检，[P0 Worker 报告](P0_REPORT.md)是本阶段证据。编码 P1、首图 T1、余三图 T2 都需要 Judge 各自发布 marker；GPU 运行后必须继续做实际 fixture/视频审计。新训练更新始终为0。[任务书](taskbook_v1.md)定义预算和停止条件。
+P0 来源冻结、P1 四图原生输入和 T1 首图教师目标均已完成并经 Judge 分阶段验收。T2 三图中，`s2_9dc2e588` 完成 AA/AD，协议PASS但D反转未证实；`s1_7199292c`、`s3_b784d995` 只完成C1/AA，AD进程收到SIGTERM，未自动重试。详见 [T2 Worker报告和视频](T2_WORKER_REPORT.md)。[v2恢复CPU报告](RECOVERY_V2_CPU_REPORT.md)记录仅补缺失AD的独立入口与来源审计；GPU恢复待新marker。此前阶段见 [P0 报告](P0_REPORT.md)、[P1 报告](P1_WORKER_REPORT.md)和 [T1 报告及 AA/AD 视频](T1_WORKER_REPORT.md)。每个 GPU 阶段都有 Judge 单独签发的 marker；新训练更新始终为0。预算与停止条件见[v1任务书](taskbook_v1.md)及[v2恢复任务书](taskbook_v2_recovery.md)。
 
 固定场景来自 [EXP-013 候选清单](../EXP-013_v3_multiscene_data_plan/candidate_manifest.json)，四图按 `s0_43866101`、`s1_7199292c`、`s2_9dc2e588`、`s3_b784d995` 排序。[config.json](config.json)、[source_manifest.json](source_manifest.json)、[code_manifest.json](code_manifest.json)绑定输入、源码及冻结 runtime；模型大权重和 endpoint 只保存在 `H3-World/outputs/EXP-014_v3_multiscene_teacher/`。
 

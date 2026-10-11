@@ -1,0 +1,27 @@
+{
+  "task": "EXP-014/v2",
+  "approved": true,
+  "approved_by": "Judge",
+  "approved_at": "2026-10-11T00:06:06.395395+00:00",
+  "config_sha256": "26a1fc06d97996be61ac2aaced6b0280428f35a0378dd7a94829eef27bb101be",
+  "source_manifest_sha256": "43d597a1482a5dd1d5d6ba072a41fb13f9065bd2db5f166d86aeae9d2814d066",
+  "code_manifest_sha256": "b294c0d1a55a81c374a0c1741f50e59127bad1c4102c0211a55ca0bef7c416f4",
+  "scenes": [
+    "s1_7199292c",
+    "s3_b784d995"
+  ],
+  "execution_order": [
+    "s1_7199292c",
+    "s3_b784d995"
+  ],
+  "serial_only": true,
+  "gpu": 0,
+  "max_attempts_per_scene": 1,
+  "sampling_forwards_total": 60,
+  "vae_decodes_total": 2,
+  "commit_forwards": 0,
+  "training_updates": 0,
+  "max_gpu_seconds_per_scene": 600,
+  "max_gpu_seconds_total": 1200,
+  "condition": "Second scene only after first exits successfully; stop all recovery after unexplained interruption or protocol error; preserve original outputs"
+}

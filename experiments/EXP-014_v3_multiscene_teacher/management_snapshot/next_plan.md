@@ -1,6 +1,6 @@
 # EXP-014/v1 — 四训练初图的原生V3 FM30教师目标
 
-2026-10-11，Judge。**当前状态：P0与P1已验收，T1首图已验收；T2余三图已获Judge marker，可在空闲GPU0/1/2并行生成。新训练更新始终为0。** 用户夜间研究授权内的独立任务。正式V3、FM8、AF2结果保持冻结。
+2026-10-11，Judge。**当前状态：P0与P1已验收，T1已验收；T2已结束，s2切换PARTIAL、s1/s3 AD中断；v2独立CPU验收通过，已授权GPU0顺序补齐两AD，各一次。新训练更新始终为0。** 用户夜间研究授权内的独立任务。正式V3、FM8、AF2结果保持冻结。
 
 ## Research Track / Parent / Question
 
@@ -58,3 +58,11 @@ Judge独立CPU预检和实际runtime摘要核对PASS。已签发EXP-014/judge/P1
 ## T1通过与T2放行
 
 首图全部73张唯一帧观察（39+17+17）、实际50层KV及完整视频核查PASS，人物/场景/动作分叉有限可行，quality PARTIAL。91forward/3decode/532.261GPU秒。T2_APPROVED.json授权余三固定图，各91forward/3decode/1350秒，GPU0/1/2实时空闲时执行；无训练，逐图验收。
+
+## EXP-014/v2 中断恢复CPU准备
+
+T2已结束：s2完整输出但D切换PARTIAL；s1/s3在AD中断，无端点/视频，不作视觉失败判定。当前仅授权独立恢复入口CPU准备，新GPU需恢复marker。仅重做缺失两AD，复用原C1/cache/noise，不重算C1/AA/commit；最多新增60forward/2decode，全任务预记账上限402forward/12decode，累计教师5400秒不变。详见submission/experiments/EXP-014_v3_multiscene_teacher/taskbook_v2_recovery.md。
+
+## v2恢复GPU放行
+
+Judge实物cache/native输入/旧尝试摘要CPU审计PASS，RECOVERY_APPROVED.json实际已签发（新code manifest b294c0d1…）。仅GPU0顺序s1再s3，各30forward/1decode/600GPU秒。第一条成功后才启动第二条，失败立即停，不追加恢复。0commit/0训练，原证据不覆盖。

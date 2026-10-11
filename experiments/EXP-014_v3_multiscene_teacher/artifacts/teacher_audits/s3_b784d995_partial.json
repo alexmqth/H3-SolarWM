@@ -1,0 +1,72 @@
+{
+  "task": "EXP-014/v1",
+  "stage": "T2",
+  "scene": "s3_b784d995",
+  "status": "INTERRUPTED_AD_NOT_A_PAIRED_TEACHER_TARGET",
+  "cpu_partial_protocol_audit": "PASS_C1_AND_AA_ONLY",
+  "c1_video": {
+    "frames": 39,
+    "fps": "24",
+    "resolution": [
+      832,
+      480
+    ],
+    "unique_pts": 39
+  },
+  "aa_video": {
+    "frames": 56,
+    "fps": "24",
+    "resolution": [
+      832,
+      480
+    ],
+    "unique_pts": 56
+  },
+  "aa_new_video": {
+    "frames": 17,
+    "fps": "24",
+    "resolution": [
+      832,
+      480
+    ],
+    "unique_pts": 17
+  },
+  "first_39_rgb_exactly_unchanged": true,
+  "cache_50_layers_index0": true,
+  "cache_sha256": "2824811be9adeb792e633502c91815cc880143509123926495081ad4e5ee6fa8",
+  "cpu_raw_kv_bytes": 6799104000,
+  "aa_endpoint_sha256": "fabf23fbe09e0e242516e77a1b4a3bada1c84aefc5a86a639017a3596011430a",
+  "aa_video_sha256": "d0eafc58c7a17b768d4c5903dc8edce79c68f82b5c5a9b3bbde36771abe534ef",
+  "aa_motion": {
+    "boundary_mad_38_39": 4.068441867828369,
+    "within_c2_mad_mean": 5.495192170143127,
+    "within_c2_mad_max": 8.742545127868652,
+    "central_median_horizontal_flow_sum_c2": 66.1779682636261,
+    "central_median_horizontal_flow_per_transition": [
+      3.206782817840576,
+      2.564526081085205,
+      3.24397349357605,
+      3.5262012481689453,
+      6.851066589355469,
+      2.423269510269165,
+      3.566074848175049,
+      3.4265685081481934,
+      7.001104354858398,
+      2.9590508937835693,
+      3.3498644828796387,
+      3.6373672485351562,
+      8.499431610107422,
+      3.7479915618896484,
+      4.0273942947387695,
+      4.147300720214844
+    ]
+  },
+  "reserved_sampling_forwards": 80,
+  "completed_c1_aa_sampling_forwards": 60,
+  "reserved_ad_sampling_forwards": 20,
+  "ad_result_persisted_sampling_forwards": 19,
+  "commit_forwards": 1,
+  "vae_decodes": 2,
+  "last_reservation_utc": "2026-10-10T23:53:57.374226+00:00",
+  "ad_output": "MISSING_INTERRUPTED"
+}

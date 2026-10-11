@@ -1,8 +1,8 @@
 # 当前项目进展
 
-更新：2026-10-11 07:49 HKT，Judge。当前为可行性验证阶段，ROI优先；接受明确边界下的PARTIAL，持续结构失败的配置停止归档。
+更新：2026-10-11 08:07 HKT，Judge。当前为可行性验证阶段，ROI优先；接受明确边界下的PARTIAL，持续结构失败的配置停止归档。
 
-**当前任务EXP-014：四train初图的native V3 FM30教师目标。P0/P1与首图T1均验收，余三图T2在GPU0/1/2并行生成，逐图审核，新训练0。** EXP-013数据审计已验收；EXP-012当前AF8 step32在两场景无联合迁移收益，停止扩展。普通FM8保留低成本对照。持续监督至2026-10-11 09:00 HKT。[当前任务书](next_plan.md)。
+**当前任务EXP-014/v2：恢复入口CPU已验收，已授权GPU0顺序补齐两条中断AD，各一次、30forward/1decode。** P0/P1与s0完整教师目标已验收；s2完整协议/结构通过、D切换PARTIAL；s1/s3已有C1/AA，AD进程中断且无端点/视频，NOT_EVALUATED。0新训练；恢复必须保留原中断证据，累计失败成本。保留普通FM8对照，持续监督至2026-10-11 09:00 HKT。[当前任务书](next_plan.md)。
 
 ## 正式参考和研究结论
 
@@ -94,3 +94,9 @@ EXP-014 P1归档与首图授权已发布`928286da635119ef61e7411af1ddb4c82be7032
 ## EXP-014首图T1验收/余三图运行（07:49 HKT）
 
 首图39+17+17全帧及原分辨率检查通过，AA/AD flow辅助+42.147/−27.459，人物/场景可辨，teacher有限可用/quality PARTIAL。实际50层index0、同C1/noise/Global位置、旧39RGB不变与视频核查PASS。91forward/3decode/532.260704GPU秒，峰38.181200GiB。余三固定图T2已获marker并在GPU0/1/2独立并行，逐图验收；0训练。[T1审核](submission/experiments/EXP-014_v3_multiscene_teacher/judge/T1_REVIEW_AND_T2_RELEASE.md)。
+
+## EXP-014 T2中断与v2准备
+
+s2工业道路AA/AD中央ROI flow+68.385/+50.074，背景主要同向，D反转未证实；结构可用，不能把AD当正确动作监督。s1/s3各在AD完成17/19步后进程消失，预记账采样78/80、各1commit/2decode，无AD端点/视频，不作生成FAIL。可见cgroup OOM计数均0，具体退出原因待原会话证据，不假定OOM。已冻结原账本并记录各515.555GPU秒的保守上界。v2仅CPU恢复准备：复用已保存C1/KV/noise，最多新增两AD共60F/2decode，单scene一次串行恢复，GPU另发marker；全任务402F/12decode、teacher5400秒上限。
+
+EXP-014/v2恢复独立CPU核查PASS，代码末次变化仅预检幂等/增加验证，逆补丁精确还原原SHA，生成逻辑不变。RECOVERY_APPROVED绑定b294c0d1…新清单，仅s1再s3串行；新增60F/2decode/1200GPU秒，0commit/0训练。原T2中断GPU耗时按上下界报告，不以未关闭账本的0作为免费。
