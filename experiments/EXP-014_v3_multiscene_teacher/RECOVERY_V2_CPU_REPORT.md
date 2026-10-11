@@ -1,5 +1,7 @@
 # EXP-014/v2 Worker CPU 报告：仅补两条缺失 AD 的恢复入口
 
+后续GPU恢复已按Judge新marker完成，实际结果见[恢复GPU报告](RECOVERY_V2_GPU_REPORT.md)。本报告记录GPU启动前的CPU审计与冻结状态。
+
 2026-10-11 HKT。按照 Judge [v2 恢复任务书](taskbook_v2_recovery.md)，已完成**仅 CPU**的独立恢复入口、来源冻结和预算预检；**GPU 恢复尚未启动，新增 denoiser/decode/训练调用均为0**。原 v1 `run_teacher.py`、`common.py`、配置、原始输出、半途 AD 行及未关闭账本均未修改。新入口只允许 `s1_7199292c` 与 `s3_b784d995` 各自补做一次原 30-step AD，不重算 C1、AA 或 clean commit。
 
 ## 实现与冻结文件

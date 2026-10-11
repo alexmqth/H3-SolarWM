@@ -189,12 +189,48 @@
         "structure": "PASS_FINITE_FEASIBILITY",
         "quality": "PARTIAL",
         "observations": "17帧人物持续可辨，步态和背景位移存在，草地/道路/栅栏保留；纹理软、边界视角调整，无持续大片人物瓦解。",
-        "action": "Pairwise direction assessment awaits AD"
+        "action": "Pairwise direction assessment awaits AD",
+        "original_resolution_frames": [
+          55
+        ]
       },
       "AD_C2": {
-        "status": "NOT_EVALUATED",
-        "reason": "Process terminated before endpoint/video; not a visual generation failure"
-      }
+        "original_attempt": "NOT_EVALUATED_INTERRUPTED",
+        "recovery_v2": {
+          "frames_reviewed": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55
+          ],
+          "original_resolution_frames": [
+            55
+          ],
+          "structure": "PASS_FINITE_FEASIBILITY",
+          "quality": "PARTIAL",
+          "observations": "恢复AD的全部17帧人物、道路、草地可辨；与AA相比背景更明显向左移动，末帧树/道路位置和人物姿态分叉。AA净水平位移较弱且中途方向波动，不能称持续精确A控制；AD反向响应较清楚。软细节、草遮挡和边界变化保留。"
+        }
+      },
+      "auxiliary_flow": {
+        "metric": "central ROI median horizontal flow sum over16 C2 transitions",
+        "AA": 3.654025584459305,
+        "AD": -45.314358034171164,
+        "AA_caveat": "small net displacement with sign changes; not robust sustained direction"
+      },
+      "teacher_target_decision": "LIMITED_PAIRED_RESPONSE_STRUCTURE_USABLE_A_STEADINESS_PARTIAL"
     },
     "s2_9dc2e588": {
       "C1": {
@@ -384,12 +420,49 @@
         "structure": "PASS_FINITE_FEASIBILITY",
         "quality": "PARTIAL",
         "observations": "夜色草地人物仍可辨，身体轮廓偏暗、下肢与草丛混合；背景和路径有移动，暗部限制精细结构判断，未见整帧彩噪或持续大片碎片。",
-        "action": "Pairwise direction assessment awaits AD"
+        "action": "Pairwise direction assessment awaits AD",
+        "original_resolution_frames": [
+          55
+        ]
       },
       "AD_C2": {
-        "status": "NOT_EVALUATED",
-        "reason": "Process terminated before endpoint/video; not a visual generation failure"
-      }
+        "original_attempt": "NOT_EVALUATED_INTERRUPTED",
+        "recovery_v2": {
+          "frames_reviewed": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55
+          ],
+          "original_resolution_frames": [
+            55
+          ],
+          "structure": "PASS_FINITE_FEASIBILITY_WITH_DARK_OCCLUSION_LIMIT",
+          "quality": "PARTIAL",
+          "action_switch": "PARTIAL_NOT_CONFIRMED",
+          "observations": "恢复AD与AA人物姿态、路径和草地运动极相近，背景仍同向，未证实D反向响应。人物上身持续可辨，腿部暗且被草遮挡，无持续大片碎片或整景噪声。"
+        }
+      },
+      "auxiliary_flow": {
+        "metric": "central ROI median horizontal flow sum over16 C2 transitions",
+        "AA": 66.1779682636261,
+        "AD": 58.664498805999756,
+        "AA_AD_new_RGB_MAD": 3.1878764629364014
+      },
+      "teacher_target_decision": "STRUCTURE_USABLE_ACTION_SWITCH_PARTIAL_NOT_ACCEPTED_AS_CORRECT_AD_SUPERVISION"
     }
   }
 }

@@ -40,6 +40,10 @@ EXP-005/v2已完成281forward/9VAE，实际0.662707GPU小时。SW-G优先保留�
 
 [EXP-011 工业/村落FM30与FM8对照](v3_scene_transfer/README.md)：四配置AA/AD56均有限可行PASS，村落FM8颗粒/重影更明显；0训练/0.514521GPUh。只覆盖固定两初图与短程，不作广泛泛化结论。
 
+## 四训练初图的原生FM30教师候选
+
+[EXP-014 四图AA/AD 56帧画廊](v3_teacher_targets/README.md)提供独立可播放的四条并排视频和逐场用途标签。四图的C1/C2协议与真实raw KV均完成；`s0`有限可用，`s1`的D反向清楚但持续A弱，`s2/s3`没有证明D反向。两条原AD中断由独立恢复入口仅补缺失AD；四图不能直接当作全合格动作监督，也不代表AnyFlow或DMD已训练。
+
 ## 冻结AF8迁移负结果
 
 [EXP-012](v3_anyflow/README.md)：共同FM8首窗、匹配8NFE，工业D切换PARTIAL，村落AA后半C2结构FAIL；协议/真实cache通过但无联合迁移收益。34forward/4decode/.098445GPUh，零训练。当前checkpoint停止扩展，普通FM8优先。

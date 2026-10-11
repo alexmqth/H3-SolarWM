@@ -1,8 +1,10 @@
 # EXP-014 — 四张训练初图的原生 V3 FM30 教师目标
 
-P0 来源冻结、P1 四图原生输入和 T1 首图教师目标均已完成并经 Judge 分阶段验收。T2 三图中，`s2_9dc2e588` 完成 AA/AD，协议PASS但D反转未证实；`s1_7199292c`、`s3_b784d995` 只完成C1/AA，AD进程收到SIGTERM，未自动重试。详见 [T2 Worker报告和视频](T2_WORKER_REPORT.md)。[v2恢复CPU报告](RECOVERY_V2_CPU_REPORT.md)记录仅补缺失AD的独立入口与来源审计；GPU恢复待新marker。此前阶段见 [P0 报告](P0_REPORT.md)、[P1 报告](P1_WORKER_REPORT.md)和 [T1 报告及 AA/AD 视频](T1_WORKER_REPORT.md)。每个 GPU 阶段都有 Judge 单独签发的 marker；新训练更新始终为0。预算与停止条件见[v1任务书](taskbook_v1.md)及[v2恢复任务书](taskbook_v2_recovery.md)。
+P0 来源冻结、P1 四图原生输入和 T1 首图教师目标均已完成并经 Judge 分阶段验收。T2 三图中，`s2_9dc2e588` 完成 AA/AD，协议PASS但D反转未证实；`s1_7199292c`、`s3_b784d995` 的AD进程曾收到SIGTERM，原始失败记录保留。v2按新marker**仅补齐这两条AD**，两图均协议PASS；`s1` D反向较清楚但A持续性弱，`s3` 两路几乎同向，动作目标不通过。详见[恢复GPU报告与并排视频](RECOVERY_V2_GPU_REPORT.md)、[T2中断报告](T2_WORKER_REPORT.md)和[v2恢复CPU准备](RECOVERY_V2_CPU_REPORT.md)。此前阶段见[P0](P0_REPORT.md)、[P1](P1_WORKER_REPORT.md)、[T1](T1_WORKER_REPORT.md)报告。每个 GPU 阶段都有 Judge 单独签发的 marker；新训练更新始终为0。预算与停止条件见[v1任务书](taskbook_v1.md)及[v2恢复任务书](taskbook_v2_recovery.md)。
 
 固定场景来自 [EXP-013 候选清单](../EXP-013_v3_multiscene_data_plan/candidate_manifest.json)，四图按 `s0_43866101`、`s1_7199292c`、`s2_9dc2e588`、`s3_b784d995` 排序。[config.json](config.json)、[source_manifest.json](source_manifest.json)、[code_manifest.json](code_manifest.json)绑定输入、源码及冻结 runtime；模型大权重和 endpoint 只保存在 `H3-World/outputs/EXP-014_v3_multiscene_teacher/`。
+
+快速审阅四图可用性见[Worker目标质量清单](WORKER_TARGET_ASSESSMENT.json)，完整预留/已确认调用与中断资源上下界见[Worker累计账本](WORKER_CUMULATIVE_BUDGET.json)。两者待Judge最终审查；原始逐调用账本、视频和阶段报告仍是事实来源。
 
 P0 CPU 命令（已通过）：
 

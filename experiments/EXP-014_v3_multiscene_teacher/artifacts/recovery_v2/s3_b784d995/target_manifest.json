@@ -1,0 +1,22 @@
+{
+  "task": "EXP-014/v2",
+  "scene": "s3_b784d995",
+  "quality_status": "pending_judge",
+  "generated_history": true,
+  "teacher_C1_latent": {
+    "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s3_b784d995/FM30/first12.pt",
+    "sha256": "c32de635d545d2a414d1f160fee7e725ef1164a1c4d2feee8450ed541726641b"
+  },
+  "teacher_C2_endpoint": {
+    "AA": {
+      "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/G2/s3_b784d995/FM30/AA/chunk_12_17.pt",
+      "sha256": "fabf23fbe09e0e242516e77a1b4a3bada1c84aefc5a86a639017a3596011430a"
+    },
+    "AD": {
+      "path": "H3-World/outputs/EXP-014_v3_multiscene_teacher/recovery_v2/s3_b784d995/AD/chunk_12_17.pt",
+      "sha256": "6343908a0ceb459ed34c0b25c95aaa11d7a66a67b8aab81d7527901378bd2da0"
+    }
+  },
+  "recovered_from_interrupted_attempt": "H3-World/outputs/EXP-014_v3_multiscene_teacher/G2/s3_b784d995/FM30/AD/result.json",
+  "student_history_rule": "rebuild sigma0 KV under student weights"
+}

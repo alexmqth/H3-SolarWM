@@ -10,11 +10,14 @@
   - [V3 Baseline：正式124帧参考](v3/v3_baseline/README.md)
   - [V3-SW-G：Sliding Window + Global](v3/v3_sw_g/README.md)，158帧有限可行性通过
   - [V3-SW-L：Sliding Window + Local](v3/v3_sw_l/README.md)，独立位置对照已归档，无已证实收益
+  - [V3 FM30 四训练初图教师候选](v3/v3_teacher_targets/README.md)：AA/AD56并排与逐场动作适用性；两图D反向未证实
 - [EXP-004：V3普通FM8步续写证据](v3/v3_baseline/8step_continuation/README.md)，首39帧借用30步，不代表全程FM8或AnyFlow。
 
 ## 直接展示
 
 [Original / V3 Baseline AA124](v3/v3_baseline/videos/Original_vs_V3_Baseline_AA_124.mp4) · [V2b / V3 Baseline AA124](v3/v3_baseline/videos/V2b_vs_V3_Baseline_AA_124.mp4) · [V3 AD124](v3/v3_baseline/videos/V3_Baseline_AD_124.mp4) · [浏览器演示](index.html)
+
+[四训练初图AA/AD 56帧画廊](v3/v3_teacher_targets/README.md)：[s0](v3/v3_teacher_targets/videos/s0_AA_vs_AD_56.mp4) · [s1](v3/v3_teacher_targets/videos/s1_AA_vs_AD_56.mp4) · [s2](v3/v3_teacher_targets/videos/s2_AA_vs_AD_56.mp4) · [s3](v3/v3_teacher_targets/videos/s3_AA_vs_AD_56.mp4)。[Judge已有限验收](../experiments/EXP-014_v3_multiscene_teacher/judge/FINAL_REVIEW.md)协议与来源；`s2/s3`的D反向未证实，不是多场景动作训练成功。
 
 [路线图](roadmap.md) · [比较边界](COMPARISON_PROTOCOL.md) · [指标](METRICS.md) · [讲稿](TALK_5MIN.md) · [下一步](02_next_steps/README.md)
 

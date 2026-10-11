@@ -1,0 +1,55 @@
+{
+  "task": "EXP-014/v1+v2",
+  "status": "WORKER_ASSESSMENT_PENDING_JUDGE_FINAL_REVIEW",
+  "protocol": "V3 native Single I0 FM30 C1 A then same-generated-history C2 AA/AD",
+  "action_condition": "synthetic A/D counterfactual; not recorded video GT action",
+  "scope": "four predetermined train initial images, one seed, C1+C2 only",
+  "scenes": {
+    "s0_43866101": {
+      "source": "T1 original complete run",
+      "protocol_audit": "PASS",
+      "visual_structure": "PARTIAL_BUT_DISCERNIBLE",
+      "action_response": "FINITE_PAIRED_RESPONSE",
+      "aa_horizontal_flow_sum": 42.147,
+      "ad_horizontal_flow_sum": -27.459,
+      "teacher_target_use": "CANDIDATE_WITH_QUALITY_PARTIAL",
+      "limits": "one scene/seed/two chunks; local softening",
+      "evidence": "T1_WORKER_REPORT.md"
+    },
+    "s1_7199292c": {
+      "source": "original C1/AA plus v2 recovered AD",
+      "protocol_audit": "PASS",
+      "visual_structure": "PARTIAL_BUT_DISCERNIBLE",
+      "action_response": "D_REVERSE_CLEAR_A_CONTINUATION_WEAK",
+      "aa_horizontal_flow_sum": 3.654025584459305,
+      "ad_horizontal_flow_sum": -45.314358034171164,
+      "teacher_target_use": "CONDITIONAL_DIAGNOSTIC_NOT_UNQUALIFIED_SUPERVISION",
+      "limits": "AA net direction weak and changes sign within the 17 new frames",
+      "evidence": "RECOVERY_V2_GPU_REPORT.md"
+    },
+    "s2_9dc2e588": {
+      "source": "T2 original complete run",
+      "protocol_audit": "PASS",
+      "visual_structure": "PARTIAL_BUT_DISCERNIBLE",
+      "action_response": "D_REVERSE_NOT_DEMONSTRATED",
+      "aa_horizontal_flow_sum": 68.3849293589592,
+      "ad_horizontal_flow_sum": 50.07415935397148,
+      "teacher_target_use": "EXCLUDE_FROM_ACTION_CORRECT_AD_SUPERVISION",
+      "limits": "AA and AD background flow remain positive; trajectories differ but D reversal unclear",
+      "evidence": "T2_WORKER_REPORT.md"
+    },
+    "s3_b784d995": {
+      "source": "original C1/AA plus v2 recovered AD",
+      "protocol_audit": "PASS",
+      "visual_structure": "PARTIAL_DARK_AND_OCCLUDED_BUT_DISCERNIBLE",
+      "action_response": "D_REVERSE_NOT_DEMONSTRATED",
+      "aa_horizontal_flow_sum": 66.1779682636261,
+      "ad_horizontal_flow_sum": 58.664498805999756,
+      "aa_ad_new_rgb_abs_diff_mean": 3.1878764629364014,
+      "teacher_target_use": "EXCLUDE_FROM_ACTION_CORRECT_AD_SUPERVISION",
+      "limits": "both branches nearly identical, dark grass occludes character details",
+      "evidence": "RECOVERY_V2_GPU_REPORT.md"
+    }
+  },
+  "overall": "teacher target generation protocol complete; four-scene action correctness NOT established; do not label this as successful multiscene action supervision"
+}

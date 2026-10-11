@@ -1,5 +1,7 @@
 # EXP-014/v1 T2 Worker 报告：三张训练初图的 FM30 教师目标
 
+后续v2已经按独立marker补齐下文中断的两条AD；恢复结果与最新逐图质量判断见[恢复GPU报告](RECOVERY_V2_GPU_REPORT.md)。本报告保留下文v1中断当时的事实与账本，不追溯改写原尝试状态。
+
 2026-10-11 HKT。按照 [T2 Judge marker](judge/T2_APPROVED.json)，三张固定 train 初图在 GPU0/1/2 并行运行，使用同一冻结 V3 FM30 协议：native Single I0、strict chunk-causal、Global RoPE、12-latent C1 + 5-latent C2、sigma0 clean raw KV commit、同一自生成 C1 下 AA/AD 反事实分叉。三图均完成 C1 39 帧及 AA 56 帧；**只有 `s2_9dc2e588` 完成 AD 56 帧**。`s1_7199292c` 与 `s3_b784d995` 的 AD 进程收到 SIGTERM，原工具会话退出码均为 **143**，没有完整 AD endpoint 或视频。本轮新增训练更新为 **0**。
 
 ## 实际执行与可用性

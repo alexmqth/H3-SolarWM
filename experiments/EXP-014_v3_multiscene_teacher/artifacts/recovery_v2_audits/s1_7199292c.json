@@ -1,0 +1,82 @@
+{
+  "task": "EXP-014/v2",
+  "scene": "s1_7199292c",
+  "cpu_protocol_audit": "PASS",
+  "visual_assessment": "SEPARATE",
+  "old_first_39_rgb_exactly_unchanged": true,
+  "old_cache_and_partial_ad_unchanged": true,
+  "sampling_forwards": 30,
+  "vae_decodes": 1,
+  "commit_forwards": 0,
+  "gpu_seconds": 159.63123038799677,
+  "peak_allocated_gib": 38.17759990692139,
+  "full_video": {
+    "frames": 56,
+    "fps": "24",
+    "resolution": [
+      832,
+      480
+    ],
+    "unique_pts": 56
+  },
+  "new_video": {
+    "frames": 17,
+    "fps": "24",
+    "resolution": [
+      832,
+      480
+    ],
+    "unique_pts": 17
+  },
+  "aa_ad_new_rgb_abs_diff_mean": 24.179182052612305,
+  "aa_motion": {
+    "boundary_mad_38_39": 6.522758960723877,
+    "within_c2_mad_mean": 11.135840088129044,
+    "within_c2_mad_max": 20.729610443115234,
+    "central_median_horizontal_flow_sum_c2": 3.654025584459305,
+    "central_median_horizontal_flow_per_transition": [
+      17.335556030273438,
+      3.677238941192627,
+      5.662555694580078,
+      1.4038281440734863,
+      -7.064356327056885,
+      -4.57424259185791,
+      -4.955400466918945,
+      -4.843967437744141,
+      -6.333769798278809,
+      -2.708962917327881,
+      -1.1955337524414062,
+      -0.1551351249217987,
+      2.1325926780700684,
+      1.1250101327896118,
+      1.5985502004623413,
+      2.5500621795654297
+    ]
+  },
+  "ad_motion": {
+    "boundary_mad_38_39": 5.703962802886963,
+    "within_c2_mad_mean": 11.190874218940735,
+    "within_c2_mad_max": 22.790517807006836,
+    "central_median_horizontal_flow_sum_c2": -45.314358034171164,
+    "central_median_horizontal_flow_per_transition": [
+      -4.7743072509765625,
+      -2.4245967864990234,
+      -3.022327423095703,
+      -2.5262434482574463,
+      -5.845583915710449,
+      -2.829572916030884,
+      -3.1467084884643555,
+      -2.6857500076293945,
+      -4.824497222900391,
+      -2.229574203491211,
+      -2.5108704566955566,
+      -3.9673612117767334,
+      -4.058453559875488,
+      -1.596811056137085,
+      0.0139860725030303,
+      1.1143138408660889
+    ]
+  },
+  "recovered_ad_video_sha256": "00aaf6a21eeb4ca3d41721173c6594dcaa43e3bcc2c6b2e441454b04b5a52bf1",
+  "recovered_ad_endpoint_sha256": "998876385891502fe5c0135ec6abf51e03434f846e46bfcd577d884468430ebb"
+}

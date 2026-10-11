@@ -1,0 +1,36 @@
+{
+  "task": "EXP-014/v1+v2",
+  "status": "WORKER_ACCOUNTING_PENDING_JUDGE_FINAL_REVIEW",
+  "encoding": {
+    "text_encoder_calls": 12,
+    "image_vae_encodes": 4,
+    "gpu_seconds": 110.21393888600869
+  },
+  "teacher_generation": {
+    "sampling_forwards_reserved": 398,
+    "sampling_forwards_confirmed_completed_minimum": 396,
+    "clean_commit_forwards_confirmed": 4,
+    "total_denoiser_forwards_reserved_including_commit": 402,
+    "total_denoiser_forwards_confirmed_minimum_including_commit": 400,
+    "vae_decodes_completed": 12,
+    "training_updates": 0,
+    "gpu_seconds_lower_bound": 2238.0424925109837,
+    "gpu_seconds_upper_bound": 2398.3531505109836,
+    "upper_budget_gpu_seconds": 5400,
+    "interrupted_forward_uncertainty": "one last reserved AD forward in each original s1/s3 attempt may have completed but was not persisted"
+  },
+  "stages": {
+    "T1_s0": {"sampling_reserved": 90, "commit_confirmed": 1, "decodes": 3, "gpu_seconds": 532.2607037019916},
+    "T2_s1_interrupted": {"sampling_reserved": 78, "sampling_persisted_completed": 77, "commit_confirmed": 1, "decodes": 2, "gpu_seconds_lower_bound": 434.866956, "gpu_seconds_upper_bound": 515.55184},
+    "T2_s2": {"sampling_reserved": 90, "commit_confirmed": 1, "decodes": 3, "gpu_seconds": 516.2940812040033},
+    "T2_s3_interrupted": {"sampling_reserved": 80, "sampling_persisted_completed": 79, "commit_confirmed": 1, "decodes": 2, "gpu_seconds_lower_bound": 435.928931, "gpu_seconds_upper_bound": 515.554705},
+    "v2_recovery_s1": {"sampling_reserved": 30, "commit_confirmed": 0, "decodes": 1, "gpu_seconds": 159.63123038799677},
+    "v2_recovery_s3": {"sampling_reserved": 30, "commit_confirmed": 0, "decodes": 1, "gpu_seconds": 159.06059021699184}
+  },
+  "source_evidence": [
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/P1/budget.json",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/teacher/<scene>/budget.json",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/recovery_v2/<scene>/budget.json",
+    "judge/T2_INTERRUPTION_AUDIT.json"
+  ]
+}
