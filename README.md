@@ -1,5 +1,7 @@
 # H3-SolarWM：因果世界模型研究
 
+**核心对比：[Original H3-World vs V3因果版本：视频、推理耗时、峰值显存、质量与连续性](report/original_vs_causal/README.md)。** 包含正式Baseline和SW-G + FM-8NFE候选，统计范围与缺项单独说明。
+
 **命名规范（2026-10-12）：** `AF-train-32updates`是训练累计更新状态；`AF-8NFE` / `FM-8NFE`是每块推理求值配置；EXP-007 / AF2是训练阶段编号。[完整映射与计数说明](report/GLOSSARY.md)。
 
 **服务器实体目录已迁移到`/home/qma/work/GWM`，模型位于其`models/`，统一使用qma账号。** [迁移、旧实验清理和运行入口](archive/qma_migration_20261012/README.md)。

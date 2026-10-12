@@ -1,5 +1,7 @@
 # V3-FM-8NFE：从首窗开始的普通8步采样
 
+**[直接对比Original H3-World，并查看效率/质量汇总](../../../original_vs_causal/README.md)**
+
 ## 名称与目的
 
 **名称解释：** FM = Flow Matching（流匹配）；FM-8NFE是每个视频块8次采样网络求值，FM-30NFE为30次；当前采样器分别对应8步与30步。数字不表示帧数或训练次数。本尝试零新训练。

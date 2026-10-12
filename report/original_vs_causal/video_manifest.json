@@ -1,0 +1,53 @@
+{
+  "purpose": "Existing-output comparison; CPU presentation only; zero GPU inference/training",
+  "comparison_scope": "A continuation, common RGB 0..123 at 24fps. Candidate source has158 frames; no padding, looping, interpolation or retiming. RGB124..157 and actual eviction are outside excerpt.",
+  "protocol_scope": "Same parking I0/seed13 and released weights. Different generation protocols and self-generated histories; not a single-factor or matched E2E benchmark. No claim of bitwise input-noise equality from video files.",
+  "sources": {
+    "original": {
+      "path": "H3-World/outputs/2026-10-01-21/action_A_teacher_latents/baseline.mp4",
+      "sha256": "b8f96d34edd7342b5b7c2b892e326db52fb61561fa06d4209895ec08914aa1e8",
+      "frames": 124
+    },
+    "v3_baseline": {
+      "path": "submission/report/v3/v3_baseline/videos/V3_Baseline_AA_124.mp4",
+      "sha256": "2f835eea4f1d5b211df32a2ed499234a9545c9103b28131ce472f93521199825",
+      "frames": 124
+    },
+    "fm8_swg": {
+      "path": "submission/report/v3/fm2anyflow/fm8/videos/A_rollout_158.mp4",
+      "sha256": "78da2c8e3344887800da51831cc9b368a0472aa3d249c68bee111b06d1b9ae50",
+      "frames": 158
+    }
+  },
+  "outputs": {
+    "video": {
+      "path": "videos/Original_vs_V3_SWG_FM-8NFE_A_common124.mp4",
+      "sha256": "a4cde231d795c028216d1a8ccc70cace4f045e134e496215de223ccb616a89d3",
+      "frames": 124,
+      "fps": 24,
+      "size": [
+        1664,
+        576
+      ],
+      "all_frames_decoded": true,
+      "pts_monotonic": true
+    },
+    "poster": {
+      "path": "comparison_keyframes.jpg",
+      "sha256": "97896cc25d07aff3c71d9364db14dce761797cbcc7fad27b38f63c943c8c8abd",
+      "rgb_indices": [
+        38,
+        73,
+        83,
+        107,
+        123
+      ]
+    }
+  },
+  "original_timing_snapshot": {
+    "source": "H3-World/outputs/2026-10-01-21/action_A_teacher_latents/baseline.json",
+    "sha256": "dc0ab77ba31980850cf2336167b7ba322767efef23bee5b00e875b12bd0d7010",
+    "copy": "evidence/original_timing.json"
+  },
+  "builder_sha256": "3d1557cc836b5fa0366378f9c713bcade964a2b89778f2601bbd99f2570a4cf7"
+}

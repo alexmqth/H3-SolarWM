@@ -1,0 +1,189 @@
+{
+  "units": {
+    "time": "seconds",
+    "gpu_memory": "GiB allocated unless stated",
+    "kv": "bytes; CPU video KV only"
+  },
+  "original": {
+    "source": "evidence/original_timing.json",
+    "scope": "entire124-frame clip, includes shared setup",
+    "sampling_seconds": 369.81851660017855,
+    "wall_seconds": 478.4470363368746,
+    "decode_seconds": 12.243318774038926,
+    "sampling_peak_allocated_gib": 38.680856704711914,
+    "entire_run_peak_mib_reported_as_gib": 38.98939323425293
+  },
+  "baseline": {
+    "source": "../../experiments/EXP-003_native_cached_124/metrics.json",
+    "scope": "RGB73..123 incremental only; reused initial73frames; exact initial commit peak missing",
+    "rows": [
+      {
+        "path": "AA",
+        "rgb_interval": [
+          73,
+          90
+        ],
+        "sampling_seconds": 148.45243857700007,
+        "clean_commit_seconds": 6.084225257999606,
+        "vae_seconds": 7.699509817000035,
+        "boundary_gray_MAD": 13.818807601928711,
+        "inside_gray_MAD": 5.4392547607421875,
+        "GPU_peak_allocated_MiB": 26876.6982421875
+      },
+      {
+        "path": "AA",
+        "rgb_interval": [
+          90,
+          107
+        ],
+        "sampling_seconds": 176.42814467399967,
+        "clean_commit_seconds": 7.002812192999954,
+        "vae_seconds": 9.862211030999788,
+        "boundary_gray_MAD": 9.69078540802002,
+        "inside_gray_MAD": 5.015311241149902,
+        "GPU_peak_allocated_MiB": 26048.41943359375
+      },
+      {
+        "path": "AA",
+        "rgb_interval": [
+          107,
+          124
+        ],
+        "sampling_seconds": 200.42171409900038,
+        "clean_commit_seconds": 0.0,
+        "vae_seconds": 11.409100970000509,
+        "boundary_gray_MAD": 2.9096128940582275,
+        "inside_gray_MAD": 5.610358238220215,
+        "GPU_peak_allocated_MiB": 26230.9609375
+      },
+      {
+        "path": "AD",
+        "rgb_interval": [
+          73,
+          90
+        ],
+        "sampling_seconds": 148.93955210700005,
+        "clean_commit_seconds": 6.084351405001144,
+        "vae_seconds": 7.696762113000659,
+        "boundary_gray_MAD": 7.1778244972229,
+        "inside_gray_MAD": 4.322083950042725,
+        "GPU_peak_allocated_MiB": 26876.6982421875
+      },
+      {
+        "path": "AD",
+        "rgb_interval": [
+          90,
+          107
+        ],
+        "sampling_seconds": 176.65830056400046,
+        "clean_commit_seconds": 7.012152375000369,
+        "vae_seconds": 9.953130484998837,
+        "boundary_gray_MAD": 3.336981773376465,
+        "inside_gray_MAD": 4.044217586517334,
+        "GPU_peak_allocated_MiB": 26048.41943359375
+      },
+      {
+        "path": "AD",
+        "rgb_interval": [
+          107,
+          124
+        ],
+        "sampling_seconds": 199.4306775490004,
+        "clean_commit_seconds": 0.0,
+        "vae_seconds": 11.404008012999839,
+        "boundary_gray_MAD": 2.5032401084899902,
+        "inside_gray_MAD": 4.551706790924072,
+        "GPU_peak_allocated_MiB": 26230.9609375
+      }
+    ]
+  },
+  "swg_30": {
+    "source": "../../experiments/EXP-005_v3_sliding_window/stage2/g1_judge_review.json",
+    "scope": "shared AA124 -> A158 and D158, both branches; prior124 cost excluded",
+    "gpu_seconds": 1068.665791273117,
+    "peak_allocated_gib": 26.120702743530273
+  },
+  "swg_fm8": {
+    "source": "../../experiments/EXP-010_v3_fm8_sw158/judge/branch_audit.json",
+    "scope": "shared AA73 -> AA124 -> A158 and D158, excludes initial73frames; both branches",
+    "gpu_seconds": 1137.1086580753326,
+    "peak_allocated_gib": 26.59565782546997,
+    "rows": [
+      {
+        "stage": "shared/commit_c3",
+        "sampling_seconds": null,
+        "commit_seconds": 13.00991446000262,
+        "decode_seconds": null,
+        "boundary_gray_MAD": null,
+        "inside_gray_MAD": null,
+        "peak_allocated_gib": 26.27584981918335
+      },
+      {
+        "stage": "shared/C4",
+        "sampling_seconds": 45.68701438500284,
+        "commit_seconds": 6.586260846997902,
+        "decode_seconds": 8.029005616001086,
+        "boundary_gray_MAD": 9.034728050231934,
+        "inside_gray_MAD": 3.4553842544555664,
+        "peak_allocated_gib": 26.45499277114868
+      },
+      {
+        "stage": "shared/C5",
+        "sampling_seconds": 48.834374227997614,
+        "commit_seconds": 7.3411360870013596,
+        "decode_seconds": 9.702683609000815,
+        "boundary_gray_MAD": 5.175187587738037,
+        "inside_gray_MAD": 4.268792152404785,
+        "peak_allocated_gib": 26.41791343688965
+      },
+      {
+        "stage": "shared/C6",
+        "sampling_seconds": 52.85745753000083,
+        "commit_seconds": 7.558948138997948,
+        "decode_seconds": 10.931502054001612,
+        "boundary_gray_MAD": 3.711453437805176,
+        "inside_gray_MAD": 3.817889451980591,
+        "peak_allocated_gib": 25.609047889709473
+      },
+      {
+        "stage": "A/C7",
+        "sampling_seconds": 47.833177809996414,
+        "commit_seconds": 7.093605119000131,
+        "decode_seconds": 11.806853977999708,
+        "boundary_gray_MAD": 12.3015775680542,
+        "inside_gray_MAD": 3.56184983253479,
+        "peak_allocated_gib": 26.58574104309082
+      },
+      {
+        "stage": "A/C8",
+        "sampling_seconds": 48.9612587859956,
+        "commit_seconds": null,
+        "decode_seconds": 13.325784350003232,
+        "boundary_gray_MAD": 10.650903701782227,
+        "inside_gray_MAD": 3.796104907989502,
+        "peak_allocated_gib": 26.59565782546997
+      },
+      {
+        "stage": "D/C7",
+        "sampling_seconds": 48.543304747996444,
+        "commit_seconds": 7.1833621410041815,
+        "decode_seconds": 11.813980479993916,
+        "boundary_gray_MAD": 12.588213920593262,
+        "inside_gray_MAD": 3.2751221656799316,
+        "peak_allocated_gib": 26.58574104309082
+      },
+      {
+        "stage": "D/C8",
+        "sampling_seconds": 60.40591424900049,
+        "commit_seconds": null,
+        "decode_seconds": 13.604055561998393,
+        "boundary_gray_MAD": 12.449899673461914,
+        "inside_gray_MAD": 3.7705066204071045,
+        "peak_allocated_gib": 26.59565782546997
+      }
+    ]
+  },
+  "fair_original_vs_causal_e2e_speedup": "NOT_MEASURED",
+  "standardized_video_quality_score": "NOT_MEASURED",
+  "visual_assessment": "Existing Judge full-new-frame reviews; see linked reports, not a new blind ranking"
+}

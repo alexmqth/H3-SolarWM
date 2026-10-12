@@ -1,5 +1,7 @@
 # V3 Baseline：正式因果缓存参考
 
+**[与Original及FM-8NFE候选的集中对比：视频、效率、显存与连续性](../../original_vs_causal/README.md)**
+
 ## 名称与目的
 
 **名称解释：** Baseline 是后续实验使用的基础参考；KV 是 attention Key/Value（键和值）缓存，RoPE 是旋转位置编码。
