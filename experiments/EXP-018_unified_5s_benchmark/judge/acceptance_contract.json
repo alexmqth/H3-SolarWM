@@ -1,0 +1,23 @@
+{
+  "task": "EXP-018/v1",
+  "role": "Judge acceptance contract; expected values, NOT measured results",
+  "native_frames": 124,
+  "presentation_frames": 120,
+  "fps": 24,
+  "size": [832,480],
+  "action": "A",
+  "seed": 13,
+  "rows": [
+    {"id":"v0", "expected_sampling_nfe":30, "reference":"report/V0_original/README.md"},
+    {"id":"v1", "expected_sampling_nfe":64, "reference":"report/V1_native_causal/README.md"},
+    {"id":"v2a", "expected_sampling_nfe":64, "reference":"report/v2/v2a_rgb_anchor/README.md"},
+    {"id":"v2b", "expected_sampling_nfe":180, "reference":"report/v2/v2b_same_sigma_local_bidir/README.md"},
+    {"id":"v3_30", "expected_sampling_nfe":180, "reference":"report/v3/v3_baseline/README.md"},
+    {"id":"v3_8", "expected_sampling_nfe":48, "reference":"report/v3/fm2anyflow/fm8/README.md"},
+    {"id":"v4", "expected_sampling_nfe":48, "reference":"report/v4/dmd/README.md"}
+  ],
+  "requirements": ["fresh initial chunk in every row", "no reused generated endpoints or KV", "full-process allocated and reserved peaks include setup and decode", "single-run n=1 costs disclosed", "sampling/commit/conditioning/decode calls distinguished", "raw124 retained and display120 decoded", "quality verdict independent of execution success", "protocol/precision/offload differences disclosed", "all errors and retries included in budget"],
+  "training_updates":0,
+  "gpu_hours_cap":4,
+  "explicit_forward_cap":850
+}
