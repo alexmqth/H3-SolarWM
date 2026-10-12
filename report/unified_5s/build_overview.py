@@ -52,6 +52,7 @@ def main():
     assert not output.exists(), 'Refuse to overwrite published overview'
     title = ImageFont.truetype(FONT, 19)
     small = ImageFont.truetype(FONT, 15)
+    compact = ImageFont.truetype(FONT, 12)
     with av.open(str(output), 'w') as c:
         s = c.add_stream('libx264', rate=24, options={'crf': '18', 'preset': 'fast'})
         s.width, s.height, s.pix_fmt = 1664, 624, 'yuv420p'
@@ -62,8 +63,8 @@ def main():
             for i, row in enumerate(rows):
                 x, y = (i % 4) * 416, (i // 4) * 312
                 d.text((x + 8, y + 3), row['label'], font=title, fill='white')
-                d.text((x + 8, y + 28), f"124f wall {row['wall_seconds']:.1f}s | GPU peak {row['peak_allocated_gib']:.2f} GiB", font=small, fill='#d1dfec')
-                d.text((x + 8, y + 49), f"Sampling total {row['sampling_nfe_total']} NFE | {row['quality']}", font=small, fill='#ffd080')
+                d.text((x + 8, y + 28), f"124f wall {'~' if row['id']=='v0' else ''}{row['wall_seconds']:.1f}s | GPU peak {row['peak_allocated_gib']:.2f} GiB", font=small, fill='#d1dfec')
+                d.text((x + 8, y + 49), f"Sampling total {row['sampling_nfe_total']} NFE | {row['quality']}", font=compact, fill='#ffd080')
                 image.paste(videos[i][frame_id].resize((416, 240), Image.Resampling.LANCZOS), (x, y + 72))
             x, y = 3 * 416, 312
             lines = ['EXP-018 | fixed parking / seed13', 'A throughout | native 832 x 480', 'Each method generated fresh 124f', 'Display first120 at24fps =5.000s', 'Timing is for full124f, single run', 'No new training | no borrowed first chunk', f'Display RGB {frame_id:03d}/119 | {frame_id/24:.2f}s', 'Protocols differ: compare full methods']
@@ -86,7 +87,36 @@ def main():
             sheet.paste(videos[i][idx].resize((208, 120), Image.Resampling.LANCZOS), (j * 208, i * 154 + 30))
     poster = HERE / 'all_versions_keyframes.jpg'
     sheet.save(poster, quality=92)
-    manifest = {'input': str(args.input), 'input_sha256': sha(args.input), 'builder_sha256': sha(Path(__file__)), 'sources': [{**row, 'sha256': sha(p)} for row, p in zip(rows, sources)], 'overview': {'path': str(output.relative_to(HERE)), 'sha256': sha(output), 'frames': 120, 'fps': 24, 'seconds': 5.0, 'all_frames_decoded': True, 'pts_monotonic': True}, 'poster': {'path': poster.name, 'sha256': sha(poster), 'indices': indices}}
+    pairs = []
+    for candidate in ('v3_30', 'v3_8'):
+        pair_ids = [next(i for i,r in enumerate(rows) if r['id']==rid) for rid in ('v0',candidate)]
+        pair_path = HERE / 'videos' / f'V0_vs_{candidate}_5s.mp4'
+        assert not pair_path.exists()
+        with av.open(str(pair_path), 'w') as c:
+            s = c.add_stream('libx264', rate=24, options={'crf':'18','preset':'fast'})
+            s.width, s.height, s.pix_fmt = 1664, 552, 'yuv420p'
+            s.codec_context.thread_count = 4
+            for frame_id in range(120):
+                canvas = Image.new('RGB',(1664,552),'#132030')
+                draw = ImageDraw.Draw(canvas)
+                for col, idx in enumerate(pair_ids):
+                    r = rows[idx]
+                    x = col*832
+                    draw.text((x+12,5),r['label'],font=title,fill='white')
+                    draw.text((x+12,29),f"124f wall {'~' if r['id']=='v0' else ''}{r['wall_seconds']:.1f}s | GPU peak {r['peak_allocated_gib']:.2f} GiB | {r['quality']}",font=small,fill='#ffd080')
+                    draw.text((x+12,50),'Same I0 / seed13 / A | display first120 at24fps = 5.000s',font=small,fill='white')
+                    canvas.paste(videos[idx][frame_id],(x,72))
+                for packet in s.encode(av.VideoFrame.from_image(canvas)):
+                    c.mux(packet)
+            for packet in s.encode():
+                c.mux(packet)
+        with av.open(str(pair_path)) as c:
+            pts = [f.pts for f in c.decode(video=0)]
+            assert len(pts)==120 and all(a<b for a,b in zip(pts,pts[1:]))
+            assert str(c.streams.video[0].average_rate)=='24'
+        pairs.append({'path':str(pair_path.relative_to(HERE)),'sha256':sha(pair_path),
+            'source_ids':['v0',candidate],'frames':120,'fps':24,'seconds':5.0,'full_decode':True})
+    manifest = {'input': str(args.input), 'input_sha256': sha(args.input), 'builder_sha256': sha(Path(__file__)), 'sources': [{**row, 'sha256': sha(p)} for row, p in zip(rows, sources)], 'overview': {'path': str(output.relative_to(HERE)), 'sha256': sha(output), 'frames': 120, 'fps': 24, 'seconds': 5.0, 'all_frames_decoded': True, 'pts_monotonic': True}, 'pairs':pairs, 'poster': {'path': poster.name, 'sha256': sha(poster), 'indices': indices}}
     (HERE / 'presentation_manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(manifest['overview'], indent=2))
 

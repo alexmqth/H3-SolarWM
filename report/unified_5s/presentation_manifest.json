@@ -1,0 +1,124 @@
+{
+  "input": "submission/report/unified_5s/overview_input.json",
+  "input_sha256": "194261d0e537e178ee3b604fc8c34b8ac6143ca0e3f34046769e5b7230118813",
+  "builder_sha256": "0a5e971d74030a260628a0d64546c03ace403f058005cbe7cf98f41ac70ff8e5",
+  "sources": [
+    {
+      "id": "v0",
+      "label": "V0 Original | 30 NFE/video",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v0/display_120.mp4",
+      "wall_seconds": 802.5557351112366,
+      "peak_allocated_gib": 26.25828742980957,
+      "sampling_nfe_total": 30,
+      "quality": "Usable; minor artifacts",
+      "sha256": "dd860772123f89d2f69fd6a47d34f02621ed834181cd14f0cc4a55eefebfe7e7"
+    },
+    {
+      "id": "v1",
+      "label": "V1 causal | 8 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v1/display_120.mp4",
+      "wall_seconds": 417.8765885680041,
+      "peak_allocated_gib": 26.39293146133423,
+      "sampling_nfe_total": 64,
+      "quality": "Partial; motion stalls",
+      "sha256": "6718e20a8caa5f2212fcc10f7b2325af765f591f73e3b22bc9a1e478bc18929f"
+    },
+    {
+      "id": "v2a",
+      "label": "V2a RGB | 8 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v2a/display_120.mp4",
+      "wall_seconds": 658.412849868997,
+      "peak_allocated_gib": 26.453481197357178,
+      "sampling_nfe_total": 64,
+      "quality": "Partial; motion differs",
+      "sha256": "73ddcb90de7a37a52c2702043b361d01dee93198ff7cf66110490134a4cfab9e"
+    },
+    {
+      "id": "v2b",
+      "label": "V2b Same-sigma | 30 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v2b/display_120.mp4",
+      "wall_seconds": 2172.0144875719852,
+      "peak_allocated_gib": 26.25828742980957,
+      "sampling_nfe_total": 180,
+      "quality": "Usable; boundary artifacts",
+      "sha256": "494c4d1f31fb077082d028dc26690df6e8df028760c6d036812a00c93858e592"
+    },
+    {
+      "id": "v3_30",
+      "label": "V3 Baseline | 30 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v3_30/display_120.mp4",
+      "wall_seconds": 1358.2629536339955,
+      "peak_allocated_gib": 26.321404457092285,
+      "sampling_nfe_total": 180,
+      "quality": "Partial; transient deformation",
+      "sha256": "a83eb7104aeeeb33aa2a33e45db71b2a1cd5897829016c42b93f615e539a6eec"
+    },
+    {
+      "id": "v3_8",
+      "label": "V3 FM | 8 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v3_8/display_120.mp4",
+      "wall_seconds": 505.0672250709904,
+      "peak_allocated_gib": 26.321404457092285,
+      "sampling_nfe_total": 48,
+      "quality": "Usable; ghosting and drift",
+      "sha256": "45d9e6f7f39c72a17c3cc0c0cd8ba85095e14ad6c6a3eea718070b4bad98b8e3"
+    },
+    {
+      "id": "v4",
+      "label": "V4 DMD cycle8 | 8 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v4/display_120.mp4",
+      "wall_seconds": 485.4558077399852,
+      "peak_allocated_gib": 26.38699436187744,
+      "sampling_nfe_total": 48,
+      "quality": "FAIL: colored noise",
+      "sha256": "b7c99a093fe0ae895bd9b6e8cc942aeac4704443487d733cd906bdfee066ea6a"
+    }
+  ],
+  "overview": {
+    "path": "videos/V0_V1_V2a_V2b_V3_V4_unified_5s.mp4",
+    "sha256": "c4fd79466bcc74737b9faa2037605e53504add3957df59f178f4c9d874faa725",
+    "frames": 120,
+    "fps": 24,
+    "seconds": 5.0,
+    "all_frames_decoded": true,
+    "pts_monotonic": true
+  },
+  "pairs": [
+    {
+      "path": "videos/V0_vs_v3_30_5s.mp4",
+      "sha256": "bf1484ff98aecbb67a2ef74dceb8fcaa4c962656cfdf9f1cdc1b235079db06e5",
+      "source_ids": [
+        "v0",
+        "v3_30"
+      ],
+      "frames": 120,
+      "fps": 24,
+      "seconds": 5.0,
+      "full_decode": true
+    },
+    {
+      "path": "videos/V0_vs_v3_8_5s.mp4",
+      "sha256": "637f2da0d5c81d2817cf3ac2061c5f779f4e4deb46e9bd213265acafa88f2fc8",
+      "source_ids": [
+        "v0",
+        "v3_8"
+      ],
+      "frames": 120,
+      "fps": 24,
+      "seconds": 5.0,
+      "full_decode": true
+    }
+  ],
+  "poster": {
+    "path": "all_versions_keyframes.jpg",
+    "sha256": "ac433c51548308b3fc673f417375572935a2ede06887921e68b7f50ad418b43a",
+    "indices": [
+      0,
+      24,
+      48,
+      72,
+      96,
+      119
+    ]
+  }
+}

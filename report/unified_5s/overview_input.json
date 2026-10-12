@@ -1,0 +1,67 @@
+{
+  "rows": [
+    {
+      "id": "v0",
+      "label": "V0 Original | 30 NFE/video",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v0/display_120.mp4",
+      "wall_seconds": 802.5557351112366,
+      "peak_allocated_gib": 26.25828742980957,
+      "sampling_nfe_total": 30,
+      "quality": "Usable; minor artifacts"
+    },
+    {
+      "id": "v1",
+      "label": "V1 causal | 8 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v1/display_120.mp4",
+      "wall_seconds": 417.8765885680041,
+      "peak_allocated_gib": 26.39293146133423,
+      "sampling_nfe_total": 64,
+      "quality": "Partial; motion stalls"
+    },
+    {
+      "id": "v2a",
+      "label": "V2a RGB | 8 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v2a/display_120.mp4",
+      "wall_seconds": 658.412849868997,
+      "peak_allocated_gib": 26.453481197357178,
+      "sampling_nfe_total": 64,
+      "quality": "Partial; motion differs"
+    },
+    {
+      "id": "v2b",
+      "label": "V2b Same-sigma | 30 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v2b/display_120.mp4",
+      "wall_seconds": 2172.0144875719852,
+      "peak_allocated_gib": 26.25828742980957,
+      "sampling_nfe_total": 180,
+      "quality": "Usable; boundary artifacts"
+    },
+    {
+      "id": "v3_30",
+      "label": "V3 Baseline | 30 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v3_30/display_120.mp4",
+      "wall_seconds": 1358.2629536339955,
+      "peak_allocated_gib": 26.321404457092285,
+      "sampling_nfe_total": 180,
+      "quality": "Partial; transient deformation"
+    },
+    {
+      "id": "v3_8",
+      "label": "V3 FM | 8 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v3_8/display_120.mp4",
+      "wall_seconds": 505.0672250709904,
+      "peak_allocated_gib": 26.321404457092285,
+      "sampling_nfe_total": 48,
+      "quality": "Usable; ghosting and drift"
+    },
+    {
+      "id": "v4",
+      "label": "V4 DMD cycle8 | 8 NFE/chunk",
+      "video120": "H3-World/outputs/EXP-018_unified_5s_benchmark/v4/display_120.mp4",
+      "wall_seconds": 485.4558077399852,
+      "peak_allocated_gib": 26.38699436187744,
+      "sampling_nfe_total": 48,
+      "quality": "FAIL: colored noise"
+    }
+  ]
+}

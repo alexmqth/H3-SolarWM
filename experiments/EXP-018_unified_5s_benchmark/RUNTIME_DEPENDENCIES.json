@@ -1,0 +1,66 @@
+{
+  "task": "EXP-018/v1",
+  "scope": "native_row imported source receipt, CPU-only; no model/forward",
+  "sources": {
+    "infer": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/abot/infer.py",
+      "sha256": "ba6397fe2151a6f7b5d5ff3c3b425b1b9a6f0b8aaea6f51c6b7dca730c8f595a"
+    },
+    "benchmark_writer": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/benchmark.py",
+      "sha256": "f7cf78f3af07877dee03176ea23bf422390ba9c33af183ccfae3ac23984aa7a4"
+    },
+    "h3_cached": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_cached.py",
+      "sha256": "629f8f26d912c188d7d7122c6106ff742f5b2a633dab5881acbb1eb5f77c806e"
+    },
+    "h3_precision": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_precision.py",
+      "sha256": "ef037a952c6a1ed54c92e06300bcc8abb615424131edd74aef55abee8699cfc2"
+    },
+    "anyflow_sampling": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/anyflow_sampling.py",
+      "sha256": "9e4202bb00e528115901bc07975d0ef78f3fc1cc91190aa58bfd19ade4ecfd46"
+    },
+    "anyflow_finite_map": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/anyflow.py",
+      "sha256": "27b6eb22d16b6047642269604f1ddf249d8ab602fa5c8593b240144c48abc805"
+    },
+    "pretrained_lora": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/pretrained_lora.py",
+      "sha256": "e7616f9820eb93032c34860c2873839b98ad7b1e25cabb9c3a33cfe51393117d"
+    },
+    "local_topology": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/local_topology.py",
+      "sha256": "ab09f33c4e847adc3d67f14c6de26cd3bd963402b79114875104816abd4a2f93"
+    },
+    "interval_forward": {
+      "path": "submission/experiments/EXP-001_v2b_124/interval_forward.py",
+      "sha256": "8b2565b124612f4377f6669946bce589a64e905a4658954d4b4cf9f2746456bf"
+    },
+    "interval_sw": {
+      "path": "submission/experiments/EXP-005_v3_sliding_window/interval_sw.py",
+      "sha256": "56bbd6229a9da44e00b4535f510028ba77c1709d66aff8ab2bea507990de9c17"
+    },
+    "interval_student": {
+      "path": "submission/experiments/EXP-007_v3_anyflow/interval_student.py",
+      "sha256": "2974f9336f713cd10ccc9b11e0c2270ec6b81b52166461c31f8fd066b365a356"
+    },
+    "current_prefix": {
+      "path": "submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py",
+      "sha256": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310"
+    },
+    "chunk_plan": {
+      "path": "submission/experiments/EXP-005_v3_sliding_window/chunk_plan.py",
+      "sha256": "40e0cbfde20fcf3489e493f1c1dd6f5df76eacaa92229722f3fa10b9598b4e60"
+    },
+    "position_sw": {
+      "path": "submission/experiments/EXP-005_v3_sliding_window/position_sw.py",
+      "sha256": "c1d26591521d0efc4dcef656bd57550ab9132f3f53aa5cafdbd3bfa11b871f97"
+    },
+    "rollout_contract": {
+      "path": "submission/experiments/EXP-001_v2b_124/rollout_contract.py",
+      "sha256": "79b6e672cf8d97ba57f3d62e876a0e0bd901f78654cb2c1f9766818378ef2377"
+    }
+  }
+}

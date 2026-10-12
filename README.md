@@ -1,5 +1,7 @@
 # H3-SolarWM：因果世界模型研究
 
+**最新完整对比（EXP-018）：[V0–V4 七配置统一 5 秒视频、完整生成耗时、采样 NFE 与峰值显存](report/unified_5s/README.md)。** 含七版本同屏、逐版本视频，以及 Original/V3 两种双栏对照；全部为本轮从噪声重新生成。
+
 **核心对比：[Original H3-World vs V3因果版本：视频、推理耗时、峰值显存、质量与连续性](report/original_vs_causal/README.md)。** 包含正式Baseline和SW-G + FM-8NFE候选，统计范围与缺项单独说明。
 
 **命名规范（2026-10-12）：** `AF-train-32updates`是训练累计更新状态；`AF-8NFE` / `FM-8NFE`是每块推理求值配置；EXP-007 / AF2是训练阶段编号。[完整映射与计数说明](report/GLOSSARY.md)。
@@ -20,6 +22,6 @@
 
 ## 当前状态
 
-截至2026-10-11 09:00获批研究已收口。EXP-015/016完成真实数据和VAE验证；EXP-017固定动作位置布局仅通过CPU验收，实际模型/生成尚未测试。[下一阶段草案](report/02_next_steps/README.md)建议先做实际模型回归与真实混合动作的FM-30NFE/FM-8NFE局部续写，尚未启动。
+2026-10-13 EXP-018统一基准已完成：7行完整124帧、120帧/5秒展示、645 forward、0训练，质量结论分别保留；V4全噪声FAIL。此前截至2026-10-11 09:00的研究任务也已收口。EXP-015/016完成真实数据和VAE验证；EXP-017固定动作位置布局仅通过CPU验收，实际模型/生成尚未测试。[下一阶段草案](report/02_next_steps/README.md)建议先做实际模型回归与真实混合动作的FM-30NFE/FM-8NFE局部续写，尚未启动。
 
 `report/`保存易读说明和代表性视频，`experiments/`保存任务原始证据。V4是研究分类，当前无已验收V4生成模型；原EXP目录、checkpoint与冻结结果保留。根目录progress.md和next_plan.md分别管理正式状态与执行授权。

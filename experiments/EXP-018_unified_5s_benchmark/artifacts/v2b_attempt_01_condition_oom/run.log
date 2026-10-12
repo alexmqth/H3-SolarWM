@@ -1,0 +1,160 @@
+[preflight] diffsynth resolved from the v2 checkout: ok /home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+[preflight] directed attention mask present: ok 
+[preflight] packed-sequence builder is the per-latent version: ok 
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: [
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_text_encoder",
+    "model_class": "diffsynth.models.minimax_h3_text_encoder.MiniMaxH3TextEncoder",
+    "extra_kwargs": null
+}
+Loading models from: [
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_dit",
+    "model_class": "diffsynth.models.minimax_h3_dit.MiniMaxH3DiT",
+    "extra_kwargs": null
+}
+Loading models from: "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+Loading models from: "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_audio_vae",
+    "model_class": "diffsynth.models.minimax_h3_audio_vae.MiniMaxH3AudioVAE",
+    "extra_kwargs": null
+}
+Using minimax_h3_text_encoder from [
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors"
+].
+Using minimax_h3_dit from [
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors"
+].
+Using minimax_h3_video_vae from "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+Using minimax_h3_audio_vae from "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors".
+104 tensors are patched by LoRA. You can use `pipe.clear_lora()` to clear all LoRA layers.
+Traceback (most recent call last):
+  File "/home/qma/work/GWM/submission/experiments/EXP-018_unified_5s_benchmark/native_row.py", line 265, in <module>
+    run(a.row,a.out)
+  File "/home/qma/work/GWM/submission/experiments/EXP-018_unified_5s_benchmark/native_row.py", line 103, in run
+    shared,pos,neg=pipe.unit_runner(unit,pipe,shared,pos,neg)
+  File "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/diffsynth/diffusion/base_pipeline.py", line 518, in __call__
+    processor_outputs = unit.process(pipe, **processor_inputs)
+  File "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py", line 319, in process
+    hidden = pipe.text_encoder(**kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_text_encoder.py", line 93, in forward
+    outputs = self.model(
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/transformers/utils/generic.py", line 1072, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 1223, in forward
+    outputs = self.language_model(
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/transformers/utils/generic.py", line 1072, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 850, in forward
+    layer_outputs = decoder_layer(
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/transformers/utils/deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 517, in forward
+    hidden_states = self.mlp(hidden_states)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 472, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/h3world/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/diffsynth/core/vram/layers.py", line 436, in forward
+    weight, bias = self.computation()
+  File "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/diffsynth/core/vram/layers.py", line 422, in computation
+    weight = self.cast_to(self.weight, self.computation_dtype, self.computation_device)
+  File "/home/qma/work/GWM/H3-World/DiffSynth-Studio-h3-v2/diffsynth/core/vram/layers.py", line 61, in cast_to
+    r = torch.empty_like(weight, dtype=dtype, device=device)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 250.00 MiB. GPU 0 has a total capacity of 44.39 GiB of which 139.31 MiB is free. Including non-PyTorch memory, this process has 44.25 GiB memory in use. Of the allocated memory 43.63 GiB is allocated by PyTorch, and 120.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

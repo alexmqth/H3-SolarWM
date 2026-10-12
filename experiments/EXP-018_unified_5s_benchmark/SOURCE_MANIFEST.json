@@ -1,0 +1,74 @@
+{
+  "task": "EXP-018/v1",
+  "created_at": "2026-10-13T00:39:54.887955+08:00",
+  "source": {
+    "first_rgb": {
+      "path": "H3-World/examples/first_frame.png",
+      "sha256": "25729ce66bc578c90a6d262bf3879a3e7b16e5c5009362903a7fae6d757a4b00"
+    },
+    "released_action_lora": {
+      "path": "models/H3-World/step-10000.safetensors",
+      "sha256": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526"
+    },
+    "benchmark": {
+      "path": "H3-World/code/causal/benchmark.py",
+      "sha256": "f7cf78f3af07877dee03176ea23bf422390ba9c33af183ccfae3ac23984aa7a4"
+    },
+    "native_runner": {
+      "path": "submission/experiments/EXP-018_unified_5s_benchmark/native_row.py",
+      "sha256": "fbd2d6577657bbd9c51e609b73a1b262b2291060564d53957985170b1d36897e"
+    },
+    "v2a_visual": {
+      "path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/causal_adapter.pt",
+      "sha256": "a374bfcafe414322b52aa6f18fba7f28996041aae6c11c5eaebaab553f2abe10"
+    },
+    "v2a_action": {
+      "path": "H3-World/outputs/2026-10-06-09/visual_online_rgb_tail16_endpoint_ad2/action_adapter.pt",
+      "sha256": "ef41475b6fc5601ee9a17485a027af69f03217fb34ccbc1891d3fef4f11c6b7a"
+    },
+    "dmd_result": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/result.json",
+      "sha256": "1c8104b704ef8cda248789c8cee48668b3149b97c6070b0f2b5fe10f2a282428"
+    },
+    "v3_fixture": {
+      "path": "H3-World/outputs/2026-10-09-22/chunk_partition_cb/source_coarse/inputs/parking_A.pt",
+      "sha256": "675f7c35a523f8b634a443b71f9108a4b945ecb9eb66fb6bb821c1829f3d5572"
+    },
+    "v4_student_qkv.pt": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_08/student_qkv.pt",
+      "sha256": "49534764770bd2cdc182624bd6f1c947daed1406824cc201b52d01897015bc06"
+    },
+    "v4_student_target.pt": {
+      "path": "H3-World/outputs/EXP-008_v3_dmd_train_v2/cycle_08/student_target.pt",
+      "sha256": "ad5bce068b92653d1b84946fef1377d3ed264e9b9c0f0cb320f9aec40efb6130"
+    }
+  },
+  "rows": [
+    "v0",
+    "v1",
+    "v2a",
+    "v2b",
+    "v3_30",
+    "v3_8",
+    "v4"
+  ],
+  "seed": 13,
+  "rgb_frames_generated": 124,
+  "rgb_frames_display": 120,
+  "resolution": [
+    832,
+    480
+  ],
+  "fps": 24,
+  "flow_shift": 2.22,
+  "gpu_hour_cap": 4,
+  "forward_cap": 850,
+  "row_wall_cap_seconds": 2700,
+  "no_existing_endpoint_or_kv": true,
+  "pre_forward_amendment": {
+    "reason": "Native four rows now rerun the exact same full37 text/I0 conditioning in each process, to make cold total comparable. V0 was already in-flight; no native GPU forward had started. Original manifest preserved as SOURCE_MANIFEST_initial_preflight.json.",
+    "at": "2026-10-13 00:46 HKT",
+    "note": "Before native launch: encode timing includes final H.264; text/image unit-call count marked not instrumented rather than zero.",
+    "retry": "v2b attempt1 OOM during text conditioning, 0 denoiser. Frozen benchmark main is under torch.no_grad; initial native wrapper lacked that around unit_runner, retaining Qwen activations. Retry wraps condition in no_grad and moves h3_fp32 DiT switch after condition to avoid encoder/DiT overlap. Precision profile, weights, input, solver unchanged. attempt1 preserved and charged."
+  }
+}

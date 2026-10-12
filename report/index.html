@@ -6,8 +6,16 @@
 <h1>H3-SolarWM：按研究问题看视频</h1>
 <p><strong>正式参考：V3 Baseline，30步、124帧。</strong> 因果缓存、动作和基本结构有限可行；画质与连续性PARTIAL。V3下分滑窗与FM → AnyFlow，DMD归V4 SGF研究。</p>
 <nav><a href="README.md">完整导航</a> · <a href="GLOSSARY.md">缩写表</a> · <a href="roadmap.md">研究路线</a> · <a href="02_next_steps/README.md">下一步草案</a></nav>
+<section class="card" id="unified-5s">
+<h2>最新：V0–V4 七配置统一 5 秒对比</h2>
+<p><a href="unified_5s/README.md">完整耗时 / NFE / GPU 与 CPU KV 峰值 / 质量表</a> · <a href="unified_5s/results.csv">下载 CSV</a></p>
+<video controls preload="none" playsinline poster="unified_5s/all_versions_keyframes.jpg" src="unified_5s/videos/V0_V1_V2a_V2b_V3_V4_unified_5s.mp4"></video>
+<p>同初图、持续 A、seed13、同一 L40；各版本本轮新生成124帧，展示前120帧/24fps=5.000秒，成本计完整124帧。V0约802.6s；V3 Baseline 1358.3s；V3 FM-8NFE 505.1s。单次、协议/系统缓存有差异，详见报告。</p>
+<p><a href="unified_5s/videos/V0_vs_v3_30_5s.mp4">清晰双栏：Original / V3 Baseline</a> · <a href="unified_5s/videos/V0_vs_v3_8_5s.mp4">清晰双栏：Original / V3 FM-8NFE</a></p>
+<p class="note">V3画质与连续性仍PARTIAL；V4当前DMD权重全片彩色噪声，生成FAIL，真实负结果保留。</p>
+</section>
 <section class="card" id="original-vs-causal">
-<h2>先看核心对比：Original H3-World vs V3 因果版本</h2>
+<h2>历史对比：Original H3-World vs V3 因果版本</h2>
 <p><a href="original_vs_causal/README.md">耗时、峰值显存、视频质量与视觉连续性汇总</a> · <a href="original_vs_causal/comparison_keyframes.jpg">三种方法的代表帧</a></p>
 <p><strong>左Original / 右正式V3 Baseline：持续A，124帧。</strong></p>
 <video controls preload="none" playsinline src="v3/v3_baseline/videos/Original_vs_V3_Baseline_AA_124.mp4"></video>
