@@ -22,6 +22,8 @@
 
 ## 当前状态
 
+**2026-10-15：[EXP-019混合动作协议验证](experiments/EXP-019_v3_mixed_action_validation/README.md)进行中。** 固定布局的真实模型canonical回归与四场景条件编码已验收；首scene真实历史FM30/FM8续写交Exp Worker执行。暂无新训练或生成能力升级。[后续基线路线](experiments/EXP-019_v3_mixed_action_validation/BASELINE_ROADMAP.md)。
+
 2026-10-13 EXP-018统一基准已完成：7行完整124帧、120帧/5秒展示、645 forward、0训练，质量结论分别保留；V4全噪声FAIL。此前截至2026-10-11 09:00的研究任务也已收口。EXP-015/016完成真实数据和VAE验证；EXP-017固定动作位置布局仅通过CPU验收，实际模型/生成尚未测试。[下一阶段草案](report/02_next_steps/README.md)建议先做实际模型回归与真实混合动作的FM-30NFE/FM-8NFE局部续写，尚未启动。
 
 `report/`保存易读说明和代表性视频，`experiments/`保存任务原始证据。V4是研究分类，当前无已验收V4生成模型；原EXP目录、checkpoint与冻结结果保留。根目录progress.md和next_plan.md分别管理正式状态与执行授权。

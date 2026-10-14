@@ -1,0 +1,15 @@
+{
+  "scope": "read-only inventory; not inference validation",
+  "checkpoint": "models/SolarWM/SolarWM-h3-33B-sgf-stage2-158f-fix",
+  "ema_sha256": "92e8f4b07aa92b0453a2f63954db1421caa3b8cac83ece706535db1a91493a05",
+  "step": 3900,
+  "bytes": 4150961218,
+  "environment_exists": true,
+  "gpu_calls": 0,
+  "next_requirements": [
+    "official backend import",
+    "base/support data completeness",
+    "fixed camera-conditioned sample",
+    "separate task budget"
+  ]
+}

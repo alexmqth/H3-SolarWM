@@ -1,0 +1,106 @@
+[preflight] diffsynth resolved from the v2 checkout: ok /home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+[preflight] directed attention mask present: ok 
+[preflight] packed-sequence builder is the per-latent version: ok 
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: [
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_text_encoder",
+    "model_class": "diffsynth.models.minimax_h3_text_encoder.MiniMaxH3TextEncoder",
+    "extra_kwargs": null
+}
+Loading models from: [
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_dit",
+    "model_class": "diffsynth.models.minimax_h3_dit.MiniMaxH3DiT",
+    "extra_kwargs": null
+}
+Loading models from: "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+Loading models from: "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_audio_vae",
+    "model_class": "diffsynth.models.minimax_h3_audio_vae.MiniMaxH3AudioVAE",
+    "extra_kwargs": null
+}
+Using minimax_h3_text_encoder from [
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors"
+].
+Using minimax_h3_dit from [
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors"
+].
+Using minimax_h3_video_vae from "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+Using minimax_h3_audio_vae from "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors".
+104 tensors are patched by LoRA. You can use `pipe.clear_lora()` to clear all LoRA layers.
+REGRESSION {'index': 0, 'sigma': 1.0, 'state_sha256': '39b8e6f5053b6569fb67a64ceb89575ee2baff02753650a82ecad5012c1a53e6', 'exact': True, 'max_abs': 0.0, 'relative_rms': 0.0}
+REGRESSION {'index': 0, 'sigma': 0.5, 'state_sha256': '800ca8db2b90d111f036ebbec38e9152f7b7effe1b392116fde5049813dd484f', 'exact': True, 'max_abs': 0.0, 'relative_rms': 0.0}
+REGRESSION {'index': 1, 'sigma': 1.0, 'state_sha256': '9571b2309b5e8a593acc49c88231a1e8b6f0ecadb8680023bd750308a8dcab74', 'exact': True, 'max_abs': 0.0, 'relative_rms': 0.0}
+REGRESSION {'index': 1, 'sigma': 0.5, 'state_sha256': '5c60e05fe78a133f728e76bf75e2820f2c41156c43569b46d69d1a1fb4d5e0cb', 'exact': True, 'max_abs': 0.0, 'relative_rms': 0.0}
