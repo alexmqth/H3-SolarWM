@@ -1,0 +1,21 @@
+{
+  "decision": "ACCEPT_LOCAL_VISUAL_FEASIBILITY_ACTION_PARTIAL",
+  "scene": "43866101",
+  "artifact_hash_checks": 13,
+  "forward": 39,
+  "commit_subset": 1,
+  "decode": 2,
+  "wall_seconds": 332.1718622879707,
+  "allocated_gib": 24.945041179656982,
+  "cpu_kv_bytes": 6799104000,
+  "visual_review": {
+    "frames": "RGB39..55 all 17 frames for both FM30/FM8 plus RGB35..38 boundary history",
+    "structure": "single recognizable person and continuous road/trees/rocks; no sustained disintegration",
+    "motion": "walking and scene displacement present",
+    "quality": "PARTIAL: local softness and pose/path differs from observed future",
+    "action": "PARTIAL/UNRESOLVED: compound action semantics not established by single sequence or flow sign",
+    "switching": "NOT_TESTED: s0 constant compound action",
+    "free_running": "NOT_TESTED"
+  },
+  "remaining_scene_release": "fixed order7199292c,9dc2e588,b784d995; stop on sustained collapse or definite action failure; no retries"
+}

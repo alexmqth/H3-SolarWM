@@ -1,0 +1,197 @@
+{
+  "status": "PASS_IMPLEMENTATION_PENDING_QUALITY_JUDGE",
+  "scope": "CPU validation of first real GT-history C2 continuation; not free-running",
+  "budget": {
+    "counts": {
+      "forward": 39,
+      "commit": 1,
+      "decode": 2,
+      "text": 0
+    },
+    "elapsed": 332.1718622879707,
+    "peak_allocated_gib": 24.945041179656982,
+    "peak_reserved_gib": 27.154296875
+  },
+  "source_fixture_sha256": "d343a6a98e0b71b7922d7faa4d3b101ca1560f5f80a592dc08a88c2c4b996bcd",
+  "cache_layers": 50,
+  "cpu_kv_bytes": 6799104000,
+  "videos": {
+    "source": {
+      "path": "submission/experiments/EXP-015_v3_real56_data/artifacts/43866101/real56.mp4",
+      "sha256": "e32b6156c2d73df7ddd34cfda0fee98d7184a1be293bdd2747583941d06fb9a7",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm30_display": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/43866101/fm30_gt39_plus_generated17.mp4",
+      "sha256": "8af14c55d6527ec4091769fc9671c1af4facb130b83a6736493a8c674a8f568c",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm8_display": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/43866101/fm8_gt39_plus_generated17.mp4",
+      "sha256": "9218b94ec8eefebfc49752b5764272e66827dd60f303cdde0ff5684c5a30e47d",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm30_raw": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/43866101/fm30_raw_decode56.mp4",
+      "sha256": "b2e8838a406ab6816aee215c32855555e736b2ae7d2e06ffe9b21c3f90939c77",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm8_raw": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/43866101/fm8_raw_decode56.mp4",
+      "sha256": "ff1f2c1411176630fa80a39d7300aa8332a75ad08b7678dbb46d9f90e81ad68f",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "combined": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/43866101/source_vs_fm30_vs_fm8.mp4",
+      "sha256": "2cc685523692dc00d76b44e4ed9e6db2f8388fbace9c0934e8735d41c96b8040",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        2496,
+        512
+      ],
+      "pts_unique_increasing": true
+    }
+  },
+  "endpoints": {
+    "30": {
+      "sha256": "53010a34cfe915eb11d7e6a19a35042da1414e6b334a92dcaccf6a13ead04085",
+      "shape": [
+        1,
+        24,
+        5,
+        30,
+        52
+      ],
+      "finite": true
+    },
+    "8": {
+      "sha256": "9be696aa9578e86ef55bac0c841acdeedfb3b945cfff356918ba2a88952046d7",
+      "shape": [
+        1,
+        24,
+        5,
+        30,
+        52
+      ],
+      "finite": true
+    }
+  },
+  "prefix_after_h264": {
+    "fm30_source_mean_abs": 2.002927303314209,
+    "fm8_source_mean_abs": 2.0022847652435303,
+    "fm30_fm8_exact_after_decode": false,
+    "note": "H.264 re-encoding makes displayed MP4 prefix differ slightly from original decoded source; runner assigns identical source RGB arrays before encoding."
+  },
+  "motion_auxiliary": {
+    "source": {
+      "boundary_mad_38_39": 8.546791076660156,
+      "within_c2_mad_mean": 9.437921345233917,
+      "within_c2_mad_max": 12.4263277053833,
+      "central_median_horizontal_flow_sum_c2": -28.13795280456543,
+      "central_median_horizontal_flow_per_transition": [
+        -2.724268913269043,
+        -1.3326544761657715,
+        -1.3473000526428223,
+        -1.375328540802002,
+        -2.659001350402832,
+        -1.3867950439453125,
+        -1.3996062278747559,
+        -1.4148452281951904,
+        -2.8472113609313965,
+        -1.4592201709747314,
+        -1.466867208480835,
+        -1.4360239505767822,
+        -2.90078067779541,
+        -1.4609673023223877,
+        -1.4583556652069092,
+        -1.468726634979248
+      ]
+    },
+    "fm30": {
+      "boundary_mad_38_39": 7.909293174743652,
+      "within_c2_mad_mean": 8.486588507890701,
+      "within_c2_mad_max": 12.338666915893555,
+      "central_median_horizontal_flow_sum_c2": -35.168270111083984,
+      "central_median_horizontal_flow_per_transition": [
+        -2.4957973957061768,
+        -1.6240321397781372,
+        -2.0408377647399902,
+        -2.051046371459961,
+        -4.348623275756836,
+        -1.5690134763717651,
+        -2.0877113342285156,
+        -1.8375301361083984,
+        -4.086297035217285,
+        -1.677213430404663,
+        -1.6553148031234741,
+        -1.4806993007659912,
+        -4.017064094543457,
+        -1.5055971145629883,
+        -1.1289585828781128,
+        -1.5625338554382324
+      ]
+    },
+    "fm8": {
+      "boundary_mad_38_39": 8.145801544189453,
+      "within_c2_mad_mean": 7.602519333362579,
+      "within_c2_mad_max": 11.169418334960938,
+      "central_median_horizontal_flow_sum_c2": -35.10841178894043,
+      "central_median_horizontal_flow_per_transition": [
+        -3.20957088470459,
+        -1.6599581241607666,
+        -2.0727896690368652,
+        -1.449260950088501,
+        -4.22198486328125,
+        -1.0916210412979126,
+        -2.0793399810791016,
+        -1.724890112876892,
+        -4.426802635192871,
+        -1.3926255702972412,
+        -1.7661635875701904,
+        -1.4430503845214844,
+        -3.940601348876953,
+        -1.6990315914154053,
+        -1.3643085956573486,
+        -1.5664124488830566
+      ]
+    }
+  },
+  "all_17_new_frames_contact": "submission/experiments/EXP-019_v3_mixed_action_validation/G1_ALL_NEW17_CONTACT.jpg",
+  "limitations": [
+    "Only RGB39..55 are newly generated",
+    "Source future is loaded for side-by-side display but is not passed into the DiT forward",
+    "One mixed action schedule with no counterfactual",
+    "Farneback sign is not an action correctness verdict"
+  ]
+}

@@ -6,7 +6,8 @@
 
 - R已验收：4组velocity、50层150组K/V/RoPE逐值一致，10forward，379.384秒。
 - E已验收：四真实I0/head与混合动作编码，14text，192.620秒；未来embedding隔离通过。
-- G1仅首scene43866101已放行给Exp Worker；生成结果尚未提交。
+- G1已验收：首scene局部视觉可用，动作语义PARTIAL，39forward/332.172秒。仅后17帧新生成；[GT/FM30/FM8对比视频](artifacts/G1_43866101/source_vs_fm30_vs_fm8.mp4)。
+- [G1审核与G2放行](judge/G1_REVIEW_AND_G2_RELEASE.md)：其余三scene按固定顺序单卡执行，仍无训练。
 - [R审核](judge/R_REVIEW_AND_E_RELEASE.md) · [E审核及G1授权](judge/E_REVIEW_AND_G1_RELEASE.md)。
 - 大型fixture `.pt` 仅本地保留，Git发布来源清单、哈希、代码、日志和报告；manifest中的本地tensor并非Git已包含文件。
 
@@ -19,7 +20,7 @@
 
 任务、资源与停止条件见[任务书](taskbook_v1.md)。源码[run.py](run.py)为独立入口，冻结V3不修改。阶段结果会归档至artifacts/，Judge审核位于judge/。当前状态以根目录progress.md和next_plan.md为准。
 
-当前执行记录：P0 已完成；[R canonical 回归](R_WORKER_REPORT.md)已由 Judge 审核接受；[E 真实条件编码](E_WORKER_REPORT.md)已完成并提交待审，四场景 fixture、[独立 CPU 审计](E_CPU_AUDIT.json)和[原始证据 SHA 清单](E_ARTIFACT_MANIFEST.json)均已保存。G1/G2 尚无 GPU 放行。G 前所需的 ffmpeg 任务路径已作[仅 CPU 预检](FFMPEG_CPU_PREFLIGHT.json)，没有启动视频生成。
+当前执行记录：P0 已完成；[R canonical 回归](R_WORKER_REPORT.md)与[E 真实条件编码](E_WORKER_REPORT.md)均已由 Judge 审核接受。四场景 E fixture、[独立 CPU 审计](E_CPU_AUDIT.json)和[原始证据 SHA 清单](E_ARTIFACT_MANIFEST.json)均已保存。[G1 首场景 GT-history 续写](G1_WORKER_REPORT.md)已完成并提交待 Judge 质量审核，[56 帧三列视频](artifacts/G1_43866101/source_vs_fm30_vs_fm8.mp4)与[全部 17 张新增帧](G1_ALL_NEW17_CONTACT.jpg)可直接查看。G2 余三场景尚无 marker，未启动。
 
 ## 视频口径
 
