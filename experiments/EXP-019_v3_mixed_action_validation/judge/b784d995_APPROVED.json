@@ -6,11 +6,9 @@
   "max_forwards": 39,
   "max_decodes": 2,
   "max_seconds": 900,
-  "order": [
-    "7199292c",
-    "9dc2e588",
-    "b784d995"
-  ],
-  "stop_remaining_on_sustained_failure": true,
-  "executor": "existing Exp Worker"
+  "executor": "existing Exp Worker",
+  "approved_gpu": 3,
+  "max_concurrent_project_gpus": 3,
+  "scheduling": "independent parallel scenes",
+  "parallel_addendum_sha256": "aca5b2e212d5c93b6b560946d7d5e2056a323210f33cc729ca562e54fc2c8e90"
 }
