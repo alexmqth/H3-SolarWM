@@ -1,0 +1,29 @@
+{
+  "status": "PASS_CPU_SOURCE_LAYOUT_ONLY",
+  "gpu_calls": 0,
+  "sources": {
+    "submission/experiments/EXP-002_native_cached/interval_cached.py": "1d4885a837d8ae449c218f63a56deda05d21b436d162dd2abaffa742d59599d0",
+    "submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_cached.py": "629f8f26d912c188d7d7122c6106ff742f5b2a633dab5881acbb1eb5f77c806e",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/local_topology.py": "ab09f33c4e847adc3d67f14c6de26cd3bd963402b79114875104816abd4a2f93",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_precision.py": "ef037a952c6a1ed54c92e06300bcc8abb615424131edd74aef55abee8699cfc2",
+    "H3-World/outputs/EXP-016_v3_real56_vae/b784d995/full17.pt": "f176fad88197b17962071c1e56ce92a0dc3e71434ddb3baf053b3e4ba5fb21d3",
+    "H3-World/outputs/EXP-016_v3_real56_vae/b784d995/prefix12.pt": "b6a10297cfae2fcac963c74f3a538ed1e1db89d262a090236753fbc77bf8cbe9"
+  },
+  "fixture": {
+    "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/E/b784d995.pt",
+    "sha256": "0347bbdd9c7860bef593f8861eca495fe91a0708cfdbee59f45409640eaae9cc"
+  },
+  "clean_prefix12_exact": true,
+  "future_action_embedding_C1_isolated": true,
+  "native_partition": [
+    12,
+    5
+  ],
+  "frame_rows": 390,
+  "new_wrapper": {
+    "path": "submission/experiments/EXP-022_v3_fm_training_profile/interval_train.py",
+    "sha256": "9cba78bae7b1d15a6fa87a915c327369cef0fce745d79212835d187796839313"
+  },
+  "scope": "CPU structural checks; 33B forward/KV equivalence pending authorized GPU"
+}

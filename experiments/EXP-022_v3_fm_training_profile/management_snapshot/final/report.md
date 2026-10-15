@@ -1,0 +1,12 @@
+# EXP-022/v1 Worker 报告：真实 V3 普通 FM 训练通路完成，待 Judge 验收
+
+2026-10-15 HKT。根据[冻结任务书](submission/experiments/EXP-022_v3_fm_training_profile/taskbook_v1.md)与[授权](submission/experiments/EXP-022_v3_fm_training_profile/AUTHORIZATION.json)，完成 36 条真实 RGB 候选窗口物化、独立可微 V3 当前块 wrapper、checkpoint0 数值等价门槛，以及单卡 2 次真实普通 FM 更新与保存重载。旧 EXP-021 与正式 V3 未改动；此前根报告内容存于[历史快照](submission/experiments/EXP-022_v3_fm_training_profile/REPORT_BEFORE_EXP022.md)，只调整其相对链接。Worker 未操作 Git。
+
+[完整 Worker 报告](submission/experiments/EXP-022_v3_fm_training_profile/WORKER_REPORT.md) · [实验目录](submission/experiments/EXP-022_v3_fm_training_profile/README.md) · [GPU 原始账本](submission/experiments/EXP-022_v3_fm_training_profile/GPU_BUDGET.json) · [独立 CPU 审计](submission/experiments/EXP-022_v3_fm_training_profile/CPU_FINAL_AUDIT.json)
+
+- 数据：EXP-021 固定的 28 train +8 dev 新窗口均已输出真实 56 帧/24fps/832×480 MP4，逐条完整解码；另 4 条旧 train 视频复用。独立审计重新解码 2016 帧并核 SHA/PTS。36 MP4 直接文件量 60,959,823 bytes，contact sheet 2,007,685 bytes，合计 62,967,508 bytes。`RGB_MATERIALIZATION.json` 的约1.08GiB整文件系统 free-space 差值受并发写入混杂，不能归因本任务。新窗口没有 VAE/text 编码，开发集仅2个已观察 episode，仍无独立盲测集。[数据质控](submission/experiments/EXP-022_v3_fm_training_profile/DATA_QA.json) · [接触图总览](submission/experiments/EXP-022_v3_fm_training_profile/RGB_OVERVIEW.jpg)。
+- checkpoint0：冻结 V3 与零增量 tail8 QKV rank8 新 wrapper 在同 GT C1、同 C2 noisy latent、σ=0.5 下，50层150项K/V/RoPE和 C2 velocity **逐值一致**。新 adapter 1,720,320 可训练参数；base/released Action LoRA冻结。[KV 对比](submission/experiments/EXP-022_v3_fm_training_profile/CACHE_EQUIVALENCE.json) · [velocity 对比](submission/experiments/EXP-022_v3_fm_training_profile/FORWARD_EQUIVALENCE.json)。
+- 真实 C2 FM：σ=0.5/0.75 各更新一次，loss分别0.18504572/0.11402790，梯度有限且非零、参数实际改变、冻结参数无梯度；每次更新前按当前 adapter 重建 clean C1 KV。两个 loss 的 σ 不同，**不能写成下降趋势**。step02保存了 optimizer/CPU与CUDA RNG，重载后固定状态输出和CUDA RNG逐值一致。[更新结果](submission/experiments/EXP-022_v3_fm_training_profile/UPDATES.json) · [重载证据](submission/experiments/EXP-022_v3_fm_training_profile/RELOAD_CHECK.json)。
+- 单 GPU0 账本 **413.200秒、11顶层 DiT forward、2 backward、2 update、0 VAE/text/生成采样**；peak allocated 20.293GiB、reserved 22.852GiB，事件采样最大 host RSS 64.704GiB，结束 RSS 58.848GiB，连续 host 真峰未测。每次 clean C1 CPU KV 6,799,104,000 bytes。更新核心含 commit 约29.244/26.062秒，首次冷启动 commit 147.759秒。Activation checkpoint/CPU offload 的重算包含在 backward 时间内，精确层数未单独埋点。
+
+**验收范围仅是单条已编码 train episode 的 C2 工程训练通路。** 首块训练、更多样本吞吐、checkpoint0/训练后生成画质、动作控制、GT 对 self-generated history、泛化和 tail8 容量均未验证；不能把两次更新写成模型能力改善。[后续数据编码、8-update停点及固定验证预算草案](submission/experiments/EXP-022_v3_fm_training_profile/NEXT_STAGE_BUDGET_DRAFT.md)已提交，尚非执行授权。

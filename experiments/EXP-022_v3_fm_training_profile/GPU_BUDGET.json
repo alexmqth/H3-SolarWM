@@ -1,0 +1,257 @@
+{
+  "task": "EXP-022/v1",
+  "status": "COMPLETE_PENDING_JUDGE",
+  "gpu_physical": 0,
+  "elapsed_gpu_process_seconds": 413.2004166399711,
+  "counts": {
+    "top_level_forward": 11,
+    "backward": 2,
+    "update": 2,
+    "vae": 0,
+    "text": 0,
+    "sampling": 0
+  },
+  "limits": {
+    "top_level_forward": 20,
+    "backward": 2,
+    "update": 2,
+    "vae": 0,
+    "text": 0,
+    "sampling": 0,
+    "wall_seconds": 3600,
+    "peak_allocated_gib": 44
+  },
+  "peak_allocated_gib": 20.293106079101562,
+  "peak_reserved_gib": 22.8515625,
+  "rss_gib": 58.8477668762207,
+  "events": [
+    {
+      "kind": "timing",
+      "name": "load_model",
+      "seconds": 81.42996208398836,
+      "elapsed_at_end": 82.45209909800906,
+      "allocated_gib": 0.028066158294677734,
+      "rss_gib": 6.586029052734375
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "reference index=0 sigma=0.0 commit=True",
+      "reserved_at_seconds": 82.4546735190088
+    },
+    {
+      "kind": "timing",
+      "name": "reference_clean_commit",
+      "seconds": 147.75854808505392,
+      "elapsed_at_end": 230.2132313280017,
+      "allocated_gib": 18.28275966644287,
+      "rss_gib": 58.35823440551758
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "reference index=1 sigma=0.5 commit=False",
+      "reserved_at_seconds": 230.2329092900036
+    },
+    {
+      "kind": "timing",
+      "name": "reference_c2_velocity",
+      "seconds": 11.437119740003254,
+      "elapsed_at_end": 241.66999226401094,
+      "allocated_gib": 18.281626224517822,
+      "rss_gib": 58.359588623046875
+    },
+    {
+      "kind": "timing",
+      "name": "save_checkpoint0",
+      "seconds": 0.016491372021846473,
+      "elapsed_at_end": 241.72314321401063,
+      "allocated_gib": 18.28733730316162,
+      "rss_gib": 58.368812561035156
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "new index=0 sigma=0.0 commit=True grad=False",
+      "reserved_at_seconds": 241.72498340898892
+    },
+    {
+      "kind": "timing",
+      "name": "new_clean_commit",
+      "seconds": 14.6548853769782,
+      "elapsed_at_end": 256.37985034799203,
+      "allocated_gib": 18.28916835784912,
+      "rss_gib": 64.70192337036133
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "new index=1 sigma=0.5 commit=False grad=False",
+      "reserved_at_seconds": 299.28897643001983
+    },
+    {
+      "kind": "timing",
+      "name": "new_c2_velocity",
+      "seconds": 22.748248335032258,
+      "elapsed_at_end": 322.03720202000113,
+      "allocated_gib": 18.288034915924072,
+      "rss_gib": 64.7042236328125
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "new index=0 sigma=0.0 commit=True grad=False",
+      "reserved_at_seconds": 325.37665518798167
+    },
+    {
+      "kind": "timing",
+      "name": "step1_clean_commit",
+      "seconds": 17.050762500963174,
+      "elapsed_at_end": 342.42739760898985,
+      "allocated_gib": 18.28916835784912,
+      "rss_gib": 58.72728729248047
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "new index=1 sigma=0.5 commit=False grad=True",
+      "reserved_at_seconds": 342.43090769601986
+    },
+    {
+      "kind": "timing",
+      "name": "step1_forward",
+      "seconds": 9.402659742976539,
+      "elapsed_at_end": 351.83355651196325,
+      "allocated_gib": 18.385704517364502,
+      "rss_gib": 59.00697708129883
+    },
+    {
+      "kind": "backward",
+      "note": "step1",
+      "reserved_at_seconds": 351.894772671978
+    },
+    {
+      "kind": "timing",
+      "name": "step1_backward",
+      "seconds": 2.6191288310219534,
+      "elapsed_at_end": 354.5155229209922,
+      "allocated_gib": 18.311315536499023,
+      "rss_gib": 58.78060531616211
+    },
+    {
+      "kind": "update",
+      "note": "step1",
+      "reserved_at_seconds": 354.5247885779827
+    },
+    {
+      "kind": "timing",
+      "name": "step1_optimizer",
+      "seconds": 0.17053783597657457,
+      "elapsed_at_end": 354.70730969001306,
+      "allocated_gib": 18.324132919311523,
+      "rss_gib": 58.81239318847656
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "new index=0 sigma=0.0 commit=True grad=False",
+      "reserved_at_seconds": 356.0745344349998
+    },
+    {
+      "kind": "timing",
+      "name": "step2_clean_commit",
+      "seconds": 14.73807790299179,
+      "elapsed_at_end": 370.8125888829818,
+      "allocated_gib": 18.31816005706787,
+      "rss_gib": 58.84258270263672
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "new index=1 sigma=0.75 commit=False grad=True",
+      "reserved_at_seconds": 370.8149010160123
+    },
+    {
+      "kind": "timing",
+      "name": "step2_forward",
+      "seconds": 9.155215377977584,
+      "elapsed_at_end": 379.9701066800044,
+      "allocated_gib": 18.407280445098877,
+      "rss_gib": 59.121620178222656
+    },
+    {
+      "kind": "backward",
+      "note": "step2",
+      "reserved_at_seconds": 379.97215999499895
+    },
+    {
+      "kind": "timing",
+      "name": "step2_backward",
+      "seconds": 2.1680435290327296,
+      "elapsed_at_end": 382.14117587998044,
+      "allocated_gib": 18.324132919311523,
+      "rss_gib": 58.8426399230957
+    },
+    {
+      "kind": "update",
+      "note": "step2",
+      "reserved_at_seconds": 382.15053621900734
+    },
+    {
+      "kind": "timing",
+      "name": "step2_optimizer",
+      "seconds": 0.0010312650119885802,
+      "elapsed_at_end": 382.16097855899716,
+      "allocated_gib": 18.324132919311523,
+      "rss_gib": 58.8426399230957
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "new index=0 sigma=0.0 commit=True grad=False",
+      "reserved_at_seconds": 383.42679681198206
+    },
+    {
+      "kind": "timing",
+      "name": "final_clean_commit",
+      "seconds": 13.774479923013132,
+      "elapsed_at_end": 397.20125397096854,
+      "allocated_gib": 18.31816005706787,
+      "rss_gib": 58.8426628112793
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "new index=1 sigma=0.5 commit=False grad=False",
+      "reserved_at_seconds": 397.2099057089654
+    },
+    {
+      "kind": "timing",
+      "name": "pre_reload_velocity",
+      "seconds": 7.615401623013895,
+      "elapsed_at_end": 404.8252809839905,
+      "allocated_gib": 18.317724227905273,
+      "rss_gib": 58.8426628112793
+    },
+    {
+      "kind": "timing",
+      "name": "save_step02",
+      "seconds": 0.04225611098809168,
+      "elapsed_at_end": 404.8755233970005,
+      "allocated_gib": 18.31632900238037,
+      "rss_gib": 58.8426628112793
+    },
+    {
+      "kind": "timing",
+      "name": "reload_step02",
+      "seconds": 0.0187887919601053,
+      "elapsed_at_end": 404.92650951398537,
+      "allocated_gib": 18.31632947921753,
+      "rss_gib": 58.8432731628418
+    },
+    {
+      "kind": "top_level_forward",
+      "note": "new index=1 sigma=0.5 commit=False grad=False",
+      "reserved_at_seconds": 404.9374293999863
+    },
+    {
+      "kind": "timing",
+      "name": "post_reload_velocity",
+      "seconds": 8.173070250020828,
+      "elapsed_at_end": 413.11048008099897,
+      "allocated_gib": 18.31702709197998,
+      "rss_gib": 58.843299865722656
+    }
+  ],
+  "error": null
+}

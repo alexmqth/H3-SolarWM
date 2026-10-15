@@ -1,0 +1,24 @@
+{
+  "status": "PASS_CPU_RGB_QA",
+  "new_videos": 36,
+  "reused_existing_train": 4,
+  "train_total": 32,
+  "dev_total": 8,
+  "split_counts": {
+    "train": 28,
+    "validation": 8
+  },
+  "new_disk_bytes": 1163227136,
+  "wall_seconds": 298.5119295309996,
+  "decode_checks": "all 56 frames 832x480 24fps, monotone unique PTS",
+  "near_black_failures": 0,
+  "overview": "RGB_OVERVIEW.jpg",
+  "visual_note": "36 first-frame overview visually checked: characters/scenes visible; some source episodes are naturally dark, particularly dfec8ed3 and b784d995. Individual 8-frame contact sheets retained. This is source-RGB QC, not model quality.",
+  "excluded_clip_ids": [],
+  "vae_encoded_new": 0,
+  "text_encoded_new": 0,
+  "actual_artifact_bytes": 62967508,
+  "actual_video_bytes": 60959823,
+  "actual_contact_bytes": 2007685,
+  "disk_accounting_note": "RGB_MATERIALIZATION.new_disk_bytes is whole-filesystem free-space delta during a concurrent GPU process and is not attributable solely to EXP-022; direct artifact file sizes are reported above."
+}

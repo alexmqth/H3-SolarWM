@@ -12,3 +12,5 @@
 `teacher` 是提供监督的较慢参考模型；`target` 是学生以后可能要学习的目标输出。这里的 `teacher_generated_targets` 比旧名 `v3_teacher_targets` 更明确：它是候选数据，不是 V3 的又一个模型版本。GT（Ground Truth）指真实记录，不能用教师生成结果冒充。
 
 [返回 FM → AnyFlow](../README.md) · [缩写表](../../../GLOSSARY.md)
+
+- [普通FM真实训练通路与资源测试（EXP-022）](../../../../experiments/EXP-022_v3_fm_training_profile/README.md)：工程PASS，2updates，质量未测。后续[32条/128updates计划（EXP-023）](../../../../experiments/EXP-023_v3_fm_small_data/README.md)已授权。
