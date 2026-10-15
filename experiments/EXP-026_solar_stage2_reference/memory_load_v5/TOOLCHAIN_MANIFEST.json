@@ -1,0 +1,56 @@
+{
+  "status": "USER_LOCAL_CUDA_12_4_COMPILER_READY",
+  "files": {
+    "nvidia_cuda_nvcc_pip_wheel": {
+      "path": "/home/qma/work/GWM/.toolchains/exp026_v5/downloads/nvidia_cuda_nvcc_cu12-12.4.131-py3-none-manylinux2014_x86_64.whl",
+      "bytes": 22265199,
+      "sha256": "e4c9a35435c3b0e36c6397c5696334c9ea6650e524736cbd1c5d345ea099bb04"
+    },
+    "nvidia_cuda_runtime_pip_wheel": {
+      "path": "/home/qma/work/GWM/.toolchains/exp026_v5/downloads/nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl",
+      "bytes": 883737,
+      "sha256": "64403288fa2136ee8e467cdc9c9427e0434110899d07c779f25b5c068934faa5"
+    },
+    "nvidia_conda_cuda_nvcc": {
+      "path": "/home/qma/work/GWM/.toolchains/exp026_v5/downloads/cuda-nvcc-12.4.131-0.tar.bz2",
+      "bytes": 65674958,
+      "sha256": "8342cc8ca1d82923bf46ee42f6f61e53b7b0f16cc5189573259ab9a655b78997"
+    },
+    "nvidia_conda_cuda_cudart_dev": {
+      "path": "/home/qma/work/GWM/.toolchains/exp026_v5/downloads/cuda-cudart-dev-12.4.127-0.tar.bz2",
+      "bytes": 422630,
+      "sha256": "1cd8b5e46d89bef1c618fc58e7540dd113eee2e5d409554795d808b4fe6e2e2c"
+    },
+    "nvidia_conda_cuda_cccl": {
+      "path": "/home/qma/work/GWM/.toolchains/exp026_v5/downloads/cuda-cccl-12.4.127-0.tar.bz2",
+      "bytes": 1460617,
+      "sha256": "0818bede93df28b2ab7993b591f73f6e00a680145011a4a4ad8c3fb10f0c9df2"
+    },
+    "official_pypi_flash_attn_source": {
+      "path": "/home/qma/work/GWM/.toolchains/exp026_v5/downloads/flash_attn-2.8.3.tar.gz",
+      "bytes": 8447812,
+      "sha256": "1e71dd64a9e0280e0447b8a0c2541bad4bf6ac65bdeaa2f90e51a9e57de0370d"
+    },
+    "user_nvcc": {
+      "path": "/home/qma/work/GWM/.toolchains/exp026_v5/cuda-12.4/bin/nvcc",
+      "bytes": 22677896,
+      "sha256": "7d410554086f7b5bedd83611d56d5a481ba4dbd2e5da00c7ce0da124129ad9d5"
+    }
+  },
+  "cuda_home": "/home/qma/work/GWM/.toolchains/exp026_v5/cuda-12.4",
+  "cuda_nvcc_version": "12.4.131",
+  "torch_version": "2.6.0+cu124",
+  "torch_cxx11_abi": false,
+  "torch_cuda_version_check": "PASS_CPU_NO_CUDA_INIT",
+  "source_version": "flash-attn 2.8.3 official PyPI sdist",
+  "build_options": {
+    "FLASH_ATTENTION_FORCE_BUILD": "TRUE",
+    "FLASH_ATTENTION_FORCE_CXX11_ABI": "FALSE",
+    "FLASH_ATTN_CUDA_ARCHS": "80",
+    "TORCH_CUDA_ARCH_LIST": "8.0",
+    "MAX_JOBS": "4",
+    "NVCC_THREADS": "1"
+  },
+  "nvidia_download_bytes": 90707141,
+  "all_download_bytes": 99154953
+}
