@@ -1,0 +1,13 @@
+{
+  "task": "EXP-024/v2",
+  "status": "PREFLIGHT_PASS_STARTING",
+  "physical_gpu": 0,
+  "gpu_preflight": "0, GPU-d77c5635-02ec-c2d2-d744-1dfcc4a14e8f, NVIDIA L40, 0, 45458",
+  "compute_apps_on_gpu0": 0,
+  "started_unix_seconds": 1792067735.9865484,
+  "command": "CUDA_VISIBLE_DEVICES=0 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=4 timeout --signal=TERM --kill-after=10s 1770s .venvs/h3world/bin/python -u submission/experiments/EXP-024_v3_fm_coverage_preparation/profile_gpu.py --authorization submission/experiments/EXP-024_v3_fm_coverage_preparation/GPU_AUTHORIZATION.json",
+  "authorization_sha256": "b7a1a4d5b126e92b8e4ded1483619c812196bdf7efe348d8018c93ed1b331a28",
+  "source_manifest_sha256": "4b133bffe3d1b15d2e4cf31b6dea268f568b39beff51a05c84622964173c447f",
+  "outer_timeout_seconds": 1770,
+  "exit_code": null
+}

@@ -1,0 +1,172 @@
+{
+  "status": "CPU_STATIC_AUDIT",
+  "task": "EXP-024/v1",
+  "source_checkpoint_sha256": {
+    "checkpoint_000.pt": "a6ad15180e272aedd9e79ca4d019c18b36c7a1af30689e6b507ceb1a163fbed4",
+    "checkpoint_128.pt": "735b2dc04f5c8ca6f581d142220db7f74eeed74443503c94880a325f3128bcde"
+  },
+  "source_module": "causal.pretrained_lora.CausalQKVLoRA",
+  "module_shape": {
+    "in_features": 5376,
+    "out_features": 21504,
+    "blocks": 50,
+    "scale": "1/rank"
+  },
+  "per_layer": [
+    {
+      "layer": 42,
+      "rank": 8,
+      "A_delta_fro": 1.8382730051021554,
+      "B_delta_fro": 1.6112097876155556,
+      "A_final_fro": 4.551640418935042,
+      "B_final_fro": 1.6112097876155556,
+      "delta_weight_fro": 0.47021210485728654,
+      "unit_isotropic_input_output_rms": 0.006413043342836394,
+      "nonzero_B": 172032,
+      "note": "weight-space proxy only; no H3 hidden-state/output effect measured"
+    },
+    {
+      "layer": 43,
+      "rank": 8,
+      "A_delta_fro": 1.660297603193406,
+      "B_delta_fro": 1.6743851673024994,
+      "A_final_fro": 4.45961479299216,
+      "B_final_fro": 1.6743851673024994,
+      "delta_weight_fro": 0.4595230417681822,
+      "unit_isotropic_input_output_rms": 0.006267259293092408,
+      "nonzero_B": 172032,
+      "note": "weight-space proxy only; no H3 hidden-state/output effect measured"
+    },
+    {
+      "layer": 44,
+      "rank": 8,
+      "A_delta_fro": 1.4978521514164127,
+      "B_delta_fro": 1.6638441940335165,
+      "A_final_fro": 4.439954394932843,
+      "B_final_fro": 1.6638441940335165,
+      "delta_weight_fro": 0.43340579489637393,
+      "unit_isotropic_input_output_rms": 0.0059110561361462475,
+      "nonzero_B": 172032,
+      "note": "weight-space proxy only; no H3 hidden-state/output effect measured"
+    },
+    {
+      "layer": 45,
+      "rank": 8,
+      "A_delta_fro": 1.4773156401893166,
+      "B_delta_fro": 1.6978033884495825,
+      "A_final_fro": 4.419066883305445,
+      "B_final_fro": 1.6978033884495825,
+      "delta_weight_fro": 0.44505327694272534,
+      "unit_isotropic_input_output_rms": 0.006069911696066022,
+      "nonzero_B": 172032,
+      "note": "weight-space proxy only; no H3 hidden-state/output effect measured"
+    },
+    {
+      "layer": 46,
+      "rank": 8,
+      "A_delta_fro": 1.4880743923744402,
+      "B_delta_fro": 1.6527571408786954,
+      "A_final_fro": 4.413389137887426,
+      "B_final_fro": 1.6527571408786954,
+      "delta_weight_fro": 0.43424045142941076,
+      "unit_isotropic_input_output_rms": 0.005922439697878184,
+      "nonzero_B": 172032,
+      "note": "weight-space proxy only; no H3 hidden-state/output effect measured"
+    },
+    {
+      "layer": 47,
+      "rank": 8,
+      "A_delta_fro": 1.3368164811332073,
+      "B_delta_fro": 1.6006760321096152,
+      "A_final_fro": 4.366330031632988,
+      "B_final_fro": 1.6006760321096152,
+      "delta_weight_fro": 0.4020923527838105,
+      "unit_isotropic_input_output_rms": 0.005483984056531843,
+      "nonzero_B": 172032,
+      "note": "weight-space proxy only; no H3 hidden-state/output effect measured"
+    },
+    {
+      "layer": 48,
+      "rank": 8,
+      "A_delta_fro": 1.4528663239660748,
+      "B_delta_fro": 1.6176270070735017,
+      "A_final_fro": 4.397165172330916,
+      "B_final_fro": 1.6176270070735017,
+      "delta_weight_fro": 0.4190839533484244,
+      "unit_isotropic_input_output_rms": 0.005715726008215765,
+      "nonzero_B": 172032,
+      "note": "weight-space proxy only; no H3 hidden-state/output effect measured"
+    },
+    {
+      "layer": 49,
+      "rank": 8,
+      "A_delta_fro": 1.6979307524161995,
+      "B_delta_fro": 1.6094475119197984,
+      "A_final_fro": 4.511662629620231,
+      "B_final_fro": 1.6094475119197984,
+      "delta_weight_fro": 0.4606501969939845,
+      "unit_isotropic_input_output_rms": 0.006282632132801349,
+      "nonzero_B": 172032,
+      "note": "weight-space proxy only; no H3 hidden-state/output effect measured"
+    }
+  ],
+  "variants": {
+    "tail8_rank8": {
+      "layers": 8,
+      "rank": 8,
+      "trainable_parameters": 1720320,
+      "parameter_bytes_fp32": 6881280,
+      "gradient_bytes_fp32": 6881280,
+      "adamw_m_v_bytes_fp32": 13762560,
+      "static_train_bytes_sum": 27525120,
+      "checkpoint_adapter_plus_m_v_bytes": 20643840,
+      "excludes": [
+        "base/released-action weights",
+        "activations",
+        "checkpoint recomputation",
+        "CPU raw KV",
+        "allocator fragmentation",
+        "optimizer temporaries"
+      ]
+    },
+    "full50_rank8": {
+      "layers": 50,
+      "rank": 8,
+      "trainable_parameters": 10752000,
+      "parameter_bytes_fp32": 43008000,
+      "gradient_bytes_fp32": 43008000,
+      "adamw_m_v_bytes_fp32": 86016000,
+      "static_train_bytes_sum": 172032000,
+      "checkpoint_adapter_plus_m_v_bytes": 129024000,
+      "excludes": [
+        "base/released-action weights",
+        "activations",
+        "checkpoint recomputation",
+        "CPU raw KV",
+        "allocator fragmentation",
+        "optimizer temporaries"
+      ]
+    },
+    "full50_rank32": {
+      "layers": 50,
+      "rank": 32,
+      "trainable_parameters": 43008000,
+      "parameter_bytes_fp32": 172032000,
+      "gradient_bytes_fp32": 172032000,
+      "adamw_m_v_bytes_fp32": 344064000,
+      "static_train_bytes_sum": 688128000,
+      "checkpoint_adapter_plus_m_v_bytes": 516096000,
+      "excludes": [
+        "base/released-action weights",
+        "activations",
+        "checkpoint recomputation",
+        "CPU raw KV",
+        "allocator fragmentation",
+        "optimizer temporaries"
+      ]
+    }
+  },
+  "observed_exp023_peak_allocated_gib": 24.539616107940674,
+  "observed_exp023_cpu_raw_kv_bytes": 6799104000,
+  "caution": "Static parameter cost cannot predict full-layer backward VRAM/time or video quality."
+}

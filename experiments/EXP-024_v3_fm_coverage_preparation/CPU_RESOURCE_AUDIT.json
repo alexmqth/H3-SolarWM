@@ -1,0 +1,33 @@
+{
+  "task": "EXP-024/v1",
+  "gpu_calls": 0,
+  "threads_max": 4,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "timed_reruns": [
+    {
+      "script": "audit_parameters.py",
+      "wall_seconds": 1.63,
+      "peak_rss_kib": 685300
+    },
+    {
+      "script": "real_input_audit.py",
+      "wall_seconds": 1.86,
+      "peak_rss_kib": 659976
+    },
+    {
+      "script": "cpu_test.py",
+      "wall_seconds": 4.76,
+      "peak_rss_kib": 960876
+    },
+    {
+      "script": "full_layer_lifecycle_cpu.py",
+      "wall_seconds": 5.58,
+      "peak_rss_kib": 964468
+    }
+  ],
+  "measurement": "/usr/bin/time -f wall and max RSS on sequential idempotent reruns; excludes editorial time, no simultaneous CPU jobs"
+}

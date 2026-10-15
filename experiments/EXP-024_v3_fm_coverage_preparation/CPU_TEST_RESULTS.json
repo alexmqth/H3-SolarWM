@@ -1,0 +1,86 @@
+{
+  "status": "PASS_CPU_TOY_PRODUCTION_BOUNDARY",
+  "gpu_calls": 0,
+  "real_h3_backward_tested": false,
+  "dtype": "float32",
+  "backend": "CPU_SDPA",
+  "C1": {
+    "block": "C1",
+    "sigma": 0.25,
+    "loss": 1.852450966835022,
+    "grad_l2": 0.00040349335176870227,
+    "cpu_kv_bytes": 0,
+    "loss_normalization": "mean_per_latent_element_equal_block_sampling"
+  },
+  "C2": {
+    "block": "C2",
+    "sigma": 0.75,
+    "loss": 1.2583500146865845,
+    "grad_l2": 0.0011922050034627318,
+    "cpu_kv_bytes": 432,
+    "loss_normalization": "mean_per_latent_element_equal_block_sampling"
+  },
+  "trace": [
+    {
+      "phase": "forward",
+      "index": 0,
+      "history_rows": 0,
+      "route": "current_prefix"
+    },
+    {
+      "phase": "backward",
+      "index": 0,
+      "history_rows": 0,
+      "route": "current_prefix"
+    },
+    {
+      "phase": "commit",
+      "index": 0,
+      "history_rows": 0,
+      "route": "current_prefix"
+    },
+    {
+      "phase": "forward",
+      "index": 1,
+      "history_rows": 12,
+      "route": "current_prefix"
+    },
+    {
+      "phase": "backward",
+      "index": 1,
+      "history_rows": 12,
+      "route": "current_prefix"
+    },
+    {
+      "phase": "forward",
+      "index": 0,
+      "history_rows": 0,
+      "route": "current_prefix"
+    },
+    {
+      "phase": "backward",
+      "index": 0,
+      "history_rows": 0,
+      "route": "current_prefix"
+    },
+    {
+      "phase": "forward",
+      "index": 0,
+      "history_rows": 0,
+      "route": "current_prefix"
+    },
+    {
+      "phase": "backward",
+      "index": 0,
+      "history_rows": 0,
+      "route": "current_prefix"
+    }
+  ],
+  "future_action_video_perturbation_invisible_to_C1": true,
+  "balanced_sampler_two_epochs_exact": true,
+  "frozen_base_grad_absent": true,
+  "save_restore_optimizer_rng_exact": true,
+  "repeat_update_exact": true,
+  "attention_scope_restored": true,
+  "note": "Mock DiT model_fn; actual interval_train, visible_inputs, ChunkAttention and verified_attention_scope used."
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_CPU_PRE_OPTIMIZER_FAULT_GATES",
+  "gpu_calls": 0,
+  "same_size_kv_mutation": {
+    "injected": "KV key element 20 changed in-place during backward replay before attention",
+    "legacy_exp023_cache_signature_unchanged": true,
+    "raw_kv_byte_size_unchanged": true,
+    "full_payload_digest_rejected": true,
+    "optimizer_step_calls": 0,
+    "error": "training forward/backward mutated history KV content or structure"
+  },
+  "missing_route_layer": {
+    "injected": "remove layer49 from route gate evidence",
+    "attempted_blocks": [
+      "C1"
+    ],
+    "completed_updates": 0,
+    "optimizer_step_calls": 0,
+    "error": "pre-optimizer route gate: missing layer in forward_C1"
+  },
+  "frozen_gradient_injection": {
+    "injected": "frozen base weight.grad set immediately before gate",
+    "optimizer_step_calls": 0,
+    "error": "pre-optimizer frozen base/action parameter has gradient"
+  },
+  "actual_33b_backward_tested": false
+}
