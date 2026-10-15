@@ -1,0 +1,194 @@
+{
+  "phase": "pre",
+  "checkpoint_updates": 0,
+  "videos": [
+    {
+      "role": "train_constant",
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56",
+      "history": "GT first39 displayed and committed",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_before/train_constant_GT39_generated17.mp4",
+      "sha256": "9843e65f9b2d0185bc3b7cf2aa1bed79477ec6ca46ed3f967b6221e2274efebb",
+      "sampling_seconds": 43.39454534999095,
+      "boundary_mad": 6.715360409989316,
+      "frame_mad": 7.468948590472028,
+      "cpu_kv_bytes": 6799104000
+    },
+    {
+      "role": "train_switch",
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56",
+      "history": "GT first39 displayed and committed",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_before/train_switch_GT39_generated17.mp4",
+      "sha256": "d3074649884cad377b077c006b5df26e7ecf229c43461ee71951d66422cbb630",
+      "sampling_seconds": 42.54879898898071,
+      "boundary_mad": 10.718111478365385,
+      "frame_mad": 8.576833463845183,
+      "cpu_kv_bytes": 6799104000
+    },
+    {
+      "role": "dev_constant",
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56",
+      "history": "GT first39 displayed and committed",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_before/dev_constant_GT39_generated17.mp4",
+      "sha256": "115096f0cfe4275cd56f7420ee11b8bb593865b47ab8aaca23923ae94b482f59",
+      "sampling_seconds": 39.178536608000286,
+      "boundary_mad": 16.08651926415598,
+      "frame_mad": 17.560448384081198,
+      "cpu_kv_bytes": 6799104000
+    },
+    {
+      "role": "dev_switch",
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56",
+      "history": "GT first39 displayed and committed",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_before/dev_switch_GT39_generated17.mp4",
+      "sha256": "ad21b6f31e3821b77babd80c23e064e096fdf854f4c03a5b2afef419d237c52e",
+      "sampling_seconds": 41.7772797740181,
+      "boundary_mad": 8.423614449786324,
+      "frame_mad": 7.888673544337607,
+      "cpu_kv_bytes": 6799104000
+    },
+    {
+      "role": "dev_constant",
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56",
+      "history": "self-generated C1 and C2",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_before/dev_constant_self56.mp4",
+      "sha256": "448fd559f23acd9a8de540114d4dedd0d3ecb1c93ce551fad06262db5f7e501a",
+      "sampling_c1_seconds": 51.68678828602424,
+      "sampling_c2_seconds": 46.43407324299915,
+      "boundary_mad": 14.689611712072649,
+      "frame_mad": 13.196651900616745,
+      "cpu_kv_bytes": 6799104000
+    },
+    {
+      "role": "dev_switch",
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56",
+      "history": "self-generated C1 and C2",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_before/dev_switch_self56.mp4",
+      "sha256": "8c89e0131a505cb3a079bf36097573eb309b3a633861d60988539667ebda6bb6",
+      "sampling_c1_seconds": 63.47690759698162,
+      "sampling_c2_seconds": 45.012962797947694,
+      "boundary_mad": 10.12372045272436,
+      "frame_mad": 5.920228790306916,
+      "cpu_kv_bytes": 6799104000
+    }
+  ],
+  "probes": {
+    "train_constant": {
+      "C1": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.20764301717281342,
+          "velocity_rms": 1.3700824975967407
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.07526750862598419,
+          "velocity_rms": 1.4114102125167847
+        }
+      ],
+      "C2": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.23326611518859863,
+          "velocity_rms": 1.3913685083389282
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.07158318161964417,
+          "velocity_rms": 1.442662239074707
+        }
+      ]
+    },
+    "train_switch": {
+      "C1": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.20588047802448273,
+          "velocity_rms": 1.4073946475982666
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.07143039256334305,
+          "velocity_rms": 1.448625087738037
+        }
+      ],
+      "C2": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.25309792160987854,
+          "velocity_rms": 1.4282286167144775
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.09104790538549423,
+          "velocity_rms": 1.4741865396499634
+        }
+      ]
+    },
+    "dev_constant": {
+      "C1": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.19203586876392365,
+          "velocity_rms": 1.3735158443450928
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.0733569785952568,
+          "velocity_rms": 1.411953330039978
+        }
+      ],
+      "C2": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.21301239728927612,
+          "velocity_rms": 1.3949055671691895
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.07476051896810532,
+          "velocity_rms": 1.4379743337631226
+        }
+      ]
+    },
+    "dev_switch": {
+      "C1": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.19775500893592834,
+          "velocity_rms": 1.4250046014785767
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.0750211626291275,
+          "velocity_rms": 1.4627578258514404
+        }
+      ],
+      "C2": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.2154892385005951,
+          "velocity_rms": 1.4638715982437134
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.08150558173656464,
+          "velocity_rms": 1.5005439519882202
+        }
+      ]
+    }
+  },
+  "budget": {
+    "dit": 96,
+    "backward": 0,
+    "update": 0,
+    "vae_decode": 6,
+    "vae_encode": 0,
+    "text": 0
+  }
+}

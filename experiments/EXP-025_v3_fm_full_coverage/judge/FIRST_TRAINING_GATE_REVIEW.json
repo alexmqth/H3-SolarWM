@@ -1,0 +1,24 @@
+{
+  "status": "PASS_FIRST_REAL_C1_C2_TRAINING_GATES",
+  "gates": [
+    {
+      "block": "C1",
+      "step": 1,
+      "layers": 50,
+      "frozen_grad_absent": true,
+      "cpu_kv_bytes": 0
+    },
+    {
+      "block": "C2",
+      "step": 2,
+      "layers": 50,
+      "frozen_grad_absent": true,
+      "cpu_kv_bytes": 6799104000
+    }
+  ],
+  "pre_eval_videos": 6,
+  "video_sha_match": true,
+  "fixed_pre_probes": 16,
+  "quality_verdict": "PENDING_POST_COMPARISON",
+  "scope": "No new GPU calls; recorded gate proof plus pre-eval artifact SHA verification. Full cache digest guard is enforced by frozen coverage.fm_step before optimizer."
+}
