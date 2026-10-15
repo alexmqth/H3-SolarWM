@@ -1,0 +1,11 @@
+{
+  "base_transformer_bytes_per_rank": 66280430080,
+  "base_transformer_gib_per_rank": 61.72846078872681,
+  "bf16_lora_parameters_per_rank": 2075394048,
+  "bf16_lora_bytes_per_rank": 4150788096,
+  "base_plus_lora_eight_rank_gib_lower_bound": 524.7534675598145,
+  "observed_mem_available_bytes": 586833055744,
+  "observed_mem_available_gib": 546.5308723449707,
+  "difference_available_minus_lower_bound_gib": 21.77740478515625,
+  "interpretation": "Lower bound is not an actual measured peak. Checkpoint loading, Python/PEFT, FSDP flattening and page cache can raise transient host demand. Do not launch without independent memory gate."
+}

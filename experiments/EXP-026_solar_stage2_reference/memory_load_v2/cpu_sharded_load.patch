@@ -1,0 +1,117 @@
+--- a/src/solarwm/backends/minimax_h3/optional.py
++++ b/src/solarwm/backends/minimax_h3/optional.py
+@@ -99,7 +99,9 @@
+     return current
+ 
+ 
+-def load_transformer(model_cfg: Mapping[str, Any], *, device: Any) -> H3RuntimeModules:
++def load_transformer(
++    model_cfg: Mapping[str, Any], *, device: Any, defer_cuda_for_fsdp: bool = False
++) -> H3RuntimeModules:
+     """Strict-load the official 33B transformer through the camera adapter."""
+ 
+     _torch, _diffusers, _transformers = require_h3_runtime()
+@@ -121,7 +123,12 @@
+     # (including Qwen token refinement and SGF score models) remains Flash.
+     requested_backend = str(model_cfg.get("attention_backend", "flash"))
+     transformer.set_attention_backend("flash" if requested_backend == "flex" else requested_backend)
+-    if model_cfg.get("transformer_device_map") is None:
++    if defer_cuda_for_fsdp:
++        if model_cfg.get("transformer_device_map") is not None:
++            raise BackendContractError("CPU-sharded load requires transformer_device_map=null")
++        if any(parameter.device.type != "cpu" for parameter in transformer.parameters()):
++            raise BackendContractError("CPU-sharded load found a non-CPU base parameter")
++    elif model_cfg.get("transformer_device_map") is None:
+         transformer = transformer.to(device)
+     fp32_units = tuple(
+         _resolve_owner(transformer, owner)
+--- a/src/solarwm/backends/minimax_h3/runtime.py
++++ b/src/solarwm/backends/minimax_h3/runtime.py
+@@ -1366,6 +1366,56 @@
+     return f"inventory:file={sidecar.name}:bytes={size}:role={source}"
+ 
+ 
++def _prepare_h3_inference_model(config: Mapping[str, Any], *, device: Any, topology: Topology, stage: str):
++    """Keep the opt-in CPU -> cross-SP FSDP load order explicit and testable."""
++    from .fsdp import wrap_h3_fsdp
++    from .lora import inject_h3_lora
++    import torch.distributed as dist
++
++    model_cfg = config["model"]
++    cpu_sharded = model_cfg.get("cpu_sharded_load", False) is True
++    if cpu_sharded and (
++        stage != "stage2" or topology.raw_world_size != 8
++        or topology.sp_size != 4 or topology.dp_world_size != 2
++        or int(config["validation"]["sample_count"]) != 2
++    ):
++        raise BackendContractError("CPU-sharded fixed Stage2 requires SP4, DP2 and two cases")
++    if cpu_sharded and (not dist.is_initialized() or dist.get_world_size() != 8):
++        raise BackendContractError("CPU-sharded inference requires an initialized eight-rank group")
++    modules = load_transformer(model_cfg, device=device, defer_cuda_for_fsdp=cpu_sharded)
++    if stage == "stage1":
++        modules.transformer.enable_anyflow(float(config["train"]["anyflow_gate"]))
++        modules.fp32_fsdp_units = (
++            *modules.fp32_fsdp_units,
++            modules.transformer.delta_embedding.linear_1,
++            modules.transformer.delta_embedding.linear_2,
++        )
++    modules.transformer.eval().requires_grad_(False)
++    base_model = _base_model_load_receipt(model_cfg, modules.transformer)
++    model, lora = inject_h3_lora(
++        modules.transformer, model_cfg["adapter"], base_identity=base_model,
++    )
++    if cpu_sharded:
++        # FSDP ignores replicated LoRA tensors; move only these to local CUDA.
++        # The frozen base stays on CPU until each FSDP unit is flattened/sharded.
++        for parameter in lora.parameters:
++            parameter.data = parameter.data.to(device=device)
++        ignored_ids = {id(item) for item in lora.parameters}
++        if any(parameter.device.type != "cpu" for parameter in modules.transformer.parameters()
++               if id(parameter) not in ignored_ids):
++            raise BackendContractError("frozen base moved to CUDA before FSDP")
++    model = wrap_h3_fsdp(
++        model,
++        local_rank=topology.local_rank,
++        transformer_block_cls=modules.transformer_block_cls,
++        fp32_units=modules.fp32_fsdp_units,
++        ignored_parameters=lora.parameters,
++        activation_checkpointing=False,
++        frozen_base_shard_size=8 if cpu_sharded else None,
++    )
++    return model, lora, base_model
++
++
+ def run_inference(config: Mapping[str, Any]) -> int:
+     if config.get("inference", {}).get("length_policy") == "source":
+         from .full_inference import run_source_length_inference
+@@ -1396,28 +1446,8 @@
+     device = torch.device("cuda", topology.local_rank)
+     identity = rng_identity("minimax_h3", int(config["data"].get("seed", 42)), topology)
+     seed_process(identity.model_init_seed)
+-    modules = load_transformer(config["model"], device=device)
+-    if stage == "stage1":
+-        modules.transformer.enable_anyflow(float(config["train"]["anyflow_gate"]))
+-        modules.fp32_fsdp_units = (
+-            *modules.fp32_fsdp_units,
+-            modules.transformer.delta_embedding.linear_1,
+-            modules.transformer.delta_embedding.linear_2,
+-        )
+-    modules.transformer.eval().requires_grad_(False)
+-    base_model = _base_model_load_receipt(config["model"], modules.transformer)
+-    model, lora = inject_h3_lora(
+-        modules.transformer,
+-        config["model"]["adapter"],
+-        base_identity=base_model,
+-    )
+-    model = wrap_h3_fsdp(
+-        model,
+-        local_rank=topology.local_rank,
+-        transformer_block_cls=modules.transformer_block_cls,
+-        fp32_units=modules.fp32_fsdp_units,
+-        ignored_parameters=lora.parameters,
+-        activation_checkpointing=False,
++    model, lora, base_model = _prepare_h3_inference_model(
++        config, device=device, topology=topology, stage=stage,
+     )
+     sample_count, num_waves = _validation_schedule(config["validation"], topology)
+     stream = _reader(
