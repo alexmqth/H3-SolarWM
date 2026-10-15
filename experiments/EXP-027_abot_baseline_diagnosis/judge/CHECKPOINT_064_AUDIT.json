@@ -1,0 +1,83 @@
+{
+  "status": "CHECKPOINT64_TRAIN_ORDER_AND_PROBES_VERIFIED",
+  "checkpoint_sha256": "05bfcae810afd4b86f073ec30582eccdea854a610c1fd345bd3cee8cb6c73635",
+  "updates": 64,
+  "train_exposures": {
+    "43866101158a538d22c52ac5b2fa606b_src0621_rgb56": 32,
+    "7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56": 32
+  },
+  "layers": 50,
+  "optimizer_states": 100,
+  "finite_shapes_and_rng": "PASS",
+  "probe_statistics": {
+    "32": [
+      {
+        "clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56",
+        "before": 0.16839587613940238,
+        "after": 0.16817701011896133,
+        "change_pct": -0.12997112842588754
+      },
+      {
+        "clip": "43866101158a538d22c52ac5b2fa606b_src0621_rgb56",
+        "before": 0.18377771228551865,
+        "after": 0.1836005613207817,
+        "change_pct": -0.09639415059303769
+      },
+      {
+        "clip": "7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56",
+        "before": 0.1917540319263935,
+        "after": 0.19151536077260972,
+        "change_pct": -0.12446734568554163
+      },
+      {
+        "clip": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56",
+        "before": 0.17532418817281722,
+        "after": 0.1752014145255089,
+        "change_pct": -0.07002664526090108
+      }
+    ],
+    "64": [
+      {
+        "clip": "118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56",
+        "before": 0.16839587613940238,
+        "after": 0.1668723315000534,
+        "change_pct": -0.9047398750357427
+      },
+      {
+        "clip": "43866101158a538d22c52ac5b2fa606b_src0621_rgb56",
+        "before": 0.18377771228551865,
+        "after": 0.18198548927903174,
+        "change_pct": -0.9752123825018
+      },
+      {
+        "clip": "7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56",
+        "before": 0.1917540319263935,
+        "after": 0.18983127176761627,
+        "change_pct": -1.0027221537199815
+      },
+      {
+        "clip": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56",
+        "before": 0.17532418817281722,
+        "after": 0.1741468921303749,
+        "change_pct": -0.6714966455637406
+      }
+    ]
+  },
+  "optional_dev_video_gate": {
+    "fit": {
+      "43866101158a538d22c52ac5b2fa606b_src0621_rgb56": {
+        "mean_change": -0.009752123825017889,
+        "low_change": -0.008390184022719405,
+        "high_change": -0.017816048762994696
+      },
+      "7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56": {
+        "mean_change": -0.010027221537199815,
+        "low_change": -0.008849015166414897,
+        "high_change": -0.016889994480774106
+      }
+    },
+    "optional_dev_videos": false
+  },
+  "video_quality": "PENDING_FOUR_MANDATORY_VIDEOS",
+  "cuda_initialized": false
+}
