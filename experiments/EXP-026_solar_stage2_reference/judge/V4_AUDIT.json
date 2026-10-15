@@ -1,0 +1,12 @@
+{
+  "torch": "2.6.0+cu124",
+  "torch_cuda": "12.4",
+  "torch_cxx11_abi": false,
+  "wheel_hash_match": true,
+  "import_error": "/home/qma/work/GWM/submission/experiments/EXP-026_solar_stage2_reference/memory_load_v4/overlay/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE",
+  "backend_error": "Flash Attention backend 'flash' is not usable because of missing package or the version is too old. Please install `flash-attn>=2.6.3`.",
+  "build_check_error": "\nThe detected CUDA version (13.0) mismatches the version that was used to compile\nPyTorch (12.4). Please make sure to use the same CUDA versions.\n",
+  "cuda_initialized": false,
+  "status": "CONFIRMED_CPU_DEPENDENCY_BLOCK",
+  "gpu_calls_by_judge": 0
+}

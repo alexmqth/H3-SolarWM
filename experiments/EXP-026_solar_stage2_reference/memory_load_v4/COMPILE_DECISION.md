@@ -1,0 +1,7 @@
+# Why the permitted source compile was not started
+
+The official wheel's filename advertises the correct PyTorch/CUDA/Python/C++ ABI combination, but [CPU preflight](ENV_PREFLIGHT.json) shows its native binary is byte-identical to the one that failed in v3. The extension requires `c10::Error::Error(SourceLocation, std::__cxx11::basic_string<...>)`; this torch 2.6.0 build exports the old-ABI `c10::Error::Error(SourceLocation, std::string)` symbol. `nm -D` confirmed the mismatch independently of the wheel name.
+
+Only `/usr/local/cuda-13.0/bin/nvcc` was found in the existing local toolkit paths. It reports CUDA 13.0.88, whereas the unchanged torch is `2.6.0+cu124` and reports CUDA 12.4. Calling PyTorch's own `torch.utils.cpp_extension._check_cuda_version()` on CPU raises: `The detected CUDA version (13.0) mismatches the version that was used to compile PyTorch (12.4)`. No compatible CUDA 12.4 compiler was found in the searched `/usr/local`, `/opt`, current venv, local work and cache locations.
+
+The v4 task forbids changing torch, installing system CUDA or bypassing the backend. A source build with the only available CUDA 13.0 toolkit would fail this prerequisite before compiling and would not be a controlled ABI repair. **Source compilation was not attempted; GPU launch was not attempted.** The remaining authorization was left unused instead of retrying a known-invalid environment.
