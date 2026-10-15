@@ -1,0 +1,1 @@
+GPU放行时根管理快照。内部submission/相对链接以原项目根为上下文。Worker代码与profile结果由下一完成快照记录。

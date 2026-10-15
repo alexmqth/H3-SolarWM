@@ -1,0 +1,29 @@
+{
+  "task_id": "EXP-024",
+  "plan_version": 2,
+  "gpu_authorized": true,
+  "candidate": "full50_rank8_C1_C2",
+  "profile_updates_max": 2,
+  "backward_max": 2,
+  "top_level_dit_attempts_max": 3,
+  "gpu_seconds_max": 1800,
+  "gpu_count_max": 1,
+  "preferred_physical_gpu": 0,
+  "require_gpu_idle_at_launch": true,
+  "vae_encode_max": 0,
+  "vae_decode_max": 0,
+  "text_encode_max": 0,
+  "video_outputs_max": 0,
+  "allocated_gib_stop": 44,
+  "rss_gib_stop": 128,
+  "outer_timeout_seconds": 1770,
+  "kill_after_seconds": 10,
+  "retry_authorized": false,
+  "taskbook_sha256": "2b3cd57d9d667d5e28b96e28915c71338bc68910765a27e87f28201f3862796b",
+  "pre_gpu_requirements": [
+    "freeze corrected source manifest",
+    "existing CPU regression and pre-optimizer fault gates pass",
+    "input/source SHA verification",
+    "record launch command, GPU occupancy and PID"
+  ]
+}

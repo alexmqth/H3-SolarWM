@@ -1,0 +1,21 @@
+{
+  "status": "CPU_PREPARATION_REVIEWED_PROFILE_GATE_FIX_REQUIRED",
+  "source_manifest_mismatches_at_review": [],
+  "independent_parameter_counts": {
+    "8layers_rank8": 1720320,
+    "50layers_rank8": 10752000,
+    "50layers_rank32": 43008000
+  },
+  "reviewed": [
+    "coverage.py",
+    "profile_gpu.py",
+    "CPU_TEST_RESULTS.json",
+    "FULL_LAYER_CPU_RESULTS.json",
+    "GPU_PROFILE_PROPOSAL.md"
+  ],
+  "required_fix": [
+    "Use recorded cache signature instead of byte-count-only invariant; disclose sampling limitation",
+    "Validate routing/frozen gradients before each optimizer step; preserve failure trace and attempted/completed counts"
+  ],
+  "gpu_calls_by_judge": 0
+}
