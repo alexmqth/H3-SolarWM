@@ -1,0 +1,30 @@
+{
+  "task": "EXP-023/v1",
+  "addendum": 3,
+  "approved": true,
+  "addendum_sha256": "11f1f6678df36f60d0daa6090814893a854da9b485fa4040348ba2d9644d658f",
+  "previous_authorization_sha256": "016082b559f610147723aaa5933c0da21514831a6f041118ab7f981931307a03",
+  "effective_changed_limit": {
+    "vae_decode": 13
+  },
+  "unchanged_limits": {
+    "top_level_forward": 440,
+    "gpu_seconds": 13800,
+    "evaluation_gpu_seconds": 3600,
+    "vae_encode": 70,
+    "text": 600,
+    "backward": 128,
+    "optimizer_updates": 128
+  },
+  "failure_must_remain_counted": {
+    "dit": 13,
+    "vae_decode": 1,
+    "gpu_seconds": 301.0642068160232
+  },
+  "conditional_one_time_recovery": {
+    "reuse_saved_output_first": true,
+    "max_additional_dit_for_first_video": 9,
+    "max_additional_decode": 1
+  },
+  "resume_after_cpu_codec_checks": true
+}

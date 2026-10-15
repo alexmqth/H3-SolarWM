@@ -8,3 +8,5 @@
 
 - [补充01：34clip统一源RGB，70次VAE编码/13800GPU秒](ADDENDUM_01_SOURCE_RGB.md)。
 - [补充02：forward与checkpoint backward保持相同context](ADDENDUM_02_CHECKPOINT_CONTEXT.md)。编码继续；optimizer更新需先通过CPU梯度回归及首个真实backward重算门控，之后自动继续。旧EXP-022梯度PASS已撤回，前向/KV证据保留。
+
+- [补充03：ffmpeg媒体修复与一次受限恢复](ADDENDUM_03_VIDEO_IO_RECOVERY.md)：decode总上限13，其他上限不变，失败费用累计保留。
