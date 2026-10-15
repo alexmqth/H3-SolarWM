@@ -1,0 +1,59 @@
+{
+  "official_path": "SolarWM/configs/examples/minimax_h3/infer-stage2-158f-sp4.yaml",
+  "official_sha256": "c0d7dff2cf90c609585d6ad5287f391787f782049fad700fd2bb5128099db921",
+  "candidate_path": "submission/experiments/EXP-026_solar_stage2_reference/candidate_single_case.yaml",
+  "candidate_sha256": "e96b75a9a925945bf7c3716a4b7c130c2a5768e90748a81d810511c6d455567c",
+  "changes": [
+    {
+      "path": "model.checkpoint_path",
+      "official": "/path/to/models/MiniMax-H3",
+      "candidate": "/home/qma/work/GWM/models/SolarWM/SolarWM-h3-33B-base"
+    },
+    {
+      "path": "data.index_root",
+      "official": "/path/to/SolarWM-Data/releases-v1",
+      "candidate": "/home/qma/work/GWM/data/SolarWM-Data/releases-v1"
+    },
+    {
+      "path": "data.transport.root",
+      "official": "/path/to/SolarWM-Data/releases-v1",
+      "candidate": "/home/qma/work/GWM/data/SolarWM-Data/releases-v1"
+    },
+    {
+      "path": "data.silence_latents_path",
+      "official": "/path/to/SolarWM-Data/releases-v1/latent-wds/minimax-h3-158f-768p-nomind-v1/support/h3_silence_153_158_170.safetensors",
+      "candidate": "/home/qma/work/GWM/data/SolarWM-Data/releases-v1/latent-wds/minimax-h3-158f-768p-nomind-v1/support/h3_silence_153_158_170.safetensors"
+    },
+    {
+      "path": "data.encoder_contract_path",
+      "official": "/path/to/SolarWM-Data/releases-v1/latent-wds/minimax-h3-158f-768p-nomind-v1/support/encoder_contract.json",
+      "candidate": "/home/qma/work/GWM/data/SolarWM-Data/releases-v1/latent-wds/minimax-h3-158f-768p-nomind-v1/support/encoder_contract.json"
+    },
+    {
+      "path": "checkpoint.resume_from",
+      "official": "/path/to/SolarWM-models/SolarWM-h3-33B-sgf-stage2-158f",
+      "candidate": "/home/qma/work/GWM/models/SolarWM/SolarWM-h3-33B-sgf-stage2-158f-fix"
+    },
+    {
+      "path": "distributed.sequence_parallel_size",
+      "official": 4,
+      "candidate": 8
+    },
+    {
+      "path": "validation.sample_count",
+      "official": 64,
+      "candidate": 1
+    },
+    {
+      "path": "validation.balance_by_dataset",
+      "official": true,
+      "candidate": false
+    },
+    {
+      "path": "runtime.output_dir",
+      "official": "outputs/minimax-h3-infer-stage2-158f-sp4",
+      "candidate": "/home/qma/work/GWM/outputs/EXP-026_solar_stage2_reference"
+    }
+  ],
+  "warning": "SP8/DP1 permits one logical sample but does not shard the 61.7GiB base across ranks"
+}

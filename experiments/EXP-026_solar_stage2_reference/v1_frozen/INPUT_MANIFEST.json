@@ -1,0 +1,69 @@
+{
+  "status": "BLOCKED_ACCESS",
+  "official_checkout": "ce1da4e7705391eda8eeda6016c0fd3f614b975e",
+  "main_dataset_repo": "https://huggingface.co/datasets/junchaoh-cs/SolarWM-Data",
+  "main_dataset_revision": "60c85899ee5303bb3ccdd5add7b5d606c54ddaab",
+  "latent_dataset_repo": "https://modelscope.cn/datasets/junchao2003/SolarWM-Data_Latent-WDS_minimax-h3-158f-768p-nomind-v1",
+  "main_model_repo": "https://huggingface.co/junchaoh-cs/SolarWM-H3-33B",
+  "test_index_remote_bytes": 414621,
+  "access_errors": [
+    {
+      "provider": "Hugging Face",
+      "target": "main dataset recipe/test-index",
+      "http": 401,
+      "class": "GatedRepoError",
+      "detail": "repo listing available, file download requires authenticated accepted access"
+    },
+    {
+      "provider": "ModelScope",
+      "target": "main dataset and H3 latent generation tree",
+      "http": 403,
+      "class": "PermissionDeniedError",
+      "detail": "dataset tree denied without account access"
+    }
+  ],
+  "sample_id": null,
+  "selected_index_row": null,
+  "payload_shard_size": null,
+  "source_path": null,
+  "selection": "Official H3 validation_candidates: one unbalanced slot, seed42, first SHA256(42:sample_id)-ordered distinct source with valid camera; not yet executable without index",
+  "required": {
+    "test_index": {
+      "path": "/home/qma/work/GWM/data/SolarWM-Data/releases-v1/recipes/clean-158f-h3/latent-wds/minimax-h3-158f-768p-nomind-v1/test-index.jsonl.gz",
+      "exists": false,
+      "bytes": null,
+      "sha256": null
+    },
+    "silence_support": {
+      "path": "/home/qma/work/GWM/data/SolarWM-Data/releases-v1/latent-wds/minimax-h3-158f-768p-nomind-v1/support/h3_silence_153_158_170.safetensors",
+      "exists": false,
+      "bytes": null,
+      "sha256": null
+    },
+    "encoder_contract": {
+      "path": "/home/qma/work/GWM/data/SolarWM-Data/releases-v1/latent-wds/minimax-h3-158f-768p-nomind-v1/support/encoder_contract.json",
+      "exists": false,
+      "bytes": null,
+      "sha256": null
+    },
+    "selected_payload_shard": {
+      "path": null,
+      "exists": false,
+      "bytes": null,
+      "sha256": null
+    }
+  },
+  "downloaded_bytes": 0,
+  "new_payload_bytes": 0,
+  "missing": [
+    "test_index",
+    "silence_support",
+    "encoder_contract",
+    "selected_payload_shard"
+  ],
+  "base_transformer_weights_bytes": 66280430080,
+  "base_transformer_weights_gib": 61.72846078872681,
+  "stage2_ema_path": "/home/qma/work/GWM/models/SolarWM/SolarWM-h3-33B-sgf-stage2-158f-fix/ema.pt",
+  "stage2_ema_bytes": 4150961218,
+  "stage2_ema_sha256_prior_verified": "92e8f4b07aa92b0453a2f63954db1421caa3b8cac83ece706535db1a91493a05"
+}

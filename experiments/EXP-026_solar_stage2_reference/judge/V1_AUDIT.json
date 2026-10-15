@@ -1,0 +1,14 @@
+{
+  "config_hashes_match": true,
+  "official_loader_parse": true,
+  "sp": 8,
+  "dp": 1,
+  "sample_count": 1,
+  "base_weight_bytes": 66280430080,
+  "execute_exit": 2,
+  "execute_stderr": "BLOCKED: official H3 Stage2 reference is not launchable\n- EXP-026/v1 authorizes 0 GPU seconds and 0 GPU forwards\n- no official sample was selected from a readable test index\n- missing official input: test_index\n- missing official input: silence_support\n- missing official input: encoder_contract\n- missing official input: selected_payload_shard\n- official sample reader has not passed\n- the current full-model pre-FSDP load cannot fit one L40\n",
+  "cuda_initialized": false,
+  "input_reader": "NOT_TESTED_MISSING_INPUT",
+  "access_errors": "WORKER_REPORTED_NOT_RETRIED_BY_JUDGE",
+  "source_inspection": "optional.py:124-125 transfers whole model before runtime.py:1399 load / later wrap_h3_fsdp"
+}
