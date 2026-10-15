@@ -1,0 +1,139 @@
+{
+  "status": "EXISTING_ABOT_DATA_VERIFIED_NO_REENCODE",
+  "source_selection": "/home/qma/work/GWM/submission/experiments/EXP-023_v3_fm_small_data/SELECTION.json",
+  "source_action_manifest": "/home/qma/work/GWM/submission/experiments/EXP-021_v3_fm_baseline_preparation/DATA_MANIFEST.json",
+  "source_encoded_audit": "/home/qma/work/GWM/submission/experiments/EXP-023_v3_fm_small_data/ENCODED_DATASET_AUDIT.json",
+  "geometry": {
+    "rgb_frames": 56,
+    "rgb_fps": 24,
+    "latent_frames": 17,
+    "chunk_latents": [
+      12,
+      5
+    ],
+    "C1_latent_indices": "0..11",
+    "C2_latent_indices": "12..16"
+  },
+  "train": {
+    "count": 32,
+    "episodes": {
+      "43866101158a538d22c52ac5b2fa606b": 8,
+      "7199292ca430b478bfd0d83cf2e519d8": 8,
+      "9dc2e5882a294b8d68d6b2b31ff3ef65": 8,
+      "b784d995827f53977a8067e5b9dc4b5e": 8
+    },
+    "categories": {
+      "constant": 16,
+      "switch": 16
+    },
+    "C2_mixed_action_script_clips": 10,
+    "C1_C2_boundary_action_change_clips": 4,
+    "encoded_triplets_present": 32
+  },
+  "dev": {
+    "count": 2,
+    "episodes": [
+      "118eb5d8b75e1b8ac23a4e9ae77af9a9",
+      "dfec8ed3237860eba14d67c089ecd041"
+    ],
+    "categories": {
+      "constant": 1,
+      "switch": 1
+    },
+    "encoded_triplets_present": 2,
+    "previously_observed": true,
+    "blind": false,
+    "episode_overlap_with_train": false
+  },
+  "priority_fit_clips": [
+    {
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_src0621_rgb56",
+      "episode_id": "43866101158a538d22c52ac5b2fa606b",
+      "category": "constant",
+      "frame_key_combinations": {
+        "S+D": 56
+      },
+      "C1_action_script": [
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him"
+      ],
+      "C2_action_script": [
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him",
+        "the man walks backward and strafes right, camera follows him"
+      ],
+      "source_start": 621,
+      "encoded_files": {
+        "I0.pt": {
+          "exists": true,
+          "bytes": 151259
+        },
+        "condition.pt": {
+          "exists": true,
+          "bytes": 13452068
+        },
+        "full17.pt": {
+          "exists": true,
+          "bytes": 2547511
+        }
+      }
+    },
+    {
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56",
+      "episode_id": "7199292ca430b478bfd0d83cf2e519d8",
+      "category": "constant",
+      "frame_key_combinations": {
+        "A+S": 56
+      },
+      "C1_action_script": [
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him"
+      ],
+      "C2_action_script": [
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him",
+        "the man walks backward and strafes left, camera follows him"
+      ],
+      "source_start": 1670,
+      "encoded_files": {
+        "I0.pt": {
+          "exists": true,
+          "bytes": 151259
+        },
+        "condition.pt": {
+          "exists": true,
+          "bytes": 13626340
+        },
+        "full17.pt": {
+          "exists": true,
+          "bytes": 2547511
+        }
+      }
+    }
+  ],
+  "no_new_encoding": true
+}

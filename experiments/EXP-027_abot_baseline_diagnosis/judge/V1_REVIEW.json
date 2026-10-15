@@ -1,0 +1,18 @@
+{
+  "decision": "ACCEPT_CPU_REVIEW_AUTHORIZE_V2_WITH_CORRECTED_COUNTS_AND_VISUAL_CHECK",
+  "selected_clips_in_existing_train_split": true,
+  "train_clips": 32,
+  "train_episodes": 4,
+  "prior_exposure_calculation": {
+    "EXP023_C2_per_clip": 4.0,
+    "EXP025_C2_per_clip": 4.0
+  },
+  "new_C2_per_clip": 32.0,
+  "proposed_missing_calls": {
+    "probe_GT_commits": 12,
+    "zero_adapter_regression": 6
+  },
+  "corrected_max_DiT_attempts": 336,
+  "video_gate_correction": "Always four matched fit-clip pre/post videos when numerically healthy and budget allows; >=10% criterion gates optional dev pair only, not task/quality acceptance",
+  "limits": "Two different episodes do not establish same-state action effect; 64updates failure does not prove inability to fit with more training"
+}
