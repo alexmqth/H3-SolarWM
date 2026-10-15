@@ -1,6 +1,6 @@
 # EXP-022/v1 · V3 普通 FM 真实训练入口与有限 profile
 
-[Worker 结果报告](WORKER_REPORT.md)：CPU 数据与来源检查通过；单卡 checkpoint0 前向/KV 精确等价、2 次真实 FM 更新和保存重载完成，**已由Judge accepted收口，工程通路PASS**。模型画质和动作能力尚未评测。
+[Worker 结果报告](WORKER_REPORT.md)：CPU 数据与来源检查通过；单卡 checkpoint0 前向/KV 精确等价、2 次真实 FM 更新和保存重载完成，**Judge更正为needs_revision：前向/KV通过，训练梯度协议待修复验证**。模型画质和动作能力尚未评测。
 
 [冻结任务书](taskbook_v1.md) · [授权与上限](AUTHORIZATION.json) · [CPU 来源/布局检查](CPU_PREFLIGHT.json) · [来源 SHA](SOURCE_MANIFEST.json)
 
@@ -11,3 +11,5 @@
 代码：[独立可微 V3 wrapper](interval_train.py) · [CPU preflight](preflight.py) · [GPU runner](profile_gpu.py) · [RGB 构建](materialize_rgb.py)。冻结推理入口未修改。[GPU账本](GPU_BUDGET.json) · [原始日志](GPU_RUN.log) · [KV等价](CACHE_EQUIVALENCE.json) · [velocity等价](FORWARD_EQUIVALENCE.json) · [更新数值](UPDATES.json) · [重载](RELOAD_CHECK.json) · [最终CPU审计](CPU_FINAL_AUDIT.json)均已落盘。后续建议与成本分解见[预算草案](NEXT_STAGE_BUDGET_DRAFT.md)。Judge 负责最终验收与 Git 发布，Worker 不提交 Git。
 
 [Judge最终审核](judge/FINAL_REVIEW.md) · [独立核查](judge/INDEPENDENT_AUDIT.json)。后续32条/128updates小数据拟合归EXP-023。
+
+**最新更正：** [checkpoint反向重算context风险与验收撤回](judge/REVIEW_CORRECTION_01.md)。旧step02不可作正确V3梯度证据，修复在EXP-023执行。

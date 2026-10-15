@@ -1,5 +1,7 @@
 # EXP-022/v1 — Judge最终验收
 
+> **验收更正：下文原工程PASS结论已部分撤回。当前Judge状态needs_revision，训练梯度协议不被接受；前向/KV、数据与执行事实保留。以[更正01](REVIEW_CORRECTION_01.md)及[当前判定](CURRENT_VERDICT.json)为准。**
+
 2026-10-15 HKT。**accepted，工程训练通路PASS，任务收口。** 生成质量、动作、tail8容量、首块训练反向NOT_TESTED；不升级正式V3。
 
 Judge审阅wrapper、profile runner、完整Worker报告与CPU终审，独立核对11个来源SHA、checkpoint0/step02 SHA、150项KV/RoPE精确一致、velocity/重载一致、11F/2B/2U事件计数及预算。见[独立审计](INDEPENDENT_AUDIT.json)。GPU无重复调用。

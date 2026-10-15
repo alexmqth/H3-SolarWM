@@ -13,4 +13,4 @@
 
 [返回 FM → AnyFlow](../README.md) · [缩写表](../../../GLOSSARY.md)
 
-- [普通FM真实训练通路与资源测试（EXP-022）](../../../../experiments/EXP-022_v3_fm_training_profile/README.md)：工程PASS，2updates，质量未测。后续[32条/128updates计划（EXP-023）](../../../../experiments/EXP-023_v3_fm_small_data/README.md)已授权。
+- [普通FM真实训练通路与资源测试（EXP-022）](../../../../experiments/EXP-022_v3_fm_training_profile/README.md)：前向/KV PASS，2updates已执行；checkpoint反向重算context有风险，训练梯度协议PASS已撤回，修复归EXP-023。后续[32条/128updates计划（EXP-023）](../../../../experiments/EXP-023_v3_fm_small_data/README.md)已授权。
