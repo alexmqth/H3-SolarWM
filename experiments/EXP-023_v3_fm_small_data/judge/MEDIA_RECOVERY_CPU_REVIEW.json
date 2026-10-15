@@ -1,0 +1,41 @@
+{
+  "status": "PASS_JUDGE_CPU_MEDIA_RECOVERY",
+  "gpu_calls": 0,
+  "checks": [
+    {
+      "case": "train_constant",
+      "BF16_identity": true,
+      "raw_recoverable": true,
+      "decoded_frames": 56
+    },
+    {
+      "case": "dev_switch",
+      "BF16_identity": true,
+      "raw_recoverable": true,
+      "decoded_frames": 56
+    },
+    {
+      "case": "identity_injected",
+      "raw_survives": true,
+      "cpu_recovery": true
+    },
+    {
+      "case": "codec_injected",
+      "raw_survives": true,
+      "cpu_recovery": true
+    },
+    {
+      "case": "actual_comparison_writer",
+      "decoded_frames": 56,
+      "size": [
+        2496,
+        540
+      ]
+    }
+  ],
+  "source_sha256": {
+    "fm_run.py": "8bbbe464c124ca65cea716d2b051062b267e94c7de594705237a3857e8352b5f",
+    "finalize_cpu.py": "065df3d33a002034f4c52a9600cfb97393b4ee8e213743a10a27ad279dbaf12f"
+  },
+  "scope": "actual BF16 condition and source RGB; labels exercise metadata branches only, no generated video or model quality evidence"
+}

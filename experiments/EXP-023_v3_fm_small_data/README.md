@@ -10,3 +10,5 @@
 - [补充02：forward与checkpoint backward保持相同context](ADDENDUM_02_CHECKPOINT_CONTEXT.md)。编码继续；optimizer更新需先通过CPU梯度回归及首个真实backward重算门控，之后自动继续。旧EXP-022梯度PASS已撤回，前向/KV证据保留。
 
 - [补充03：ffmpeg媒体修复与一次受限恢复](ADDENDUM_03_VIDEO_IO_RECOVERY.md)：decode总上限13，其他上限不变，失败费用累计保留。
+
+- [补充04：BF16身份写入修复，CPU复核后最后一次首片恢复](ADDENDUM_04_BFLOAT16_RECOVERY.md)：449顶层DiT/14decode，其余总时限与训练预算不变。
