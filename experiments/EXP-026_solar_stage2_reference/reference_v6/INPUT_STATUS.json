@@ -1,0 +1,78 @@
+{
+  "task_id": "EXP-026",
+  "plan_version": 6,
+  "status": "BLOCKED_OFFICIAL_INPUT_ACCESS",
+  "official_checkout": "ce1da4e7705391eda8eeda6016c0fd3f614b975e",
+  "existing_v5_load_only_pass": true,
+  "standard_credential_presence": {
+    "hf_token_env": false,
+    "hf_cache_token": false,
+    "modelscope_token_env": false,
+    "modelscope_credentials_file": false
+  },
+  "local_required_files": {
+    "test_index": {
+      "path": "/home/qma/work/GWM/data/SolarWM-Data/releases-v1/recipes/clean-158f-h3/latent-wds/minimax-h3-158f-768p-nomind-v1/test-index.jsonl.gz",
+      "exists": false
+    },
+    "silence_support": {
+      "path": "/home/qma/work/GWM/data/SolarWM-Data/releases-v1/latent-wds/minimax-h3-158f-768p-nomind-v1/support/h3_silence_153_158_170.safetensors",
+      "exists": false
+    },
+    "encoder_contract": {
+      "path": "/home/qma/work/GWM/data/SolarWM-Data/releases-v1/latent-wds/minimax-h3-158f-768p-nomind-v1/support/encoder_contract.json",
+      "exists": false
+    },
+    "selected_payload_shard": {
+      "path": null,
+      "exists": false
+    }
+  },
+  "remote_access_probes": [
+    {
+      "provider": "huggingface",
+      "target_filename": "test-index.jsonl.gz",
+      "requested_url": "https://huggingface.co/datasets/junchaoh-cs/SolarWM-Data/resolve/60c85899ee5303bb3ccdd5add7b5d606c54ddaab/releases-v1/recipes/clean-158f-h3/latent-wds/minimax-h3-158f-768p-nomind-v1/test-index.jsonl.gz",
+      "attempts": 1,
+      "start_unix": 1792089268.1242719,
+      "status": "HTTP_DENIED_OR_UNAVAILABLE",
+      "http_status": 401,
+      "downloaded_bytes": 0,
+      "elapsed_sec": 0.34670019149780273
+    },
+    {
+      "provider": "modelscope",
+      "target_filename": "encoder_contract.json",
+      "requested_url": "https://modelscope.cn/datasets/junchao2003/SolarWM-Data_Latent-WDS_minimax-h3-158f-768p-nomind-v1/resolve/master/support/encoder_contract.json",
+      "attempts": 1,
+      "start_unix": 1792089268.471815,
+      "status": "HTTP_DENIED_OR_UNAVAILABLE",
+      "http_status": 403,
+      "downloaded_bytes": 0,
+      "elapsed_sec": 1.0035347938537598
+    }
+  ],
+  "provider_attempts": {
+    "huggingface": 1,
+    "modelscope": 1
+  },
+  "downloaded_bytes": 0,
+  "sample_id": null,
+  "selected_index_row": null,
+  "payload_shard_size": null,
+  "h3_example_matching_payload_verified": false,
+  "reader_contract_result": "NOT_EXECUTED_NO_AUTHENTIC_SAMPLE",
+  "missing": [
+    "test_index",
+    "silence_support",
+    "encoder_contract",
+    "selected_payload_shard"
+  ],
+  "gpu_forward_count": 0,
+  "gpu_seconds": 0,
+  "codec_count": 0,
+  "updates": 0,
+  "video_count": 0,
+  "gpu_inference_authorized": false,
+  "next_external_change": "accepted official dataset access in qma account or authentic local copy with matching index/support/payload"
+}

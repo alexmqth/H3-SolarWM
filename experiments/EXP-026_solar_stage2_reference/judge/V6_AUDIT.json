@@ -1,0 +1,22 @@
+{
+  "status": "ACCEPTED_BOUNDED_ACCESS_CHECK_VIDEO_BLOCKED",
+  "access_probe_records_checked": 2,
+  "provider_attempts": {
+    "huggingface": 1,
+    "modelscope": 1
+  },
+  "observed_http_status": {
+    "huggingface": 401,
+    "modelscope": 403
+  },
+  "downloaded_payload_bytes": 0,
+  "gpu_seconds": 0,
+  "prior_cumulative_exp026_gpu_seconds": 737.221137046814,
+  "scope": "Judge reviewed recorded HTTP outcomes and probe source; no redundant network request performed",
+  "limitations": [
+    "Anonymous access failure does not establish authorized-account availability",
+    "CPU reader cannot be checked without real input",
+    "No GPU inference or video"
+  ],
+  "decision": "Close this access attempt; reopen only after authorized access or verified local input changes"
+}
