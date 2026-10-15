@@ -1,0 +1,52 @@
+{
+  "status": "LAUNCHED",
+  "command": [
+    "/home/qma/work/GWM/.venvs/solarwm-h3/bin/torchrun",
+    "--standalone",
+    "--nproc-per-node=4",
+    "/home/qma/work/GWM/submission/experiments/EXP-026_solar_stage2_reference/memory_load_v5/load_only.py",
+    "--config",
+    "/home/qma/work/GWM/submission/experiments/EXP-026_solar_stage2_reference/memory_load_v5/candidate_one_case.yaml",
+    "--log-dir",
+    "/home/qma/work/GWM/submission/experiments/EXP-026_solar_stage2_reference/memory_load_v5/gpu_attempt_001"
+  ],
+  "cwd": "/home/qma/work/GWM",
+  "pid": 2926623,
+  "process_group_id": 2926623,
+  "start_unix": 1792088584.5217524,
+  "start_hkt": "2026-10-16T02:23:04.521752+08:00",
+  "physical_gpus": [
+    {
+      "index": 0,
+      "uuid": "GPU-d77c5635-02ec-c2d2-d744-1dfcc4a14e8f",
+      "used_mib": 0,
+      "total_mib": 46068
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-c4c2b3db-791b-ecdc-978f-d56295593124",
+      "used_mib": 0,
+      "total_mib": 46068
+    },
+    {
+      "index": 6,
+      "uuid": "GPU-8db4febd-4f4e-b87b-96a7-541357b2234b",
+      "used_mib": 0,
+      "total_mib": 46068
+    },
+    {
+      "index": 7,
+      "uuid": "GPU-e07666a0-5b88-df44-0a89-cbc9bff6f1dc",
+      "used_mib": 0,
+      "total_mib": 46068
+    }
+  ],
+  "initial_mem_available_bytes": 825354735616,
+  "initial_swap_free_bytes": 9645117440,
+  "cuda_visible_devices": "0,1,6,7",
+  "patch_sha256": "f9cee59251c98bc664db3c5a7e75b2c1b8ae2eb2b1a42dc3fafcdd2eb023ea2a",
+  "flash_attn_overlay_sha256": "68cdfdedc0caec5b7bc0f5a953d7d4caba5ef279b2c805912509d937700fbd96",
+  "flash_attn_overlay_path": "/home/qma/work/GWM/submission/experiments/EXP-026_solar_stage2_reference/memory_load_v5/overlay",
+  "checkpoint": "/home/qma/work/GWM/models/SolarWM/SolarWM-h3-33B-sgf-stage2-158f-fix",
+  "ema_sha256_prior_verified": "92e8f4b07aa92b0453a2f63954db1421caa3b8cac83ece706535db1a91493a05"
+}

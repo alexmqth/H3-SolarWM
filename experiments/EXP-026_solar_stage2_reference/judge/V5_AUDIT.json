@@ -1,0 +1,301 @@
+{
+  "status": "ACCEPTED_ENVIRONMENT_AND_FOUR_GPU_LOAD_ONLY",
+  "wheel_and_extension_sha_verified": true,
+  "patch_and_official_source_sha_verified": true,
+  "independent_cpu_import_and_flash_backend_check": "PASS_NO_CUDA_INITIALIZATION",
+  "rank_evidence": [
+    {
+      "rank": 0,
+      "pid": 2927735,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "base_loaded",
+        "lora_injected",
+        "base_sharded",
+        "model_sharded",
+        "ema_loaded",
+        "spot_check_pass",
+        "load_only_pass",
+        "released"
+      ],
+      "peak_allocated_bytes": 24097595392,
+      "peak_reserved_bytes": 25004343296,
+      "spot_checks": [
+        {
+          "index": 0,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": -0.0045166015625
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": 0.005859375
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": 0.0019683837890625
+        },
+        {
+          "index": 0,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": -0.006500244140625
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": -0.01513671875
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": 0.0281982421875
+        },
+        {
+          "index": 0,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": -0.00848388671875
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": -0.017578125
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": 0.010009765625
+        }
+      ]
+    },
+    {
+      "rank": 1,
+      "pid": 2927736,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "base_loaded",
+        "lora_injected",
+        "base_sharded",
+        "model_sharded",
+        "ema_loaded",
+        "spot_check_pass",
+        "load_only_pass",
+        "released"
+      ],
+      "peak_allocated_bytes": 24097595392,
+      "peak_reserved_bytes": 25004343296,
+      "spot_checks": [
+        {
+          "index": 0,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": -0.0045166015625
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": 0.005859375
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": 0.0019683837890625
+        },
+        {
+          "index": 0,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": -0.006500244140625
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": -0.01513671875
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": 0.0281982421875
+        },
+        {
+          "index": 0,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": -0.00848388671875
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": -0.017578125
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": 0.010009765625
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "pid": 2927737,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "base_loaded",
+        "lora_injected",
+        "base_sharded",
+        "model_sharded",
+        "ema_loaded",
+        "spot_check_pass",
+        "load_only_pass",
+        "released"
+      ],
+      "peak_allocated_bytes": 24097595392,
+      "peak_reserved_bytes": 25004343296,
+      "spot_checks": [
+        {
+          "index": 0,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": -0.0045166015625
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": 0.005859375
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": 0.0019683837890625
+        },
+        {
+          "index": 0,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": -0.006500244140625
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": -0.01513671875
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": 0.0281982421875
+        },
+        {
+          "index": 0,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": -0.00848388671875
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": -0.017578125
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": 0.010009765625
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "pid": 2927738,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "base_loaded",
+        "lora_injected",
+        "base_sharded",
+        "model_sharded",
+        "ema_loaded",
+        "spot_check_pass",
+        "load_only_pass",
+        "released"
+      ],
+      "peak_allocated_bytes": 24097595392,
+      "peak_reserved_bytes": 25004343296,
+      "spot_checks": [
+        {
+          "index": 0,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": -0.0045166015625
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": 0.005859375
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.token_refiner.refiner_blocks.0.attn.to_k.lora_A.weight",
+          "value": 0.0019683837890625
+        },
+        {
+          "index": 0,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": -0.006500244140625
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": -0.01513671875
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.transformer_blocks.30.attn.to_k.lora_A.weight",
+          "value": 0.0281982421875
+        },
+        {
+          "index": 0,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": -0.00848388671875
+        },
+        {
+          "index": 1032192,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": -0.017578125
+        },
+        {
+          "index": 2064383,
+          "key": "base_model.model.transformer_blocks.9.ff.net.2.lora_B.weight",
+          "value": 0.010009765625
+        }
+      ]
+    }
+  ],
+  "ema_sparse_values_independently_verified_on_cpu": 9,
+  "strict_base_receipt": "entry checks zero missing/unexpected/mismatched/load errors before model_sharded; checked control flow",
+  "gpu_ledger": {
+    "reason": "process_exit",
+    "torchrun_exit_code": 0,
+    "start_unix": 1792088584.5217524,
+    "end_unix": 1792088742.510761,
+    "elapsed_sec": 157.98900866508484,
+    "gpu_count": 4,
+    "charged_gpu_seconds": 631.9560346603394,
+    "peak_task_rss_bytes_sampled": 62544723968,
+    "min_host_mem_available_bytes_sampled": 735509966848,
+    "min_swap_free_bytes_sampled": 9645117440,
+    "max_physical_gpu_used_mib_sampled": {
+      "0": 24283,
+      "1": 24283,
+      "6": 24283,
+      "7": 24283
+    },
+    "forward_count": 0,
+    "backward_count": 0,
+    "codec_count": 0,
+    "updates": 0
+  },
+  "cumulative_exp026_gpu_seconds": 737.221137046814,
+  "gpu_release_snapshot": "0, 0\n1, 0\n2, 40367\n3, 41141\n4, 42333\n5, 44667\n6, 0\n7, 0\n",
+  "limitations": [
+    "No model/attention kernel forward, backward, training or codec executed",
+    "No official sample reader or video quality validated",
+    "Load-only peaks do not estimate inference/training peak memory",
+    "EMA numeric audit is sparse, not exhaustive"
+  ],
+  "cuda_initialized_during_judge_check": false
+}
