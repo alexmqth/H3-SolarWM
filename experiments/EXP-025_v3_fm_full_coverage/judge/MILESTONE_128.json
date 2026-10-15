@@ -1,0 +1,31 @@
+{
+  "milestone": "128/256 optimizer updates",
+  "checkpoint_sha256": "a3beed11dcd554008218bfeb19b61d085e7854608ffaeedbc1e96895153237f5",
+  "adapter_layers": 50,
+  "optimizer_state_items": 100,
+  "clips": 32,
+  "passes_per_clip_per_block": 2,
+  "order_matches_records": true,
+  "adapter_finite": true,
+  "recorded_gradients_finite_positive": true,
+  "rng_and_order_present": true,
+  "running_ledger_snapshot": {
+    "phase": "train",
+    "elapsed_seconds": 5271.045018037024,
+    "phase_elapsed_seconds": 4413.380380935036,
+    "counts": {
+      "dit": 293,
+      "backward": 131,
+      "update": 131,
+      "vae_decode": 6,
+      "vae_encode": 0,
+      "text": 0
+    },
+    "peak_allocated_gib": 24.448705196380615,
+    "peak_reserved_gib": 28.138671875
+  },
+  "estimated_remaining_training_seconds_at_observed_average": 4211.240821502897,
+  "estimate_is_not_guarantee": true,
+  "quality": "PENDING_POST_EVALUATION",
+  "gpu_calls_by_judge": 0
+}
