@@ -1,0 +1,215 @@
+{
+  "status": "PASS_IMPLEMENTATION_PENDING_QUALITY_JUDGE",
+  "scene": "9dc2e588",
+  "scope": "GT-history 17-frame continuation, no free-running",
+  "budget": {
+    "counts": {
+      "forward": 39,
+      "commit": 1,
+      "decode": 2,
+      "text": 0
+    },
+    "elapsed": 391.8626793649746,
+    "peak_allocated_gib": 24.950570583343506,
+    "peak_reserved_gib": 27.197265625
+  },
+  "source_fixture_sha256": "5359339c412bb31987f496f16d4fab4508cf6a4386bf5b978f1e9286e57f8309",
+  "real_script17": [
+    "the man walks backward and strafes left, camera pans left slowly",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left slowly",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left slowly",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left slowly",
+    "the man walks backward and strafes left, camera pans left sharply",
+    "the man walks backward and strafes left, camera pans left slowly",
+    "the man walks backward and strafes left, camera pans left slowly"
+  ],
+  "cache_layers": 50,
+  "cpu_kv_bytes": 6799104000,
+  "videos": {
+    "source": {
+      "path": "submission/experiments/EXP-015_v3_real56_data/artifacts/9dc2e588/real56.mp4",
+      "sha256": "2d44e505e963adbc8e67ccee853e6bfa3038246d77027460454f36cbcd61f2f7",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm30_display": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/9dc2e588/fm30_gt39_plus_generated17.mp4",
+      "sha256": "721d91691a2bc94c017f538c73d7e40b87d54a0056aed6fe44f62a56dea4d3e8",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm8_display": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/9dc2e588/fm8_gt39_plus_generated17.mp4",
+      "sha256": "eaa86f892aa4fc915f76f7aa124e2e29796a1fb93fadd6425fda1f3cbfe26d4a",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm30_raw": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/9dc2e588/fm30_raw_decode56.mp4",
+      "sha256": "17a546c615f29851934a32504bd624c202c67755771caf4c0d6df7a70da2dca0",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm8_raw": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/9dc2e588/fm8_raw_decode56.mp4",
+      "sha256": "1a88ed6a6aa76a7d119ebcc9cf7beccff6554672efca86323fa46ca2b86b885c",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "combined": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/9dc2e588/source_vs_fm30_vs_fm8.mp4",
+      "sha256": "8bc58b56f74bf047821354d4be2ac25dc76c22794c4c254caf4fd7437040c315",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        2496,
+        512
+      ],
+      "pts_unique_increasing": true
+    }
+  },
+  "endpoints": {
+    "30": {
+      "sha256": "21ab08bd9061f6923dc510106efb06cf1aabbac4aa4538636a7328f49b70951b",
+      "shape": [
+        1,
+        24,
+        5,
+        30,
+        52
+      ],
+      "finite": true
+    },
+    "8": {
+      "sha256": "b8703818bb2b000f26ab6f2bd5c3ba87c62d85f48dfa3a821e31cb0e085edb4e",
+      "shape": [
+        1,
+        24,
+        5,
+        30,
+        52
+      ],
+      "finite": true
+    }
+  },
+  "display_prefix_h264_mad_to_source": {
+    "fm30": 2.2871744632720947,
+    "fm8": 2.2963321208953857
+  },
+  "motion_auxiliary": {
+    "source": {
+      "boundary_mad_38_39": 13.3173189163208,
+      "within_c2_mad_mean": 14.623504400253296,
+      "within_c2_mad_max": 17.99597930908203,
+      "central_median_horizontal_flow_sum_c2": 119.62948393821716,
+      "central_median_horizontal_flow_per_transition": [
+        9.691607475280762,
+        6.3667802810668945,
+        6.919151306152344,
+        4.247760772705078,
+        13.939796447753906,
+        6.391088485717773,
+        3.016507387161255,
+        6.516318321228027,
+        13.366581916809082,
+        6.425799369812012,
+        6.734660625457764,
+        6.582780838012695,
+        10.499442100524902,
+        4.041738510131836,
+        7.197685241699219,
+        7.691784858703613
+      ]
+    },
+    "fm30": {
+      "boundary_mad_38_39": 11.102474212646484,
+      "within_c2_mad_mean": 14.43294370174408,
+      "within_c2_mad_max": 26.948877334594727,
+      "central_median_horizontal_flow_sum_c2": 94.84147262573242,
+      "central_median_horizontal_flow_per_transition": [
+        4.3139166831970215,
+        3.4957590103149414,
+        0.9168639183044434,
+        5.9846906661987305,
+        10.054437637329102,
+        4.379706382751465,
+        8.122029304504395,
+        5.117258071899414,
+        10.358410835266113,
+        4.935967445373535,
+        3.1651363372802734,
+        6.555025100708008,
+        10.901533126831055,
+        3.8526597023010254,
+        5.074243545532227,
+        7.613834857940674
+      ]
+    },
+    "fm8": {
+      "boundary_mad_38_39": 11.235832214355469,
+      "within_c2_mad_mean": 12.515813946723938,
+      "within_c2_mad_max": 24.11963653564453,
+      "central_median_horizontal_flow_sum_c2": 90.34661877155304,
+      "central_median_horizontal_flow_per_transition": [
+        5.377687454223633,
+        4.779311180114746,
+        1.851498007774353,
+        4.873990058898926,
+        10.143525123596191,
+        4.278890609741211,
+        6.496050834655762,
+        4.594335556030273,
+        9.036089897155762,
+        3.9667696952819824,
+        3.9612789154052734,
+        5.96273136138916,
+        9.712764739990234,
+        3.5006301403045654,
+        4.796665668487549,
+        7.014399528503418
+      ]
+    }
+  },
+  "all_17_new_frames_contact": "submission/experiments/EXP-019_v3_mixed_action_validation/G2_9dc2e588_ALL_NEW17_CONTACT.jpg",
+  "limitations": [
+    "Only RGB39..55 newly generated",
+    "No D counterfactual GT",
+    "Farneback is auxiliary, not action correctness",
+    "No free-running"
+  ]
+}

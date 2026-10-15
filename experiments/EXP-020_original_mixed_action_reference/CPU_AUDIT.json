@@ -1,0 +1,82 @@
+{
+  "status": "PASS_IMPLEMENTATION_PENDING_QUALITY_JUDGE",
+  "scope": "one Original H3 full56 from I0; not matched-history causal comparison",
+  "result": {
+    "counts": {
+      "dit": 30,
+      "text": 4,
+      "image_encode": 1,
+      "video_decode": 1,
+      "audio_decode": 1
+    },
+    "wall_seconds": 282.2368663059897,
+    "peak_allocated_gib": 26.049222946166992,
+    "peak_reserved_gib": 26.83984375
+  },
+  "videos": {
+    "gt": {
+      "path": "submission/experiments/EXP-015_v3_real56_data/artifacts/b784d995/real56.mp4",
+      "sha256": "45c96052aea7c1f5c1b5213a7ac8d1c323ea0bd1de881ac6941addec04d86093",
+      "width": 832,
+      "height": 480,
+      "fps": 24,
+      "frames": 56,
+      "pts_strict_increasing": true,
+      "audio_streams": 0
+    },
+    "original": {
+      "path": "H3-World/outputs/EXP-020_original_mixed_action_reference/b784d995/original56.mp4",
+      "sha256": "29f5a5a73ad7cdf6259edefc30ffdbb17d4387f7b7b3f2bc8e4ab9a9a2716718",
+      "width": 832,
+      "height": 480,
+      "fps": 24,
+      "frames": 56,
+      "pts_strict_increasing": true,
+      "audio_streams": 1
+    },
+    "comparison": {
+      "path": "H3-World/outputs/EXP-020_original_mixed_action_reference/b784d995/gt_vs_original56.mp4",
+      "sha256": "3fd22244d0d26afbb27e363721ac19bdde65562e2be71a2a8a7d404efa9baba2",
+      "width": 1664,
+      "height": 512,
+      "fps": 24,
+      "frames": 56,
+      "pts_strict_increasing": true,
+      "audio_streams": 0
+    }
+  },
+  "contact": {
+    "path": "H3-World/outputs/EXP-020_original_mixed_action_reference/b784d995/all_late17_contact.jpg",
+    "sha256": "1073e1360e7d7237afe6a082dcdd3a4cacc427462c6c0d157360296ef8d6980e"
+  },
+  "motion_auxiliary": {
+    "gt": {
+      "central_median_horizontal_flow_sum_by_approximate_action_interval": {
+        "early_left": 114.03259944915771,
+        "late_left": 10.13761568069458,
+        "still": 9.854447841644287,
+        "forward": 23.323087215423584
+      },
+      "frame_mad_mean": 5.126702308654785
+    },
+    "original": {
+      "central_median_horizontal_flow_sum_by_approximate_action_interval": {
+        "early_left": 63.74657138809562,
+        "late_left": 1.45136115886271,
+        "still": 1.9488587379455566,
+        "forward": 5.499424189329147
+      },
+      "frame_mad_mean": 4.248159885406494
+    }
+  },
+  "approximate_switch_rgb": {
+    "stand_still": 43,
+    "walk_forward": 47
+  },
+  "limitations": [
+    "single train episode and seed",
+    "no same-state action counterfactual",
+    "GT vs Original is not a pixelwise reconstruction target",
+    "Original full56 and EXP-019 GT-history17 are different protocols"
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "status": "PASS_IMPLEMENTATION_PENDING_QUALITY_JUDGE",
+  "scene": "7199292c",
+  "scope": "GT-history 17-frame continuation, no free-running",
+  "budget": {
+    "counts": {
+      "forward": 39,
+      "commit": 1,
+      "decode": 2,
+      "text": 0
+    },
+    "elapsed": 361.1652781169978,
+    "peak_allocated_gib": 24.945041179656982,
+    "peak_reserved_gib": 27.154296875
+  },
+  "source_fixture_sha256": "860f8219f16a97dcafa802a37b0427acdbe133c7c9440783e74f131f27d8644b",
+  "real_script17": [
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him",
+    "the man walks backward and strafes left, camera follows him"
+  ],
+  "cache_layers": 50,
+  "cpu_kv_bytes": 6799104000,
+  "videos": {
+    "source": {
+      "path": "submission/experiments/EXP-015_v3_real56_data/artifacts/7199292c/real56.mp4",
+      "sha256": "0a1b172c9ff81aea09d7a491ded596c62d40a2f722338e596916ce917a990584",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm30_display": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/7199292c/fm30_gt39_plus_generated17.mp4",
+      "sha256": "3e8205ac290519268ddf947bc83244eae6791464285eda17e0e23cd9d1fa5d9f",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm8_display": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/7199292c/fm8_gt39_plus_generated17.mp4",
+      "sha256": "31d2b037206393dfc4e0bc40ffb4bcf889b670765c45f564abfaf3e8d5fe59d3",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm30_raw": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/7199292c/fm30_raw_decode56.mp4",
+      "sha256": "df3d64e81d00e6f0a8b388e9a9a8ec02d0bb66edc0fea2ea5ef57d6cb982d219",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "fm8_raw": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/7199292c/fm8_raw_decode56.mp4",
+      "sha256": "9b7c21777b28a21a1b7aa5247a241f68cf394d1f72b664d5fd04cb3d1fd9a695",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        832,
+        480
+      ],
+      "pts_unique_increasing": true
+    },
+    "combined": {
+      "path": "H3-World/outputs/EXP-019_v3_mixed_action_validation/7199292c/source_vs_fm30_vs_fm8.mp4",
+      "sha256": "a08b482af6686eaf852acc65c7b900e9c28ec2edc7d0622dd62b8204bb740f5c",
+      "frames": 56,
+      "fps": "24",
+      "resolution": [
+        2496,
+        512
+      ],
+      "pts_unique_increasing": true
+    }
+  },
+  "endpoints": {
+    "30": {
+      "sha256": "c38c9212fed017ec7054fc89cec5f57b36fb8f676c2025a078e2585979e00500",
+      "shape": [
+        1,
+        24,
+        5,
+        30,
+        52
+      ],
+      "finite": true
+    },
+    "8": {
+      "sha256": "3bcb461701a0cc33070845f41b6717f39b9bc6c3a0599fa9b42d23e5fb964a37",
+      "shape": [
+        1,
+        24,
+        5,
+        30,
+        52
+      ],
+      "finite": true
+    }
+  },
+  "display_prefix_h264_mad_to_source": {
+    "fm30": 2.0727336406707764,
+    "fm8": 2.0749692916870117
+  },
+  "motion_auxiliary": {
+    "source": {
+      "boundary_mad_38_39": 7.29196310043335,
+      "within_c2_mad_mean": 7.152632296085358,
+      "within_c2_mad_max": 8.98133373260498,
+      "central_median_horizontal_flow_sum_c2": 16.16913515329361,
+      "central_median_horizontal_flow_per_transition": [
+        1.88326096534729,
+        0.9737773537635803,
+        0.963717520236969,
+        1.0059614181518555,
+        1.7444857358932495,
+        0.8482417464256287,
+        0.811670184135437,
+        0.7859629988670349,
+        1.489455223083496,
+        0.6890272498130798,
+        0.6734709739685059,
+        0.6787770390510559,
+        1.4825797080993652,
+        0.7159112691879272,
+        0.6987111568450928,
+        0.7241246104240417
+      ]
+    },
+    "fm30": {
+      "boundary_mad_38_39": 8.172894477844238,
+      "within_c2_mad_mean": 7.048874348402023,
+      "within_c2_mad_max": 9.850010871887207,
+      "central_median_horizontal_flow_sum_c2": 15.241869568824768,
+      "central_median_horizontal_flow_per_transition": [
+        1.5641804933547974,
+        0.7115999460220337,
+        0.8328231573104858,
+        0.8528770804405212,
+        1.2862563133239746,
+        0.4186211824417114,
+        1.1857044696807861,
+        0.46472442150115967,
+        1.4731764793395996,
+        0.7440215349197388,
+        0.7932427525520325,
+        0.5508695840835571,
+        1.5975615978240967,
+        0.791718602180481,
+        0.7096105813980103,
+        1.2648813724517822
+      ]
+    },
+    "fm8": {
+      "boundary_mad_38_39": 8.3081693649292,
+      "within_c2_mad_mean": 6.189798682928085,
+      "within_c2_mad_max": 8.398313522338867,
+      "central_median_horizontal_flow_sum_c2": 15.308031916618347,
+      "central_median_horizontal_flow_per_transition": [
+        1.4718878269195557,
+        0.6236929893493652,
+        0.7581678628921509,
+        0.8412630558013916,
+        1.220732569694519,
+        0.36015135049819946,
+        1.2009700536727905,
+        0.5418723821640015,
+        1.6035447120666504,
+        0.7182707190513611,
+        0.8886882662773132,
+        0.5731521248817444,
+        1.7034560441970825,
+        0.769556999206543,
+        0.7078304290771484,
+        1.3247945308685303
+      ]
+    }
+  },
+  "all_17_new_frames_contact": "submission/experiments/EXP-019_v3_mixed_action_validation/G2_7199292c_ALL_NEW17_CONTACT.jpg",
+  "limitations": [
+    "Only RGB39..55 newly generated",
+    "No D counterfactual GT",
+    "Farneback is auxiliary, not action correctness",
+    "No free-running"
+  ]
+}

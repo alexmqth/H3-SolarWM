@@ -1,0 +1,52 @@
+{
+  "reviewer": "Judge",
+  "date": "2026-10-15",
+  "independent_cpu_integrity": "PASS",
+  "source_sha_files_checked": [
+    "submission/experiments/EXP-020_original_mixed_action_reference/taskbook_v1.md",
+    "submission/experiments/EXP-020_original_mixed_action_reference/run.py",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/abot/infer.py",
+    "H3-World/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py",
+    "H3-World/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py",
+    "H3-World/data/abot_bridge/clips/train/b784d995827f53977a8067e5b9dc4b5e/A_1635.png",
+    "submission/experiments/EXP-015_v3_real56_data/artifacts/b784d995/action_script17.json",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/checkpoints/H3-World/step-10000.safetensors"
+  ],
+  "artifact_source_and_copy_sha_checked": [
+    "artifacts/b784d995/original56.mp4",
+    "artifacts/b784d995/gt_vs_original56.mp4",
+    "artifacts/b784d995/all_late17_contact.jpg",
+    "artifacts/b784d995/keyframes_contact.jpg",
+    "artifacts/b784d995/result.json",
+    "artifacts/b784d995/RUN.log"
+  ],
+  "videos_fully_decoded": [
+    {
+      "path": "artifacts/b784d995/original56.mp4",
+      "frames": 56,
+      "fps": 24,
+      "resolution": [
+        832,
+        480
+      ]
+    },
+    {
+      "path": "artifacts/b784d995/gt_vs_original56.mp4",
+      "frames": 56,
+      "fps": 24,
+      "resolution": [
+        1664,
+        512
+      ]
+    }
+  ],
+  "verified_counts": {
+    "dit": 30,
+    "text": 4,
+    "image_encode": 1,
+    "video_decode": 1,
+    "audio_decode": 1,
+    "training_updates": 0
+  },
+  "scope": "CPU-only independent verification; visual assessment in FINAL_REVIEW.md; no new GPU calls"
+}
