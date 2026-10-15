@@ -1,5 +1,7 @@
 # EXP-024 GPU profile 执行协议（v2 已授权）
 
+执行记录：v2单卡profile已完成，3/3顶层DiT、2/2 backward/update，76.367秒；峰值allocated 24.163 GiB、reserved 27.508 GiB。[实测结果](GPU_PROFILE_RESULT.json) · [完整Worker解释](WORKER_REPORT.md)。本文件保留执行前协议和后续预算推算口径。
+
 唯一首选候选：**Original H3 + released Action LoRA 冻结，full50 QKV rank8，普通 FM，C1/C2 均训练**。与 EXP-023 的 tail8 rank8 / 仅 GT-history C2 相比，这是训练覆盖与 adapter 容量同时改变的**联合基线**，不能归因任一变量。选择 rank8 而非 rank32，是因为全层 rank8 的静态参数仅约10.752M，先测真实全层反向和激活峰值即可改变后续决策；rank32 目前没有收益证据。没有新 anchor、attention、AnyFlow 或 DMD。
 
 ## 冻结输入与入口
