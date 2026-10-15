@@ -1,0 +1,36 @@
+flash_attn is installed but failed to import: /home/qma/work/GWM/.venvs/solarwm-h3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE. Falling back to native PyTorch attention.
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:09,  1.41it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:07,  1.56it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:01<00:06,  1.58it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:08,  1.23it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:03<00:06,  1.39it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:04<00:06,  1.20it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:05<00:05,  1.33it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:05<00:04,  1.47it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:06<00:03,  1.47it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:06<00:02,  1.55it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:07<00:01,  1.58it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:08<00:01,  1.66it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:08<00:00,  1.73it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:09<00:00,  1.76it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:09<00:00,  1.53it/s]
+Attention backends are an experimental feature and the API may be subject to change.
+W1016 01:10:27.161000 1082352 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1082401 closing signal SIGTERM
+W1016 01:10:27.161000 1082352 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1082402 closing signal SIGTERM
+W1016 01:10:27.162000 1082352 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1082403 closing signal SIGTERM
+E1016 01:10:27.440000 1082352 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 3 (pid: 1082404) of binary: /home/qma/work/GWM/.venvs/solarwm-h3/bin/python
+Traceback (most recent call last):
+  File "/home/qma/work/GWM/.venvs/solarwm-h3/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+  File "/home/qma/work/GWM/.venvs/solarwm-h3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/home/qma/work/GWM/.venvs/solarwm-h3/lib/python3.10/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/home/qma/work/GWM/.venvs/solarwm-h3/lib/python3.10/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/home/qma/work/GWM/.venvs/solarwm-h3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/qma/work/GWM/.venvs/solarwm-h3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/home/qma/work/GWM/submission/experiments/EXP-026_solar_stage2_reference/memory_load_v3/load_only.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-10-16_01:10:27
+  host      : research37.saas.hku.hk
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 1082404)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

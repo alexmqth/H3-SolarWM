@@ -1,0 +1,18 @@
+{
+  "status": "CPU_BOUNDARY_PASS_GPU_NOT_TESTED",
+  "patch_apply": "patching file src/solarwm/backends/minimax_h3/optional.py\npatching file src/solarwm/backends/minimax_h3/runtime.py",
+  "h3_backend_v1_sp8_rejected": true,
+  "h3_backend_v3_sp4_one_case_pass": true,
+  "deferred_load_no_whole_cuda_move": true,
+  "legacy_cuda_move_fault_caught": true,
+  "load_inject_wrap_order": [
+    "load",
+    "inject",
+    "wrap"
+  ],
+  "cross_sp_frozen_base_shard_size": 4,
+  "tiny_ema_copy_value": 0.75,
+  "real_fsdp_collective_tested": false,
+  "cuda_initialized": false,
+  "peak_rss_gib": 0.8914108276367188
+}

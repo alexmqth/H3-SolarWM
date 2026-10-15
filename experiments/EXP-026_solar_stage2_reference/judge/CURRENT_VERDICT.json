@@ -1,17 +1,14 @@
 {
   "task_id": "EXP-026",
-  "plan_version": 2,
+  "plan_version": 3,
   "judge_status": "accepted",
-  "accepted_scope": "CPU preparation and independent patch only",
-  "worker_status": "completed",
-  "overall_official_reproduction": "BLOCKED",
-  "input_access": "BLOCKED_ACCESS",
-  "cpu_backend_config": "PASS_SP4_TWO_CASE",
-  "cpu_patch": "PASS_LIMITED",
-  "cuda_fsdp": "NOT_TESTED",
-  "sample_reader": "NOT_TESTED",
-  "video_quality": "NOT_TESTED",
-  "gpu_budget_approved": 0,
-  "automatic_extension": false,
-  "review": "FINAL_REVIEW.md"
+  "accepted_scope": "failed attempt evidence",
+  "worker_status": "failed",
+  "failure": "FLASH_ATTENTION_ABI_MISMATCH",
+  "fsdp_model": "NOT_REACHED",
+  "ema_restore": "NOT_REACHED",
+  "four_gpu_memory_fit": "NOT_TESTED",
+  "elapsed_seconds": 26.316275596618652,
+  "gpu_seconds": 105.26510238647461,
+  "next_plan_version": 4
 }

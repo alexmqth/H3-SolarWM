@@ -1,0 +1,56 @@
+{
+  "task_id": "EXP-026",
+  "plan_version": 3,
+  "status": "VERIFIED_FAILED_ATTEMPT_ENVIRONMENT",
+  "ranks": [
+    {
+      "rank": 0,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "failure",
+        "released"
+      ],
+      "failure": "RuntimeError(\"Flash Attention backend 'flash' is not usable because of missing package or the version is too old. Please install `flash-attn>=2.6.3`.\")"
+    },
+    {
+      "rank": 1,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "failure",
+        "released"
+      ],
+      "failure": "RuntimeError(\"Flash Attention backend 'flash' is not usable because of missing package or the version is too old. Please install `flash-attn>=2.6.3`.\")"
+    },
+    {
+      "rank": 2,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "failure",
+        "released"
+      ],
+      "failure": "RuntimeError(\"Flash Attention backend 'flash' is not usable because of missing package or the version is too old. Please install `flash-attn>=2.6.3`.\")"
+    },
+    {
+      "rank": 3,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "failure",
+        "released"
+      ],
+      "failure": "RuntimeError(\"Flash Attention backend 'flash' is not usable because of missing package or the version is too old. Please install `flash-attn>=2.6.3`.\")"
+    }
+  ],
+  "elapsed_seconds": 26.316275596618652,
+  "gpu_seconds": 105.26510238647461,
+  "source_hashes_match": true,
+  "v2_group_evidence_restored_byte_exact": true,
+  "forward_count": 0,
+  "fsdp_model": "NOT_REACHED",
+  "ema_restore": "NOT_REACHED",
+  "four_gpu_memory_fit": "NOT_TESTED",
+  "gpu_calls_by_judge": 0
+}

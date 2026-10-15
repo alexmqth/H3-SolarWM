@@ -1,0 +1,104 @@
+{
+  "status": "FAILED_BEFORE_FSDP_ENVIRONMENT_FLASH_ATTENTION",
+  "attempts_used": 1,
+  "additional_attempt_authorized": false,
+  "gpu_launch_pid": 1082352,
+  "physical_gpus": [
+    0,
+    1,
+    6,
+    7
+  ],
+  "gpu_uuids": {
+    "0": "GPU-d77c5635-02ec-c2d2-d744-1dfcc4a14e8f",
+    "1": "GPU-c4c2b3db-791b-ecdc-978f-d56295593124",
+    "6": "GPU-8db4febd-4f4e-b87b-96a7-541357b2234b",
+    "7": "GPU-e07666a0-5b88-df44-0a89-cbc9bff6f1dc"
+  },
+  "elapsed_seconds": 26.316275596618652,
+  "charged_gpu_seconds": 105.26510238647461,
+  "peak_task_rss_bytes_sampled": 3388936192,
+  "min_host_mem_available_bytes_sampled": 942742241280,
+  "max_physical_gpu_used_mib_sampled": {
+    "0": 435,
+    "1": 435,
+    "6": 435,
+    "7": 435
+  },
+  "rank_results": {
+    "0": {
+      "pid": 1082401,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "failure",
+        "released"
+      ],
+      "peak_allocated_bytes_observed": 0,
+      "peak_rss_bytes_event_sampled": 710934528,
+      "failure": "RuntimeError(\"Flash Attention backend 'flash' is not usable because of missing package or the version is too old. Please install `flash-attn>=2.6.3`.\")",
+      "failure_elapsed_sec": 21.06385846401099
+    },
+    "1": {
+      "pid": 1082402,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "failure",
+        "released"
+      ],
+      "peak_allocated_bytes_observed": 0,
+      "peak_rss_bytes_event_sampled": 704643072,
+      "failure": "RuntimeError(\"Flash Attention backend 'flash' is not usable because of missing package or the version is too old. Please install `flash-attn>=2.6.3`.\")",
+      "failure_elapsed_sec": 21.061765132995788
+    },
+    "2": {
+      "pid": 1082403,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "failure",
+        "released"
+      ],
+      "peak_allocated_bytes_observed": 0,
+      "peak_rss_bytes_event_sampled": 704643072,
+      "failure": "RuntimeError(\"Flash Attention backend 'flash' is not usable because of missing package or the version is too old. Please install `flash-attn>=2.6.3`.\")",
+      "failure_elapsed_sec": 21.06377689098008
+    },
+    "3": {
+      "pid": 1082404,
+      "stages": [
+        "pre_nccl",
+        "nccl_ready",
+        "failure",
+        "released"
+      ],
+      "peak_allocated_bytes_observed": 0,
+      "peak_rss_bytes_event_sampled": 698351616,
+      "failure": "RuntimeError(\"Flash Attention backend 'flash' is not usable because of missing package or the version is too old. Please install `flash-attn>=2.6.3`.\")",
+      "failure_elapsed_sec": 21.061352794000413
+    }
+  },
+  "checkpoint_shards_progress": "14/14 in torchrun.stderr.log; base_loaded event was not emitted",
+  "failure_site": "optional.load_transformer -> transformer.set_attention_backend(flash)",
+  "flash_attn_import_error": "flash_attn_2_cuda.so undefined symbol _ZN3c105ErrorC2ENS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE",
+  "environment_versions": {
+    "torch": "2.6.0+cu124",
+    "flash-attn": "2.8.3",
+    "diffusers": "0.40.0",
+    "transformers": "5.12.1",
+    "peft": "0.20.0"
+  },
+  "fsdp_model_wrapped": false,
+  "lora_injected": false,
+  "ema_restored": false,
+  "forward_count": 0,
+  "codec_count": 0,
+  "updates": 0,
+  "released_gpus_verified": [
+    0,
+    1,
+    6,
+    7
+  ]
+}
