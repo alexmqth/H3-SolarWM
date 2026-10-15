@@ -1,0 +1,1878 @@
+{
+  "task": "EXP-025/v1",
+  "status": "COMPLETE_PENDING_JUDGE",
+  "physical_gpu": 0,
+  "pid": 3409453,
+  "phase": "post",
+  "elapsed_seconds": 11566.61250719399,
+  "phase_elapsed_seconds": 1042.8261784809874,
+  "counts": {
+    "dit": 570,
+    "backward": 256,
+    "update": 256,
+    "vae_decode": 12,
+    "vae_encode": 0,
+    "text": 0
+  },
+  "caps": {
+    "dit": 576,
+    "backward": 256,
+    "update": 256,
+    "vae_decode": 12,
+    "vae_encode": 0,
+    "text": 0
+  },
+  "phase_seconds": {
+    "regression": 76.07755846902728,
+    "pre": 781.5870683069807,
+    "train": 9666.121682638011,
+    "post": 1042.8261681260192
+  },
+  "phase_counts": {
+    "regression": {
+      "dit": 6,
+      "backward": 0,
+      "update": 0,
+      "vae_decode": 0,
+      "vae_encode": 0,
+      "text": 0
+    },
+    "pre": {
+      "dit": 96,
+      "backward": 0,
+      "update": 0,
+      "vae_decode": 6,
+      "vae_encode": 0,
+      "text": 0
+    },
+    "train": {
+      "dit": 480,
+      "backward": 256,
+      "update": 256,
+      "vae_decode": 6,
+      "vae_encode": 0,
+      "text": 0
+    },
+    "post": {
+      "dit": 570,
+      "backward": 256,
+      "update": 256,
+      "vae_decode": 12,
+      "vae_encode": 0,
+      "text": 0
+    }
+  },
+  "phase_caps": {
+    "regression": 400,
+    "pre": 1400,
+    "train": 11000,
+    "post": 1400
+  },
+  "gpu_seconds_cap": 13800,
+  "peak_allocated_gib": 24.448705196380615,
+  "peak_reserved_gib": 28.138671875,
+  "rss_gib": 66.47230911254883,
+  "events": [
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step226_C2_forward",
+      "seconds": 8706.22288856603
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step226_C2_backward",
+      "seconds": 8715.892095335992
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step226_C2_optimizer",
+      "seconds": 8732.948696100037
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step227_C2_commit",
+      "seconds": 8733.917512493033
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step227_C2_forward",
+      "seconds": 8749.020891171007
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step227_C2_backward",
+      "seconds": 8758.208751164027
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step227_C2_optimizer",
+      "seconds": 8774.097736243042
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step228_C1_forward",
+      "seconds": 8774.959295655019
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step228_C1_backward",
+      "seconds": 8783.719691977021
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step228_C1_optimizer",
+      "seconds": 8798.447100384044
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step229_C1_forward",
+      "seconds": 8798.80994951399
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step229_C1_backward",
+      "seconds": 8807.16711063002
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step229_C1_optimizer",
+      "seconds": 8821.886495838
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step230_C2_commit",
+      "seconds": 8822.14565799199
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step230_C2_forward",
+      "seconds": 8837.898086745001
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step230_C2_backward",
+      "seconds": 8848.099335557024
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step230_C2_optimizer",
+      "seconds": 8863.99970301101
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step231_C2_commit",
+      "seconds": 8865.030728881015
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step231_C2_forward",
+      "seconds": 8883.878701818001
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step231_C2_backward",
+      "seconds": 8894.940889583027
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step231_C2_optimizer",
+      "seconds": 8913.045912870031
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step232_C1_forward",
+      "seconds": 8913.971517583996
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step232_C1_backward",
+      "seconds": 8925.426711303007
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step232_C1_optimizer",
+      "seconds": 8942.420274462027
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step233_C2_commit",
+      "seconds": 8942.985877043044
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step233_C2_forward",
+      "seconds": 8959.87847204
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step233_C2_backward",
+      "seconds": 8969.215079924033
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step233_C2_optimizer",
+      "seconds": 8984.04571391904
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step234_C1_forward",
+      "seconds": 8984.813509577012
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step234_C1_backward",
+      "seconds": 8994.93828542903
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step234_C1_optimizer",
+      "seconds": 9012.337363569997
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step235_C2_commit",
+      "seconds": 9012.803960059013
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step235_C2_forward",
+      "seconds": 9030.258665879024
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step235_C2_backward",
+      "seconds": 9042.589429304004
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step235_C2_optimizer",
+      "seconds": 9062.249909847043
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step236_C1_forward",
+      "seconds": 9063.13064071699
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step236_C1_backward",
+      "seconds": 9074.11706872203
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step236_C1_optimizer",
+      "seconds": 9092.640571126016
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step237_C1_forward",
+      "seconds": 9093.031503433012
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step237_C1_backward",
+      "seconds": 9103.352099639014
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step237_C1_optimizer",
+      "seconds": 9119.289178551
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step238_C2_commit",
+      "seconds": 9119.620433480013
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step238_C2_forward",
+      "seconds": 9135.450742821035
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step238_C2_backward",
+      "seconds": 9143.43060146604
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step238_C2_optimizer",
+      "seconds": 9160.11319177202
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step239_C2_commit",
+      "seconds": 9161.282271494041
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step239_C2_forward",
+      "seconds": 9179.119079433032
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step239_C2_backward",
+      "seconds": 9188.565425087
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step239_C2_optimizer",
+      "seconds": 9205.219186095987
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step240_C1_forward",
+      "seconds": 9205.968772814027
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step240_C1_backward",
+      "seconds": 9217.069975687016
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step240_C1_optimizer",
+      "seconds": 9232.663476594025
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step241_C1_forward",
+      "seconds": 9233.040583577007
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step241_C1_backward",
+      "seconds": 9243.801188935002
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step241_C1_optimizer",
+      "seconds": 9260.427336579014
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step242_C2_commit",
+      "seconds": 9260.750789326034
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step242_C2_forward",
+      "seconds": 9302.272114642023
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step242_C2_backward",
+      "seconds": 9321.24330448301
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step242_C2_optimizer",
+      "seconds": 9340.915461069031
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step243_C2_commit",
+      "seconds": 9342.047168035002
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step243_C2_forward",
+      "seconds": 9359.785104716022
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step243_C2_backward",
+      "seconds": 9414.278181475995
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step243_C2_optimizer",
+      "seconds": 9456.29961870599
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step244_C1_forward",
+      "seconds": 9457.773295113002
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step244_C1_backward",
+      "seconds": 9470.635632548016
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step244_C1_optimizer",
+      "seconds": 9489.896466948034
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step245_C2_commit",
+      "seconds": 9490.506219010043
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step245_C2_forward",
+      "seconds": 9508.684282610018
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step245_C2_backward",
+      "seconds": 9547.875083699008
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step245_C2_optimizer",
+      "seconds": 9914.303342734987
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step246_C1_forward",
+      "seconds": 9916.339576548024
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step246_C1_backward",
+      "seconds": 9952.743641356006
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step246_C1_optimizer",
+      "seconds": 9969.88520411303
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step247_C2_commit",
+      "seconds": 9970.573160473024
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step247_C2_forward",
+      "seconds": 9987.41875082301
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step247_C2_backward",
+      "seconds": 9998.400101590028
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step247_C2_optimizer",
+      "seconds": 10013.721608702035
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step248_C1_forward",
+      "seconds": 10014.609467489005
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step248_C1_backward",
+      "seconds": 10024.977978405019
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step248_C1_optimizer",
+      "seconds": 10040.95105030603
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step249_C1_forward",
+      "seconds": 10041.42480252101
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step249_C1_backward",
+      "seconds": 10051.727205511008
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step249_C1_optimizer",
+      "seconds": 10068.983299941989
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step250_C2_commit",
+      "seconds": 10069.269066935987
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step250_C2_forward",
+      "seconds": 10088.235623301996
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step250_C2_backward",
+      "seconds": 10101.058134627994
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step250_C2_optimizer",
+      "seconds": 10123.172594033007
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step251_C2_commit",
+      "seconds": 10124.215549907996
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step251_C2_forward",
+      "seconds": 10142.946913284017
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step251_C2_backward",
+      "seconds": 10153.654362475034
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step251_C2_optimizer",
+      "seconds": 10172.513980477
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step252_C1_forward",
+      "seconds": 10173.649152058992
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step252_C1_backward",
+      "seconds": 10186.572249216028
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step252_C1_optimizer",
+      "seconds": 10205.053241451038
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step253_C1_forward",
+      "seconds": 10205.567775556003
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step253_C1_backward",
+      "seconds": 10215.900105451
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step253_C1_optimizer",
+      "seconds": 10232.475196449028
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step254_C2_commit",
+      "seconds": 10232.842204059998
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step254_C2_forward",
+      "seconds": 10253.598057314986
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step254_C2_backward",
+      "seconds": 10418.216429162014
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step254_C2_optimizer",
+      "seconds": 10439.280625439016
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step255_C2_commit",
+      "seconds": 10440.949957787001
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step255_C2_forward",
+      "seconds": 10463.342296562041
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step255_C2_backward",
+      "seconds": 10474.079247799993
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step255_C2_optimizer",
+      "seconds": 10492.825509996037
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "step256_C1_forward",
+      "seconds": 10493.804158974031
+    },
+    {
+      "event": "attempt",
+      "kind": "backward",
+      "note": "step256_C1_backward",
+      "seconds": 10505.273489802028
+    },
+    {
+      "event": "attempt",
+      "kind": "update",
+      "note": "step256_C1_optimizer",
+      "seconds": 10521.546626077034
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_GT_C1_commit",
+      "seconds": 10525.798601382005
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_GT_C1_commit",
+      "duration_seconds": 13.592811048030853,
+      "seconds": 10539.540539059031
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE1",
+      "seconds": 10545.034216814034
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_GT_C2_NFE1",
+      "duration_seconds": 12.559104868967552,
+      "seconds": 10557.596129186044
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE2",
+      "seconds": 10557.666159832035
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_GT_C2_NFE2",
+      "duration_seconds": 5.743935835023876,
+      "seconds": 10563.412578633986
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE3",
+      "seconds": 10563.415622550005
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_GT_C2_NFE3",
+      "duration_seconds": 6.220000196946785,
+      "seconds": 10569.637584667013
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE4",
+      "seconds": 10569.640434814035
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_GT_C2_NFE4",
+      "duration_seconds": 5.6306099179782905,
+      "seconds": 10575.272813473013
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE5",
+      "seconds": 10575.275765533035
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_GT_C2_NFE5",
+      "duration_seconds": 5.329394911008421,
+      "seconds": 10580.60699041799
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE6",
+      "seconds": 10580.609906974016
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_GT_C2_NFE6",
+      "duration_seconds": 5.756426626001485,
+      "seconds": 10586.368071414996
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE7",
+      "seconds": 10586.37099881802
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_GT_C2_NFE7",
+      "duration_seconds": 4.948179956001695,
+      "seconds": 10591.321320964023
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE8",
+      "seconds": 10591.324834963016
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_GT_C2_NFE8",
+      "duration_seconds": 5.242296969983727,
+      "seconds": 10596.568871219992
+    },
+    {
+      "event": "attempt",
+      "kind": "vae_decode",
+      "note": "train_constant_GT",
+      "seconds": 10611.198052673019
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_GT_decode",
+      "duration_seconds": 8.127765095036011,
+      "seconds": 10619.328245132987
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_GT_C1_commit",
+      "seconds": 10636.382389817038
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_GT_C1_commit",
+      "duration_seconds": 16.510929148003925,
+      "seconds": 10652.89748890599
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE1",
+      "seconds": 10655.825208338036
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_GT_C2_NFE1",
+      "duration_seconds": 10.94489576696651,
+      "seconds": 10666.775424605003
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE2",
+      "seconds": 10666.780407592014
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_GT_C2_NFE2",
+      "duration_seconds": 6.855677993968129,
+      "seconds": 10673.638875936042
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE3",
+      "seconds": 10673.64255609602
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_GT_C2_NFE3",
+      "duration_seconds": 6.363556448020972,
+      "seconds": 10680.008636905986
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE4",
+      "seconds": 10680.013270400988
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_GT_C2_NFE4",
+      "duration_seconds": 6.172829206974711,
+      "seconds": 10686.189330908004
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE5",
+      "seconds": 10686.192953062011
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_GT_C2_NFE5",
+      "duration_seconds": 6.347075049998239,
+      "seconds": 10692.542511314037
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE6",
+      "seconds": 10692.547539238993
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_GT_C2_NFE6",
+      "duration_seconds": 5.25469247699948,
+      "seconds": 10697.804855277995
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE7",
+      "seconds": 10697.808492915006
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_GT_C2_NFE7",
+      "duration_seconds": 5.4480426530353725,
+      "seconds": 10703.259071798006
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE8",
+      "seconds": 10703.262852009037
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_GT_C2_NFE8",
+      "duration_seconds": 6.684332217962947,
+      "seconds": 10709.949580418004
+    },
+    {
+      "event": "attempt",
+      "kind": "vae_decode",
+      "note": "train_switch_GT",
+      "seconds": 10726.657218547014
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_GT_decode",
+      "duration_seconds": 6.2312149640056305,
+      "seconds": 10732.891986653034
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_GT_C1_commit",
+      "seconds": 10736.94796757301
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_GT_C1_commit",
+      "duration_seconds": 15.731899831967894,
+      "seconds": 10752.684658967017
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE1",
+      "seconds": 10756.038955824042
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_GT_C2_NFE1",
+      "duration_seconds": 13.70557191199623,
+      "seconds": 10769.748707996041
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE2",
+      "seconds": 10769.752958461002
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_GT_C2_NFE2",
+      "duration_seconds": 5.937412333034445,
+      "seconds": 10775.692835019028
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE3",
+      "seconds": 10775.69684218103
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_GT_C2_NFE3",
+      "duration_seconds": 6.214825897011906,
+      "seconds": 10781.913872504025
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE4",
+      "seconds": 10781.919016906992
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_GT_C2_NFE4",
+      "duration_seconds": 6.6768963420181535,
+      "seconds": 10788.618509266002
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE5",
+      "seconds": 10788.622042639996
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_GT_C2_NFE5",
+      "duration_seconds": 6.517348057997879,
+      "seconds": 10795.141508444038
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE6",
+      "seconds": 10795.188490901026
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_GT_C2_NFE6",
+      "duration_seconds": 7.613602168043144,
+      "seconds": 10802.918364081008
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE7",
+      "seconds": 10802.922070123022
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_GT_C2_NFE7",
+      "duration_seconds": 7.460300069011282,
+      "seconds": 10810.397718665015
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE8",
+      "seconds": 10810.401195554005
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_GT_C2_NFE8",
+      "duration_seconds": 7.965272504021414,
+      "seconds": 10818.368678233994
+    },
+    {
+      "event": "attempt",
+      "kind": "vae_decode",
+      "note": "dev_constant_GT",
+      "seconds": 10836.524793021032
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_GT_decode",
+      "duration_seconds": 6.7213694069650955,
+      "seconds": 10843.249494942022
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_GT_C1_commit",
+      "seconds": 10852.337821174006
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_GT_C1_commit",
+      "duration_seconds": 13.193945048027672,
+      "seconds": 10865.538995325041
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE1",
+      "seconds": 10868.76244657702
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_GT_C2_NFE1",
+      "duration_seconds": 13.771759147988632,
+      "seconds": 10882.540523014031
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE2",
+      "seconds": 10882.641171866038
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_GT_C2_NFE2",
+      "duration_seconds": 7.896878558967728,
+      "seconds": 10890.62363149604
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE3",
+      "seconds": 10890.627530369035
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_GT_C2_NFE3",
+      "duration_seconds": 7.504867055977229,
+      "seconds": 10898.134782513021
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE4",
+      "seconds": 10898.138591661991
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_GT_C2_NFE4",
+      "duration_seconds": 7.009974109008908,
+      "seconds": 10905.150893212995
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE5",
+      "seconds": 10905.15482955199
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_GT_C2_NFE5",
+      "duration_seconds": 6.572912422998343,
+      "seconds": 10911.730083618022
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE6",
+      "seconds": 10911.735134224
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_GT_C2_NFE6",
+      "duration_seconds": 6.141721641994081,
+      "seconds": 10917.879802094016
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE7",
+      "seconds": 10917.884939289012
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_GT_C2_NFE7",
+      "duration_seconds": 6.6107567740255035,
+      "seconds": 10924.531248284038
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE8",
+      "seconds": 10924.537606336002
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_GT_C2_NFE8",
+      "duration_seconds": 7.413492973020766,
+      "seconds": 10931.991748956032
+    },
+    {
+      "event": "attempt",
+      "kind": "vae_decode",
+      "note": "dev_switch_GT",
+      "seconds": 10957.924330683018
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_GT_decode",
+      "duration_seconds": 5.93873066600645,
+      "seconds": 10963.866321146023
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE1",
+      "seconds": 10969.008325085044
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C1_NFE1",
+      "duration_seconds": 89.3811872350052,
+      "seconds": 11058.393918914022
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE2",
+      "seconds": 11058.399974938016
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C1_NFE2",
+      "duration_seconds": 8.49866517900955,
+      "seconds": 11066.909429977008
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE3",
+      "seconds": 11066.915016849001
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C1_NFE3",
+      "duration_seconds": 7.003720381006133,
+      "seconds": 11073.922086964012
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE4",
+      "seconds": 11073.927051884995
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C1_NFE4",
+      "duration_seconds": 7.089546472008806,
+      "seconds": 11081.019889252027
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE5",
+      "seconds": 11081.024944589008
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C1_NFE5",
+      "duration_seconds": 7.620736663986463,
+      "seconds": 11088.648900381988
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE6",
+      "seconds": 11088.653286607005
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C1_NFE6",
+      "duration_seconds": 8.137195437040646,
+      "seconds": 11096.793241153995
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE7",
+      "seconds": 11096.797364255995
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C1_NFE7",
+      "duration_seconds": 7.817870128026698,
+      "seconds": 11104.617392836022
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE8",
+      "seconds": 11104.620954718033
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C1_NFE8",
+      "duration_seconds": 8.408274376008194,
+      "seconds": 11113.031426643021
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_commit",
+      "seconds": 11113.035258880001
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C1_commit",
+      "duration_seconds": 14.114871501980815,
+      "seconds": 11127.152567401004
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE1",
+      "seconds": 11127.176825084025
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C2_NFE1",
+      "duration_seconds": 6.729089317028411,
+      "seconds": 11133.910105635994
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE2",
+      "seconds": 11133.915937596
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C2_NFE2",
+      "duration_seconds": 6.005457499006297,
+      "seconds": 11139.933742869005
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE3",
+      "seconds": 11139.938492749992
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C2_NFE3",
+      "duration_seconds": 6.443507095973473,
+      "seconds": 11146.384579097037
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE4",
+      "seconds": 11146.387956693012
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C2_NFE4",
+      "duration_seconds": 5.713973906997126,
+      "seconds": 11152.104258364008
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE5",
+      "seconds": 11152.145149760996
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C2_NFE5",
+      "duration_seconds": 5.6256203220109455,
+      "seconds": 11157.815013137006
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE6",
+      "seconds": 11157.81843716302
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C2_NFE6",
+      "duration_seconds": 6.653941909025889,
+      "seconds": 11164.474402882042
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE7",
+      "seconds": 11164.478395089041
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C2_NFE7",
+      "duration_seconds": 6.850760789995547,
+      "seconds": 11171.345359607018
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE8",
+      "seconds": 11171.349081039021
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_C2_NFE8",
+      "duration_seconds": 6.86816363100661,
+      "seconds": 11178.229546548042
+    },
+    {
+      "event": "attempt",
+      "kind": "vae_decode",
+      "note": "dev_constant_SELF",
+      "seconds": 11194.11040378001
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_SELF_decode",
+      "duration_seconds": 6.31615337904077,
+      "seconds": 11200.429585992999
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE1",
+      "seconds": 11205.658717171988
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C1_NFE1",
+      "duration_seconds": 14.966387770022266,
+      "seconds": 11220.629904959002
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE2",
+      "seconds": 11220.633572300023
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C1_NFE2",
+      "duration_seconds": 8.157944870006759,
+      "seconds": 11228.794765643019
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE3",
+      "seconds": 11228.798242449004
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C1_NFE3",
+      "duration_seconds": 7.574060119048227,
+      "seconds": 11236.388448944024
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE4",
+      "seconds": 11236.392861841014
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C1_NFE4",
+      "duration_seconds": 6.213173261960037,
+      "seconds": 11242.608343380038
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE5",
+      "seconds": 11242.613646620011
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C1_NFE5",
+      "duration_seconds": 6.507842787948903,
+      "seconds": 11249.124465845001
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE6",
+      "seconds": 11249.127818856039
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C1_NFE6",
+      "duration_seconds": 6.626418552012183,
+      "seconds": 11255.756218985014
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE7",
+      "seconds": 11255.759335292038
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C1_NFE7",
+      "duration_seconds": 7.560622296005022,
+      "seconds": 11263.32186712703
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE8",
+      "seconds": 11263.325242832012
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C1_NFE8",
+      "duration_seconds": 6.808906526013743,
+      "seconds": 11270.153449167032
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_commit",
+      "seconds": 11270.156788878026
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C1_commit",
+      "duration_seconds": 12.277811037027277,
+      "seconds": 11282.436601512018
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE1",
+      "seconds": 11282.46463339799
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C2_NFE1",
+      "duration_seconds": 7.251788048015442,
+      "seconds": 11289.72304855904
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE2",
+      "seconds": 11289.726606526994
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C2_NFE2",
+      "duration_seconds": 6.310871088004205,
+      "seconds": 11296.039998971042
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE3",
+      "seconds": 11296.043626763043
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C2_NFE3",
+      "duration_seconds": 5.824179534974974,
+      "seconds": 11301.870290438994
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE4",
+      "seconds": 11301.873579173
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C2_NFE4",
+      "duration_seconds": 5.668023655016441,
+      "seconds": 11307.543613420043
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE5",
+      "seconds": 11307.54701855901
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C2_NFE5",
+      "duration_seconds": 5.67387747799512,
+      "seconds": 11313.22313574102
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE6",
+      "seconds": 11313.226416514022
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C2_NFE6",
+      "duration_seconds": 6.083286691980902,
+      "seconds": 11319.311946195026
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE7",
+      "seconds": 11319.315296792018
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C2_NFE7",
+      "duration_seconds": 5.797602988022845,
+      "seconds": 11325.115236459009
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE8",
+      "seconds": 11325.13683713699
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_C2_NFE8",
+      "duration_seconds": 5.109907520993147,
+      "seconds": 11330.249042137992
+    },
+    {
+      "event": "attempt",
+      "kind": "vae_decode",
+      "note": "dev_switch_SELF",
+      "seconds": 11345.336867996026
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_SELF_decode",
+      "duration_seconds": 6.319638823973946,
+      "seconds": 11351.660019581032
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_PROBE_C1_0.25",
+      "seconds": 11355.43552507204
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_PROBE_C1_0.25",
+      "duration_seconds": 11.543508038972504,
+      "seconds": 11366.983784157026
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_PROBE_C1_0.75",
+      "seconds": 11366.987822154013
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_PROBE_C1_0.75",
+      "duration_seconds": 9.976653897960205,
+      "seconds": 11376.966777538997
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_PROBE_C2_commit",
+      "seconds": 11376.970652232005
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_PROBE_C2_commit",
+      "duration_seconds": 11.43204342602985,
+      "seconds": 11388.417757124
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_PROBE_C2_sigma0.25",
+      "seconds": 11388.425259891024
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_PROBE_C2_sigma0.25",
+      "duration_seconds": 9.40462521801237,
+      "seconds": 11397.865643774043
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_constant_PROBE_C2_sigma0.75",
+      "seconds": 11397.869388402032
+    },
+    {
+      "event": "complete",
+      "note": "train_constant_PROBE_C2_sigma0.75",
+      "duration_seconds": 8.58003670402104,
+      "seconds": 11406.451812190993
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_PROBE_C1_0.25",
+      "seconds": 11407.16326954501
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_PROBE_C1_0.25",
+      "duration_seconds": 9.193117615999654,
+      "seconds": 11416.364121875027
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_PROBE_C1_0.75",
+      "seconds": 11416.368306423014
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_PROBE_C1_0.75",
+      "duration_seconds": 9.01990251801908,
+      "seconds": 11425.390962695004
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_PROBE_C2_commit",
+      "seconds": 11425.412367944024
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_PROBE_C2_commit",
+      "duration_seconds": 14.246977636998054,
+      "seconds": 11439.714772125008
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_PROBE_C2_sigma0.25",
+      "seconds": 11439.719005706022
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_PROBE_C2_sigma0.25",
+      "duration_seconds": 9.1666936519905,
+      "seconds": 11448.888620013022
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "train_switch_PROBE_C2_sigma0.75",
+      "seconds": 11448.892361197039
+    },
+    {
+      "event": "complete",
+      "note": "train_switch_PROBE_C2_sigma0.75",
+      "duration_seconds": 8.628552966983989,
+      "seconds": 11457.52318473399
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_PROBE_C1_0.25",
+      "seconds": 11458.311110540992
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_PROBE_C1_0.25",
+      "duration_seconds": 9.746269336959813,
+      "seconds": 11468.060734643019
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_PROBE_C1_0.75",
+      "seconds": 11468.065091508033
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_PROBE_C1_0.75",
+      "duration_seconds": 10.593884792993777,
+      "seconds": 11478.661917335994
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_PROBE_C2_commit",
+      "seconds": 11478.666850485024
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_PROBE_C2_commit",
+      "duration_seconds": 14.717091817001346,
+      "seconds": 11493.38878668804
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_PROBE_C2_sigma0.25",
+      "seconds": 11493.395816027012
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_PROBE_C2_sigma0.25",
+      "duration_seconds": 10.35679282800993,
+      "seconds": 11503.755114639003
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_constant_PROBE_C2_sigma0.75",
+      "seconds": 11503.760840606003
+    },
+    {
+      "event": "complete",
+      "note": "dev_constant_PROBE_C2_sigma0.75",
+      "duration_seconds": 10.728284721029922,
+      "seconds": 11514.521771778003
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_PROBE_C1_0.25",
+      "seconds": 11515.387239378993
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_PROBE_C1_0.25",
+      "duration_seconds": 9.57946036697831,
+      "seconds": 11524.972599614004
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_PROBE_C1_0.75",
+      "seconds": 11524.976923261012
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_PROBE_C1_0.75",
+      "duration_seconds": 9.255646291014273,
+      "seconds": 11534.235457377043
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_PROBE_C2_commit",
+      "seconds": 11534.239195046015
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_PROBE_C2_commit",
+      "duration_seconds": 14.016983132984024,
+      "seconds": 11548.258563472016
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_PROBE_C2_sigma0.25",
+      "seconds": 11548.263950922003
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_PROBE_C2_sigma0.25",
+      "duration_seconds": 9.399209668976255,
+      "seconds": 11557.681178941042
+    },
+    {
+      "event": "attempt",
+      "kind": "dit",
+      "note": "dev_switch_PROBE_C2_sigma0.75",
+      "seconds": 11557.68510994903
+    },
+    {
+      "event": "complete",
+      "note": "dev_switch_PROBE_C2_sigma0.75",
+      "duration_seconds": 8.24556669901358,
+      "seconds": 11565.933498255035
+    }
+  ],
+  "error": null
+}

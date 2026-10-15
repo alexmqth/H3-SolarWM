@@ -1,0 +1,194 @@
+{
+  "phase": "post",
+  "checkpoint_updates": 256,
+  "videos": [
+    {
+      "role": "train_constant",
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56",
+      "history": "GT first39 displayed and committed",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_after/train_constant_GT39_generated17.mp4",
+      "sha256": "871e7c663884ed7a528f44a023105c555946d43447c43fb15f481762e7a6249d",
+      "sampling_seconds": 51.57489456702024,
+      "boundary_mad": 7.292578125,
+      "frame_mad": 7.422625109265734,
+      "cpu_kv_bytes": 6799104000
+    },
+    {
+      "role": "train_switch",
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56",
+      "history": "GT first39 displayed and committed",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_after/train_switch_GT39_generated17.mp4",
+      "sha256": "3bebbeb0d212154b1ab27558ae6b532e019aa885bd2314664236e2600b1788bf",
+      "sampling_seconds": 54.128929282014724,
+      "boundary_mad": 10.958938468215813,
+      "frame_mad": 8.37327756228147,
+      "cpu_kv_bytes": 6799104000
+    },
+    {
+      "role": "dev_constant",
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56",
+      "history": "GT first39 displayed and committed",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_after/dev_constant_GT39_generated17.mp4",
+      "sha256": "63eecba46788422b94199165409a646e5f289fc442bf45fa79eed450d605c45a",
+      "sampling_seconds": 62.33520644099917,
+      "boundary_mad": 16.375050080128204,
+      "frame_mad": 17.502376453841297,
+      "cpu_kv_bytes": 6799104000
+    },
+    {
+      "role": "dev_switch",
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56",
+      "history": "GT first39 displayed and committed",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_after/dev_switch_GT39_generated17.mp4",
+      "sha256": "9ba2d74143770ad183a26677e9f4ac2136789e8ca7a9afd16434ada1c399cd30",
+      "sampling_seconds": 63.23381736403098,
+      "boundary_mad": 8.757080495459402,
+      "frame_mad": 7.763479157561189,
+      "cpu_kv_bytes": 6799104000
+    },
+    {
+      "role": "dev_constant",
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56",
+      "history": "self-generated C1 and C2",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_after/dev_constant_self56.mp4",
+      "sha256": "19cb16eecc6de81c0439ac35c08052493e660865d6d98af6d250aced961cb50d",
+      "sampling_c1_seconds": 144.02723279298516,
+      "sampling_c2_seconds": 51.05732205102686,
+      "boundary_mad": 12.831515424679488,
+      "frame_mad": 12.070030791690948,
+      "cpu_kv_bytes": 6799104000
+    },
+    {
+      "role": "dev_switch",
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56",
+      "history": "self-generated C1 and C2",
+      "nfe_per_chunk": 8,
+      "video": "submission/experiments/EXP-025_v3_fm_full_coverage/eval_after/dev_switch_self56.mp4",
+      "sha256": "8140e1a6f39da37700d1d71e1cf16a7227a6ef72ac868090103d86842849c246",
+      "sampling_c1_seconds": 64.49856365198502,
+      "sampling_c2_seconds": 47.78884148900397,
+      "boundary_mad": 6.601613414797009,
+      "frame_mad": 5.851856849747475,
+      "cpu_kv_bytes": 6799104000
+    }
+  ],
+  "probes": {
+    "train_constant": {
+      "C1": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.2081712931394577,
+          "velocity_rms": 1.3689857721328735
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.07503392547369003,
+          "velocity_rms": 1.4150056838989258
+        }
+      ],
+      "C2": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.23065096139907837,
+          "velocity_rms": 1.3905714750289917
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.06982813030481339,
+          "velocity_rms": 1.4473263025283813
+        }
+      ]
+    },
+    "train_switch": {
+      "C1": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.20674775540828705,
+          "velocity_rms": 1.4058456420898438
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.07145477086305618,
+          "velocity_rms": 1.453355312347412
+        }
+      ],
+      "C2": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.25088465213775635,
+          "velocity_rms": 1.4282796382904053
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.08838585764169693,
+          "velocity_rms": 1.4813426733016968
+        }
+      ]
+    },
+    "dev_constant": {
+      "C1": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.19285133481025696,
+          "velocity_rms": 1.3702995777130127
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.07348887622356415,
+          "velocity_rms": 1.414590835571289
+        }
+      ],
+      "C2": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.2106730341911316,
+          "velocity_rms": 1.3909015655517578
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.07320816069841385,
+          "velocity_rms": 1.4403529167175293
+        }
+      ]
+    },
+    "dev_switch": {
+      "C1": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.1983807384967804,
+          "velocity_rms": 1.4236608743667603
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.0748220756649971,
+          "velocity_rms": 1.4666264057159424
+        }
+      ],
+      "C2": [
+        {
+          "sigma": 0.25,
+          "fm_mse": 0.21379056572914124,
+          "velocity_rms": 1.4625558853149414
+        },
+        {
+          "sigma": 0.75,
+          "fm_mse": 0.07976168394088745,
+          "velocity_rms": 1.5061818361282349
+        }
+      ]
+    }
+  },
+  "budget": {
+    "dit": 570,
+    "backward": 256,
+    "update": 256,
+    "vae_decode": 12,
+    "vae_encode": 0,
+    "text": 0
+  }
+}

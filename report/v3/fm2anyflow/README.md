@@ -15,6 +15,8 @@
 
 [7. 真实视频普通 FM 小数据训练 / EXP-023](fm_small_data/README.md)：32train、128updates、FM-8NFE匹配评测完成；MSE略降，视频增益未证实，含六组对照视频。
 
+[8. 全50层C1+C2普通FM / EXP-025](fm_full_coverage/README.md)：256updates与六组匹配视频完成，C1略差、C2 MSE小降，新增视频收益未证实，停止自动扩训。
+
 当前收益最明确的是普通 FM-8NFE。AnyFlow 的已测 checkpoint 没有显示整体优势，因此保留负结果、停止当前配置扩展。四步续写都借用了 FM-8NFE 首窗，不能称为全程四步生成。FM-8NFE 与 FM-30NFE 自身历史不同的比较，也不能称为同 KV 的纯步数消融。
 
 后续 DMD 训练归入 [V4：SGF / DMD](../../v4/README.md)。[缩写表](../../GLOSSARY.md) · [返回 V3](../README.md)
