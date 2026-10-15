@@ -1,0 +1,38 @@
+{
+  "milestone": "256/256 optimizer updates; post-evaluation still running",
+  "checkpoint_sha256": "cf25b9f47a302dd52b82e1af7d2a56b76817d04ba0c1dbbbe1d9587e7eafdabd",
+  "adapter_layers": 50,
+  "optimizer_state_items": 100,
+  "clips": 32,
+  "passes_per_clip_per_block": 4,
+  "C1_updates": 128,
+  "C2_updates": 128,
+  "order_matches_records": true,
+  "adapter_finite": true,
+  "recorded_gradients_finite_positive": true,
+  "rng_and_order_present": true,
+  "training_phase_seconds": 9666.121682638011,
+  "ledger_snapshot": {
+    "status": "RUNNING",
+    "phase": "post",
+    "elapsed_seconds": 10636.382396998,
+    "phase_elapsed_seconds": 112.59606838598847,
+    "phase_seconds": {
+      "regression": 76.07755846902728,
+      "pre": 781.5870683069807,
+      "train": 9666.121682638011
+    },
+    "counts": {
+      "dit": 490,
+      "backward": 256,
+      "update": 256,
+      "vae_decode": 7,
+      "vae_encode": 0,
+      "text": 0
+    },
+    "peak_allocated_gib": 24.448705196380615,
+    "peak_reserved_gib": 28.138671875
+  },
+  "quality": "PENDING_POST_EVALUATION",
+  "gpu_calls_by_judge": 0
+}
