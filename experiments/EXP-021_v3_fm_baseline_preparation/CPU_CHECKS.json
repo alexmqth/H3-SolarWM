@@ -1,0 +1,97 @@
+{
+  "status": "PASS_CPU_SOURCE_ACTION_ONLY",
+  "elapsed_seconds": 2.171169234032277,
+  "gpu_calls": 0,
+  "train_updates": 0,
+  "source_checks": [
+    {
+      "episode_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9",
+      "video_sha256": "100199334fb037922b8e804192592cbf1cbd3090dc3fd248d17c8dc75d3888a8",
+      "annotations_sha256": "211fccd0ec8c28e18cbc1f36eee4332e51aaca1d3be0b67bf6d1e91976aaf54d",
+      "frame_count": 1800,
+      "source_fps": 30,
+      "action_pose_coverage": 1800,
+      "source_window_span_for_56_rgb": 69,
+      "translation_scale": 0.08135006249645492
+    },
+    {
+      "episode_id": "43866101158a538d22c52ac5b2fa606b",
+      "video_sha256": "dec114fa16e82a0af3e66d6a248261c9d99e01b3ff6085b6c7344f38a1f2ec3f",
+      "annotations_sha256": "8af5ccc92f5e3a896a2836589aac5b563eac9c6e86572e556d848289c37687d3",
+      "frame_count": 1800,
+      "source_fps": 30,
+      "action_pose_coverage": 1800,
+      "source_window_span_for_56_rgb": 69,
+      "translation_scale": 0.04559597996330234
+    },
+    {
+      "episode_id": "7199292ca430b478bfd0d83cf2e519d8",
+      "video_sha256": "bc0c6dd4ed0a010b2f4cdafc290698c9baa4f6e70efb7a3c983c8de155fd977c",
+      "annotations_sha256": "7c1b2864f7511fa5701a0e2bfe1e99e9e4b7095574836fe0977d3a0de095d070",
+      "frame_count": 1800,
+      "source_fps": 30,
+      "action_pose_coverage": 1800,
+      "source_window_span_for_56_rgb": 69,
+      "translation_scale": 0.04306871446611775
+    },
+    {
+      "episode_id": "9dc2e5882a294b8d68d6b2b31ff3ef65",
+      "video_sha256": "dc8e35dcb91b351d119efa1c99131fd15906e7bb5617098e7e691fe552d0ff0c",
+      "annotations_sha256": "9bcfe65eed7929a0113997a32ef5db8d85f93f00f78ce162b150a73ecc6af3eb",
+      "frame_count": 1800,
+      "source_fps": 30,
+      "action_pose_coverage": 1800,
+      "source_window_span_for_56_rgb": 69,
+      "translation_scale": 0.07207959176246499
+    },
+    {
+      "episode_id": "b784d995827f53977a8067e5b9dc4b5e",
+      "video_sha256": "44c7f63e3096c06c26e72ea8b727f70cb7189418732f989c13b218646ad32b5d",
+      "annotations_sha256": "153ee1e09fe10e7c38ece65f53b7d75e1b8cbd3d361d88d065f4b0df21d7eeb0",
+      "frame_count": 1800,
+      "source_fps": 30,
+      "action_pose_coverage": 1800,
+      "source_window_span_for_56_rgb": 69,
+      "translation_scale": 0.04614502987257927
+    },
+    {
+      "episode_id": "dfec8ed3237860eba14d67c089ecd041",
+      "video_sha256": "6e4050d896166a9aebee3b62de22b4c7e96da3ede1cf7274c5c9e17c19a38432",
+      "annotations_sha256": "46f04a7d22240d8e02c793357d2c6c6c1971cebb91d91ca3fb1787ccb383e262",
+      "frame_count": 1800,
+      "source_fps": 30,
+      "action_pose_coverage": 1800,
+      "source_window_span_for_56_rgb": 69,
+      "translation_scale": 0.04131253498122514
+    }
+  ],
+  "counts": {
+    "train_candidate_windows": 32,
+    "train_materialized_56f": 4,
+    "train_needs_materialization": 28,
+    "dev_candidate_windows": 8,
+    "train_episodes": 4,
+    "dev_episodes": 2,
+    "train_constant": 16,
+    "train_switch": 16,
+    "dev_constant": 4,
+    "dev_switch": 4
+  },
+  "checks": {
+    "source_video_sha": true,
+    "annotation_sha": true,
+    "full_1800_frame_action_pose": true,
+    "source_time_and_56_frame_indices": true,
+    "nonoverlap_within_episode": true,
+    "episode_disjoint_train_dev": true,
+    "native_17_latent_action_bins": true,
+    "prefix12_actions_equal_full17_prefix": true,
+    "existing_four_raw56_matrices_exact": true
+  },
+  "not_checked": [
+    "new 28 train + 8 dev RGB windows not materialized/decoded",
+    "new window VAE latents/I0/prompt/KV not encoded",
+    "visual data quality of new windows not reviewed",
+    "no blind episodes beyond observed 2 validation episodes"
+  ]
+}

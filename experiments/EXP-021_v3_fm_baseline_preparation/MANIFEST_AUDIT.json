@@ -1,0 +1,25 @@
+{
+  "status": "PASS_CPU_MANIFEST_STRUCTURE",
+  "total": 40,
+  "train_source_windows": 32,
+  "train_materialized": 4,
+  "train_unmaterialized": 28,
+  "dev_unmaterialized": 8,
+  "episodes": 6,
+  "per_episode": {
+    "118eb5d8b75e1b8ac23a4e9ae77af9a9": 4,
+    "43866101158a538d22c52ac5b2fa606b": 8,
+    "7199292ca430b478bfd0d83cf2e519d8": 8,
+    "9dc2e5882a294b8d68d6b2b31ff3ef65": 8,
+    "b784d995827f53977a8067e5b9dc4b5e": 8,
+    "dfec8ed3237860eba14d67c089ecd041": 4
+  },
+  "checks": [
+    "episode-disjoint train/dev",
+    "nonoverlapping source spans per episode",
+    "56-frame source indices and native 12+5 action layout",
+    "constant/switch counts",
+    "no unsupported or opposing key flags"
+  ],
+  "scope": "structural manifest audit; not independent RGB/VAE or 33B validation"
+}
