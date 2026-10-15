@@ -1,0 +1,54 @@
+{
+  "clip_id": "b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56",
+  "split": "train",
+  "episode_id": "b784d995827f53977a8067e5b9dc4b5e",
+  "category": "constant",
+  "source_start": 1173,
+  "source_video_sha256": "44c7f63e3096c06c26e72ea8b727f70cb7189418732f989c13b218646ad32b5d",
+  "source_rgb_sha256": "52f41e760aa202cbb20bc34a4c7e84da62b31d5b55a1fc2a1658c104319b4642",
+  "source_caption_sha256": "7865ffa53c0b97aac0c998bad2bca4e204c43f8ad1345399dd914377fc9a73ee",
+  "action_script_sha256": "56b81c0b213db86007744cf47ed01d747b5e2e943d2bdf39da4c3297db4c4095",
+  "latents": {
+    "I0": {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/encoded/b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56/I0.pt",
+      "sha256": "d61621e622d94f4f6f8cad01712d40f4d719442e050fb804dec794f1817d5404",
+      "shape": [
+        1,
+        24,
+        1,
+        30,
+        52
+      ],
+      "dtype": "torch.float32",
+      "bytes": 151259
+    },
+    "full17": {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/encoded/b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56/full17.pt",
+      "sha256": "e3c89a8055aba1b270a6e6cdac7428922e5d2cce4451bbfebf97afb4e9e79c89",
+      "shape": [
+        1,
+        24,
+        17,
+        30,
+        52
+      ],
+      "dtype": "torch.float32",
+      "bytes": 2547511
+    }
+  },
+  "condition": {
+    "path": "submission/experiments/EXP-023_v3_fm_small_data/encoded/b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56/condition.pt",
+    "sha256": "c7ae7bfc8ef71e2f85bbdb7a51ada9385806803412d0eb81c11a0a2c3e6e6b79",
+    "bytes": 13646820
+  },
+  "future_action_isolation": {
+    "12": true,
+    "17": true
+  },
+  "pilot_prefix_exact": null,
+  "source_rgb_direct": true,
+  "old_h264_latents_reused": false,
+  "prompt_rows": 988,
+  "head_rows": 567,
+  "native_action_spans": 37
+}

@@ -1,0 +1,1104 @@
+{
+  "task": "EXP-023/v1",
+  "phase": "eval_pre_retry2",
+  "status": "COMPLETE_PENDING_JUDGE",
+  "gpu": 0,
+  "wall_seconds": 766.3734752740129,
+  "gpu_seconds_total": 2883.9020953220897,
+  "counts": {
+    "dit": 82,
+    "backward": 0,
+    "update": 0,
+    "vae_encode": 0,
+    "vae_decode": 6,
+    "text": 0
+  },
+  "cumulative_counts": {
+    "dit": 104,
+    "backward": 0,
+    "update": 0,
+    "vae_encode": 70,
+    "vae_decode": 8,
+    "text": 151
+  },
+  "limits": {
+    "phase_seconds": 1800,
+    "total_seconds": 13800,
+    "allocated_gib": 44,
+    "dit": 449,
+    "backward": 128,
+    "update": 128,
+    "vae_encode": 70,
+    "vae_decode": 14,
+    "text": 600
+  },
+  "peak_allocated_gib": 25.342047214508057,
+  "peak_reserved_gib": 28.1015625,
+  "rss_gib": 68.88694763183594,
+  "events": [
+    {
+      "kind": "timing",
+      "name": "load_model",
+      "seconds": 8.057554593018722,
+      "elapsed": 8.478109991003294,
+      "rss_gib": 6.417842864990234
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C1_commit",
+      "elapsed": 9.36687819805229
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C1_commit",
+      "seconds": 24.395599469018634,
+      "elapsed": 33.764678105013445,
+      "rss_gib": 53.93994903564453
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE1",
+      "elapsed": 33.81131294701481
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE1",
+      "seconds": 6.014655034989119,
+      "elapsed": 39.83058875903953,
+      "rss_gib": 53.941688537597656
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE2",
+      "elapsed": 39.837421271018684
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE2",
+      "seconds": 5.621844270033762,
+      "elapsed": 45.461154953052755,
+      "rss_gib": 53.94654846191406
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE3",
+      "elapsed": 45.4633880200563
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE3",
+      "seconds": 5.584363845991902,
+      "elapsed": 51.04923864500597,
+      "rss_gib": 53.9466552734375
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE4",
+      "elapsed": 51.05130415101303
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE4",
+      "seconds": 5.6515442240051925,
+      "elapsed": 56.70402095303871,
+      "rss_gib": 53.946712493896484
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE5",
+      "elapsed": 56.70623717503622
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE5",
+      "seconds": 5.9472167899948545,
+      "elapsed": 62.65484987705713,
+      "rss_gib": 53.94672775268555
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE6",
+      "elapsed": 62.657546129019465
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE6",
+      "seconds": 6.339004112989642,
+      "elapsed": 68.99806337902555,
+      "rss_gib": 53.94675064086914
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE7",
+      "elapsed": 69.00154382601613
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE7",
+      "seconds": 6.203712709015235,
+      "elapsed": 75.20676671905676,
+      "rss_gib": 53.94679260253906
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE8",
+      "elapsed": 75.20959593000589
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE8",
+      "seconds": 5.85382776602637,
+      "elapsed": 81.06523417000426,
+      "rss_gib": 53.946800231933594
+    },
+    {
+      "kind": "vae_decode",
+      "note": "train_constant_GT",
+      "elapsed": 99.1351582390489
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_decode",
+      "seconds": 5.61659242794849,
+      "elapsed": 104.75376331305597,
+      "rss_gib": 73.3863296508789
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_GT_C1_commit",
+      "elapsed": 111.00105589901796
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_GT_C1_commit",
+      "seconds": 13.14479295304045,
+      "elapsed": 124.14832749700872,
+      "rss_gib": 73.3544692993164
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE1",
+      "elapsed": 127.40308748703683
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_GT_C2_NFE1",
+      "seconds": 10.898152214998845,
+      "elapsed": 138.30602376302704,
+      "rss_gib": 52.94834899902344
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE2",
+      "elapsed": 138.30820779700298
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_GT_C2_NFE2",
+      "seconds": 5.366635306039825,
+      "elapsed": 143.6762480980251,
+      "rss_gib": 52.94837951660156
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE3",
+      "elapsed": 143.67886811605422
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_GT_C2_NFE3",
+      "seconds": 5.3953332449891604,
+      "elapsed": 149.0758777540177,
+      "rss_gib": 52.94837951660156
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE4",
+      "elapsed": 149.07869827200193
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_GT_C2_NFE4",
+      "seconds": 5.480398892017547,
+      "elapsed": 154.56077979604015,
+      "rss_gib": 52.948387145996094
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE5",
+      "elapsed": 154.56320794601925
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_GT_C2_NFE5",
+      "seconds": 5.123440672992729,
+      "elapsed": 159.6881651720032,
+      "rss_gib": 52.948394775390625
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE6",
+      "elapsed": 159.6904869620339
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_GT_C2_NFE6",
+      "seconds": 5.15969923499506,
+      "elapsed": 164.85170743701747,
+      "rss_gib": 52.94841003417969
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE7",
+      "elapsed": 164.85427590704057
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_GT_C2_NFE7",
+      "seconds": 5.1700984420022,
+      "elapsed": 170.04411170602543,
+      "rss_gib": 52.948421478271484
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_GT_C2_NFE8",
+      "elapsed": 170.04693590005627
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_GT_C2_NFE8",
+      "seconds": 4.874936592008453,
+      "elapsed": 174.9237741320394,
+      "rss_gib": 52.948421478271484
+    },
+    {
+      "kind": "vae_decode",
+      "note": "train_switch_GT",
+      "elapsed": 192.58448080002563
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_GT_decode",
+      "seconds": 5.232781414000783,
+      "elapsed": 197.81987364805536,
+      "rss_gib": 73.45489501953125
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_GT_C1_commit",
+      "elapsed": 201.6150804370409
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_GT_C1_commit",
+      "seconds": 11.117336517025251,
+      "elapsed": 212.7346473170328,
+      "rss_gib": 72.76753616333008
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE1",
+      "elapsed": 215.5546504590311
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_GT_C2_NFE1",
+      "seconds": 8.715979521977715,
+      "elapsed": 224.27248447202146,
+      "rss_gib": 52.95637893676758
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE2",
+      "elapsed": 224.27463145001093
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_GT_C2_NFE2",
+      "seconds": 4.483232903003227,
+      "elapsed": 228.7595180720091,
+      "rss_gib": 52.95637893676758
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE3",
+      "elapsed": 228.76207311201142
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_GT_C2_NFE3",
+      "seconds": 4.4165291110402904,
+      "elapsed": 233.18034472502768,
+      "rss_gib": 52.95637893676758
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE4",
+      "elapsed": 233.18302966002375
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_GT_C2_NFE4",
+      "seconds": 5.1674105420242995,
+      "elapsed": 238.35186646104557,
+      "rss_gib": 52.95637893676758
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE5",
+      "elapsed": 238.3540068300208
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_GT_C2_NFE5",
+      "seconds": 4.754824148025364,
+      "elapsed": 243.11030117201153,
+      "rss_gib": 52.95637893676758
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE6",
+      "elapsed": 243.11241693404736
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_GT_C2_NFE6",
+      "seconds": 5.1415807630401105,
+      "elapsed": 248.2554125880124,
+      "rss_gib": 52.956382751464844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE7",
+      "elapsed": 248.25802993105026
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_GT_C2_NFE7",
+      "seconds": 5.009391845029313,
+      "elapsed": 253.26883848104626,
+      "rss_gib": 52.956398010253906
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_GT_C2_NFE8",
+      "elapsed": 253.27108764200239
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_GT_C2_NFE8",
+      "seconds": 4.922708624042571,
+      "elapsed": 258.1956159850233,
+      "rss_gib": 52.956398010253906
+    },
+    {
+      "kind": "vae_decode",
+      "note": "dev_constant_GT",
+      "elapsed": 273.3200987170567
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_GT_decode",
+      "seconds": 5.205420025042258,
+      "elapsed": 278.527603997034,
+      "rss_gib": 73.05621719360352
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_GT_C1_commit",
+      "elapsed": 285.5159503700561
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_GT_C1_commit",
+      "seconds": 14.380554008996114,
+      "elapsed": 299.89853092702106,
+      "rss_gib": 73.05623245239258
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE1",
+      "elapsed": 302.73731720104115
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_GT_C2_NFE1",
+      "seconds": 10.514836854999885,
+      "elapsed": 313.2549152750289,
+      "rss_gib": 53.315269470214844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE2",
+      "elapsed": 313.2571771060466
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_GT_C2_NFE2",
+      "seconds": 5.54116243700264,
+      "elapsed": 318.7997964360402,
+      "rss_gib": 53.315269470214844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE3",
+      "elapsed": 318.80204275401775
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_GT_C2_NFE3",
+      "seconds": 6.336343499016948,
+      "elapsed": 325.1402439980302,
+      "rss_gib": 53.315269470214844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE4",
+      "elapsed": 325.14286247303244
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_GT_C2_NFE4",
+      "seconds": 5.910744901979342,
+      "elapsed": 331.05559058801737,
+      "rss_gib": 53.315269470214844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE5",
+      "elapsed": 331.05956465605414
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_GT_C2_NFE5",
+      "seconds": 4.902056202001404,
+      "elapsed": 335.97282436303794,
+      "rss_gib": 53.315269470214844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE6",
+      "elapsed": 335.9753494290053
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_GT_C2_NFE6",
+      "seconds": 5.654354850004893,
+      "elapsed": 341.63129124901025,
+      "rss_gib": 53.315269470214844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE7",
+      "elapsed": 341.633511097054
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_GT_C2_NFE7",
+      "seconds": 5.068520159984473,
+      "elapsed": 346.70353564200923,
+      "rss_gib": 53.315277099609375
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_GT_C2_NFE8",
+      "elapsed": 346.70575805404224
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_GT_C2_NFE8",
+      "seconds": 5.575672294013202,
+      "elapsed": 352.2829563160194,
+      "rss_gib": 53.315277099609375
+    },
+    {
+      "kind": "vae_decode",
+      "note": "dev_switch_GT",
+      "elapsed": 365.33019522204995
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_GT_decode",
+      "seconds": 4.974464725004509,
+      "elapsed": 370.3068115930073,
+      "rss_gib": 73.66561508178711
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE1",
+      "elapsed": 375.00357392203296
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C1_NFE1",
+      "seconds": 12.61242893699091,
+      "elapsed": 387.6181393620209,
+      "rss_gib": 48.3466796875
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE2",
+      "elapsed": 387.6207030650112
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C1_NFE2",
+      "seconds": 6.786001366970595,
+      "elapsed": 394.4089087580214,
+      "rss_gib": 48.346683502197266
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE3",
+      "elapsed": 394.41152794403024
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C1_NFE3",
+      "seconds": 6.352613559982274,
+      "elapsed": 400.76587667502463,
+      "rss_gib": 48.346683502197266
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE4",
+      "elapsed": 400.768259227043
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C1_NFE4",
+      "seconds": 6.967246763990261,
+      "elapsed": 407.73698216403136,
+      "rss_gib": 48.346683502197266
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE5",
+      "elapsed": 407.7393031940446
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C1_NFE5",
+      "seconds": 7.07239192497218,
+      "elapsed": 414.8132049330161,
+      "rss_gib": 48.346683502197266
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE6",
+      "elapsed": 414.81582529103616
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C1_NFE6",
+      "seconds": 6.162226773041766,
+      "elapsed": 420.97988635400543,
+      "rss_gib": 48.346683502197266
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE7",
+      "elapsed": 420.98301671701483
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C1_NFE7",
+      "seconds": 5.784612371004187,
+      "elapsed": 426.7693446490448,
+      "rss_gib": 48.346683502197266
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_NFE8",
+      "elapsed": 426.77198420703644
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C1_NFE8",
+      "seconds": 6.957873979990836,
+      "elapsed": 433.7318464970449,
+      "rss_gib": 48.34669494628906
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C1_commit",
+      "elapsed": 433.7343501210562
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C1_commit",
+      "seconds": 11.19849703804357,
+      "elapsed": 444.93432202003896,
+      "rss_gib": 54.595550537109375
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE1",
+      "elapsed": 444.97130281000864
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C2_NFE1",
+      "seconds": 5.912661666981876,
+      "elapsed": 450.8861195980571,
+      "rss_gib": 54.23666763305664
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE2",
+      "elapsed": 450.8888013790129
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C2_NFE2",
+      "seconds": 5.908061544003431,
+      "elapsed": 456.79877423803555,
+      "rss_gib": 54.236671447753906
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE3",
+      "elapsed": 456.8017636600416
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C2_NFE3",
+      "seconds": 5.667964858002961,
+      "elapsed": 462.47155953303445,
+      "rss_gib": 54.23667526245117
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE4",
+      "elapsed": 462.47440823400393
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C2_NFE4",
+      "seconds": 5.919508192047942,
+      "elapsed": 468.3957790080458,
+      "rss_gib": 54.23667526245117
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE5",
+      "elapsed": 468.39882378303446
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C2_NFE5",
+      "seconds": 5.664189743984025,
+      "elapsed": 474.065012364008,
+      "rss_gib": 54.23667526245117
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE6",
+      "elapsed": 474.0676118310075
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C2_NFE6",
+      "seconds": 5.955466307001188,
+      "elapsed": 480.0501759420149,
+      "rss_gib": 54.23667526245117
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE7",
+      "elapsed": 480.0527115340228
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C2_NFE7",
+      "seconds": 5.575205815024674,
+      "elapsed": 485.6297165660071,
+      "rss_gib": 54.23667526245117
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_SELF_C2_NFE8",
+      "elapsed": 485.632322272053
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_C2_NFE8",
+      "seconds": 5.5922730839811265,
+      "elapsed": 491.22638257505605,
+      "rss_gib": 54.23667526245117
+    },
+    {
+      "kind": "vae_decode",
+      "note": "dev_constant_SELF",
+      "elapsed": 506.1975620610174
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_SELF_decode",
+      "seconds": 5.143223237013444,
+      "elapsed": 511.34319317905465,
+      "rss_gib": 74.77481460571289
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE1",
+      "elapsed": 516.1573421940557
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C1_NFE1",
+      "seconds": 12.874954992963467,
+      "elapsed": 529.0353925480158,
+      "rss_gib": 48.29198455810547
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE2",
+      "elapsed": 529.0384643130237
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C1_NFE2",
+      "seconds": 7.533778864017222,
+      "elapsed": 536.5743665400078,
+      "rss_gib": 48.29198455810547
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE3",
+      "elapsed": 536.5770399480243
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C1_NFE3",
+      "seconds": 6.363516876008362,
+      "elapsed": 542.9424174840096,
+      "rss_gib": 48.29198455810547
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE4",
+      "elapsed": 542.9451523740427
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C1_NFE4",
+      "seconds": 7.140061079990119,
+      "elapsed": 550.0872488850146,
+      "rss_gib": 48.29198455810547
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE5",
+      "elapsed": 550.0900347520364
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C1_NFE5",
+      "seconds": 6.775384446023963,
+      "elapsed": 556.8672288900125,
+      "rss_gib": 48.29198455810547
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE6",
+      "elapsed": 556.8698348170146
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C1_NFE6",
+      "seconds": 6.840914755011909,
+      "elapsed": 563.7282700290089,
+      "rss_gib": 48.29198455810547
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE7",
+      "elapsed": 563.7369894220028
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C1_NFE7",
+      "seconds": 6.380966513999738,
+      "elapsed": 570.1211667590542,
+      "rss_gib": 48.29198455810547
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_NFE8",
+      "elapsed": 570.1237774930196
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C1_NFE8",
+      "seconds": 6.473181979032233,
+      "elapsed": 576.5987496860325,
+      "rss_gib": 48.2919921875
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C1_commit",
+      "elapsed": 576.6013661890174
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C1_commit",
+      "seconds": 11.43025629001204,
+      "elapsed": 588.0335612150375,
+      "rss_gib": 54.54084777832031
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE1",
+      "elapsed": 588.0656765130116
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C2_NFE1",
+      "seconds": 5.783913319988642,
+      "elapsed": 593.8517602970242,
+      "rss_gib": 54.54085159301758
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE2",
+      "elapsed": 593.8551129540429
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C2_NFE2",
+      "seconds": 4.706518052029423,
+      "elapsed": 598.5872233240516,
+      "rss_gib": 54.540855407714844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE3",
+      "elapsed": 598.5901310240151
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C2_NFE3",
+      "seconds": 4.947863762034103,
+      "elapsed": 603.5396999730146,
+      "rss_gib": 54.540855407714844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE4",
+      "elapsed": 603.5422628350207
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C2_NFE4",
+      "seconds": 5.551286453963257,
+      "elapsed": 609.095302177011,
+      "rss_gib": 54.540855407714844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE5",
+      "elapsed": 609.0989339720109
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C2_NFE5",
+      "seconds": 5.40164056798676,
+      "elapsed": 614.5031617090572,
+      "rss_gib": 54.540855407714844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE6",
+      "elapsed": 614.5061527230428
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C2_NFE6",
+      "seconds": 5.135765996994451,
+      "elapsed": 619.6436017420492,
+      "rss_gib": 54.540855407714844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE7",
+      "elapsed": 619.6461450150236
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C2_NFE7",
+      "seconds": 5.134313875983935,
+      "elapsed": 624.7821557960124,
+      "rss_gib": 54.540855407714844
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_SELF_C2_NFE8",
+      "elapsed": 624.7848321690108
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_C2_NFE8",
+      "seconds": 5.592364904994611,
+      "elapsed": 630.3789254950243,
+      "rss_gib": 54.54085922241211
+    },
+    {
+      "kind": "vae_decode",
+      "note": "dev_switch_SELF",
+      "elapsed": 644.0119486680487
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_SELF_decode",
+      "seconds": 5.734111988975201,
+      "elapsed": 649.7488816560362,
+      "rss_gib": 75.13433074951172
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_PROBE_commit",
+      "elapsed": 652.4299936320167
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_PROBE_commit",
+      "seconds": 14.11226343701128,
+      "elapsed": 666.5446680440218,
+      "rss_gib": 73.13470077514648
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_PROBE_sigma0.25",
+      "elapsed": 666.6073144670227
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_PROBE_sigma0.25",
+      "seconds": 7.777448396955151,
+      "elapsed": 674.4281319050351,
+      "rss_gib": 73.13470077514648
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_PROBE_sigma0.75",
+      "elapsed": 674.4356879730476
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_PROBE_sigma0.75",
+      "seconds": 6.5166319939889945,
+      "elapsed": 680.9636830430245,
+      "rss_gib": 73.13616561889648
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_PROBE_commit",
+      "elapsed": 681.6232192980242
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_PROBE_commit",
+      "seconds": 10.926519122964237,
+      "elapsed": 692.5520848380402,
+      "rss_gib": 74.69837951660156
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_PROBE_sigma0.25",
+      "elapsed": 692.5548357030493
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_PROBE_sigma0.25",
+      "seconds": 7.676987862039823,
+      "elapsed": 700.2450565640465,
+      "rss_gib": 74.69837951660156
+    },
+    {
+      "kind": "dit",
+      "note": "train_switch_PROBE_sigma0.75",
+      "elapsed": 700.2477217200212
+    },
+    {
+      "kind": "timing",
+      "name": "train_switch_PROBE_sigma0.75",
+      "seconds": 6.762178914970718,
+      "elapsed": 707.0116476340336,
+      "rss_gib": 74.69837951660156
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_PROBE_commit",
+      "elapsed": 707.6915344940498
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_PROBE_commit",
+      "seconds": 11.791127040982246,
+      "elapsed": 719.485006080009,
+      "rss_gib": 74.19847106933594
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_PROBE_sigma0.25",
+      "elapsed": 719.4876749510295
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_PROBE_sigma0.25",
+      "seconds": 8.119965524005238,
+      "elapsed": 727.6225066930056,
+      "rss_gib": 74.19847106933594
+    },
+    {
+      "kind": "dit",
+      "note": "dev_constant_PROBE_sigma0.75",
+      "elapsed": 727.6253550140536
+    },
+    {
+      "kind": "timing",
+      "name": "dev_constant_PROBE_sigma0.75",
+      "seconds": 7.744197780964896,
+      "elapsed": 735.384134217049,
+      "rss_gib": 74.1984748840332
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_PROBE_commit",
+      "elapsed": 736.2245376390056
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_PROBE_commit",
+      "seconds": 12.549234629026614,
+      "elapsed": 748.7766512950184,
+      "rss_gib": 74.44842910766602
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_PROBE_sigma0.25",
+      "elapsed": 748.8105825670063
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_PROBE_sigma0.25",
+      "seconds": 8.565162000013515,
+      "elapsed": 757.563055458013,
+      "rss_gib": 74.44842910766602
+    },
+    {
+      "kind": "dit",
+      "note": "dev_switch_PROBE_sigma0.75",
+      "elapsed": 757.5661680350313
+    },
+    {
+      "kind": "timing",
+      "name": "dev_switch_PROBE_sigma0.75",
+      "seconds": 8.068571290001273,
+      "elapsed": 765.6367315110401,
+      "rss_gib": 74.44842910766602
+    }
+  ],
+  "error": null
+}

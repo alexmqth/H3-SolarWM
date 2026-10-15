@@ -1,0 +1,220 @@
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: [
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_text_encoder",
+    "model_class": "diffsynth.models.minimax_h3_text_encoder.MiniMaxH3TextEncoder",
+    "extra_kwargs": null
+}
+Loading models from: "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+Using minimax_h3_text_encoder from [
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors"
+].
+No minimax_h3_dit models available. This is not an error.
+Using minimax_h3_video_vae from "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+No minimax_h3_audio_vae models available. This is not an error.
+TIMING load_text_vae 3.59
+TIMING 43866101158a538d22c52ac5b2fa606b_src0138_rgb56_source_rgb 1.618
+TIMING 43866101158a538d22c52ac5b2fa606b_src0138_rgb56_I0 0.51
+TIMING 43866101158a538d22c52ac5b2fa606b_src0138_rgb56_full17 6.227
+TIMING 43866101158a538d22c52ac5b2fa606b_src0138_rgb56_text 21.892
+ENCODED 43866101158a538d22c52ac5b2fa606b_src0138_rgb56 pilot False
+TIMING 43866101158a538d22c52ac5b2fa606b_src0276_rgb56_source_rgb 3.002
+TIMING 43866101158a538d22c52ac5b2fa606b_src0276_rgb56_I0 0.366
+TIMING 43866101158a538d22c52ac5b2fa606b_src0276_rgb56_full17 6.234
+TIMING 43866101158a538d22c52ac5b2fa606b_src0276_rgb56_text 18.805
+ENCODED 43866101158a538d22c52ac5b2fa606b_src0276_rgb56 pilot False
+TIMING 43866101158a538d22c52ac5b2fa606b_src0621_rgb56_source_rgb 5.893
+TIMING 43866101158a538d22c52ac5b2fa606b_src0621_rgb56_I0 0.369
+TIMING 43866101158a538d22c52ac5b2fa606b_src0621_rgb56_full17 6.238
+TIMING 43866101158a538d22c52ac5b2fa606b_src0621_rgb56_text 13.446
+ENCODED 43866101158a538d22c52ac5b2fa606b_src0621_rgb56 pilot False
+TIMING 43866101158a538d22c52ac5b2fa606b_src0966_rgb56_source_rgb 10.555
+TIMING 43866101158a538d22c52ac5b2fa606b_src0966_rgb56_I0 0.366
+TIMING 43866101158a538d22c52ac5b2fa606b_src0966_rgb56_full17 6.238
+TIMING 43866101158a538d22c52ac5b2fa606b_src0966_rgb56_text 21.687
+ENCODED 43866101158a538d22c52ac5b2fa606b_src0966_rgb56 pilot False
+TIMING 43866101158a538d22c52ac5b2fa606b_src1245_rgb56_source_rgb 12.963
+TIMING 43866101158a538d22c52ac5b2fa606b_src1245_rgb56_I0 0.375
+TIMING 43866101158a538d22c52ac5b2fa606b_src1245_rgb56_full17 6.234
+TIMING 43866101158a538d22c52ac5b2fa606b_src1245_rgb56_text 13.38
+ENCODED 43866101158a538d22c52ac5b2fa606b_src1245_rgb56 pilot False
+TIMING 43866101158a538d22c52ac5b2fa606b_src1449_rgb56_source_rgb 13.807
+TIMING 43866101158a538d22c52ac5b2fa606b_src1449_rgb56_I0 0.373
+TIMING 43866101158a538d22c52ac5b2fa606b_src1449_rgb56_full17 6.231
+TIMING 43866101158a538d22c52ac5b2fa606b_src1449_rgb56_text 16.798
+ENCODED 43866101158a538d22c52ac5b2fa606b_src1449_rgb56 pilot False
+TIMING 43866101158a538d22c52ac5b2fa606b_src1656_rgb56_source_rgb 13.975
+TIMING 43866101158a538d22c52ac5b2fa606b_src1656_rgb56_I0 0.373
+TIMING 43866101158a538d22c52ac5b2fa606b_src1656_rgb56_full17 6.24
+TIMING 43866101158a538d22c52ac5b2fa606b_src1656_rgb56_text 12.908
+ENCODED 43866101158a538d22c52ac5b2fa606b_src1656_rgb56 pilot False
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0000_rgb56_source_rgb 0.911
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0000_rgb56_I0 0.359
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0000_rgb56_full17 6.239
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0000_rgb56_text 13.693
+ENCODED 7199292ca430b478bfd0d83cf2e519d8_src0000_rgb56 pilot False
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56_source_rgb 3.014
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56_I0 0.362
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56_full17 6.246
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56_text 20.505
+ENCODED 7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56 pilot False
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0414_rgb56_source_rgb 5.414
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0414_rgb56_I0 0.377
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0414_rgb56_full17 6.237
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0414_rgb56_text 20.703
+ENCODED 7199292ca430b478bfd0d83cf2e519d8_src0414_rgb56 pilot False
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0621_rgb56_source_rgb 6.431
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0621_rgb56_I0 0.371
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0621_rgb56_full17 6.234
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0621_rgb56_text 24.782
+ENCODED 7199292ca430b478bfd0d83cf2e519d8_src0621_rgb56 pilot False
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0828_rgb56_source_rgb 8.488
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0828_rgb56_I0 0.372
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0828_rgb56_full17 6.241
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src0828_rgb56_text 13.633
+ENCODED 7199292ca430b478bfd0d83cf2e519d8_src0828_rgb56 pilot False
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1104_rgb56_source_rgb 10.047
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1104_rgb56_I0 0.412
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1104_rgb56_full17 6.236
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1104_rgb56_text 16.556
+ENCODED 7199292ca430b478bfd0d83cf2e519d8_src1104_rgb56 pilot False
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1311_rgb56_source_rgb 11.348
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1311_rgb56_I0 0.361
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1311_rgb56_full17 6.241
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1311_rgb56_text 11.187
+ENCODED 7199292ca430b478bfd0d83cf2e519d8_src1311_rgb56 pilot False
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_source_rgb 17.161
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_I0 0.361
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_full17 6.238
+TIMING 7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_text 12.298
+ENCODED 7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56 pilot False
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0000_rgb56_source_rgb 0.538
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0000_rgb56_I0 0.362
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0000_rgb56_full17 6.234
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0000_rgb56_text 15.734
+ENCODED 9dc2e5882a294b8d68d6b2b31ff3ef65_src0000_rgb56 pilot False
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0207_rgb56_source_rgb 1.968
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0207_rgb56_I0 0.361
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0207_rgb56_full17 6.239
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0207_rgb56_text 15.804
+ENCODED 9dc2e5882a294b8d68d6b2b31ff3ef65_src0207_rgb56 pilot False
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0483_rgb56_source_rgb 3.754
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0483_rgb56_I0 0.37
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0483_rgb56_full17 6.244
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0483_rgb56_text 15.017
+ENCODED 9dc2e5882a294b8d68d6b2b31ff3ef65_src0483_rgb56 pilot False
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0690_rgb56_source_rgb 6.26
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0690_rgb56_I0 0.353
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0690_rgb56_full17 6.242
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0690_rgb56_text 18.986
+ENCODED 9dc2e5882a294b8d68d6b2b31ff3ef65_src0690_rgb56 pilot False
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0966_rgb56_source_rgb 8.045
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0966_rgb56_I0 0.392
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0966_rgb56_full17 6.231
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src0966_rgb56_text 16.183
+ENCODED 9dc2e5882a294b8d68d6b2b31ff3ef65_src0966_rgb56 pilot False
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1173_rgb56_source_rgb 10.082
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1173_rgb56_I0 0.381
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1173_rgb56_full17 6.234
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1173_rgb56_text 19.026
+ENCODED 9dc2e5882a294b8d68d6b2b31ff3ef65_src1173_rgb56 pilot False
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1410_rgb56_source_rgb 11.735
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1410_rgb56_I0 0.386
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1410_rgb56_full17 6.24
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1410_rgb56_text 16.263
+ENCODED 9dc2e5882a294b8d68d6b2b31ff3ef65_src1410_rgb56 pilot False
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1725_rgb56_source_rgb 12.852
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1725_rgb56_I0 0.375
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1725_rgb56_full17 6.236
+TIMING 9dc2e5882a294b8d68d6b2b31ff3ef65_src1725_rgb56_text 14.309
+ENCODED 9dc2e5882a294b8d68d6b2b31ff3ef65_src1725_rgb56 pilot False
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0000_rgb56_source_rgb 0.72
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0000_rgb56_I0 0.391
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0000_rgb56_full17 6.244
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0000_rgb56_text 11.822
+ENCODED b784d995827f53977a8067e5b9dc4b5e_src0000_rgb56 pilot False
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0276_rgb56_source_rgb 2.975
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0276_rgb56_I0 0.372
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0276_rgb56_full17 6.233
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0276_rgb56_text 14.731
+ENCODED b784d995827f53977a8067e5b9dc4b5e_src0276_rgb56 pilot False
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0483_rgb56_source_rgb 5.882
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0483_rgb56_I0 0.365
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0483_rgb56_full17 6.235
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0483_rgb56_text 17.222
+ENCODED b784d995827f53977a8067e5b9dc4b5e_src0483_rgb56 pilot False
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0690_rgb56_source_rgb 6.001
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0690_rgb56_I0 0.377
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0690_rgb56_full17 6.237
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0690_rgb56_text 15.058
+ENCODED b784d995827f53977a8067e5b9dc4b5e_src0690_rgb56 pilot False
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0897_rgb56_source_rgb 7.519
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0897_rgb56_I0 0.372
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0897_rgb56_full17 6.237
+TIMING b784d995827f53977a8067e5b9dc4b5e_src0897_rgb56_text 14.326
+ENCODED b784d995827f53977a8067e5b9dc4b5e_src0897_rgb56 pilot False
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56_source_rgb 9.894
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56_I0 0.374
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56_full17 6.24
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56_text 12.281
+ENCODED b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56 pilot False
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1380_rgb56_source_rgb 12.052
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1380_rgb56_I0 0.382
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1380_rgb56_full17 6.243
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1380_rgb56_text 18.96
+ENCODED b784d995827f53977a8067e5b9dc4b5e_src1380_rgb56 pilot False
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56_source_rgb 13.344
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56_I0 0.362
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56_full17 6.234
+TIMING b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56_text 12.063
+ENCODED b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56 pilot False
+TIMING 118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_source_rgb 0.77
+TIMING 118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_I0 0.381
+TIMING 118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_full17 6.241
+TIMING 118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_text 9.829
+ENCODED 118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56 pilot False
+ENCODE COMPLETE rest 32 {'dit': 0, 'backward': 0, 'update': 0, 'vae_encode': 64, 'vae_decode': 0, 'text': 141}

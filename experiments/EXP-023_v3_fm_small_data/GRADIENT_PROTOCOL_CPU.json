@@ -1,0 +1,47 @@
+{
+  "status": "PASS_CPU_ACTUAL_ATTENTION_GRADIENT",
+  "dtype": "float64",
+  "tolerance_abs": 1e-10,
+  "direct": {
+    "output": 4.73333588756325,
+    "grad": 0.9220111905797003,
+    "trace": [
+      {
+        "phase": "forward",
+        "route": "current_prefix"
+      }
+    ],
+    "error": null
+  },
+  "correct_checkpoint_offload": {
+    "output": 4.73333588756325,
+    "grad": 0.9220111905797003,
+    "trace": [
+      {
+        "phase": "forward",
+        "route": "current_prefix"
+      },
+      {
+        "phase": "backward",
+        "route": "current_prefix"
+      }
+    ],
+    "error": null
+  },
+  "old_forward_only_negative_control": {
+    "output": 4.73333588756325,
+    "grad": 0.0,
+    "trace": [
+      {
+        "phase": "forward",
+        "route": "current_prefix"
+      },
+      {
+        "phase": "backward",
+        "route": "causal.h3_cached"
+      }
+    ],
+    "error": null
+  },
+  "meaning": "common-prefix output depends on current-video trainable value; checkpointed backward must retain route"
+}

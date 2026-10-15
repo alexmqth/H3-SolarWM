@@ -1,0 +1,67 @@
+{
+  "clip_id": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56",
+  "split": "validation",
+  "episode_id": "dfec8ed3237860eba14d67c089ecd041",
+  "category": "switch",
+  "source_start": 483,
+  "source_video_sha256": "6e4050d896166a9aebee3b62de22b4c7e96da3ede1cf7274c5c9e17c19a38432",
+  "source_rgb_sha256": "5c82a40abc8fdc6f88035e2e48b39f1159d6de008d695103a20fe218701a346a",
+  "source_caption_sha256": "00f97d2d1d6d85494014c29c3e9433b630c032624fccb4dfe487eb8c552c1fda",
+  "action_script_sha256": "7b79b4c89a71ae683356cb0b1b90d7e35f54b357d57a048c71acb7917f541f96",
+  "latents": {
+    "I0": {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/encoded/dfec8ed3237860eba14d67c089ecd041_src0483_rgb56/I0.pt",
+      "sha256": "70b94a4fc6713d2d5eda6c5ab7c831aa481142654081efa86ccf868f0fb32e5e",
+      "shape": [
+        1,
+        24,
+        1,
+        30,
+        52
+      ],
+      "dtype": "torch.float32",
+      "bytes": 151259
+    },
+    "full17": {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/encoded/dfec8ed3237860eba14d67c089ecd041_src0483_rgb56/full17.pt",
+      "sha256": "23f0f102fc07690a2b013f310088c6c0bbb5690574d963839e7346f76c6bda8c",
+      "shape": [
+        1,
+        24,
+        17,
+        30,
+        52
+      ],
+      "dtype": "torch.float32",
+      "bytes": 2547511
+    },
+    "prefix12": {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/encoded/dfec8ed3237860eba14d67c089ecd041_src0483_rgb56/prefix12.pt",
+      "sha256": "24d36aee35514651efdee85cb2a5740db325cd7d6a75bca131b5a546b358664f",
+      "shape": [
+        1,
+        24,
+        12,
+        30,
+        52
+      ],
+      "dtype": "torch.float32",
+      "bytes": 1798725
+    }
+  },
+  "condition": {
+    "path": "submission/experiments/EXP-023_v3_fm_small_data/encoded/dfec8ed3237860eba14d67c089ecd041_src0483_rgb56/condition.pt",
+    "sha256": "9585cbddca353df5ecf99f50a430c2ebf5d69bc83837655506da1cfb26a5d27d",
+    "bytes": 13421284
+  },
+  "future_action_isolation": {
+    "12": true,
+    "17": true
+  },
+  "pilot_prefix_exact": true,
+  "source_rgb_direct": true,
+  "old_h264_latents_reused": false,
+  "prompt_rows": 966,
+  "head_rows": 563,
+  "native_action_spans": 37
+}

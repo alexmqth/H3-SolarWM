@@ -1,0 +1,65 @@
+{
+  "task": "EXP-023/v1",
+  "phase": "train",
+  "status": "FAILED_STOPPED",
+  "gpu": 0,
+  "wall_seconds": 26.962221870955545,
+  "gpu_seconds_total": 2910.8643171930453,
+  "counts": {
+    "dit": 2,
+    "backward": 0,
+    "update": 0,
+    "vae_encode": 0,
+    "vae_decode": 0,
+    "text": 0
+  },
+  "cumulative_counts": {
+    "dit": 106,
+    "backward": 0,
+    "update": 0,
+    "vae_encode": 70,
+    "vae_decode": 8,
+    "text": 151
+  },
+  "limits": {
+    "phase_seconds": 6000,
+    "total_seconds": 13800,
+    "allocated_gib": 44,
+    "dit": 449,
+    "backward": 128,
+    "update": 128,
+    "vae_encode": 70,
+    "vae_decode": 14,
+    "text": 600
+  },
+  "peak_allocated_gib": 24.200523376464844,
+  "peak_reserved_gib": 28.224609375,
+  "rss_gib": 53.84730529785156,
+  "events": [
+    {
+      "kind": "timing",
+      "name": "load_model",
+      "seconds": 6.4693178570014425,
+      "elapsed": 6.86428281199187,
+      "rss_gib": 6.418056488037109
+    },
+    {
+      "kind": "dit",
+      "note": "step1_GT_C1_commit",
+      "elapsed": 6.957761292986106
+    },
+    {
+      "kind": "timing",
+      "name": "step1_GT_C1_commit",
+      "seconds": 19.9941624479834,
+      "elapsed": 26.953514725959394,
+      "rss_gib": 53.84697723388672
+    },
+    {
+      "kind": "dit",
+      "note": "train_step1_C2",
+      "elapsed": 26.95667843898991
+    }
+  ],
+  "error": "RuntimeError('Copied attention differs beyond the declared prefix edge')"
+}

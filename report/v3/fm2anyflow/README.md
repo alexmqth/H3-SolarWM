@@ -11,7 +11,9 @@
 | [3. AnyFlow AF-8NFE](anyflow/README.md) / EXP-007、012 | 训练能否使少步映射比普通 FM-8NFE 更好，并迁移到其他场景？ | AF-train-32updates：累计32次 optimizer updates；迁移评估未加训 | 停车场续写有限可行，无整体收益；村落 AA 结构失败，当前 checkpoint 停止扩展；`anyflow/videos/` |
 | [4. FM-4NFE / AF-4NFE](fm4_vs_af4/README.md) / EXP-009 | 把每块求值进一步降到4次，训练后的 AF 是否更稳？ | 本次评估无新训练，AF复用上述学生 | FM-4NFE续写有限可行；AF-4NFE AD第三块结构失败；`fm4_vs_af4/videos/` |
 | [5. FM-30NFE / FM-8NFE 场景迁移](scene_transfer/README.md) / EXP-011 | 停车场的减步效果能否在工业、村落两图重现？ | 否 | 56帧有限可行；村落FM-8NFE颗粒和重影更重；`scene_transfer/videos/` |
-| [6. 后续训练的数据准备](data_preparation/README.md) / EXP-013–017 | 教师候选是否动作正确？真实数据与条件协议是否可用？ | 否 | 教师AD并非全合格；真实VAE与CPU布局分别有证据，实际模型回归待做 |
+| [6. 后续训练的数据准备](data_preparation/README.md) / EXP-013–017 | 教师候选是否动作正确？真实数据与条件协议是否可用？ | 否 | 教师AD并非全合格；真实VAE与CPU布局分别有证据，后续实际混合动作验证见EXP-019，质量/动作PARTIAL |
+
+[7. 真实视频普通 FM 小数据训练 / EXP-023](fm_small_data/README.md)：32train、128updates、FM-8NFE匹配评测完成；MSE略降，视频增益未证实，含六组对照视频。
 
 当前收益最明确的是普通 FM-8NFE。AnyFlow 的已测 checkpoint 没有显示整体优势，因此保留负结果、停止当前配置扩展。四步续写都借用了 FM-8NFE 首窗，不能称为全程四步生成。FM-8NFE 与 FM-30NFE 自身历史不同的比较，也不能称为同 KV 的纯步数消融。
 

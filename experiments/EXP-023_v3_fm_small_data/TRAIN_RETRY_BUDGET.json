@@ -1,0 +1,6192 @@
+{
+  "task": "EXP-023/v1",
+  "phase": "train_retry",
+  "status": "COMPLETE_PENDING_JUDGE",
+  "gpu": 0,
+  "wall_seconds": 2650.296393180033,
+  "gpu_seconds_total": 5561.1607103730785,
+  "counts": {
+    "dit": 256,
+    "backward": 128,
+    "update": 128,
+    "vae_encode": 0,
+    "vae_decode": 0,
+    "text": 0
+  },
+  "cumulative_counts": {
+    "dit": 362,
+    "backward": 128,
+    "update": 128,
+    "vae_encode": 70,
+    "vae_decode": 8,
+    "text": 151
+  },
+  "limits": {
+    "phase_seconds": 6000,
+    "total_seconds": 13800,
+    "allocated_gib": 44,
+    "dit": 449,
+    "backward": 128,
+    "update": 128,
+    "vae_encode": 70,
+    "vae_decode": 14,
+    "text": 600
+  },
+  "peak_allocated_gib": 24.539616107940674,
+  "peak_reserved_gib": 28.251953125,
+  "rss_gib": 47.81752014160156,
+  "events": [
+    {
+      "kind": "timing",
+      "name": "load_model",
+      "seconds": 7.605650762969162,
+      "elapsed": 7.98768572503468,
+      "rss_gib": 6.417980194091797
+    },
+    {
+      "kind": "dit",
+      "note": "step1_GT_C1_commit",
+      "elapsed": 8.125627357047051
+    },
+    {
+      "kind": "timing",
+      "name": "step1_GT_C1_commit",
+      "seconds": 22.020029228006024,
+      "elapsed": 30.147437426028773,
+      "rss_gib": 53.84783172607422
+    },
+    {
+      "kind": "dit",
+      "note": "train_step1_C2",
+      "elapsed": 30.151138315035496
+    },
+    {
+      "kind": "timing",
+      "name": "step1_forward",
+      "seconds": 6.993510342028458,
+      "elapsed": 37.1570472070016,
+      "rss_gib": 54.1359977722168
+    },
+    {
+      "kind": "backward",
+      "note": "train_step1",
+      "elapsed": 37.185395651031286
+    },
+    {
+      "kind": "timing",
+      "name": "step1_backward",
+      "seconds": 1.8540773839922622,
+      "elapsed": 39.04180497204652,
+      "rss_gib": 53.91392135620117
+    },
+    {
+      "kind": "update",
+      "note": "train_step1",
+      "elapsed": 39.0503421020112
+    },
+    {
+      "kind": "timing",
+      "name": "step1_optimizer",
+      "seconds": 0.0474014210049063,
+      "elapsed": 39.11246036901139,
+      "rss_gib": 53.97466278076172
+    },
+    {
+      "kind": "dit",
+      "note": "step2_GT_C1_commit",
+      "elapsed": 40.24503080401337
+    },
+    {
+      "kind": "timing",
+      "name": "step2_GT_C1_commit",
+      "seconds": 11.137111765972804,
+      "elapsed": 51.384218082006555,
+      "rss_gib": 54.035884857177734
+    },
+    {
+      "kind": "dit",
+      "note": "train_step2_C2",
+      "elapsed": 51.38677813002141
+    },
+    {
+      "kind": "timing",
+      "name": "step2_forward",
+      "seconds": 6.584177010983694,
+      "elapsed": 57.98296593001578,
+      "rss_gib": 54.31727600097656
+    },
+    {
+      "kind": "backward",
+      "note": "train_step2",
+      "elapsed": 57.984946029027924
+    },
+    {
+      "kind": "timing",
+      "name": "step2_backward",
+      "seconds": 1.8231236769934185,
+      "elapsed": 59.8097166850348,
+      "rss_gib": 54.03602600097656
+    },
+    {
+      "kind": "update",
+      "note": "train_step2",
+      "elapsed": 59.81511693203356
+    },
+    {
+      "kind": "timing",
+      "name": "step2_optimizer",
+      "seconds": 0.0007416119915433228,
+      "elapsed": 59.81721529801143,
+      "rss_gib": 54.03602600097656
+    },
+    {
+      "kind": "dit",
+      "note": "step3_GT_C1_commit",
+      "elapsed": 60.85413452103967
+    },
+    {
+      "kind": "timing",
+      "name": "step3_GT_C1_commit",
+      "seconds": 10.279674827004783,
+      "elapsed": 71.13587418402312,
+      "rss_gib": 54.049442291259766
+    },
+    {
+      "kind": "dit",
+      "note": "train_step3_C2",
+      "elapsed": 71.13823486299952
+    },
+    {
+      "kind": "timing",
+      "name": "step3_forward",
+      "seconds": 6.261301648977678,
+      "elapsed": 77.41082906303927,
+      "rss_gib": 54.327613830566406
+    },
+    {
+      "kind": "backward",
+      "note": "train_step3",
+      "elapsed": 77.41300859104376
+    },
+    {
+      "kind": "timing",
+      "name": "step3_backward",
+      "seconds": 1.733465280965902,
+      "elapsed": 79.14833954902133,
+      "rss_gib": 54.04944610595703
+    },
+    {
+      "kind": "update",
+      "note": "train_step3",
+      "elapsed": 79.15494210802717
+    },
+    {
+      "kind": "timing",
+      "name": "step3_optimizer",
+      "seconds": 0.0010214319918304682,
+      "elapsed": 79.16499320801813,
+      "rss_gib": 54.04944610595703
+    },
+    {
+      "kind": "dit",
+      "note": "step4_GT_C1_commit",
+      "elapsed": 80.13900249899598
+    },
+    {
+      "kind": "timing",
+      "name": "step4_GT_C1_commit",
+      "seconds": 10.350273283023853,
+      "elapsed": 90.49134226102615,
+      "rss_gib": 54.051116943359375
+    },
+    {
+      "kind": "dit",
+      "note": "train_step4_C2",
+      "elapsed": 90.49371306505054
+    },
+    {
+      "kind": "timing",
+      "name": "step4_forward",
+      "seconds": 6.448800384008791,
+      "elapsed": 96.95403182902373,
+      "rss_gib": 54.33526611328125
+    },
+    {
+      "kind": "backward",
+      "note": "train_step4",
+      "elapsed": 96.95624073100043
+    },
+    {
+      "kind": "timing",
+      "name": "step4_backward",
+      "seconds": 1.7811114210053347,
+      "elapsed": 98.73929515603231,
+      "rss_gib": 54.051116943359375
+    },
+    {
+      "kind": "update",
+      "note": "train_step4",
+      "elapsed": 98.74468877300387
+    },
+    {
+      "kind": "timing",
+      "name": "step4_optimizer",
+      "seconds": 0.0007537800120189786,
+      "elapsed": 98.74701600201661,
+      "rss_gib": 54.051116943359375
+    },
+    {
+      "kind": "dit",
+      "note": "step5_GT_C1_commit",
+      "elapsed": 99.85997138300445
+    },
+    {
+      "kind": "timing",
+      "name": "step5_GT_C1_commit",
+      "seconds": 9.719768250011839,
+      "elapsed": 109.58185887004947,
+      "rss_gib": 54.051116943359375
+    },
+    {
+      "kind": "dit",
+      "note": "train_step5_C2",
+      "elapsed": 109.58409418101655
+    },
+    {
+      "kind": "timing",
+      "name": "step5_forward",
+      "seconds": 5.860318760969676,
+      "elapsed": 115.45463251502952,
+      "rss_gib": 54.336639404296875
+    },
+    {
+      "kind": "backward",
+      "note": "train_step5",
+      "elapsed": 115.45670798700303
+    },
+    {
+      "kind": "timing",
+      "name": "step5_backward",
+      "seconds": 1.6597922830260359,
+      "elapsed": 117.11821475101169,
+      "rss_gib": 54.05112075805664
+    },
+    {
+      "kind": "update",
+      "note": "train_step5",
+      "elapsed": 117.12316667602863
+    },
+    {
+      "kind": "timing",
+      "name": "step5_optimizer",
+      "seconds": 0.0007112460443750024,
+      "elapsed": 117.12538192700595,
+      "rss_gib": 54.051124572753906
+    },
+    {
+      "kind": "dit",
+      "note": "step6_GT_C1_commit",
+      "elapsed": 117.97161923500244
+    },
+    {
+      "kind": "timing",
+      "name": "step6_GT_C1_commit",
+      "seconds": 10.062936432019342,
+      "elapsed": 128.03650939604267,
+      "rss_gib": 54.05113220214844
+    },
+    {
+      "kind": "dit",
+      "note": "train_step6_C2",
+      "elapsed": 128.03948990500066
+    },
+    {
+      "kind": "timing",
+      "name": "step6_forward",
+      "seconds": 5.876491827017162,
+      "elapsed": 133.93007898004726,
+      "rss_gib": 54.32792663574219
+    },
+    {
+      "kind": "backward",
+      "note": "train_step6",
+      "elapsed": 133.93225043604616
+    },
+    {
+      "kind": "timing",
+      "name": "step6_backward",
+      "seconds": 1.669451918976847,
+      "elapsed": 135.6041152420221,
+      "rss_gib": 54.05113220214844
+    },
+    {
+      "kind": "update",
+      "note": "train_step6",
+      "elapsed": 135.60951278504217
+    },
+    {
+      "kind": "timing",
+      "name": "step6_optimizer",
+      "seconds": 0.0006551030091941357,
+      "elapsed": 135.6118406850146,
+      "rss_gib": 54.0511360168457
+    },
+    {
+      "kind": "dit",
+      "note": "step7_GT_C1_commit",
+      "elapsed": 136.51165901101194
+    },
+    {
+      "kind": "timing",
+      "name": "step7_GT_C1_commit",
+      "seconds": 9.232820275996346,
+      "elapsed": 145.74665763403755,
+      "rss_gib": 54.05281448364258
+    },
+    {
+      "kind": "dit",
+      "note": "train_step7_C2",
+      "elapsed": 145.7487897410174
+    },
+    {
+      "kind": "timing",
+      "name": "step7_forward",
+      "seconds": 5.623841322027147,
+      "elapsed": 151.38255535200005,
+      "rss_gib": 54.33504104614258
+    },
+    {
+      "kind": "backward",
+      "note": "train_step7",
+      "elapsed": 151.38462259201333
+    },
+    {
+      "kind": "timing",
+      "name": "step7_backward",
+      "seconds": 1.6845310589997098,
+      "elapsed": 153.07091234903783,
+      "rss_gib": 54.052818298339844
+    },
+    {
+      "kind": "update",
+      "note": "train_step7",
+      "elapsed": 153.08356359699974
+    },
+    {
+      "kind": "timing",
+      "name": "step7_optimizer",
+      "seconds": 0.0007108559948392212,
+      "elapsed": 153.0859013220179,
+      "rss_gib": 54.052818298339844
+    },
+    {
+      "kind": "dit",
+      "note": "step8_GT_C1_commit",
+      "elapsed": 153.98840144003043
+    },
+    {
+      "kind": "timing",
+      "name": "step8_GT_C1_commit",
+      "seconds": 9.169806307007093,
+      "elapsed": 163.1601424080436,
+      "rss_gib": 54.05449295043945
+    },
+    {
+      "kind": "dit",
+      "note": "train_step8_C2",
+      "elapsed": 163.16248868603725
+    },
+    {
+      "kind": "timing",
+      "name": "step8_forward",
+      "seconds": 5.357265556987841,
+      "elapsed": 168.52952227799688,
+      "rss_gib": 54.3356819152832
+    },
+    {
+      "kind": "backward",
+      "note": "train_step8",
+      "elapsed": 168.53151022800012
+    },
+    {
+      "kind": "timing",
+      "name": "step8_backward",
+      "seconds": 1.586946768045891,
+      "elapsed": 170.120101522014,
+      "rss_gib": 54.054500579833984
+    },
+    {
+      "kind": "update",
+      "note": "train_step8",
+      "elapsed": 170.1249193160329
+    },
+    {
+      "kind": "timing",
+      "name": "step8_optimizer",
+      "seconds": 0.0006143110222183168,
+      "elapsed": 170.12695901404368,
+      "rss_gib": 54.054500579833984
+    },
+    {
+      "kind": "dit",
+      "note": "step9_GT_C1_commit",
+      "elapsed": 170.9715639570495
+    },
+    {
+      "kind": "timing",
+      "name": "step9_GT_C1_commit",
+      "seconds": 8.90555670298636,
+      "elapsed": 179.87910372304032,
+      "rss_gib": 54.0623779296875
+    },
+    {
+      "kind": "dit",
+      "note": "train_step9_C2",
+      "elapsed": 179.881334077043
+    },
+    {
+      "kind": "timing",
+      "name": "step9_forward",
+      "seconds": 5.231951271009166,
+      "elapsed": 185.12311103002867,
+      "rss_gib": 54.3446044921875
+    },
+    {
+      "kind": "backward",
+      "note": "train_step9",
+      "elapsed": 185.12514248600928
+    },
+    {
+      "kind": "timing",
+      "name": "step9_backward",
+      "seconds": 1.5808181809843518,
+      "elapsed": 186.7076415970223,
+      "rss_gib": 54.0623779296875
+    },
+    {
+      "kind": "update",
+      "note": "train_step9",
+      "elapsed": 186.71263944002567
+    },
+    {
+      "kind": "timing",
+      "name": "step9_optimizer",
+      "seconds": 0.0006016829865984619,
+      "elapsed": 186.7147004410508,
+      "rss_gib": 54.0623779296875
+    },
+    {
+      "kind": "dit",
+      "note": "step10_GT_C1_commit",
+      "elapsed": 187.51023876602994
+    },
+    {
+      "kind": "timing",
+      "name": "step10_GT_C1_commit",
+      "seconds": 8.940126192988828,
+      "elapsed": 196.4700656380155,
+      "rss_gib": 54.0623779296875
+    },
+    {
+      "kind": "dit",
+      "note": "train_step10_C2",
+      "elapsed": 196.47290626703762
+    },
+    {
+      "kind": "timing",
+      "name": "step10_forward",
+      "seconds": 5.841189172002487,
+      "elapsed": 202.33813429204747,
+      "rss_gib": 54.34326171875
+    },
+    {
+      "kind": "backward",
+      "note": "train_step10",
+      "elapsed": 202.34046775003662
+    },
+    {
+      "kind": "timing",
+      "name": "step10_backward",
+      "seconds": 2.062817671976518,
+      "elapsed": 204.4050678050262,
+      "rss_gib": 54.06239318847656
+    },
+    {
+      "kind": "update",
+      "note": "train_step10",
+      "elapsed": 204.410582343
+    },
+    {
+      "kind": "timing",
+      "name": "step10_optimizer",
+      "seconds": 0.0009450869983993471,
+      "elapsed": 204.41325175500242,
+      "rss_gib": 54.06239318847656
+    },
+    {
+      "kind": "dit",
+      "note": "step11_GT_C1_commit",
+      "elapsed": 205.44469461700646
+    },
+    {
+      "kind": "timing",
+      "name": "step11_GT_C1_commit",
+      "seconds": 11.072055979981087,
+      "elapsed": 216.51877457200317,
+      "rss_gib": 54.06239318847656
+    },
+    {
+      "kind": "dit",
+      "note": "train_step11_C2",
+      "elapsed": 216.52121621300466
+    },
+    {
+      "kind": "timing",
+      "name": "step11_forward",
+      "seconds": 6.354222840047441,
+      "elapsed": 222.8858487610123,
+      "rss_gib": 54.34614562988281
+    },
+    {
+      "kind": "backward",
+      "note": "train_step11",
+      "elapsed": 222.88803752302192
+    },
+    {
+      "kind": "timing",
+      "name": "step11_backward",
+      "seconds": 1.567724562017247,
+      "elapsed": 224.45759104704484,
+      "rss_gib": 54.062400817871094
+    },
+    {
+      "kind": "update",
+      "note": "train_step11",
+      "elapsed": 224.46255171502708
+    },
+    {
+      "kind": "timing",
+      "name": "step11_optimizer",
+      "seconds": 0.0006022729794494808,
+      "elapsed": 224.4646493300097,
+      "rss_gib": 54.062400817871094
+    },
+    {
+      "kind": "dit",
+      "note": "step12_GT_C1_commit",
+      "elapsed": 225.27923585800454
+    },
+    {
+      "kind": "timing",
+      "name": "step12_GT_C1_commit",
+      "seconds": 10.09800927597098,
+      "elapsed": 235.37937879300443,
+      "rss_gib": 54.06240463256836
+    },
+    {
+      "kind": "dit",
+      "note": "train_step12_C2",
+      "elapsed": 235.38193158002105
+    },
+    {
+      "kind": "timing",
+      "name": "step12_forward",
+      "seconds": 6.409476021945011,
+      "elapsed": 241.801720604999,
+      "rss_gib": 54.346004486083984
+    },
+    {
+      "kind": "backward",
+      "note": "train_step12",
+      "elapsed": 241.80569753801683
+    },
+    {
+      "kind": "timing",
+      "name": "step12_backward",
+      "seconds": 1.6475270770024508,
+      "elapsed": 243.45516232901718,
+      "rss_gib": 54.06242752075195
+    },
+    {
+      "kind": "update",
+      "note": "train_step12",
+      "elapsed": 243.46054545103107
+    },
+    {
+      "kind": "timing",
+      "name": "step12_optimizer",
+      "seconds": 0.000715443049557507,
+      "elapsed": 243.46306639001705,
+      "rss_gib": 54.06242752075195
+    },
+    {
+      "kind": "dit",
+      "note": "step13_GT_C1_commit",
+      "elapsed": 244.38325948105194
+    },
+    {
+      "kind": "timing",
+      "name": "step13_GT_C1_commit",
+      "seconds": 10.946171267016325,
+      "elapsed": 255.33167358103674,
+      "rss_gib": 54.06242752075195
+    },
+    {
+      "kind": "dit",
+      "note": "train_step13_C2",
+      "elapsed": 255.33421827701386
+    },
+    {
+      "kind": "timing",
+      "name": "step13_forward",
+      "seconds": 6.750757992966101,
+      "elapsed": 262.09533313900465,
+      "rss_gib": 54.3392219543457
+    },
+    {
+      "kind": "backward",
+      "note": "train_step13",
+      "elapsed": 262.09768103901297
+    },
+    {
+      "kind": "timing",
+      "name": "step13_backward",
+      "seconds": 1.620323559967801,
+      "elapsed": 263.7199791800231,
+      "rss_gib": 54.062435150146484
+    },
+    {
+      "kind": "update",
+      "note": "train_step13",
+      "elapsed": 263.7253285210463
+    },
+    {
+      "kind": "timing",
+      "name": "step13_optimizer",
+      "seconds": 0.0007106760167516768,
+      "elapsed": 263.73927572200773,
+      "rss_gib": 54.062435150146484
+    },
+    {
+      "kind": "dit",
+      "note": "step14_GT_C1_commit",
+      "elapsed": 264.5788682650309
+    },
+    {
+      "kind": "timing",
+      "name": "step14_GT_C1_commit",
+      "seconds": 10.844738785002846,
+      "elapsed": 275.42579411901534,
+      "rss_gib": 54.062435150146484
+    },
+    {
+      "kind": "dit",
+      "note": "train_step14_C2",
+      "elapsed": 275.4287425400107
+    },
+    {
+      "kind": "timing",
+      "name": "step14_forward",
+      "seconds": 7.563626313989516,
+      "elapsed": 283.0025188419968,
+      "rss_gib": 54.34603500366211
+    },
+    {
+      "kind": "backward",
+      "note": "train_step14",
+      "elapsed": 283.00493753905175
+    },
+    {
+      "kind": "timing",
+      "name": "step14_backward",
+      "seconds": 1.7593617310049012,
+      "elapsed": 284.76621193700703,
+      "rss_gib": 54.062435150146484
+    },
+    {
+      "kind": "update",
+      "note": "train_step14",
+      "elapsed": 284.7719790440169
+    },
+    {
+      "kind": "timing",
+      "name": "step14_optimizer",
+      "seconds": 0.0007476610480807722,
+      "elapsed": 284.77472055499675,
+      "rss_gib": 54.062435150146484
+    },
+    {
+      "kind": "dit",
+      "note": "step15_GT_C1_commit",
+      "elapsed": 285.56839777500136
+    },
+    {
+      "kind": "timing",
+      "name": "step15_GT_C1_commit",
+      "seconds": 10.927879545022734,
+      "elapsed": 296.5147269120207,
+      "rss_gib": 54.062435150146484
+    },
+    {
+      "kind": "dit",
+      "note": "train_step15_C2",
+      "elapsed": 296.51908096001716
+    },
+    {
+      "kind": "timing",
+      "name": "step15_forward",
+      "seconds": 7.5529350729775615,
+      "elapsed": 304.08578976400895,
+      "rss_gib": 54.34060287475586
+    },
+    {
+      "kind": "backward",
+      "note": "train_step15",
+      "elapsed": 304.0889781450387
+    },
+    {
+      "kind": "timing",
+      "name": "step15_backward",
+      "seconds": 1.8187258009565994,
+      "elapsed": 305.91049062402453,
+      "rss_gib": 54.06244659423828
+    },
+    {
+      "kind": "update",
+      "note": "train_step15",
+      "elapsed": 305.91681513702497
+    },
+    {
+      "kind": "timing",
+      "name": "step15_optimizer",
+      "seconds": 0.0009995190193876624,
+      "elapsed": 305.92005063802935,
+      "rss_gib": 54.06244659423828
+    },
+    {
+      "kind": "dit",
+      "note": "step16_GT_C1_commit",
+      "elapsed": 307.01699726004153
+    },
+    {
+      "kind": "timing",
+      "name": "step16_GT_C1_commit",
+      "seconds": 12.719281026045792,
+      "elapsed": 319.73898247099714,
+      "rss_gib": 54.06244659423828
+    },
+    {
+      "kind": "dit",
+      "note": "train_step16_C2",
+      "elapsed": 319.74219188303687
+    },
+    {
+      "kind": "timing",
+      "name": "step16_forward",
+      "seconds": 7.162981635017786,
+      "elapsed": 326.9165309580276,
+      "rss_gib": 54.341468811035156
+    },
+    {
+      "kind": "backward",
+      "note": "train_step16",
+      "elapsed": 326.91921702504624
+    },
+    {
+      "kind": "timing",
+      "name": "step16_backward",
+      "seconds": 1.847209989966359,
+      "elapsed": 328.7686874040519,
+      "rss_gib": 54.06245422363281
+    },
+    {
+      "kind": "update",
+      "note": "train_step16",
+      "elapsed": 328.7751005300088
+    },
+    {
+      "kind": "timing",
+      "name": "step16_optimizer",
+      "seconds": 0.0008715969743207097,
+      "elapsed": 328.7778139380389,
+      "rss_gib": 54.06245422363281
+    },
+    {
+      "kind": "dit",
+      "note": "step17_GT_C1_commit",
+      "elapsed": 329.7317793900147
+    },
+    {
+      "kind": "timing",
+      "name": "step17_GT_C1_commit",
+      "seconds": 11.05790126597276,
+      "elapsed": 340.79258133500116,
+      "rss_gib": 54.06245422363281
+    },
+    {
+      "kind": "dit",
+      "note": "train_step17_C2",
+      "elapsed": 340.79587784799514
+    },
+    {
+      "kind": "timing",
+      "name": "step17_forward",
+      "seconds": 6.844424321956467,
+      "elapsed": 347.6519606890506,
+      "rss_gib": 54.33891296386719
+    },
+    {
+      "kind": "backward",
+      "note": "train_step17",
+      "elapsed": 347.6546930860495
+    },
+    {
+      "kind": "timing",
+      "name": "step17_backward",
+      "seconds": 1.7998079999815673,
+      "elapsed": 349.4569872340071,
+      "rss_gib": 54.062461853027344
+    },
+    {
+      "kind": "update",
+      "note": "train_step17",
+      "elapsed": 349.46306070004357
+    },
+    {
+      "kind": "timing",
+      "name": "step17_optimizer",
+      "seconds": 0.0010103349923156202,
+      "elapsed": 349.47541167901363,
+      "rss_gib": 54.062461853027344
+    },
+    {
+      "kind": "dit",
+      "note": "step18_GT_C1_commit",
+      "elapsed": 350.5069526460138
+    },
+    {
+      "kind": "timing",
+      "name": "step18_GT_C1_commit",
+      "seconds": 11.829635007015895,
+      "elapsed": 362.3393466290436,
+      "rss_gib": 54.062461853027344
+    },
+    {
+      "kind": "dit",
+      "note": "train_step18_C2",
+      "elapsed": 362.3430346189998
+    },
+    {
+      "kind": "timing",
+      "name": "step18_forward",
+      "seconds": 7.222267864039168,
+      "elapsed": 369.57828914403217,
+      "rss_gib": 54.341087341308594
+    },
+    {
+      "kind": "backward",
+      "note": "train_step18",
+      "elapsed": 369.58170649805106
+    },
+    {
+      "kind": "timing",
+      "name": "step18_backward",
+      "seconds": 1.7708115950226784,
+      "elapsed": 371.3552777910372,
+      "rss_gib": 54.0625
+    },
+    {
+      "kind": "update",
+      "note": "train_step18",
+      "elapsed": 371.3622330400394
+    },
+    {
+      "kind": "timing",
+      "name": "step18_optimizer",
+      "seconds": 0.0011480519897304475,
+      "elapsed": 371.36589136504335,
+      "rss_gib": 54.0625
+    },
+    {
+      "kind": "dit",
+      "note": "step19_GT_C1_commit",
+      "elapsed": 372.2819096420426
+    },
+    {
+      "kind": "timing",
+      "name": "step19_GT_C1_commit",
+      "seconds": 10.985466862970497,
+      "elapsed": 383.2703669980401,
+      "rss_gib": 54.0625
+    },
+    {
+      "kind": "dit",
+      "note": "train_step19_C2",
+      "elapsed": 383.2749166190042
+    },
+    {
+      "kind": "timing",
+      "name": "step19_forward",
+      "seconds": 7.3860293390462175,
+      "elapsed": 390.68047129403567,
+      "rss_gib": 54.34490966796875
+    },
+    {
+      "kind": "backward",
+      "note": "train_step19",
+      "elapsed": 390.6841563490452
+    },
+    {
+      "kind": "timing",
+      "name": "step19_backward",
+      "seconds": 1.9881074230070226,
+      "elapsed": 392.67520075599896,
+      "rss_gib": 54.06251525878906
+    },
+    {
+      "kind": "update",
+      "note": "train_step19",
+      "elapsed": 392.68377429101383
+    },
+    {
+      "kind": "timing",
+      "name": "step19_optimizer",
+      "seconds": 0.0012922579771839082,
+      "elapsed": 392.6886623300379,
+      "rss_gib": 54.06251525878906
+    },
+    {
+      "kind": "dit",
+      "note": "step20_GT_C1_commit",
+      "elapsed": 393.9245237900177
+    },
+    {
+      "kind": "timing",
+      "name": "step20_GT_C1_commit",
+      "seconds": 11.567923328024335,
+      "elapsed": 405.4958243520232,
+      "rss_gib": 54.06251525878906
+    },
+    {
+      "kind": "dit",
+      "note": "train_step20_C2",
+      "elapsed": 405.49980818503536
+    },
+    {
+      "kind": "timing",
+      "name": "step20_forward",
+      "seconds": 7.3706386190024205,
+      "elapsed": 412.88250867900206,
+      "rss_gib": 54.34764099121094
+    },
+    {
+      "kind": "backward",
+      "note": "train_step20",
+      "elapsed": 412.88611911202315
+    },
+    {
+      "kind": "timing",
+      "name": "step20_backward",
+      "seconds": 1.8293585720239207,
+      "elapsed": 414.7181356600486,
+      "rss_gib": 54.062530517578125
+    },
+    {
+      "kind": "update",
+      "note": "train_step20",
+      "elapsed": 414.7249090760015
+    },
+    {
+      "kind": "timing",
+      "name": "step20_optimizer",
+      "seconds": 0.00108845200156793,
+      "elapsed": 414.7294011610211,
+      "rss_gib": 54.062530517578125
+    },
+    {
+      "kind": "dit",
+      "note": "step21_GT_C1_commit",
+      "elapsed": 415.8462118310272
+    },
+    {
+      "kind": "timing",
+      "name": "step21_GT_C1_commit",
+      "seconds": 11.181511494040024,
+      "elapsed": 427.03080305299954,
+      "rss_gib": 54.062530517578125
+    },
+    {
+      "kind": "dit",
+      "note": "train_step21_C2",
+      "elapsed": 427.03470541501883
+    },
+    {
+      "kind": "timing",
+      "name": "step21_forward",
+      "seconds": 7.471214224991854,
+      "elapsed": 434.5182132720365,
+      "rss_gib": 54.34765625
+    },
+    {
+      "kind": "backward",
+      "note": "train_step21",
+      "elapsed": 434.52190139202867
+    },
+    {
+      "kind": "timing",
+      "name": "step21_backward",
+      "seconds": 1.8682803410338238,
+      "elapsed": 436.39293713500956,
+      "rss_gib": 54.06254577636719
+    },
+    {
+      "kind": "update",
+      "note": "train_step21",
+      "elapsed": 436.40029119100654
+    },
+    {
+      "kind": "timing",
+      "name": "step21_optimizer",
+      "seconds": 0.001230914960615337,
+      "elapsed": 436.40413569600787,
+      "rss_gib": 54.06254577636719
+    },
+    {
+      "kind": "dit",
+      "note": "step22_GT_C1_commit",
+      "elapsed": 437.54245264304336
+    },
+    {
+      "kind": "timing",
+      "name": "step22_GT_C1_commit",
+      "seconds": 10.620120381005108,
+      "elapsed": 448.16572254605126,
+      "rss_gib": 54.06254577636719
+    },
+    {
+      "kind": "dit",
+      "note": "train_step22_C2",
+      "elapsed": 448.1689790789969
+    },
+    {
+      "kind": "timing",
+      "name": "step22_forward",
+      "seconds": 5.916389613994397,
+      "elapsed": 454.0967632580432,
+      "rss_gib": 54.34590148925781
+    },
+    {
+      "kind": "backward",
+      "note": "train_step22",
+      "elapsed": 454.0996760450071
+    },
+    {
+      "kind": "timing",
+      "name": "step22_backward",
+      "seconds": 1.7116346729453653,
+      "elapsed": 455.8136788090342,
+      "rss_gib": 54.06254959106445
+    },
+    {
+      "kind": "update",
+      "note": "train_step22",
+      "elapsed": 455.81995577999623
+    },
+    {
+      "kind": "timing",
+      "name": "step22_optimizer",
+      "seconds": 0.0007179669919423759,
+      "elapsed": 455.8228638700093,
+      "rss_gib": 54.06254959106445
+    },
+    {
+      "kind": "dit",
+      "note": "step23_GT_C1_commit",
+      "elapsed": 456.72461761301383
+    },
+    {
+      "kind": "timing",
+      "name": "step23_GT_C1_commit",
+      "seconds": 9.769278586027212,
+      "elapsed": 466.49698233400704,
+      "rss_gib": 54.06254959106445
+    },
+    {
+      "kind": "dit",
+      "note": "train_step23_C2",
+      "elapsed": 466.50110485299956
+    },
+    {
+      "kind": "timing",
+      "name": "step23_forward",
+      "seconds": 7.2196885899757035,
+      "elapsed": 473.7331190050463,
+      "rss_gib": 54.34511184692383
+    },
+    {
+      "kind": "backward",
+      "note": "train_step23",
+      "elapsed": 473.7367697090376
+    },
+    {
+      "kind": "timing",
+      "name": "step23_backward",
+      "seconds": 1.8113896999857388,
+      "elapsed": 475.55110582005,
+      "rss_gib": 54.062557220458984
+    },
+    {
+      "kind": "update",
+      "note": "train_step23",
+      "elapsed": 475.55781221902
+    },
+    {
+      "kind": "timing",
+      "name": "step23_optimizer",
+      "seconds": 0.0009844499872997403,
+      "elapsed": 475.5613390680519,
+      "rss_gib": 54.062557220458984
+    },
+    {
+      "kind": "dit",
+      "note": "step24_GT_C1_commit",
+      "elapsed": 476.62942993600154
+    },
+    {
+      "kind": "timing",
+      "name": "step24_GT_C1_commit",
+      "seconds": 11.912032138963696,
+      "elapsed": 488.5660426969989,
+      "rss_gib": 54.062557220458984
+    },
+    {
+      "kind": "dit",
+      "note": "train_step24_C2",
+      "elapsed": 488.5694223760511
+    },
+    {
+      "kind": "timing",
+      "name": "step24_forward",
+      "seconds": 8.210944274032954,
+      "elapsed": 496.79220719099976,
+      "rss_gib": 54.348079681396484
+    },
+    {
+      "kind": "backward",
+      "note": "train_step24",
+      "elapsed": 496.7953531310195
+    },
+    {
+      "kind": "timing",
+      "name": "step24_backward",
+      "seconds": 1.8659460910130292,
+      "elapsed": 498.66383649304044,
+      "rss_gib": 54.06256866455078
+    },
+    {
+      "kind": "update",
+      "note": "train_step24",
+      "elapsed": 498.67045079602394
+    },
+    {
+      "kind": "timing",
+      "name": "step24_optimizer",
+      "seconds": 0.0008395840413868427,
+      "elapsed": 498.6742242440232,
+      "rss_gib": 54.06256866455078
+    },
+    {
+      "kind": "dit",
+      "note": "step25_GT_C1_commit",
+      "elapsed": 499.7544116950012
+    },
+    {
+      "kind": "timing",
+      "name": "step25_GT_C1_commit",
+      "seconds": 12.353221010998823,
+      "elapsed": 512.1108345100074,
+      "rss_gib": 54.06256866455078
+    },
+    {
+      "kind": "dit",
+      "note": "train_step25_C2",
+      "elapsed": 512.1149595440365
+    },
+    {
+      "kind": "timing",
+      "name": "step25_forward",
+      "seconds": 7.979820705018938,
+      "elapsed": 520.1083424640237,
+      "rss_gib": 54.34089279174805
+    },
+    {
+      "kind": "backward",
+      "note": "train_step25",
+      "elapsed": 520.1122641140246
+    },
+    {
+      "kind": "timing",
+      "name": "step25_backward",
+      "seconds": 1.8721379110356793,
+      "elapsed": 521.9874891380314,
+      "rss_gib": 54.06258010864258
+    },
+    {
+      "kind": "update",
+      "note": "train_step25",
+      "elapsed": 521.9951108770329
+    },
+    {
+      "kind": "timing",
+      "name": "step25_optimizer",
+      "seconds": 0.0008252140250988305,
+      "elapsed": 521.998758168018,
+      "rss_gib": 54.06258010864258
+    },
+    {
+      "kind": "dit",
+      "note": "step26_GT_C1_commit",
+      "elapsed": 523.1682157019968
+    },
+    {
+      "kind": "timing",
+      "name": "step26_GT_C1_commit",
+      "seconds": 12.935108138015494,
+      "elapsed": 536.1070929220296,
+      "rss_gib": 54.06258010864258
+    },
+    {
+      "kind": "dit",
+      "note": "train_step26_C2",
+      "elapsed": 536.1118939170265
+    },
+    {
+      "kind": "timing",
+      "name": "step26_forward",
+      "seconds": 6.97414015798131,
+      "elapsed": 543.0991209930507,
+      "rss_gib": 54.34587478637695
+    },
+    {
+      "kind": "backward",
+      "note": "train_step26",
+      "elapsed": 543.102841013053
+    },
+    {
+      "kind": "timing",
+      "name": "step26_backward",
+      "seconds": 1.9734936050372198,
+      "elapsed": 545.0793096740381,
+      "rss_gib": 54.06258773803711
+    },
+    {
+      "kind": "update",
+      "note": "train_step26",
+      "elapsed": 545.0859179700492
+    },
+    {
+      "kind": "timing",
+      "name": "step26_optimizer",
+      "seconds": 0.0009373300126753747,
+      "elapsed": 545.0892901500338,
+      "rss_gib": 54.06258773803711
+    },
+    {
+      "kind": "dit",
+      "note": "step27_GT_C1_commit",
+      "elapsed": 546.0654854750028
+    },
+    {
+      "kind": "timing",
+      "name": "step27_GT_C1_commit",
+      "seconds": 11.270036534988321,
+      "elapsed": 557.3385679229978,
+      "rss_gib": 54.06258773803711
+    },
+    {
+      "kind": "dit",
+      "note": "train_step27_C2",
+      "elapsed": 557.34223105805
+    },
+    {
+      "kind": "timing",
+      "name": "step27_forward",
+      "seconds": 7.710154774016701,
+      "elapsed": 565.0790135710267,
+      "rss_gib": 54.34554672241211
+    },
+    {
+      "kind": "backward",
+      "note": "train_step27",
+      "elapsed": 565.0826099860133
+    },
+    {
+      "kind": "timing",
+      "name": "step27_backward",
+      "seconds": 1.845562987960875,
+      "elapsed": 566.9312659170246,
+      "rss_gib": 54.06260681152344
+    },
+    {
+      "kind": "update",
+      "note": "train_step27",
+      "elapsed": 566.941603830026
+    },
+    {
+      "kind": "timing",
+      "name": "step27_optimizer",
+      "seconds": 0.0012028079945594072,
+      "elapsed": 566.9520953110186,
+      "rss_gib": 54.06260681152344
+    },
+    {
+      "kind": "dit",
+      "note": "step28_GT_C1_commit",
+      "elapsed": 568.2942976750201
+    },
+    {
+      "kind": "timing",
+      "name": "step28_GT_C1_commit",
+      "seconds": 11.33785864902893,
+      "elapsed": 579.6406504799961,
+      "rss_gib": 54.06502151489258
+    },
+    {
+      "kind": "dit",
+      "note": "train_step28_C2",
+      "elapsed": 579.644129581051
+    },
+    {
+      "kind": "timing",
+      "name": "step28_forward",
+      "seconds": 6.101527055026963,
+      "elapsed": 585.7781326110126,
+      "rss_gib": 54.3444709777832
+    },
+    {
+      "kind": "backward",
+      "note": "train_step28",
+      "elapsed": 585.7813467660453
+    },
+    {
+      "kind": "timing",
+      "name": "step28_backward",
+      "seconds": 1.6275775979738683,
+      "elapsed": 587.4114736840129,
+      "rss_gib": 54.06502914428711
+    },
+    {
+      "kind": "update",
+      "note": "train_step28",
+      "elapsed": 587.4184442640399
+    },
+    {
+      "kind": "timing",
+      "name": "step28_optimizer",
+      "seconds": 0.001081276044715196,
+      "elapsed": 587.4220945510315,
+      "rss_gib": 54.06502914428711
+    },
+    {
+      "kind": "dit",
+      "note": "step29_GT_C1_commit",
+      "elapsed": 588.333842633001
+    },
+    {
+      "kind": "timing",
+      "name": "step29_GT_C1_commit",
+      "seconds": 10.754183295997791,
+      "elapsed": 599.0910364700248,
+      "rss_gib": 54.06502914428711
+    },
+    {
+      "kind": "dit",
+      "note": "train_step29_C2",
+      "elapsed": 599.0944526470266
+    },
+    {
+      "kind": "timing",
+      "name": "step29_forward",
+      "seconds": 7.0945501499809325,
+      "elapsed": 606.2021525950404,
+      "rss_gib": 54.34719467163086
+    },
+    {
+      "kind": "backward",
+      "note": "train_step29",
+      "elapsed": 606.2051386890234
+    },
+    {
+      "kind": "timing",
+      "name": "step29_backward",
+      "seconds": 1.6214107560226694,
+      "elapsed": 607.8289793180302,
+      "rss_gib": 54.06503677368164
+    },
+    {
+      "kind": "update",
+      "note": "train_step29",
+      "elapsed": 607.8355304620345
+    },
+    {
+      "kind": "timing",
+      "name": "step29_optimizer",
+      "seconds": 0.0008655840065330267,
+      "elapsed": 607.8388843260473,
+      "rss_gib": 54.06503677368164
+    },
+    {
+      "kind": "dit",
+      "note": "step30_GT_C1_commit",
+      "elapsed": 608.7456143050222
+    },
+    {
+      "kind": "timing",
+      "name": "step30_GT_C1_commit",
+      "seconds": 10.27625584602356,
+      "elapsed": 619.0250103160506,
+      "rss_gib": 54.06503677368164
+    },
+    {
+      "kind": "dit",
+      "note": "train_step30_C2",
+      "elapsed": 619.0285257120267
+    },
+    {
+      "kind": "timing",
+      "name": "step30_forward",
+      "seconds": 6.501123024965636,
+      "elapsed": 625.5404363050475,
+      "rss_gib": 54.34598159790039
+    },
+    {
+      "kind": "backward",
+      "note": "train_step30",
+      "elapsed": 625.5434401860111
+    },
+    {
+      "kind": "timing",
+      "name": "step30_backward",
+      "seconds": 1.7936375089921057,
+      "elapsed": 627.3396590140183,
+      "rss_gib": 54.065067291259766
+    },
+    {
+      "kind": "update",
+      "note": "train_step30",
+      "elapsed": 627.3461695680162
+    },
+    {
+      "kind": "timing",
+      "name": "step30_optimizer",
+      "seconds": 0.000891764007974416,
+      "elapsed": 627.3495359320077,
+      "rss_gib": 54.065067291259766
+    },
+    {
+      "kind": "dit",
+      "note": "step31_GT_C1_commit",
+      "elapsed": 628.216631989053
+    },
+    {
+      "kind": "timing",
+      "name": "step31_GT_C1_commit",
+      "seconds": 8.921146415988915,
+      "elapsed": 637.1407971490407,
+      "rss_gib": 54.065067291259766
+    },
+    {
+      "kind": "dit",
+      "note": "train_step31_C2",
+      "elapsed": 637.1457976860111
+    },
+    {
+      "kind": "timing",
+      "name": "step31_forward",
+      "seconds": 5.293386813020334,
+      "elapsed": 642.463794285024,
+      "rss_gib": 54.349002838134766
+    },
+    {
+      "kind": "backward",
+      "note": "train_step31",
+      "elapsed": 642.4668990080245
+    },
+    {
+      "kind": "timing",
+      "name": "step31_backward",
+      "seconds": 1.5919131559785455,
+      "elapsed": 644.0754669270245,
+      "rss_gib": 54.06507110595703
+    },
+    {
+      "kind": "update",
+      "note": "train_step31",
+      "elapsed": 644.0814806190319
+    },
+    {
+      "kind": "timing",
+      "name": "step31_optimizer",
+      "seconds": 0.000615180004388094,
+      "elapsed": 644.084362788999,
+      "rss_gib": 54.06507110595703
+    },
+    {
+      "kind": "dit",
+      "note": "step32_GT_C1_commit",
+      "elapsed": 644.9113092120388
+    },
+    {
+      "kind": "timing",
+      "name": "step32_GT_C1_commit",
+      "seconds": 8.851240474032238,
+      "elapsed": 653.765610403032,
+      "rss_gib": 54.06507110595703
+    },
+    {
+      "kind": "dit",
+      "note": "train_step32_C2",
+      "elapsed": 653.769503254036
+    },
+    {
+      "kind": "timing",
+      "name": "step32_forward",
+      "seconds": 5.91527863999363,
+      "elapsed": 659.7089041250292,
+      "rss_gib": 54.35004425048828
+    },
+    {
+      "kind": "backward",
+      "note": "train_step32",
+      "elapsed": 659.7121434690198
+    },
+    {
+      "kind": "timing",
+      "name": "step32_backward",
+      "seconds": 1.6198363570147194,
+      "elapsed": 661.3503131710459,
+      "rss_gib": 54.06509017944336
+    },
+    {
+      "kind": "update",
+      "note": "train_step32",
+      "elapsed": 661.3563975700526
+    },
+    {
+      "kind": "timing",
+      "name": "step32_optimizer",
+      "seconds": 0.0007571420283056796,
+      "elapsed": 661.3594747920288,
+      "rss_gib": 54.06509017944336
+    },
+    {
+      "kind": "dit",
+      "note": "step33_GT_C1_commit",
+      "elapsed": 662.3083261860302
+    },
+    {
+      "kind": "timing",
+      "name": "step33_GT_C1_commit",
+      "seconds": 10.398002373985946,
+      "elapsed": 672.7095722410013,
+      "rss_gib": 54.071231842041016
+    },
+    {
+      "kind": "dit",
+      "note": "train_step33_C2",
+      "elapsed": 672.7137065040297
+    },
+    {
+      "kind": "timing",
+      "name": "step33_forward",
+      "seconds": 5.9233676890144125,
+      "elapsed": 678.64846360503,
+      "rss_gib": 54.352420806884766
+    },
+    {
+      "kind": "backward",
+      "note": "train_step33",
+      "elapsed": 678.6519601540058
+    },
+    {
+      "kind": "timing",
+      "name": "step33_backward",
+      "seconds": 1.594462858978659,
+      "elapsed": 680.2490592460381,
+      "rss_gib": 54.07123947143555
+    },
+    {
+      "kind": "update",
+      "note": "train_step33",
+      "elapsed": 680.2551595889963
+    },
+    {
+      "kind": "timing",
+      "name": "step33_optimizer",
+      "seconds": 0.0008308720425702631,
+      "elapsed": 680.2699982100166,
+      "rss_gib": 54.07123947143555
+    },
+    {
+      "kind": "dit",
+      "note": "step34_GT_C1_commit",
+      "elapsed": 681.1460598730482
+    },
+    {
+      "kind": "timing",
+      "name": "step34_GT_C1_commit",
+      "seconds": 9.821368645003531,
+      "elapsed": 690.970585860021,
+      "rss_gib": 54.07123947143555
+    },
+    {
+      "kind": "dit",
+      "note": "train_step34_C2",
+      "elapsed": 690.9742946370388
+    },
+    {
+      "kind": "timing",
+      "name": "step34_forward",
+      "seconds": 5.876852161018178,
+      "elapsed": 696.862136945012,
+      "rss_gib": 54.34955978393555
+    },
+    {
+      "kind": "backward",
+      "note": "train_step34",
+      "elapsed": 696.865474486025
+    },
+    {
+      "kind": "timing",
+      "name": "step34_backward",
+      "seconds": 1.5593738799798302,
+      "elapsed": 698.4275236280519,
+      "rss_gib": 54.071250915527344
+    },
+    {
+      "kind": "update",
+      "note": "train_step34",
+      "elapsed": 698.4340310310363
+    },
+    {
+      "kind": "timing",
+      "name": "step34_optimizer",
+      "seconds": 0.0008503420394845307,
+      "elapsed": 698.4373668500339,
+      "rss_gib": 54.071250915527344
+    },
+    {
+      "kind": "dit",
+      "note": "step35_GT_C1_commit",
+      "elapsed": 699.2583217320498
+    },
+    {
+      "kind": "timing",
+      "name": "step35_GT_C1_commit",
+      "seconds": 8.740200435975567,
+      "elapsed": 708.0017458790098,
+      "rss_gib": 54.071250915527344
+    },
+    {
+      "kind": "dit",
+      "note": "train_step35_C2",
+      "elapsed": 708.0054785819957
+    },
+    {
+      "kind": "timing",
+      "name": "step35_forward",
+      "seconds": 5.825329446990509,
+      "elapsed": 713.8519927349989,
+      "rss_gib": 54.34941864013672
+    },
+    {
+      "kind": "backward",
+      "note": "train_step35",
+      "elapsed": 713.8551517100423
+    },
+    {
+      "kind": "timing",
+      "name": "step35_backward",
+      "seconds": 1.567789908964187,
+      "elapsed": 715.425580486015,
+      "rss_gib": 54.071266174316406
+    },
+    {
+      "kind": "update",
+      "note": "train_step35",
+      "elapsed": 715.4321721750312
+    },
+    {
+      "kind": "timing",
+      "name": "step35_optimizer",
+      "seconds": 0.0008559210109524429,
+      "elapsed": 715.4354753260268,
+      "rss_gib": 54.071266174316406
+    },
+    {
+      "kind": "dit",
+      "note": "step36_GT_C1_commit",
+      "elapsed": 716.2676693130052
+    },
+    {
+      "kind": "timing",
+      "name": "step36_GT_C1_commit",
+      "seconds": 9.784460833994672,
+      "elapsed": 726.0553478799993,
+      "rss_gib": 54.071266174316406
+    },
+    {
+      "kind": "dit",
+      "note": "train_step36_C2",
+      "elapsed": 726.0592983890092
+    },
+    {
+      "kind": "timing",
+      "name": "step36_forward",
+      "seconds": 6.160516165953595,
+      "elapsed": 732.2309811779996,
+      "rss_gib": 54.353492736816406
+    },
+    {
+      "kind": "backward",
+      "note": "train_step36",
+      "elapsed": 732.2344341530115
+    },
+    {
+      "kind": "timing",
+      "name": "step36_backward",
+      "seconds": 1.748260160034988,
+      "elapsed": 733.9857034540037,
+      "rss_gib": 54.07127380371094
+    },
+    {
+      "kind": "update",
+      "note": "train_step36",
+      "elapsed": 733.9935346490238
+    },
+    {
+      "kind": "timing",
+      "name": "step36_optimizer",
+      "seconds": 0.0009155389852821827,
+      "elapsed": 733.9971161560388,
+      "rss_gib": 54.07127380371094
+    },
+    {
+      "kind": "dit",
+      "note": "step37_GT_C1_commit",
+      "elapsed": 735.3670161460177
+    },
+    {
+      "kind": "timing",
+      "name": "step37_GT_C1_commit",
+      "seconds": 10.433199198974762,
+      "elapsed": 745.8043901500059,
+      "rss_gib": 54.07127380371094
+    },
+    {
+      "kind": "dit",
+      "note": "train_step37_C2",
+      "elapsed": 745.8082786870073
+    },
+    {
+      "kind": "timing",
+      "name": "step37_forward",
+      "seconds": 6.372450665978249,
+      "elapsed": 752.1921112890122,
+      "rss_gib": 54.35542297363281
+    },
+    {
+      "kind": "backward",
+      "note": "train_step37",
+      "elapsed": 752.1955335880048
+    },
+    {
+      "kind": "timing",
+      "name": "step37_backward",
+      "seconds": 1.9337638700380921,
+      "elapsed": 754.1321034459979,
+      "rss_gib": 54.07128143310547
+    },
+    {
+      "kind": "update",
+      "note": "train_step37",
+      "elapsed": 754.1385612169979
+    },
+    {
+      "kind": "timing",
+      "name": "step37_optimizer",
+      "seconds": 0.0008681679610162973,
+      "elapsed": 754.141966411029,
+      "rss_gib": 54.07128143310547
+    },
+    {
+      "kind": "dit",
+      "note": "step38_GT_C1_commit",
+      "elapsed": 754.8622738849954
+    },
+    {
+      "kind": "timing",
+      "name": "step38_GT_C1_commit",
+      "seconds": 10.434718369040638,
+      "elapsed": 765.3003676630324,
+      "rss_gib": 54.07128143310547
+    },
+    {
+      "kind": "dit",
+      "note": "train_step38_C2",
+      "elapsed": 765.3046481470228
+    },
+    {
+      "kind": "timing",
+      "name": "step38_forward",
+      "seconds": 6.952398610999808,
+      "elapsed": 772.268819460005,
+      "rss_gib": 54.350303649902344
+    },
+    {
+      "kind": "backward",
+      "note": "train_step38",
+      "elapsed": 772.2723747290438
+    },
+    {
+      "kind": "timing",
+      "name": "step38_backward",
+      "seconds": 1.7279880679561757,
+      "elapsed": 774.003466971044,
+      "rss_gib": 54.071285247802734
+    },
+    {
+      "kind": "update",
+      "note": "train_step38",
+      "elapsed": 774.0107149750111
+    },
+    {
+      "kind": "timing",
+      "name": "step38_optimizer",
+      "seconds": 0.0010536159970797598,
+      "elapsed": 774.0938596240012,
+      "rss_gib": 54.071285247802734
+    },
+    {
+      "kind": "dit",
+      "note": "step39_GT_C1_commit",
+      "elapsed": 774.8627038690029
+    },
+    {
+      "kind": "timing",
+      "name": "step39_GT_C1_commit",
+      "seconds": 9.761662523960695,
+      "elapsed": 784.6278351020301,
+      "rss_gib": 54.071285247802734
+    },
+    {
+      "kind": "dit",
+      "note": "train_step39_C2",
+      "elapsed": 784.6769934190088
+    },
+    {
+      "kind": "timing",
+      "name": "step39_forward",
+      "seconds": 6.947639229008928,
+      "elapsed": 791.6912802600418,
+      "rss_gib": 54.355220794677734
+    },
+    {
+      "kind": "backward",
+      "note": "train_step39",
+      "elapsed": 791.6953141860431
+    },
+    {
+      "kind": "timing",
+      "name": "step39_backward",
+      "seconds": 2.0708453120314516,
+      "elapsed": 793.8422757289954,
+      "rss_gib": 54.071292877197266
+    },
+    {
+      "kind": "update",
+      "note": "train_step39",
+      "elapsed": 793.849246488011
+    },
+    {
+      "kind": "timing",
+      "name": "step39_optimizer",
+      "seconds": 0.0008944679866544902,
+      "elapsed": 793.859515542048,
+      "rss_gib": 54.071292877197266
+    },
+    {
+      "kind": "dit",
+      "note": "step40_GT_C1_commit",
+      "elapsed": 794.6835605060332
+    },
+    {
+      "kind": "timing",
+      "name": "step40_GT_C1_commit",
+      "seconds": 11.156643017020542,
+      "elapsed": 805.8437910110224,
+      "rss_gib": 54.071292877197266
+    },
+    {
+      "kind": "dit",
+      "note": "train_step40_C2",
+      "elapsed": 805.8647395150037
+    },
+    {
+      "kind": "timing",
+      "name": "step40_forward",
+      "seconds": 6.489868008997291,
+      "elapsed": 812.3891759249964,
+      "rss_gib": 54.352237701416016
+    },
+    {
+      "kind": "backward",
+      "note": "train_step40",
+      "elapsed": 812.3929147800081
+    },
+    {
+      "kind": "timing",
+      "name": "step40_backward",
+      "seconds": 1.8084574550157413,
+      "elapsed": 814.2044975809986,
+      "rss_gib": 54.0713005065918
+    },
+    {
+      "kind": "update",
+      "note": "train_step40",
+      "elapsed": 814.2117380340351
+    },
+    {
+      "kind": "timing",
+      "name": "step40_optimizer",
+      "seconds": 0.0008227609796449542,
+      "elapsed": 814.2272370550199,
+      "rss_gib": 54.0713005065918
+    },
+    {
+      "kind": "dit",
+      "note": "step41_GT_C1_commit",
+      "elapsed": 815.0434035040089
+    },
+    {
+      "kind": "timing",
+      "name": "step41_GT_C1_commit",
+      "seconds": 9.999972863995936,
+      "elapsed": 825.0470668690396,
+      "rss_gib": 54.0713005065918
+    },
+    {
+      "kind": "dit",
+      "note": "train_step41_C2",
+      "elapsed": 825.0517568369978
+    },
+    {
+      "kind": "timing",
+      "name": "step41_forward",
+      "seconds": 7.172423381009139,
+      "elapsed": 832.2361551860231,
+      "rss_gib": 54.3521842956543
+    },
+    {
+      "kind": "backward",
+      "note": "train_step41",
+      "elapsed": 832.2408284890116
+    },
+    {
+      "kind": "timing",
+      "name": "step41_backward",
+      "seconds": 1.9005033600260504,
+      "elapsed": 834.1448553420487,
+      "rss_gib": 54.07132339477539
+    },
+    {
+      "kind": "update",
+      "note": "train_step41",
+      "elapsed": 834.1526132300496
+    },
+    {
+      "kind": "timing",
+      "name": "step41_optimizer",
+      "seconds": 0.001025934994686395,
+      "elapsed": 834.1614864480216,
+      "rss_gib": 54.07132339477539
+    },
+    {
+      "kind": "dit",
+      "note": "step42_GT_C1_commit",
+      "elapsed": 835.2930314340047
+    },
+    {
+      "kind": "timing",
+      "name": "step42_GT_C1_commit",
+      "seconds": 11.650053023011424,
+      "elapsed": 846.9471756290295,
+      "rss_gib": 54.07132339477539
+    },
+    {
+      "kind": "dit",
+      "note": "train_step42_C2",
+      "elapsed": 846.9522677790374
+    },
+    {
+      "kind": "timing",
+      "name": "step42_forward",
+      "seconds": 8.167341127002146,
+      "elapsed": 855.1495593740256,
+      "rss_gib": 54.35684585571289
+    },
+    {
+      "kind": "backward",
+      "note": "train_step42",
+      "elapsed": 855.1534104170278
+    },
+    {
+      "kind": "timing",
+      "name": "step42_backward",
+      "seconds": 1.8303285280126147,
+      "elapsed": 856.9870995130041,
+      "rss_gib": 54.07135772705078
+    },
+    {
+      "kind": "update",
+      "note": "train_step42",
+      "elapsed": 856.9946112750331
+    },
+    {
+      "kind": "timing",
+      "name": "step42_optimizer",
+      "seconds": 0.0007475180318579078,
+      "elapsed": 856.9989620849956,
+      "rss_gib": 54.07135772705078
+    },
+    {
+      "kind": "dit",
+      "note": "step43_GT_C1_commit",
+      "elapsed": 857.7392513200175
+    },
+    {
+      "kind": "timing",
+      "name": "step43_GT_C1_commit",
+      "seconds": 12.072457655041944,
+      "elapsed": 869.8158820110257,
+      "rss_gib": 54.07135772705078
+    },
+    {
+      "kind": "dit",
+      "note": "train_step43_C2",
+      "elapsed": 869.8201763069956
+    },
+    {
+      "kind": "timing",
+      "name": "step43_forward",
+      "seconds": 7.291858311975375,
+      "elapsed": 877.1323457560502,
+      "rss_gib": 54.347816467285156
+    },
+    {
+      "kind": "backward",
+      "note": "train_step43",
+      "elapsed": 877.1363410950289
+    },
+    {
+      "kind": "timing",
+      "name": "step43_backward",
+      "seconds": 1.7220423890394159,
+      "elapsed": 878.87589484005,
+      "rss_gib": 54.07136917114258
+    },
+    {
+      "kind": "update",
+      "note": "train_step43",
+      "elapsed": 878.8832494570524
+    },
+    {
+      "kind": "timing",
+      "name": "step43_optimizer",
+      "seconds": 0.000711283995769918,
+      "elapsed": 878.8871647470514,
+      "rss_gib": 54.07136917114258
+    },
+    {
+      "kind": "dit",
+      "note": "step44_GT_C1_commit",
+      "elapsed": 879.8382981840405
+    },
+    {
+      "kind": "timing",
+      "name": "step44_GT_C1_commit",
+      "seconds": 12.438813057960942,
+      "elapsed": 892.2813709870097,
+      "rss_gib": 54.07136917114258
+    },
+    {
+      "kind": "dit",
+      "note": "train_step44_C2",
+      "elapsed": 892.286802756018
+    },
+    {
+      "kind": "timing",
+      "name": "step44_forward",
+      "seconds": 7.860941026010551,
+      "elapsed": 900.161300611042,
+      "rss_gib": 54.3508186340332
+    },
+    {
+      "kind": "backward",
+      "note": "train_step44",
+      "elapsed": 900.165972123039
+    },
+    {
+      "kind": "timing",
+      "name": "step44_backward",
+      "seconds": 1.9865281700040214,
+      "elapsed": 902.1561635250109,
+      "rss_gib": 54.071380615234375
+    },
+    {
+      "kind": "update",
+      "note": "train_step44",
+      "elapsed": 902.1646099460195
+    },
+    {
+      "kind": "timing",
+      "name": "step44_optimizer",
+      "seconds": 0.0011283589992672205,
+      "elapsed": 902.1691334160278,
+      "rss_gib": 54.071380615234375
+    },
+    {
+      "kind": "dit",
+      "note": "step45_GT_C1_commit",
+      "elapsed": 903.4554729570518
+    },
+    {
+      "kind": "timing",
+      "name": "step45_GT_C1_commit",
+      "seconds": 12.891450076014735,
+      "elapsed": 916.363938879047,
+      "rss_gib": 54.071380615234375
+    },
+    {
+      "kind": "dit",
+      "note": "train_step45_C2",
+      "elapsed": 916.3684491000022
+    },
+    {
+      "kind": "timing",
+      "name": "step45_forward",
+      "seconds": 9.340045941993594,
+      "elapsed": 925.7213877890026,
+      "rss_gib": 54.354736328125
+    },
+    {
+      "kind": "backward",
+      "note": "train_step45",
+      "elapsed": 925.7254515310051
+    },
+    {
+      "kind": "timing",
+      "name": "step45_backward",
+      "seconds": 1.8921562419855036,
+      "elapsed": 927.6211446270463,
+      "rss_gib": 54.07138442993164
+    },
+    {
+      "kind": "update",
+      "note": "train_step45",
+      "elapsed": 927.6294298580033
+    },
+    {
+      "kind": "timing",
+      "name": "step45_optimizer",
+      "seconds": 0.0009204880334436893,
+      "elapsed": 927.634267659043,
+      "rss_gib": 54.07138442993164
+    },
+    {
+      "kind": "dit",
+      "note": "step46_GT_C1_commit",
+      "elapsed": 928.7831978320028
+    },
+    {
+      "kind": "timing",
+      "name": "step46_GT_C1_commit",
+      "seconds": 11.664704653027002,
+      "elapsed": 940.4526904610102,
+      "rss_gib": 54.07138442993164
+    },
+    {
+      "kind": "dit",
+      "note": "train_step46_C2",
+      "elapsed": 940.4585711139953
+    },
+    {
+      "kind": "timing",
+      "name": "step46_forward",
+      "seconds": 6.875774970976636,
+      "elapsed": 947.3546192290378,
+      "rss_gib": 54.35361099243164
+    },
+    {
+      "kind": "backward",
+      "note": "train_step46",
+      "elapsed": 947.3602262519998
+    },
+    {
+      "kind": "timing",
+      "name": "step46_backward",
+      "seconds": 1.9567232459667139,
+      "elapsed": 949.3207105180481,
+      "rss_gib": 54.07139205932617
+    },
+    {
+      "kind": "update",
+      "note": "train_step46",
+      "elapsed": 949.3300803830498
+    },
+    {
+      "kind": "timing",
+      "name": "step46_optimizer",
+      "seconds": 0.0010277090477757156,
+      "elapsed": 949.3358279160457,
+      "rss_gib": 54.07139205932617
+    },
+    {
+      "kind": "dit",
+      "note": "step47_GT_C1_commit",
+      "elapsed": 950.7653592210263
+    },
+    {
+      "kind": "timing",
+      "name": "step47_GT_C1_commit",
+      "seconds": 11.955649295006879,
+      "elapsed": 962.726514887996,
+      "rss_gib": 54.07139205932617
+    },
+    {
+      "kind": "dit",
+      "note": "train_step47_C2",
+      "elapsed": 962.7323112949962
+    },
+    {
+      "kind": "timing",
+      "name": "step47_forward",
+      "seconds": 7.6162701189750805,
+      "elapsed": 970.365836143028,
+      "rss_gib": 54.35514450073242
+    },
+    {
+      "kind": "backward",
+      "note": "train_step47",
+      "elapsed": 970.3705563280382
+    },
+    {
+      "kind": "timing",
+      "name": "step47_backward",
+      "seconds": 2.0037378490087576,
+      "elapsed": 972.3868260370218,
+      "rss_gib": 54.0713996887207
+    },
+    {
+      "kind": "update",
+      "note": "train_step47",
+      "elapsed": 972.395185130008
+    },
+    {
+      "kind": "timing",
+      "name": "step47_optimizer",
+      "seconds": 0.0008934069774113595,
+      "elapsed": 972.4000353400479,
+      "rss_gib": 54.0713996887207
+    },
+    {
+      "kind": "dit",
+      "note": "step48_GT_C1_commit",
+      "elapsed": 973.6032300950028
+    },
+    {
+      "kind": "timing",
+      "name": "step48_GT_C1_commit",
+      "seconds": 10.437652808963321,
+      "elapsed": 984.0496510399971,
+      "rss_gib": 54.0713996887207
+    },
+    {
+      "kind": "dit",
+      "note": "train_step48_C2",
+      "elapsed": 984.0556886680424
+    },
+    {
+      "kind": "timing",
+      "name": "step48_forward",
+      "seconds": 6.120780463039409,
+      "elapsed": 990.2060922860401,
+      "rss_gib": 54.34956741333008
+    },
+    {
+      "kind": "backward",
+      "note": "train_step48",
+      "elapsed": 990.2103274050169
+    },
+    {
+      "kind": "timing",
+      "name": "step48_backward",
+      "seconds": 1.7777681539882906,
+      "elapsed": 991.9919032790349,
+      "rss_gib": 54.0714111328125
+    },
+    {
+      "kind": "update",
+      "note": "train_step48",
+      "elapsed": 991.9997443470056
+    },
+    {
+      "kind": "timing",
+      "name": "step48_optimizer",
+      "seconds": 0.0009745489805936813,
+      "elapsed": 992.0041306740022,
+      "rss_gib": 54.0714111328125
+    },
+    {
+      "kind": "dit",
+      "note": "step49_GT_C1_commit",
+      "elapsed": 993.0653757640393
+    },
+    {
+      "kind": "timing",
+      "name": "step49_GT_C1_commit",
+      "seconds": 11.513021032034885,
+      "elapsed": 1004.5828541780356,
+      "rss_gib": 54.0714111328125
+    },
+    {
+      "kind": "dit",
+      "note": "train_step49_C2",
+      "elapsed": 1004.5885345420102
+    },
+    {
+      "kind": "timing",
+      "name": "step49_forward",
+      "seconds": 7.914001072989777,
+      "elapsed": 1012.5160246590385,
+      "rss_gib": 54.35003662109375
+    },
+    {
+      "kind": "backward",
+      "note": "train_step49",
+      "elapsed": 1012.520421511028
+    },
+    {
+      "kind": "timing",
+      "name": "step49_backward",
+      "seconds": 1.8850396210327744,
+      "elapsed": 1014.4097851260449,
+      "rss_gib": 54.0714225769043
+    },
+    {
+      "kind": "update",
+      "note": "train_step49",
+      "elapsed": 1014.4185177990003
+    },
+    {
+      "kind": "timing",
+      "name": "step49_optimizer",
+      "seconds": 0.0008286599768325686,
+      "elapsed": 1014.422685477999,
+      "rss_gib": 54.0714225769043
+    },
+    {
+      "kind": "dit",
+      "note": "step50_GT_C1_commit",
+      "elapsed": 1015.5133867670083
+    },
+    {
+      "kind": "timing",
+      "name": "step50_GT_C1_commit",
+      "seconds": 11.284728683996946,
+      "elapsed": 1026.8033164259978,
+      "rss_gib": 54.0714225769043
+    },
+    {
+      "kind": "dit",
+      "note": "train_step50_C2",
+      "elapsed": 1026.8078844450065
+    },
+    {
+      "kind": "timing",
+      "name": "step50_forward",
+      "seconds": 6.974832145962864,
+      "elapsed": 1033.7948661200353,
+      "rss_gib": 54.35654830932617
+    },
+    {
+      "kind": "backward",
+      "note": "train_step50",
+      "elapsed": 1033.7989792680019
+    },
+    {
+      "kind": "timing",
+      "name": "step50_backward",
+      "seconds": 1.836740261001978,
+      "elapsed": 1035.65021858603,
+      "rss_gib": 54.071434020996094
+    },
+    {
+      "kind": "update",
+      "note": "train_step50",
+      "elapsed": 1035.6574867670424
+    },
+    {
+      "kind": "timing",
+      "name": "step50_optimizer",
+      "seconds": 0.0010622310219332576,
+      "elapsed": 1035.6746008190094,
+      "rss_gib": 54.071434020996094
+    },
+    {
+      "kind": "dit",
+      "note": "step51_GT_C1_commit",
+      "elapsed": 1036.7986069150502
+    },
+    {
+      "kind": "timing",
+      "name": "step51_GT_C1_commit",
+      "seconds": 12.188443074002862,
+      "elapsed": 1048.9913242680486,
+      "rss_gib": 54.071434020996094
+    },
+    {
+      "kind": "dit",
+      "note": "train_step51_C2",
+      "elapsed": 1048.9960531180259
+    },
+    {
+      "kind": "timing",
+      "name": "step51_forward",
+      "seconds": 7.749427278002258,
+      "elapsed": 1056.7580481720506,
+      "rss_gib": 54.35399627685547
+    },
+    {
+      "kind": "backward",
+      "note": "train_step51",
+      "elapsed": 1056.7627139280085
+    },
+    {
+      "kind": "timing",
+      "name": "step51_backward",
+      "seconds": 1.8681679950095713,
+      "elapsed": 1058.6354661370278,
+      "rss_gib": 54.071441650390625
+    },
+    {
+      "kind": "update",
+      "note": "train_step51",
+      "elapsed": 1058.6433906210004
+    },
+    {
+      "kind": "timing",
+      "name": "step51_optimizer",
+      "seconds": 0.0008214000263251364,
+      "elapsed": 1058.6479511689977,
+      "rss_gib": 54.071441650390625
+    },
+    {
+      "kind": "dit",
+      "note": "step52_GT_C1_commit",
+      "elapsed": 1059.7038117070333
+    },
+    {
+      "kind": "timing",
+      "name": "step52_GT_C1_commit",
+      "seconds": 11.247197218996007,
+      "elapsed": 1070.9677778030164,
+      "rss_gib": 54.071441650390625
+    },
+    {
+      "kind": "dit",
+      "note": "train_step52_C2",
+      "elapsed": 1070.9739852269995
+    },
+    {
+      "kind": "timing",
+      "name": "step52_forward",
+      "seconds": 7.342786488006823,
+      "elapsed": 1078.3386742590228,
+      "rss_gib": 54.354400634765625
+    },
+    {
+      "kind": "backward",
+      "note": "train_step52",
+      "elapsed": 1078.3425480690203
+    },
+    {
+      "kind": "timing",
+      "name": "step52_backward",
+      "seconds": 1.6767965190229006,
+      "elapsed": 1080.035501520033,
+      "rss_gib": 54.07145690917969
+    },
+    {
+      "kind": "update",
+      "note": "train_step52",
+      "elapsed": 1080.0425271800486
+    },
+    {
+      "kind": "timing",
+      "name": "step52_optimizer",
+      "seconds": 0.0007959020440466702,
+      "elapsed": 1080.0464870290016,
+      "rss_gib": 54.07145690917969
+    },
+    {
+      "kind": "dit",
+      "note": "step53_GT_C1_commit",
+      "elapsed": 1080.9249434200465
+    },
+    {
+      "kind": "timing",
+      "name": "step53_GT_C1_commit",
+      "seconds": 10.721974917978514,
+      "elapsed": 1091.6508823440527,
+      "rss_gib": 54.07145690917969
+    },
+    {
+      "kind": "dit",
+      "note": "train_step53_C2",
+      "elapsed": 1091.6551408000523
+    },
+    {
+      "kind": "timing",
+      "name": "step53_forward",
+      "seconds": 6.386027564993128,
+      "elapsed": 1098.0530612420407,
+      "rss_gib": 54.34825134277344
+    },
+    {
+      "kind": "backward",
+      "note": "train_step53",
+      "elapsed": 1098.0571421430213
+    },
+    {
+      "kind": "timing",
+      "name": "step53_backward",
+      "seconds": 1.660936827014666,
+      "elapsed": 1099.7399567080429,
+      "rss_gib": 54.07148361206055
+    },
+    {
+      "kind": "update",
+      "note": "train_step53",
+      "elapsed": 1099.7478313490283
+    },
+    {
+      "kind": "timing",
+      "name": "step53_optimizer",
+      "seconds": 0.0007674689986743033,
+      "elapsed": 1099.7521432950161,
+      "rss_gib": 54.07148361206055
+    },
+    {
+      "kind": "dit",
+      "note": "step54_GT_C1_commit",
+      "elapsed": 1100.7183608530322
+    },
+    {
+      "kind": "timing",
+      "name": "step54_GT_C1_commit",
+      "seconds": 10.95915154699469,
+      "elapsed": 1111.6815958340303,
+      "rss_gib": 54.07148361206055
+    },
+    {
+      "kind": "dit",
+      "note": "train_step54_C2",
+      "elapsed": 1111.6866734270006
+    },
+    {
+      "kind": "timing",
+      "name": "step54_forward",
+      "seconds": 5.913514858984854,
+      "elapsed": 1117.6277894450468,
+      "rss_gib": 54.35508346557617
+    },
+    {
+      "kind": "backward",
+      "note": "train_step54",
+      "elapsed": 1117.6317802700214
+    },
+    {
+      "kind": "timing",
+      "name": "step54_backward",
+      "seconds": 1.6911895369994454,
+      "elapsed": 1119.338336447021,
+      "rss_gib": 54.07148742675781
+    },
+    {
+      "kind": "update",
+      "note": "train_step54",
+      "elapsed": 1119.3455205040518
+    },
+    {
+      "kind": "timing",
+      "name": "step54_optimizer",
+      "seconds": 0.0007081099902279675,
+      "elapsed": 1119.3494660920114,
+      "rss_gib": 54.07148742675781
+    },
+    {
+      "kind": "dit",
+      "note": "step55_GT_C1_commit",
+      "elapsed": 1120.2424255170044
+    },
+    {
+      "kind": "timing",
+      "name": "step55_GT_C1_commit",
+      "seconds": 9.637076643004548,
+      "elapsed": 1129.883950921998,
+      "rss_gib": 54.07148742675781
+    },
+    {
+      "kind": "dit",
+      "note": "train_step55_C2",
+      "elapsed": 1129.8898384380154
+    },
+    {
+      "kind": "timing",
+      "name": "step55_forward",
+      "seconds": 6.003190389019437,
+      "elapsed": 1135.9054240570404,
+      "rss_gib": 54.35365295410156
+    },
+    {
+      "kind": "backward",
+      "note": "train_step55",
+      "elapsed": 1135.9095164250466
+    },
+    {
+      "kind": "timing",
+      "name": "step55_backward",
+      "seconds": 1.7343154869740829,
+      "elapsed": 1137.647386444034,
+      "rss_gib": 54.07149124145508
+    },
+    {
+      "kind": "update",
+      "note": "train_step55",
+      "elapsed": 1137.6546199560398
+    },
+    {
+      "kind": "timing",
+      "name": "step55_optimizer",
+      "seconds": 0.0008226310019381344,
+      "elapsed": 1137.6669117120327,
+      "rss_gib": 54.07149124145508
+    },
+    {
+      "kind": "dit",
+      "note": "step56_GT_C1_commit",
+      "elapsed": 1138.5868777300348
+    },
+    {
+      "kind": "timing",
+      "name": "step56_GT_C1_commit",
+      "seconds": 9.410576280963141,
+      "elapsed": 1148.0015402900171,
+      "rss_gib": 54.07149124145508
+    },
+    {
+      "kind": "dit",
+      "note": "train_step56_C2",
+      "elapsed": 1148.005993368046
+    },
+    {
+      "kind": "timing",
+      "name": "step56_forward",
+      "seconds": 5.920179061999079,
+      "elapsed": 1153.9439397450187,
+      "rss_gib": 54.35646438598633
+    },
+    {
+      "kind": "backward",
+      "note": "train_step56",
+      "elapsed": 1153.9481522840215
+    },
+    {
+      "kind": "timing",
+      "name": "step56_backward",
+      "seconds": 1.7411136060254648,
+      "elapsed": 1155.6928201219998,
+      "rss_gib": 54.071495056152344
+    },
+    {
+      "kind": "update",
+      "note": "train_step56",
+      "elapsed": 1155.7001504700165
+    },
+    {
+      "kind": "timing",
+      "name": "step56_optimizer",
+      "seconds": 0.0007150709861889482,
+      "elapsed": 1155.7130340220174,
+      "rss_gib": 54.071495056152344
+    },
+    {
+      "kind": "dit",
+      "note": "step57_GT_C1_commit",
+      "elapsed": 1156.6494040880352
+    },
+    {
+      "kind": "timing",
+      "name": "step57_GT_C1_commit",
+      "seconds": 9.830588190001436,
+      "elapsed": 1166.4843882410205,
+      "rss_gib": 54.071495056152344
+    },
+    {
+      "kind": "dit",
+      "note": "train_step57_C2",
+      "elapsed": 1166.489058524021
+    },
+    {
+      "kind": "timing",
+      "name": "step57_forward",
+      "seconds": 6.82497760897968,
+      "elapsed": 1173.3415874009952,
+      "rss_gib": 54.353904724121094
+    },
+    {
+      "kind": "backward",
+      "note": "train_step57",
+      "elapsed": 1173.3469731570221
+    },
+    {
+      "kind": "timing",
+      "name": "step57_backward",
+      "seconds": 1.7793293690192513,
+      "elapsed": 1175.1303707979969,
+      "rss_gib": 54.0715217590332
+    },
+    {
+      "kind": "update",
+      "note": "train_step57",
+      "elapsed": 1175.1406503820326
+    },
+    {
+      "kind": "timing",
+      "name": "step57_optimizer",
+      "seconds": 0.001036892004776746,
+      "elapsed": 1175.151440611051,
+      "rss_gib": 54.0715217590332
+    },
+    {
+      "kind": "dit",
+      "note": "step58_GT_C1_commit",
+      "elapsed": 1176.3142144470476
+    },
+    {
+      "kind": "timing",
+      "name": "step58_GT_C1_commit",
+      "seconds": 11.086087268020492,
+      "elapsed": 1187.4066418800503,
+      "rss_gib": 54.0715217590332
+    },
+    {
+      "kind": "dit",
+      "note": "train_step58_C2",
+      "elapsed": 1187.4124576900504
+    },
+    {
+      "kind": "timing",
+      "name": "step58_forward",
+      "seconds": 8.164750899013598,
+      "elapsed": 1195.5942553270143,
+      "rss_gib": 54.35512161254883
+    },
+    {
+      "kind": "backward",
+      "note": "train_step58",
+      "elapsed": 1195.598683468008
+    },
+    {
+      "kind": "timing",
+      "name": "step58_backward",
+      "seconds": 1.7924577639787458,
+      "elapsed": 1197.3953993089963,
+      "rss_gib": 54.071529388427734
+    },
+    {
+      "kind": "update",
+      "note": "train_step58",
+      "elapsed": 1197.403719859023
+    },
+    {
+      "kind": "timing",
+      "name": "step58_optimizer",
+      "seconds": 0.0008165529579855502,
+      "elapsed": 1197.4101144760498,
+      "rss_gib": 54.071529388427734
+    },
+    {
+      "kind": "dit",
+      "note": "step59_GT_C1_commit",
+      "elapsed": 1198.4326666400302
+    },
+    {
+      "kind": "timing",
+      "name": "step59_GT_C1_commit",
+      "seconds": 11.074866295966785,
+      "elapsed": 1209.5120819780277,
+      "rss_gib": 54.071529388427734
+    },
+    {
+      "kind": "dit",
+      "note": "train_step59_C2",
+      "elapsed": 1209.5172277050442
+    },
+    {
+      "kind": "timing",
+      "name": "step59_forward",
+      "seconds": 6.222266783006489,
+      "elapsed": 1215.7517334870063,
+      "rss_gib": 54.348323822021484
+    },
+    {
+      "kind": "backward",
+      "note": "train_step59",
+      "elapsed": 1215.7560763010406
+    },
+    {
+      "kind": "timing",
+      "name": "step59_backward",
+      "seconds": 1.6327051559928805,
+      "elapsed": 1217.3925430510426,
+      "rss_gib": 54.071533203125
+    },
+    {
+      "kind": "update",
+      "note": "train_step59",
+      "elapsed": 1217.4008155000047
+    },
+    {
+      "kind": "timing",
+      "name": "step59_optimizer",
+      "seconds": 0.0008718559984117746,
+      "elapsed": 1217.4056771000032,
+      "rss_gib": 54.071533203125
+    },
+    {
+      "kind": "dit",
+      "note": "step60_GT_C1_commit",
+      "elapsed": 1218.2863841700018
+    },
+    {
+      "kind": "timing",
+      "name": "step60_GT_C1_commit",
+      "seconds": 10.353470880014356,
+      "elapsed": 1228.64444185904,
+      "rss_gib": 54.071533203125
+    },
+    {
+      "kind": "dit",
+      "note": "train_step60_C2",
+      "elapsed": 1228.6493288979982
+    },
+    {
+      "kind": "timing",
+      "name": "step60_forward",
+      "seconds": 7.022988497046754,
+      "elapsed": 1235.6843240770395,
+      "rss_gib": 54.354827880859375
+    },
+    {
+      "kind": "backward",
+      "note": "train_step60",
+      "elapsed": 1235.6890265200054
+    },
+    {
+      "kind": "timing",
+      "name": "step60_backward",
+      "seconds": 1.812924696947448,
+      "elapsed": 1237.5062881220365,
+      "rss_gib": 54.07154083251953
+    },
+    {
+      "kind": "update",
+      "note": "train_step60",
+      "elapsed": 1237.5140675330185
+    },
+    {
+      "kind": "timing",
+      "name": "step60_optimizer",
+      "seconds": 0.0007740500150248408,
+      "elapsed": 1237.5186450180481,
+      "rss_gib": 54.07154083251953
+    },
+    {
+      "kind": "dit",
+      "note": "step61_GT_C1_commit",
+      "elapsed": 1238.4757870699978
+    },
+    {
+      "kind": "timing",
+      "name": "step61_GT_C1_commit",
+      "seconds": 11.636970139981713,
+      "elapsed": 1250.117574325006,
+      "rss_gib": 54.07154083251953
+    },
+    {
+      "kind": "dit",
+      "note": "train_step61_C2",
+      "elapsed": 1250.1232712170458
+    },
+    {
+      "kind": "timing",
+      "name": "step61_forward",
+      "seconds": 6.876388321979903,
+      "elapsed": 1257.0133484300459,
+      "rss_gib": 54.356666564941406
+    },
+    {
+      "kind": "backward",
+      "note": "train_step61",
+      "elapsed": 1257.0179660660215
+    },
+    {
+      "kind": "timing",
+      "name": "step61_backward",
+      "seconds": 1.7862540819915012,
+      "elapsed": 1258.8084006099962,
+      "rss_gib": 54.07154846191406
+    },
+    {
+      "kind": "update",
+      "note": "train_step61",
+      "elapsed": 1258.8163178170216
+    },
+    {
+      "kind": "timing",
+      "name": "step61_optimizer",
+      "seconds": 0.001020998985040933,
+      "elapsed": 1258.8213495630189,
+      "rss_gib": 54.07154846191406
+    },
+    {
+      "kind": "dit",
+      "note": "step62_GT_C1_commit",
+      "elapsed": 1259.824259496003
+    },
+    {
+      "kind": "timing",
+      "name": "step62_GT_C1_commit",
+      "seconds": 11.350113346008584,
+      "elapsed": 1271.1824847620446,
+      "rss_gib": 54.07154846191406
+    },
+    {
+      "kind": "dit",
+      "note": "train_step62_C2",
+      "elapsed": 1271.1880445790011
+    },
+    {
+      "kind": "timing",
+      "name": "step62_forward",
+      "seconds": 7.411894862016197,
+      "elapsed": 1278.622690616001,
+      "rss_gib": 54.35707092285156
+    },
+    {
+      "kind": "backward",
+      "note": "train_step62",
+      "elapsed": 1278.6285001370125
+    },
+    {
+      "kind": "timing",
+      "name": "step62_backward",
+      "seconds": 1.7782918250304647,
+      "elapsed": 1280.4115403339965,
+      "rss_gib": 54.071556091308594
+    },
+    {
+      "kind": "update",
+      "note": "train_step62",
+      "elapsed": 1280.419393056014
+    },
+    {
+      "kind": "timing",
+      "name": "step62_optimizer",
+      "seconds": 0.000852006021887064,
+      "elapsed": 1280.4240043120226,
+      "rss_gib": 54.071556091308594
+    },
+    {
+      "kind": "dit",
+      "note": "step63_GT_C1_commit",
+      "elapsed": 1281.393669525045
+    },
+    {
+      "kind": "timing",
+      "name": "step63_GT_C1_commit",
+      "seconds": 10.440742934995797,
+      "elapsed": 1291.839378789009,
+      "rss_gib": 54.071556091308594
+    },
+    {
+      "kind": "dit",
+      "note": "train_step63_C2",
+      "elapsed": 1291.844656414003
+    },
+    {
+      "kind": "timing",
+      "name": "step63_forward",
+      "seconds": 6.924722306022886,
+      "elapsed": 1298.7824024670408,
+      "rss_gib": 54.357078552246094
+    },
+    {
+      "kind": "backward",
+      "note": "train_step63",
+      "elapsed": 1298.7874121310306
+    },
+    {
+      "kind": "timing",
+      "name": "step63_backward",
+      "seconds": 1.7752323920140043,
+      "elapsed": 1300.5998457320384,
+      "rss_gib": 54.071563720703125
+    },
+    {
+      "kind": "update",
+      "note": "train_step63",
+      "elapsed": 1300.6085755270324
+    },
+    {
+      "kind": "timing",
+      "name": "step63_optimizer",
+      "seconds": 0.0010147200082428753,
+      "elapsed": 1300.6238405510085,
+      "rss_gib": 54.071563720703125
+    },
+    {
+      "kind": "dit",
+      "note": "step64_GT_C1_commit",
+      "elapsed": 1301.6157110810163
+    },
+    {
+      "kind": "timing",
+      "name": "step64_GT_C1_commit",
+      "seconds": 11.925614362990018,
+      "elapsed": 1313.5517998530413,
+      "rss_gib": 54.071563720703125
+    },
+    {
+      "kind": "dit",
+      "note": "train_step64_C2",
+      "elapsed": 1313.5576749630272
+    },
+    {
+      "kind": "timing",
+      "name": "step64_forward",
+      "seconds": 7.837758604029659,
+      "elapsed": 1321.4221311650472,
+      "rss_gib": 54.352935791015625
+    },
+    {
+      "kind": "backward",
+      "note": "train_step64",
+      "elapsed": 1321.4270908540348
+    },
+    {
+      "kind": "timing",
+      "name": "step64_backward",
+      "seconds": 1.7840506150387228,
+      "elapsed": 1323.223825987021,
+      "rss_gib": 54.07158279418945
+    },
+    {
+      "kind": "update",
+      "note": "train_step64",
+      "elapsed": 1323.2317632860504
+    },
+    {
+      "kind": "timing",
+      "name": "step64_optimizer",
+      "seconds": 0.0011145789758302271,
+      "elapsed": 1323.2495912500308,
+      "rss_gib": 54.07158279418945
+    },
+    {
+      "kind": "dit",
+      "note": "step65_GT_C1_commit",
+      "elapsed": 1324.344533185009
+    },
+    {
+      "kind": "timing",
+      "name": "step65_GT_C1_commit",
+      "seconds": 10.923917517997324,
+      "elapsed": 1335.2736586740357,
+      "rss_gib": 54.07158279418945
+    },
+    {
+      "kind": "dit",
+      "note": "train_step65_C2",
+      "elapsed": 1335.279433083022
+    },
+    {
+      "kind": "timing",
+      "name": "step65_forward",
+      "seconds": 6.668101391987875,
+      "elapsed": 1341.9687180060428,
+      "rss_gib": 54.3537483215332
+    },
+    {
+      "kind": "backward",
+      "note": "train_step65",
+      "elapsed": 1341.9736158720334
+    },
+    {
+      "kind": "timing",
+      "name": "step65_backward",
+      "seconds": 1.738678206980694,
+      "elapsed": 1343.7165433640475,
+      "rss_gib": 54.071590423583984
+    },
+    {
+      "kind": "update",
+      "note": "train_step65",
+      "elapsed": 1343.7249731200282
+    },
+    {
+      "kind": "timing",
+      "name": "step65_optimizer",
+      "seconds": 0.0009367429884150624,
+      "elapsed": 1343.7301123790094,
+      "rss_gib": 54.071590423583984
+    },
+    {
+      "kind": "dit",
+      "note": "step66_GT_C1_commit",
+      "elapsed": 1344.7087147920392
+    },
+    {
+      "kind": "timing",
+      "name": "step66_GT_C1_commit",
+      "seconds": 11.264131951960735,
+      "elapsed": 1355.9777864229982,
+      "rss_gib": 54.071590423583984
+    },
+    {
+      "kind": "dit",
+      "note": "train_step66_C2",
+      "elapsed": 1355.9830572580104
+    },
+    {
+      "kind": "timing",
+      "name": "step66_forward",
+      "seconds": 6.8301567629678175,
+      "elapsed": 1362.8261138939997,
+      "rss_gib": 54.35573959350586
+    },
+    {
+      "kind": "backward",
+      "note": "train_step66",
+      "elapsed": 1362.8309965180233
+    },
+    {
+      "kind": "timing",
+      "name": "step66_backward",
+      "seconds": 1.728895566018764,
+      "elapsed": 1364.5645870059961,
+      "rss_gib": 54.071598052978516
+    },
+    {
+      "kind": "update",
+      "note": "train_step66",
+      "elapsed": 1364.572676773998
+    },
+    {
+      "kind": "timing",
+      "name": "step66_optimizer",
+      "seconds": 0.0007099529611878097,
+      "elapsed": 1364.5774865180138,
+      "rss_gib": 54.071598052978516
+    },
+    {
+      "kind": "dit",
+      "note": "step67_GT_C1_commit",
+      "elapsed": 1365.5593187240302
+    },
+    {
+      "kind": "timing",
+      "name": "step67_GT_C1_commit",
+      "seconds": 10.908889858983457,
+      "elapsed": 1376.4731767960475,
+      "rss_gib": 54.071598052978516
+    },
+    {
+      "kind": "dit",
+      "note": "train_step67_C2",
+      "elapsed": 1376.4785895540263
+    },
+    {
+      "kind": "timing",
+      "name": "step67_forward",
+      "seconds": 6.673687413975131,
+      "elapsed": 1383.1818510970334,
+      "rss_gib": 54.355350494384766
+    },
+    {
+      "kind": "backward",
+      "note": "train_step67",
+      "elapsed": 1383.1868107360206
+    },
+    {
+      "kind": "timing",
+      "name": "step67_backward",
+      "seconds": 1.8895493730087765,
+      "elapsed": 1385.0808870409965,
+      "rss_gib": 54.07160568237305
+    },
+    {
+      "kind": "update",
+      "note": "train_step67",
+      "elapsed": 1385.0899450590368
+    },
+    {
+      "kind": "timing",
+      "name": "step67_optimizer",
+      "seconds": 0.0010278290137648582,
+      "elapsed": 1385.1075485680485,
+      "rss_gib": 54.07160568237305
+    },
+    {
+      "kind": "dit",
+      "note": "step68_GT_C1_commit",
+      "elapsed": 1386.1887716990313
+    },
+    {
+      "kind": "timing",
+      "name": "step68_GT_C1_commit",
+      "seconds": 10.760620561020914,
+      "elapsed": 1396.9546182990307,
+      "rss_gib": 54.07160568237305
+    },
+    {
+      "kind": "dit",
+      "note": "train_step68_C2",
+      "elapsed": 1396.9607972350204
+    },
+    {
+      "kind": "timing",
+      "name": "step68_forward",
+      "seconds": 8.033722925989423,
+      "elapsed": 1405.009152639017,
+      "rss_gib": 54.35712814331055
+    },
+    {
+      "kind": "backward",
+      "note": "train_step68",
+      "elapsed": 1405.0144109760295
+    },
+    {
+      "kind": "timing",
+      "name": "step68_backward",
+      "seconds": 1.940336465020664,
+      "elapsed": 1406.9595297159976,
+      "rss_gib": 54.07161331176758
+    },
+    {
+      "kind": "update",
+      "note": "train_step68",
+      "elapsed": 1406.96868132503
+    },
+    {
+      "kind": "timing",
+      "name": "step68_optimizer",
+      "seconds": 0.0011579740094020963,
+      "elapsed": 1406.9745789890294,
+      "rss_gib": 54.07161331176758
+    },
+    {
+      "kind": "dit",
+      "note": "step69_GT_C1_commit",
+      "elapsed": 1407.9419069150463
+    },
+    {
+      "kind": "timing",
+      "name": "step69_GT_C1_commit",
+      "seconds": 11.217926416022237,
+      "elapsed": 1419.165352028038,
+      "rss_gib": 54.07155227661133
+    },
+    {
+      "kind": "dit",
+      "note": "train_step69_C2",
+      "elapsed": 1419.1707436240395
+    },
+    {
+      "kind": "timing",
+      "name": "step69_forward",
+      "seconds": 7.398136293981224,
+      "elapsed": 1426.5985368940164,
+      "rss_gib": 54.35274124145508
+    },
+    {
+      "kind": "backward",
+      "note": "train_step69",
+      "elapsed": 1426.60365494102
+    },
+    {
+      "kind": "timing",
+      "name": "step69_backward",
+      "seconds": 1.722064356028568,
+      "elapsed": 1428.3466361610335,
+      "rss_gib": 54.071556091308594
+    },
+    {
+      "kind": "update",
+      "note": "train_step69",
+      "elapsed": 1428.35472076101
+    },
+    {
+      "kind": "timing",
+      "name": "step69_optimizer",
+      "seconds": 0.0008503940189257264,
+      "elapsed": 1428.4270444630529,
+      "rss_gib": 54.071556091308594
+    },
+    {
+      "kind": "dit",
+      "note": "step70_GT_C1_commit",
+      "elapsed": 1429.3469896700117
+    },
+    {
+      "kind": "timing",
+      "name": "step70_GT_C1_commit",
+      "seconds": 11.829597512027249,
+      "elapsed": 1441.1818149730098,
+      "rss_gib": 54.071556091308594
+    },
+    {
+      "kind": "dit",
+      "note": "train_step70_C2",
+      "elapsed": 1441.1916732910322
+    },
+    {
+      "kind": "timing",
+      "name": "step70_forward",
+      "seconds": 8.719930111023132,
+      "elapsed": 1449.955090116011,
+      "rss_gib": 54.35668182373047
+    },
+    {
+      "kind": "backward",
+      "note": "train_step70",
+      "elapsed": 1449.961177595018
+    },
+    {
+      "kind": "timing",
+      "name": "step70_backward",
+      "seconds": 2.0697026299894787,
+      "elapsed": 1452.0585463099997,
+      "rss_gib": 54.071563720703125
+    },
+    {
+      "kind": "update",
+      "note": "train_step70",
+      "elapsed": 1452.0715749580413
+    },
+    {
+      "kind": "timing",
+      "name": "step70_optimizer",
+      "seconds": 0.001998593972530216,
+      "elapsed": 1452.0840795400436,
+      "rss_gib": 54.071563720703125
+    },
+    {
+      "kind": "dit",
+      "note": "step71_GT_C1_commit",
+      "elapsed": 1453.432728956046
+    },
+    {
+      "kind": "timing",
+      "name": "step71_GT_C1_commit",
+      "seconds": 13.54637737997109,
+      "elapsed": 1466.985831461032,
+      "rss_gib": 54.071563720703125
+    },
+    {
+      "kind": "dit",
+      "note": "train_step71_C2",
+      "elapsed": 1466.9919937820523
+    },
+    {
+      "kind": "timing",
+      "name": "step71_forward",
+      "seconds": 8.001256866031326,
+      "elapsed": 1475.019606181013,
+      "rss_gib": 54.353790283203125
+    },
+    {
+      "kind": "backward",
+      "note": "train_step71",
+      "elapsed": 1475.0247960460256
+    },
+    {
+      "kind": "timing",
+      "name": "step71_backward",
+      "seconds": 1.7685900009819306,
+      "elapsed": 1476.810745012015,
+      "rss_gib": 54.07157516479492
+    },
+    {
+      "kind": "update",
+      "note": "train_step71",
+      "elapsed": 1476.819611575047
+    },
+    {
+      "kind": "timing",
+      "name": "step71_optimizer",
+      "seconds": 0.0008190770167857409,
+      "elapsed": 1476.8263648120337,
+      "rss_gib": 54.07157516479492
+    },
+    {
+      "kind": "dit",
+      "note": "step72_GT_C1_commit",
+      "elapsed": 1477.8841861410183
+    },
+    {
+      "kind": "timing",
+      "name": "step72_GT_C1_commit",
+      "seconds": 12.346721869020257,
+      "elapsed": 1490.2360803680494,
+      "rss_gib": 54.07157516479492
+    },
+    {
+      "kind": "dit",
+      "note": "train_step72_C2",
+      "elapsed": 1490.2418819890008
+    },
+    {
+      "kind": "timing",
+      "name": "step72_forward",
+      "seconds": 7.109156192978844,
+      "elapsed": 1497.375745055033,
+      "rss_gib": 54.3541374206543
+    },
+    {
+      "kind": "backward",
+      "note": "train_step72",
+      "elapsed": 1497.3812420900213
+    },
+    {
+      "kind": "timing",
+      "name": "step72_backward",
+      "seconds": 1.7525223319535144,
+      "elapsed": 1499.1432461070362,
+      "rss_gib": 54.07157516479492
+    },
+    {
+      "kind": "update",
+      "note": "train_step72",
+      "elapsed": 1499.153389173036
+    },
+    {
+      "kind": "timing",
+      "name": "step72_optimizer",
+      "seconds": 0.0011142499861307442,
+      "elapsed": 1499.15921029303,
+      "rss_gib": 54.07157516479492
+    },
+    {
+      "kind": "dit",
+      "note": "step73_GT_C1_commit",
+      "elapsed": 1500.2387664340204
+    },
+    {
+      "kind": "timing",
+      "name": "step73_GT_C1_commit",
+      "seconds": 11.128393781022169,
+      "elapsed": 1511.3723886469961,
+      "rss_gib": 54.07157516479492
+    },
+    {
+      "kind": "dit",
+      "note": "train_step73_C2",
+      "elapsed": 1511.378222447005
+    },
+    {
+      "kind": "timing",
+      "name": "step73_forward",
+      "seconds": 6.5456163070048206,
+      "elapsed": 1517.9462312300457,
+      "rss_gib": 54.3480339050293
+    },
+    {
+      "kind": "backward",
+      "note": "train_step73",
+      "elapsed": 1517.9512353670434
+    },
+    {
+      "kind": "timing",
+      "name": "step73_backward",
+      "seconds": 1.7181742900284007,
+      "elapsed": 1519.6895581720164,
+      "rss_gib": 54.07158660888672
+    },
+    {
+      "kind": "update",
+      "note": "train_step73",
+      "elapsed": 1519.6982017720002
+    },
+    {
+      "kind": "timing",
+      "name": "step73_optimizer",
+      "seconds": 0.0008932980126701295,
+      "elapsed": 1519.7147938890266,
+      "rss_gib": 54.07158660888672
+    },
+    {
+      "kind": "dit",
+      "note": "step74_GT_C1_commit",
+      "elapsed": 1520.6802763400483
+    },
+    {
+      "kind": "timing",
+      "name": "step74_GT_C1_commit",
+      "seconds": 12.905531116994098,
+      "elapsed": 1533.591268889024,
+      "rss_gib": 54.07158660888672
+    },
+    {
+      "kind": "dit",
+      "note": "train_step74_C2",
+      "elapsed": 1533.5973241100437
+    },
+    {
+      "kind": "timing",
+      "name": "step74_forward",
+      "seconds": 6.193234010017477,
+      "elapsed": 1539.8041539690457,
+      "rss_gib": 54.355186462402344
+    },
+    {
+      "kind": "backward",
+      "note": "train_step74",
+      "elapsed": 1539.809825155011
+    },
+    {
+      "kind": "timing",
+      "name": "step74_backward",
+      "seconds": 1.9862838060362265,
+      "elapsed": 1541.8090632490348,
+      "rss_gib": 54.071590423583984
+    },
+    {
+      "kind": "update",
+      "note": "train_step74",
+      "elapsed": 1541.821567933017
+    },
+    {
+      "kind": "timing",
+      "name": "step74_optimizer",
+      "seconds": 0.0012681089574471116,
+      "elapsed": 1541.8323198209982,
+      "rss_gib": 54.071590423583984
+    },
+    {
+      "kind": "dit",
+      "note": "step75_GT_C1_commit",
+      "elapsed": 1542.861202842032
+    },
+    {
+      "kind": "timing",
+      "name": "step75_GT_C1_commit",
+      "seconds": 11.354912079987116,
+      "elapsed": 1554.2211773560266,
+      "rss_gib": 54.071590423583984
+    },
+    {
+      "kind": "dit",
+      "note": "train_step75_C2",
+      "elapsed": 1554.2268575360067
+    },
+    {
+      "kind": "timing",
+      "name": "step75_forward",
+      "seconds": 6.756233685009647,
+      "elapsed": 1560.9965919870301,
+      "rss_gib": 54.350215911865234
+    },
+    {
+      "kind": "backward",
+      "note": "train_step75",
+      "elapsed": 1561.0017759930342
+    },
+    {
+      "kind": "timing",
+      "name": "step75_backward",
+      "seconds": 1.6522607870283537,
+      "elapsed": 1562.6590761100524,
+      "rss_gib": 54.071598052978516
+    },
+    {
+      "kind": "update",
+      "note": "train_step75",
+      "elapsed": 1562.666919520998
+    },
+    {
+      "kind": "timing",
+      "name": "step75_optimizer",
+      "seconds": 0.0007583759725093842,
+      "elapsed": 1562.6717567180167,
+      "rss_gib": 54.071598052978516
+    },
+    {
+      "kind": "dit",
+      "note": "step76_GT_C1_commit",
+      "elapsed": 1563.5386008990463
+    },
+    {
+      "kind": "timing",
+      "name": "step76_GT_C1_commit",
+      "seconds": 9.50646250898717,
+      "elapsed": 1573.050126193033,
+      "rss_gib": 54.071598052978516
+    },
+    {
+      "kind": "dit",
+      "note": "train_step76_C2",
+      "elapsed": 1573.055758452043
+    },
+    {
+      "kind": "timing",
+      "name": "step76_forward",
+      "seconds": 5.796664490015246,
+      "elapsed": 1578.8783527190099,
+      "rss_gib": 54.352481842041016
+    },
+    {
+      "kind": "backward",
+      "note": "train_step76",
+      "elapsed": 1578.883533840999
+    },
+    {
+      "kind": "timing",
+      "name": "step76_backward",
+      "seconds": 1.6427948680357076,
+      "elapsed": 1580.531370413024,
+      "rss_gib": 54.071617126464844
+    },
+    {
+      "kind": "update",
+      "note": "train_step76",
+      "elapsed": 1580.540644517052
+    },
+    {
+      "kind": "timing",
+      "name": "step76_optimizer",
+      "seconds": 0.0006626429967582226,
+      "elapsed": 1580.5456143530319,
+      "rss_gib": 54.071617126464844
+    },
+    {
+      "kind": "dit",
+      "note": "step77_GT_C1_commit",
+      "elapsed": 1581.4742867430323
+    },
+    {
+      "kind": "timing",
+      "name": "step77_GT_C1_commit",
+      "seconds": 9.873793696984649,
+      "elapsed": 1591.3544667590177,
+      "rss_gib": 54.071617126464844
+    },
+    {
+      "kind": "dit",
+      "note": "train_step77_C2",
+      "elapsed": 1591.3598649360356
+    },
+    {
+      "kind": "timing",
+      "name": "step77_forward",
+      "seconds": 6.165658487996552,
+      "elapsed": 1597.567583349999,
+      "rss_gib": 54.352561950683594
+    },
+    {
+      "kind": "backward",
+      "note": "train_step77",
+      "elapsed": 1597.5729423690354
+    },
+    {
+      "kind": "timing",
+      "name": "step77_backward",
+      "seconds": 1.7633717819699086,
+      "elapsed": 1599.3526306670392,
+      "rss_gib": 54.071624755859375
+    },
+    {
+      "kind": "update",
+      "note": "train_step77",
+      "elapsed": 1599.361659704009
+    },
+    {
+      "kind": "timing",
+      "name": "step77_optimizer",
+      "seconds": 0.0010519960196688771,
+      "elapsed": 1599.3827817700221,
+      "rss_gib": 54.071624755859375
+    },
+    {
+      "kind": "dit",
+      "note": "step78_GT_C1_commit",
+      "elapsed": 1600.3408736860147
+    },
+    {
+      "kind": "timing",
+      "name": "step78_GT_C1_commit",
+      "seconds": 9.738357869966421,
+      "elapsed": 1610.0848062480218,
+      "rss_gib": 54.071624755859375
+    },
+    {
+      "kind": "dit",
+      "note": "train_step78_C2",
+      "elapsed": 1610.090490475006
+    },
+    {
+      "kind": "timing",
+      "name": "step78_forward",
+      "seconds": 6.030719317961484,
+      "elapsed": 1616.1382397680427,
+      "rss_gib": 54.348419189453125
+    },
+    {
+      "kind": "backward",
+      "note": "train_step78",
+      "elapsed": 1616.1437226020498
+    },
+    {
+      "kind": "timing",
+      "name": "step78_backward",
+      "seconds": 1.7636804089997895,
+      "elapsed": 1617.926800473011,
+      "rss_gib": 54.07162857055664
+    },
+    {
+      "kind": "update",
+      "note": "train_step78",
+      "elapsed": 1617.9360271170153
+    },
+    {
+      "kind": "timing",
+      "name": "step78_optimizer",
+      "seconds": 0.0011273990385234356,
+      "elapsed": 1617.9481148869963,
+      "rss_gib": 54.07162857055664
+    },
+    {
+      "kind": "dit",
+      "note": "step79_GT_C1_commit",
+      "elapsed": 1618.962341675011
+    },
+    {
+      "kind": "timing",
+      "name": "step79_GT_C1_commit",
+      "seconds": 9.948271590052173,
+      "elapsed": 1628.9160349380109,
+      "rss_gib": 54.07162857055664
+    },
+    {
+      "kind": "dit",
+      "note": "train_step79_C2",
+      "elapsed": 1628.922110361047
+    },
+    {
+      "kind": "timing",
+      "name": "step79_forward",
+      "seconds": 6.434678057034034,
+      "elapsed": 1635.375128706044,
+      "rss_gib": 54.35300064086914
+    },
+    {
+      "kind": "backward",
+      "note": "train_step79",
+      "elapsed": 1635.3804199840524
+    },
+    {
+      "kind": "timing",
+      "name": "step79_backward",
+      "seconds": 1.7370860970113426,
+      "elapsed": 1637.1587173360167,
+      "rss_gib": 54.07163619995117
+    },
+    {
+      "kind": "update",
+      "note": "train_step79",
+      "elapsed": 1637.1671507220017
+    },
+    {
+      "kind": "timing",
+      "name": "step79_optimizer",
+      "seconds": 0.0010090420255437493,
+      "elapsed": 1637.1736075160443,
+      "rss_gib": 54.07163619995117
+    },
+    {
+      "kind": "dit",
+      "note": "step80_GT_C1_commit",
+      "elapsed": 1638.125665758038
+    },
+    {
+      "kind": "timing",
+      "name": "step80_GT_C1_commit",
+      "seconds": 11.012740763020702,
+      "elapsed": 1649.1441066310508,
+      "rss_gib": 54.07163619995117
+    },
+    {
+      "kind": "dit",
+      "note": "train_step80_C2",
+      "elapsed": 1649.150208764011
+    },
+    {
+      "kind": "timing",
+      "name": "step80_forward",
+      "seconds": 6.903271718008909,
+      "elapsed": 1656.0743204960017,
+      "rss_gib": 54.35404586791992
+    },
+    {
+      "kind": "backward",
+      "note": "train_step80",
+      "elapsed": 1656.0805483370204
+    },
+    {
+      "kind": "timing",
+      "name": "step80_backward",
+      "seconds": 1.6936645340174437,
+      "elapsed": 1657.7894858040381,
+      "rss_gib": 54.071659088134766
+    },
+    {
+      "kind": "update",
+      "note": "train_step80",
+      "elapsed": 1657.7977683340432
+    },
+    {
+      "kind": "timing",
+      "name": "step80_optimizer",
+      "seconds": 0.0007928680279292166,
+      "elapsed": 1657.8065701310406,
+      "rss_gib": 54.071659088134766
+    },
+    {
+      "kind": "dit",
+      "note": "step81_GT_C1_commit",
+      "elapsed": 1658.7107437280356
+    },
+    {
+      "kind": "timing",
+      "name": "step81_GT_C1_commit",
+      "seconds": 10.924233128025662,
+      "elapsed": 1669.6403117990121,
+      "rss_gib": 54.071659088134766
+    },
+    {
+      "kind": "dit",
+      "note": "train_step81_C2",
+      "elapsed": 1669.646132029011
+    },
+    {
+      "kind": "timing",
+      "name": "step81_forward",
+      "seconds": 6.493639510998037,
+      "elapsed": 1676.165501281037,
+      "rss_gib": 54.34982681274414
+    },
+    {
+      "kind": "backward",
+      "note": "train_step81",
+      "elapsed": 1676.1710081720375
+    },
+    {
+      "kind": "timing",
+      "name": "step81_backward",
+      "seconds": 1.7488497290178202,
+      "elapsed": 1677.9278809220414,
+      "rss_gib": 54.0716667175293
+    },
+    {
+      "kind": "update",
+      "note": "train_step81",
+      "elapsed": 1677.936983290012
+    },
+    {
+      "kind": "timing",
+      "name": "step81_optimizer",
+      "seconds": 0.001049212005455047,
+      "elapsed": 1677.950506712019,
+      "rss_gib": 54.0716667175293
+    },
+    {
+      "kind": "dit",
+      "note": "step82_GT_C1_commit",
+      "elapsed": 1678.9616579800495
+    },
+    {
+      "kind": "timing",
+      "name": "step82_GT_C1_commit",
+      "seconds": 9.64833571901545,
+      "elapsed": 1688.6156296440167,
+      "rss_gib": 54.0716667175293
+    },
+    {
+      "kind": "dit",
+      "note": "train_step82_C2",
+      "elapsed": 1688.6217723970185
+    },
+    {
+      "kind": "timing",
+      "name": "step82_forward",
+      "seconds": 6.018403374997433,
+      "elapsed": 1694.6568196300068,
+      "rss_gib": 54.3556022644043
+    },
+    {
+      "kind": "backward",
+      "note": "train_step82",
+      "elapsed": 1694.6624202220119
+    },
+    {
+      "kind": "timing",
+      "name": "step82_backward",
+      "seconds": 1.7557616949779913,
+      "elapsed": 1696.4232414270518,
+      "rss_gib": 54.07167434692383
+    },
+    {
+      "kind": "update",
+      "note": "train_step82",
+      "elapsed": 1696.431728933996
+    },
+    {
+      "kind": "timing",
+      "name": "step82_optimizer",
+      "seconds": 0.0009636229951865971,
+      "elapsed": 1696.4457673580036,
+      "rss_gib": 54.07167434692383
+    },
+    {
+      "kind": "dit",
+      "note": "step83_GT_C1_commit",
+      "elapsed": 1697.4400707790046
+    },
+    {
+      "kind": "timing",
+      "name": "step83_GT_C1_commit",
+      "seconds": 9.818089362001047,
+      "elapsed": 1707.2651226230082,
+      "rss_gib": 54.05380630493164
+    },
+    {
+      "kind": "dit",
+      "note": "train_step83_C2",
+      "elapsed": 1707.2709876210429
+    },
+    {
+      "kind": "timing",
+      "name": "step83_forward",
+      "seconds": 6.383279957983177,
+      "elapsed": 1713.6715207790257,
+      "rss_gib": 54.33060073852539
+    },
+    {
+      "kind": "backward",
+      "note": "train_step83",
+      "elapsed": 1713.6771473400295
+    },
+    {
+      "kind": "timing",
+      "name": "step83_backward",
+      "seconds": 1.7435550729860552,
+      "elapsed": 1715.4318707880448,
+      "rss_gib": 54.053810119628906
+    },
+    {
+      "kind": "update",
+      "note": "train_step83",
+      "elapsed": 1715.440831834043
+    },
+    {
+      "kind": "timing",
+      "name": "step83_optimizer",
+      "seconds": 0.0010189470485784113,
+      "elapsed": 1715.4640719660092,
+      "rss_gib": 54.053810119628906
+    },
+    {
+      "kind": "dit",
+      "note": "step84_GT_C1_commit",
+      "elapsed": 1716.4757287840475
+    },
+    {
+      "kind": "timing",
+      "name": "step84_GT_C1_commit",
+      "seconds": 11.105560340976808,
+      "elapsed": 1727.5870245390106,
+      "rss_gib": 54.057159423828125
+    },
+    {
+      "kind": "dit",
+      "note": "train_step84_C2",
+      "elapsed": 1727.5929939729976
+    },
+    {
+      "kind": "timing",
+      "name": "step84_forward",
+      "seconds": 6.060005477978848,
+      "elapsed": 1733.6729426640086,
+      "rss_gib": 54.342132568359375
+    },
+    {
+      "kind": "backward",
+      "note": "train_step84",
+      "elapsed": 1733.6782776670298
+    },
+    {
+      "kind": "timing",
+      "name": "step84_backward",
+      "seconds": 1.6662881399970502,
+      "elapsed": 1735.3492671010317,
+      "rss_gib": 54.057167053222656
+    },
+    {
+      "kind": "update",
+      "note": "train_step84",
+      "elapsed": 1735.3574664470507
+    },
+    {
+      "kind": "timing",
+      "name": "step84_optimizer",
+      "seconds": 0.0006751219625584781,
+      "elapsed": 1735.3626560220146,
+      "rss_gib": 54.057167053222656
+    },
+    {
+      "kind": "dit",
+      "note": "step85_GT_C1_commit",
+      "elapsed": 1736.2261036779964
+    },
+    {
+      "kind": "timing",
+      "name": "step85_GT_C1_commit",
+      "seconds": 9.781649337033741,
+      "elapsed": 1746.0134000070393,
+      "rss_gib": 54.058841705322266
+    },
+    {
+      "kind": "dit",
+      "note": "train_step85_C2",
+      "elapsed": 1746.0194579840172
+    },
+    {
+      "kind": "timing",
+      "name": "step85_forward",
+      "seconds": 6.532907196029555,
+      "elapsed": 1752.5665453770198,
+      "rss_gib": 54.33786392211914
+    },
+    {
+      "kind": "backward",
+      "note": "train_step85",
+      "elapsed": 1752.5723692130414
+    },
+    {
+      "kind": "timing",
+      "name": "step85_backward",
+      "seconds": 1.7447678350144997,
+      "elapsed": 1754.3222499600379,
+      "rss_gib": 54.0588493347168
+    },
+    {
+      "kind": "update",
+      "note": "train_step85",
+      "elapsed": 1754.3321796880336
+    },
+    {
+      "kind": "timing",
+      "name": "step85_optimizer",
+      "seconds": 0.001101039000786841,
+      "elapsed": 1754.3466161690303,
+      "rss_gib": 54.0588493347168
+    },
+    {
+      "kind": "dit",
+      "note": "step86_GT_C1_commit",
+      "elapsed": 1755.3492121730233
+    },
+    {
+      "kind": "timing",
+      "name": "step86_GT_C1_commit",
+      "seconds": 11.179547246021684,
+      "elapsed": 1766.5352147620288,
+      "rss_gib": 54.06219482421875
+    },
+    {
+      "kind": "dit",
+      "note": "train_step86_C2",
+      "elapsed": 1766.5415197090479
+    },
+    {
+      "kind": "timing",
+      "name": "step86_forward",
+      "seconds": 6.852450665959623,
+      "elapsed": 1773.4167755260132,
+      "rss_gib": 54.34442138671875
+    },
+    {
+      "kind": "backward",
+      "note": "train_step86",
+      "elapsed": 1773.4225869630463
+    },
+    {
+      "kind": "timing",
+      "name": "step86_backward",
+      "seconds": 1.6843728080275469,
+      "elapsed": 1775.1155666389968,
+      "rss_gib": 54.062198638916016
+    },
+    {
+      "kind": "update",
+      "note": "train_step86",
+      "elapsed": 1775.1246447309968
+    },
+    {
+      "kind": "timing",
+      "name": "step86_optimizer",
+      "seconds": 0.0010032129939645529,
+      "elapsed": 1775.130721026042,
+      "rss_gib": 54.062198638916016
+    },
+    {
+      "kind": "dit",
+      "note": "step87_GT_C1_commit",
+      "elapsed": 1776.1622251410154
+    },
+    {
+      "kind": "timing",
+      "name": "step87_GT_C1_commit",
+      "seconds": 11.773171150998678,
+      "elapsed": 1787.941027279012,
+      "rss_gib": 54.062198638916016
+    },
+    {
+      "kind": "dit",
+      "note": "train_step87_C2",
+      "elapsed": 1787.9471003590152
+    },
+    {
+      "kind": "timing",
+      "name": "step87_forward",
+      "seconds": 6.815324183960911,
+      "elapsed": 1794.792729111039,
+      "rss_gib": 54.34555435180664
+    },
+    {
+      "kind": "backward",
+      "note": "train_step87",
+      "elapsed": 1794.7981597390026
+    },
+    {
+      "kind": "timing",
+      "name": "step87_backward",
+      "seconds": 1.6929782289662398,
+      "elapsed": 1796.5086246800493,
+      "rss_gib": 54.06222152709961
+    },
+    {
+      "kind": "update",
+      "note": "train_step87",
+      "elapsed": 1796.5175129980198
+    },
+    {
+      "kind": "timing",
+      "name": "step87_optimizer",
+      "seconds": 0.0007230539922602475,
+      "elapsed": 1796.5311538079986,
+      "rss_gib": 54.06222152709961
+    },
+    {
+      "kind": "dit",
+      "note": "step88_GT_C1_commit",
+      "elapsed": 1797.4654512550333
+    },
+    {
+      "kind": "timing",
+      "name": "step88_GT_C1_commit",
+      "seconds": 10.992403827025555,
+      "elapsed": 1808.463768823014,
+      "rss_gib": 54.06222152709961
+    },
+    {
+      "kind": "dit",
+      "note": "train_step88_C2",
+      "elapsed": 1808.4697545920499
+    },
+    {
+      "kind": "timing",
+      "name": "step88_forward",
+      "seconds": 5.9842689240467735,
+      "elapsed": 1814.4671437250217,
+      "rss_gib": 54.341670989990234
+    },
+    {
+      "kind": "backward",
+      "note": "train_step88",
+      "elapsed": 1814.4725574770127
+    },
+    {
+      "kind": "timing",
+      "name": "step88_backward",
+      "seconds": 1.7586290040053427,
+      "elapsed": 1816.2477049640147,
+      "rss_gib": 54.06222915649414
+    },
+    {
+      "kind": "update",
+      "note": "train_step88",
+      "elapsed": 1816.256755896029
+    },
+    {
+      "kind": "timing",
+      "name": "step88_optimizer",
+      "seconds": 0.0009932380053214729,
+      "elapsed": 1816.273620786029,
+      "rss_gib": 54.06222915649414
+    },
+    {
+      "kind": "dit",
+      "note": "step89_GT_C1_commit",
+      "elapsed": 1817.1852513420163
+    },
+    {
+      "kind": "timing",
+      "name": "step89_GT_C1_commit",
+      "seconds": 9.809060676023364,
+      "elapsed": 1827.0021181449993,
+      "rss_gib": 54.06222915649414
+    },
+    {
+      "kind": "dit",
+      "note": "train_step89_C2",
+      "elapsed": 1827.0079876700183
+    },
+    {
+      "kind": "timing",
+      "name": "step89_forward",
+      "seconds": 6.414680126006715,
+      "elapsed": 1833.4362548250356,
+      "rss_gib": 54.34775161743164
+    },
+    {
+      "kind": "backward",
+      "note": "train_step89",
+      "elapsed": 1833.4420534039964
+    },
+    {
+      "kind": "timing",
+      "name": "step89_backward",
+      "seconds": 1.8618845570017584,
+      "elapsed": 1835.3093902820256,
+      "rss_gib": 54.062232971191406
+    },
+    {
+      "kind": "update",
+      "note": "train_step89",
+      "elapsed": 1835.3190022050403
+    },
+    {
+      "kind": "timing",
+      "name": "step89_optimizer",
+      "seconds": 0.0008903340203687549,
+      "elapsed": 1835.325231489027,
+      "rss_gib": 54.062232971191406
+    },
+    {
+      "kind": "dit",
+      "note": "step90_GT_C1_commit",
+      "elapsed": 1836.438245864003
+    },
+    {
+      "kind": "timing",
+      "name": "step90_GT_C1_commit",
+      "seconds": 10.387318771972787,
+      "elapsed": 1846.83186797105,
+      "rss_gib": 54.062232971191406
+    },
+    {
+      "kind": "dit",
+      "note": "train_step90_C2",
+      "elapsed": 1846.838518847013
+    },
+    {
+      "kind": "timing",
+      "name": "step90_forward",
+      "seconds": 6.826570761040784,
+      "elapsed": 1853.6802026140504,
+      "rss_gib": 54.34583282470703
+    },
+    {
+      "kind": "backward",
+      "note": "train_step90",
+      "elapsed": 1853.6870878010523
+    },
+    {
+      "kind": "timing",
+      "name": "step90_backward",
+      "seconds": 1.8671899220207706,
+      "elapsed": 1855.5593727870146,
+      "rss_gib": 54.06224060058594
+    },
+    {
+      "kind": "update",
+      "note": "train_step90",
+      "elapsed": 1855.5692138540326
+    },
+    {
+      "kind": "timing",
+      "name": "step90_optimizer",
+      "seconds": 0.0012840539566241205,
+      "elapsed": 1855.5761325409985,
+      "rss_gib": 54.06224060058594
+    },
+    {
+      "kind": "dit",
+      "note": "step91_GT_C1_commit",
+      "elapsed": 1856.5267442309996
+    },
+    {
+      "kind": "timing",
+      "name": "step91_GT_C1_commit",
+      "seconds": 11.84242306597298,
+      "elapsed": 1868.377694415045,
+      "rss_gib": 54.06224060058594
+    },
+    {
+      "kind": "dit",
+      "note": "train_step91_C2",
+      "elapsed": 1868.3865675410489
+    },
+    {
+      "kind": "timing",
+      "name": "step91_forward",
+      "seconds": 7.530119294999167,
+      "elapsed": 1875.936373826,
+      "rss_gib": 54.34553527832031
+    },
+    {
+      "kind": "backward",
+      "note": "train_step91",
+      "elapsed": 1875.9456456290209
+    },
+    {
+      "kind": "timing",
+      "name": "step91_backward",
+      "seconds": 1.8701092819683254,
+      "elapsed": 1877.8352378460113,
+      "rss_gib": 54.06224822998047
+    },
+    {
+      "kind": "update",
+      "note": "train_step91",
+      "elapsed": 1877.8450072950218
+    },
+    {
+      "kind": "timing",
+      "name": "step91_optimizer",
+      "seconds": 0.0010189070017077029,
+      "elapsed": 1877.8556098520057,
+      "rss_gib": 54.06224822998047
+    },
+    {
+      "kind": "dit",
+      "note": "step92_GT_C1_commit",
+      "elapsed": 1879.1079086990212
+    },
+    {
+      "kind": "timing",
+      "name": "step92_GT_C1_commit",
+      "seconds": 11.722723126003984,
+      "elapsed": 1890.8376860350254,
+      "rss_gib": 54.06224822998047
+    },
+    {
+      "kind": "dit",
+      "note": "train_step92_C2",
+      "elapsed": 1890.8457982109976
+    },
+    {
+      "kind": "timing",
+      "name": "step92_forward",
+      "seconds": 9.132853242976125,
+      "elapsed": 1899.99241496803,
+      "rss_gib": 54.347373962402344
+    },
+    {
+      "kind": "backward",
+      "note": "train_step92",
+      "elapsed": 1899.9993422990083
+    },
+    {
+      "kind": "timing",
+      "name": "step92_backward",
+      "seconds": 2.210940332035534,
+      "elapsed": 1902.2187248010305,
+      "rss_gib": 54.062255859375
+    },
+    {
+      "kind": "update",
+      "note": "train_step92",
+      "elapsed": 1902.2310492290417
+    },
+    {
+      "kind": "timing",
+      "name": "step92_optimizer",
+      "seconds": 0.0017338780453428626,
+      "elapsed": 1902.2396307380404,
+      "rss_gib": 54.062255859375
+    },
+    {
+      "kind": "dit",
+      "note": "step93_GT_C1_commit",
+      "elapsed": 1903.3808993980056
+    },
+    {
+      "kind": "timing",
+      "name": "step93_GT_C1_commit",
+      "seconds": 11.318950060987845,
+      "elapsed": 1914.7082036079955,
+      "rss_gib": 54.062255859375
+    },
+    {
+      "kind": "dit",
+      "note": "train_step93_C2",
+      "elapsed": 1914.71530209505
+    },
+    {
+      "kind": "timing",
+      "name": "step93_forward",
+      "seconds": 7.410418794024736,
+      "elapsed": 1922.1435187370516,
+      "rss_gib": 54.3477783203125
+    },
+    {
+      "kind": "backward",
+      "note": "train_step93",
+      "elapsed": 1922.1492500060122
+    },
+    {
+      "kind": "timing",
+      "name": "step93_backward",
+      "seconds": 1.7606437219656073,
+      "elapsed": 1923.91499041504,
+      "rss_gib": 54.062259674072266
+    },
+    {
+      "kind": "update",
+      "note": "train_step93",
+      "elapsed": 1923.924174026004
+    },
+    {
+      "kind": "timing",
+      "name": "step93_optimizer",
+      "seconds": 0.0008917769882827997,
+      "elapsed": 1923.9302775720134,
+      "rss_gib": 54.062259674072266
+    },
+    {
+      "kind": "dit",
+      "note": "step94_GT_C1_commit",
+      "elapsed": 1924.9270691210404
+    },
+    {
+      "kind": "timing",
+      "name": "step94_GT_C1_commit",
+      "seconds": 11.32995231501991,
+      "elapsed": 1936.2633637800463,
+      "rss_gib": 54.065608978271484
+    },
+    {
+      "kind": "dit",
+      "note": "train_step94_C2",
+      "elapsed": 1936.2705858420231
+    },
+    {
+      "kind": "timing",
+      "name": "step94_forward",
+      "seconds": 8.229739453003276,
+      "elapsed": 1944.5170349540422,
+      "rss_gib": 54.348567962646484
+    },
+    {
+      "kind": "backward",
+      "note": "train_step94",
+      "elapsed": 1944.523455305025
+    },
+    {
+      "kind": "timing",
+      "name": "step94_backward",
+      "seconds": 2.0195004870183766,
+      "elapsed": 1946.5563889210462,
+      "rss_gib": 54.065616607666016
+    },
+    {
+      "kind": "update",
+      "note": "train_step94",
+      "elapsed": 1946.5653668050072
+    },
+    {
+      "kind": "timing",
+      "name": "step94_optimizer",
+      "seconds": 0.0007626829901710153,
+      "elapsed": 1946.5715195640223,
+      "rss_gib": 54.065616607666016
+    },
+    {
+      "kind": "dit",
+      "note": "step95_GT_C1_commit",
+      "elapsed": 1947.5796365560382
+    },
+    {
+      "kind": "timing",
+      "name": "step95_GT_C1_commit",
+      "seconds": 10.668144527997356,
+      "elapsed": 1958.2559814630076,
+      "rss_gib": 54.065616607666016
+    },
+    {
+      "kind": "dit",
+      "note": "train_step95_C2",
+      "elapsed": 1958.2625341620296
+    },
+    {
+      "kind": "timing",
+      "name": "step95_forward",
+      "seconds": 7.093578924017493,
+      "elapsed": 1965.3761540770065,
+      "rss_gib": 54.34378433227539
+    },
+    {
+      "kind": "backward",
+      "note": "train_step95",
+      "elapsed": 1965.3820958210272
+    },
+    {
+      "kind": "timing",
+      "name": "step95_backward",
+      "seconds": 1.7046050080098212,
+      "elapsed": 1967.0956465040217,
+      "rss_gib": 54.06562042236328
+    },
+    {
+      "kind": "update",
+      "note": "train_step95",
+      "elapsed": 1967.1051046880311
+    },
+    {
+      "kind": "timing",
+      "name": "step95_optimizer",
+      "seconds": 0.0009549509850330651,
+      "elapsed": 1967.1177122600493,
+      "rss_gib": 54.06562042236328
+    },
+    {
+      "kind": "dit",
+      "note": "step96_GT_C1_commit",
+      "elapsed": 1968.0254412509967
+    },
+    {
+      "kind": "timing",
+      "name": "step96_GT_C1_commit",
+      "seconds": 9.98766472900752,
+      "elapsed": 1978.0195977180265,
+      "rss_gib": 54.067291259765625
+    },
+    {
+      "kind": "dit",
+      "note": "train_step96_C2",
+      "elapsed": 1978.0273581870133
+    },
+    {
+      "kind": "timing",
+      "name": "step96_forward",
+      "seconds": 6.305627543013543,
+      "elapsed": 1984.3492163619958,
+      "rss_gib": 54.345611572265625
+    },
+    {
+      "kind": "backward",
+      "note": "train_step96",
+      "elapsed": 1984.3554531480186
+    },
+    {
+      "kind": "timing",
+      "name": "step96_backward",
+      "seconds": 1.7098998800502159,
+      "elapsed": 1986.0710205500363,
+      "rss_gib": 54.067298889160156
+    },
+    {
+      "kind": "update",
+      "note": "train_step96",
+      "elapsed": 1986.0819412650308
+    },
+    {
+      "kind": "timing",
+      "name": "step96_optimizer",
+      "seconds": 0.0010054570157080889,
+      "elapsed": 1986.0888319110381,
+      "rss_gib": 54.067298889160156
+    },
+    {
+      "kind": "dit",
+      "note": "step97_GT_C1_commit",
+      "elapsed": 1987.124202533043
+    },
+    {
+      "kind": "timing",
+      "name": "step97_GT_C1_commit",
+      "seconds": 10.820623233972583,
+      "elapsed": 1997.9530863860273,
+      "rss_gib": 54.067298889160156
+    },
+    {
+      "kind": "dit",
+      "note": "train_step97_C2",
+      "elapsed": 1997.9594043130055
+    },
+    {
+      "kind": "timing",
+      "name": "step97_forward",
+      "seconds": 7.2366447009844705,
+      "elapsed": 2005.2201364590437,
+      "rss_gib": 54.35065460205078
+    },
+    {
+      "kind": "backward",
+      "note": "train_step97",
+      "elapsed": 2005.2259686990292
+    },
+    {
+      "kind": "timing",
+      "name": "step97_backward",
+      "seconds": 1.7040598249877803,
+      "elapsed": 2006.9455773750087,
+      "rss_gib": 54.06731033325195
+    },
+    {
+      "kind": "update",
+      "note": "train_step97",
+      "elapsed": 2006.9545127040474
+    },
+    {
+      "kind": "timing",
+      "name": "step97_optimizer",
+      "seconds": 0.0008483109995722771,
+      "elapsed": 2006.9786540110363,
+      "rss_gib": 54.06731033325195
+    },
+    {
+      "kind": "dit",
+      "note": "step98_GT_C1_commit",
+      "elapsed": 2007.928740493022
+    },
+    {
+      "kind": "timing",
+      "name": "step98_GT_C1_commit",
+      "seconds": 10.742852219962515,
+      "elapsed": 2018.6777433400275,
+      "rss_gib": 54.06731033325195
+    },
+    {
+      "kind": "dit",
+      "note": "train_step98_C2",
+      "elapsed": 2018.683760697022
+    },
+    {
+      "kind": "timing",
+      "name": "step98_forward",
+      "seconds": 6.441090181004256,
+      "elapsed": 2025.1621675680508,
+      "rss_gib": 54.35283279418945
+    },
+    {
+      "kind": "backward",
+      "note": "train_step98",
+      "elapsed": 2025.1684075990343
+    },
+    {
+      "kind": "timing",
+      "name": "step98_backward",
+      "seconds": 1.7311311879893765,
+      "elapsed": 2026.9190557040274,
+      "rss_gib": 54.06731414794922
+    },
+    {
+      "kind": "update",
+      "note": "train_step98",
+      "elapsed": 2026.9289776119986
+    },
+    {
+      "kind": "timing",
+      "name": "step98_optimizer",
+      "seconds": 0.0008587969932705164,
+      "elapsed": 2026.9373836290324,
+      "rss_gib": 54.06731414794922
+    },
+    {
+      "kind": "dit",
+      "note": "step99_GT_C1_commit",
+      "elapsed": 2027.926715471025
+    },
+    {
+      "kind": "timing",
+      "name": "step99_GT_C1_commit",
+      "seconds": 11.149459553998895,
+      "elapsed": 2039.0984923480428,
+      "rss_gib": 54.06731414794922
+    },
+    {
+      "kind": "dit",
+      "note": "train_step99_C2",
+      "elapsed": 2039.1054076910368
+    },
+    {
+      "kind": "timing",
+      "name": "step99_forward",
+      "seconds": 7.3553787160199136,
+      "elapsed": 2046.4758996140445,
+      "rss_gib": 54.34593963623047
+    },
+    {
+      "kind": "backward",
+      "note": "train_step99",
+      "elapsed": 2046.4821810070425
+    },
+    {
+      "kind": "timing",
+      "name": "step99_backward",
+      "seconds": 1.6438627199968323,
+      "elapsed": 2048.1313468730077,
+      "rss_gib": 54.06733703613281
+    },
+    {
+      "kind": "update",
+      "note": "train_step99",
+      "elapsed": 2048.140279348998
+    },
+    {
+      "kind": "timing",
+      "name": "step99_optimizer",
+      "seconds": 0.0007941499934531748,
+      "elapsed": 2048.1461285840487,
+      "rss_gib": 54.06733703613281
+    },
+    {
+      "kind": "dit",
+      "note": "step100_GT_C1_commit",
+      "elapsed": 2049.1121177560417
+    },
+    {
+      "kind": "timing",
+      "name": "step100_GT_C1_commit",
+      "seconds": 11.890176595014054,
+      "elapsed": 2061.0086157530313,
+      "rss_gib": 54.06733703613281
+    },
+    {
+      "kind": "dit",
+      "note": "train_step100_C2",
+      "elapsed": 2061.015384286002
+    },
+    {
+      "kind": "timing",
+      "name": "step100_forward",
+      "seconds": 7.5083789129857905,
+      "elapsed": 2068.555901891028,
+      "rss_gib": 54.35029602050781
+    },
+    {
+      "kind": "backward",
+      "note": "train_step100",
+      "elapsed": 2068.5622722370317
+    },
+    {
+      "kind": "timing",
+      "name": "step100_backward",
+      "seconds": 1.707594120001886,
+      "elapsed": 2070.280428655038,
+      "rss_gib": 54.067344665527344
+    },
+    {
+      "kind": "update",
+      "note": "train_step100",
+      "elapsed": 2070.289846899046
+    },
+    {
+      "kind": "timing",
+      "name": "step100_optimizer",
+      "seconds": 0.0007769339717924595,
+      "elapsed": 2070.297911734029,
+      "rss_gib": 54.067344665527344
+    },
+    {
+      "kind": "dit",
+      "note": "step101_GT_C1_commit",
+      "elapsed": 2071.2038722690195
+    },
+    {
+      "kind": "timing",
+      "name": "step101_GT_C1_commit",
+      "seconds": 10.257071922998875,
+      "elapsed": 2081.467335190042,
+      "rss_gib": 54.067344665527344
+    },
+    {
+      "kind": "dit",
+      "note": "train_step101_C2",
+      "elapsed": 2081.5101977810264
+    },
+    {
+      "kind": "timing",
+      "name": "step101_forward",
+      "seconds": 6.6648982660262845,
+      "elapsed": 2088.214769729995,
+      "rss_gib": 54.349754333496094
+    },
+    {
+      "kind": "backward",
+      "note": "train_step101",
+      "elapsed": 2088.2210128160077
+    },
+    {
+      "kind": "timing",
+      "name": "step101_backward",
+      "seconds": 1.703837254026439,
+      "elapsed": 2089.9305608180002,
+      "rss_gib": 54.06734848022461
+    },
+    {
+      "kind": "update",
+      "note": "train_step101",
+      "elapsed": 2089.9398677740246
+    },
+    {
+      "kind": "timing",
+      "name": "step101_optimizer",
+      "seconds": 0.0009144609794020653,
+      "elapsed": 2089.948517386045,
+      "rss_gib": 54.06734848022461
+    },
+    {
+      "kind": "dit",
+      "note": "step102_GT_C1_commit",
+      "elapsed": 2090.9178870400065
+    },
+    {
+      "kind": "timing",
+      "name": "step102_GT_C1_commit",
+      "seconds": 10.88129036402097,
+      "elapsed": 2101.8058649760205,
+      "rss_gib": 54.06734848022461
+    },
+    {
+      "kind": "dit",
+      "note": "train_step102_C2",
+      "elapsed": 2101.8125841150177
+    },
+    {
+      "kind": "timing",
+      "name": "step102_forward",
+      "seconds": 6.920699073001742,
+      "elapsed": 2108.747817238036,
+      "rss_gib": 54.350948333740234
+    },
+    {
+      "kind": "backward",
+      "note": "train_step102",
+      "elapsed": 2108.754175206006
+    },
+    {
+      "kind": "timing",
+      "name": "step102_backward",
+      "seconds": 2.0089773400104605,
+      "elapsed": 2110.7693514950224,
+      "rss_gib": 54.06737518310547
+    },
+    {
+      "kind": "update",
+      "note": "train_step102",
+      "elapsed": 2110.7785894090193
+    },
+    {
+      "kind": "timing",
+      "name": "step102_optimizer",
+      "seconds": 0.0008362829685211182,
+      "elapsed": 2110.7847056240425,
+      "rss_gib": 54.06737518310547
+    },
+    {
+      "kind": "dit",
+      "note": "step103_GT_C1_commit",
+      "elapsed": 2111.7730101619964
+    },
+    {
+      "kind": "timing",
+      "name": "step103_GT_C1_commit",
+      "seconds": 10.894324425025843,
+      "elapsed": 2122.6739689590177,
+      "rss_gib": 54.06737518310547
+    },
+    {
+      "kind": "dit",
+      "note": "train_step103_C2",
+      "elapsed": 2122.6812250930234
+    },
+    {
+      "kind": "timing",
+      "name": "step103_forward",
+      "seconds": 6.828811548999511,
+      "elapsed": 2129.530600988015,
+      "rss_gib": 54.35112762451172
+    },
+    {
+      "kind": "backward",
+      "note": "train_step103",
+      "elapsed": 2129.537525926018
+    },
+    {
+      "kind": "timing",
+      "name": "step103_backward",
+      "seconds": 1.7830488549661823,
+      "elapsed": 2131.331799072039,
+      "rss_gib": 54.0673942565918
+    },
+    {
+      "kind": "update",
+      "note": "train_step103",
+      "elapsed": 2131.343033006997
+    },
+    {
+      "kind": "timing",
+      "name": "step103_optimizer",
+      "seconds": 0.000882902997545898,
+      "elapsed": 2131.35683634202,
+      "rss_gib": 54.0673942565918
+    },
+    {
+      "kind": "dit",
+      "note": "step104_GT_C1_commit",
+      "elapsed": 2132.4239978200058
+    },
+    {
+      "kind": "timing",
+      "name": "step104_GT_C1_commit",
+      "seconds": 11.463413923047483,
+      "elapsed": 2143.8977171670413,
+      "rss_gib": 54.0673942565918
+    },
+    {
+      "kind": "dit",
+      "note": "train_step104_C2",
+      "elapsed": 2143.9050390790217
+    },
+    {
+      "kind": "timing",
+      "name": "step104_forward",
+      "seconds": 7.374651725986041,
+      "elapsed": 2151.3016434630263,
+      "rss_gib": 54.3529167175293
+    },
+    {
+      "kind": "backward",
+      "note": "train_step104",
+      "elapsed": 2151.308470093005
+    },
+    {
+      "kind": "timing",
+      "name": "step104_backward",
+      "seconds": 1.7923540550400503,
+      "elapsed": 2153.1071420760127,
+      "rss_gib": 54.06739807128906
+    },
+    {
+      "kind": "update",
+      "note": "train_step104",
+      "elapsed": 2153.117354179034
+    },
+    {
+      "kind": "timing",
+      "name": "step104_optimizer",
+      "seconds": 0.0008977559627965093,
+      "elapsed": 2153.124191525043,
+      "rss_gib": 54.06739807128906
+    },
+    {
+      "kind": "dit",
+      "note": "step105_GT_C1_commit",
+      "elapsed": 2154.0656357240514
+    },
+    {
+      "kind": "timing",
+      "name": "step105_GT_C1_commit",
+      "seconds": 11.119358416995965,
+      "elapsed": 2165.1923444160493,
+      "rss_gib": 54.06739807128906
+    },
+    {
+      "kind": "dit",
+      "note": "train_step105_C2",
+      "elapsed": 2165.199441121018
+    },
+    {
+      "kind": "timing",
+      "name": "step105_forward",
+      "seconds": 7.920805129979271,
+      "elapsed": 2173.134810196003,
+      "rss_gib": 54.35252380371094
+    },
+    {
+      "kind": "backward",
+      "note": "train_step105",
+      "elapsed": 2173.141454934026
+    },
+    {
+      "kind": "timing",
+      "name": "step105_backward",
+      "seconds": 1.74056445696624,
+      "elapsed": 2174.891722942004,
+      "rss_gib": 54.067405700683594
+    },
+    {
+      "kind": "update",
+      "note": "train_step105",
+      "elapsed": 2174.906610593025
+    },
+    {
+      "kind": "timing",
+      "name": "step105_optimizer",
+      "seconds": 0.0008708650129847229,
+      "elapsed": 2174.9187703350326,
+      "rss_gib": 54.067405700683594
+    },
+    {
+      "kind": "dit",
+      "note": "step106_GT_C1_commit",
+      "elapsed": 2175.895804386004
+    },
+    {
+      "kind": "timing",
+      "name": "step106_GT_C1_commit",
+      "seconds": 10.682261120993644,
+      "elapsed": 2186.5849511850392,
+      "rss_gib": 54.067405700683594
+    },
+    {
+      "kind": "dit",
+      "note": "train_step106_C2",
+      "elapsed": 2186.5925327870063
+    },
+    {
+      "kind": "timing",
+      "name": "step106_forward",
+      "seconds": 6.877430894004647,
+      "elapsed": 2193.503779677034,
+      "rss_gib": 54.35155487060547
+    },
+    {
+      "kind": "backward",
+      "note": "train_step106",
+      "elapsed": 2193.511440627044
+    },
+    {
+      "kind": "timing",
+      "name": "step106_backward",
+      "seconds": 1.7490500850253738,
+      "elapsed": 2195.275506505044,
+      "rss_gib": 54.067413330078125
+    },
+    {
+      "kind": "update",
+      "note": "train_step106",
+      "elapsed": 2195.2858695050236
+    },
+    {
+      "kind": "timing",
+      "name": "step106_optimizer",
+      "seconds": 0.0010545800323598087,
+      "elapsed": 2195.3023882000125,
+      "rss_gib": 54.067413330078125
+    },
+    {
+      "kind": "dit",
+      "note": "step107_GT_C1_commit",
+      "elapsed": 2196.323633952008
+    },
+    {
+      "kind": "timing",
+      "name": "step107_GT_C1_commit",
+      "seconds": 10.092493748001289,
+      "elapsed": 2206.428056928038,
+      "rss_gib": 54.067413330078125
+    },
+    {
+      "kind": "dit",
+      "note": "train_step107_C2",
+      "elapsed": 2206.435268225032
+    },
+    {
+      "kind": "timing",
+      "name": "step107_forward",
+      "seconds": 6.449295694998,
+      "elapsed": 2212.900846000004,
+      "rss_gib": 54.35101318359375
+    },
+    {
+      "kind": "backward",
+      "note": "train_step107",
+      "elapsed": 2212.9076946630375
+    },
+    {
+      "kind": "timing",
+      "name": "step107_backward",
+      "seconds": 1.7550543440156616,
+      "elapsed": 2214.6780487660435,
+      "rss_gib": 54.06741714477539
+    },
+    {
+      "kind": "update",
+      "note": "train_step107",
+      "elapsed": 2214.6882981950184
+    },
+    {
+      "kind": "timing",
+      "name": "step107_optimizer",
+      "seconds": 0.0009143099887296557,
+      "elapsed": 2214.707038810011,
+      "rss_gib": 54.06741714477539
+    },
+    {
+      "kind": "dit",
+      "note": "step108_GT_C1_commit",
+      "elapsed": 2215.7035265070153
+    },
+    {
+      "kind": "timing",
+      "name": "step108_GT_C1_commit",
+      "seconds": 10.359707028022967,
+      "elapsed": 2226.075883692014,
+      "rss_gib": 54.06741714477539
+    },
+    {
+      "kind": "dit",
+      "note": "train_step108_C2",
+      "elapsed": 2226.083130513027
+    },
+    {
+      "kind": "timing",
+      "name": "step108_forward",
+      "seconds": 6.355416005011648,
+      "elapsed": 2232.4537298220093,
+      "rss_gib": 54.346866607666016
+    },
+    {
+      "kind": "backward",
+      "note": "train_step108",
+      "elapsed": 2232.4884980160277
+    },
+    {
+      "kind": "timing",
+      "name": "step108_backward",
+      "seconds": 1.7483571679913439,
+      "elapsed": 2234.2742155130254,
+      "rss_gib": 54.06742477416992
+    },
+    {
+      "kind": "update",
+      "note": "train_step108",
+      "elapsed": 2234.284331182018
+    },
+    {
+      "kind": "timing",
+      "name": "step108_optimizer",
+      "seconds": 0.0007811709656380117,
+      "elapsed": 2234.291638313036,
+      "rss_gib": 54.06742477416992
+    },
+    {
+      "kind": "dit",
+      "note": "step109_GT_C1_commit",
+      "elapsed": 2235.3294888420496
+    },
+    {
+      "kind": "timing",
+      "name": "step109_GT_C1_commit",
+      "seconds": 10.319163601030596,
+      "elapsed": 2245.669755018025,
+      "rss_gib": 54.05403518676758
+    },
+    {
+      "kind": "dit",
+      "note": "train_step109_C2",
+      "elapsed": 2245.6762178830104
+    },
+    {
+      "kind": "timing",
+      "name": "step109_forward",
+      "seconds": 6.664989083015826,
+      "elapsed": 2252.3750731490436,
+      "rss_gib": 54.33797073364258
+    },
+    {
+      "kind": "backward",
+      "note": "train_step109",
+      "elapsed": 2252.3818474610453
+    },
+    {
+      "kind": "timing",
+      "name": "step109_backward",
+      "seconds": 1.6937408900121227,
+      "elapsed": 2254.095514442015,
+      "rss_gib": 54.054046630859375
+    },
+    {
+      "kind": "update",
+      "note": "train_step109",
+      "elapsed": 2254.105366346019
+    },
+    {
+      "kind": "timing",
+      "name": "step109_optimizer",
+      "seconds": 0.0008837840287014842,
+      "elapsed": 2254.1147197430255,
+      "rss_gib": 54.054046630859375
+    },
+    {
+      "kind": "dit",
+      "note": "step110_GT_C1_commit",
+      "elapsed": 2255.137426384026
+    },
+    {
+      "kind": "timing",
+      "name": "step110_GT_C1_commit",
+      "seconds": 10.946996741986368,
+      "elapsed": 2266.0910370580386,
+      "rss_gib": 54.057395935058594
+    },
+    {
+      "kind": "dit",
+      "note": "train_step110_C2",
+      "elapsed": 2266.097624771006
+    },
+    {
+      "kind": "timing",
+      "name": "step110_forward",
+      "seconds": 6.00293157203123,
+      "elapsed": 2272.1265749340528,
+      "rss_gib": 54.342918395996094
+    },
+    {
+      "kind": "backward",
+      "note": "train_step110",
+      "elapsed": 2272.132831641007
+    },
+    {
+      "kind": "timing",
+      "name": "step110_backward",
+      "seconds": 1.675602017028723,
+      "elapsed": 2273.814123824006,
+      "rss_gib": 54.05741500854492
+    },
+    {
+      "kind": "update",
+      "note": "train_step110",
+      "elapsed": 2273.823674678046
+    },
+    {
+      "kind": "timing",
+      "name": "step110_optimizer",
+      "seconds": 0.000679377990309149,
+      "elapsed": 2273.837790732039,
+      "rss_gib": 54.05741500854492
+    },
+    {
+      "kind": "dit",
+      "note": "step111_GT_C1_commit",
+      "elapsed": 2274.713246145053
+    },
+    {
+      "kind": "timing",
+      "name": "step111_GT_C1_commit",
+      "seconds": 9.33299182204064,
+      "elapsed": 2284.052966290037,
+      "rss_gib": 54.05741500854492
+    },
+    {
+      "kind": "dit",
+      "note": "train_step111_C2",
+      "elapsed": 2284.0596828359994
+    },
+    {
+      "kind": "timing",
+      "name": "step111_forward",
+      "seconds": 5.364226534962654,
+      "elapsed": 2289.474779345037,
+      "rss_gib": 54.34238815307617
+    },
+    {
+      "kind": "backward",
+      "note": "train_step111",
+      "elapsed": 2289.4814647540334
+    },
+    {
+      "kind": "timing",
+      "name": "step111_backward",
+      "seconds": 1.6120098739629611,
+      "elapsed": 2291.0991489410517,
+      "rss_gib": 54.05741882324219
+    },
+    {
+      "kind": "update",
+      "note": "train_step111",
+      "elapsed": 2291.109094937041
+    },
+    {
+      "kind": "timing",
+      "name": "step111_optimizer",
+      "seconds": 0.0009801589767448604,
+      "elapsed": 2291.115548168018,
+      "rss_gib": 54.05741882324219
+    },
+    {
+      "kind": "dit",
+      "note": "step112_GT_C1_commit",
+      "elapsed": 2292.0074209780432
+    },
+    {
+      "kind": "timing",
+      "name": "step112_GT_C1_commit",
+      "seconds": 10.029064387956169,
+      "elapsed": 2302.043217966042,
+      "rss_gib": 54.05741882324219
+    },
+    {
+      "kind": "dit",
+      "note": "train_step112_C2",
+      "elapsed": 2302.049793000042
+    },
+    {
+      "kind": "timing",
+      "name": "step112_forward",
+      "seconds": 6.9420407059951685,
+      "elapsed": 2309.0057243520278,
+      "rss_gib": 54.33573913574219
+    },
+    {
+      "kind": "backward",
+      "note": "train_step112",
+      "elapsed": 2309.0120170730515
+    },
+    {
+      "kind": "timing",
+      "name": "step112_backward",
+      "seconds": 1.5925305699929595,
+      "elapsed": 2310.610283799004,
+      "rss_gib": 54.05742263793945
+    },
+    {
+      "kind": "update",
+      "note": "train_step112",
+      "elapsed": 2310.619567240996
+    },
+    {
+      "kind": "timing",
+      "name": "step112_optimizer",
+      "seconds": 0.0007335490081459284,
+      "elapsed": 2310.631909448013,
+      "rss_gib": 54.05742263793945
+    },
+    {
+      "kind": "dit",
+      "note": "step113_GT_C1_commit",
+      "elapsed": 2311.5275837299996
+    },
+    {
+      "kind": "timing",
+      "name": "step113_GT_C1_commit",
+      "seconds": 10.114319385960698,
+      "elapsed": 2321.648856426007,
+      "rss_gib": 54.060768127441406
+    },
+    {
+      "kind": "dit",
+      "note": "train_step113_C2",
+      "elapsed": 2321.6563422350446
+    },
+    {
+      "kind": "timing",
+      "name": "step113_forward",
+      "seconds": 6.326486672041938,
+      "elapsed": 2328.001903182012,
+      "rss_gib": 54.33722686767578
+    },
+    {
+      "kind": "backward",
+      "note": "train_step113",
+      "elapsed": 2328.008415561053
+    },
+    {
+      "kind": "timing",
+      "name": "step113_backward",
+      "seconds": 1.7006261429633014,
+      "elapsed": 2329.714989969041,
+      "rss_gib": 54.06077575683594
+    },
+    {
+      "kind": "update",
+      "note": "train_step113",
+      "elapsed": 2329.724788984051
+    },
+    {
+      "kind": "timing",
+      "name": "step113_optimizer",
+      "seconds": 0.0010180359822697937,
+      "elapsed": 2329.7317745230393,
+      "rss_gib": 54.06077575683594
+    },
+    {
+      "kind": "dit",
+      "note": "step114_GT_C1_commit",
+      "elapsed": 2330.7270258390345
+    },
+    {
+      "kind": "timing",
+      "name": "step114_GT_C1_commit",
+      "seconds": 10.993634318001568,
+      "elapsed": 2341.7272965520388,
+      "rss_gib": 54.06077575683594
+    },
+    {
+      "kind": "dit",
+      "note": "train_step114_C2",
+      "elapsed": 2341.7339302740293
+    },
+    {
+      "kind": "timing",
+      "name": "step114_forward",
+      "seconds": 6.346186246024445,
+      "elapsed": 2348.0961864730343,
+      "rss_gib": 54.33757019042969
+    },
+    {
+      "kind": "backward",
+      "note": "train_step114",
+      "elapsed": 2348.102662498015
+    },
+    {
+      "kind": "timing",
+      "name": "step114_backward",
+      "seconds": 1.626829617016483,
+      "elapsed": 2349.7396985020023,
+      "rss_gib": 54.06078338623047
+    },
+    {
+      "kind": "update",
+      "note": "train_step114",
+      "elapsed": 2349.7503929290106
+    },
+    {
+      "kind": "timing",
+      "name": "step114_optimizer",
+      "seconds": 0.0007940800278447568,
+      "elapsed": 2349.7587828020332,
+      "rss_gib": 54.06078338623047
+    },
+    {
+      "kind": "dit",
+      "note": "step115_GT_C1_commit",
+      "elapsed": 2350.6002077730373
+    },
+    {
+      "kind": "timing",
+      "name": "step115_GT_C1_commit",
+      "seconds": 11.082128220994491,
+      "elapsed": 2361.689042145037,
+      "rss_gib": 54.06078338623047
+    },
+    {
+      "kind": "dit",
+      "note": "train_step115_C2",
+      "elapsed": 2361.696162936045
+    },
+    {
+      "kind": "timing",
+      "name": "step115_forward",
+      "seconds": 6.959164431027602,
+      "elapsed": 2368.6801951160305,
+      "rss_gib": 54.345909118652344
+    },
+    {
+      "kind": "backward",
+      "note": "train_step115",
+      "elapsed": 2368.6868854420027
+    },
+    {
+      "kind": "timing",
+      "name": "step115_backward",
+      "seconds": 1.7167153320042416,
+      "elapsed": 2370.4103448510286,
+      "rss_gib": 54.060791015625
+    },
+    {
+      "kind": "update",
+      "note": "train_step115",
+      "elapsed": 2370.420534001023
+    },
+    {
+      "kind": "timing",
+      "name": "step115_optimizer",
+      "seconds": 0.0009632129804231226,
+      "elapsed": 2370.4358275410486,
+      "rss_gib": 54.060791015625
+    },
+    {
+      "kind": "dit",
+      "note": "step116_GT_C1_commit",
+      "elapsed": 2371.331297430035
+    },
+    {
+      "kind": "timing",
+      "name": "step116_GT_C1_commit",
+      "seconds": 10.35971501498716,
+      "elapsed": 2381.6980062760413,
+      "rss_gib": 54.060791015625
+    },
+    {
+      "kind": "dit",
+      "note": "train_step116_C2",
+      "elapsed": 2381.7055083489977
+    },
+    {
+      "kind": "timing",
+      "name": "step116_forward",
+      "seconds": 6.4671858419897035,
+      "elapsed": 2388.1879006900126,
+      "rss_gib": 54.339813232421875
+    },
+    {
+      "kind": "backward",
+      "note": "train_step116",
+      "elapsed": 2388.195065197011
+    },
+    {
+      "kind": "timing",
+      "name": "step116_backward",
+      "seconds": 1.6828063820139505,
+      "elapsed": 2389.8843862820067,
+      "rss_gib": 54.06079864501953
+    },
+    {
+      "kind": "update",
+      "note": "train_step116",
+      "elapsed": 2389.8951651760144
+    },
+    {
+      "kind": "timing",
+      "name": "step116_optimizer",
+      "seconds": 0.0008526279707439244,
+      "elapsed": 2389.9018978160457,
+      "rss_gib": 54.06079864501953
+    },
+    {
+      "kind": "dit",
+      "note": "step117_GT_C1_commit",
+      "elapsed": 2390.9294696029974
+    },
+    {
+      "kind": "timing",
+      "name": "step117_GT_C1_commit",
+      "seconds": 10.20367716398323,
+      "elapsed": 2401.149886815052,
+      "rss_gib": 54.06338119506836
+    },
+    {
+      "kind": "dit",
+      "note": "train_step117_C2",
+      "elapsed": 2401.1577389930026
+    },
+    {
+      "kind": "timing",
+      "name": "step117_forward",
+      "seconds": 6.997675138001796,
+      "elapsed": 2408.1746072749957,
+      "rss_gib": 54.346675872802734
+    },
+    {
+      "kind": "backward",
+      "note": "train_step117",
+      "elapsed": 2408.1821950660087
+    },
+    {
+      "kind": "timing",
+      "name": "step117_backward",
+      "seconds": 1.7244327630032785,
+      "elapsed": 2409.913365747023,
+      "rss_gib": 54.063385009765625
+    },
+    {
+      "kind": "update",
+      "note": "train_step117",
+      "elapsed": 2409.92442697403
+    },
+    {
+      "kind": "timing",
+      "name": "step117_optimizer",
+      "seconds": 0.0010222119744867086,
+      "elapsed": 2409.9321002040524,
+      "rss_gib": 54.063385009765625
+    },
+    {
+      "kind": "dit",
+      "note": "step118_GT_C1_commit",
+      "elapsed": 2410.705835633038
+    },
+    {
+      "kind": "timing",
+      "name": "step118_GT_C1_commit",
+      "seconds": 10.401737822976429,
+      "elapsed": 2421.1150224790326,
+      "rss_gib": 54.065059661865234
+    },
+    {
+      "kind": "dit",
+      "note": "train_step118_C2",
+      "elapsed": 2421.1230178920086
+    },
+    {
+      "kind": "timing",
+      "name": "step118_forward",
+      "seconds": 7.324017042003106,
+      "elapsed": 2428.4776839460246,
+      "rss_gib": 54.346248626708984
+    },
+    {
+      "kind": "backward",
+      "note": "train_step118",
+      "elapsed": 2428.4848114170018
+    },
+    {
+      "kind": "timing",
+      "name": "step118_backward",
+      "seconds": 1.7404369749710895,
+      "elapsed": 2430.231681744044,
+      "rss_gib": 54.065067291259766
+    },
+    {
+      "kind": "update",
+      "note": "train_step118",
+      "elapsed": 2430.246379912016
+    },
+    {
+      "kind": "timing",
+      "name": "step118_optimizer",
+      "seconds": 0.0009790670010261238,
+      "elapsed": 2430.256375382014,
+      "rss_gib": 54.065067291259766
+    },
+    {
+      "kind": "dit",
+      "note": "step119_GT_C1_commit",
+      "elapsed": 2431.208660039003
+    },
+    {
+      "kind": "timing",
+      "name": "step119_GT_C1_commit",
+      "seconds": 12.163540937996004,
+      "elapsed": 2443.3801784020034,
+      "rss_gib": 54.065067291259766
+    },
+    {
+      "kind": "dit",
+      "note": "train_step119_C2",
+      "elapsed": 2443.390411658038
+    },
+    {
+      "kind": "timing",
+      "name": "step119_forward",
+      "seconds": 6.689158818975557,
+      "elapsed": 2450.096874980023,
+      "rss_gib": 54.346439361572266
+    },
+    {
+      "kind": "backward",
+      "note": "train_step119",
+      "elapsed": 2450.1043257270358
+    },
+    {
+      "kind": "timing",
+      "name": "step119_backward",
+      "seconds": 1.744609927001875,
+      "elapsed": 2451.865939667041,
+      "rss_gib": 54.06507110595703
+    },
+    {
+      "kind": "update",
+      "note": "train_step119",
+      "elapsed": 2451.87684611202
+    },
+    {
+      "kind": "timing",
+      "name": "step119_optimizer",
+      "seconds": 0.0010677900281734765,
+      "elapsed": 2451.8850290950504,
+      "rss_gib": 54.06507110595703
+    },
+    {
+      "kind": "dit",
+      "note": "step120_GT_C1_commit",
+      "elapsed": 2452.8810222510365
+    },
+    {
+      "kind": "timing",
+      "name": "step120_GT_C1_commit",
+      "seconds": 13.458291365008336,
+      "elapsed": 2466.347023189999,
+      "rss_gib": 54.06507110595703
+    },
+    {
+      "kind": "dit",
+      "note": "train_step120_C2",
+      "elapsed": 2466.3553834090126
+    },
+    {
+      "kind": "timing",
+      "name": "step120_forward",
+      "seconds": 7.847477600036655,
+      "elapsed": 2474.2207182810525,
+      "rss_gib": 54.347633361816406
+    },
+    {
+      "kind": "backward",
+      "note": "train_step120",
+      "elapsed": 2474.2304666209966
+    },
+    {
+      "kind": "timing",
+      "name": "step120_backward",
+      "seconds": 1.9227060709963553,
+      "elapsed": 2476.1623601110186,
+      "rss_gib": 54.06507873535156
+    },
+    {
+      "kind": "update",
+      "note": "train_step120",
+      "elapsed": 2476.1741311119986
+    },
+    {
+      "kind": "timing",
+      "name": "step120_optimizer",
+      "seconds": 0.001169011986348778,
+      "elapsed": 2476.182451852015,
+      "rss_gib": 54.06507873535156
+    },
+    {
+      "kind": "dit",
+      "note": "step121_GT_C1_commit",
+      "elapsed": 2477.308180853026
+    },
+    {
+      "kind": "timing",
+      "name": "step121_GT_C1_commit",
+      "seconds": 11.214696486014873,
+      "elapsed": 2488.5316304360167,
+      "rss_gib": 54.06507873535156
+    },
+    {
+      "kind": "dit",
+      "note": "train_step121_C2",
+      "elapsed": 2488.5403982560383
+    },
+    {
+      "kind": "timing",
+      "name": "step121_forward",
+      "seconds": 6.607915630040225,
+      "elapsed": 2495.1722131940187,
+      "rss_gib": 54.34187316894531
+    },
+    {
+      "kind": "backward",
+      "note": "train_step121",
+      "elapsed": 2495.179735357
+    },
+    {
+      "kind": "timing",
+      "name": "step121_backward",
+      "seconds": 1.7073913140338846,
+      "elapsed": 2496.8941362360492,
+      "rss_gib": 54.06509017944336
+    },
+    {
+      "kind": "update",
+      "note": "train_step121",
+      "elapsed": 2496.905977982038
+    },
+    {
+      "kind": "timing",
+      "name": "step121_optimizer",
+      "seconds": 0.001114749989937991,
+      "elapsed": 2496.9166212030104,
+      "rss_gib": 54.06509017944336
+    },
+    {
+      "kind": "dit",
+      "note": "step122_GT_C1_commit",
+      "elapsed": 2497.9111155410064
+    },
+    {
+      "kind": "timing",
+      "name": "step122_GT_C1_commit",
+      "seconds": 11.869570559007116,
+      "elapsed": 2509.789506950008,
+      "rss_gib": 54.06509017944336
+    },
+    {
+      "kind": "dit",
+      "note": "train_step122_C2",
+      "elapsed": 2509.7985258950503
+    },
+    {
+      "kind": "timing",
+      "name": "step122_forward",
+      "seconds": 6.844563303980976,
+      "elapsed": 2516.660583393008,
+      "rss_gib": 54.343257904052734
+    },
+    {
+      "kind": "backward",
+      "note": "train_step122",
+      "elapsed": 2516.6681769190473
+    },
+    {
+      "kind": "timing",
+      "name": "step122_backward",
+      "seconds": 1.768525766034145,
+      "elapsed": 2518.4438291700208,
+      "rss_gib": 54.06511306762695
+    },
+    {
+      "kind": "update",
+      "note": "train_step122",
+      "elapsed": 2518.4548299580347
+    },
+    {
+      "kind": "timing",
+      "name": "step122_optimizer",
+      "seconds": 0.0010925999958999455,
+      "elapsed": 2518.463465157023,
+      "rss_gib": 54.06511306762695
+    },
+    {
+      "kind": "dit",
+      "note": "step123_GT_C1_commit",
+      "elapsed": 2519.6086512420443
+    },
+    {
+      "kind": "timing",
+      "name": "step123_GT_C1_commit",
+      "seconds": 12.283473178977147,
+      "elapsed": 2531.900075864047,
+      "rss_gib": 54.06511306762695
+    },
+    {
+      "kind": "dit",
+      "note": "train_step123_C2",
+      "elapsed": 2531.908329710015
+    },
+    {
+      "kind": "timing",
+      "name": "step123_forward",
+      "seconds": 6.687593768991064,
+      "elapsed": 2538.6150880689966,
+      "rss_gib": 54.34599685668945
+    },
+    {
+      "kind": "backward",
+      "note": "train_step123",
+      "elapsed": 2538.623459630995
+    },
+    {
+      "kind": "timing",
+      "name": "step123_backward",
+      "seconds": 2.2198142429697327,
+      "elapsed": 2540.850849292008,
+      "rss_gib": 54.065120697021484
+    },
+    {
+      "kind": "update",
+      "note": "train_step123",
+      "elapsed": 2540.8636078380514
+    },
+    {
+      "kind": "timing",
+      "name": "step123_optimizer",
+      "seconds": 0.0011845879489555955,
+      "elapsed": 2540.881367377995,
+      "rss_gib": 54.065120697021484
+    },
+    {
+      "kind": "dit",
+      "note": "step124_GT_C1_commit",
+      "elapsed": 2542.0626752740354
+    },
+    {
+      "kind": "timing",
+      "name": "step124_GT_C1_commit",
+      "seconds": 11.76227652002126,
+      "elapsed": 2553.83427235001,
+      "rss_gib": 54.065120697021484
+    },
+    {
+      "kind": "dit",
+      "note": "train_step124_C2",
+      "elapsed": 2553.845133949013
+    },
+    {
+      "kind": "timing",
+      "name": "step124_forward",
+      "seconds": 9.756212978973053,
+      "elapsed": 2563.627655096003,
+      "rss_gib": 54.347347259521484
+    },
+    {
+      "kind": "backward",
+      "note": "train_step124",
+      "elapsed": 2563.6361245440203
+    },
+    {
+      "kind": "timing",
+      "name": "step124_backward",
+      "seconds": 2.0948000489734113,
+      "elapsed": 2565.75040037703,
+      "rss_gib": 54.065128326416016
+    },
+    {
+      "kind": "update",
+      "note": "train_step124",
+      "elapsed": 2565.763506714022
+    },
+    {
+      "kind": "timing",
+      "name": "step124_optimizer",
+      "seconds": 0.0016912179999053478,
+      "elapsed": 2565.7741329690325,
+      "rss_gib": 54.065128326416016
+    },
+    {
+      "kind": "dit",
+      "note": "step125_GT_C1_commit",
+      "elapsed": 2566.844932820997
+    },
+    {
+      "kind": "timing",
+      "name": "step125_GT_C1_commit",
+      "seconds": 10.077084422984626,
+      "elapsed": 2576.930596507038,
+      "rss_gib": 54.065128326416016
+    },
+    {
+      "kind": "dit",
+      "note": "train_step125_C2",
+      "elapsed": 2576.9396554100094
+    },
+    {
+      "kind": "timing",
+      "name": "step125_forward",
+      "seconds": 6.070625418040436,
+      "elapsed": 2583.026704481046,
+      "rss_gib": 54.34329605102539
+    },
+    {
+      "kind": "backward",
+      "note": "train_step125",
+      "elapsed": 2583.0341809700476
+    },
+    {
+      "kind": "timing",
+      "name": "step125_backward",
+      "seconds": 1.7425907319993712,
+      "elapsed": 2584.784085285035,
+      "rss_gib": 54.06513595581055
+    },
+    {
+      "kind": "update",
+      "note": "train_step125",
+      "elapsed": 2584.79485408403
+    },
+    {
+      "kind": "timing",
+      "name": "step125_optimizer",
+      "seconds": 0.0009013820090331137,
+      "elapsed": 2584.8033974030404,
+      "rss_gib": 54.06513595581055
+    },
+    {
+      "kind": "dit",
+      "note": "step126_GT_C1_commit",
+      "elapsed": 2585.84478654305
+    },
+    {
+      "kind": "timing",
+      "name": "step126_GT_C1_commit",
+      "seconds": 9.87900009797886,
+      "elapsed": 2595.732243571023,
+      "rss_gib": 54.06513595581055
+    },
+    {
+      "kind": "dit",
+      "note": "train_step126_C2",
+      "elapsed": 2595.7431209920323
+    },
+    {
+      "kind": "timing",
+      "name": "step126_forward",
+      "seconds": 6.604553869983647,
+      "elapsed": 2602.363847288012,
+      "rss_gib": 54.3473014831543
+    },
+    {
+      "kind": "backward",
+      "note": "train_step126",
+      "elapsed": 2602.3721663700417
+    },
+    {
+      "kind": "timing",
+      "name": "step126_backward",
+      "seconds": 1.7034484030446038,
+      "elapsed": 2604.099399992032,
+      "rss_gib": 54.06515884399414
+    },
+    {
+      "kind": "update",
+      "note": "train_step126",
+      "elapsed": 2604.1106111330446
+    },
+    {
+      "kind": "timing",
+      "name": "step126_optimizer",
+      "seconds": 0.0010258600232191384,
+      "elapsed": 2604.1186945320223,
+      "rss_gib": 54.06515884399414
+    },
+    {
+      "kind": "dit",
+      "note": "step127_GT_C1_commit",
+      "elapsed": 2605.0988116800436
+    },
+    {
+      "kind": "timing",
+      "name": "step127_GT_C1_commit",
+      "seconds": 11.219816024997272,
+      "elapsed": 2616.340209796035,
+      "rss_gib": 54.06515884399414
+    },
+    {
+      "kind": "dit",
+      "note": "train_step127_C2",
+      "elapsed": 2616.3485422480153
+    },
+    {
+      "kind": "timing",
+      "name": "step127_forward",
+      "seconds": 7.296640960965306,
+      "elapsed": 2623.660731809039,
+      "rss_gib": 54.34610366821289
+    },
+    {
+      "kind": "backward",
+      "note": "train_step127",
+      "elapsed": 2623.668637690018
+    },
+    {
+      "kind": "timing",
+      "name": "step127_backward",
+      "seconds": 1.7745926749776118,
+      "elapsed": 2625.472304898023,
+      "rss_gib": 54.06516647338867
+    },
+    {
+      "kind": "update",
+      "note": "train_step127",
+      "elapsed": 2625.4844763000146
+    },
+    {
+      "kind": "timing",
+      "name": "step127_optimizer",
+      "seconds": 0.0007273809751495719,
+      "elapsed": 2625.4923398580286,
+      "rss_gib": 54.06516647338867
+    },
+    {
+      "kind": "dit",
+      "note": "step128_GT_C1_commit",
+      "elapsed": 2626.5512144830427
+    },
+    {
+      "kind": "timing",
+      "name": "step128_GT_C1_commit",
+      "seconds": 12.668167249998078,
+      "elapsed": 2639.227941997,
+      "rss_gib": 54.06516647338867
+    },
+    {
+      "kind": "dit",
+      "note": "train_step128_C2",
+      "elapsed": 2639.2372682590503
+    },
+    {
+      "kind": "timing",
+      "name": "step128_forward",
+      "seconds": 8.09827320300974,
+      "elapsed": 2647.366733381001,
+      "rss_gib": 54.34739303588867
+    },
+    {
+      "kind": "backward",
+      "note": "train_step128",
+      "elapsed": 2647.3762190320413
+    },
+    {
+      "kind": "timing",
+      "name": "step128_backward",
+      "seconds": 1.8112373210024089,
+      "elapsed": 2649.1960659800097,
+      "rss_gib": 54.06517028808594
+    },
+    {
+      "kind": "update",
+      "note": "train_step128",
+      "elapsed": 2649.209153436008
+    },
+    {
+      "kind": "timing",
+      "name": "step128_optimizer",
+      "seconds": 0.0013677420211024582,
+      "elapsed": 2649.236552853021,
+      "rss_gib": 54.06517028808594
+    }
+  ],
+  "error": null
+}

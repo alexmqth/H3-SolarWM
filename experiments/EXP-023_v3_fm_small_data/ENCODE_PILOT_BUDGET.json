@@ -1,0 +1,191 @@
+{
+  "task": "EXP-023/v1",
+  "phase": "encode_pilot",
+  "status": "COMPLETE_PENDING_JUDGE",
+  "gpu": 0,
+  "wall_seconds": 232.26541147497483,
+  "limits": {
+    "wall_seconds": 900,
+    "allocated_gib": 44
+  },
+  "counts": {
+    "dit": 0,
+    "backward": 0,
+    "update": 0,
+    "vae_encode": 6,
+    "vae_decode": 0,
+    "text": 10
+  },
+  "peak_allocated_gib": 26.70298433303833,
+  "peak_reserved_gib": 26.931640625,
+  "rss_gib": 30.95440673828125,
+  "events": [
+    {
+      "kind": "timing",
+      "name": "load_text_vae",
+      "seconds": 33.17640803701943,
+      "rss_gib": 5.928192138671875,
+      "elapsed": 33.17889089899836
+    },
+    {
+      "kind": "timing",
+      "name": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56_source_rgb",
+      "seconds": 0.9815733489813283,
+      "rss_gib": 6.000030517578125,
+      "elapsed": 34.280283780011814
+    },
+    {
+      "kind": "vae_encode",
+      "note": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56 I0",
+      "elapsed": 34.980039082991425
+    },
+    {
+      "kind": "timing",
+      "name": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56_I0",
+      "seconds": 1.3413548489916138,
+      "rss_gib": 6.243522644042969,
+      "elapsed": 36.324480067996774
+    },
+    {
+      "kind": "vae_encode",
+      "note": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56 full17",
+      "elapsed": 36.3264424399822
+    },
+    {
+      "kind": "timing",
+      "name": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56_full17",
+      "seconds": 6.214817086991388,
+      "rss_gib": 6.244014739990234,
+      "elapsed": 42.54290653701173
+    },
+    {
+      "kind": "vae_encode",
+      "note": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56 prefix12",
+      "elapsed": 42.545168607961386
+    },
+    {
+      "kind": "timing",
+      "name": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56_prefix12",
+      "seconds": 4.6657210100092925,
+      "rss_gib": 6.2440185546875,
+      "elapsed": 47.212750317994505
+    },
+    {
+      "kind": "text",
+      "note": "text encoder forward",
+      "elapsed": 47.99205123697175
+    },
+    {
+      "kind": "text",
+      "note": "text encoder forward",
+      "elapsed": 173.14496015099576
+    },
+    {
+      "kind": "text",
+      "note": "text encoder forward",
+      "elapsed": 174.68650267698104
+    },
+    {
+      "kind": "timing",
+      "name": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56_text",
+      "seconds": 128.46611068199854,
+      "rss_gib": 29.621234893798828,
+      "elapsed": 176.12193996901624
+    },
+    {
+      "kind": "timing",
+      "name": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_source_rgb",
+      "seconds": 4.450163033034187,
+      "rss_gib": 29.62212371826172,
+      "elapsed": 180.84641230100533
+    },
+    {
+      "kind": "vae_encode",
+      "note": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56 I0",
+      "elapsed": 201.5855819109711
+    },
+    {
+      "kind": "timing",
+      "name": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_I0",
+      "seconds": 0.35968550795223564,
+      "rss_gib": 55.62898635864258,
+      "elapsed": 201.947342800966
+    },
+    {
+      "kind": "vae_encode",
+      "note": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56 full17",
+      "elapsed": 201.94903524796246
+    },
+    {
+      "kind": "timing",
+      "name": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_full17",
+      "seconds": 6.231432945991401,
+      "rss_gib": 55.62898635864258,
+      "elapsed": 208.18198983499315
+    },
+    {
+      "kind": "vae_encode",
+      "note": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56 prefix12",
+      "elapsed": 208.1838118369924
+    },
+    {
+      "kind": "timing",
+      "name": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_prefix12",
+      "seconds": 4.67646601900924,
+      "rss_gib": 55.62898635864258,
+      "elapsed": 212.86183464998612
+    },
+    {
+      "kind": "text",
+      "note": "text encoder forward",
+      "elapsed": 213.35536570299882
+    },
+    {
+      "kind": "text",
+      "note": "text encoder forward",
+      "elapsed": 221.48713748896262
+    },
+    {
+      "kind": "text",
+      "note": "text encoder forward",
+      "elapsed": 223.2457124599605
+    },
+    {
+      "kind": "text",
+      "note": "text encoder forward",
+      "elapsed": 224.99436331301695
+    },
+    {
+      "kind": "text",
+      "note": "text encoder forward",
+      "elapsed": 226.72436047100928
+    },
+    {
+      "kind": "text",
+      "note": "text encoder forward",
+      "elapsed": 228.52559687296161
+    },
+    {
+      "kind": "text",
+      "note": "text encoder forward",
+      "elapsed": 230.23004998499528
+    },
+    {
+      "kind": "timing",
+      "name": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_text",
+      "seconds": 18.87638082995545,
+      "rss_gib": 31.016895294189453,
+      "elapsed": 231.9766079330002
+    }
+  ],
+  "cumulative_counts": {
+    "dit": 0,
+    "backward": 0,
+    "update": 0,
+    "vae_encode": 6,
+    "vae_decode": 0,
+    "text": 10
+  },
+  "cumulative_gpu_seconds": 232.26541147497483,
+  "error": null
+}

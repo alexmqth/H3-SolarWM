@@ -1,0 +1,98 @@
+--- submission/experiments/EXP-023_v3_fm_small_data/attempt_02/fm_run.py	2026-10-15 18:53:59.340996243 +0800
++++ submission/experiments/EXP-023_v3_fm_small_data/fm_run.py	2026-10-15 18:55:07.848891450 +0800
+@@ -7,6 +7,7 @@
+ from __future__ import annotations
+ 
+ import argparse
++from contextlib import contextmanager
+ import gc
+ import hashlib
+ import json
+@@ -22,6 +23,25 @@
+ sys.path.insert(0, str(EXP019))
+ 
+ 
++@contextmanager
++def verified_attention_scope(audit=None):
++    """Own the route patch across forward and checkpoint backward recompute.
++
++    current_prefix_feedback first validates its copied attention source.
++    Only then may an optional audit wrapper replace the module global that
++    the checked class method calls. Both globals restore on every exit path.
++    """
++    import current_prefix as route
++    from current_prefix import current_prefix_feedback
++    with current_prefix_feedback():
++        original=route.current_prefix_attend
++        if audit is not None: route.current_prefix_attend=audit
++        try:
++            yield
++        finally:
++            route.current_prefix_attend=original
++
++
+ def verify_run_sources():
+     path=HERE/"TRAIN_SOURCE_MANIFEST.json"
+     if not path.exists(): raise RuntimeError("frozen train source manifest required")
+@@ -344,36 +364,31 @@
+                           current_action_span=True,
+                           past_action_direct_read=False))
+         return original_route(self,*args,**kwargs)
+-    if gate: route.current_prefix_attend=audited
+-    try:
+-        budget.reserve("dit",f"train_step{step}_C2")
+-        # A single owner holds the patch through non-reentrant recomputation.
+-        with current_prefix_feedback():
+-            def forward():
+-                return interval_train(model,z,start=12,index=1,cache=cache,
+-                         full_packed=packed,prompt=prompt,anchor=data["anchor"],
+-                         audio=data["audio"],sigma=sigma,checkpoint=True,offload=True)
+-            y=budget.measure(f"step{step}_forward",forward)
+-            loss=torch.nn.functional.mse_loss(y.float(),target.float())
+-            if not torch.isfinite(loss): raise FloatingPointError("nonfinite FM loss")
+-            phase="backward"
+-            budget.reserve("backward",f"train_step{step}")
+-            budget.measure(f"step{step}_backward",loss.backward)
+-        if gate:
+-            fw=[x["layer"] for x in trace if x["phase"]=="forward"]
+-            bw=[x["layer"] for x in trace if x["phase"]=="backward"]
+-            report=dict(status="PASS" if fw and bw else "FAILED",forward_layers=fw,
+-                        backward_recomputed_layers=bw,all_routes_current_prefix=all(
+-                            x["route"]=="current_prefix" for x in trace),
+-                        cache_unchanged=cache_before==cache_signature(cache),
+-                        current_prefix_source_sha256=sha(ROOT/"submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py"),
+-                        attention_semantics="own action; action feedback; common prefix reads current video",
+-                        first_step_counted_in_training_budget=True)
+-            write(HERE/"GRADIENT_PROTOCOL_CHECK.json",report)
+-            if report["status"]!="PASS" or not report["cache_unchanged"]:
+-                raise RuntimeError("real H3 backward route/cache gate failed")
+-    finally:
+-        if gate: route.current_prefix_attend=original_route
++    budget.reserve("dit",f"train_step{step}_C2")
++    with verified_attention_scope(audited if gate else None):
++        def forward():
++            return interval_train(model,z,start=12,index=1,cache=cache,
++                     full_packed=packed,prompt=prompt,anchor=data["anchor"],
++                     audio=data["audio"],sigma=sigma,checkpoint=True,offload=True)
++        y=budget.measure(f"step{step}_forward",forward)
++        loss=torch.nn.functional.mse_loss(y.float(),target.float())
++        if not torch.isfinite(loss): raise FloatingPointError("nonfinite FM loss")
++        phase="backward"
++        budget.reserve("backward",f"train_step{step}")
++        budget.measure(f"step{step}_backward",loss.backward)
++    if gate:
++        fw=[x["layer"] for x in trace if x["phase"]=="forward"]
++        bw=[x["layer"] for x in trace if x["phase"]=="backward"]
++        report=dict(status="PASS" if fw and bw else "FAILED",forward_layers=fw,
++                    backward_recomputed_layers=bw,all_routes_current_prefix=all(
++                        x["route"]=="current_prefix" for x in trace),
++                    cache_unchanged=cache_before==cache_signature(cache),
++                    current_prefix_source_sha256=sha(ROOT/"submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py"),
++                    attention_semantics="own action; action feedback; common prefix reads current video",
++                    first_step_counted_in_training_budget=True)
++        write(HERE/"GRADIENT_PROTOCOL_CHECK.json",report)
++        if report["status"]!="PASS" or not report["cache_unchanged"]:
++            raise RuntimeError("real H3 backward route/cache gate failed")
+     grads=[p.grad for p in params]
+     if any(g is None or not torch.isfinite(g).all() for g in grads):
+         raise FloatingPointError("missing/nonfinite adapter grad")

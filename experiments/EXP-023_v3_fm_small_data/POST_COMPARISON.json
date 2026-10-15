@@ -1,0 +1,140 @@
+{
+  "task": "EXP-023/v1",
+  "status": "MEASURED_NOT_JUDGED",
+  "probe": [
+    {
+      "role": "train_constant",
+      "sigma": 0.25,
+      "fm_mse_0": 0.23326611518859863,
+      "fm_mse_128": 0.23017077147960663,
+      "relative_change_pct": -1.3269581424157462
+    },
+    {
+      "role": "train_constant",
+      "sigma": 0.75,
+      "fm_mse_0": 0.07158318161964417,
+      "fm_mse_128": 0.070219986140728,
+      "relative_change_pct": -1.904351620132616
+    },
+    {
+      "role": "train_switch",
+      "sigma": 0.25,
+      "fm_mse_0": 0.25309792160987854,
+      "fm_mse_128": 0.250998854637146,
+      "relative_change_pct": -0.8293497470785338
+    },
+    {
+      "role": "train_switch",
+      "sigma": 0.75,
+      "fm_mse_0": 0.09104790538549423,
+      "fm_mse_128": 0.08979674428701401,
+      "relative_change_pct": -1.3741788931693089
+    },
+    {
+      "role": "dev_constant",
+      "sigma": 0.25,
+      "fm_mse_0": 0.21301239728927612,
+      "fm_mse_128": 0.2103217989206314,
+      "relative_change_pct": -1.2631182048013945
+    },
+    {
+      "role": "dev_constant",
+      "sigma": 0.75,
+      "fm_mse_0": 0.07476051896810532,
+      "fm_mse_128": 0.07376778870820999,
+      "relative_change_pct": -1.327880375360757
+    },
+    {
+      "role": "dev_switch",
+      "sigma": 0.25,
+      "fm_mse_0": 0.2154892385005951,
+      "fm_mse_128": 0.21312332153320312,
+      "relative_change_pct": -1.0979281303578614
+    },
+    {
+      "role": "dev_switch",
+      "sigma": 0.75,
+      "fm_mse_0": 0.08150558173656464,
+      "fm_mse_128": 0.08018068224191666,
+      "relative_change_pct": -1.6255322229711933
+    }
+  ],
+  "probe_mean_mse_0": 0.1542203575372696,
+  "probe_mean_mse_128": 0.15232249349355698,
+  "probe_mean_relative_change_pct": -1.3436621670359263,
+  "video": [
+    {
+      "role": "train_constant",
+      "history": "GT first39 displayed and committed",
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_src0000_rgb56",
+      "boundary_mad_0": 6.715360409989316,
+      "boundary_mad_128": 6.927075821314102,
+      "frame_mad_0": 7.468948590472028,
+      "frame_mad_128": 7.359769343070124,
+      "sampling_seconds_0": 47.25736466399394,
+      "sampling_seconds_128": 36.63212502503302,
+      "comparison_note": "same GT C1 history; only C2 generated"
+    },
+    {
+      "role": "train_switch",
+      "history": "GT first39 displayed and committed",
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56",
+      "boundary_mad_0": 10.718111478365385,
+      "boundary_mad_128": 10.866041499732907,
+      "frame_mad_0": 8.576833463845183,
+      "frame_mad_128": 8.350048137626263,
+      "sampling_seconds_0": 47.52282797504449,
+      "sampling_seconds_128": 40.32219180901302,
+      "comparison_note": "same GT C1 history; only C2 generated"
+    },
+    {
+      "role": "dev_constant",
+      "history": "GT first39 displayed and committed",
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56",
+      "boundary_mad_0": 16.08651926415598,
+      "boundary_mad_128": 16.415135884081195,
+      "frame_mad_0": 17.560448384081198,
+      "frame_mad_128": 17.413753111038268,
+      "sampling_seconds_0": 42.643137281993404,
+      "sampling_seconds_128": 44.06946957396576,
+      "comparison_note": "same GT C1 history; only C2 generated"
+    },
+    {
+      "role": "dev_switch",
+      "history": "GT first39 displayed and committed",
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56",
+      "boundary_mad_0": 8.423614449786324,
+      "boundary_mad_128": 8.394764122596154,
+      "frame_mad_0": 7.888673544337607,
+      "frame_mad_128": 7.825584419920357,
+      "sampling_seconds_0": 49.54816786601441,
+      "sampling_seconds_128": 40.89325165201444,
+      "comparison_note": "same GT C1 history; only C2 generated"
+    },
+    {
+      "role": "dev_constant",
+      "history": "self-generated C1 and C2",
+      "clip_id": "118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56",
+      "boundary_mad_0": 14.689611712072649,
+      "boundary_mad_128": 13.132037927350428,
+      "frame_mad_0": 13.196651900616745,
+      "frame_mad_128": 12.318837200126262,
+      "sampling_seconds_0": 104.9979482620256,
+      "sampling_seconds_128": 81.153698288952,
+      "comparison_note": "self-history starts from same I0/noise/actions but generated C1 state differs"
+    },
+    {
+      "role": "dev_switch",
+      "history": "self-generated C1 and C2",
+      "clip_id": "dfec8ed3237860eba14d67c089ecd041_src0483_rgb56",
+      "boundary_mad_0": 10.12372045272436,
+      "boundary_mad_128": 7.133799913194444,
+      "frame_mad_0": 5.920228790306916,
+      "frame_mad_128": 5.621400877768065,
+      "sampling_seconds_0": 102.76027877203887,
+      "sampling_seconds_128": 90.0587853390025,
+      "comparison_note": "self-history starts from same I0/noise/actions but generated C1 state differs"
+    }
+  ],
+  "caution": "FM MSE and frame/boundary MAD do not establish action correctness or perceptual quality."
+}

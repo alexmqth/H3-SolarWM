@@ -1,0 +1,744 @@
+[preflight] diffsynth resolved from the v2 checkout: ok /home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py
+[preflight] directed attention mask present: ok 
+[preflight] packed-sequence builder is the per-latent version: ok 
+┌──────────────────────────────────────────────────────────────────────┐
+│ DiffSynth-Studio Model Downloader Configuration:                     │
+│                                                                      │
+│ [ ] Download from https://modelscope.cn/                             │
+│     (default behavior)                                               │
+│ [ ] Download from https://modelscope.ai/                             │
+│     (enabled via `export MODELSCOPE_ENDPOINT=https://modelscope.ai`) │
+│ [ ] Download from https://huggingface.co/                            │
+│     (enabled via `export DIFFSYNTH_DOWNLOAD_SOURCE=HuggingFace`)     │
+│ [√] Skip download and load only pre-downloaded model files           │
+│     (enabled via `export DIFFSYNTH_SKIP_DOWNLOAD=True`)              │
+└──────────────────────────────────────────────────────────────────────┘
+Loading models from: [
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_text_encoder",
+    "model_class": "diffsynth.models.minimax_h3_text_encoder.MiniMaxH3TextEncoder",
+    "extra_kwargs": null
+}
+Loading models from: [
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors"
+]
+Loaded model: {
+    "model_name": "minimax_h3_dit",
+    "model_class": "diffsynth.models.minimax_h3_dit.MiniMaxH3DiT",
+    "extra_kwargs": null
+}
+Loading models from: "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_video_vae",
+    "model_class": "diffsynth.models.minimax_h3_video_vae.MiniMaxH3VideoVAE",
+    "extra_kwargs": null
+}
+Loading models from: "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors"
+Loaded model: {
+    "model_name": "minimax_h3_audio_vae",
+    "model_class": "diffsynth.models.minimax_h3_audio_vae.MiniMaxH3AudioVAE",
+    "extra_kwargs": null
+}
+Using minimax_h3_text_encoder from [
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00005-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00006-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00014-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00007-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00009-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00002-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00013-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00010-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00011-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00003-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00004-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00008-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00012-of-00014.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/text_encoder/model-00001-of-00014.safetensors"
+].
+Using minimax_h3_dit from [
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00005-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00010-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00013-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00004-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00009-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00006-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00003-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00011-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00007-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00001-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00002-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00008-of-00013.safetensors",
+    "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model-00012-of-00013.safetensors"
+].
+Using minimax_h3_video_vae from "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/video_vae/source/model.safetensors".
+Using minimax_h3_audio_vae from "/home/qma/work/GWM/H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/audio_vae/model.safetensors".
+104 tensors are patched by LoRA. You can use `pipe.clear_lora()` to clear all LoRA layers.
+TIMING load_model 7.606
+TIMING step1_GT_C1_commit 22.02
+TIMING step1_forward 6.994
+TIMING step1_backward 1.854
+TIMING step1_optimizer 0.047
+UPDATE {'step': 1, 'sigma': 0.3764449954032898, 'loss': 0.14405110478401184, 'grad_l2': 8.112802606774494e-05, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0483_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.526798725128174, 'rss_gib': 53.974666595458984}
+TIMING step2_GT_C1_commit 11.137
+TIMING step2_forward 6.584
+TIMING step2_backward 1.823
+TIMING step2_optimizer 0.001
+UPDATE {'step': 2, 'sigma': 0.6081242561340332, 'loss': 0.11657381057739258, 'grad_l2': 8.275440632132813e-05, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0276_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.526798725128174, 'rss_gib': 54.03602600097656}
+TIMING step3_GT_C1_commit 10.28
+TIMING step3_forward 6.261
+TIMING step3_backward 1.733
+TIMING step3_optimizer 0.001
+UPDATE {'step': 3, 'sigma': 0.3924463987350464, 'loss': 0.11034203320741653, 'grad_l2': 7.700701826252043e-05, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1449_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.526798725128174, 'rss_gib': 54.04944610595703}
+TIMING step4_GT_C1_commit 10.35
+TIMING step4_forward 6.449
+TIMING step4_backward 1.781
+TIMING step4_optimizer 0.001
+UPDATE {'step': 4, 'sigma': 0.2658267617225647, 'loss': 0.1667502075433731, 'grad_l2': 0.0001475214521633461, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0966_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.533964157104492, 'rss_gib': 54.051116943359375}
+TIMING step5_GT_C1_commit 9.72
+TIMING step5_forward 5.86
+TIMING step5_backward 1.66
+TIMING step5_optimizer 0.001
+UPDATE {'step': 5, 'sigma': 0.25549423694610596, 'loss': 0.18387991189956665, 'grad_l2': 0.0001567008876008913, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1410_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.05113220214844}
+TIMING step6_GT_C1_commit 10.063
+TIMING step6_forward 5.876
+TIMING step6_backward 1.669
+TIMING step6_optimizer 0.001
+UPDATE {'step': 6, 'sigma': 0.7981081008911133, 'loss': 0.07433060556650162, 'grad_l2': 0.00014769250992685556, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1656_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.05113983154297}
+TIMING step7_GT_C1_commit 9.233
+TIMING step7_forward 5.624
+TIMING step7_backward 1.685
+TIMING step7_optimizer 0.001
+UPDATE {'step': 7, 'sigma': 0.8242315053939819, 'loss': 0.06436043232679367, 'grad_l2': 0.00021271168952807784, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.052818298339844}
+TIMING step8_GT_C1_commit 9.17
+TIMING step8_forward 5.357
+TIMING step8_backward 1.587
+TIMING step8_optimizer 0.001
+UPDATE {'step': 8, 'sigma': 0.21689021587371826, 'loss': 0.218256413936615, 'grad_l2': 0.0002375302865402773, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0621_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.054500579833984}
+TIMING step9_GT_C1_commit 8.906
+TIMING step9_forward 5.232
+TIMING step9_backward 1.581
+TIMING step9_optimizer 0.001
+UPDATE {'step': 9, 'sigma': 0.7469402551651001, 'loss': 0.08133812248706818, 'grad_l2': 0.00015213129518087953, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0621_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.0623779296875}
+TIMING step10_GT_C1_commit 8.94
+TIMING step10_forward 5.841
+TIMING step10_backward 2.063
+TIMING step10_optimizer 0.001
+UPDATE {'step': 10, 'sigma': 0.07801473140716553, 'loss': 0.43113282322883606, 'grad_l2': 0.0010585440322756767, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0414_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06239318847656}
+TIMING step11_GT_C1_commit 11.072
+TIMING step11_forward 6.354
+TIMING step11_backward 1.568
+TIMING step11_optimizer 0.001
+UPDATE {'step': 11, 'sigma': 0.4863889217376709, 'loss': 0.1987396478652954, 'grad_l2': 0.00012417587277013808, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.062400817871094}
+TIMING step12_GT_C1_commit 10.098
+TIMING step12_forward 6.409
+TIMING step12_backward 1.648
+TIMING step12_optimizer 0.001
+UPDATE {'step': 12, 'sigma': 0.7155022621154785, 'loss': 0.10200285911560059, 'grad_l2': 0.0001908605481730774, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1245_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06242752075195}
+TIMING step13_GT_C1_commit 10.946
+TIMING step13_forward 6.751
+TIMING step13_backward 1.62
+TIMING step13_optimizer 0.001
+UPDATE {'step': 13, 'sigma': 0.7610130310058594, 'loss': 0.08256065100431442, 'grad_l2': 0.0001923862873809412, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0828_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.062435150146484}
+TIMING step14_GT_C1_commit 10.845
+TIMING step14_forward 7.564
+TIMING step14_backward 1.759
+TIMING step14_optimizer 0.001
+UPDATE {'step': 14, 'sigma': 0.16849660873413086, 'loss': 0.30799227952957153, 'grad_l2': 0.0005335494643077254, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.062435150146484}
+TIMING step15_GT_C1_commit 10.928
+TIMING step15_forward 7.553
+TIMING step15_backward 1.819
+TIMING step15_optimizer 0.001
+UPDATE {'step': 15, 'sigma': 0.8015838861465454, 'loss': 0.08242665231227875, 'grad_l2': 0.00029308965895324945, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1311_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06244659423828}
+TIMING step16_GT_C1_commit 12.719
+TIMING step16_forward 7.163
+TIMING step16_backward 1.847
+TIMING step16_optimizer 0.001
+UPDATE {'step': 16, 'sigma': 0.5156494975090027, 'loss': 0.18346504867076874, 'grad_l2': 0.00023213353415485471, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06245422363281}
+TIMING step17_GT_C1_commit 11.058
+TIMING step17_forward 6.844
+TIMING step17_backward 1.8
+TIMING step17_optimizer 0.001
+UPDATE {'step': 17, 'sigma': 0.07319527864456177, 'loss': 0.46758797764778137, 'grad_l2': 0.001687241718173027, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0966_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.062461853027344}
+TIMING step18_GT_C1_commit 11.83
+TIMING step18_forward 7.222
+TIMING step18_backward 1.771
+TIMING step18_optimizer 0.001
+UPDATE {'step': 18, 'sigma': 0.8229336142539978, 'loss': 0.07627584040164948, 'grad_l2': 0.00033854893990792334, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1104_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.0625}
+TIMING step19_GT_C1_commit 10.985
+TIMING step19_forward 7.386
+TIMING step19_backward 1.988
+TIMING step19_optimizer 0.001
+UPDATE {'step': 19, 'sigma': 0.5432645678520203, 'loss': 0.1365388184785843, 'grad_l2': 0.0002376588963670656, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06251525878906}
+TIMING step20_GT_C1_commit 11.568
+TIMING step20_forward 7.371
+TIMING step20_backward 1.829
+TIMING step20_optimizer 0.001
+UPDATE {'step': 20, 'sigma': 0.5764631032943726, 'loss': 0.16497479379177094, 'grad_l2': 0.00021093511895742267, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0690_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.062530517578125}
+TIMING step21_GT_C1_commit 11.182
+TIMING step21_forward 7.471
+TIMING step21_backward 1.868
+TIMING step21_optimizer 0.001
+UPDATE {'step': 21, 'sigma': 0.11183387041091919, 'loss': 0.48687949776649475, 'grad_l2': 0.0014907966833561659, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0276_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06254577636719}
+TIMING step22_GT_C1_commit 10.62
+TIMING step22_forward 5.916
+TIMING step22_backward 1.712
+TIMING step22_optimizer 0.001
+UPDATE {'step': 22, 'sigma': 0.7841358184814453, 'loss': 0.07795373350381851, 'grad_l2': 0.00041771456017158926, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0207_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06254959106445}
+TIMING step23_GT_C1_commit 9.769
+TIMING step23_forward 7.22
+TIMING step23_backward 1.811
+TIMING step23_optimizer 0.001
+UPDATE {'step': 23, 'sigma': 0.707384467124939, 'loss': 0.1076144427061081, 'grad_l2': 0.00023713888367637992, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1380_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.062557220458984}
+TIMING step24_GT_C1_commit 11.912
+TIMING step24_forward 8.211
+TIMING step24_backward 1.866
+TIMING step24_optimizer 0.001
+UPDATE {'step': 24, 'sigma': 0.7646346688270569, 'loss': 0.0778990313410759, 'grad_l2': 0.00040825892938300967, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1725_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06256866455078}
+TIMING step25_GT_C1_commit 12.353
+TIMING step25_forward 7.98
+TIMING step25_backward 1.872
+TIMING step25_optimizer 0.001
+UPDATE {'step': 25, 'sigma': 0.15506434440612793, 'loss': 0.3699187934398651, 'grad_l2': 0.0011234277626499534, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06258010864258}
+TIMING step26_GT_C1_commit 12.935
+TIMING step26_forward 6.974
+TIMING step26_backward 1.973
+TIMING step26_optimizer 0.001
+UPDATE {'step': 26, 'sigma': 0.4286342263221741, 'loss': 0.10459762811660767, 'grad_l2': 0.00030100595904514194, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0690_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06258773803711}
+TIMING step27_GT_C1_commit 11.27
+TIMING step27_forward 7.71
+TIMING step27_backward 1.846
+TIMING step27_optimizer 0.001
+UPDATE {'step': 27, 'sigma': 0.1504749059677124, 'loss': 0.22635291516780853, 'grad_l2': 0.0014427523128688335, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1173_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06260681152344}
+TIMING step28_GT_C1_commit 11.338
+TIMING step28_forward 6.102
+TIMING step28_backward 1.628
+TIMING step28_optimizer 0.001
+UPDATE {'step': 28, 'sigma': 0.8213332891464233, 'loss': 0.05541592463850975, 'grad_l2': 0.00039483411819674075, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0138_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06502914428711}
+TIMING step29_GT_C1_commit 10.754
+TIMING step29_forward 7.095
+TIMING step29_backward 1.621
+TIMING step29_optimizer 0.001
+UPDATE {'step': 29, 'sigma': 0.9612761735916138, 'loss': 0.11653488129377365, 'grad_l2': 0.0023531122133135796, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0483_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06503677368164}
+TIMING step30_GT_C1_commit 10.276
+TIMING step30_forward 6.501
+TIMING step30_backward 1.794
+TIMING step30_optimizer 0.001
+UPDATE {'step': 30, 'sigma': 0.4569118618965149, 'loss': 0.1323663741350174, 'grad_l2': 0.00027610239339992404, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.065067291259766}
+TIMING step31_GT_C1_commit 8.921
+TIMING step31_forward 5.293
+TIMING step31_backward 1.592
+TIMING step31_optimizer 0.001
+UPDATE {'step': 31, 'sigma': 0.3756271004676819, 'loss': 0.2123086303472519, 'grad_l2': 0.0004321439191699028, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0897_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06507110595703}
+TIMING step32_GT_C1_commit 8.851
+TIMING step32_forward 5.915
+TIMING step32_backward 1.62
+TIMING step32_optimizer 0.001
+UPDATE {'step': 32, 'sigma': 0.17934763431549072, 'loss': 0.31426891684532166, 'grad_l2': 0.0011416488559916615, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06509017944336}
+TIMING step33_GT_C1_commit 10.398
+TIMING step33_forward 5.923
+TIMING step33_backward 1.594
+TIMING step33_optimizer 0.001
+UPDATE {'step': 33, 'sigma': 0.8772516846656799, 'loss': 0.06074430048465729, 'grad_l2': 0.0010605287970975041, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0621_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07123947143555}
+TIMING step34_GT_C1_commit 9.821
+TIMING step34_forward 5.877
+TIMING step34_backward 1.559
+TIMING step34_optimizer 0.001
+UPDATE {'step': 34, 'sigma': 0.10966962575912476, 'loss': 0.45226627588272095, 'grad_l2': 0.0032125229481607676, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071250915527344}
+TIMING step35_GT_C1_commit 8.74
+TIMING step35_forward 5.825
+TIMING step35_backward 1.568
+TIMING step35_optimizer 0.001
+UPDATE {'step': 35, 'sigma': 0.3410188555717468, 'loss': 0.12888990342617035, 'grad_l2': 0.00047771865501999855, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1449_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071266174316406}
+TIMING step36_GT_C1_commit 9.784
+TIMING step36_forward 6.161
+TIMING step36_backward 1.748
+TIMING step36_optimizer 0.001
+UPDATE {'step': 36, 'sigma': 0.8551855683326721, 'loss': 0.06517789512872696, 'grad_l2': 0.0007711119833402336, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07127380371094}
+TIMING step37_GT_C1_commit 10.433
+TIMING step37_forward 6.372
+TIMING step37_backward 1.934
+TIMING step37_optimizer 0.001
+UPDATE {'step': 37, 'sigma': 0.3765113949775696, 'loss': 0.11966799944639206, 'grad_l2': 0.0005078117828816175, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0966_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07128143310547}
+TIMING step38_GT_C1_commit 10.435
+TIMING step38_forward 6.952
+TIMING step38_backward 1.728
+TIMING step38_optimizer 0.001
+UPDATE {'step': 38, 'sigma': 0.5040092468261719, 'loss': 0.18620985746383667, 'grad_l2': 0.0005708083626814187, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071285247802734}
+TIMING step39_GT_C1_commit 9.762
+TIMING step39_forward 6.948
+TIMING step39_backward 2.071
+TIMING step39_optimizer 0.001
+UPDATE {'step': 39, 'sigma': 0.9773823022842407, 'loss': 0.11281493306159973, 'grad_l2': 0.002231976017355919, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0897_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071292877197266}
+TIMING step40_GT_C1_commit 11.157
+TIMING step40_forward 6.49
+TIMING step40_backward 1.808
+TIMING step40_optimizer 0.001
+UPDATE {'step': 40, 'sigma': 0.8966149091720581, 'loss': 0.10577737540006638, 'grad_l2': 0.0019085269887000322, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.0713005065918}
+TIMING step41_GT_C1_commit 10.0
+TIMING step41_forward 7.172
+TIMING step41_backward 1.901
+TIMING step41_optimizer 0.001
+UPDATE {'step': 41, 'sigma': 0.6363207697868347, 'loss': 0.0767582505941391, 'grad_l2': 0.0005821423255838454, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0414_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07132339477539}
+TIMING step42_GT_C1_commit 11.65
+TIMING step42_forward 8.167
+TIMING step42_backward 1.83
+TIMING step42_optimizer 0.001
+UPDATE {'step': 42, 'sigma': 0.7418336272239685, 'loss': 0.07569534331560135, 'grad_l2': 0.0005526682361960411, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1725_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07135772705078}
+TIMING step43_GT_C1_commit 12.072
+TIMING step43_forward 7.292
+TIMING step43_backward 1.722
+TIMING step43_optimizer 0.001
+UPDATE {'step': 43, 'sigma': 0.6014432907104492, 'loss': 0.08891292661428452, 'grad_l2': 0.00045160832814872265, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0966_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07136917114258}
+TIMING step44_GT_C1_commit 12.439
+TIMING step44_forward 7.861
+TIMING step44_backward 1.987
+TIMING step44_optimizer 0.001
+UPDATE {'step': 44, 'sigma': 0.3509073853492737, 'loss': 0.15924866497516632, 'grad_l2': 0.0008691919501870871, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0138_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071380615234375}
+TIMING step45_GT_C1_commit 12.891
+TIMING step45_forward 9.34
+TIMING step45_backward 1.892
+TIMING step45_optimizer 0.001
+UPDATE {'step': 45, 'sigma': 0.9099423289299011, 'loss': 0.09164389967918396, 'grad_l2': 0.0020275632850825787, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0207_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07138442993164}
+TIMING step46_GT_C1_commit 11.665
+TIMING step46_forward 6.876
+TIMING step46_backward 1.957
+TIMING step46_optimizer 0.001
+UPDATE {'step': 46, 'sigma': 0.14899009466171265, 'loss': 0.31212732195854187, 'grad_l2': 0.00254698540084064, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0621_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07139205932617}
+TIMING step47_GT_C1_commit 11.956
+TIMING step47_forward 7.616
+TIMING step47_backward 2.004
+TIMING step47_optimizer 0.001
+UPDATE {'step': 47, 'sigma': 0.5540040731430054, 'loss': 0.17243513464927673, 'grad_l2': 0.0004858775355387479, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.0713996887207}
+TIMING step48_GT_C1_commit 10.438
+TIMING step48_forward 6.121
+TIMING step48_backward 1.778
+TIMING step48_optimizer 0.001
+UPDATE {'step': 48, 'sigma': 0.670635461807251, 'loss': 0.09832339733839035, 'grad_l2': 0.0005406016134656966, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1311_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.0714111328125}
+TIMING step49_GT_C1_commit 11.513
+TIMING step49_forward 7.914
+TIMING step49_backward 1.885
+TIMING step49_optimizer 0.001
+UPDATE {'step': 49, 'sigma': 0.2610924243927002, 'loss': 0.23632891476154327, 'grad_l2': 0.0008085773442871869, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1104_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.0714225769043}
+TIMING step50_GT_C1_commit 11.285
+TIMING step50_forward 6.975
+TIMING step50_backward 1.837
+TIMING step50_optimizer 0.001
+UPDATE {'step': 50, 'sigma': 0.16659152507781982, 'loss': 0.39378902316093445, 'grad_l2': 0.0016842730110511184, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0276_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071434020996094}
+TIMING step51_GT_C1_commit 12.188
+TIMING step51_forward 7.749
+TIMING step51_backward 1.868
+TIMING step51_optimizer 0.001
+UPDATE {'step': 51, 'sigma': 0.1574007272720337, 'loss': 0.41394826769828796, 'grad_l2': 0.0023101470433175564, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1380_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071441650390625}
+TIMING step52_GT_C1_commit 11.247
+TIMING step52_forward 7.343
+TIMING step52_backward 1.677
+TIMING step52_optimizer 0.001
+UPDATE {'step': 52, 'sigma': 0.651322066783905, 'loss': 0.05795471742749214, 'grad_l2': 0.0005543737788684666, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1173_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07145690917969}
+TIMING step53_GT_C1_commit 10.722
+TIMING step53_forward 6.386
+TIMING step53_backward 1.661
+TIMING step53_optimizer 0.001
+UPDATE {'step': 53, 'sigma': 0.015676438808441162, 'loss': 0.8898496031761169, 'grad_l2': 0.0011492996709421277, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0828_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07148361206055}
+TIMING step54_GT_C1_commit 10.959
+TIMING step54_forward 5.914
+TIMING step54_backward 1.691
+TIMING step54_optimizer 0.001
+UPDATE {'step': 54, 'sigma': 0.5855046510696411, 'loss': 0.11449272930622101, 'grad_l2': 0.0005499612889252603, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07148742675781}
+TIMING step55_GT_C1_commit 9.637
+TIMING step55_forward 6.003
+TIMING step55_backward 1.734
+TIMING step55_optimizer 0.001
+UPDATE {'step': 55, 'sigma': 0.8534592986106873, 'loss': 0.09073759615421295, 'grad_l2': 0.0009850756032392383, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0483_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07149124145508}
+TIMING step56_GT_C1_commit 9.411
+TIMING step56_forward 5.92
+TIMING step56_backward 1.741
+TIMING step56_optimizer 0.001
+UPDATE {'step': 56, 'sigma': 0.01422041654586792, 'loss': 0.9234113693237305, 'grad_l2': 0.0013514182064682245, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071495056152344}
+TIMING step57_GT_C1_commit 9.831
+TIMING step57_forward 6.825
+TIMING step57_backward 1.779
+TIMING step57_optimizer 0.001
+UPDATE {'step': 57, 'sigma': 0.24227577447891235, 'loss': 0.25678548216819763, 'grad_l2': 0.0010839783353731036, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.0715217590332}
+TIMING step58_GT_C1_commit 11.086
+TIMING step58_forward 8.165
+TIMING step58_backward 1.792
+TIMING step58_optimizer 0.001
+UPDATE {'step': 58, 'sigma': 0.6886522173881531, 'loss': 0.10873441398143768, 'grad_l2': 0.0007320911972783506, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1245_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071529388427734}
+TIMING step59_GT_C1_commit 11.075
+TIMING step59_forward 6.222
+TIMING step59_backward 1.633
+TIMING step59_optimizer 0.001
+UPDATE {'step': 59, 'sigma': 0.012080192565917969, 'loss': 0.9411820769309998, 'grad_l2': 0.0012875926913693547, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1656_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071533203125}
+TIMING step60_GT_C1_commit 10.353
+TIMING step60_forward 7.023
+TIMING step60_backward 1.813
+TIMING step60_optimizer 0.001
+UPDATE {'step': 60, 'sigma': 0.38567137718200684, 'loss': 0.11785855144262314, 'grad_l2': 0.0006968688103370368, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0690_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07154083251953}
+TIMING step61_GT_C1_commit 11.637
+TIMING step61_forward 6.876
+TIMING step61_backward 1.786
+TIMING step61_optimizer 0.001
+UPDATE {'step': 61, 'sigma': 0.4179925322532654, 'loss': 0.22311872243881226, 'grad_l2': 0.0006355001241900027, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0690_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07154846191406}
+TIMING step62_GT_C1_commit 11.35
+TIMING step62_forward 7.412
+TIMING step62_backward 1.778
+TIMING step62_optimizer 0.001
+UPDATE {'step': 62, 'sigma': 0.6058260798454285, 'loss': 0.08472418040037155, 'grad_l2': 0.0007281688158400357, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0483_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071556091308594}
+TIMING step63_GT_C1_commit 10.441
+TIMING step63_forward 6.925
+TIMING step63_backward 1.775
+TIMING step63_optimizer 0.001
+UPDATE {'step': 63, 'sigma': 0.7943338751792908, 'loss': 0.08174220472574234, 'grad_l2': 0.001177250756882131, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1410_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071563720703125}
+TIMING step64_GT_C1_commit 11.926
+TIMING step64_forward 7.838
+TIMING step64_backward 1.784
+TIMING step64_optimizer 0.001
+UPDATE {'step': 64, 'sigma': 0.17570722103118896, 'loss': 0.3014429807662964, 'grad_l2': 0.001846787054091692, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0276_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07158279418945}
+TIMING step65_GT_C1_commit 10.924
+TIMING step65_forward 6.668
+TIMING step65_backward 1.739
+TIMING step65_optimizer 0.001
+UPDATE {'step': 65, 'sigma': 0.47411519289016724, 'loss': 0.1669662743806839, 'grad_l2': 0.0006536136497743428, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0483_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071590423583984}
+TIMING step66_GT_C1_commit 11.264
+TIMING step66_forward 6.83
+TIMING step66_backward 1.729
+TIMING step66_optimizer 0.001
+UPDATE {'step': 66, 'sigma': 0.3188435435295105, 'loss': 0.14097119867801666, 'grad_l2': 0.000927287561353296, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0966_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071598052978516}
+TIMING step67_GT_C1_commit 10.909
+TIMING step67_forward 6.674
+TIMING step67_backward 1.89
+TIMING step67_optimizer 0.001
+UPDATE {'step': 67, 'sigma': 0.05147969722747803, 'loss': 0.739377498626709, 'grad_l2': 0.004827015567570925, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07160568237305}
+TIMING step68_GT_C1_commit 10.761
+TIMING step68_forward 8.034
+TIMING step68_backward 1.94
+TIMING step68_optimizer 0.001
+UPDATE {'step': 68, 'sigma': 0.5210420489311218, 'loss': 0.10029809921979904, 'grad_l2': 0.0006888352218084037, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0483_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07161331176758}
+TIMING step69_GT_C1_commit 11.218
+TIMING step69_forward 7.398
+TIMING step69_backward 1.722
+TIMING step69_optimizer 0.001
+UPDATE {'step': 69, 'sigma': 0.1337565779685974, 'loss': 0.3039631247520447, 'grad_l2': 0.00468663964420557, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0621_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071556091308594}
+TIMING step70_GT_C1_commit 11.83
+TIMING step70_forward 8.72
+TIMING step70_backward 2.07
+TIMING step70_optimizer 0.002
+UPDATE {'step': 70, 'sigma': 0.9448143839836121, 'loss': 0.10953809320926666, 'grad_l2': 0.003378642722964287, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0276_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071563720703125}
+TIMING step71_GT_C1_commit 13.546
+TIMING step71_forward 8.001
+TIMING step71_backward 1.769
+TIMING step71_optimizer 0.001
+UPDATE {'step': 71, 'sigma': 0.2641487717628479, 'loss': 0.22351206839084625, 'grad_l2': 0.0011527503374963999, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0621_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07157516479492}
+TIMING step72_GT_C1_commit 12.347
+TIMING step72_forward 7.109
+TIMING step72_backward 1.753
+TIMING step72_optimizer 0.001
+UPDATE {'step': 72, 'sigma': 0.7175153493881226, 'loss': 0.10609473288059235, 'grad_l2': 0.0008585496689192951, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1380_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07157516479492}
+TIMING step73_GT_C1_commit 11.128
+TIMING step73_forward 6.546
+TIMING step73_backward 1.718
+TIMING step73_optimizer 0.001
+UPDATE {'step': 73, 'sigma': 0.3424878716468811, 'loss': 0.16055728495121002, 'grad_l2': 0.0008910011383704841, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0966_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07158660888672}
+TIMING step74_GT_C1_commit 12.906
+TIMING step74_forward 6.193
+TIMING step74_backward 1.986
+TIMING step74_optimizer 0.001
+UPDATE {'step': 74, 'sigma': 0.28209102153778076, 'loss': 0.23317839205265045, 'grad_l2': 0.0010949107818305492, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1245_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071590423583984}
+TIMING step75_GT_C1_commit 11.355
+TIMING step75_forward 6.756
+TIMING step75_backward 1.652
+TIMING step75_optimizer 0.001
+UPDATE {'step': 75, 'sigma': 0.9928034543991089, 'loss': 0.11567801982164383, 'grad_l2': 0.005158835556358099, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1104_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071598052978516}
+TIMING step76_GT_C1_commit 9.506
+TIMING step76_forward 5.797
+TIMING step76_backward 1.643
+TIMING step76_optimizer 0.001
+UPDATE {'step': 76, 'sigma': 0.2299351692199707, 'loss': 0.20269626379013062, 'grad_l2': 0.0015831170603632927, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0414_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071617126464844}
+TIMING step77_GT_C1_commit 9.874
+TIMING step77_forward 6.166
+TIMING step77_backward 1.763
+TIMING step77_optimizer 0.001
+UPDATE {'step': 77, 'sigma': 0.8894658088684082, 'loss': 0.10439284145832062, 'grad_l2': 0.002793726045638323, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071624755859375}
+TIMING step78_GT_C1_commit 9.738
+TIMING step78_forward 6.031
+TIMING step78_backward 1.764
+TIMING step78_optimizer 0.001
+UPDATE {'step': 78, 'sigma': 0.5513318777084351, 'loss': 0.12219230830669403, 'grad_l2': 0.0007709153578616679, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0828_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07162857055664}
+TIMING step79_GT_C1_commit 9.948
+TIMING step79_forward 6.435
+TIMING step79_backward 1.737
+TIMING step79_optimizer 0.001
+UPDATE {'step': 79, 'sigma': 0.2142801284790039, 'loss': 0.26757216453552246, 'grad_l2': 0.0017030416056513786, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0276_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07163619995117}
+TIMING step80_GT_C1_commit 11.013
+TIMING step80_forward 6.903
+TIMING step80_backward 1.694
+TIMING step80_optimizer 0.001
+UPDATE {'step': 80, 'sigma': 0.3955047130584717, 'loss': 0.18645672500133514, 'grad_l2': 0.0009839287959039211, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.071659088134766}
+TIMING step81_GT_C1_commit 10.924
+TIMING step81_forward 6.494
+TIMING step81_backward 1.749
+TIMING step81_optimizer 0.001
+UPDATE {'step': 81, 'sigma': 0.5792704224586487, 'loss': 0.11937079578638077, 'grad_l2': 0.0008157138363458216, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1311_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.0716667175293}
+TIMING step82_GT_C1_commit 9.648
+TIMING step82_forward 6.018
+TIMING step82_backward 1.756
+TIMING step82_optimizer 0.001
+UPDATE {'step': 82, 'sigma': 0.7751298546791077, 'loss': 0.0971873328089714, 'grad_l2': 0.0011917215306311846, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0897_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.07167434692383}
+TIMING step83_GT_C1_commit 9.818
+TIMING step83_forward 6.383
+TIMING step83_backward 1.744
+TIMING step83_optimizer 0.001
+UPDATE {'step': 83, 'sigma': 0.6485207676887512, 'loss': 0.08949464559555054, 'grad_l2': 0.000798824243247509, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1656_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.053810119628906}
+TIMING step84_GT_C1_commit 11.106
+TIMING step84_forward 6.06
+TIMING step84_backward 1.666
+TIMING step84_optimizer 0.001
+UPDATE {'step': 84, 'sigma': 0.07370537519454956, 'loss': 0.5156295895576477, 'grad_l2': 0.006529449485242367, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.057167053222656}
+TIMING step85_GT_C1_commit 9.782
+TIMING step85_forward 6.533
+TIMING step85_backward 1.745
+TIMING step85_optimizer 0.001
+UPDATE {'step': 85, 'sigma': 0.11960488557815552, 'loss': 0.4711518883705139, 'grad_l2': 0.0052383067086339, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.0588493347168}
+TIMING step86_GT_C1_commit 11.18
+TIMING step86_forward 6.852
+TIMING step86_backward 1.684
+TIMING step86_optimizer 0.001
+UPDATE {'step': 86, 'sigma': 0.10797333717346191, 'loss': 0.4004211723804474, 'grad_l2': 0.006628654431551695, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.062198638916016}
+TIMING step87_GT_C1_commit 11.773
+TIMING step87_forward 6.815
+TIMING step87_backward 1.693
+TIMING step87_optimizer 0.001
+UPDATE {'step': 87, 'sigma': 0.44544804096221924, 'loss': 0.1338372826576233, 'grad_l2': 0.0007617327501066029, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0207_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06222152709961}
+TIMING step88_GT_C1_commit 10.992
+TIMING step88_forward 5.984
+TIMING step88_backward 1.759
+TIMING step88_optimizer 0.001
+UPDATE {'step': 88, 'sigma': 0.9526364207267761, 'loss': 0.06870952248573303, 'grad_l2': 0.007129141129553318, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0138_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06222915649414}
+TIMING step89_GT_C1_commit 9.809
+TIMING step89_forward 6.415
+TIMING step89_backward 1.862
+TIMING step89_optimizer 0.001
+UPDATE {'step': 89, 'sigma': 0.7555514574050903, 'loss': 0.07683756202459335, 'grad_l2': 0.001473570941016078, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1725_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.062232971191406}
+TIMING step90_GT_C1_commit 10.387
+TIMING step90_forward 6.827
+TIMING step90_backward 1.867
+TIMING step90_optimizer 0.001
+UPDATE {'step': 90, 'sigma': 0.5630925297737122, 'loss': 0.11822827160358429, 'grad_l2': 0.0007763209869153798, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06224060058594}
+TIMING step91_GT_C1_commit 11.842
+TIMING step91_forward 7.53
+TIMING step91_backward 1.87
+TIMING step91_optimizer 0.001
+UPDATE {'step': 91, 'sigma': 0.24904370307922363, 'loss': 0.17610953748226166, 'grad_l2': 0.001363203627988696, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0690_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06224822998047}
+TIMING step92_GT_C1_commit 11.723
+TIMING step92_forward 9.133
+TIMING step92_backward 2.211
+TIMING step92_optimizer 0.002
+UPDATE {'step': 92, 'sigma': 0.6923083662986755, 'loss': 0.13614057004451752, 'grad_l2': 0.0009050958324223757, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0690_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.062255859375}
+TIMING step93_GT_C1_commit 11.319
+TIMING step93_forward 7.41
+TIMING step93_backward 1.761
+TIMING step93_optimizer 0.001
+UPDATE {'step': 93, 'sigma': 0.8434386253356934, 'loss': 0.07841502875089645, 'grad_l2': 0.002448044950142503, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1410_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.062259674072266}
+TIMING step94_GT_C1_commit 11.33
+TIMING step94_forward 8.23
+TIMING step94_backward 2.02
+TIMING step94_optimizer 0.001
+UPDATE {'step': 94, 'sigma': 0.490134060382843, 'loss': 0.08105219155550003, 'grad_l2': 0.0008286522352136672, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1173_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.065616607666016}
+TIMING step95_GT_C1_commit 10.668
+TIMING step95_forward 7.094
+TIMING step95_backward 1.705
+TIMING step95_optimizer 0.001
+UPDATE {'step': 95, 'sigma': 0.6765686273574829, 'loss': 0.05628563091158867, 'grad_l2': 0.000857860897667706, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1449_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06562042236328}
+TIMING step96_GT_C1_commit 9.988
+TIMING step96_forward 6.306
+TIMING step96_backward 1.71
+TIMING step96_optimizer 0.001
+UPDATE {'step': 96, 'sigma': 0.2790418267250061, 'loss': 0.26716721057891846, 'grad_l2': 0.0012294972548261285, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.067298889160156}
+TIMING step97_GT_C1_commit 10.821
+TIMING step97_forward 7.237
+TIMING step97_backward 1.704
+TIMING step97_optimizer 0.001
+UPDATE {'step': 97, 'sigma': 0.05686807632446289, 'loss': 0.5531293153762817, 'grad_l2': 0.00545899011194706, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0207_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06731033325195}
+TIMING step98_GT_C1_commit 10.743
+TIMING step98_forward 6.441
+TIMING step98_backward 1.731
+TIMING step98_optimizer 0.001
+UPDATE {'step': 98, 'sigma': 0.06083601713180542, 'loss': 0.4957565367221832, 'grad_l2': 0.006060115527361631, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1725_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06731414794922}
+TIMING step99_GT_C1_commit 11.149
+TIMING step99_forward 7.355
+TIMING step99_backward 1.644
+TIMING step99_optimizer 0.001
+UPDATE {'step': 99, 'sigma': 0.10640650987625122, 'loss': 0.39761781692504883, 'grad_l2': 0.005994505248963833, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1104_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06733703613281}
+TIMING step100_GT_C1_commit 11.89
+TIMING step100_forward 7.508
+TIMING step100_backward 1.708
+TIMING step100_optimizer 0.001
+UPDATE {'step': 100, 'sigma': 0.15667760372161865, 'loss': 0.21942554414272308, 'grad_l2': 0.002968675922602415, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1173_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.067344665527344}
+TIMING step101_GT_C1_commit 10.257
+TIMING step101_forward 6.665
+TIMING step101_backward 1.704
+TIMING step101_optimizer 0.001
+UPDATE {'step': 101, 'sigma': 0.6664623022079468, 'loss': 0.10481438785791397, 'grad_l2': 0.0009768762392923236, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0207_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06734848022461}
+TIMING step102_GT_C1_commit 10.881
+TIMING step102_forward 6.921
+TIMING step102_backward 2.009
+TIMING step102_optimizer 0.001
+UPDATE {'step': 102, 'sigma': 0.35630255937576294, 'loss': 0.19682295620441437, 'grad_l2': 0.0010426725493744016, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1245_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06737518310547}
+TIMING step103_GT_C1_commit 10.894
+TIMING step103_forward 6.829
+TIMING step103_backward 1.783
+TIMING step103_optimizer 0.001
+UPDATE {'step': 103, 'sigma': 0.9352777600288391, 'loss': 0.0939093604683876, 'grad_l2': 0.0028727464377880096, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1173_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.0673942565918}
+TIMING step104_GT_C1_commit 11.463
+TIMING step104_forward 7.375
+TIMING step104_backward 1.792
+TIMING step104_optimizer 0.001
+UPDATE {'step': 104, 'sigma': 0.4929924011230469, 'loss': 0.10105478763580322, 'grad_l2': 0.0009789678733795881, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src1410_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06739807128906}
+TIMING step105_GT_C1_commit 11.119
+TIMING step105_forward 7.921
+TIMING step105_backward 1.741
+TIMING step105_optimizer 0.001
+UPDATE {'step': 105, 'sigma': 0.14004039764404297, 'loss': 0.42311614751815796, 'grad_l2': 0.003545072628185153, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0690_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.067405700683594}
+TIMING step106_GT_C1_commit 10.682
+TIMING step106_forward 6.877
+TIMING step106_backward 1.749
+TIMING step106_optimizer 0.001
+UPDATE {'step': 106, 'sigma': 0.23822015523910522, 'loss': 0.18005312979221344, 'grad_l2': 0.0015788745367899537, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0966_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.067413330078125}
+TIMING step107_GT_C1_commit 10.092
+TIMING step107_forward 6.449
+TIMING step107_backward 1.755
+TIMING step107_optimizer 0.001
+UPDATE {'step': 107, 'sigma': 0.42540866136550903, 'loss': 0.16291138529777527, 'grad_l2': 0.0010300091234967113, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06741714477539}
+TIMING step108_GT_C1_commit 10.36
+TIMING step108_forward 6.355
+TIMING step108_backward 1.748
+TIMING step108_optimizer 0.001
+UPDATE {'step': 108, 'sigma': 0.6845089793205261, 'loss': 0.06975909322500229, 'grad_l2': 0.0013463067589327693, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0138_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06742477416992}
+TIMING step109_GT_C1_commit 10.319
+TIMING step109_forward 6.665
+TIMING step109_backward 1.694
+TIMING step109_optimizer 0.001
+UPDATE {'step': 109, 'sigma': 0.043654441833496094, 'loss': 0.7181860208511353, 'grad_l2': 0.004321383778005838, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0897_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.054046630859375}
+TIMING step110_GT_C1_commit 10.947
+TIMING step110_forward 6.003
+TIMING step110_backward 1.676
+TIMING step110_optimizer 0.001
+UPDATE {'step': 110, 'sigma': 0.03167921304702759, 'loss': 0.6883533596992493, 'grad_l2': 0.0036724121309816837, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0483_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.05741500854492}
+TIMING step111_GT_C1_commit 9.333
+TIMING step111_forward 5.364
+TIMING step111_backward 1.612
+TIMING step111_optimizer 0.001
+UPDATE {'step': 111, 'sigma': 0.40761542320251465, 'loss': 0.1769653707742691, 'grad_l2': 0.0014490088215097785, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.05741882324219}
+TIMING step112_GT_C1_commit 10.029
+TIMING step112_forward 6.942
+TIMING step112_backward 1.593
+TIMING step112_optimizer 0.001
+UPDATE {'step': 112, 'sigma': 0.7523014545440674, 'loss': 0.10341137647628784, 'grad_l2': 0.0013343964237719774, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.05742263793945}
+TIMING step113_GT_C1_commit 10.114
+TIMING step113_forward 6.326
+TIMING step113_backward 1.701
+TIMING step113_optimizer 0.001
+UPDATE {'step': 113, 'sigma': 0.13943088054656982, 'loss': 0.3020752966403961, 'grad_l2': 0.004711201414465904, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0966_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06077575683594}
+TIMING step114_GT_C1_commit 10.994
+TIMING step114_forward 6.346
+TIMING step114_backward 1.627
+TIMING step114_optimizer 0.001
+UPDATE {'step': 114, 'sigma': 0.7570886015892029, 'loss': 0.08202986419200897, 'grad_l2': 0.0012240336509421468, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0828_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06078338623047}
+TIMING step115_GT_C1_commit 11.082
+TIMING step115_forward 6.959
+TIMING step115_backward 1.717
+TIMING step115_optimizer 0.001
+UPDATE {'step': 115, 'sigma': 0.5029685497283936, 'loss': 0.1930195391178131, 'grad_l2': 0.0011114804074168205, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0276_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.060791015625}
+TIMING step116_GT_C1_commit 10.36
+TIMING step116_forward 6.467
+TIMING step116_backward 1.683
+TIMING step116_optimizer 0.001
+UPDATE {'step': 116, 'sigma': 0.5576795339584351, 'loss': 0.16530771553516388, 'grad_l2': 0.0014842409873381257, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06079864501953}
+TIMING step117_GT_C1_commit 10.204
+TIMING step117_forward 6.998
+TIMING step117_backward 1.724
+TIMING step117_optimizer 0.001
+UPDATE {'step': 117, 'sigma': 0.6857414841651917, 'loss': 0.05461132526397705, 'grad_l2': 0.0010720802238211036, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0690_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.063385009765625}
+TIMING step118_GT_C1_commit 10.402
+TIMING step118_forward 7.324
+TIMING step118_backward 1.74
+TIMING step118_optimizer 0.001
+UPDATE {'step': 118, 'sigma': 0.44225239753723145, 'loss': 0.1116844043135643, 'grad_l2': 0.001208399306051433, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0621_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.065067291259766}
+TIMING step119_GT_C1_commit 12.164
+TIMING step119_forward 6.689
+TIMING step119_backward 1.745
+TIMING step119_optimizer 0.001
+UPDATE {'step': 119, 'sigma': 0.2285524606704712, 'loss': 0.25713470578193665, 'grad_l2': 0.001577338669449091, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0276_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06507110595703}
+TIMING step120_GT_C1_commit 13.458
+TIMING step120_forward 7.847
+TIMING step120_backward 1.923
+TIMING step120_optimizer 0.001
+UPDATE {'step': 120, 'sigma': 0.947704553604126, 'loss': 0.09532284736633301, 'grad_l2': 0.004016862250864506, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src1380_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06507873535156}
+TIMING step121_GT_C1_commit 11.215
+TIMING step121_forward 6.608
+TIMING step121_backward 1.707
+TIMING step121_optimizer 0.001
+UPDATE {'step': 121, 'sigma': 0.14336717128753662, 'loss': 0.3442992568016052, 'grad_l2': 0.004206258803606033, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1656_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06509017944336}
+TIMING step122_GT_C1_commit 11.87
+TIMING step122_forward 6.845
+TIMING step122_backward 1.769
+TIMING step122_optimizer 0.001
+UPDATE {'step': 122, 'sigma': 0.793496310710907, 'loss': 0.07663898915052414, 'grad_l2': 0.0013054742012172937, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src1311_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06511306762695}
+TIMING step123_GT_C1_commit 12.283
+TIMING step123_forward 6.688
+TIMING step123_backward 2.22
+TIMING step123_optimizer 0.001
+UPDATE {'step': 123, 'sigma': 0.5219020247459412, 'loss': 0.0973266139626503, 'grad_l2': 0.0012199592310935259, 'clip_id': '7199292ca430b478bfd0d83cf2e519d8_src0414_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.065120697021484}
+TIMING step124_GT_C1_commit 11.762
+TIMING step124_forward 9.756
+TIMING step124_backward 2.095
+TIMING step124_optimizer 0.002
+UPDATE {'step': 124, 'sigma': 0.3680949807167053, 'loss': 0.16945970058441162, 'grad_l2': 0.0012930482625961304, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.065128326416016}
+TIMING step125_GT_C1_commit 10.077
+TIMING step125_forward 6.071
+TIMING step125_backward 1.743
+TIMING step125_optimizer 0.001
+UPDATE {'step': 125, 'sigma': 0.917323887348175, 'loss': 0.057087935507297516, 'grad_l2': 0.004542023874819279, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src1449_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06513595581055}
+TIMING step126_GT_C1_commit 9.879
+TIMING step126_forward 6.605
+TIMING step126_backward 1.703
+TIMING step126_optimizer 0.001
+UPDATE {'step': 126, 'sigma': 0.9302530884742737, 'loss': 0.0830141231417656, 'grad_l2': 0.0034089158289134502, 'clip_id': 'b784d995827f53977a8067e5b9dc4b5e_src0483_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06515884399414}
+TIMING step127_GT_C1_commit 11.22
+TIMING step127_forward 7.297
+TIMING step127_backward 1.775
+TIMING step127_optimizer 0.001
+UPDATE {'step': 127, 'sigma': 0.265422523021698, 'loss': 0.20880204439163208, 'grad_l2': 0.0012363855494186282, 'clip_id': '9dc2e5882a294b8d68d6b2b31ff3ef65_src0000_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06516647338867}
+TIMING step128_GT_C1_commit 12.668
+TIMING step128_forward 8.098
+TIMING step128_backward 1.811
+TIMING step128_optimizer 0.001
+UPDATE {'step': 128, 'sigma': 0.07075780630111694, 'loss': 0.48708778619766235, 'grad_l2': 0.0065343063324689865, 'clip_id': '43866101158a538d22c52ac5b2fa606b_src0621_rgb56', 'cpu_kv_bytes': 6799104000, 'peak_allocated_gib': 24.539616107940674, 'rss_gib': 54.06517028808594}
+COMPLETE train_retry {'dit': 256, 'backward': 128, 'update': 128, 'vae_encode': 0, 'vae_decode': 0, 'text': 0}

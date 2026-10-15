@@ -1,0 +1,168 @@
+{
+  "task": "EXP-023/v1",
+  "phase": "eval_pre_retry",
+  "status": "FAILED_STOPPED",
+  "gpu": 0,
+  "wall_seconds": 81.93666345003294,
+  "gpu_seconds_total": 2117.528620048077,
+  "counts": {
+    "dit": 9,
+    "backward": 0,
+    "update": 0,
+    "vae_encode": 0,
+    "vae_decode": 1,
+    "text": 0
+  },
+  "cumulative_counts": {
+    "dit": 22,
+    "backward": 0,
+    "update": 0,
+    "vae_encode": 70,
+    "vae_decode": 2,
+    "text": 151
+  },
+  "limits": {
+    "phase_seconds": 1800,
+    "total_seconds": 13800,
+    "allocated_gib": 44,
+    "dit": 440,
+    "backward": 128,
+    "update": 128,
+    "vae_encode": 70,
+    "vae_decode": 13,
+    "text": 600
+  },
+  "peak_allocated_gib": 24.40604257583618,
+  "peak_reserved_gib": 28.1015625,
+  "rss_gib": 73.3570327758789,
+  "events": [
+    {
+      "kind": "timing",
+      "name": "load_model",
+      "seconds": 5.910382866975851,
+      "elapsed": 6.320221799018327,
+      "rss_gib": 6.417881011962891
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C1_commit",
+      "elapsed": 6.9176782660069875
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C1_commit",
+      "seconds": 17.531975287012756,
+      "elapsed": 24.45128784404369,
+      "rss_gib": 53.90934371948242
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE1",
+      "elapsed": 24.516129722003825
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE1",
+      "seconds": 4.958239152969327,
+      "elapsed": 29.47583443298936,
+      "rss_gib": 53.910945892333984
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE2",
+      "elapsed": 29.521809338009916
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE2",
+      "seconds": 4.688665052992292,
+      "elapsed": 34.22602881700732,
+      "rss_gib": 53.91582107543945
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE3",
+      "elapsed": 34.22782502998598
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE3",
+      "seconds": 5.193608722998761,
+      "elapsed": 39.42252731398912,
+      "rss_gib": 53.9159049987793
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE4",
+      "elapsed": 39.424319571000524
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE4",
+      "seconds": 4.8367651120061055,
+      "elapsed": 44.263697112037335,
+      "rss_gib": 53.91594314575195
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE5",
+      "elapsed": 44.26644222799223
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE5",
+      "seconds": 4.894253100967035,
+      "elapsed": 49.16215865302365,
+      "rss_gib": 53.91596603393555
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE6",
+      "elapsed": 49.16397330502514
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE6",
+      "seconds": 4.844810935028363,
+      "elapsed": 54.00983577599982,
+      "rss_gib": 53.91600799560547
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE7",
+      "elapsed": 54.01164647098631
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE7",
+      "seconds": 4.511947495979257,
+      "elapsed": 58.52467691100901,
+      "rss_gib": 53.916019439697266
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE8",
+      "elapsed": 58.526388047030196
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE8",
+      "seconds": 4.995681689004414,
+      "elapsed": 63.52316800301196,
+      "rss_gib": 53.91603469848633
+    },
+    {
+      "kind": "vae_decode",
+      "note": "train_constant_GT",
+      "elapsed": 76.65411252499325
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_decode",
+      "seconds": 5.276145190000534,
+      "elapsed": 81.93198113900144,
+      "rss_gib": 73.35554504394531
+    }
+  ],
+  "error": "TypeError('Got unsupported ScalarType BFloat16')"
+}

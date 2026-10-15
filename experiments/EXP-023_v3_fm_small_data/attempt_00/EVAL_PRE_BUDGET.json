@@ -1,0 +1,216 @@
+{
+  "task": "EXP-023/v1",
+  "phase": "eval_pre",
+  "status": "FAILED_STOPPED",
+  "gpu": 0,
+  "wall_seconds": 301.0642068160232,
+  "gpu_seconds_total": 2035.591956598044,
+  "counts": {
+    "dit": 13,
+    "backward": 0,
+    "update": 0,
+    "vae_encode": 0,
+    "vae_decode": 1,
+    "text": 0
+  },
+  "cumulative_counts": {
+    "dit": 13,
+    "backward": 0,
+    "update": 0,
+    "vae_encode": 70,
+    "vae_decode": 1,
+    "text": 151
+  },
+  "limits": {
+    "phase_seconds": 1800,
+    "total_seconds": 13800,
+    "allocated_gib": 44,
+    "dit": 440,
+    "backward": 128,
+    "update": 128,
+    "vae_encode": 70,
+    "vae_decode": 12,
+    "text": 600
+  },
+  "peak_allocated_gib": 24.414999961853027,
+  "peak_reserved_gib": 28.068359375,
+  "rss_gib": 73.8178596496582,
+  "events": [
+    {
+      "kind": "timing",
+      "name": "load_model",
+      "seconds": 16.254366137029137,
+      "elapsed": 16.724126350018196,
+      "rss_gib": 6.417938232421875
+    },
+    {
+      "kind": "dit",
+      "note": "entry_frozen_C1",
+      "elapsed": 17.082884525996633
+    },
+    {
+      "kind": "timing",
+      "name": "entry_frozen_C1",
+      "seconds": 184.52619639103068,
+      "elapsed": 201.61075027100742,
+      "rss_gib": 53.869049072265625
+    },
+    {
+      "kind": "dit",
+      "note": "entry_frozen_C2",
+      "elapsed": 201.61219077103306
+    },
+    {
+      "kind": "timing",
+      "name": "entry_frozen_C2",
+      "seconds": 5.016385444032494,
+      "elapsed": 206.62964260502486,
+      "rss_gib": 53.87028503417969
+    },
+    {
+      "kind": "dit",
+      "note": "entry_exp023_C1",
+      "elapsed": 206.6317416120437
+    },
+    {
+      "kind": "timing",
+      "name": "entry_exp023_C1",
+      "seconds": 9.84435296204174,
+      "elapsed": 216.477182836039,
+      "rss_gib": 60.20360565185547
+    },
+    {
+      "kind": "dit",
+      "note": "entry_exp023_C2",
+      "elapsed": 216.4786745030433
+    },
+    {
+      "kind": "timing",
+      "name": "entry_exp023_C2",
+      "seconds": 4.89799414598383,
+      "elapsed": 221.37787427799776,
+      "rss_gib": 60.20393753051758
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C1_commit",
+      "elapsed": 225.34274744801223
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C1_commit",
+      "seconds": 9.935920513991732,
+      "elapsed": 235.2808612100198,
+      "rss_gib": 54.0506591796875
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE1",
+      "elapsed": 235.3716020230204
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE1",
+      "seconds": 4.840366463002283,
+      "elapsed": 240.21446518000448,
+      "rss_gib": 54.05069351196289
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE2",
+      "elapsed": 240.21854540903587
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE2",
+      "seconds": 5.158165867032949,
+      "elapsed": 245.38788400101475,
+      "rss_gib": 54.05152893066406
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE3",
+      "elapsed": 245.39016559300944
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE3",
+      "seconds": 5.908502027974464,
+      "elapsed": 251.30002501700073,
+      "rss_gib": 54.051544189453125
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE4",
+      "elapsed": 251.30222837103065
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE4",
+      "seconds": 5.689472705998924,
+      "elapsed": 256.99310331000015,
+      "rss_gib": 54.05156707763672
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE5",
+      "elapsed": 256.9951675860211
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE5",
+      "seconds": 5.584565662022214,
+      "elapsed": 262.6018669010373,
+      "rss_gib": 54.05157470703125
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE6",
+      "elapsed": 262.60379497299436
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE6",
+      "seconds": 6.271043983986601,
+      "elapsed": 268.87598693801556,
+      "rss_gib": 54.05157470703125
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE7",
+      "elapsed": 268.8778731269995
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE7",
+      "seconds": 5.3635310680256225,
+      "elapsed": 274.24257825501263,
+      "rss_gib": 54.05157470703125
+    },
+    {
+      "kind": "dit",
+      "note": "train_constant_GT_C2_NFE8",
+      "elapsed": 274.2445553300204
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_C2_NFE8",
+      "seconds": 5.875522203976288,
+      "elapsed": 280.1212636330165,
+      "rss_gib": 54.05157470703125
+    },
+    {
+      "kind": "vae_decode",
+      "note": "train_constant_GT",
+      "elapsed": 295.51272302900907
+    },
+    {
+      "kind": "timing",
+      "name": "train_constant_GT_decode",
+      "seconds": 5.52851426001871,
+      "elapsed": 301.04319984203903,
+      "rss_gib": 73.81785583496094
+    }
+  ],
+  "error": "FileNotFoundError(2, 'No such file or directory')"
+}

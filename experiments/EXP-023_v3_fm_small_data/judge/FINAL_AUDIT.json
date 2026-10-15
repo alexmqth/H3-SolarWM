@@ -1,0 +1,258 @@
+{
+  "status": "PASS_CPU_EVIDENCE_RECONCILIATION",
+  "checkpoint128_sha256": "735b2dc04f5c8ca6f581d142220db7f74eeed74443503c94880a325f3128bcde",
+  "updates": 128,
+  "training_clips": 32,
+  "passes_per_clip": 4,
+  "checkpoint_order_matches": true,
+  "finite_parameters_and_positive_recorded_gradients": true,
+  "optimizer_state_items": 16,
+  "recovery_manifest_files_verified": 47,
+  "budget_counts": {
+    "dit": 444,
+    "backward": 128,
+    "update": 128,
+    "vae_encode": 70,
+    "vae_decode": 14,
+    "text": 151
+  },
+  "gpu_process_seconds_sum": 6222.051029673079,
+  "dit_note": "444 budget reservations includes one failed C2 entry before model execution; not 444 successful forwards",
+  "videos": [
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/paired_gallery/train_constant_gt_history_source_vs_0_vs_128.mp4",
+      "sha256": "7aeea7eec5a991190ef18e5c7cc5eaa4c7793111399d877e3ba8f322c49a0540",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        2496,
+        540
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_before/train_constant_GT39_generated17.mp4",
+      "sha256": "9843e65f9b2d0185bc3b7cf2aa1bed79477ec6ca46ed3f967b6221e2274efebb",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_after/train_constant_GT39_generated17.mp4",
+      "sha256": "a4518407c78a6dbf5e3eed8f47b144efc120ba6e6238c93da7531967a630caa0",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/paired_gallery/train_switch_gt_history_source_vs_0_vs_128.mp4",
+      "sha256": "ad0d5aed5dfc20756658afd704cf008122ea21a6dc16e0f3645e6828d027a61b",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        2496,
+        540
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_before/train_switch_GT39_generated17.mp4",
+      "sha256": "d3074649884cad377b077c006b5df26e7ecf229c43461ee71951d66422cbb630",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_after/train_switch_GT39_generated17.mp4",
+      "sha256": "34c55086b181c35a41cbbd94e35b85217a09666b63ce5ee0553cffbe714a4c98",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/paired_gallery/dev_constant_gt_history_source_vs_0_vs_128.mp4",
+      "sha256": "229fe02f8ac1871a3812e1a5e0edbf6a3e3f544c4fda6b3de1d5506229e44b31",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        2496,
+        540
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_before/dev_constant_GT39_generated17.mp4",
+      "sha256": "115096f0cfe4275cd56f7420ee11b8bb593865b47ab8aaca23923ae94b482f59",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_after/dev_constant_GT39_generated17.mp4",
+      "sha256": "920b9c9c799276c1b748b7b3362d4a359fb60c74df9036034d5ebc9a5808b830",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/paired_gallery/dev_switch_gt_history_source_vs_0_vs_128.mp4",
+      "sha256": "2f610b26f4036ec2726d2daa25c87ce22a5b81c6092f83c1e7cd4d816405e50f",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        2496,
+        540
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_before/dev_switch_GT39_generated17.mp4",
+      "sha256": "ad21b6f31e3821b77babd80c23e064e096fdf854f4c03a5b2afef419d237c52e",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_after/dev_switch_GT39_generated17.mp4",
+      "sha256": "8bac4481be867e87c078200538830492d4ae25f2d4486b54b02f27d5c1cf6ca4",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/paired_gallery/dev_constant_self_history_source_vs_0_vs_128.mp4",
+      "sha256": "e79f6094849f320810f82f5340a6d1424820f8d840e346a23ee4aaae93ab46a6",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        2496,
+        540
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_before/dev_constant_self56.mp4",
+      "sha256": "448fd559f23acd9a8de540114d4dedd0d3ecb1c93ce551fad06262db5f7e501a",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_after/dev_constant_self56.mp4",
+      "sha256": "61dda3933776383d90fbdc4731f2eb010adb74dffeda1c204242e0730d8c382a",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/paired_gallery/dev_switch_self_history_source_vs_0_vs_128.mp4",
+      "sha256": "2a68da91a2da849865d8f3acbbf266e6db873b6e548966ee386bf8227c32997d",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        2496,
+        540
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_before/dev_switch_self56.mp4",
+      "sha256": "8c89e0131a505cb3a079bf36097573eb309b3a633861d60988539667ebda6bb6",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    },
+    {
+      "path": "submission/experiments/EXP-023_v3_fm_small_data/eval_after/dev_switch_self56.mp4",
+      "sha256": "9a4d726fa40b2ef077fed8b1e9c635f381b5f692c528740c637741b1a4fe3baa",
+      "frames": 56,
+      "fps": 24,
+      "dimensions": [
+        832,
+        480
+      ],
+      "pts_uniform": true
+    }
+  ],
+  "visual_review_sheets": [
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/train_constant_gt_history_source_vs_0_vs_128_page0.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/train_constant_gt_history_source_vs_0_vs_128_page1.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/train_constant_gt_history_source_vs_0_vs_128_page2.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/train_switch_gt_history_source_vs_0_vs_128_page0.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/train_switch_gt_history_source_vs_0_vs_128_page1.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/train_switch_gt_history_source_vs_0_vs_128_page2.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_constant_gt_history_source_vs_0_vs_128_page0.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_constant_gt_history_source_vs_0_vs_128_page1.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_constant_gt_history_source_vs_0_vs_128_page2.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_switch_gt_history_source_vs_0_vs_128_page0.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_switch_gt_history_source_vs_0_vs_128_page1.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_switch_gt_history_source_vs_0_vs_128_page2.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_constant_self_history_source_vs_0_vs_128_page0.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_constant_self_history_source_vs_0_vs_128_page1.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_constant_self_history_source_vs_0_vs_128_page2.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_constant_self_history_source_vs_0_vs_128_page3.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_constant_self_history_source_vs_0_vs_128_page4.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_constant_self_history_source_vs_0_vs_128_page5.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_constant_self_history_source_vs_0_vs_128_page6.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_switch_self_history_source_vs_0_vs_128_page0.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_switch_self_history_source_vs_0_vs_128_page1.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_switch_self_history_source_vs_0_vs_128_page2.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_switch_self_history_source_vs_0_vs_128_page3.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_switch_self_history_source_vs_0_vs_128_page4.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_switch_self_history_source_vs_0_vs_128_page5.jpg",
+    "submission/experiments/EXP-023_v3_fm_small_data/judge/dev_switch_self_history_source_vs_0_vs_128_page6.jpg"
+  ],
+  "probe_mse_before": 0.1542203575372696,
+  "probe_mse_after": 0.15232249349355698,
+  "ratio_of_means_change_pct": -1.2306183658366665,
+  "mean_of_individual_relative_changes_pct": -1.3436621670359263,
+  "limitations": [
+    "No new GPU calls",
+    "Cache first-backward invariant checked by recorded signature, not fresh all-byte tensor comparison",
+    "Decoded all video frames; visual verdict is separate"
+  ]
+}

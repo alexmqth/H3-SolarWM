@@ -1,0 +1,88 @@
+--- submission/experiments/EXP-023_v3_fm_small_data/attempt_01/fm_run.py	2026-10-15 18:34:02.520150121 +0800
++++ submission/experiments/EXP-023_v3_fm_small_data/fm_run.py	2026-10-15 18:34:18.270113179 +0800
+@@ -428,15 +428,10 @@
+     return rows
+ 
+ 
+-def save_video(frames,path):
+-    import av
+-    import imageio_ffmpeg
++def persist_rgb(frames,path):
+     import numpy as np
+-    if path.exists(): raise FileExistsError(path)
+-    executable=Path(imageio_ffmpeg.get_ffmpeg_exe()).resolve()
+-    assert executable.is_file()
+-    # Keep recoverable decoded pixels before any codec call. A failed MP4 write
+-    # must never force another 33B sample or VAE decode.
++    # Called immediately after VAE decode, before identity serialization.
++    # Any later CPU failure must leave a recoverable 56-frame array.
+     raw=path.with_suffix(".rgb.npy")
+     if raw.exists():
+         assert np.array_equal(np.load(raw),frames)
+@@ -445,6 +440,34 @@
+         if raw_tmp.exists():raise FileExistsError(raw_tmp)
+         with raw_tmp.open("wb") as stream: np.save(stream,np.ascontiguousarray(frames))
+         raw_tmp.replace(raw)
++    return raw
++
++
++def tensor_sha(value):
++    import torch
++    x=value.detach().cpu().contiguous()
++    digest=hashlib.sha256(str((tuple(x.shape),str(x.dtype))).encode())
++    digest.update(x.view(torch.uint8).numpy().tobytes())
++    return digest.hexdigest()
++
++
++def video_identity(data,role,phase,history):
++    return dict(clip_id=data["f"]["clip_id"],role=role,history=history,
++       checkpoint=(0 if phase=="eval_pre" else 128),nfe_per_chunk=8,seed=13,
++       condition_sha256=data["record"]["condition"]["sha256"],
++       source_video_sha256=data["record"]["source_video_sha256"],
++       action_script_sha256=data["record"]["action_script_sha256"],
++       initial_noise_sha256=tensor_sha(data["f"]["initial_noise"]))
++
++
++def save_video(frames,path):
++    import av
++    import imageio_ffmpeg
++    import numpy as np
++    if path.exists(): raise FileExistsError(path)
++    executable=Path(imageio_ffmpeg.get_ffmpeg_exe()).resolve()
++    assert executable.is_file()
++    raw=persist_rgb(frames,path)
+     h,w=frames.shape[1:3]
+     temp=path.with_suffix(".partial.mp4")
+     if temp.exists():raise FileExistsError(temp)
+@@ -534,12 +557,9 @@
+         frames=decode(pipe,torch.cat([history,x],dim=2),budget,role+"_GT")
+         frames[:39]=source[:39]
+         path=outdir/f"{role}_GT39_generated17.mp4"
+-        write(path.with_suffix(".identity.json"),dict(clip_id=clip,role=role,
+-             history="GT first39 displayed and committed",checkpoint=(0 if phase=="eval_pre" else 128),
+-             nfe_per_chunk=8,seed=13,condition_sha256=data["record"]["condition"]["sha256"],
+-             source_video_sha256=data["record"]["source_video_sha256"],
+-             action_script_sha256=data["record"]["action_script_sha256"],
+-             initial_noise_sha256=hashlib.sha256(data["f"]["initial_noise"].numpy().tobytes()).hexdigest()))
++        persist_rgb(frames,path)
++        write(path.with_suffix(".identity.json"),video_identity(data,role,phase,
++              "GT first39 displayed and committed"))
+         save_video(frames,path)
+         row=dict(role=role,clip_id=clip,history="GT first39 displayed and committed",
+                  nfe_per_chunk=8,video=str(path.relative_to(ROOT)),sha256=sha(path),
+@@ -559,12 +579,9 @@
+         c2,s2=sample_chunk(pipe,model,data,cache,1,budget,role+"_SELF")
+         frames=decode(pipe,torch.cat([c1,c2],dim=2),budget,role+"_SELF")
+         path=outdir/f"{role}_self56.mp4"
+-        write(path.with_suffix(".identity.json"),dict(clip_id=clip,role=role,
+-             history="self-generated C1 and C2",checkpoint=(0 if phase=="eval_pre" else 128),
+-             nfe_per_chunk=8,seed=13,condition_sha256=data["record"]["condition"]["sha256"],
+-             source_video_sha256=data["record"]["source_video_sha256"],
+-             action_script_sha256=data["record"]["action_script_sha256"],
+-             initial_noise_sha256=hashlib.sha256(data["f"]["initial_noise"].numpy().tobytes()).hexdigest()))
++        persist_rgb(frames,path)
++        write(path.with_suffix(".identity.json"),video_identity(data,role,phase,
++              "self-generated C1 and C2"))
+         save_video(frames,path)
+         row=dict(role=role,clip_id=clip,history="self-generated C1 and C2",
+                  nfe_per_chunk=8,video=str(path.relative_to(ROOT)),sha256=sha(path),
