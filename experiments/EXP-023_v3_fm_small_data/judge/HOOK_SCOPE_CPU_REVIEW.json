@@ -1,0 +1,22 @@
+{
+  "status": "PASS_JUDGE_PRODUCTION_SCOPE_CPU",
+  "gpu_calls": 0,
+  "helper": "fm_run.verified_attention_scope",
+  "gradient": 0.9220111905797003,
+  "hook_recompute_trace": [
+    {
+      "phase": "forward",
+      "route": "current_prefix"
+    },
+    {
+      "phase": "backward",
+      "route": "current_prefix"
+    }
+  ],
+  "two_calls_identical": true,
+  "forward_and_backward_exception_restore": true,
+  "source_sha256": {
+    "fm_run.py": "eefba4aefe73a482a1b2fc1716869ab70057354953df5b6345a0ef7ff7cc48b3",
+    "hook_lifecycle_cpu.py": "3f5432973e38e5f05153a9dbdf5ccbdf9432c8fd9a5b885de571206eaa4c58fa"
+  }
+}

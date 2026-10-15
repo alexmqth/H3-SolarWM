@@ -1,0 +1,64 @@
+{
+  "status": "PASS_CPU_PRODUCTION_SCOPE_HOOK",
+  "gpu_calls": 0,
+  "actual_helper": "fm_run.verified_attention_scope",
+  "no_hook_direct": {
+    "output": 4.73333588756325,
+    "grad": 0.9220111905797003,
+    "trace": [],
+    "error": null,
+    "route_restored": true
+  },
+  "no_hook_checkpoint": {
+    "output": 4.73333588756325,
+    "grad": 0.9220111905797003,
+    "trace": [],
+    "error": null,
+    "route_restored": true
+  },
+  "hooked_first": {
+    "output": 4.73333588756325,
+    "grad": 0.9220111905797003,
+    "trace": [
+      {
+        "phase": "forward",
+        "route": "current_prefix"
+      },
+      {
+        "phase": "backward",
+        "route": "current_prefix"
+      }
+    ],
+    "error": null,
+    "route_restored": true
+  },
+  "hooked_second": {
+    "output": 4.73333588756325,
+    "grad": 0.9220111905797003,
+    "trace": [
+      {
+        "phase": "forward",
+        "route": "current_prefix"
+      },
+      {
+        "phase": "backward",
+        "route": "current_prefix"
+      }
+    ],
+    "error": null,
+    "route_restored": true
+  },
+  "forward_exception_restored": true,
+  "backward_exception": {
+    "output": 4.73333588756325,
+    "grad": null,
+    "trace": [
+      {
+        "phase": "forward",
+        "route": "current_prefix"
+      }
+    ],
+    "error": "INJECTED_BACKWARD_ERROR",
+    "route_restored": true
+  }
+}

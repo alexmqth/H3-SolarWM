@@ -12,3 +12,5 @@
 - [补充03：ffmpeg媒体修复与一次受限恢复](ADDENDUM_03_VIDEO_IO_RECOVERY.md)：decode总上限13，其他上限不变，失败费用累计保留。
 
 - [补充04：BF16身份写入修复，CPU复核后最后一次首片恢复](ADDENDUM_04_BFLOAT16_RECOVERY.md)：449顶层DiT/14decode，其余总时限与训练预算不变。
+
+- [补充05：生产hook作用域CPU验证通过，仅恢复训练与post](ADDENDUM_05_TRAIN_HOOK_RECOVERY.md)：不增加预算，不重复已完成pre结果。真实首步backward门控继续有效。

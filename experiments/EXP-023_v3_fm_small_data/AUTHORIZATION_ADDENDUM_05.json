@@ -1,0 +1,31 @@
+{
+  "task": "EXP-023/v1",
+  "addendum": 5,
+  "approved": true,
+  "addendum_sha256": "6b241306661cfb4a9d4870b7e4385cceaad826610dd30725064531b7172f2058",
+  "previous_authorization_sha256": "b8544da118630b6ad517d2da69c40b3e8c677717cd866fed94323c088e6bc7ad",
+  "judge_cpu_review_sha256": "bdc67e15339ca2af27cce1562c64dffa5f1bc9200a3858885fede1fb001b7044",
+  "worker_cpu_review_sha256": "ce03e1a4b1fcd62e5b3e75d548204f273a4854228d822533a4a0208e11858bc6",
+  "new_budget": 0,
+  "resume_phases": [
+    "train",
+    "eval_post"
+  ],
+  "reuse_completed_pre_eval": true,
+  "failed_training_costs_to_retain": {
+    "dit_reserved": 2,
+    "backward": 0,
+    "update": 0,
+    "gpu_seconds": 26.962221870955545
+  },
+  "effective_limits": {
+    "dit": 449,
+    "backward": 128,
+    "update": 128,
+    "vae_encode": 70,
+    "vae_decode": 14,
+    "text": 600,
+    "gpu_seconds": 13800
+  },
+  "execute_immediately": true
+}
