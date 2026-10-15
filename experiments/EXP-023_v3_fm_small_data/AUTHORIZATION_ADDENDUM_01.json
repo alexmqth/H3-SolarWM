@@ -1,0 +1,30 @@
+{
+  "task": "EXP-023/v1",
+  "addendum": 1,
+  "approved": true,
+  "supersedes": [
+    "four_old_train_latents_reuse",
+    "vae_encode_limit",
+    "encoding_gpu_seconds",
+    "total_gpu_seconds"
+  ],
+  "base_authorization_sha256": "74d868d121401c4afeca0d54e0fa22a893957662984fa699443554a8597ba7b2",
+  "addendum_sha256": "b097b4f5398f476839101dd36edf8b8c50e2e4a94cbee256e83438c0716cb703",
+  "effective_limits": {
+    "gpu_seconds": 13800,
+    "encoding_gpu_seconds": 4200,
+    "encoding_pilot_gpu_seconds": 900,
+    "training_gpu_seconds": 6000,
+    "evaluation_gpu_seconds": 3600,
+    "max_gpus": 2,
+    "training_gpus": 1,
+    "top_level_forward": 440,
+    "backward": 128,
+    "optimizer_updates": 128,
+    "vae_encode": 70,
+    "vae_decode": 12,
+    "text": 600
+  },
+  "data_policy": "all 32 train + 2 dev directly decoded from original source video at frozen indices; fresh I0/full17 for old four as well",
+  "execute_immediately": true
+}
