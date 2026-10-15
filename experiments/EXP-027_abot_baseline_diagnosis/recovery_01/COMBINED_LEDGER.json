@@ -1,0 +1,41 @@
+{
+  "task": "EXP-027/v2+recovery_01",
+  "initial_attempt_status": "FAILED_STOPPED",
+  "recovery_status": "COMPLETE_PENDING_JUDGE",
+  "initial_attempt_gpu_process_seconds": 369.2553288709605,
+  "recovery_gpu_process_seconds": 3507.1097413499956,
+  "cumulative_gpu_process_seconds": 3876.365070220956,
+  "initial_attempt_counts": {
+    "dit": 51,
+    "backward": 0,
+    "update": 0,
+    "vae_decode": 0,
+    "vae_encode": 0,
+    "text": 0
+  },
+  "recovery_counts": {
+    "dit": 252,
+    "backward": 64,
+    "update": 64,
+    "vae_decode": 4,
+    "vae_encode": 0,
+    "text": 0
+  },
+  "cumulative_counts": {
+    "dit": 303,
+    "backward": 64,
+    "update": 64,
+    "vae_decode": 4,
+    "vae_encode": 0,
+    "text": 0
+  },
+  "peak_allocated_gib_max_across_attempts": 24.448705196380615,
+  "within_limits": {
+    "cumulative_gpu_seconds": true,
+    "cumulative_dit_attempts": true,
+    "updates": true,
+    "decode": true
+  },
+  "max_final_rss_gib_across_attempts": 68.14682006835938,
+  "rss_note": "RSS was only sampled at ledger saves; the maximum of final reported RSS values is not a measured process peak."
+}

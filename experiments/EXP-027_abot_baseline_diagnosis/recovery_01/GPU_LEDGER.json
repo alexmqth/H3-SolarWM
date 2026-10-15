@@ -1,0 +1,2669 @@
+{
+  "task": "EXP-027/v2",
+  "status": "COMPLETE_PENDING_JUDGE",
+  "physical_gpu": 0,
+  "pid": 3498353,
+  "phase": "video",
+  "elapsed_seconds": 3507.1097413499956,
+  "phase_elapsed_seconds": 445.39938448596513,
+  "phase_seconds": {
+    "setup": 7.024188149021938,
+    "train": 2463.0952897670213,
+    "probe": 591.5908671419602,
+    "video": 445.39937672397355
+  },
+  "counts": {
+    "dit": 252,
+    "backward": 64,
+    "update": 64,
+    "vae_decode": 4,
+    "vae_encode": 0,
+    "text": 0
+  },
+  "caps": {
+    "dit": 286,
+    "backward": 64,
+    "update": 64,
+    "vae_decode": 6,
+    "vae_encode": 0,
+    "text": 0
+  },
+  "gpu_seconds_cap_cumulative": 6000,
+  "prior_gpu_seconds": 369.2553288709605,
+  "recovery_gpu_seconds_cap": 5500,
+  "remaining_gpu_seconds": 5500,
+  "peak_allocated_gib": 23.74820566177368,
+  "peak_reserved_gib": 28.50390625,
+  "rss_gib": 68.14682006835938,
+  "events": [
+    {
+      "kind": "dit",
+      "note": "step4_commit",
+      "seconds": 119.36620920099085
+    },
+    {
+      "kind": "dit",
+      "note": "step4_forward",
+      "seconds": 133.3856098689721
+    },
+    {
+      "kind": "backward",
+      "note": "step4_backward",
+      "seconds": 139.54354614997283
+    },
+    {
+      "kind": "update",
+      "note": "step4_optimizer",
+      "seconds": 152.99840187799418
+    },
+    {
+      "kind": "dit",
+      "note": "step5_commit",
+      "seconds": 153.83076638402417
+    },
+    {
+      "kind": "dit",
+      "note": "step5_forward",
+      "seconds": 167.70928390900372
+    },
+    {
+      "kind": "backward",
+      "note": "step5_backward",
+      "seconds": 174.46015276998514
+    },
+    {
+      "kind": "update",
+      "note": "step5_optimizer",
+      "seconds": 187.91519856196828
+    },
+    {
+      "kind": "dit",
+      "note": "step6_commit",
+      "seconds": 188.72253794199787
+    },
+    {
+      "kind": "dit",
+      "note": "step6_forward",
+      "seconds": 201.82890631398186
+    },
+    {
+      "kind": "backward",
+      "note": "step6_backward",
+      "seconds": 207.35753384098643
+    },
+    {
+      "kind": "update",
+      "note": "step6_optimizer",
+      "seconds": 220.2144585850183
+    },
+    {
+      "kind": "dit",
+      "note": "step7_commit",
+      "seconds": 221.05249052296858
+    },
+    {
+      "kind": "dit",
+      "note": "step7_forward",
+      "seconds": 234.0930015789927
+    },
+    {
+      "kind": "backward",
+      "note": "step7_backward",
+      "seconds": 240.51353650499368
+    },
+    {
+      "kind": "update",
+      "note": "step7_optimizer",
+      "seconds": 253.80360979802208
+    },
+    {
+      "kind": "dit",
+      "note": "step8_commit",
+      "seconds": 254.6511308220215
+    },
+    {
+      "kind": "dit",
+      "note": "step8_forward",
+      "seconds": 267.79197544400813
+    },
+    {
+      "kind": "backward",
+      "note": "step8_backward",
+      "seconds": 274.0155719309696
+    },
+    {
+      "kind": "update",
+      "note": "step8_optimizer",
+      "seconds": 286.8550755730248
+    },
+    {
+      "kind": "dit",
+      "note": "step9_commit",
+      "seconds": 287.70611552201444
+    },
+    {
+      "kind": "dit",
+      "note": "step9_forward",
+      "seconds": 300.72117806901224
+    },
+    {
+      "kind": "backward",
+      "note": "step9_backward",
+      "seconds": 306.3955615229788
+    },
+    {
+      "kind": "update",
+      "note": "step9_optimizer",
+      "seconds": 319.315144667984
+    },
+    {
+      "kind": "dit",
+      "note": "step10_commit",
+      "seconds": 320.17032031097915
+    },
+    {
+      "kind": "dit",
+      "note": "step10_forward",
+      "seconds": 333.84689996100497
+    },
+    {
+      "kind": "backward",
+      "note": "step10_backward",
+      "seconds": 339.4826472119894
+    },
+    {
+      "kind": "update",
+      "note": "step10_optimizer",
+      "seconds": 352.3640476230066
+    },
+    {
+      "kind": "dit",
+      "note": "step11_commit",
+      "seconds": 353.2443337949808
+    },
+    {
+      "kind": "dit",
+      "note": "step11_forward",
+      "seconds": 367.269742577977
+    },
+    {
+      "kind": "backward",
+      "note": "step11_backward",
+      "seconds": 374.890770434984
+    },
+    {
+      "kind": "update",
+      "note": "step11_optimizer",
+      "seconds": 388.9494374989881
+    },
+    {
+      "kind": "dit",
+      "note": "step12_commit",
+      "seconds": 389.8724884829717
+    },
+    {
+      "kind": "dit",
+      "note": "step12_forward",
+      "seconds": 405.3554395440151
+    },
+    {
+      "kind": "backward",
+      "note": "step12_backward",
+      "seconds": 412.9672052160022
+    },
+    {
+      "kind": "update",
+      "note": "step12_optimizer",
+      "seconds": 426.34248418797506
+    },
+    {
+      "kind": "dit",
+      "note": "step13_commit",
+      "seconds": 427.26022479397943
+    },
+    {
+      "kind": "dit",
+      "note": "step13_forward",
+      "seconds": 441.98490192898316
+    },
+    {
+      "kind": "backward",
+      "note": "step13_backward",
+      "seconds": 450.49579311400885
+    },
+    {
+      "kind": "update",
+      "note": "step13_optimizer",
+      "seconds": 466.3297466880176
+    },
+    {
+      "kind": "dit",
+      "note": "step14_commit",
+      "seconds": 467.21944969997276
+    },
+    {
+      "kind": "dit",
+      "note": "step14_forward",
+      "seconds": 481.8411144419806
+    },
+    {
+      "kind": "backward",
+      "note": "step14_backward",
+      "seconds": 489.53134724497795
+    },
+    {
+      "kind": "update",
+      "note": "step14_optimizer",
+      "seconds": 504.81516487000044
+    },
+    {
+      "kind": "dit",
+      "note": "step15_commit",
+      "seconds": 505.7427037060261
+    },
+    {
+      "kind": "dit",
+      "note": "step15_forward",
+      "seconds": 519.6020978129818
+    },
+    {
+      "kind": "backward",
+      "note": "step15_backward",
+      "seconds": 527.3208579570055
+    },
+    {
+      "kind": "update",
+      "note": "step15_optimizer",
+      "seconds": 542.4361291879904
+    },
+    {
+      "kind": "dit",
+      "note": "step16_commit",
+      "seconds": 543.3278805320151
+    },
+    {
+      "kind": "dit",
+      "note": "step16_forward",
+      "seconds": 557.8025734309922
+    },
+    {
+      "kind": "backward",
+      "note": "step16_backward",
+      "seconds": 565.3578688660054
+    },
+    {
+      "kind": "update",
+      "note": "step16_optimizer",
+      "seconds": 578.5877812100225
+    },
+    {
+      "kind": "dit",
+      "note": "step17_commit",
+      "seconds": 579.467788761016
+    },
+    {
+      "kind": "dit",
+      "note": "step17_forward",
+      "seconds": 592.6450182679691
+    },
+    {
+      "kind": "backward",
+      "note": "step17_backward",
+      "seconds": 598.204423727002
+    },
+    {
+      "kind": "update",
+      "note": "step17_optimizer",
+      "seconds": 611.0617142670089
+    },
+    {
+      "kind": "dit",
+      "note": "step18_commit",
+      "seconds": 611.8956153509789
+    },
+    {
+      "kind": "dit",
+      "note": "step18_forward",
+      "seconds": 625.1616395059973
+    },
+    {
+      "kind": "backward",
+      "note": "step18_backward",
+      "seconds": 631.1364534149761
+    },
+    {
+      "kind": "update",
+      "note": "step18_optimizer",
+      "seconds": 644.8618196009775
+    },
+    {
+      "kind": "dit",
+      "note": "step19_commit",
+      "seconds": 645.8475849659881
+    },
+    {
+      "kind": "dit",
+      "note": "step19_forward",
+      "seconds": 660.2675775240059
+    },
+    {
+      "kind": "backward",
+      "note": "step19_backward",
+      "seconds": 667.4910334749729
+    },
+    {
+      "kind": "update",
+      "note": "step19_optimizer",
+      "seconds": 684.0969860610203
+    },
+    {
+      "kind": "dit",
+      "note": "step20_commit",
+      "seconds": 684.9985529989935
+    },
+    {
+      "kind": "dit",
+      "note": "step20_forward",
+      "seconds": 700.6951892289799
+    },
+    {
+      "kind": "backward",
+      "note": "step20_backward",
+      "seconds": 709.2684312569909
+    },
+    {
+      "kind": "update",
+      "note": "step20_optimizer",
+      "seconds": 727.7605224190047
+    },
+    {
+      "kind": "dit",
+      "note": "step21_commit",
+      "seconds": 728.8781176360208
+    },
+    {
+      "kind": "dit",
+      "note": "step21_forward",
+      "seconds": 746.5684406799846
+    },
+    {
+      "kind": "backward",
+      "note": "step21_backward",
+      "seconds": 755.2687354449881
+    },
+    {
+      "kind": "update",
+      "note": "step21_optimizer",
+      "seconds": 773.5422115609981
+    },
+    {
+      "kind": "dit",
+      "note": "step22_commit",
+      "seconds": 774.7123568879906
+    },
+    {
+      "kind": "dit",
+      "note": "step22_forward",
+      "seconds": 790.6659723949851
+    },
+    {
+      "kind": "backward",
+      "note": "step22_backward",
+      "seconds": 799.4008839629823
+    },
+    {
+      "kind": "update",
+      "note": "step22_optimizer",
+      "seconds": 815.5054084900185
+    },
+    {
+      "kind": "dit",
+      "note": "step23_commit",
+      "seconds": 816.6292252669809
+    },
+    {
+      "kind": "dit",
+      "note": "step23_forward",
+      "seconds": 834.7054565229919
+    },
+    {
+      "kind": "backward",
+      "note": "step23_backward",
+      "seconds": 844.2586430319934
+    },
+    {
+      "kind": "update",
+      "note": "step23_optimizer",
+      "seconds": 859.2169082559994
+    },
+    {
+      "kind": "dit",
+      "note": "step24_commit",
+      "seconds": 860.3220909719821
+    },
+    {
+      "kind": "dit",
+      "note": "step24_forward",
+      "seconds": 877.1692134239711
+    },
+    {
+      "kind": "backward",
+      "note": "step24_backward",
+      "seconds": 884.6524192389916
+    },
+    {
+      "kind": "update",
+      "note": "step24_optimizer",
+      "seconds": 900.3780251959688
+    },
+    {
+      "kind": "dit",
+      "note": "step25_commit",
+      "seconds": 901.4025977739948
+    },
+    {
+      "kind": "dit",
+      "note": "step25_forward",
+      "seconds": 919.7703421919723
+    },
+    {
+      "kind": "backward",
+      "note": "step25_backward",
+      "seconds": 929.4439193630242
+    },
+    {
+      "kind": "update",
+      "note": "step25_optimizer",
+      "seconds": 944.0486179889995
+    },
+    {
+      "kind": "dit",
+      "note": "step26_commit",
+      "seconds": 945.126063069969
+    },
+    {
+      "kind": "dit",
+      "note": "step26_forward",
+      "seconds": 962.3430084849824
+    },
+    {
+      "kind": "backward",
+      "note": "step26_backward",
+      "seconds": 971.0724580080132
+    },
+    {
+      "kind": "update",
+      "note": "step26_optimizer",
+      "seconds": 986.4328222339973
+    },
+    {
+      "kind": "dit",
+      "note": "step27_commit",
+      "seconds": 987.5162981100148
+    },
+    {
+      "kind": "dit",
+      "note": "step27_forward",
+      "seconds": 1004.8063210130204
+    },
+    {
+      "kind": "backward",
+      "note": "step27_backward",
+      "seconds": 1014.6445748179685
+    },
+    {
+      "kind": "update",
+      "note": "step27_optimizer",
+      "seconds": 1029.7758439020254
+    },
+    {
+      "kind": "dit",
+      "note": "step28_commit",
+      "seconds": 1030.7808866800042
+    },
+    {
+      "kind": "dit",
+      "note": "step28_forward",
+      "seconds": 1045.9557350029936
+    },
+    {
+      "kind": "backward",
+      "note": "step28_backward",
+      "seconds": 1053.0944309760234
+    },
+    {
+      "kind": "update",
+      "note": "step28_optimizer",
+      "seconds": 1067.139768928988
+    },
+    {
+      "kind": "dit",
+      "note": "step29_commit",
+      "seconds": 1068.0903944700258
+    },
+    {
+      "kind": "dit",
+      "note": "step29_forward",
+      "seconds": 1082.262039905996
+    },
+    {
+      "kind": "backward",
+      "note": "step29_backward",
+      "seconds": 1090.3417555959895
+    },
+    {
+      "kind": "update",
+      "note": "step29_optimizer",
+      "seconds": 1105.3247040780261
+    },
+    {
+      "kind": "dit",
+      "note": "step30_commit",
+      "seconds": 1106.1725236370112
+    },
+    {
+      "kind": "dit",
+      "note": "step30_forward",
+      "seconds": 1119.822837745014
+    },
+    {
+      "kind": "backward",
+      "note": "step30_backward",
+      "seconds": 1126.0638199630193
+    },
+    {
+      "kind": "update",
+      "note": "step30_optimizer",
+      "seconds": 1141.0122471880168
+    },
+    {
+      "kind": "dit",
+      "note": "step31_commit",
+      "seconds": 1141.8916067759856
+    },
+    {
+      "kind": "dit",
+      "note": "step31_forward",
+      "seconds": 1155.3053753019776
+    },
+    {
+      "kind": "backward",
+      "note": "step31_backward",
+      "seconds": 1161.7517403960228
+    },
+    {
+      "kind": "update",
+      "note": "step31_optimizer",
+      "seconds": 1177.0052040250157
+    },
+    {
+      "kind": "dit",
+      "note": "step32_commit",
+      "seconds": 1177.8965882160119
+    },
+    {
+      "kind": "dit",
+      "note": "step32_forward",
+      "seconds": 1191.7361741830246
+    },
+    {
+      "kind": "backward",
+      "note": "step32_backward",
+      "seconds": 1198.1896962780156
+    },
+    {
+      "kind": "update",
+      "note": "step32_optimizer",
+      "seconds": 1212.7564254819881
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C1_commit",
+      "seconds": 1214.2186113509815
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C1_commit",
+      "duration_seconds": 10.387639252992813,
+      "seconds": 1224.6075901929871
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.1",
+      "seconds": 1224.610224574979
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.1",
+      "duration_seconds": 5.245460656005889,
+      "seconds": 1229.8567855010042
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.25",
+      "seconds": 1229.8600283649866
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.25",
+      "duration_seconds": 6.07808730303077,
+      "seconds": 1235.9397608260042
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.5",
+      "seconds": 1235.9421299300157
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.5",
+      "duration_seconds": 5.862462245975621,
+      "seconds": 1241.8057062070002
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.75",
+      "seconds": 1241.8079753100174
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.75",
+      "duration_seconds": 6.003832340997178,
+      "seconds": 1247.812983375974
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.9",
+      "seconds": 1247.8152160850004
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.9",
+      "duration_seconds": 6.471129479992669,
+      "seconds": 1254.2875202060095
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.1",
+      "seconds": 1254.2912971019978
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.1",
+      "duration_seconds": 5.766472271992825,
+      "seconds": 1260.0740076520015
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.25",
+      "seconds": 1260.0764094850165
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.25",
+      "duration_seconds": 6.128294095979072,
+      "seconds": 1266.2061086280155
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.5",
+      "seconds": 1266.2098632400157
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.5",
+      "duration_seconds": 6.360842444002628,
+      "seconds": 1272.580430240021
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.75",
+      "seconds": 1272.5832368099946
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.75",
+      "duration_seconds": 5.745095504971687,
+      "seconds": 1278.3297752490034
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.9",
+      "seconds": 1278.3322139770025
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.9",
+      "duration_seconds": 6.376943888957612,
+      "seconds": 1284.7106726390193
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C1_commit",
+      "seconds": 1285.6774601339712
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C1_commit",
+      "duration_seconds": 12.58068206103053,
+      "seconds": 1298.2598446389893
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.1",
+      "seconds": 1298.2628579689772
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.1",
+      "duration_seconds": 6.3456243249820545,
+      "seconds": 1304.6100442659808
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.25",
+      "seconds": 1304.6125378059805
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.25",
+      "duration_seconds": 6.053952515008859,
+      "seconds": 1310.667944832996
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.5",
+      "seconds": 1310.677313756023
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.5",
+      "duration_seconds": 6.176255584985483,
+      "seconds": 1316.8551551600103
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.75",
+      "seconds": 1316.8579222999979
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.75",
+      "duration_seconds": 6.8696592369815335,
+      "seconds": 1323.7292252230109
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.9",
+      "seconds": 1323.7335656229989
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.9",
+      "duration_seconds": 6.8602536210091785,
+      "seconds": 1330.5959467759822
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.1",
+      "seconds": 1330.6006627199822
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.1",
+      "duration_seconds": 6.725964058947284,
+      "seconds": 1337.3385049049975
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.25",
+      "seconds": 1337.341195400979
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.25",
+      "duration_seconds": 6.919265384029131,
+      "seconds": 1344.2621436489862
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.5",
+      "seconds": 1344.2649096979876
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.5",
+      "duration_seconds": 6.442371590004768,
+      "seconds": 1350.7088528349996
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.75",
+      "seconds": 1350.7115074570174
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.75",
+      "duration_seconds": 6.223415040993132,
+      "seconds": 1356.936437409022
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.9",
+      "seconds": 1356.9390477450215
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.9",
+      "duration_seconds": 6.178277508995961,
+      "seconds": 1363.1189296700177
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_GT_C1_commit",
+      "seconds": 1364.1811988910194
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_GT_C1_commit",
+      "duration_seconds": 12.068826307950076,
+      "seconds": 1376.2518493550015
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.1",
+      "seconds": 1376.2554241869948
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.1",
+      "duration_seconds": 5.634706726996228,
+      "seconds": 1381.8919160810183
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.25",
+      "seconds": 1381.895163993002
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.25",
+      "duration_seconds": 5.579771086981054,
+      "seconds": 1387.4765497409971
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.5",
+      "seconds": 1387.479151964013
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.5",
+      "duration_seconds": 6.0610328890034,
+      "seconds": 1393.5417868969962
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.75",
+      "seconds": 1393.5446817390039
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.75",
+      "duration_seconds": 5.9632251530420035,
+      "seconds": 1399.5095393210067
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.9",
+      "seconds": 1399.5121875830228
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.9",
+      "duration_seconds": 6.335606942011509,
+      "seconds": 1405.8494181300048
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.1",
+      "seconds": 1405.8531694459962
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.1",
+      "duration_seconds": 6.007533622032497,
+      "seconds": 1411.8624374889769
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.25",
+      "seconds": 1411.8653738939902
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.25",
+      "duration_seconds": 5.698205700959079,
+      "seconds": 1417.565284702985
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.5",
+      "seconds": 1417.5680233099847
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.5",
+      "duration_seconds": 6.394530564022716,
+      "seconds": 1423.9642278859974
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.75",
+      "seconds": 1423.9669151859707
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.75",
+      "duration_seconds": 5.63680033700075,
+      "seconds": 1429.6052934490144
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.9",
+      "seconds": 1429.6078806199948
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.9",
+      "duration_seconds": 5.604213750048075,
+      "seconds": 1435.2138443349977
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_GT_C1_commit",
+      "seconds": 1436.1419548119884
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_GT_C1_commit",
+      "duration_seconds": 11.339534167025704,
+      "seconds": 1447.4834944769973
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.1",
+      "seconds": 1447.4870535159716
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.1",
+      "duration_seconds": 6.543483903980814,
+      "seconds": 1454.0322752950015
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.25",
+      "seconds": 1454.036238338973
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.25",
+      "duration_seconds": 6.48886785103241,
+      "seconds": 1460.5270161349908
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.5",
+      "seconds": 1460.531000420975
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.5",
+      "duration_seconds": 6.359849958040286,
+      "seconds": 1466.9072745820158
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.75",
+      "seconds": 1466.9098261289764
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.75",
+      "duration_seconds": 5.757178635976743,
+      "seconds": 1472.6686655670055
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.9",
+      "seconds": 1472.6723324069753
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.9",
+      "duration_seconds": 6.193339160992764,
+      "seconds": 1478.8673421039712
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.1",
+      "seconds": 1478.8709617619752
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.1",
+      "duration_seconds": 6.363995035993867,
+      "seconds": 1485.2366401340114
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.25",
+      "seconds": 1485.2395810239832
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.25",
+      "duration_seconds": 6.049136015004478,
+      "seconds": 1491.2925485760206
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.5",
+      "seconds": 1491.295528454997
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.5",
+      "duration_seconds": 5.216878072998952,
+      "seconds": 1496.514350173995
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.75",
+      "seconds": 1496.517659396981
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.75",
+      "duration_seconds": 5.7603661099565215,
+      "seconds": 1502.2797372239875
+    },
+    {
+      "kind": "dit",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.9",
+      "seconds": 1502.2892784840078
+    },
+    {
+      "kind": "timing",
+      "note": "probe32_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.9",
+      "duration_seconds": 5.940480593009852,
+      "seconds": 1508.2316688409774
+    },
+    {
+      "kind": "dit",
+      "note": "step33_commit",
+      "seconds": 1509.229034309974
+    },
+    {
+      "kind": "dit",
+      "note": "step33_forward",
+      "seconds": 1525.1640584439738
+    },
+    {
+      "kind": "backward",
+      "note": "step33_backward",
+      "seconds": 1533.3303580560023
+    },
+    {
+      "kind": "update",
+      "note": "step33_optimizer",
+      "seconds": 1549.6599406410241
+    },
+    {
+      "kind": "dit",
+      "note": "step34_commit",
+      "seconds": 1550.5941728809848
+    },
+    {
+      "kind": "dit",
+      "note": "step34_forward",
+      "seconds": 1565.3738017730066
+    },
+    {
+      "kind": "backward",
+      "note": "step34_backward",
+      "seconds": 1573.168287624023
+    },
+    {
+      "kind": "update",
+      "note": "step34_optimizer",
+      "seconds": 1588.4857769910013
+    },
+    {
+      "kind": "dit",
+      "note": "step35_commit",
+      "seconds": 1589.4453687670175
+    },
+    {
+      "kind": "dit",
+      "note": "step35_forward",
+      "seconds": 1604.3870329019846
+    },
+    {
+      "kind": "backward",
+      "note": "step35_backward",
+      "seconds": 1611.493090028991
+    },
+    {
+      "kind": "update",
+      "note": "step35_optimizer",
+      "seconds": 1626.0125876219827
+    },
+    {
+      "kind": "dit",
+      "note": "step36_commit",
+      "seconds": 1626.9218489379855
+    },
+    {
+      "kind": "dit",
+      "note": "step36_forward",
+      "seconds": 1643.598592986993
+    },
+    {
+      "kind": "backward",
+      "note": "step36_backward",
+      "seconds": 1651.042029934004
+    },
+    {
+      "kind": "update",
+      "note": "step36_optimizer",
+      "seconds": 1666.47830824001
+    },
+    {
+      "kind": "dit",
+      "note": "step37_commit",
+      "seconds": 1667.4389837390045
+    },
+    {
+      "kind": "dit",
+      "note": "step37_forward",
+      "seconds": 1681.6922721249866
+    },
+    {
+      "kind": "backward",
+      "note": "step37_backward",
+      "seconds": 1689.3421253499691
+    },
+    {
+      "kind": "update",
+      "note": "step37_optimizer",
+      "seconds": 1705.890223335009
+    },
+    {
+      "kind": "dit",
+      "note": "step38_commit",
+      "seconds": 1706.8118504270096
+    },
+    {
+      "kind": "dit",
+      "note": "step38_forward",
+      "seconds": 1723.0094884680002
+    },
+    {
+      "kind": "backward",
+      "note": "step38_backward",
+      "seconds": 1730.978480988997
+    },
+    {
+      "kind": "update",
+      "note": "step38_optimizer",
+      "seconds": 1746.0441118300078
+    },
+    {
+      "kind": "dit",
+      "note": "step39_commit",
+      "seconds": 1746.9222096360172
+    },
+    {
+      "kind": "dit",
+      "note": "step39_forward",
+      "seconds": 1761.1140682700207
+    },
+    {
+      "kind": "backward",
+      "note": "step39_backward",
+      "seconds": 1767.5188318029977
+    },
+    {
+      "kind": "update",
+      "note": "step39_optimizer",
+      "seconds": 1782.8351019360125
+    },
+    {
+      "kind": "dit",
+      "note": "step40_commit",
+      "seconds": 1783.7428029479925
+    },
+    {
+      "kind": "dit",
+      "note": "step40_forward",
+      "seconds": 1799.222884760995
+    },
+    {
+      "kind": "backward",
+      "note": "step40_backward",
+      "seconds": 1806.480932831997
+    },
+    {
+      "kind": "update",
+      "note": "step40_optimizer",
+      "seconds": 1821.9085519390064
+    },
+    {
+      "kind": "dit",
+      "note": "step41_commit",
+      "seconds": 1822.863523781998
+    },
+    {
+      "kind": "dit",
+      "note": "step41_forward",
+      "seconds": 1837.39425132802
+    },
+    {
+      "kind": "backward",
+      "note": "step41_backward",
+      "seconds": 1844.9260818969924
+    },
+    {
+      "kind": "update",
+      "note": "step41_optimizer",
+      "seconds": 1859.5218260469846
+    },
+    {
+      "kind": "dit",
+      "note": "step42_commit",
+      "seconds": 1860.4790300470195
+    },
+    {
+      "kind": "dit",
+      "note": "step42_forward",
+      "seconds": 1876.580620971974
+    },
+    {
+      "kind": "backward",
+      "note": "step42_backward",
+      "seconds": 1883.9485063040047
+    },
+    {
+      "kind": "update",
+      "note": "step42_optimizer",
+      "seconds": 1899.9524525040179
+    },
+    {
+      "kind": "dit",
+      "note": "step43_commit",
+      "seconds": 1900.9408013820066
+    },
+    {
+      "kind": "dit",
+      "note": "step43_forward",
+      "seconds": 1915.6680196829839
+    },
+    {
+      "kind": "backward",
+      "note": "step43_backward",
+      "seconds": 1923.2949850379955
+    },
+    {
+      "kind": "update",
+      "note": "step43_optimizer",
+      "seconds": 1938.0550867730053
+    },
+    {
+      "kind": "dit",
+      "note": "step44_commit",
+      "seconds": 1939.1440223390236
+    },
+    {
+      "kind": "dit",
+      "note": "step44_forward",
+      "seconds": 1955.1981266419753
+    },
+    {
+      "kind": "backward",
+      "note": "step44_backward",
+      "seconds": 1963.4778475610074
+    },
+    {
+      "kind": "update",
+      "note": "step44_optimizer",
+      "seconds": 1979.1484040539945
+    },
+    {
+      "kind": "dit",
+      "note": "step45_commit",
+      "seconds": 1980.1280342069804
+    },
+    {
+      "kind": "dit",
+      "note": "step45_forward",
+      "seconds": 1995.5293725790107
+    },
+    {
+      "kind": "backward",
+      "note": "step45_backward",
+      "seconds": 2003.3649793150253
+    },
+    {
+      "kind": "update",
+      "note": "step45_optimizer",
+      "seconds": 2018.1703752339818
+    },
+    {
+      "kind": "dit",
+      "note": "step46_commit",
+      "seconds": 2019.1165297380066
+    },
+    {
+      "kind": "dit",
+      "note": "step46_forward",
+      "seconds": 2034.0001933039748
+    },
+    {
+      "kind": "backward",
+      "note": "step46_backward",
+      "seconds": 2042.0817052519997
+    },
+    {
+      "kind": "update",
+      "note": "step46_optimizer",
+      "seconds": 2056.136489535973
+    },
+    {
+      "kind": "dit",
+      "note": "step47_commit",
+      "seconds": 2057.0778521560133
+    },
+    {
+      "kind": "dit",
+      "note": "step47_forward",
+      "seconds": 2071.397937647009
+    },
+    {
+      "kind": "backward",
+      "note": "step47_backward",
+      "seconds": 2078.3832330349833
+    },
+    {
+      "kind": "update",
+      "note": "step47_optimizer",
+      "seconds": 2093.628034838999
+    },
+    {
+      "kind": "dit",
+      "note": "step48_commit",
+      "seconds": 2094.5224115190213
+    },
+    {
+      "kind": "dit",
+      "note": "step48_forward",
+      "seconds": 2108.23468365398
+    },
+    {
+      "kind": "backward",
+      "note": "step48_backward",
+      "seconds": 2115.293873434013
+    },
+    {
+      "kind": "update",
+      "note": "step48_optimizer",
+      "seconds": 2130.07380554697
+    },
+    {
+      "kind": "dit",
+      "note": "step49_commit",
+      "seconds": 2131.0295061619836
+    },
+    {
+      "kind": "dit",
+      "note": "step49_forward",
+      "seconds": 2145.3075198879815
+    },
+    {
+      "kind": "backward",
+      "note": "step49_backward",
+      "seconds": 2151.8693215040257
+    },
+    {
+      "kind": "update",
+      "note": "step49_optimizer",
+      "seconds": 2165.6652756549884
+    },
+    {
+      "kind": "dit",
+      "note": "step50_commit",
+      "seconds": 2166.65679311601
+    },
+    {
+      "kind": "dit",
+      "note": "step50_forward",
+      "seconds": 2180.194942051021
+    },
+    {
+      "kind": "backward",
+      "note": "step50_backward",
+      "seconds": 2188.2195117759984
+    },
+    {
+      "kind": "update",
+      "note": "step50_optimizer",
+      "seconds": 2203.8322691000067
+    },
+    {
+      "kind": "dit",
+      "note": "step51_commit",
+      "seconds": 2204.787900995987
+    },
+    {
+      "kind": "dit",
+      "note": "step51_forward",
+      "seconds": 2220.7359619869967
+    },
+    {
+      "kind": "backward",
+      "note": "step51_backward",
+      "seconds": 2228.8423209799803
+    },
+    {
+      "kind": "update",
+      "note": "step51_optimizer",
+      "seconds": 2243.0143257949967
+    },
+    {
+      "kind": "dit",
+      "note": "step52_commit",
+      "seconds": 2243.9943910599686
+    },
+    {
+      "kind": "dit",
+      "note": "step52_forward",
+      "seconds": 2258.4836215890246
+    },
+    {
+      "kind": "backward",
+      "note": "step52_backward",
+      "seconds": 2266.7054813799914
+    },
+    {
+      "kind": "update",
+      "note": "step52_optimizer",
+      "seconds": 2281.5821634259773
+    },
+    {
+      "kind": "dit",
+      "note": "step53_commit",
+      "seconds": 2282.8334855029825
+    },
+    {
+      "kind": "dit",
+      "note": "step53_forward",
+      "seconds": 2300.2259872430004
+    },
+    {
+      "kind": "backward",
+      "note": "step53_backward",
+      "seconds": 2309.0006306779687
+    },
+    {
+      "kind": "update",
+      "note": "step53_optimizer",
+      "seconds": 2323.3404676640057
+    },
+    {
+      "kind": "dit",
+      "note": "step54_commit",
+      "seconds": 2324.3104550190037
+    },
+    {
+      "kind": "dit",
+      "note": "step54_forward",
+      "seconds": 2340.0971894380054
+    },
+    {
+      "kind": "backward",
+      "note": "step54_backward",
+      "seconds": 2348.4431039820192
+    },
+    {
+      "kind": "update",
+      "note": "step54_optimizer",
+      "seconds": 2362.576790629013
+    },
+    {
+      "kind": "dit",
+      "note": "step55_commit",
+      "seconds": 2363.552951095975
+    },
+    {
+      "kind": "dit",
+      "note": "step55_forward",
+      "seconds": 2378.8521611510077
+    },
+    {
+      "kind": "backward",
+      "note": "step55_backward",
+      "seconds": 2386.2261891139788
+    },
+    {
+      "kind": "update",
+      "note": "step55_optimizer",
+      "seconds": 2400.3727745650103
+    },
+    {
+      "kind": "dit",
+      "note": "step56_commit",
+      "seconds": 2401.3374442679924
+    },
+    {
+      "kind": "dit",
+      "note": "step56_forward",
+      "seconds": 2418.009675837995
+    },
+    {
+      "kind": "backward",
+      "note": "step56_backward",
+      "seconds": 2426.09358337702
+    },
+    {
+      "kind": "update",
+      "note": "step56_optimizer",
+      "seconds": 2440.915257040004
+    },
+    {
+      "kind": "dit",
+      "note": "step57_commit",
+      "seconds": 2441.9043374739704
+    },
+    {
+      "kind": "dit",
+      "note": "step57_forward",
+      "seconds": 2456.4757249219692
+    },
+    {
+      "kind": "backward",
+      "note": "step57_backward",
+      "seconds": 2463.6386626689928
+    },
+    {
+      "kind": "update",
+      "note": "step57_optimizer",
+      "seconds": 2478.9475061389967
+    },
+    {
+      "kind": "dit",
+      "note": "step58_commit",
+      "seconds": 2480.104886892019
+    },
+    {
+      "kind": "dit",
+      "note": "step58_forward",
+      "seconds": 2497.063541001
+    },
+    {
+      "kind": "backward",
+      "note": "step58_backward",
+      "seconds": 2504.968252532999
+    },
+    {
+      "kind": "update",
+      "note": "step58_optimizer",
+      "seconds": 2519.257711672981
+    },
+    {
+      "kind": "dit",
+      "note": "step59_commit",
+      "seconds": 2520.227427395992
+    },
+    {
+      "kind": "dit",
+      "note": "step59_forward",
+      "seconds": 2534.6716456119902
+    },
+    {
+      "kind": "backward",
+      "note": "step59_backward",
+      "seconds": 2542.084593617008
+    },
+    {
+      "kind": "update",
+      "note": "step59_optimizer",
+      "seconds": 2556.9273049330222
+    },
+    {
+      "kind": "dit",
+      "note": "step60_commit",
+      "seconds": 2557.890380138997
+    },
+    {
+      "kind": "dit",
+      "note": "step60_forward",
+      "seconds": 2573.217179757019
+    },
+    {
+      "kind": "backward",
+      "note": "step60_backward",
+      "seconds": 2581.376377104025
+    },
+    {
+      "kind": "update",
+      "note": "step60_optimizer",
+      "seconds": 2597.277827002981
+    },
+    {
+      "kind": "dit",
+      "note": "step61_commit",
+      "seconds": 2598.2209854960092
+    },
+    {
+      "kind": "dit",
+      "note": "step61_forward",
+      "seconds": 2613.465537884971
+    },
+    {
+      "kind": "backward",
+      "note": "step61_backward",
+      "seconds": 2621.7490425269934
+    },
+    {
+      "kind": "update",
+      "note": "step61_optimizer",
+      "seconds": 2637.8512078120257
+    },
+    {
+      "kind": "dit",
+      "note": "step62_commit",
+      "seconds": 2638.893763152999
+    },
+    {
+      "kind": "dit",
+      "note": "step62_forward",
+      "seconds": 2653.3650561849936
+    },
+    {
+      "kind": "backward",
+      "note": "step62_backward",
+      "seconds": 2660.404326278018
+    },
+    {
+      "kind": "update",
+      "note": "step62_optimizer",
+      "seconds": 2676.1352069309796
+    },
+    {
+      "kind": "dit",
+      "note": "step63_commit",
+      "seconds": 2677.2400653039804
+    },
+    {
+      "kind": "dit",
+      "note": "step63_forward",
+      "seconds": 2694.8095681699924
+    },
+    {
+      "kind": "backward",
+      "note": "step63_backward",
+      "seconds": 2703.7451827810146
+    },
+    {
+      "kind": "update",
+      "note": "step63_optimizer",
+      "seconds": 2720.4300013590255
+    },
+    {
+      "kind": "dit",
+      "note": "step64_commit",
+      "seconds": 2721.4958633030183
+    },
+    {
+      "kind": "dit",
+      "note": "step64_forward",
+      "seconds": 2738.3037655159715
+    },
+    {
+      "kind": "backward",
+      "note": "step64_backward",
+      "seconds": 2747.450134189974
+    },
+    {
+      "kind": "update",
+      "note": "step64_optimizer",
+      "seconds": 2762.2241286379867
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C1_commit",
+      "seconds": 2765.140152524982
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C1_commit",
+      "duration_seconds": 10.62551663198974,
+      "seconds": 2775.7683378200163
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.1",
+      "seconds": 2775.772014764021
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.1",
+      "duration_seconds": 6.136291595001239,
+      "seconds": 2781.9102411050117
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.25",
+      "seconds": 2781.9134395520086
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.25",
+      "duration_seconds": 6.613870205997955,
+      "seconds": 2788.529194678995
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.5",
+      "seconds": 2788.5325602170196
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.5",
+      "duration_seconds": 7.070844514993951,
+      "seconds": 2795.6055161110125
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.75",
+      "seconds": 2795.610049306997
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.75",
+      "duration_seconds": 6.872617147048004,
+      "seconds": 2802.4862686850247
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.9",
+      "seconds": 2802.489845619013
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_113_0.9",
+      "duration_seconds": 6.58967501897132,
+      "seconds": 2809.081642484991
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.1",
+      "seconds": 2809.0858334780205
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.1",
+      "duration_seconds": 5.750884993991349,
+      "seconds": 2814.838759106002
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.25",
+      "seconds": 2814.8422598969773
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.25",
+      "duration_seconds": 5.8750777039676905,
+      "seconds": 2820.719386907993
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.5",
+      "seconds": 2820.72340391099
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.5",
+      "duration_seconds": 6.029273941006977,
+      "seconds": 2826.754716765019
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.75",
+      "seconds": 2826.757998757006
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.75",
+      "duration_seconds": 5.858729135012254,
+      "seconds": 2832.6187075769994
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.9",
+      "seconds": 2832.6220927740214
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_127_0.9",
+      "duration_seconds": 5.505765070964117,
+      "seconds": 2838.1298677430023
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C1_commit",
+      "seconds": 2839.0634332390036
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C1_commit",
+      "duration_seconds": 11.24496065499261,
+      "seconds": 2850.311104320979
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.1",
+      "seconds": 2850.315893210005
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.1",
+      "duration_seconds": 6.170632307999767,
+      "seconds": 2856.488601787016
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.25",
+      "seconds": 2856.4921350459917
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.25",
+      "duration_seconds": 6.71451593603706,
+      "seconds": 2863.2086223330116
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.5",
+      "seconds": 2863.212953137001
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.5",
+      "duration_seconds": 5.966466184007004,
+      "seconds": 2869.181573486014
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.75",
+      "seconds": 2869.18641907
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.75",
+      "duration_seconds": 6.979909408953972,
+      "seconds": 2876.17405002797
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.9",
+      "seconds": 2876.17753330298
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_113_0.9",
+      "duration_seconds": 6.759327695006505,
+      "seconds": 2882.9388650080073
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.1",
+      "seconds": 2882.945199780981
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.1",
+      "duration_seconds": 6.307565123017412,
+      "seconds": 2889.2549312069896
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.25",
+      "seconds": 2889.2598298310186
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.25",
+      "duration_seconds": 6.818065910018049,
+      "seconds": 2896.092109268997
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.5",
+      "seconds": 2896.0964386200067
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.5",
+      "duration_seconds": 6.0052040190203115,
+      "seconds": 2902.104536641971
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.75",
+      "seconds": 2902.108658302983
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.75",
+      "duration_seconds": 6.381854230014142,
+      "seconds": 2908.494006693014
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.9",
+      "seconds": 2908.4981523500173
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_127_0.9",
+      "duration_seconds": 6.707646985014435,
+      "seconds": 2915.209775417985
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_GT_C1_commit",
+      "seconds": 2916.4860029440024
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_GT_C1_commit",
+      "duration_seconds": 11.743722366984002,
+      "seconds": 2928.233120623976
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.1",
+      "seconds": 2928.237560702022
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.1",
+      "duration_seconds": 6.5717988049727865,
+      "seconds": 2934.8119916279684
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.25",
+      "seconds": 2934.815806458995
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.25",
+      "duration_seconds": 6.782577423960902,
+      "seconds": 2941.6010065199807
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.5",
+      "seconds": 2941.6047542809974
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.5",
+      "duration_seconds": 6.172083702054806,
+      "seconds": 2947.7794503539917
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.75",
+      "seconds": 2947.7838538869983
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.75",
+      "duration_seconds": 6.03378999204142,
+      "seconds": 2953.820280566986
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.9",
+      "seconds": 2953.824468236009
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_113_0.9",
+      "duration_seconds": 6.449041014013346,
+      "seconds": 2960.276133199979
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.1",
+      "seconds": 2960.2814687180216
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.1",
+      "duration_seconds": 6.98445076297503,
+      "seconds": 2967.2820065770065
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.25",
+      "seconds": 2967.2873535529943
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.25",
+      "duration_seconds": 6.272167520946823,
+      "seconds": 2973.5715723779867
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.5",
+      "seconds": 2973.57547417999
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.5",
+      "duration_seconds": 5.8312004540348426,
+      "seconds": 2979.4093812759966
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.75",
+      "seconds": 2979.4130023079924
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.75",
+      "duration_seconds": 5.928532371995971,
+      "seconds": 2985.3440896350075
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.9",
+      "seconds": 2985.3476743029896
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_118eb5d8b75e1b8ac23a4e9ae77af9a9_src0000_rgb56_127_0.9",
+      "duration_seconds": 6.214008722978178,
+      "seconds": 2991.5641775510157
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_GT_C1_commit",
+      "seconds": 2992.4385841970216
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_GT_C1_commit",
+      "duration_seconds": 11.012583442032337,
+      "seconds": 3003.454111106985
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.1",
+      "seconds": 3003.4588939190144
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.1",
+      "duration_seconds": 5.308258536970243,
+      "seconds": 3008.7697215119842
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.25",
+      "seconds": 3008.773285568983
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.25",
+      "duration_seconds": 5.933743286004756,
+      "seconds": 3014.7093627789873
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.5",
+      "seconds": 3014.7130691690254
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.5",
+      "duration_seconds": 5.659890327951871,
+      "seconds": 3020.3755525099696
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.75",
+      "seconds": 3020.3792538929847
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.75",
+      "duration_seconds": 6.110066346998792,
+      "seconds": 3026.4929088220233
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.9",
+      "seconds": 3026.4968127679895
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_113_0.9",
+      "duration_seconds": 6.059717025025748,
+      "seconds": 3032.560528630973
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.1",
+      "seconds": 3032.5650196250062
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.1",
+      "duration_seconds": 6.107760037994012,
+      "seconds": 3038.6755072170054
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.25",
+      "seconds": 3038.6789224009844
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.25",
+      "duration_seconds": 5.454247640969697,
+      "seconds": 3044.1353702769848
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.5",
+      "seconds": 3044.1387977600098
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.5",
+      "duration_seconds": 5.59133883100003,
+      "seconds": 3049.7323082229705
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.75",
+      "seconds": 3049.735677818011
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.75",
+      "duration_seconds": 5.695836597995367,
+      "seconds": 3055.433684777003
+    },
+    {
+      "kind": "dit",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.9",
+      "seconds": 3055.4370934009785
+    },
+    {
+      "kind": "timing",
+      "note": "probe64_dfec8ed3237860eba14d67c089ecd041_src0483_rgb56_127_0.9",
+      "duration_seconds": 5.355832542001735,
+      "seconds": 3060.8120447020046
+    },
+    {
+      "kind": "dit",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C1_commit",
+      "seconds": 3061.774635058013
+    },
+    {
+      "kind": "timing",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C1_commit",
+      "duration_seconds": 10.455953030032106,
+      "seconds": 3072.23348466499
+    },
+    {
+      "kind": "dit",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE1",
+      "seconds": 3072.3080719669815
+    },
+    {
+      "kind": "timing",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE1",
+      "duration_seconds": 6.025827696023043,
+      "seconds": 3078.3366820599767
+    },
+    {
+      "kind": "dit",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE2",
+      "seconds": 3078.3401916549774
+    },
+    {
+      "kind": "timing",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE2",
+      "duration_seconds": 5.7464081440120935,
+      "seconds": 3084.08876155701
+    },
+    {
+      "kind": "dit",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE3",
+      "seconds": 3084.0923943870002
+    },
+    {
+      "kind": "timing",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE3",
+      "duration_seconds": 5.878702262009028,
+      "seconds": 3089.973408109974
+    },
+    {
+      "kind": "dit",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE4",
+      "seconds": 3089.9769764739904
+    },
+    {
+      "kind": "timing",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE4",
+      "duration_seconds": 6.282697537040804,
+      "seconds": 3096.2620463339845
+    },
+    {
+      "kind": "dit",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE5",
+      "seconds": 3096.265651621972
+    },
+    {
+      "kind": "timing",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE5",
+      "duration_seconds": 5.846611989021767,
+      "seconds": 3102.114623947011
+    },
+    {
+      "kind": "dit",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE6",
+      "seconds": 3102.1182958150166
+    },
+    {
+      "kind": "timing",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE6",
+      "duration_seconds": 6.475239965016954,
+      "seconds": 3108.5959520289907
+    },
+    {
+      "kind": "dit",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE7",
+      "seconds": 3108.600710243976
+    },
+    {
+      "kind": "timing",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE7",
+      "duration_seconds": 6.0752936999779195,
+      "seconds": 3114.6895254129777
+    },
+    {
+      "kind": "dit",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE8",
+      "seconds": 3114.693389340013
+    },
+    {
+      "kind": "timing",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE8",
+      "duration_seconds": 6.983685552026145,
+      "seconds": 3121.679633883992
+    },
+    {
+      "kind": "vae_decode",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT39",
+      "seconds": 3135.063958932995
+    },
+    {
+      "kind": "timing",
+      "note": "video0_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT39_decode",
+      "duration_seconds": 6.867669656989165,
+      "seconds": 3141.9352065789863
+    },
+    {
+      "kind": "dit",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C1_commit",
+      "seconds": 3149.629043121997
+    },
+    {
+      "kind": "timing",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C1_commit",
+      "duration_seconds": 16.131839815992862,
+      "seconds": 3165.76428184798
+    },
+    {
+      "kind": "dit",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE1",
+      "seconds": 3169.1915576269967
+    },
+    {
+      "kind": "timing",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE1",
+      "duration_seconds": 11.891813688969705,
+      "seconds": 3181.090532929986
+    },
+    {
+      "kind": "dit",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE2",
+      "seconds": 3181.094582175021
+    },
+    {
+      "kind": "timing",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE2",
+      "duration_seconds": 7.327936944027897,
+      "seconds": 3188.425386583025
+    },
+    {
+      "kind": "dit",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE3",
+      "seconds": 3188.4293930829735
+    },
+    {
+      "kind": "timing",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE3",
+      "duration_seconds": 6.176401732023805,
+      "seconds": 3194.608963991981
+    },
+    {
+      "kind": "dit",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE4",
+      "seconds": 3194.6139755179756
+    },
+    {
+      "kind": "timing",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE4",
+      "duration_seconds": 6.274187997973058,
+      "seconds": 3200.8911323309876
+    },
+    {
+      "kind": "dit",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE5",
+      "seconds": 3200.895166944014
+    },
+    {
+      "kind": "timing",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE5",
+      "duration_seconds": 6.436266883974895,
+      "seconds": 3207.3342190890107
+    },
+    {
+      "kind": "dit",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE6",
+      "seconds": 3207.3379182390054
+    },
+    {
+      "kind": "timing",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE6",
+      "duration_seconds": 5.962072876980528,
+      "seconds": 3213.3096426819684
+    },
+    {
+      "kind": "dit",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE7",
+      "seconds": 3213.3135683810106
+    },
+    {
+      "kind": "timing",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE7",
+      "duration_seconds": 6.643044844036922,
+      "seconds": 3219.959389452997
+    },
+    {
+      "kind": "dit",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE8",
+      "seconds": 3219.963342864008
+    },
+    {
+      "kind": "timing",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE8",
+      "duration_seconds": 6.2983591459924355,
+      "seconds": 3226.264256706985
+    },
+    {
+      "kind": "vae_decode",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT39",
+      "seconds": 3241.323005401995
+    },
+    {
+      "kind": "timing",
+      "note": "video0_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT39_decode",
+      "duration_seconds": 5.271038873994257,
+      "seconds": 3246.597485810984
+    },
+    {
+      "kind": "dit",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C1_commit",
+      "seconds": 3266.3155199009925
+    },
+    {
+      "kind": "timing",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C1_commit",
+      "duration_seconds": 17.86736876401119,
+      "seconds": 3284.186671409989
+    },
+    {
+      "kind": "dit",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE1",
+      "seconds": 3287.3531086699804
+    },
+    {
+      "kind": "timing",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE1",
+      "duration_seconds": 13.051762104034424,
+      "seconds": 3300.4084661090164
+    },
+    {
+      "kind": "dit",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE2",
+      "seconds": 3300.4143610679894
+    },
+    {
+      "kind": "timing",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE2",
+      "duration_seconds": 8.355125414032955,
+      "seconds": 3308.773433253984
+    },
+    {
+      "kind": "dit",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE3",
+      "seconds": 3308.779759228986
+    },
+    {
+      "kind": "timing",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE3",
+      "duration_seconds": 7.3370038669672795,
+      "seconds": 3316.1215368760168
+    },
+    {
+      "kind": "dit",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE4",
+      "seconds": 3316.1279855750035
+    },
+    {
+      "kind": "timing",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE4",
+      "duration_seconds": 6.258303328009788,
+      "seconds": 3322.3910066289827
+    },
+    {
+      "kind": "dit",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE5",
+      "seconds": 3322.395476865
+    },
+    {
+      "kind": "timing",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE5",
+      "duration_seconds": 6.655374645022675,
+      "seconds": 3329.0543011070113
+    },
+    {
+      "kind": "dit",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE6",
+      "seconds": 3329.059815295972
+    },
+    {
+      "kind": "timing",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE6",
+      "duration_seconds": 6.738634802983142,
+      "seconds": 3335.8019714939874
+    },
+    {
+      "kind": "dit",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE7",
+      "seconds": 3335.8071817479795
+    },
+    {
+      "kind": "timing",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE7",
+      "duration_seconds": 6.724826949997805,
+      "seconds": 3342.535720266984
+    },
+    {
+      "kind": "dit",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE8",
+      "seconds": 3342.5403116139933
+    },
+    {
+      "kind": "timing",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT_C2_NFE8",
+      "duration_seconds": 6.947487829951569,
+      "seconds": 3349.4911815099767
+    },
+    {
+      "kind": "vae_decode",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT39",
+      "seconds": 3366.3353857959737
+    },
+    {
+      "kind": "timing",
+      "note": "video64_43866101158a538d22c52ac5b2fa606b_src0621_rgb56_GT39_decode",
+      "duration_seconds": 5.871960577031132,
+      "seconds": 3372.2111240910017
+    },
+    {
+      "kind": "dit",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C1_commit",
+      "seconds": 3381.12796463602
+    },
+    {
+      "kind": "timing",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C1_commit",
+      "duration_seconds": 19.172183781978674,
+      "seconds": 3400.3043042820063
+    },
+    {
+      "kind": "dit",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE1",
+      "seconds": 3403.580636823026
+    },
+    {
+      "kind": "timing",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE1",
+      "duration_seconds": 13.066699087037705,
+      "seconds": 3416.6539884859812
+    },
+    {
+      "kind": "dit",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE2",
+      "seconds": 3416.6591674829833
+    },
+    {
+      "kind": "timing",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE2",
+      "duration_seconds": 7.535005479003303,
+      "seconds": 3424.1981579909916
+    },
+    {
+      "kind": "dit",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE3",
+      "seconds": 3424.2030902999686
+    },
+    {
+      "kind": "timing",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE3",
+      "duration_seconds": 6.818858184036799,
+      "seconds": 3431.0383439820143
+    },
+    {
+      "kind": "dit",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE4",
+      "seconds": 3431.0436527939746
+    },
+    {
+      "kind": "timing",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE4",
+      "duration_seconds": 6.497621574031655,
+      "seconds": 3437.545010484988
+    },
+    {
+      "kind": "dit",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE5",
+      "seconds": 3437.550106758019
+    },
+    {
+      "kind": "timing",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE5",
+      "duration_seconds": 7.550581281015184,
+      "seconds": 3445.1044234440196
+    },
+    {
+      "kind": "dit",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE6",
+      "seconds": 3445.111385253025
+    },
+    {
+      "kind": "timing",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE6",
+      "duration_seconds": 6.249506912019569,
+      "seconds": 3451.3660860439995
+    },
+    {
+      "kind": "dit",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE7",
+      "seconds": 3451.3707429500064
+    },
+    {
+      "kind": "timing",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE7",
+      "duration_seconds": 6.801023478969,
+      "seconds": 3458.1756287349854
+    },
+    {
+      "kind": "dit",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE8",
+      "seconds": 3458.1804919290007
+    },
+    {
+      "kind": "timing",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT_C2_NFE8",
+      "duration_seconds": 6.784176631947048,
+      "seconds": 3464.9685115489992
+    },
+    {
+      "kind": "vae_decode",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT39",
+      "seconds": 3482.2296374880243
+    },
+    {
+      "kind": "timing",
+      "note": "video64_7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_GT39_decode",
+      "duration_seconds": 5.702750174968969,
+      "seconds": 3487.9381139819743
+    }
+  ],
+  "error": null
+}

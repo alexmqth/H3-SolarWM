@@ -17,6 +17,8 @@
 
 [8. 全50层C1+C2普通FM / EXP-025](fm_full_coverage/README.md)：256updates与六组匹配视频完成，C1略差、C2 MSE小降，新增视频收益未证实，停止自动扩训。
 
+[9. ABot两片C2普通FM拟合 / EXP-027](fm_two_clip_fit/README.md)：64updates、每片32次曝光及两组匹配视频完成；固定MSE约降1%，没有清楚新增动作/视频收益，当前候选收口。
+
 当前收益最明确的是普通 FM-8NFE。AnyFlow 的已测 checkpoint 没有显示整体优势，因此保留负结果、停止当前配置扩展。四步续写都借用了 FM-8NFE 首窗，不能称为全程四步生成。FM-8NFE 与 FM-30NFE 自身历史不同的比较，也不能称为同 KV 的纯步数消融。
 
 后续 DMD 训练归入 [V4：SGF / DMD](../../v4/README.md)。[缩写表](../../GLOSSARY.md) · [返回 V3](../README.md)

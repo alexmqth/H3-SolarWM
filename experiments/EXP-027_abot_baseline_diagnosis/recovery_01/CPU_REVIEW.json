@@ -1,0 +1,93 @@
+{
+  "status": "PASS_CPU_MEDIA",
+  "records": [
+    {
+      "clip_id": "43866101158a538d22c52ac5b2fa606b_src0621_rgb56",
+      "checkpoint0": {
+        "generated_frame_mad": 6.688674449920654,
+        "boundary_mad": 7.855859279632568,
+        "source_mae_generated_17f": 13.42277717590332,
+        "source_psnr_generated_17f": 20.79749943060119
+      },
+      "checkpoint64": {
+        "generated_frame_mad": 6.480132102966309,
+        "boundary_mad": 7.9118804931640625,
+        "source_mae_generated_17f": 12.775558471679688,
+        "source_psnr_generated_17f": 21.21977922598652
+      },
+      "mean_abs_rgb_difference_generated_17f": 2.4236340522766113,
+      "reference": {
+        "path": "submission/experiments/EXP-027_abot_baseline_diagnosis/recovery_01/reference/43866101158a538d22c52ac5b2fa606b_src0621_rgb56_source_rgb56.mp4",
+        "sha256": "e777a350effdf20c9599a870adea6054f02dadd934bc1f30fc001b845208fbc1",
+        "frames": 56,
+        "fps": 24,
+        "width": 832,
+        "height": 480,
+        "bytes": 783318
+      },
+      "reference_lossless_rgb": {
+        "path": "submission/experiments/EXP-027_abot_baseline_diagnosis/recovery_01/reference/43866101158a538d22c52ac5b2fa606b_src0621_rgb56_source_rgb56.npy",
+        "sha256": "23048d3fab148a2e25f8e3ac8046e39f970646e736f9ae28d6098ec3ed028f35",
+        "shape": [
+          56,
+          480,
+          832,
+          3
+        ]
+      },
+      "paired": {
+        "path": "submission/experiments/EXP-027_abot_baseline_diagnosis/recovery_01/comparisons/43866101158a538d22c52ac5b2fa606b_src0621_rgb56_checkpoint000_vs_064.mp4",
+        "sha256": "86146a4e6a6664cd7deca55527dad1ba198bbefdcc54dce24aa29a57bac297cf",
+        "frames": 56,
+        "fps": 24,
+        "width": 1664,
+        "height": 516,
+        "bytes": 2202933
+      }
+    },
+    {
+      "clip_id": "7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56",
+      "checkpoint0": {
+        "generated_frame_mad": 6.43366003036499,
+        "boundary_mad": 8.713165283203125,
+        "source_mae_generated_17f": 12.19787883758545,
+        "source_psnr_generated_17f": 22.707284105544115
+      },
+      "checkpoint64": {
+        "generated_frame_mad": 6.270267486572266,
+        "boundary_mad": 8.686391830444336,
+        "source_mae_generated_17f": 11.727072715759277,
+        "source_psnr_generated_17f": 23.049394653414442
+      },
+      "mean_abs_rgb_difference_generated_17f": 1.9092599153518677,
+      "reference": {
+        "path": "submission/experiments/EXP-027_abot_baseline_diagnosis/recovery_01/reference/7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_source_rgb56.mp4",
+        "sha256": "a5ca6d0424df9c707c3adeee37d3531301e600410d0b9c215e8fdddc8f4f41fa",
+        "frames": 56,
+        "fps": 24,
+        "width": 832,
+        "height": 480,
+        "bytes": 996682
+      },
+      "reference_lossless_rgb": {
+        "path": "submission/experiments/EXP-027_abot_baseline_diagnosis/recovery_01/reference/7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_source_rgb56.npy",
+        "sha256": "6676d11580e4e093000d85f747aad337ed5c8aeadc63f4093202b4ce1f34c72e",
+        "shape": [
+          56,
+          480,
+          832,
+          3
+        ]
+      },
+      "paired": {
+        "path": "submission/experiments/EXP-027_abot_baseline_diagnosis/recovery_01/comparisons/7199292ca430b478bfd0d83cf2e519d8_src1670_rgb56_checkpoint000_vs_064.mp4",
+        "sha256": "a5f1e9d7f0b3bb09caaa81938aa1039a47b9546ca7df5ef19eb8237fe4b4624f",
+        "frames": 56,
+        "fps": 24,
+        "width": 1664,
+        "height": 516,
+        "bytes": 2798975
+      }
+    }
+  ]
+}
