@@ -26,13 +26,13 @@ It is a policy/world-action task, unlike our externally supplied language-action
 
 The quoted title **CAER: Causal Action Effect Reweighting for World Model Training** did not resolve to a primary paper in this bounded search. Exact-title discovery returned unrelated results; HF acronym search returned none; ArcXiv search yielded a client-rendered search shell rather than an identified paper. ArcXiv is an independent reader, not the arXiv primary record. This is an unresolved citation, not proof of nonexistence. Do not cite its claimed method as verified or dismiss possible overlap without an actual paper/identifier.
 
-## Other discovery leads, not established comparisons
+## Additional primary abstracts verified
 
-- NoiseGate: Learning Per-Latent Timestep Schedules as Information Gating in World Action Models, discovery id2605.07794.
-- AVControl: Efficient Framework for Training Audio-Visual Controls, id2603.24793.
-- Modality-Autoregressive World-Action Models, id2609.17524.
+- [NoiseGate](https://arxiv.org/abs/2605.07794), May8,2026: learns per-latent timestep schedules as information gating in a joint video/action MoT policy, including changes to latent KV reliability and task-reward optimization. This is a generated-action policy objective, unlike supplied language controls. It is relevant prior art if we later propose noise/time-dependent cache conditioning; changing KV reliability through noise is not an untouched idea.
+- [AVControl](https://arxiv.org/abs/2603.24793), March25,2026: separate control-modality LoRAs on parallel conditioning canvases for LTX-2 audio/video generation. Relevant to broad claims about modular control adapters, but not established as a direct baseline for causal language-action history reuse.
+- [Modality-Autoregressive World-Action Models](https://arxiv.org/abs/2609.17524), v2 October8,2026: sequentially generates future modalities before actions in robot policies; studies modality choices and training scale. Different task, but modality-specific generation/conditioning is established context.
 
-These were discovery results only. Check primary text and publication timing before using them in claims. Search systems also return irrelevant or potentially later papers; ranking is not evidence of proximity or availability at our research cutoff.
+These facts were checked at abstract level only. Full architecture and experimental comparisons remain to be read before precise novelty claims. Search systems also return irrelevant or potentially later papers; ranking is not evidence of proximity or availability at our research cutoff.
 
 ## Consequence for tonight's decisions
 

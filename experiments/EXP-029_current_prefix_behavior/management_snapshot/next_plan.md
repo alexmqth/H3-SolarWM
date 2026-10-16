@@ -14,8 +14,10 @@ EXP-028已验收，完整8条诊断未建立V3特有的明显角色梯度冲突�
 
 ## 预算
 
-CPU实现≤45分钟/4workers/RSS32GiB。GPU1共享允许但启动free≥40GiB，单次≤3600进程秒且必须在08:59:45前结束；242DiT（2commit+240sampling），8VAE decode，0backward/updates/编码/下载，GPUallocated<40GiB，RSS<96GiB。8原片+2个2×2对比及全部新增帧联系表。每个新进程登记deadline guard。
+CPU实现≤45分钟/4workers/RSS32GiB。GPU1优先，可选0/6/7中的一张，共享允许但启动free≥40GiB，单次≤3600进程秒且必须在08:59:45前结束；242DiT（2commit+240sampling），8VAE decode，0backward/updates/编码/下载，GPUallocated<40GiB，RSS<96GiB。8原片+2个2×2对比及全部新增帧联系表。每个新进程登记deadline guard。
 
 ## 审核与停止
 
 CPU明确唯一mask改动、A/D固定布局、历史KV不变、未来裁剪、真实入口和计数。GPU异常/超限停止不重试扩展。人物/相机分开观察，光流辅助；动作更静止不算收益。Worker第一场景完成和最终完成时消息Judge；Judge逐帧审核后决定方法价值。正式V3不覆盖，SGF+/Memory/双Adapter尚非已成立方法。
+
+**准入补充01：** GPU1被其他新任务占用后free不足，允许单卡候选[1,0,6,7]择一，不增加GPU数量或预算；仍需≥40GiB实际空余，不抢占。

@@ -1,0 +1,64 @@
+{
+  "status": "PASS_CPU_READ_ONLY",
+  "task": "EXP-029 proposal input audit",
+  "gpu_calls": 0,
+  "samples": [
+    {
+      "scene": "s0_43866101",
+      "fixture_sha256": "a0b6ce46676df740bbe884535341319a2dd363f8640eb3fbbb432f75d18b8e4e",
+      "first12_sha256": "15fc16ff0f2a1236c6984f75fc9c05fcc6f3aafcbfea45f50352cd52a32dfca4",
+      "published39_sha256": "c763ae096f53f2922d1cd37492f0555f50948bd2edd01cc3cbac44bb4bf17899",
+      "generated_c1_shape": [
+        1,
+        24,
+        12,
+        30,
+        52
+      ],
+      "published39_shape": [
+        39,
+        480,
+        832,
+        3
+      ],
+      "c1_prompt_exact_same": true,
+      "c2_only_action_rows_differ": true,
+      "c2_current_noise_same": true,
+      "future_rows_physically_removed": true,
+      "action_sentences": {
+        "A": "the man strafes left, camera follows him",
+        "D": "the man strafes right, camera follows him"
+      },
+      "c2_noise_sha256": "dd64fbea503a4c8a37e524067c080b78685a0e5a8a9dc89a9c786cbf6a010856"
+    },
+    {
+      "scene": "s3_b784d995",
+      "fixture_sha256": "934570b5dd9d0625d1a97724f71a9f68cc730af3b4d0e2377061dcb0166d6a52",
+      "first12_sha256": "c32de635d545d2a414d1f160fee7e725ef1164a1c4d2feee8450ed541726641b",
+      "published39_sha256": "36025f6d2c074ebf6c2018816951e7172244efdab06e699bb2f3c5f032c3ef0a",
+      "generated_c1_shape": [
+        1,
+        24,
+        12,
+        30,
+        52
+      ],
+      "published39_shape": [
+        39,
+        480,
+        832,
+        3
+      ],
+      "c1_prompt_exact_same": true,
+      "c2_only_action_rows_differ": true,
+      "c2_current_noise_same": true,
+      "future_rows_physically_removed": true,
+      "action_sentences": {
+        "A": "the man strafes left, camera follows him",
+        "D": "the man strafes right, camera follows him"
+      },
+      "c2_noise_sha256": "dd64fbea503a4c8a37e524067c080b78685a0e5a8a9dc89a9c786cbf6a010856"
+    }
+  ],
+  "note": "Same C1 raw KV still requires runtime commit/reuse verification; no GPU call made."
+}

@@ -10,7 +10,10 @@
   "gpu_count": 1,
   "preferred_gpu": 1,
   "allowed_gpu": [
-    1
+    1,
+    0,
+    6,
+    7
   ],
   "min_free_gpu_mib": 40960,
   "requires_empty_gpu": false,
@@ -31,5 +34,7 @@
   "stop_utc": "2026-10-17T00:59:45Z",
   "hard_deadline_utc": "2026-10-17T01:00:00Z",
   "scope": "Two saved EXP-014 generated C1 states, identical raw KV and noise; current non-action prefix feedback ON/OFF x A/D; no new method training",
-  "taskbook": "taskbook_v1.md"
+  "taskbook": "taskbook_v1.md",
+  "admission_revision": 2,
+  "admission_addendum": "ADDENDUM_01_GPU_ADMISSION.md"
 }
