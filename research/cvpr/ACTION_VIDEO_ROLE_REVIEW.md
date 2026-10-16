@@ -12,7 +12,7 @@ The strongest potential claim is an interaction: causalization changes learned a
 
 - The local October 10 routing audit reports delta-cosine means 0.3354 / 0.1175 / 0.6400 for public feedback removal / video causalization / clean frozen commit. These are numerical action-sensitivity changes, not measured losses of semantic control.
 - `code/causal/h3_cached.py` requires no-grad commits and detaches copied tensors. EXP-023's `make_cache` is reused by EXP-025/027. Their future C2 loss does not backpropagate into the historical C1 writer computation.
-- EXP-025 uses 50 fused-QKV rank-8 increments, each with shapes (8,6720) and (20160,8): 10,752,000 parameters. Two copies would have 21,504,000. Parameter counts do not predict activation memory or backward cost.
+- EXP-025 uses 50 fused-QKV rank-8 increments, each with runtime/checkpoint shapes (8,5376) and (21504,8): 10,752,000 parameters. Two copies would have 21,504,000. Parameter counts do not predict activation memory or backward cost.
 - The primary H3-World abstract at https://arxiv.org/abs/2609.01560 was retrieved on 2026-10-17. It confirms language-based character/camera control and temporal attention routing. Its paper claims do not establish our proposed mechanism.
 - SGF+ quoted angles 104.2/106.3 degrees and CAER's exact identity/claims have not been independently verified in this review. API timeout/rate limiting is not evidence that these papers do not exist. Treat them as leads, not established comparisons. CVPR edition/deadline remains unverified.
 
@@ -36,7 +36,7 @@ Even for two contributions with negative dot product, a shared SGD step may stil
 
 For W=W_frozen+s B A, map each role's dense gradient to dL/dB=s G_r A^T and dL/dA=s B^T G_r. Full-weight geometry and low-rank trainable geometry can disagree. At the standard B=0 initialization, dL/dA is zero; it is not evidence of absent action influence. Released Action LoRA stays frozen and is distinct from new role adapters.
 
-Use bounded layerwise accumulation or an explicitly validated sketch; do not retain 50 dense fused-QKV gradients or all token activations. One dense fused-QKV gradient has 135,475,200 entries (about 0.505 GiB in FP32), before role copies and activations. Frozen weight `.grad is None` cannot answer the question; hooks/functional probes must retain the required activation derivatives without optimizer updates.
+Use bounded layerwise accumulation or an explicitly validated sketch; do not retain 50 dense fused-QKV gradients or all token activations. One dense fused-QKV gradient has 115,605,504 entries (about 0.431 GiB in FP32), before role copies and activations. Frozen weight `.grad is None` cannot answer the question; hooks/functional probes must retain the required activation derivatives without optimizer updates.
 
 ### 4. Detached history and current-token roles are separate questions
 
@@ -58,3 +58,7 @@ Past output/state must not depend on newly arrived actions. Original bidirection
 ## Immediate handoff
 
 Original Exp Worker: CPU-only preparation, at most 15 minutes / 4 CPU workers / 8 GiB RSS; no GPU, downloads, training updates or new videos. Deliver `ROLE_GRADIENT_SPEC.md`, a small CPU decomposition/LoRA check with output, and a proposed bounded GPU budget. Do not build/load the 33B model or implement full dual-adapter training. Judge owns interpretation and authorization.
+
+## Dimension correction
+
+The first review accidentally used the synthetic EXP-025 `cpu_checkpoint_lifecycle()` dimensions (8,6720)/(20160,8). Runtime/checkpoint dimensions are (8,5376)/(21504,8), explicitly checked in EXP-027 recovery CPU preflight. The equal dimension sums preserve the 10,752,000 adapter parameter count; the dense-gradient memory estimate above is corrected. Frozen experiment files are unchanged.
