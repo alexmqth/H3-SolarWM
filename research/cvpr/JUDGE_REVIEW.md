@@ -17,3 +17,7 @@ Prioritize an action-conditioning mechanism question over further small proxy-lo
 ## Next gate
 
 Before a GPU pilot, produce a corrected interpretation and exact graph specification with bounded cost. Judge will decide whether its added information justifies execution. In parallel research planning, establish the closest related methods and their differences before choosing a novelty claim. Current outputs establish neither a new algorithm nor publication priority.
+
+## Proposal revision received
+
+Worker revised the proposal to separate sensitivity magnitude from geometry and semantic control, calibrate both sigmas, require multilayer reachability checks, and distinguish the diagnostic prefix graph from frozen V3. Revised proposed budget is 16 DiT attempts / 1,000 GPU-process seconds; it remains unauthorized. These are planned checks, not completed CPU correctness results. Implementation must compare errors and signal using the same normalization (RMS against RMS, or L2 against L2). Planning review is closed; literature differentiation and the added decision value of this probe remain prerequisites to choosing the next experiment.
