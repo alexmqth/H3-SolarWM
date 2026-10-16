@@ -36,7 +36,7 @@ These facts were checked at abstract level only. Full architecture and experimen
 
 ## Consequence for tonight's decisions
 
-1. Finish the bounded EXP-028 measurement; do not enlarge it to obtain stronger negative cosines.
+1. EXP-028 is complete and accepted as a bounded measurement; it did not establish strong V3-specific conflict. Do not enlarge it to obtain stronger negative cosines.
 2. If its role differences are weak or already present in Original-visible, do not start dual-adapter training on a gradient-conflict claim.
 3. Favor a controlled behavior experiment that can distinguish lawful action-conditioning paths from general quality changes, or a targeted parameter intervention only if both the mechanism evidence and expected behavioral value justify it.
 4. Current evidence still does not establish a CVPR method or a first-in-literature claim.
