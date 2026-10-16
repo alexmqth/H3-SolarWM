@@ -1,5 +1,9 @@
 # 当前项目进展
 
+## 2026-10-17 CVPR研究假设更新
+
+Judge接受Action–Video交互为首选研究问题，新增优化干扰H3为待验证假设，不宣称双Adapter必要或梯度冲突已成立。既有路由cosine与detached cache源码已核对；原Worker仅获15分钟CPU分解/LoRA映射准备预算。无新GPU、训练或视频。前轮CVPR证据图谱与诊断提案已收口并push。[分析与约束](submission/research/cvpr/ACTION_VIDEO_ROLE_REVIEW.md) · [当前任务](next_plan.md)。
+
 ## 研究优先级：CVPR motivation / novelty（2026-10-16）
 
 用户明确CVPR投稿目标。当前causal/KV与训练入口是研究基线，尚无已验证的新方法/机制贡献。Judge将下一步改为动作条件通路与历史状态冲突的可证伪机制诊断准备，原Worker仅CPU盘点已有ABot证据与一个最小方案；0新GPU。停止围绕约1%MSE反复加训。相关工作系统查重未完成，novelty不作已成立声明。[研究计划](submission/research/cvpr/RESEARCH_PLAN.md) · [当前任务](next_plan.md)。

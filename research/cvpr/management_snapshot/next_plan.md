@@ -1,15 +1,17 @@
-# 当前研究任务：CVPR动机、贡献与机制诊断准备
+# 当前研究任务：Action–Video 角色梯度诊断准备
 
-2026-10-16 HKT，用户明确主要目标为CVPR。Judge调整主线：以可重复机制问题和可验证方法贡献组织实验，不继续追逐EXP-027约1%代理收益。仍聚焦ABot/H3-World语言动作，SolarWM官方参考停止。
+2026-10-17 HKT，Judge。研究问题优先：因果化如何影响已学习的动作—视频交互。前向通路(H1)、历史状态(H2)、优化干扰(H3)分开验证；双Adapter仅候选，不预定最终方法。
 
-[研究计划](submission/research/cvpr/RESEARCH_PLAN.md) · [CPU授权](submission/research/cvpr/AUTHORIZATION.json)。原Exp Worker立即在20分钟CPU预算内整理已有证据与一个最小机制诊断方案，不执行新GPU任务。
+[Judge分析](submission/research/cvpr/ACTION_VIDEO_ROLE_REVIEW.md) · [本轮CPU授权](submission/research/cvpr/AUTHORIZATION_ROLE_CPU.json)。前轮证据梳理与提案修订已接受；16DiT/1000GPU秒只是旧提案，未授权执行。
 
-## 优先研究问题
+## Task CVPR_ROLE_DIAGNOSTIC_PREP / v1
 
-如何在动作条件视频模型的因果化及历史KV复用中，保留当前动作对未来的可控影响，同时维持已生成世界的连续性？先区分合法条件通路被削弱与历史表征/新动作冲突两种待证伪假设。现有V1/V3版本差异混杂，不能直接证明机制；若只是修复遗漏attention边，则不自动构成论文方法。
+- Worker：原Exp Worker；基线为冻结Original H3 + released Action LoRA、正确V3及已有EXP-025/027实现。
+- 唯一问题：token-role梯度分解能否在现有计算图与LoRA参数空间中被正确测量，以及测量结果能否影响方法选择。
+- 交付：`submission/research/cvpr/ROLE_GRADIENT_SPEC.md`、小型CPU梯度分解/LoRA映射验证源码及结果、有限GPU预算草案。只做准备，不加载33B。
+- CPU上限：15分钟、4workers、RSS8GiB；0GPU、0下载、0updates、0视频。新授权独立于前轮已收口CPU预算。
+- 验证：同一loss下角色贡献加和与autograd相符；包含prefix/other；完整权重与LoRA空间分开；B=0时A梯度退化正确处理；detached历史标明无路径；不把负cos直接判为控制/画质冲突。
+- 预算草案：固定少量样本/sigma/层，明确Original-visible与V3可比性、真实动作标签、前后向/commit次数及显存风险。行为对照另明确人物/相机与17帧局限，不启动大矩阵。
+- 停止：CPU预算用尽或分解不正确则提交现状；不扩展层数/模型/GPU。Worker不修改冻结生产代码与正式V3结果，不操作Git。
 
-## 当前交付与停止条件
-
-Worker输出submission/research/cvpr/EVIDENCE_MAP.md和DIAGNOSTIC_PROPOSAL.md：已有证据/混杂/未知、最接近本地可核验工作与待文献核实项、一个能否定假设的配对诊断、精确输入/权重/作用变量/预算草案。CPU≤20分钟、4workers/RSS32GiB，0下载/0GPU/0新视频。Judge审后再决定GPUpilot，不扩大评测或预设SGF+/Memory方法。
-
-EXP-027已accepted收口，64updates/四视频、无清楚新增能力；正式V3保持冻结。后续基线训练用于公平对照和排除欠训练混杂，不能以未经充分训练的负结果证明架构缺陷。论文novelty及目标CVPR届次/截止时间尚待核实，不作先验保证。
+Judge审查后按ROI决定是否值得跑一个有限诊断；相关工作核实与行为证据共同决定novelty，SGF+具体角度/CAER身份尚未独立核实。EXP-027已收口，不追加约1%代理收益训练；仍聚焦ABot，不恢复SolarWM官方支线。
