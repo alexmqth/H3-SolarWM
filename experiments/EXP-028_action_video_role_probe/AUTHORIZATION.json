@@ -31,8 +31,11 @@
     6,
     7
   ],
-  "requires_empty_gpu": true,
+  "requires_empty_gpu": false,
   "admission_expiry_utc": "2026-10-17T05:15:00Z",
-  "on_cpu_gates_pass": "Automatically admit one GPU run when empty device becomes available within expiry",
-  "taskbook": "taskbook_v1.md"
+  "on_cpu_gates_pass": "Automatically admit one GPU run with >=40960MiB free, allowing existing processes, within expiry",
+  "taskbook": "taskbook_v1.md",
+  "admission_revision": 2,
+  "min_free_gpu_mib": 40960,
+  "admission_addendum": "ADDENDUM_01_SHARED_GPU.md"
 }
