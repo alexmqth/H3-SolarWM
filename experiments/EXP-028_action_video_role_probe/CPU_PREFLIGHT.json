@@ -1,0 +1,128 @@
+{
+  "task": "EXP-028/v1",
+  "status": "PASS_CPU",
+  "cases": [
+    {
+      "name": "original",
+      "pass_role_sum": true,
+      "relative_rms": 1.4398563210920276e-07,
+      "max_abs": 2.1827872842550278e-11,
+      "reference_norm": 0.0008857605280354619,
+      "role_sum_norm": 0.0008857605280354619,
+      "forward_invocations": 1,
+      "cotangent_invocations": 1,
+      "role_counts": {
+        "non_action_prefix": 2,
+        "action_history": 24,
+        "action_current": 10,
+        "video_history": 36,
+        "video_current": 15
+      },
+      "qkv_norms": {
+        "q": 0.00048602427705191076,
+        "k": 0.0005044810241088271,
+        "v": 0.0005420803790912032
+      }
+    },
+    {
+      "name": "v3_checkpoint",
+      "pass_role_sum": true,
+      "relative_rms": 1.2378993950586678e-07,
+      "max_abs": 1.4551915228366852e-11,
+      "reference_norm": 0.0009779218817129731,
+      "role_sum_norm": 0.0009779218817129731,
+      "forward_invocations": 1,
+      "cotangent_invocations": 1,
+      "role_counts": {
+        "non_action_prefix": 2,
+        "action_history": 24,
+        "action_current": 10,
+        "video_current": 15
+      },
+      "qkv_norms": {
+        "q": 0.0005557146505452693,
+        "k": 0.0005674863350577652,
+        "v": 0.0005705010844394565
+      }
+    }
+  ],
+  "cast": {
+    "pass_role_sum": true,
+    "relative_rms": 1.292252635821894e-07,
+    "max_abs": 3.637978807091713e-11,
+    "reference_norm": 0.001042996533215046,
+    "role_sum_norm": 0.001042996533215046,
+    "forward_invocations": 2,
+    "cotangent_invocations": 1,
+    "role_counts": {
+      "non_action_prefix": 2,
+      "action_history": 24,
+      "action_current": 10,
+      "video_current": 15
+    }
+  },
+  "source_sha256": {
+    "submission/experiments/EXP-028_action_video_role_probe/taskbook_v1.md": "57751b2e7b3204d6ccec681b2c1037ac1d3130b9151be58dce6fb67ea9f4b90c",
+    "submission/experiments/EXP-028_action_video_role_probe/AUTHORIZATION.json": "a97fd81b3ed1ddf3256cf2131a30c7d287aec85fe123a490b04998d515a73d83",
+    "submission/experiments/EXP-028_action_video_role_probe/ADDENDUM_01_SHARED_GPU.md": "df46eec9612d23b81b61c1c05f71b62cb183d802db2cf39ac26437a15343a70b",
+    "submission/experiments/EXP-028_action_video_role_probe/role_probe.py": "b40cd73cbb1ac8b4db9265f8b405534c1799e9c28f226cfd60560a82850e199b",
+    "submission/experiments/EXP-028_action_video_role_probe/cpu_preflight.py": "6fad1bb7bd0cd3b50a4a6a418b1f6246423e61eb41b3b83432145e232d38c69a",
+    "submission/experiments/EXP-028_action_video_role_probe/admit.py": "c0c53b1f0c53f06c3d380bd2855aa21466e716bc7bb8b4cbd55321f5a57de06b",
+    "submission/experiments/EXP-028_action_video_role_probe/admit_recovery.py": "a319053276d86bf1b8875a5593be7a160392abbda746546921175d837b1dfb30",
+    "submission/experiments/EXP-028_action_video_role_probe/gpu_run.py": "85b978d2d1679f9e70b2487b131d084b91dd00140476f477735a549c94f9b955",
+    "submission/experiments/EXP-028_action_video_role_probe/original_clean.py": "66571b85702b0306ef33c34a1b5aa9446f8c979c1d08d396881db9e71dcf28ee",
+    "submission/experiments/EXP-028_action_video_role_probe/ADDENDUM_02_STARTUP_RECOVERY.md": "d03b34cc565bc014ca85fa1bd4ca1804311a832f83e3275ad09d3dcd649e8db7",
+    "submission/experiments/EXP-028_action_video_role_probe/AUTHORIZATION_RECOVERY_01.json": "88e0301ba4ee2a38e40247493c1878fccc917f3e3109050e8c43e848ffcb33cb",
+    "submission/code/causal/pretrained_lora.py": "e7616f9820eb93032c34860c2873839b98ad7b1e25cabb9c3a33cfe51393117d",
+    "H3-World/code/causal/local_transition.py": "7cc6b5d5a40e5ceda7a5319ab28abe6976b9c3397f9b2710999a5f5e569889c4",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/local_topology.py": "ab09f33c4e847adc3d67f14c6de26cd3bd963402b79114875104816abd4a2f93",
+    "submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310",
+    "H3-World/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py": "68e9cb9336590fae7c53f2fac83c09aaf8d03fba1776777383a2b924eee40e38",
+    "H3-World/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b",
+    "models/H3-World/step-10000.safetensors": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/config.json": "f619093a231fcfbcc3d035bec26c50ad864e7331a500d5c519f5045dc1e50458",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model.safetensors.index.json": "fb457a26ffa6294660e249b0ddd03a337f2e5393f770b5c34c8b8f90a29a7efb",
+    "submission/experiments/EXP-023_v3_fm_small_data/interval_train.py": "9cba78bae7b1d15a6fa87a915c327369cef0fce745d79212835d187796839313",
+    "submission/experiments/EXP-023_v3_fm_small_data/fm_run.py": "eefba4aefe73a482a1b2fc1716869ab70057354953df5b6345a0ef7ff7cc48b3",
+    "submission/experiments/EXP-019_v3_mixed_action_validation/run.py": "5c95118d89714b7ddb54db8b3d3fb92529862db9146288dc50e6b1805eb92d71",
+    "submission/experiments/EXP-025_v3_fm_full_coverage/checkpoint_000.pt": "65fc21a9afa45db9efa7de4b89c6323df694cbd601142c9a86669afe9276c659",
+    "submission/experiments/EXP-023_v3_fm_small_data/encoded/43866101158a538d22c52ac5b2fa606b_src1245_rgb56/record.json": "41000bcf5f7b8221ba1a1268b4708fdb13a516a78d075fd3a7b23524965d0a6d",
+    "submission/experiments/EXP-023_v3_fm_small_data/encoded/43866101158a538d22c52ac5b2fa606b_src1245_rgb56/condition.pt": "7a1117d4568f4a366dbf8e1f218a737ebcea80312c7adb9dd3ca44258936ba27",
+    "submission/experiments/EXP-023_v3_fm_small_data/encoded/43866101158a538d22c52ac5b2fa606b_src1245_rgb56/full17.pt": "0cb2640e4a6760bae5760e7ea6698d73e6ad928c986ff84570d51ab9e2719c65",
+    "submission/experiments/EXP-023_v3_fm_small_data/encoded/43866101158a538d22c52ac5b2fa606b_src1245_rgb56/I0.pt": "63c822976963169751c227fb2b352c05a45c547117ccda4cf1158c3376e37dff",
+    "submission/experiments/EXP-023_v3_fm_small_data/encoded/b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56/record.json": "9362e8c47842d568dd88a4c80989e6266780d707d74c830dcd425311ba05d4c6",
+    "submission/experiments/EXP-023_v3_fm_small_data/encoded/b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56/condition.pt": "30247e00cdd9ed47ab1991f65191b455cedaae9392d9bad84836b80924192ba8",
+    "submission/experiments/EXP-023_v3_fm_small_data/encoded/b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56/full17.pt": "7e422cb411f0950b26387c5ea0285c2903bb78e6b7958d1a7826b98083eed352",
+    "submission/experiments/EXP-023_v3_fm_small_data/encoded/b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56/I0.pt": "405f42a034183f31611400f7b37f72aeb6cdab67c44b07c9c1570891d26794dc"
+  },
+  "real_layouts": [
+    {
+      "clip": "43866101158a538d22c52ac5b2fa606b_src1245_rgb56",
+      "episode": "43866101158a538d22c52ac5b2fa606b",
+      "original_rows": 8220,
+      "v3_rows": 3540,
+      "action_history_rows": 168,
+      "action_current_rows": 70
+    },
+    {
+      "clip": "b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56",
+      "episode": "b784d995827f53977a8067e5b9dc4b5e",
+      "original_rows": 8163,
+      "v3_rows": 3483,
+      "action_history_rows": 120,
+      "action_current_rows": 42
+    }
+  ],
+  "elapsed_seconds": 2.695247541065328,
+  "rss_gib": 1.0194854736328125,
+  "cuda_initialized": false,
+  "gpu_calls": 0,
+  "role_sum_threshold": {
+    "relative_rms": 0.001,
+    "max_abs": "1e-3 * max(1,max_abs(reference))"
+  },
+  "identity_threshold": {
+    "relative_rms": 1e-06,
+    "max_abs": "1e-6 * max(1,max_abs(reference))"
+  }
+}

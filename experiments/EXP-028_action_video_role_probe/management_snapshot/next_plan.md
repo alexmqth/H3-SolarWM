@@ -23,3 +23,5 @@ CPU预检、固定输入源码SHA、实际命令、排队状态、GPU账本、�
 **显存准入补充01：** 完全空卡不是必要条件。EXP-027峰allocated24.45/reserved29.14GiB；本轮Original-visible反向峰尚未实测，首次暂要求实际free≥40GiB。符合余量可与现有进程共享，预算/截止不变。[补充](submission/experiments/EXP-028_action_video_role_probe/ADDENDUM_01_SHARED_GPU.md)。
 
 **启动恢复02已批准：** GPU1已达到free≥40GiB。首次启动在import run失败，0DiT/0backward；保留attempt00。Worker修复真实入口导入和末次backward计数，Original-visible必须使用clean GT C1可微参考（禁止暗换same-sigma）；CPU通过后自动GPU1单次恢复，≤2396秒，累计≤2400秒，14/8预算不增加。[补充02](submission/experiments/EXP-028_action_video_role_probe/ADDENDUM_02_STARTUP_RECOVERY.md)。
+
+**实际启动：** 恢复CPU预检通过，2026-10-17 01:19:46 HKT在GPU1启动，Python PID1294062（controller1291827）。准入free42631MiB，保留共享进程；结果位于recovery01。当前处于运行中，尚未验收。

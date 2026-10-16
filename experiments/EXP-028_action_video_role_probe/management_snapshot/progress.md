@@ -2,7 +2,7 @@
 
 ## 2026-10-17 EXP-028已下发：从CPU准备进入有限实测
 
-Judge批准原Worker实现并自动在空闲GPU执行角色梯度pilot。只测rank-8空间，2片×2sigma×Original-visible/V3、层0/49；14DiT/8backward/2400秒、0updates/视频。发任务时8卡均占用，先CPU实现；限时等空卡，不抢占。首次GPU1进程启动因import run错误退出，0DiT/0backward；已授权一次CPU修复后GPU1恢复，尚无机制结果。准入已改为允许共享但首次实际free≥40GiB；此前C2实测reserved峰29.14GiB，本轮完整可见窗口反向峰未知。[任务书](submission/experiments/EXP-028_action_video_role_probe/taskbook_v1.md)。
+Judge批准原Worker实现并自动在空闲GPU执行角色梯度pilot。只测rank-8空间，2片×2sigma×Original-visible/V3、层0/49；14DiT/8backward/2400秒、0updates/视频。发任务时8卡均占用，先CPU实现；限时等空卡，不抢占。首次启动import错误保留（0DiT/0backward）；恢复已于2026-10-17 01:19:46 HKT在GPU1实际启动，Python PID1294062，处于模型加载/诊断执行中，尚无机制结论。准入已改为允许共享但首次实际free≥40GiB；此前C2实测reserved峰29.14GiB，本轮完整可见窗口反向峰未知。[任务书](submission/experiments/EXP-028_action_video_role_probe/taskbook_v1.md)。
 
 ## 2026-10-17 CVPR研究假设更新
 
