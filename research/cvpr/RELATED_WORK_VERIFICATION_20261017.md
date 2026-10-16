@@ -20,7 +20,18 @@ Implication: our route must demonstrate why action conditioning in a causalized 
 
 [GameWAM: A World Action Model for Video Games](https://arxiv.org/abs/2608.26200), v2 September10,2026. Primary abstract verified. Jointly generates future observations and keyboard/mouse actions under block-causal conditioning; studies Low-Frequency Action Source Imprinting, where sampled action-source components affect camera motion under fixed conditioning.
 
-It is a policy/world-action task, unlike our externally supplied language-action generation. Nevertheless, it is relevant prior work on mechanism-level source sensitivity and camera/action disentanglement. We cannot claim that source-sensitivity failure analysis in game world models is itself unexplored. Detailed architecture/experiments require full-paper comparison before making narrower claims.
+It is a policy/world-action task, unlike our externally supplied language-action generation. Nevertheless, it is relevant prior work on mechanism-level source sensitivity and camera/action disentanglement. We cannot claim that source-sensitivity failure analysis in game world models is itself unexplored. A targeted full-paper check of v2 §5.5, Appendix D.5 and E.2 is recorded below; unrelated architectural claims still require their own verification.
+
+### GameWAM full-paper follow-up: what the source intervention actually tests
+
+[Primary v2 PDF](https://arxiv.org/pdf/2608.26200v2), §5.5 and Appendix D.5/E.2, checked October17. The HTML endpoint returned404, so the approximately6.9MB paper was read locally; no dataset/checkpoint download. Only these relevant sections were examined in depth.
+
+- The intervened source is the sampled **continuous action-stream source**, and the outputs measured are generated camera pitch/yaw action coefficients. It is not a supplied A/D language instruction, nor a prefix-to-video attention intervention.
+- In their controlled diagnostic they keep visual/history/proprioceptive conditions fixed, use24 conditions ×16 sources with a deterministic20-step integration path, and analyze an eight-step action horizon. These diagnostic settings differ from their standard closed-loop evaluation.
+- They replace or zero temporal DCT modes0–2 of the source; reported yaw DCT0 donor-follow is94.8%, and zeroing removes99.25% of source-induced variance. These are their action-space statistics, not pixel motion accuracy or measurements of our model. Appendix E.2 explicitly limits the conclusion: the experiments do not identify a unique internal layer/training pathway or explain all closed-loop behavior.
+- Resampling the action source mitigates coherent accumulation across replanning. Their attempted training-time suppression also exposes a tradeoff: stronger suppression can impair normal action learning/closed-loop performance. Low source sensitivity alone is therefore not a sufficient quality target.
+
+**Implication for our study:** keep video noise paired when comparing supplied actions/routing, as EXP-029 already does; distinguish externally requested character/camera control from an agent generating its own actions. Controlled sensitivity/causal-intervention methodology and motion-preservation caveats have close precedent. Our potential contribution must be specific to preserving learned legal conditioning paths during causalization and show behavioral value; relabeling GameWAM-style source sensitivity or merely finding different outputs is insufficient. No new source/noise sweep is authorized by this review.
 
 ## CAER — still unverified
 
