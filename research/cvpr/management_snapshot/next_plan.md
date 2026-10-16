@@ -1,6 +1,8 @@
-# 当前研究任务：Action–Video 角色梯度诊断准备
+# 当前状态：Action–Video 角色梯度CPU准备已验收
 
-2026-10-17 HKT，Judge。研究问题优先：因果化如何影响已学习的动作—视频交互。前向通路(H1)、历史状态(H2)、优化干扰(H3)分开验证；双Adapter仅候选，不预定最终方法。
+2026-10-17 HKT，Judge。CPU交付已完成并独立复跑通过；本轮授权收口。10DiT/8backward/1800GPU秒只是Worker预算草案，未获执行许可。[验收](submission/research/cvpr/ROLE_GRADIENT_JUDGE_REVIEW.md)。下列任务定义保留为本轮记录，不自动开启新一轮CPU或GPU。
+
+研究问题优先：因果化如何影响已学习的动作—视频交互。前向通路(H1)、历史状态(H2)、优化干扰(H3)分开验证；双Adapter仅候选，不预定最终方法。
 
 [Judge分析](submission/research/cvpr/ACTION_VIDEO_ROLE_REVIEW.md) · [本轮CPU授权](submission/research/cvpr/AUTHORIZATION_ROLE_CPU.json)。前轮证据梳理与提案修订已接受；16DiT/1000GPU秒只是旧提案，未授权执行。
 

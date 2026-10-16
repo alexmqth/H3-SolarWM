@@ -1,0 +1,92 @@
+{
+  "status": "PASS_CPU_ONLY",
+  "dtype": "torch.float64",
+  "shape": {
+    "input": 5,
+    "output": 6,
+    "rank": 2
+  },
+  "role_counts": {
+    "action": 4,
+    "video": 7,
+    "prefix": 4,
+    "other": 6
+  },
+  "differentiable_projection_invocations": 2,
+  "detached_history_writer_invocations": 1,
+  "all_role_rows_exhaustive": true,
+  "cases": [
+    {
+      "name": "B_zero",
+      "loss": 7.949578813776531,
+      "dense_autograd_vs_role_sum_max_abs": 4.440892098500626e-16,
+      "lora_A_autograd_vs_role_sum_max_abs": 0.0,
+      "lora_B_autograd_vs_role_sum_max_abs": 5.551115123125783e-17,
+      "dense_vs_lora_dense_role_sum_max_abs": 0.0,
+      "role_dense_norms": {
+        "action": 1.1314313292929001,
+        "video": 0.9020678281858298,
+        "prefix": 1.1645567127413219,
+        "other": 0.5866199105406606
+      },
+      "role_lora_A_norms": {
+        "action": 0.0,
+        "video": 0.0,
+        "prefix": 0.0,
+        "other": 0.0
+      },
+      "role_lora_B_norms": {
+        "action": 0.11628502315653852,
+        "video": 0.13102792499761087,
+        "prefix": 0.22120207620196009,
+        "other": 0.056072439402730816
+      },
+      "autograd_lora_A_norm": 0.0,
+      "autograd_lora_B_norm": 0.47168356692821006
+    },
+    {
+      "name": "B_nonzero",
+      "loss": 7.922031492741459,
+      "dense_autograd_vs_role_sum_max_abs": 2.220446049250313e-16,
+      "lora_A_autograd_vs_role_sum_max_abs": 2.7755575615628914e-17,
+      "lora_B_autograd_vs_role_sum_max_abs": 2.7755575615628914e-17,
+      "dense_vs_lora_dense_role_sum_max_abs": 0.0,
+      "role_dense_norms": {
+        "action": 1.1309000203732722,
+        "video": 0.896568487665209,
+        "prefix": 1.1618227998218371,
+        "other": 0.5870432510925392
+      },
+      "role_lora_A_norms": {
+        "action": 0.13857744549271425,
+        "video": 0.11730260426075675,
+        "prefix": 0.05646470747966109,
+        "other": 0.05247774299743079
+      },
+      "role_lora_B_norms": {
+        "action": 0.11502928895926927,
+        "video": 0.12828747782124042,
+        "prefix": 0.22079203022627392,
+        "other": 0.05624166464478734
+      },
+      "autograd_lora_A_norm": 0.3171260668593516,
+      "autograd_lora_B_norm": 0.46698366880751635
+    }
+  ],
+  "detached_history_writer_grad_is_none": true,
+  "reader_grad_norm": 2.0471809613582845,
+  "negative_dot_counterexample": {
+    "role_dot": -0.2,
+    "action_first_order_change_under_shared_sgd": -0.8,
+    "video_first_order_change_under_shared_sgd": -0.84
+  },
+  "tolerance": {
+    "rtol": 1e-12,
+    "atol": 1e-12
+  },
+  "no_optimizer_or_gpu": true,
+  "cuda_initialized": false,
+  "max_rss_gib": 0.8914108276367188,
+  "elapsed_seconds": 0.1526314449729398,
+  "source_sha256": "a42d89a1a1f84ea7d774b05f8689597ecc45a4f6133d992dfb7bf5ea14bab770"
+}

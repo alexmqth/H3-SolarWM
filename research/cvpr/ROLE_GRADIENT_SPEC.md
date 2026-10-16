@@ -1,0 +1,45 @@
+# Action–Video token-role gradient diagnostic: measurement contract
+
+2026-10-17，Exp Worker。**CPU preparation only; no 33B load, optimizer update, GPU call or new video.** This is a way to measure a candidate optimization phenomenon, not evidence that role adapters improve control or a claim of method novelty. The [Judge assessment](ACTION_VIDEO_ROLE_REVIEW.md) separates H1 information paths, H2 history state and H3 optimization interference.
+
+## 1. What the role labels mean
+
+At one fused-QKV projection occurrence, rows are assigned by **input token provenance**: current action spans, historical action spans, current video latent tokens, historical video latent tokens, non-action prefix (semantic text/I0 and other documented static condition rows), and `other` (e.g. audio/padding/any remaining packed rows). These form a disjoint, exhaustive partition of **every projection invocation that is in the loss graph**. The four summary aggregates are action, video, prefix and other; retain the finer current/history counts as provenance. A row's hidden state can already mix visual and action information after earlier attention. Therefore “action-row gradient” is not the gradient of an action-accuracy loss, and “video-row gradient” is not a visual-quality objective. Do not discard prefix/other or normalize each role to an equal token count when reconstructing the true training gradient. Separately reported per-token means answer a different question.
+
+Use **one factual C2 FM loss**, with the recorded ABot action script for each example and the same target/noise/sigma across graph comparisons: `L=mean((vθ(zσ,H,a,σ)−(ε−z0))²)` on only C2 video latent output. Synthetic A/D counterfactuals may be forward-only sensitivity probes, but neither branch is an equally valid factual target for this single recorded future. Released H3-World Action LoRA is frozen and distinct from the new diagnostic rank-8 wrapper. No update is made.
+
+## 2. Exact local decomposition and LoRA map
+
+For each differentiable invocation `j` of shared projection `Y_j=X_j W_effᵀ`, obtain `D_j=∂L/∂Y_j` from the **same final loss**. For role `r`, let `M_jr` select its rows. Then
+
+`G_r = Σ_j (M_jr D_j)ᵀ X_j`, and `Σ_r G_r = ∂L/∂W_eff`.
+
+The sum includes all gradient-bearing uses of the shared projection: forward and any checkpoint recompute must be de-duplicated by autograd occurrence identity, not blindly counted as two samples. A frozen `W.grad is None` says only that the optimizer does not train W; it does not remove the local derivative. Capture `X_j` and the output cotangent `D_j` through a diagnostic functional wrapper/hook, never infer role contribution from parameter `.grad` alone.
+
+For `W_eff=W_frozen+s B A`, `A∈R^{r×d_in}`, `B∈R^{d_out×r}`, `s=1/r`, the role contribution in the **trainable** space is
+
+`g_B,r=s G_r Aᵀ`, `g_A,r=s Bᵀ G_r`.
+
+Their role sums must match autograd `B.grad` and `A.grad` from that same loss and same forward. Full-weight and LoRA-space cosine/norm can disagree; report both, do not substitute one for the other. At the production zero-residual init `B=0`, every `g_A,r=0` while `g_B,r` can be nonzero. Cosines involving zero-norm A contributions are **undefined**, not evidence that action rows lack influence. Nonzero-B toy validation proves the mapping but does not claim that a zero-init model already has that trained geometry.
+
+The actual EXP-025 [checkpoint0](../../experiments/EXP-025_v3_fm_full_coverage/checkpoint_000.json) and [adapter implementation](../../code/causal/pretrained_lora.py) give **50 layers of A=(8,5376), B=(21504,8)**, totaling **10,752,000** trainable parameters. The earlier `(8,6720)/(20160,8)` numbers came from a CPU lifecycle surrogate, not the serialized checkpoint; the Judge review has since corrected them. A real fused QKV weight therefore has `5376×21504=115,605,504` entries, about **0.431 GiB FP32 per layer**. Two rank-8 copies would have 21,504,000 parameters, but that says nothing about activation or backward memory. H3's fused output is laid out as `[token, 56 heads, 3(Q/K/V), 128]`: Q/K/V are **interleaved by head**, not three contiguous 7168-row blocks. Report role norms/inner products separately for Q, K and V after this reshape.
+
+## 3. Detached history and graph comparison
+
+The existing V3 clean C1 commit runs under no-grad and copies K/V/RoPE with detach. Its C2 loss has **no derivative path through the C1 writer invocation**. Mark that role occurrence `NOT_IN_GRAPH`; do not record a numeric “zero historical gradient” as if the model were insensitive to history. Current C2 queries may still read historical KV and their gradients can change with history values. Making C1 writer differentiable adds a different training objective/graph and needs a separate question and budget; adding a writer LoRA alone does not make the old detached path trainable.
+
+A proposed later diagnostic should compare a **matched Original-visible** window and correct V3 on the same real ABot clip, GT C1/C2 latent, current factual action, sigma and initial noise. Original-visible is bidirectional within the visible `[C1,C2]` window and computes only C2 loss; it is not full Original H3 inference with future clips. V3 uses native Single I0/current-prefix, strict chunk causality and a sigma0 detached clean C1 KV commit. Their difference includes video topology, prefix policy and history hidden-state/time context; it is an *operational graph contrast*, **not a single-factor causal attribution**. Existing controlled routing results remain the evidence for individual edge groups. Both graphs need the same frozen H3/released Action LoRA weights and precision/backend policy; no new visual/action adapter. If true conditions/position/visible input cannot be matched, stop rather than label incomparable gradients as H3-to-V3 change.
+
+## 4. Capture protocol, bounded memory and readouts
+
+Choose only two registered fused-QKV layers initially (e.g. blocks 0 and 49; if one has no usable differentiable occurrence, disclose and stop instead of sweeping layers). Keep a rank-8 `B=0` diagnostic wrapper at those layers: model output is identical to frozen weights, but `B.grad` gives a trainable-space check. Hooks attach to each selected projection's input/output during the gradient-bearing pass; record actual packed row offsets, role counts and invocation ID. Under activation checkpointing, differentiate the checkpoint recompute occurrence from the no-grad forward. For each backward, check `Σ_r g_B,r≈B.grad` under a declared BF16/FP32 tolerance (propose relative RMS≤1e−3 and max-abs≤1e−3×max(1,|B.grad|_max), to be frozen after a CPU precision check). Also record total dense role checksum without storing a persistent dense `.grad`.
+
+Calculate dense role norms and pairwise inner products by **output-row tiles** (e.g. 256 rows) from `D_rᵀ X_r`, releasing each tile before the next layer. Keep LoRA role maps in rank space; offload one layer's X/D to CPU at a time and free the graph after each clip/sigma. Do not retain 50 dense role gradients or all layer activations. Verify all role masks partition every row; report prefix/other counts and unexpected-token count. If role sums fail autograd, checkpoint hook counts are ambiguous, or estimated GPU/CPU memory exceeds the cap, stop without producing a cosine interpretation.
+
+Per selected layer/Q/K/V and per clip/sigma, report role gradient norm, action–video cosine only when both norms exceed the measured numerical floor, relative role magnitude, prefix/other contributions, and the fraction of negative alignments across the small sample set. Also report the **true aggregate** and optionally separately labeled per-token values; do not conflate them. Negative dot/cosine is local cancellation, not proof a shared update hurts action or visual behavior. Even with negative dot, the shared SGD direction can reduce both first-order role contributions; Adam changes geometry further. The CPU check provides an explicit counterexample.
+
+## 5. CPU check and acceptance
+
+Run [role_gradient_cpu_check.py](role_gradient_cpu_check.py) with `CUDA_VISIBLE_DEVICES=-1`; its [JSON result](ROLE_GRADIENT_CPU_RESULT.json) uses FP64, two differentiable uses of one shared projection, an additional detached historical writer, a single coupled loss, disjoint action/video/prefix/other labels, `B=0` and nonzero-B LoRA. Both role sums match autograd within `atol=rtol=1e−12`; maximum observed dense error is `4.44e−16`, LoRA-B error `5.55e−17`. With B=0, A gradient is exactly zero while B gradient norm is 0.472; a detached writer's grad is `None`. A negative-dot example (`−0.2`) still gives negative first-order changes for both roles under one shared SGD step (`−0.8`, `−0.84`). This validates the algebra and CPU capture pattern, **not the full H3 hook implementation**, video quality or the H3 causal mechanism.
+
+A future 33B pilot requires a separate Judge-approved taskbook, source/checkpoint hashes, exact selected clips/layers and GPU ledger. [Budget draft](ROLE_GRADIENT_GPU_BUDGET_DRAFT.md) is not permission to run.
