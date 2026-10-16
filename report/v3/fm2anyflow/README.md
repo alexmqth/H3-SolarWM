@@ -22,3 +22,7 @@
 当前收益最明确的是普通 FM-8NFE。AnyFlow 的已测 checkpoint 没有显示整体优势，因此保留负结果、停止当前配置扩展。四步续写都借用了 FM-8NFE 首窗，不能称为全程四步生成。FM-8NFE 与 FM-30NFE 自身历史不同的比较，也不能称为同 KV 的纯步数消融。
 
 后续 DMD 训练归入 [V4：SGF / DMD](../../v4/README.md)。[缩写表](../../GLOSSARY.md) · [返回 V3](../README.md)
+
+## 角色梯度诊断
+
+[EXP-028：Action–Video LoRA角色梯度](role_gradient_probe/README.md)：固定状态诊断，0训练/0视频；未建立V3特有的明显梯度冲突，不启动双Adapter训练。

@@ -1,0 +1,122 @@
+{
+  "task": "EXP-028/v1",
+  "status": "COMPLETE_PENDING_JUDGE",
+  "sample_count": 2,
+  "sigma_count": 2,
+  "graphs": [
+    "original_visible",
+    "v3"
+  ],
+  "completed_rows": 8,
+  "layer_rows": 16,
+  "max_role_sum_relative_rms": 6.700962350118043e-07,
+  "max_identity_relative_rms": 0.0,
+  "mean_action_video_cosine": {
+    "original_visible/L0/q": 0.0023585347225889564,
+    "original_visible/L0/k": 0.000320307444781065,
+    "original_visible/L0/v": -0.0004184132267255336,
+    "original_visible/L49/k": 0.008940708823502064,
+    "original_visible/L49/v": -0.1075303377583623,
+    "v3/L0/q": 0.004832134931348264,
+    "v3/L0/k": -0.009528272843454033,
+    "v3/L0/v": 0.007412670978737879,
+    "v3/L49/k": 0.004433630267158151,
+    "v3/L49/v": -0.11194272711873055
+  },
+  "paired": [
+    {
+      "clip": "43866101158a538d22c52ac5b2fa606b_src1245_rgb56",
+      "sigma": 0.25,
+      "original_fm_loss": 0.2309088259935379,
+      "v3_fm_loss": 0.25273653864860535,
+      "v3_minus_original_cosine": {
+        "0": {
+          "q": 0.004692262504249811,
+          "k": -0.002550486009567976,
+          "v": 0.00041096098721027374
+        },
+        "49": {
+          "q": null,
+          "k": -0.025054773315787315,
+          "v": -0.016415279358625412
+        }
+      }
+    },
+    {
+      "clip": "43866101158a538d22c52ac5b2fa606b_src1245_rgb56",
+      "sigma": 0.75,
+      "original_fm_loss": 0.0761735662817955,
+      "v3_fm_loss": 0.10134434700012207,
+      "v3_minus_original_cosine": {
+        "0": {
+          "q": -0.0009616101160645485,
+          "k": -0.006994208786636591,
+          "v": 0.017823138856329024
+        },
+        "49": {
+          "q": null,
+          "k": -0.003920829854905605,
+          "v": -0.003770768642425537
+        }
+      }
+    },
+    {
+      "clip": "b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56",
+      "sigma": 0.25,
+      "original_fm_loss": 0.3052403926849365,
+      "v3_fm_loss": 0.32152384519577026,
+      "v3_minus_original_cosine": {
+        "0": {
+          "q": -0.0009412234649062157,
+          "k": -0.006164835067465901,
+          "v": 0.008669452741742134
+        },
+        "49": {
+          "q": null,
+          "k": 0.0056120846420526505,
+          "v": 0.01780853420495987
+        }
+      }
+    },
+    {
+      "clip": "b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56",
+      "sigma": 0.75,
+      "original_fm_loss": 0.10083656758069992,
+      "v3_fm_loss": 0.11577843129634857,
+      "v3_minus_original_cosine": {
+        "0": {
+          "q": 0.007104971911758184,
+          "k": -0.023684791289269924,
+          "v": 0.004420784236572217
+        },
+        "49": {
+          "q": null,
+          "k": 0.005335204303264618,
+          "v": -0.015272043645381927
+        }
+      }
+    }
+  ],
+  "calls": {
+    "dit": 14,
+    "backward": 8,
+    "commit": 2,
+    "identity": 4,
+    "update": 0,
+    "video": 0
+  },
+  "ledger_elapsed_seconds_recovery": 572.2295248709852,
+  "recovery_process_wall_seconds": 580.531522,
+  "ledger_vs_process_gap_seconds": 8.301997129014808,
+  "prior_failed_startup_seconds_exact": 3.268396,
+  "prior_failed_startup_seconds_charged": 4,
+  "cumulative_process_wall_seconds_exact": 583.799918,
+  "cumulative_process_wall_seconds_charged": 584.531522,
+  "peak_allocated_gib": 23.75255250930786,
+  "peak_reserved_gib": 26.76953125,
+  "peak_rss_gib_recorded": 55.65371322631836,
+  "shared_gpu": true,
+  "results_sha256": "ab74d1e65fd700708d23b4afcaaabbbf99c5d665e426e8488ea358b40a6ea7c2",
+  "exact_role_dot_products_persisted": false,
+  "note": "No video/behavior test; cross-graph gradient matrices and exact role dots were not persisted."
+}

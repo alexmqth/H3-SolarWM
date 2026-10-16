@@ -1,0 +1,954 @@
+[
+  {
+    "clip": "43866101158a538d22c52ac5b2fa606b_src1245_rgb56",
+    "sigma": 0.25,
+    "seed": 113,
+    "graph": "original_visible",
+    "loss": 0.2309088259935379,
+    "identity_relative_rms": 0.0,
+    "identity_max_abs": 0.0,
+    "layers": {
+      "0": {
+        "pass_role_sum": true,
+        "relative_rms": 5.798064162424781e-07,
+        "max_abs": 5.6843418860808015e-12,
+        "reference_norm": 9.030952787725255e-05,
+        "role_sum_norm": 9.030952787725255e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1352,
+          "action_history": 168,
+          "action_current": 70,
+          "video_history": 4680,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 5.43168334843358e-06,
+            "k": 5.1873657866963185e-06,
+            "v": 7.424267096212134e-06
+          },
+          "action_current": {
+            "q": 3.9770907278580125e-06,
+            "k": 2.351715465920279e-06,
+            "v": 2.773185769910924e-06
+          },
+          "video_history": {
+            "q": 2.1753701730631292e-05,
+            "k": 1.516880547569599e-05,
+            "v": 3.9815582567825913e-05
+          },
+          "video_current": {
+            "q": 9.794450306799263e-06,
+            "k": 1.5203623661363963e-05,
+            "v": 4.0703944250708446e-05
+          },
+          "non_action_prefix": {
+            "q": 3.0150187740218826e-05,
+            "k": 2.2118838387541473e-05,
+            "v": 4.633556090993807e-05
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": 0.00332395127043128,
+          "k": -0.00736231030896306,
+          "v": 0.010536916553974152
+        },
+        "grad_a_structural_zero": true
+      },
+      "49": {
+        "pass_role_sum": true,
+        "relative_rms": 5.182311518234289e-07,
+        "max_abs": 3.865352482534945e-12,
+        "reference_norm": 4.457785325939767e-05,
+        "role_sum_norm": 4.457785325939767e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1352,
+          "action_history": 168,
+          "action_current": 70,
+          "video_history": 4680,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 0.0,
+            "k": 5.640566769216093e-07,
+            "v": 1.7429807996904856e-07
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 9.205258720612619e-06,
+            "v": 1.1786170944105834e-05
+          },
+          "video_current": {
+            "q": 2.348375528526958e-05,
+            "k": 1.4368152733368333e-05,
+            "v": 2.879092062357813e-05
+          },
+          "non_action_prefix": {
+            "q": 0.0,
+            "k": 4.359501872386318e-06,
+            "v": 2.229731080660713e-06
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": null,
+          "k": 0.03163771331310272,
+          "v": -0.058675315231084824
+        },
+        "grad_a_structural_zero": true
+      }
+    },
+    "history": "GT_C1_clean_joint_recompute"
+  },
+  {
+    "clip": "43866101158a538d22c52ac5b2fa606b_src1245_rgb56",
+    "sigma": 0.25,
+    "seed": 113,
+    "graph": "v3",
+    "loss": 0.25273653864860535,
+    "identity_relative_rms": 0.0,
+    "identity_max_abs": 0.0,
+    "layers": {
+      "0": {
+        "pass_role_sum": true,
+        "relative_rms": 2.7194413666950946e-07,
+        "max_abs": 3.183231456205249e-12,
+        "reference_norm": 0.00012150198017479852,
+        "role_sum_norm": 0.00012150198017479852,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1352,
+          "action_history": 168,
+          "action_current": 70,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 4.873009402217576e-06,
+            "k": 2.1634177755913697e-06,
+            "v": 3.4724673696473474e-06
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "video_current": {
+            "q": 6.3000434238347225e-06,
+            "k": 2.168960782000795e-05,
+            "v": 6.499727169284597e-05
+          },
+          "non_action_prefix": {
+            "q": 3.599625051720068e-05,
+            "k": 2.990331813634839e-05,
+            "v": 6.982218474149704e-05
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": 0.008016213774681091,
+          "k": -0.009912796318531036,
+          "v": 0.010947877541184425
+        },
+        "grad_a_structural_zero": true
+      },
+      "49": {
+        "pass_role_sum": true,
+        "relative_rms": 3.0655859126593847e-07,
+        "max_abs": 2.0463630789890885e-12,
+        "reference_norm": 4.9691716412780806e-05,
+        "role_sum_norm": 4.9691720050759614e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1352,
+          "action_history": 168,
+          "action_current": 70,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 0.0,
+            "k": 5.705274475076294e-07,
+            "v": 1.9359673331109661e-07
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "video_current": {
+            "q": 2.9850112696294673e-05,
+            "k": 1.6695683370926417e-05,
+            "v": 3.570032640709542e-05
+          },
+          "non_action_prefix": {
+            "q": 0.0,
+            "k": 5.0616026783245616e-06,
+            "v": 2.5266017473768443e-06
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": null,
+          "k": 0.006582939997315407,
+          "v": -0.07509059458971024
+        },
+        "grad_a_structural_zero": true
+      }
+    },
+    "history": "GT_C1_sigma0_detached_KV"
+  },
+  {
+    "clip": "43866101158a538d22c52ac5b2fa606b_src1245_rgb56",
+    "sigma": 0.75,
+    "seed": 127,
+    "graph": "original_visible",
+    "loss": 0.0761735662817955,
+    "identity_relative_rms": 0.0,
+    "identity_max_abs": 0.0,
+    "layers": {
+      "0": {
+        "pass_role_sum": true,
+        "relative_rms": 5.585031785176677e-07,
+        "max_abs": 2.2737367544323206e-12,
+        "reference_norm": 8.39200074551627e-05,
+        "role_sum_norm": 8.392000017920509e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1352,
+          "action_history": 168,
+          "action_current": 70,
+          "video_history": 4680,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 2.678262035260559e-06,
+            "k": 1.4073073089093668e-06,
+            "v": 2.0180552837700816e-06
+          },
+          "action_current": {
+            "q": 5.048586899647489e-06,
+            "k": 1.6410061789429164e-06,
+            "v": 2.178836894017877e-06
+          },
+          "video_history": {
+            "q": 6.668066816928331e-06,
+            "k": 1.3517827937903348e-05,
+            "v": 2.793432395264972e-05
+          },
+          "video_current": {
+            "q": 4.881931090494618e-06,
+            "k": 1.596473521203734e-05,
+            "v": 4.399535828270018e-05
+          },
+          "non_action_prefix": {
+            "q": 2.6003437596955337e-05,
+            "k": 1.877231443359051e-05,
+            "v": 3.781857594731264e-05
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": 0.0024445937015116215,
+          "k": -0.006803192663937807,
+          "v": -0.0011659167939797044
+        },
+        "grad_a_structural_zero": true
+      },
+      "49": {
+        "pass_role_sum": true,
+        "relative_rms": 4.4575632058162823e-07,
+        "max_abs": 4.547473508864641e-12,
+        "reference_norm": 3.546059087966569e-05,
+        "role_sum_norm": 3.546059087966569e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1352,
+          "action_history": 168,
+          "action_current": 70,
+          "video_history": 4680,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 0.0,
+            "k": 1.790629937659105e-07,
+            "v": 5.702969829712856e-08
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 5.694483661500271e-06,
+            "v": 8.013358637981582e-06
+          },
+          "video_current": {
+            "q": 2.1832893253304064e-05,
+            "k": 8.964242624642793e-06,
+            "v": 2.2274081857176498e-05
+          },
+          "non_action_prefix": {
+            "q": 0.0,
+            "k": 2.3715167571936036e-06,
+            "v": 1.3857973044650862e-06
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": null,
+          "k": -0.006244420073926449,
+          "v": -0.13781200349330902
+        },
+        "grad_a_structural_zero": true
+      }
+    },
+    "history": "GT_C1_clean_joint_recompute"
+  },
+  {
+    "clip": "43866101158a538d22c52ac5b2fa606b_src1245_rgb56",
+    "sigma": 0.75,
+    "seed": 127,
+    "graph": "v3",
+    "loss": 0.10134434700012207,
+    "identity_relative_rms": 0.0,
+    "identity_max_abs": 0.0,
+    "layers": {
+      "0": {
+        "pass_role_sum": true,
+        "relative_rms": 3.0422178152714784e-07,
+        "max_abs": 2.2737367544323206e-12,
+        "reference_norm": 7.896035822341219e-05,
+        "role_sum_norm": 7.89603654993698e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1352,
+          "action_history": 168,
+          "action_current": 70,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 1.0731427209975664e-05,
+            "k": 4.22397624788573e-06,
+            "v": 5.344517830963014e-06
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "video_current": {
+            "q": 1.4927009033272043e-05,
+            "k": 2.376046177232638e-05,
+            "v": 5.35912586201448e-05
+          },
+          "non_action_prefix": {
+            "q": 2.105555176967755e-05,
+            "k": 1.975285886146594e-05,
+            "v": 3.5666580515680835e-05
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": 0.001482983585447073,
+          "k": -0.013797401450574398,
+          "v": 0.01665722206234932
+        },
+        "grad_a_structural_zero": true
+      },
+      "49": {
+        "pass_role_sum": true,
+        "relative_rms": 2.490953414323342e-07,
+        "max_abs": 1.0231815394945443e-12,
+        "reference_norm": 4.126281419303268e-05,
+        "role_sum_norm": 4.126281419303268e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1352,
+          "action_history": 168,
+          "action_current": 70,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 0.0,
+            "k": 1.98680723428879e-07,
+            "v": 7.324241835249268e-08
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "video_current": {
+            "q": 2.0300771211623214e-05,
+            "k": 1.2526435057225171e-05,
+            "v": 3.34456744894851e-05
+          },
+          "non_action_prefix": {
+            "q": 0.0,
+            "k": 3.0319740744744195e-06,
+            "v": 2.306566329934867e-06
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": null,
+          "k": -0.010165249928832054,
+          "v": -0.14158277213573456
+        },
+        "grad_a_structural_zero": true
+      }
+    },
+    "history": "GT_C1_sigma0_detached_KV"
+  },
+  {
+    "clip": "b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56",
+    "sigma": 0.25,
+    "seed": 113,
+    "graph": "original_visible",
+    "loss": 0.3052403926849365,
+    "identity_relative_rms": null,
+    "identity_max_abs": null,
+    "layers": {
+      "0": {
+        "pass_role_sum": true,
+        "relative_rms": 6.700962350118043e-07,
+        "max_abs": 3.456079866737127e-11,
+        "reference_norm": 0.00042513926746323705,
+        "role_sum_norm": 0.0004251392383594066,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1371,
+          "action_history": 120,
+          "action_current": 42,
+          "video_history": 4680,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 1.5012181393103674e-05,
+            "k": 1.5702626114943996e-05,
+            "v": 1.4347546311910264e-05
+          },
+          "action_current": {
+            "q": 5.907084869249957e-06,
+            "k": 1.4841069059912115e-05,
+            "v": 9.594835319148842e-06
+          },
+          "video_history": {
+            "q": 0.00010915174789261073,
+            "k": 0.00010415149154141545,
+            "v": 0.00030322858947329223
+          },
+          "video_current": {
+            "q": 6.37985285720788e-05,
+            "k": 0.00010681567073334008,
+            "v": 0.00017330529226455837
+          },
+          "non_action_prefix": {
+            "q": 3.083247793256305e-05,
+            "k": 5.502576459548436e-05,
+            "v": 0.00011208579235244542
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": 0.00951130036264658,
+          "k": 0.00398927740752697,
+          "v": -0.0066559044644236565
+        },
+        "grad_a_structural_zero": true
+      },
+      "49": {
+        "pass_role_sum": true,
+        "relative_rms": 4.976099577678412e-07,
+        "max_abs": 2.7284841053187847e-12,
+        "reference_norm": 4.712299050879665e-05,
+        "role_sum_norm": 4.712299050879665e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1371,
+          "action_history": 120,
+          "action_current": 42,
+          "video_history": 4680,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 0.0,
+            "k": 5.09784968016902e-07,
+            "v": 1.40915886959192e-07
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 8.303481990878936e-06,
+            "v": 1.0979267244692892e-05
+          },
+          "video_current": {
+            "q": 2.3552503989776596e-05,
+            "k": 1.3367049177759327e-05,
+            "v": 3.2702369935577735e-05
+          },
+          "non_action_prefix": {
+            "q": 0.0,
+            "k": 4.751770575239789e-06,
+            "v": 2.4210946776292985e-06
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": null,
+          "k": -0.015236473642289639,
+          "v": -0.126506969332695
+        },
+        "grad_a_structural_zero": true
+      }
+    },
+    "history": "GT_C1_clean_joint_recompute"
+  },
+  {
+    "clip": "b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56",
+    "sigma": 0.25,
+    "seed": 113,
+    "graph": "v3",
+    "loss": 0.32152384519577026,
+    "identity_relative_rms": null,
+    "identity_max_abs": null,
+    "layers": {
+      "0": {
+        "pass_role_sum": true,
+        "relative_rms": 2.799551380087293e-07,
+        "max_abs": 1.4779288903810084e-12,
+        "reference_norm": 7.56777953938581e-05,
+        "role_sum_norm": 7.56777953938581e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1371,
+          "action_history": 120,
+          "action_current": 42,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 2.322679392818827e-06,
+            "k": 8.048076551858685e-07,
+            "v": 1.318397721661313e-06
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "video_current": {
+            "q": 3.6573183024302125e-06,
+            "k": 1.998124207602814e-05,
+            "v": 3.827908221865073e-05
+          },
+          "non_action_prefix": {
+            "q": 2.9043751055723988e-05,
+            "k": 2.4629571271361783e-05,
+            "v": 4.51762716693338e-05
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": 0.008570076897740364,
+          "k": -0.0021755576599389315,
+          "v": 0.0020135482773184776
+        },
+        "grad_a_structural_zero": true
+      },
+      "49": {
+        "pass_role_sum": true,
+        "relative_rms": 2.909173331470681e-07,
+        "max_abs": 1.1368683772161603e-12,
+        "reference_norm": 5.531188435270451e-05,
+        "role_sum_norm": 5.531188435270451e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1371,
+          "action_history": 120,
+          "action_current": 42,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 0.0,
+            "k": 5.947361501057458e-07,
+            "v": 2.0646658072109858e-07
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "video_current": {
+            "q": 3.0630515539087355e-05,
+            "k": 1.7160493371193297e-05,
+            "v": 4.236696258885786e-05
+          },
+          "non_action_prefix": {
+            "q": 0.0,
+            "k": 5.168597908777883e-06,
+            "v": 2.899821311075357e-06
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": null,
+          "k": -0.009624389000236988,
+          "v": -0.10869843512773514
+        },
+        "grad_a_structural_zero": true
+      }
+    },
+    "history": "GT_C1_sigma0_detached_KV"
+  },
+  {
+    "clip": "b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56",
+    "sigma": 0.75,
+    "seed": 127,
+    "graph": "original_visible",
+    "loss": 0.10083656758069992,
+    "identity_relative_rms": null,
+    "identity_max_abs": null,
+    "layers": {
+      "0": {
+        "pass_role_sum": true,
+        "relative_rms": 6.272425571331096e-07,
+        "max_abs": 1.0913936421275139e-11,
+        "reference_norm": 0.00020550047338474542,
+        "role_sum_norm": 0.0002055004588328302,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1371,
+          "action_history": 120,
+          "action_current": 42,
+          "video_history": 4680,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 3.2152152016351465e-06,
+            "k": 2.343842197660706e-06,
+            "v": 2.0823499653488398e-06
+          },
+          "action_current": {
+            "q": 3.5503946946846554e-06,
+            "k": 2.079935029541957e-06,
+            "v": 2.353198624405195e-06
+          },
+          "video_history": {
+            "q": 1.3757869055552874e-05,
+            "k": 2.8990705686737783e-05,
+            "v": 5.0904640374938026e-05
+          },
+          "video_current": {
+            "q": 2.118689735652879e-05,
+            "k": 4.040930434712209e-05,
+            "v": 8.104810694931075e-05
+          },
+          "non_action_prefix": {
+            "q": 7.683472358621657e-05,
+            "k": 6.609703996218741e-05,
+            "v": 0.0001223693398060277
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": -0.005845706444233656,
+          "k": 0.011457455344498158,
+          "v": -0.004388748202472925
+        },
+        "grad_a_structural_zero": true
+      },
+      "49": {
+        "pass_role_sum": true,
+        "relative_rms": 4.065704338993608e-07,
+        "max_abs": 2.7284841053187847e-12,
+        "reference_norm": 3.552203634171747e-05,
+        "role_sum_norm": 3.5522039979696274e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1371,
+          "action_history": 120,
+          "action_current": 42,
+          "video_history": 4680,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 0.0,
+            "k": 2.0546998769077618e-07,
+            "v": 5.998968788389902e-08
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 5.882162440684624e-06,
+            "v": 7.849069334042724e-06
+          },
+          "video_current": {
+            "q": 2.0801629943889566e-05,
+            "k": 9.495169251749758e-06,
+            "v": 2.301974564034026e-05
+          },
+          "non_action_prefix": {
+            "q": 0.0,
+            "k": 2.464045564920525e-06,
+            "v": 1.259194618796755e-06
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": null,
+          "k": 0.02560601569712162,
+          "v": -0.10712706297636032
+        },
+        "grad_a_structural_zero": true
+      }
+    },
+    "history": "GT_C1_clean_joint_recompute"
+  },
+  {
+    "clip": "b784d995827f53977a8067e5b9dc4b5e_src1635_rgb56",
+    "sigma": 0.75,
+    "seed": 127,
+    "graph": "v3",
+    "loss": 0.11577843129634857,
+    "identity_relative_rms": null,
+    "identity_max_abs": null,
+    "layers": {
+      "0": {
+        "pass_role_sum": true,
+        "relative_rms": 2.815552396820638e-07,
+        "max_abs": 1.1368683772161603e-12,
+        "reference_norm": 4.622959750122391e-05,
+        "role_sum_norm": 4.622959750122391e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1371,
+          "action_history": 120,
+          "action_current": 42,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 2.143261099263327e-06,
+            "k": 9.004183425531664e-07,
+            "v": 1.17609272365371e-06
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "video_current": {
+            "q": 5.554873041546671e-06,
+            "k": 1.3043438229942694e-05,
+            "v": 3.205714892828837e-05
+          },
+          "non_action_prefix": {
+            "q": 1.3384489648160525e-05,
+            "k": 1.2243646779097617e-05,
+            "v": 2.0360212147352286e-05
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": 0.0012592654675245285,
+          "k": -0.012227335944771767,
+          "v": 3.203603409929201e-05
+        },
+        "grad_a_structural_zero": true
+      },
+      "49": {
+        "pass_role_sum": true,
+        "relative_rms": 2.505187616742732e-07,
+        "max_abs": 1.2505552149377763e-12,
+        "reference_norm": 4.3027794163208455e-05,
+        "role_sum_norm": 4.3027794163208455e-05,
+        "forward_invocations": 2,
+        "cotangent_invocations": 1,
+        "role_counts": {
+          "non_action_prefix": 1371,
+          "action_history": 120,
+          "action_current": 42,
+          "video_current": 1950
+        },
+        "role_qkv_norms": {
+          "action_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "action_current": {
+            "q": 0.0,
+            "k": 1.8204090679319052e-07,
+            "v": 6.32364631769633e-08
+          },
+          "video_history": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          },
+          "video_current": {
+            "q": 2.200509698013775e-05,
+            "k": 1.1709907084878068e-05,
+            "v": 3.4743890864774585e-05
+          },
+          "non_action_prefix": {
+            "q": 0.0,
+            "k": 3.2029686281020986e-06,
+            "v": 2.4638759441586444e-06
+          },
+          "other": {
+            "q": 0.0,
+            "k": 0.0,
+            "v": 0.0
+          }
+        },
+        "action_video_cos": {
+          "q": null,
+          "k": 0.030941220000386238,
+          "v": -0.12239910662174225
+        },
+        "grad_a_structural_zero": true
+      }
+    },
+    "history": "GT_C1_sigma0_detached_KV"
+  }
+]

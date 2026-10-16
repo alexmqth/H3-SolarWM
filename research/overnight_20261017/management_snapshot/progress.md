@@ -1,5 +1,9 @@
 # 当前项目进展
 
+## 最新验收：EXP-028角色梯度pilot已收口（2026-10-17夜间）
+
+14DiT/8backward、0updates/视频，8样本条件×2层检查通过，4次identity精确相同。总进程583.800秒（含首次import失败），峰allocated23.753/reserved26.770GiB，GPU1已释放。L0两图cos近零；L49 V均值Original−0.1075/V3−0.1119，未建立因果化特有的显著角色冲突，不升级、不开始双Adapter训练。精确role dots未保存，记录交付限制，不为补表重跑。[Judge审核](submission/experiments/EXP-028_action_video_role_probe/judge/FINAL_REVIEW.md)。SGF+原文已核实且明确包含双LoRA实现选项，[文献核对](submission/research/cvpr/RELATED_WORK_VERIFICATION_20261017.md)。下一优先同历史/噪声的current-prefix反馈行为干预。
+
 ## 2026-10-17 夜间持续执行授权
 
 用户要求继续主线至09:00 HKT停止、汇报并push。截止守护已登记EXP-028实际进程，后续只执行Judge逐项批准任务；停止后的工作限核查/汇报/Git同步。[夜间计划](submission/research/overnight_20261017/README.md)。

@@ -1,0 +1,103 @@
+{
+  "task": "EXP-028/v1-recovery01",
+  "pid": 1291827,
+  "expiry_utc": "2026-10-17T05:15:00+00:00",
+  "updated_utc": "2026-10-16T17:29:27.330706+00:00",
+  "status": "FINISHED_PENDING_JUDGE",
+  "attempt_count": 1,
+  "prior_startup_seconds_charged": 4,
+  "last_gpu_snapshot": {
+    "0": {
+      "uuid": "GPU-d77c5635-02ec-c2d2-d744-1dfcc4a14e8f",
+      "used_mib": 37337,
+      "free_mib": 8121,
+      "processes": [
+        "2708518",
+        "1964240",
+        "76153",
+        "840151"
+      ]
+    },
+    "1": {
+      "uuid": "GPU-c4c2b3db-791b-ecdc-978f-d56295593124",
+      "used_mib": 2827,
+      "free_mib": 42631,
+      "processes": [
+        "1964241"
+      ]
+    },
+    "2": {
+      "uuid": "GPU-ed7a148c-1a92-bc19-e69f-14a556c3fc32",
+      "used_mib": 29211,
+      "free_mib": 16247,
+      "processes": [
+        "2010077"
+      ]
+    },
+    "3": {
+      "uuid": "GPU-7e381804-eff9-a1a6-bae4-6763348ef2d6",
+      "used_mib": 29729,
+      "free_mib": 15729,
+      "processes": [
+        "2010082"
+      ]
+    },
+    "4": {
+      "uuid": "GPU-9c9f5489-60bf-8008-64e1-fb0de162290f",
+      "used_mib": 32631,
+      "free_mib": 12827,
+      "processes": [
+        "2014173"
+      ]
+    },
+    "5": {
+      "uuid": "GPU-a2f7e751-5add-d6dd-37bd-2c91e1640edd",
+      "used_mib": 31873,
+      "free_mib": 13585,
+      "processes": [
+        "2014174"
+      ]
+    },
+    "6": {
+      "uuid": "GPU-8db4febd-4f4e-b87b-96a7-541357b2234b",
+      "used_mib": 38129,
+      "free_mib": 7329,
+      "processes": [
+        "2830255",
+        "1964239",
+        "4183307",
+        "837104"
+      ]
+    },
+    "7": {
+      "uuid": "GPU-e07666a0-5b88-df44-0a89-cbc9bff6f1dc",
+      "used_mib": 34263,
+      "free_mib": 11195,
+      "processes": [
+        "3861255",
+        "1964238",
+        "3852958",
+        "834040"
+      ]
+    }
+  },
+  "host_mem_available_gib": 675.4446258544922,
+  "physical_gpu": 1,
+  "gpu_uuid": "GPU-c4c2b3db-791b-ecdc-978f-d56295593124",
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=10s",
+    "2396s",
+    "/home/qma/work/GWM/.venvs/h3world/bin/python",
+    "-u",
+    "/home/qma/work/GWM/submission/experiments/EXP-028_action_video_role_probe/gpu_run.py"
+  ],
+  "launched_utc": "2026-10-16T17:19:46.798808+00:00",
+  "other_compute_pids": [
+    "1964241"
+  ],
+  "child_pid": 1294061,
+  "returncode": 0,
+  "finished_utc": "2026-10-16T17:29:27.330330+00:00"
+}
