@@ -21,3 +21,5 @@
 CPU预检、固定输入源码SHA、实际命令、排队状态、GPU账本、各角色LoRA梯度/加和误差/QKV指标和报告。只为决定是否值得做一个行为相关的角色分离干预；不自动加训、扩层、追加视频。结果出来由Judge审核并push。
 
 **显存准入补充01：** 完全空卡不是必要条件。EXP-027峰allocated24.45/reserved29.14GiB；本轮Original-visible反向峰尚未实测，首次暂要求实际free≥40GiB。符合余量可与现有进程共享，预算/截止不变。[补充](submission/experiments/EXP-028_action_video_role_probe/ADDENDUM_01_SHARED_GPU.md)。
+
+**启动恢复02已批准：** GPU1已达到free≥40GiB。首次启动在import run失败，0DiT/0backward；保留attempt00。Worker修复真实入口导入和末次backward计数，Original-visible必须使用clean GT C1可微参考（禁止暗换same-sigma）；CPU通过后自动GPU1单次恢复，≤2396秒，累计≤2400秒，14/8预算不增加。[补充02](submission/experiments/EXP-028_action_video_role_probe/ADDENDUM_02_STARTUP_RECOVERY.md)。

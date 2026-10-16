@@ -1,0 +1,14 @@
+# EXP-028: one startup recovery, GPU1
+
+2026-10-17 HKT, Judge. User explicitly requested trying GPU1. Its free memory was42631MiB, above the shared-card threshold. The first admitted process started2026-10-16 17:16:36UTC and exited17:16:39UTC on `ModuleNotFoundError: No module named 'run'`, before model load/CUDA device setup or any DiT/backward. Preserve its scheduler status, log and exact source/manifest as attempt00. No generation or mechanism result was produced.
+
+Judge authorizes **one corrected startup attempt**, automatically after the following CPU gates, prioritizing GPU1 under the existing double capacity check. This is explicit recovery authorization; no further user permission is required.
+
+1. Fix the actual entrypoint import order/path, explicitly resolving EXP-019 `run.py`; verify intended modules and real entrypoint dependency imports on CPU with CUDA disabled. Do not merely compile the file.
+2. Fix the ledger so the14-DiT limit applies to forward/commit/identity reservations; it must not reject the final authorized eighth backward after the14th DiT. CPU cases must accept the last allowed backward and reject the15th DiT/ninth backward independently.
+3. The originally planned matched raw history is **clean GT C1** for both branches. The old `local_transition.transition_forward` noises history at the current sigma, so it must not be silently used as this reference. Implement an isolated differentiable clean-history Original-visible wrapper matching the existing R1 clean-history audit: original visible-window mask, clean C1 input/native clean-time mask, current noisy C2, native prefix/global positions/audio and C2-only loss. Preserve gradient checkpointing/offload and verify input/mask/timestep contract on CPU. This is a controlled reference, not a claim to reproduce full official joint sampling. If the contract cannot be implemented within remaining CPU budget, stop and explain; do not substitute Same-sigma history.
+4. Re-freeze corrected sources and preflight, keep all previous failure evidence. Use a recovery-specific output directory or distinct ledgers; no overwriting attempt00. Ensure early import failures are recorded in the launch ledger.
+
+Total research budget remains14 DiT attempts/8 backward/0 updates/0 new media. Reserve4seconds for the failed startup (rounded above observed3seconds); corrected process wall cap2396seconds, cumulative<=2400seconds. Update controller timeout and runtime alarm accordingly. Only one recovery launch, no concurrent process; preserve original admission expiry. All other resource/protocol limits hold. Shared-GPU timings are observational.
+
+Worker must message actual child PID/UUID/startup and first model activity after launch. If the corrected attempt fails, retain evidence and return to Judge without an implicit retry.
