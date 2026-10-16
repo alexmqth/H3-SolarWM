@@ -1,31 +1,25 @@
-# 夜间执行总约束：09:00 HKT停止
+# 当前任务：EXP-029 同状态current-prefix动作行为对照
 
-用户最新授权继续推进主线至2026-10-17 09:00 HKT，之后停止实验并汇报/push。覆盖下文旧13:15等卡截止；后续任务由Judge按ROI独立下发。[夜间计划与截止守护](submission/research/overnight_20261017/README.md)。当前EXP-028仍按原运行预算，不能延长。
+2026-10-17 HKT，Judge。用户授权今晚继续主线，08:59:45开始停止、09:00硬截止并汇报/push。原Worker完成CPU检查后直接执行已批准GPU任务，无需再次用户确认。截止守护已运行，登记新进程。
 
-# 当前任务：EXP-028 Action–Video LoRA角色梯度诊断
+[任务书](submission/experiments/EXP-029_current_prefix_behavior/taskbook_v1.md) · [授权](submission/experiments/EXP-029_current_prefix_behavior/AUTHORIZATION.json) · [夜间约束](submission/research/overnight_20261017/README.md)。
 
-2026-10-17 HKT，Judge。用户要求继续推进。已批准原Worker立即实现、通过CPU门槛后在空闲卡上自动执行一次有限GPU诊断，不再等待用户重复确认。
+## 为什么做
 
-[任务书](submission/experiments/EXP-028_action_video_role_probe/taskbook_v1.md) · [授权](submission/experiments/EXP-028_action_video_role_probe/AUTHORIZATION.json)。此前10DiT/8backward/1800秒草案由本任务替代；冻结旧证据不修改。
+EXP-028已验收，完整8条诊断未建立V3特有的明显角色梯度冲突；不扩梯度层、不直接训练双Adapter。接下来用真实视频检验当前非动作prefix读取当前video这条合法路径的行为作用，而非继续优化cosine。
 
-## 问题与简化
+## 固定对照
 
-同两个真实ABot样本、相同当前latent/真实动作/噪声，比较Original-visible与正确V3的rank-8角色梯度。只测实际LoRA空间，消除完整权重梯度统计成本。两图比较含历史/prefix/拓扑差异，不作单边归因；负cos不是动作退化或双Adapter有效的证明。
+复用EXP-014 s0_43866101与s3_b784d995保存的自生成C1和A/D fixture；一次正确V3 clean commit后的同一KV，固定初始噪声、原始H3+released Action LoRA、native time/Global RoPE/own-action feedback。每图ON_A/ON_D/OFF_A/OFF_D，只开关current非动作prefix反馈。完整30NFE，39历史帧不改，新增17帧；不冒充新生成5秒或长视频。
 
-## 执行与预算
+## 预算
 
-- CPU实现≤60分钟、4workers/RSS32GiB；任务目录内修改，复用冻结代码、角色划分/混合精度/重算去重CPU测试。
-- GPU：单L40（允许共享，首次要求实际free≥40GiB），≤2400进程秒、14DiT尝试（2commit+8主forward+4identity参考）、8backward；0optimizer更新、0视频/下载/编码解码。GPU allocated<40GiB，RSS<96GiB。
-- 固定两片、层0/49、sigma .25/.75、同一checkpoint0的A，B为0。先验证首对输出与梯度加和，再继续剩余预算。
-- 当前8卡皆有其他任务，禁止抢占。CPU PASS后允许限时后台等卡，候选0/1/6/7、两次free≥40960MiB检查，不要求无其他进程，2026-10-17 13:15 HKT后不再启动；轮询≤每60秒一次，失败不重试换卡。到期提交资源阻塞状态。
-- 09:00后项目最多3卡，本任务只占1卡。Worker记录实际排队/运行/完成状态，并消息通知Judge；不操作Git。
+CPU实现≤45分钟/4workers/RSS32GiB。GPU1优先，可选0/6/7中的一张，共享允许但启动free≥32GiB（补充02显式CPU卸载reserve18），单次≤3600进程秒且必须在08:59:45前结束；242DiT（2commit+240sampling），8VAE decode，0backward/updates/编码/下载，GPUallocated<40GiB，RSS<96GiB。8原片+2个2×2对比及全部新增帧联系表。每个新进程登记deadline guard。
 
-## 交付和决策
+## 审核与停止
 
-CPU预检、固定输入源码SHA、实际命令、排队状态、GPU账本、各角色LoRA梯度/加和误差/QKV指标和报告。只为决定是否值得做一个行为相关的角色分离干预；不自动加训、扩层、追加视频。结果出来由Judge审核并push。
+CPU明确唯一mask改动、A/D固定布局、历史KV不变、未来裁剪、真实入口和计数。GPU异常/超限停止不重试扩展。人物/相机分开观察，光流辅助；动作更静止不算收益。Worker第一场景完成和最终完成时消息Judge；Judge逐帧审核后决定方法价值。正式V3不覆盖，SGF+/Memory/双Adapter尚非已成立方法。
 
-**显存准入补充01：** 完全空卡不是必要条件。EXP-027峰allocated24.45/reserved29.14GiB；本轮Original-visible反向峰尚未实测，首次暂要求实际free≥40GiB。符合余量可与现有进程共享，预算/截止不变。[补充](submission/experiments/EXP-028_action_video_role_probe/ADDENDUM_01_SHARED_GPU.md)。
+**准入补充01：** GPU1被其他新任务占用后free不足，允许单卡候选[1,0,6,7]择一，不增加GPU数量或预算；实际空余门槛后由补充02修订为32GiB，不抢占。
 
-**启动恢复02已批准：** GPU1已达到free≥40GiB。首次启动在import run失败，0DiT/0backward；保留attempt00。Worker修复真实入口导入和末次backward计数，Original-visible必须使用clean GT C1可微参考（禁止暗换same-sigma）；CPU通过后自动GPU1单次恢复，≤2396秒，累计≤2400秒，14/8预算不增加。[补充02](submission/experiments/EXP-028_action_video_role_probe/ADDENDUM_02_STARTUP_RECOVERY.md)。
-
-**实际启动：** 恢复CPU预检通过，2026-10-17 01:19:46 HKT在GPU1启动，Python PID1294062（controller1291827）。准入free42631MiB，保留共享进程；结果位于recovery01。当前处于运行中，尚未验收。
+**准入补充02：** 默认reserve5卸载策略曾达38.181GiB，不能直接按旧策略降低门槛。显式采用EXP-019已验证的`ABOT_VRAM_RESERVE_GIB=18`（同56帧任务reserved峰27.197GiB），准入32GiB free；四分支统一，权重/精度/NFE不变，搬运耗时计入原3600秒。Worker仅在attempt0时冻结并更换候卡控制器、完成CPU检查后继续。[补充02](submission/experiments/EXP-029_current_prefix_behavior/ADDENDUM_02_MEMORY_ADMISSION.md)。

@@ -65,12 +65,12 @@ def snapshot():
     return rows,host
 
 
-def eligible(rows,host,index):
-    return host>=100 and index in rows and rows[index]["free_mib"]>=40960
+def eligible(rows,host,index,min_free_mib):
+    return host>=100 and index in rows and rows[index]["free_mib"]>=min_free_mib
 
 
-def first_eligible(rows,host,allowed):
-    return next((index for index in allowed if eligible(rows,host,index)),None)
+def first_eligible(rows,host,allowed,min_free_mib):
+    return next((index for index in allowed if eligible(rows,host,index,min_free_mib)),None)
 
 
 def child_pid(timeout_pid):
@@ -91,26 +91,31 @@ def main():
         raise RuntimeError("authorization/gate/duplicate scheduler invalid")
     register([identity(os.getpid())])
     allowed=auth["allowed_gpu"]
-    assert allowed == [1,0,6,7] and auth["admission_revision"] == 2
-    save(status="WAITING_FOR_GPU_CAPACITY",attempt_count=0,allowed_gpu=allowed)
+    min_free_mib=auth["min_free_gpu_mib"]
+    reserve_gib=auth["memory_offload_reserve_gib"]
+    assert allowed == [1,0,6,7] and auth["admission_revision"] == 3
+    assert min_free_mib==32768 and reserve_gib==18
+    save(status="WAITING_FOR_GPU_CAPACITY",attempt_count=0,allowed_gpu=allowed,
+         min_free_gpu_mib=min_free_mib,memory_offload_reserve_gib=reserve_gib)
     while datetime.now(timezone.utc).timestamp()+3600 < SOFT.timestamp():
         first,host=snapshot()
         save(last_gpu_snapshot=first,host_mem_available_gib=host)
-        selected=first_eligible(first,host,allowed)
+        selected=first_eligible(first,host,allowed,min_free_mib)
         if selected is not None:
             time.sleep(10.2)
             second,host2=snapshot()
-            if eligible(second,host2,selected) and second[selected]["uuid"]==first[selected]["uuid"]:
+            if eligible(second,host2,selected,min_free_mib) and second[selected]["uuid"]==first[selected]["uuid"]:
                 with PROJECT_LOCK.open("a+") as lock:
                     try: fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
                     except BlockingIOError: pass
                     else:
                         third,host3=snapshot()
-                        if (eligible(third,host3,selected) and third[selected]["uuid"]==first[selected]["uuid"]
+                        if (eligible(third,host3,selected,min_free_mib) and third[selected]["uuid"]==first[selected]["uuid"]
                             and datetime.now(timezone.utc).timestamp()+3600 < SOFT.timestamp()):
                             command=["timeout","--signal=TERM","--kill-after=10s","3600s",
                                      str(ROOT/".venvs/h3world/bin/python"),"-u",str(HERE/"run_exp029.py")]
-                            env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES=str(selected),OMP_NUM_THREADS="4",
+                            env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES=str(selected),
+                                                              ABOT_VRAM_RESERVE_GIB=str(reserve_gib),OMP_NUM_THREADS="4",
                                                               OPENBLAS_NUM_THREADS="1")
                             output=(HERE/"GPU_RUN.log").open("x")
                             child=subprocess.Popen(command,cwd=ROOT,env=env,stdout=output,
@@ -125,6 +130,7 @@ def main():
                                           registered=records,created_utc=datetime.now(timezone.utc).isoformat())
                                 (HERE/"START_GATE.json").write_text(json.dumps(gate,indent=2)+"\n")
                                 save(status="RUNNING",attempt_count=1,command=command,
+                                     min_free_gpu_mib=min_free_mib,memory_offload_reserve_gib=reserve_gib,
                                      physical_gpu=selected,gpu_uuid=first[selected]["uuid"],
                                      other_compute_pids=third[selected]["other_compute_pids"],
                                      launched_utc=datetime.now(timezone.utc).isoformat(),

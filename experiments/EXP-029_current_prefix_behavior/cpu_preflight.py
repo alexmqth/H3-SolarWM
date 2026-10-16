@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import inspect
 import json
 import os
 from pathlib import Path
@@ -25,6 +26,7 @@ import run_exp029 as worker
 from common import setup_paths,sha
 setup_paths()
 import run_teacher
+import infer as abot
 from causal.h3_cached import ChunkAttention,H3ChunkCache
 from causal.local_topology import visible_inputs
 from causal.anyflow_sampling import configure_video_schedule
@@ -34,12 +36,19 @@ from diffsynth.diffusion.flow_match import FlowMatchScheduler
 torch.set_num_threads(4)
 started=time.monotonic()
 assert callable(run_teacher.load_model) and callable(worker.main)
-assert callable(admit.main) and admit.eligible({1:{"free_mib":40960}},101,1)
-assert not admit.eligible({1:{"free_mib":40959}},101,1)
-assert not admit.eligible({1:{"free_mib":40960}},99,1)
-assert admit.first_eligible({1:{"free_mib":40959},0:{"free_mib":40960}},101,[1,0,6,7])==0
-assert admit.first_eligible({1:{"free_mib":40960},0:{"free_mib":40960}},101,[1,0,6,7])==1
-assert admit.first_eligible({1:{"free_mib":40959},0:{"free_mib":40959}},101,[1,0,6,7]) is None
+auth=json.loads((HERE/"AUTHORIZATION.json").read_text())
+assert auth["admission_revision"]==3 and auth["min_free_gpu_mib"]==32768
+assert auth["memory_offload_reserve_gib"]==18
+assert callable(admit.main) and admit.eligible({1:{"free_mib":32768}},101,1,32768)
+assert not admit.eligible({1:{"free_mib":32767}},101,1,32768)
+assert not admit.eligible({1:{"free_mib":32768}},99,1,32768)
+assert admit.first_eligible({1:{"free_mib":32767},0:{"free_mib":32768}},101,[1,0,6,7],32768)==0
+assert admit.first_eligible({1:{"free_mib":32768},0:{"free_mib":32768}},101,[1,0,6,7],32768)==1
+assert admit.first_eligible({1:{"free_mib":32767},0:{"free_mib":32767}},101,[1,0,6,7],32768) is None
+loader_source=inspect.getsource(abot.load_pipeline)
+assert 'float(os.environ.get("ABOT_VRAM_RESERVE_GIB", "5"))' in loader_source
+assert 'vram_limit = torch.cuda.mem_get_info(device)[1] / (1024 ** 3) - vram_reserve_gib' in loader_source
+assert "ABOT_VRAM_RESERVE_GIB=str(reserve_gib)" in inspect.getsource(admit.main)
 verify_one_edge_change(ChunkAttention.attend)
 with current_prefix_feedback():
     assert ChunkAttention.attend.__module__=="current_prefix"
@@ -109,11 +118,12 @@ with tempfile.TemporaryDirectory(prefix="exp029_media_",dir=HERE) as temp:
     info=worker.write_mp4(np.zeros((4,32,32,3),dtype=np.uint8),path)
     assert info["frames"]==4 and info["fps"]==24 and info["width"]==32
 
-paths=[HERE/x for x in ("taskbook_v1.md","ADDENDUM_01_GPU_ADMISSION.md","AUTHORIZATION.json","input_audit_cpu.py",
+paths=[HERE/x for x in ("taskbook_v1.md","ADDENDUM_01_GPU_ADMISSION.md",
+                        "ADDENDUM_02_MEMORY_ADMISSION.md","AUTHORIZATION.json","input_audit_cpu.py",
                         "EXP029_INPUT_AUDIT.json","cpu_preflight.py","run_exp029.py","admit.py")]
 paths += [EXP14/x for x in ("run_teacher.py","common.py","config.json")]
 paths += [FROZEN/x for x in ("code/causal/h3_cached.py","code/causal/local_topology.py",
-                            "code/causal/anyflow_sampling.py",
+                            "code/causal/anyflow_sampling.py","code/abot/infer.py",
                             "DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py",
                             "DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py",
                             "DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/config.json",

@@ -1,5 +1,9 @@
 # 当前项目进展
 
+## 当前执行：EXP-029已授权
+
+在EXP-028梯度路线收口后，原Worker获准复用EXP-014自生成C1/固定A-D条件，做current非动作prefix反馈ON/OFF行为干预。单卡候选[1,0,6,7]≤3600秒、242DiT/8decode、0训练，输出8条17帧续写及对比；09:00硬截止。尚未产生结果。准入补充02采用显式CPU卸载reserve18与32GiB free门槛；已通过CPU检查及31项SHA复核，默认reserve5的38.181GiB历史峰值不能套用27GiB估计。新controller PID1768554已登记截止守护。[任务书](submission/experiments/EXP-029_current_prefix_behavior/taskbook_v1.md)。
+
 ## 最新验收：EXP-028角色梯度pilot已收口（2026-10-17夜间）
 
 14DiT/8backward、0updates/视频，8样本条件×2层检查通过，4次identity精确相同。总进程583.800秒（含首次import失败），峰allocated23.753/reserved26.770GiB，GPU1已释放。L0两图cos近零；L49 V均值Original−0.1075/V3−0.1119，未建立因果化特有的显著角色冲突，不升级、不开始双Adapter训练。精确role dots未保存，记录交付限制，不为补表重跑。[Judge审核](submission/experiments/EXP-028_action_video_role_probe/judge/FINAL_REVIEW.md)。SGF+原文已核实且明确包含双LoRA实现选项，[文献核对](submission/research/cvpr/RELATED_WORK_VERIFICATION_20261017.md)。下一优先同历史/噪声的current-prefix反馈行为干预。

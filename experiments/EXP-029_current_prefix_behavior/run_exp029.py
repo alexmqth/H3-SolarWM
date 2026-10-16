@@ -188,6 +188,8 @@ def main():
     auth=json.loads((HERE/"AUTHORIZATION.json").read_text())
     assert int(os.environ["CUDA_VISIBLE_DEVICES"]) in auth["allowed_gpu"]
     assert registration["physical_gpu"] == int(os.environ["CUDA_VISIBLE_DEVICES"])
+    assert os.environ.get("ABOT_VRAM_RESERVE_GIB") == "18"
+    assert auth["memory_offload_reserve_gib"] == 18 and auth["admission_revision"] == 3
     assert auth["task_id"]=="EXP-029" and auth["max_top_level_dit_attempts"]==242
     cpu=json.loads((HERE/"CPU_PREFLIGHT.json").read_text())
     assert cpu["status"]=="PASS_CPU"
@@ -300,7 +302,8 @@ def main():
         assert ledger.counts["dit"]==242 and ledger.counts["sampling"]==240
         assert ledger.counts["commit"]==2 and ledger.counts["decode"]==8
         ledger.status="COMPLETE_PENDING_JUDGE"
-        ledger.save(precision=precision,scenes=[r["scene"] for r in all_scenes])
+        ledger.save(precision=precision,memory_offload_reserve_gib=18,
+                    scenes=[r["scene"] for r in all_scenes])
     except BaseException as exc:
         ledger.status="FAILED_PENDING_JUDGE"
         ledger.save(error=repr(exc),traceback=traceback.format_exc())

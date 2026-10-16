@@ -1,0 +1,155 @@
+{
+  "task": "EXP-029/v1",
+  "status": "PASS_CPU",
+  "gpu_calls": 0,
+  "source_inputs_sha256": {
+    "submission/experiments/EXP-029_current_prefix_behavior/taskbook_v1.md": "8a3ab5a1d5272d11f05c38312acb740b89e4096b86b367e4f3a7b227942f19fa",
+    "submission/experiments/EXP-029_current_prefix_behavior/ADDENDUM_01_GPU_ADMISSION.md": "03565f922183241195f7d3102149a5a7ef3e61e880c6cf6f4f9b3ab680310419",
+    "submission/experiments/EXP-029_current_prefix_behavior/AUTHORIZATION.json": "8d7c3ffa772786ff91c9811f1a43ea2943b6fca78c268d12c37405a5fe565ebb",
+    "submission/experiments/EXP-029_current_prefix_behavior/input_audit_cpu.py": "03521f0da1d4748f2dbada0ad6519d77e3bd1a6b43fff1397aaa3ab127eec704",
+    "submission/experiments/EXP-029_current_prefix_behavior/EXP029_INPUT_AUDIT.json": "f3d517a3a3d1d924418462d956030abfdc399fc8331f0953de043220a6ab0028",
+    "submission/experiments/EXP-029_current_prefix_behavior/cpu_preflight.py": "7e6b8e1cf4ef637d9a3457d7e4ca012bc45d21444773497b66a8d9f3494f857d",
+    "submission/experiments/EXP-029_current_prefix_behavior/run_exp029.py": "c1a88296592a30660da5885075ee3aaaece652d9ec05a04a2a2c9ccf29123a35",
+    "submission/experiments/EXP-029_current_prefix_behavior/admit.py": "d5f94cc8e3f8283aa37b71366457babcff45f5908f16963a88247cfd857bc92c",
+    "submission/experiments/EXP-014_v3_multiscene_teacher/run_teacher.py": "d93e00d1059071774eb483b827aa36b0d0018c50f9d2e2dfd03e2cde423c7436",
+    "submission/experiments/EXP-014_v3_multiscene_teacher/common.py": "ab18c6a13955f7821b48c7db90422d838047c11112b453e8c3f85b5c727252f3",
+    "submission/experiments/EXP-014_v3_multiscene_teacher/config.json": "0e33ce856a01590f8ce8f8e9ec76a066ee809db1d3fed737f6e31e6c34ddfcd2",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_cached.py": "629f8f26d912c188d7d7122c6106ff742f5b2a633dab5881acbb1eb5f77c806e",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/local_topology.py": "ab09f33c4e847adc3d67f14c6de26cd3bd963402b79114875104816abd4a2f93",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/anyflow_sampling.py": "9e4202bb00e528115901bc07975d0ef78f3fc1cc91190aa58bfd19ade4ecfd46",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py": "68e9cb9336590fae7c53f2fac83c09aaf8d03fba1776777383a2b924eee40e38",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/config.json": "f619093a231fcfbcc3d035bec26c50ad864e7331a500d5c519f5045dc1e50458",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model.safetensors.index.json": "fb457a26ffa6294660e249b0ddd03a337f2e5393f770b5c34c8b8f90a29a7efb",
+    "submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310",
+    "submission/experiments/EXP-002_native_cached/interval_cached.py": "1d4885a837d8ae449c218f63a56deda05d21b436d162dd2abaffa742d59599d0",
+    "models/H3-World/step-10000.safetensors": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/fixtures/s0_43866101.pt": "a0b6ce46676df740bbe884535341319a2dd363f8640eb3fbbb432f75d18b8e4e",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s0_43866101/FM30/first12.pt": "15fc16ff0f2a1236c6984f75fc9c05fcc6f3aafcbfea45f50352cd52a32dfca4",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s0_43866101/FM30/published_39.npy": "c763ae096f53f2922d1cd37492f0555f50948bd2edd01cc3cbac44bb4bf17899",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s0_43866101/FM30/result.json": "1d294be90cc2d88eea6df3da3ec40db014bb4c57ad5359d8c00f168daa3b3fa1",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/fixtures/s3_b784d995.pt": "934570b5dd9d0625d1a97724f71a9f68cc730af3b4d0e2377061dcb0166d6a52",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s3_b784d995/FM30/first12.pt": "c32de635d545d2a414d1f160fee7e725ef1164a1c4d2feee8450ed541726641b",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s3_b784d995/FM30/published_39.npy": "36025f6d2c074ebf6c2018816951e7172244efdab06e699bb2f3c5f032c3ef0a",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s3_b784d995/FM30/result.json": "04dbcb69843496e947a7a707fcf5267a0f11412293bf4cb600c00311bc35fe45"
+  },
+  "sha256": {
+    "submission/experiments/EXP-029_current_prefix_behavior/taskbook_v1.md": "8a3ab5a1d5272d11f05c38312acb740b89e4096b86b367e4f3a7b227942f19fa",
+    "submission/experiments/EXP-029_current_prefix_behavior/ADDENDUM_01_GPU_ADMISSION.md": "03565f922183241195f7d3102149a5a7ef3e61e880c6cf6f4f9b3ab680310419",
+    "submission/experiments/EXP-029_current_prefix_behavior/AUTHORIZATION.json": "8d7c3ffa772786ff91c9811f1a43ea2943b6fca78c268d12c37405a5fe565ebb",
+    "submission/experiments/EXP-029_current_prefix_behavior/input_audit_cpu.py": "03521f0da1d4748f2dbada0ad6519d77e3bd1a6b43fff1397aaa3ab127eec704",
+    "submission/experiments/EXP-029_current_prefix_behavior/EXP029_INPUT_AUDIT.json": "f3d517a3a3d1d924418462d956030abfdc399fc8331f0953de043220a6ab0028",
+    "submission/experiments/EXP-029_current_prefix_behavior/cpu_preflight.py": "7e6b8e1cf4ef637d9a3457d7e4ca012bc45d21444773497b66a8d9f3494f857d",
+    "submission/experiments/EXP-029_current_prefix_behavior/run_exp029.py": "c1a88296592a30660da5885075ee3aaaece652d9ec05a04a2a2c9ccf29123a35",
+    "submission/experiments/EXP-029_current_prefix_behavior/admit.py": "d5f94cc8e3f8283aa37b71366457babcff45f5908f16963a88247cfd857bc92c",
+    "submission/experiments/EXP-014_v3_multiscene_teacher/run_teacher.py": "d93e00d1059071774eb483b827aa36b0d0018c50f9d2e2dfd03e2cde423c7436",
+    "submission/experiments/EXP-014_v3_multiscene_teacher/common.py": "ab18c6a13955f7821b48c7db90422d838047c11112b453e8c3f85b5c727252f3",
+    "submission/experiments/EXP-014_v3_multiscene_teacher/config.json": "0e33ce856a01590f8ce8f8e9ec76a066ee809db1d3fed737f6e31e6c34ddfcd2",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/h3_cached.py": "629f8f26d912c188d7d7122c6106ff742f5b2a633dab5881acbb1eb5f77c806e",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/local_topology.py": "ab09f33c4e847adc3d67f14c6de26cd3bd963402b79114875104816abd4a2f93",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/code/causal/anyflow_sampling.py": "9e4202bb00e528115901bc07975d0ef78f3fc1cc91190aa58bfd19ade4ecfd46",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/models/minimax_h3_dit.py": "68e9cb9336590fae7c53f2fac83c09aaf8d03fba1776777383a2b924eee40e38",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/diffsynth/pipelines/minimax_h3_audio_video.py": "e2291e331f284a22158878ed22a49de80a1df03b6cad5fd77e35b1f9615ac40b",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/config.json": "f619093a231fcfbcc3d035bec26c50ad864e7331a500d5c519f5045dc1e50458",
+    "H3-World/outputs/2026-10-09-22/chunk_partition_cb/runtime/DiffSynth-Studio-h3-v2/models/MiniMax/MiniMax-H3/FL2VA/transformer/model.safetensors.index.json": "fb457a26ffa6294660e249b0ddd03a337f2e5393f770b5c34c8b8f90a29a7efb",
+    "submission/reports/stage1_anyflow/02_causal_diagnostics/current_prefix_candidate/current_prefix.py": "5d0cd21e2464fffe4a50782b6d4ebb8228117d61279790ee58f8ea13bbb68310",
+    "submission/experiments/EXP-002_native_cached/interval_cached.py": "1d4885a837d8ae449c218f63a56deda05d21b436d162dd2abaffa742d59599d0",
+    "models/H3-World/step-10000.safetensors": "ddd9187b920b1e52c2d090f4e264fd83d8d433efc2a5b159e58883aeaf96e526",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/fixtures/s0_43866101.pt": "a0b6ce46676df740bbe884535341319a2dd363f8640eb3fbbb432f75d18b8e4e",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s0_43866101/FM30/first12.pt": "15fc16ff0f2a1236c6984f75fc9c05fcc6f3aafcbfea45f50352cd52a32dfca4",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s0_43866101/FM30/published_39.npy": "c763ae096f53f2922d1cd37492f0555f50948bd2edd01cc3cbac44bb4bf17899",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s0_43866101/FM30/result.json": "1d294be90cc2d88eea6df3da3ec40db014bb4c57ad5359d8c00f168daa3b3fa1",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/fixtures/s3_b784d995.pt": "934570b5dd9d0625d1a97724f71a9f68cc730af3b4d0e2377061dcb0166d6a52",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s3_b784d995/FM30/first12.pt": "c32de635d545d2a414d1f160fee7e725ef1164a1c4d2feee8450ed541726641b",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s3_b784d995/FM30/published_39.npy": "36025f6d2c074ebf6c2018816951e7172244efdab06e699bb2f3c5f032c3ef0a",
+    "H3-World/outputs/EXP-014_v3_multiscene_teacher/G1/s3_b784d995/FM30/result.json": "04dbcb69843496e947a7a707fcf5267a0f11412293bf4cb600c00311bc35fe45"
+  },
+  "input_audit": [
+    {
+      "scene": "s0_43866101",
+      "fixture_sha256": "a0b6ce46676df740bbe884535341319a2dd363f8640eb3fbbb432f75d18b8e4e",
+      "first12_sha256": "15fc16ff0f2a1236c6984f75fc9c05fcc6f3aafcbfea45f50352cd52a32dfca4",
+      "published39_sha256": "c763ae096f53f2922d1cd37492f0555f50948bd2edd01cc3cbac44bb4bf17899",
+      "generated_c1_shape": [
+        1,
+        24,
+        12,
+        30,
+        52
+      ],
+      "published39_shape": [
+        39,
+        480,
+        832,
+        3
+      ],
+      "c1_prompt_exact_same": true,
+      "c2_only_action_rows_differ": true,
+      "c2_current_noise_same": true,
+      "future_rows_physically_removed": true,
+      "action_sentences": {
+        "A": "the man strafes left, camera follows him",
+        "D": "the man strafes right, camera follows him"
+      },
+      "c2_noise_sha256": "dd64fbea503a4c8a37e524067c080b78685a0e5a8a9dc89a9c786cbf6a010856"
+    },
+    {
+      "scene": "s3_b784d995",
+      "fixture_sha256": "934570b5dd9d0625d1a97724f71a9f68cc730af3b4d0e2377061dcb0166d6a52",
+      "first12_sha256": "c32de635d545d2a414d1f160fee7e725ef1164a1c4d2feee8450ed541726641b",
+      "published39_sha256": "36025f6d2c074ebf6c2018816951e7172244efdab06e699bb2f3c5f032c3ef0a",
+      "generated_c1_shape": [
+        1,
+        24,
+        12,
+        30,
+        52
+      ],
+      "published39_shape": [
+        39,
+        480,
+        832,
+        3
+      ],
+      "c1_prompt_exact_same": true,
+      "c2_only_action_rows_differ": true,
+      "c2_current_noise_same": true,
+      "future_rows_physically_removed": true,
+      "action_sentences": {
+        "A": "the man strafes left, camera follows him",
+        "D": "the man strafes right, camera follows him"
+      },
+      "c2_noise_sha256": "dd64fbea503a4c8a37e524067c080b78685a0e5a8a9dc89a9c786cbf6a010856"
+    }
+  ],
+  "masks": [
+    {
+      "scene": "s0_43866101",
+      "prefix_rows": 1522,
+      "history_kv_rows": 4680,
+      "current_video_rows": 1950,
+      "only_non_action_prefix_current_video_xor": true,
+      "other_mask_edges_identical": true,
+      "future_rows_absent": true,
+      "no_cache_writer": true
+    },
+    {
+      "scene": "s3_b784d995",
+      "prefix_rows": 1541,
+      "history_kv_rows": 4680,
+      "current_video_rows": 1950,
+      "only_non_action_prefix_current_video_xor": true,
+      "other_mask_edges_identical": true,
+      "future_rows_absent": true,
+      "no_cache_writer": true
+    }
+  ],
+  "schedule_points": 31,
+  "schedule_updates": 30,
+  "native_sigma_sha256": "74f9900304e295d36c82cf96f6019990c392116478e703b9b0b6be17f92051e8",
+  "budget_boundary_pass": true,
+  "media_h264_24fps_pass": true,
+  "elapsed_seconds": 0.7641916980501264,
+  "max_rss_gib": 0.8914108276367188,
+  "cuda_initialized": false
+}

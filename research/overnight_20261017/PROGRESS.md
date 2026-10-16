@@ -1,16 +1,16 @@
 # 夜间进度（持续更新，非09:00最终报告）
 
-截至2026-10-17 01:48 HKT。
+截至2026-10-17 01:56 HKT。
 
 ## 已完成
 
 - EXP-028完成并经Judge独立审核：14DiT/8backward、0updates/视频，8条固定状态诊断、16层检查，4次零增量identity精确一致。总进程583.800秒，GPU23.753/26.770GiB allocated/reserved。有限样本未支持V3特有的明显Action–Video优化冲突，不追加双Adapter训练。
 - 核实SGF+原文：104.2/106.3度引用属实，作者明确已有双LoRA实现选项。H3-World、GameWAM、NoiseGate、AVControl、ModAR相关原文摘要已核实；CAER仍未找到可确认的主文献。
-- EXP-029已完成CPU实现和29项来源/输入SHA独立复核：复用既有强/弱场景generated C1及匹配A/D条件，只改变current非动作prefix反馈，准备8条30NFE续写。
+- EXP-029已完成CPU实现和初版29项来源/输入SHA独立复核：复用既有强/弱场景generated C1及匹配A/D条件，只改变current非动作prefix反馈，准备8条30NFE续写。
 
 ## 正在等待
 
-EXP-029 controller PID1571260已实际运行并登记deadline guard。当前候选GPU均无足够余量，尚未开始模型调用；允许[1,0,6,7]择一但只占1卡。不是实验生成失败。现有他人任务不终止、不改动。
+EXP-029补充02已显式改用CPU卸载reserve18与32GiB free门槛，31项来源/输入SHA重新独立核对通过。原controller1571260在attempt0时冻结并退出，新controller PID1768554已实际运行并登记deadline guard。当前候选GPU均无足够余量，尚未开始模型调用；允许[1,0,6,7]择一但只占1卡。不是实验生成失败。现有他人任务不终止、不改动。
 
 ## 研究安排
 
