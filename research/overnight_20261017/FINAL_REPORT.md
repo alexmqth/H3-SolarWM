@@ -21,3 +21,7 @@ Judge已查看七张包含边界与全部17新增帧的联系表。山地场景�
 ## 下一步与白天授权
 
 用户11:47明确要求尝试GPU1/6，Judge另行授权[EXP-029有限恢复](../../experiments/EXP-029_current_prefix_behavior/ADDENDUM_03_FINITE_RECOVERY.md)：只补s3 OFF_D，单卡≤1200秒、31DiT/1decode，七条完整结果不重跑。该恢复属于新授权，不属于已经截止的夜间任务。完成后审核全部八条、汇总真实成本并发布视频导航；不启动双Adapter/AnyFlow/DMD。
+
+## 白天恢复最终补记
+
+GPU1恢复于11:51:01–11:56:23 HKT成功完成并退出：31DiT/1decode、321.700秒，峰allocated16.679/reserved19.174GiB。八支结果已齐，Judge已验收有限证据；当前无新GPU授权。该成本不混入上述夜间小计。见[最终审核](../../experiments/EXP-029_current_prefix_behavior/judge/FINAL_REVIEW.md)与[完整视频](../../report/v3/fm2anyflow/current_prefix_behavior/README.md)。

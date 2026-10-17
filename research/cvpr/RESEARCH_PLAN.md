@@ -67,7 +67,7 @@
 
 EXP-028已完成：测得rank-8 LoRA-B子空间中层0/49的角色梯度；未建立明显的V3特有冲突，停止扩大调查，不授权双Adapter训练。不能据此排除所有层或充分训练后的冲突。
 
-当前EXP-029已通过CPU检查、正在等待资源：原Worker执行两个既有generated-history场景，固定KV/噪声/权重，对比prefix反馈ON/OFF × A/D，共8条17帧续写、30NFE；单卡≤3600秒。08:59:45停止、09:00硬截止。完整任务书见[EXP-029](../../experiments/EXP-029_current_prefix_behavior/taskbook_v1.md)，GPU候选修订见同目录ADDENDUM_01。后续行动依据下表，均须独立任务预算，不自动扩展。
+EXP-029现已完成并收口（原始七条+用户白天授权的一条恢复）：原Worker执行两个既有generated-history场景，固定KV/噪声/权重，对比prefix反馈ON/OFF × A/D，共8条17帧续写、30NFE；单卡≤3600秒。08:59:45停止、09:00硬截止。最终审核见[Judge结论](../../experiments/EXP-029_current_prefix_behavior/judge/FINAL_REVIEW.md)：s0两种设置都有A/D分叉，s3两种设置均弱；不扩大当前prefix消融。下述预算为历史授权，当前无新GPU任务。完整任务书见[EXP-029](../../experiments/EXP-029_current_prefix_behavior/taskbook_v1.md)，GPU候选修订见同目录ADDENDUM_01。后续行动依据下表，均须独立任务预算，不自动扩展。
 
 | EXP-029观察 | 可以支持的判断 | 下一步ROI决策 |
 |---|---|---|

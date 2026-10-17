@@ -1,0 +1,38 @@
+{
+  "task": "EXP-029/v1+recovery01",
+  "verdict": "ACCEPT_BOUNDED_EXECUTION_AND_BEHAVIOR_EVIDENCE",
+  "new_model_capability_upgrade": false,
+  "training_updates": 0,
+  "completed_branches": 8,
+  "new_frames_per_branch": 17,
+  "preserved_history_frames_per_branch": 39,
+  "total_dit_attempts": 266,
+  "total_commit": 3,
+  "total_sampling": 263,
+  "total_decode": 8,
+  "original_process_seconds": 3597.815735,
+  "recovery_process_seconds": 321.699993,
+  "total_process_seconds": 3919.5157280000003,
+  "recovery_exit_verified": [
+    {
+      "pid": 157739,
+      "start_ticks": 60664560,
+      "pgid": 157739,
+      "same_identity_live": false
+    },
+    {
+      "pid": 158176,
+      "start_ticks": 60665620,
+      "pgid": 158176,
+      "same_identity_live": false
+    },
+    {
+      "pid": 158177,
+      "start_ticks": 60665621,
+      "pgid": 158176,
+      "same_identity_live": false
+    }
+  ],
+  "next_gpu_authorized": false,
+  "conclusion": "Prefix edge changes outputs, but sampled behavior does not establish it as the principal action-control bottleneck; close this ablation."
+}

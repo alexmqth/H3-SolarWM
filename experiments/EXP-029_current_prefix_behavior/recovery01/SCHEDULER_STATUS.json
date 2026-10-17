@@ -1,0 +1,72 @@
+{
+  "task": "EXP-029/recovery01",
+  "controller_pid": 157739,
+  "updated_utc": "2026-10-17T03:56:23.034484+00:00",
+  "status": "FINISHED_PENDING_JUDGE",
+  "attempt_count": 1,
+  "allowed_gpu": [
+    1,
+    6
+  ],
+  "min_free_gpu_mib": 32768,
+  "reserve_gib": 18,
+  "last_gpu_snapshot": {
+    "0": {
+      "uuid": "GPU-d77c5635-02ec-c2d2-d744-1dfcc4a14e8f",
+      "free_mib": 30276,
+      "used_mib": 15182
+    },
+    "1": {
+      "uuid": "GPU-c4c2b3db-791b-ecdc-978f-d56295593124",
+      "free_mib": 37296,
+      "used_mib": 8163
+    },
+    "2": {
+      "uuid": "GPU-ed7a148c-1a92-bc19-e69f-14a556c3fc32",
+      "free_mib": 7956,
+      "used_mib": 37502
+    },
+    "3": {
+      "uuid": "GPU-7e381804-eff9-a1a6-bae4-6763348ef2d6",
+      "free_mib": 7572,
+      "used_mib": 37886
+    },
+    "4": {
+      "uuid": "GPU-9c9f5489-60bf-8008-64e1-fb0de162290f",
+      "free_mib": 12827,
+      "used_mib": 32631
+    },
+    "5": {
+      "uuid": "GPU-a2f7e751-5add-d6dd-37bd-2c91e1640edd",
+      "free_mib": 13585,
+      "used_mib": 31873
+    },
+    "6": {
+      "uuid": "GPU-8db4febd-4f4e-b87b-96a7-541357b2234b",
+      "free_mib": 37340,
+      "used_mib": 8119
+    },
+    "7": {
+      "uuid": "GPU-e07666a0-5b88-df44-0a89-cbc9bff6f1dc",
+      "free_mib": 33016,
+      "used_mib": 12442
+    }
+  },
+  "physical_gpu": 1,
+  "gpu_uuid": "GPU-c4c2b3db-791b-ecdc-978f-d56295593124",
+  "timeout_pid": 158176,
+  "python_pid": 158177,
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=10s",
+    "1200s",
+    "/home/qma/work/GWM/.venvs/h3world/bin/python",
+    "-u",
+    "/home/qma/work/GWM/submission/experiments/EXP-029_current_prefix_behavior/recovery01/run_recovery.py"
+  ],
+  "initial_gpu_free_mib": 37296,
+  "launched_utc": "2026-10-17T03:51:01.334165+00:00",
+  "returncode": 0,
+  "finished_utc": "2026-10-17T03:56:23.034158+00:00"
+}

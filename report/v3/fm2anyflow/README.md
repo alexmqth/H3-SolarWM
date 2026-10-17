@@ -23,6 +23,10 @@
 
 后续 DMD 训练归入 [V4：SGF / DMD](../../v4/README.md)。[缩写表](../../GLOSSARY.md) · [返回 V3](../README.md)
 
+## Current-prefix 行为对照
+
+[EXP-029：ON/OFF × A/D，同历史的第二块视频](current_prefix_behavior/README.md)：两场景各四支、30 NFE/块、39帧已保存历史+17帧新增续写；s0 有明显输出差异，s3 A/D 分叉仍弱。Judge 已验收有限证据，不升级模型。
+
 ## 角色梯度诊断
 
 [EXP-028：Action–Video LoRA角色梯度](role_gradient_probe/README.md)：固定状态诊断，0训练/0视频；未建立V3特有的明显梯度冲突，不启动双Adapter训练。
