@@ -1,0 +1,120 @@
+{
+  "task": "EXP-029/v1",
+  "controller_pid": 1768554,
+  "updated_utc": "2026-10-16T20:10:14.361424+00:00",
+  "status": "FAILED_PENDING_JUDGE",
+  "attempt_count": 1,
+  "allowed_gpu": [
+    1,
+    0,
+    6,
+    7
+  ],
+  "min_free_gpu_mib": 32768,
+  "memory_offload_reserve_gib": 18,
+  "last_gpu_snapshot": {
+    "0": {
+      "uuid": "GPU-d77c5635-02ec-c2d2-d744-1dfcc4a14e8f",
+      "free_mib": 39459,
+      "used_mib": 5999,
+      "other_compute_pids": [
+        "2569052"
+      ]
+    },
+    "1": {
+      "uuid": "GPU-c4c2b3db-791b-ecdc-978f-d56295593124",
+      "free_mib": 20827,
+      "used_mib": 24632,
+      "other_compute_pids": [
+        "1452757",
+        "1681982",
+        "2397001"
+      ]
+    },
+    "2": {
+      "uuid": "GPU-ed7a148c-1a92-bc19-e69f-14a556c3fc32",
+      "free_mib": 10018,
+      "used_mib": 35440,
+      "other_compute_pids": [
+        "2010077",
+        "2677080"
+      ]
+    },
+    "3": {
+      "uuid": "GPU-7e381804-eff9-a1a6-bae4-6763348ef2d6",
+      "free_mib": 15729,
+      "used_mib": 29729,
+      "other_compute_pids": [
+        "2010082"
+      ]
+    },
+    "4": {
+      "uuid": "GPU-9c9f5489-60bf-8008-64e1-fb0de162290f",
+      "free_mib": 12827,
+      "used_mib": 32631,
+      "other_compute_pids": [
+        "2014173"
+      ]
+    },
+    "5": {
+      "uuid": "GPU-a2f7e751-5add-d6dd-37bd-2c91e1640edd",
+      "free_mib": 13585,
+      "used_mib": 31873,
+      "other_compute_pids": [
+        "2014174"
+      ]
+    },
+    "6": {
+      "uuid": "GPU-8db4febd-4f4e-b87b-96a7-541357b2234b",
+      "free_mib": 34777,
+      "used_mib": 10681,
+      "other_compute_pids": [
+        "2823605"
+      ]
+    },
+    "7": {
+      "uuid": "GPU-e07666a0-5b88-df44-0a89-cbc9bff6f1dc",
+      "free_mib": 14705,
+      "used_mib": 30754,
+      "other_compute_pids": [
+        "3861255",
+        "834040",
+        "2635917"
+      ]
+    }
+  },
+  "host_mem_available_gib": 692.0265998840332,
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=10s",
+    "3600s",
+    "/home/qma/work/GWM/.venvs/h3world/bin/python",
+    "-u",
+    "/home/qma/work/GWM/submission/experiments/EXP-029_current_prefix_behavior/run_exp029.py"
+  ],
+  "physical_gpu": 0,
+  "gpu_uuid": "GPU-d77c5635-02ec-c2d2-d744-1dfcc4a14e8f",
+  "other_compute_pids": [
+    "2569052"
+  ],
+  "launched_utc": "2026-10-16T19:10:16.545347+00:00",
+  "timeout_pid": 2828477,
+  "python_pid": 2828481,
+  "process_registry": [
+    {
+      "task": "EXP-029/v1",
+      "pid": 2828477,
+      "start_ticks": 57541141,
+      "pgid": 2828477
+    },
+    {
+      "task": "EXP-029/v1",
+      "pid": 2828481,
+      "start_ticks": 57541142,
+      "pgid": 2828477
+    }
+  ],
+  "returncode": 1,
+  "finished_utc": "2026-10-16T20:10:14.361082+00:00"
+}

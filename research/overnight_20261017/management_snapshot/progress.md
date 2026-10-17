@@ -1,3 +1,9 @@
+# 最新状态：EXP-029夜间7/8完成，白天仅恢复缺失分支
+
+2026-10-17 11:50 HKT补审计：原GPU0任务03:10–04:10达到一小时预算，235DiT/7decode，0训练，峰allocated25.441/reserved26.531GiB。七条视频已保存，s3 OFF_D无端点/视频。原登记进程均已退出；09:00守护执行，但Judge最终报告/推送延迟至白天。用户现要求GPU1/6尝试，已授权单卡≤1200秒/31DiT/1decode仅补缺失分支，其他输出不重跑。[夜间报告](submission/research/overnight_20261017/FINAL_REPORT.md) · [当前任务](next_plan.md)。
+
+以下是历史阶段记录，以本段及当前next_plan为准。
+
 # 当前项目进展
 
 ## 当前执行：EXP-029已授权

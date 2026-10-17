@@ -1,3 +1,11 @@
+# 当前执行补充：EXP-029/v2 有限恢复（2026-10-17 11:49 HKT）
+
+用户现在要求GPU1/6尝试，授权原Worker只补夜间超时缺失的s3 OFF_D。单GPU1优先/6后备，≤1200秒、31DiT/1decode、0训练；32GiB free与reserve18不变，最晚12:35启动、13:00硬停止。其余七条不重跑。CPU通过后直接运行并消息Judge。[恢复任务书](submission/experiments/EXP-029_current_prefix_behavior/ADDENDUM_03_FINITE_RECOVERY.md)。
+
+夜间原任务已在04:10触及一小时预算停止（235DiT/7decode），不是仍在候卡。9:00守护已执行，所有登记旧进程已核查退出。以下为冻结原任务背景；其过期准入不适用于恢复任务。
+
+---
+
 # 当前任务：EXP-029 同状态current-prefix动作行为对照
 
 2026-10-17 HKT，Judge。用户授权今晚继续主线，08:59:45开始停止、09:00硬截止并汇报/push。原Worker完成CPU检查后直接执行已批准GPU任务，无需再次用户确认。截止守护已运行，登记新进程。
